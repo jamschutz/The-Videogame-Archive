@@ -3,7 +3,9 @@ import requests
 
 # constants
 BASE_URL = 'https://www.gamespot.com'
+ARTICLE_DIV_CLASS = 'card-item__content'
 ARTICLE_TITLE_CLASS = 'card-item__link'
+START_PAGE_NEWS = 4425
 
 
 def get_website_soup(url):
@@ -12,19 +14,31 @@ def get_website_soup(url):
     return soup
 
 
-def get_links_from_news_page(page_number):
+def get_links_from_news_page(page_number, proxy):
     # download webpage
-    source = requests.get('https://www.gamespot.com/news/?page=4425').text
+    url = f'{BASE_URL}/news/?page={str(page_number)}'
+    source = requests.get(url, proxies = {'http': proxy, 'https': proxy}).text
     soup = BeautifulSoup(source, 'lxml')
 
-    articles = soup.find_all('a', class_='card-item__link')
+    articles = soup.find_all('div', class_=ARTICLE_DIV_CLASS)
 
-    print(len(articles))
+    article_data = []
 
     for article in articles:
-        print(article['href'])
+        article_title = article.a.h4.text
+        article_url   = article.a['href']
+        article_date  = article.find('time')['datetime']
+
+        article_data.append({
+            'title': article_title,
+            'url': article_url,
+            'date': article_date
+        })
+
+    return article_data
 
 
+# use a proxy by: requests.get('url', proxies = {'http': proxy, 'https': proxy})
 def get_free_proxies():
     soup = get_website_soup('https://free-proxy-list.net/')
     
@@ -46,4 +60,7 @@ def get_free_proxies():
     return proxies
 
 
-print(get_free_proxies())
+proxies = get_free_proxies()
+
+articles = get_links_from_news_page(START_PAGE_NEWS, proxies[0])
+print(articles)
