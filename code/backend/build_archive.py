@@ -4,6 +4,7 @@ from datetime import datetime
 
 # DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 # DATETIME_FORMAT = '%m/%d/%Y'
+BASE_URL = 'https://www.gamespot.com'
 
 
 # load sitemap
@@ -35,9 +36,9 @@ for article in sitemap:
 
     full_archive[year][month][day].append(article)
 
-# for each article, convert datetime back to string (so it saves okay)
-# for article in sitemap:
-#     article['date'] = article['date'].strftime('%m/%d/%Y')
+# for each article, add full url
+for article in sitemap:
+    article['url'] = f"{BASE_URL}{article['url']}"
 
 # write to file
 with open("../../archive/_fullArchive/archive.json", "w") as json_file:
