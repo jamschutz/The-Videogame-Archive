@@ -60,7 +60,37 @@ def get_free_proxies():
     return proxies
 
 
-proxies = get_free_proxies()
+def get_webpage(url, proxy):
+    # url = f'{BASE_URL}/news/?page={str(page_number)}'
+    # source = requests.get(url, proxies = {'http': proxy, 'https': proxy}).text
+    source = requests.get(url, proxies = {'http': proxy, 'https': proxy}).text
+    return source
 
-articles = get_links_from_news_page(START_PAGE_NEWS, proxies[0])
-print(articles)
+
+print('getting proxies...')
+proxies = get_free_proxies()
+print('got proxies, getting webpage...')
+webpage = get_webpage('https://www.gamespot.com/articles/miyamoto-talks-dolphin-at-space-world-99/1100-2323742/', proxies[10])
+# links = get_links_from_news_page(START_PAGE_NEWS, proxies[0])
+print('got webpage')
+print(webpage)
+with open('output.html', 'w') as text_file:
+    text_file.write(webpage)
+
+# for proxy in proxies:
+#     try:
+#         webpage = get_webpage('https://www.gamespot.com/articles/miyamoto-talks-dolphin-at-space-world-99/1100-2323742/', proxy)
+
+#         # if we got here, it was a success!
+#         print('success!')
+
+#         # save to file
+#         with open("output.html", "w") as text_file:
+#             text_file.write(webpage)
+
+#         # stop searching with proxies
+#         break
+
+#     except:
+#         """ just keep trying proxies """
+#         print('trying next proxy...')
