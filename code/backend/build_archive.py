@@ -39,6 +39,7 @@ for article in sitemap:
 # for each article, add full url
 for article in sitemap:
     article['url'] = f"{BASE_URL}{article['url']}"
+    article['website'] = 'GameSpot'
 
 # write to file
 with open("../../archive/_fullArchive/archive.json", "w") as json_file:

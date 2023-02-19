@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+from selenium import webdriver
 
 # constants
 BASE_URL = 'https://www.gamespot.com'
@@ -44,12 +45,25 @@ def get_links_from_news_page(page_number, proxy):
 # use a proxy by: requests.get('url', proxies = {'http': proxy, 'https': proxy})
 def get_free_proxies():
     soup = get_website_soup('https://free-proxy-list.net/')
+    # soup = get_website_soup('https://scrapingant.com/free-proxies/')
+
+    # options = webdriver.FirefoxOptions()
+    # options.add_argument('--headless')
+    # # executable_path param is not needed if you updated PATH
+    # browser = webdriver.Firefox(options=options)
+    # browser.get("https://scrapingant.com/free-proxies/")
+    # html = browser.page_source
+    # soup = BeautifulSoup(html, features="html.parser")
+    # print(soup)
+    # browser.quit()
     
     # create empty list for proxies
     proxies = []
 
     # find the proxy table, and store the rows
     proxy_table = soup.find('table').tbody.find_all('tr')
+    # print(proxy_table)
+    # return proxies
     for row in proxy_table:
         try:
             cols = row.find_all('td')

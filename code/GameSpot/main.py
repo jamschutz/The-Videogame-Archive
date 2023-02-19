@@ -36,6 +36,7 @@ def save_sitemap():
             # get next proxy
             print(f'----------port {proxies[current_proxy]} is bad. trying next one----------')
             current_proxy += 1
+            time.sleep(1)
     
     # sort by date
     sitemap = sorted(sitemap, key=lambda d: d['date']) 
@@ -84,4 +85,5 @@ def save_wegpage(url, date, title):
 
 
 save_sitemap()
+# proxies = ws.get_free_proxies()
 print('done')
