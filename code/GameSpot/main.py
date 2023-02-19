@@ -37,6 +37,13 @@ def save_sitemap():
             print(f'----------port {proxies[current_proxy]} is bad. trying next one----------')
             current_proxy += 1
     
+    # sort by date
+    sitemap = sorted(sitemap, key=lambda d: d['date']) 
+
+    # for each article, convert datetime back to string (so it saves okay)
+    for article in sitemap:
+        article['date'] = article['date'].strftime('%m/%d/%Y')
+
     # save sitemap
     with open("../../archive/_sitemaps/GameSpot.json", "w") as json_file:
         json.dump(sitemap, json_file)
