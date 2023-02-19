@@ -5,7 +5,7 @@ from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
 START_PAGE_NEWS = 4425
-END_PAGE_NEWS   = 4424
+END_PAGE_NEWS   = 4400
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 
 TEST_URL = 'https://www.gamespot.com/articles/miyamoto-talks-dolphin-at-space-world-99/1100-2323742/'
@@ -19,7 +19,7 @@ def get_article_links(page_number, proxies):
 
         except Exception as e:
             """ just keep trying proxies """
-            print(f'----------trying next proxy...----------')
+            print(f'----------port {proxies[0]} is bad. trying next one----------')
             proxies.pop()
 
             if(len(proxies) == 0):
