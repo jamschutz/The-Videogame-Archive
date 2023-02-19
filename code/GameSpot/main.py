@@ -5,28 +5,11 @@ from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
 START_PAGE_NEWS = 4425
-END_PAGE_NEWS   = 4400
+END_PAGE_NEWS   = 4425
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
+EXTEND_EXISTING = True
 
 TEST_URL = 'https://www.gamespot.com/articles/miyamoto-talks-dolphin-at-space-world-99/1100-2323742/'
-
-
-def get_article_links(page_number, proxies):
-    while len(proxies) > 0:
-        try:
-            article_links = ws.get_links_from_news_page(page_number, proxies[0])
-            return article_links
-
-        except Exception as e:
-            """ just keep trying proxies """
-            print(f'----------port {proxies[0]} is bad. trying next one----------')
-            proxies.pop()
-
-            if(len(proxies) == 0):
-                print('------------------OUT OF PROXIES!!!----------------')
-                return
-
-            time.sleep(1)
 
 
 def save_sitemap():
@@ -34,12 +17,27 @@ def save_sitemap():
     sitemap = []
 
     page = START_PAGE_NEWS
-    while len(proxies) > 0 and page >= END_PAGE_NEWS:
-        print(f'fetching page {str(page)}. proxies remaining: {str(len(proxies))}')
-        sitemap.extend(get_article_links(page, proxies))
-        page -= 1
-        time.sleep(1)
+    current_proxy = 0
+
+    # build sitemap 1 by 1, rotating proxies as needed
+    while current_proxy < len(proxies) and page >= END_PAGE_NEWS:
+        try:
+            # get articles at page number
+            print(f'fetching page {str(page)}. proxies remaining: {str(len(proxies) - current_proxy)}')
+            article_links = ws.get_links_from_news_page(page, proxies[current_proxy])
+
+            # if we got here, proxy worked!
+            sitemap.extend(article_links)
+            page -= 1
+
+            # don't spam
+            time.sleep(1)
+        except Exception as e:
+            # get next proxy
+            print(f'----------port {proxies[current_proxy]} is bad. trying next one----------')
+            current_proxy += 1
     
+    # save sitemap
     with open("../../archive/_sitemaps/GameSpot.json", "w") as json_file:
         json.dump(sitemap, json_file)
 

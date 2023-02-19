@@ -5,6 +5,7 @@ import requests
 BASE_URL = 'https://www.gamespot.com'
 ARTICLE_DIV_CLASS = 'card-item__content'
 ARTICLE_TITLE_CLASS = 'card-item__link'
+DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 
 
 def get_website_soup(url):
@@ -27,6 +28,9 @@ def get_links_from_news_page(page_number, proxy):
         article_title = article.a.h4.text
         article_url   = article.a['href']
         article_date  = article.find('time')['datetime']
+
+        # convert to datetime
+        article_date = datetime.strptime(article_date, DATETIME_FORMAT)
 
         article_data.append({
             'title': article_title,
