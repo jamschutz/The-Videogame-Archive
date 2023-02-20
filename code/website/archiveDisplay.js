@@ -1,4 +1,4 @@
-const ARCHIVE_FILE_PATH = '../../archive/_fullArchive/archive.json'
+// const ARCHIVE_FILE_PATH = '../../archive/_fullArchive/archive.json'
 const ARTICLES_DIV_ID = 'articles'
 const DATE_DISPLAY_ID = 'date-display'
 
@@ -11,24 +11,24 @@ var month = url.searchParams.get("month");
 var year = url.searchParams.get("year");
 
 
-function getArticlesOnDay(archive) {
-    let empty = []
+// function getArticlesOnDay(archive) {
+//     let empty = []
     
-    if(archive.hasOwnProperty(year)){
-        if(archive[year].hasOwnProperty(month)){
-            if(archive[year][month].hasOwnProperty(day)){
-                return archive[year][month][day]
-            }
-        }
-    }
+//     if(archive.hasOwnProperty(year)){
+//         if(archive[year].hasOwnProperty(month)){
+//             if(archive[year][month].hasOwnProperty(day)){
+//                 return archive[year][month][day]
+//             }
+//         }
+//     }
 
-    return empty;
-}
+//     return empty;
+// }
 
 
 
-function showArticlesOnDay(archive) {
-    let articles = getArticlesOnDay(archive);
+function showArticlesOnDay() {
+    let articles = getArticlesOnDay(year, month, day);
     console.log(articles);
 
     // add articles to article div
@@ -53,14 +53,14 @@ function showArticlesOnDay(archive) {
 }
 
 
-function getArchiveData() {
-    fetch(ARCHIVE_FILE_PATH)
-        .then(response => response.json())
-        .then((json) => {
-            console.log(json)
-            showArticlesOnDay(json);
-        });
-}
+// function getArchiveData() {
+//     fetch(ARCHIVE_FILE_PATH)
+//         .then(response => response.json())
+//         .then((json) => {
+//             console.log(json)
+//             showArticlesOnDay(json);
+//         });
+// }
 
 
 function showCurrentDay() {
@@ -156,9 +156,22 @@ function goToNextMonth() {
     incrementCalendarMonth();
 }
 
+
+function showArticlesOnArchiveLoad() {
+    if(archiveLoaded) {
+        console.log('archive ready');
+        showArticlesOnDay();
+    }
+    else {
+        console.log('waiting for archive...');
+        setTimeout(showArticlesOnArchiveLoad, 0.1);
+    }
+}
+
 window.onload = function() {
+    showArticlesOnArchiveLoad();
     showCurrentDay();
     updateCalendar(month, day, year);
 }
 
-getArchiveData();
+// getArchiveData();
