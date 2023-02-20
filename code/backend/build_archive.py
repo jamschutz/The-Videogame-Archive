@@ -9,7 +9,7 @@ BASE_URL = 'https://www.gamespot.com'
 
 # load sitemap
 sitemap = []
-with open('../../archive/_sitemaps/GameSpot_SORTED.json') as f:
+with open('../../archive/_sitemaps/GameSpot_news_08281999-05172006.json') as f:
     sitemap = json.load(f)
     
 
@@ -40,6 +40,7 @@ for article in sitemap:
 for article in sitemap:
     article['url'] = f"{BASE_URL}{article['url']}"
     article['website'] = 'GameSpot'
+    article['type'] = 'news'
 
 # write to file
 with open("../../archive/_fullArchive/archive.json", "w") as json_file:

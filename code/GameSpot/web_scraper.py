@@ -16,9 +16,9 @@ def get_website_soup(url):
     return soup
 
 
-def get_links_from_news_page(page_number, proxy):
+def get_links_from_news_page(page_number, proxy, target_page='news/'):
     # download webpage
-    url = f'{BASE_URL}/news/?page={str(page_number)}'
+    url = f'{BASE_URL}/{target_page}?page={str(page_number)}'
     source = requests.get(url, proxies = {'http': proxy, 'https': proxy}).text
     soup = BeautifulSoup(source, 'lxml')
 
