@@ -45,55 +45,35 @@ for year, articles in full_archive.items():
     # not a real year...
     if year == 'urls_recorded':
         continue
-
+        
     print(f'got {len(articles)} records for {year}')
 
+    """
+    format things so the layout looks like:
+        {
+            "01": {
+                "10": [
+                    {
+                        "title": "some article, etc" ...
+                    }
+                ]
+            }
+        }
+    """
     formatted_records = {}
     for article in articles:
         month = article['date'].split('/')[0]
         day   = article['date'].split('/')[1]
 
+        # make sure that the keys are in the dictionary
         if month not in formatted_records:
             formatted_records[month] = {}
         if day not in formatted_records[month]:
             formatted_records[month][day] = []
 
+        # add article to records
         formatted_records[month][day].append(article)
 
+    # save formatted records to YEAR.json
     with open(f'{ARCHIVE_FOLDER_PATH}{year}.json', "w") as f:
         json.dump(formatted_records, f)
-
-
-    
-
-# load current archive
-# current_archive = {}
-# with open("../data/_archive/archive.json", "r") as f:
-#     current_archive = json.loads(f)
-
-# print(current_archive)
-
-# full_archive = {}
-# for article in sitemap:
-#     year  = article['date'].split('/')[2]
-#     month = article['date'].split('/')[0]
-#     day   = article['date'].split('/')[1]
-
-#     if year not in full_archive:
-#         full_archive[year] = {}
-#     if month not in full_archive[year]:
-#         full_archive[year][month] = {}
-#     if day not in full_archive[year][month]:
-#         full_archive[year][month][day] = []
-
-#     full_archive[year][month][day].append(article)
-
-# for each article, add full url
-# for article in sitemap:
-#     article['url'] = f"{BASE_URL}{article['url']}"
-#     article['website'] = 'GameSpot'
-#     article['type'] = 'news'
-
-# # write to file
-# with open("../data/_fullArchive/archive.json", "w") as json_file:
-#     json.dump(full_archive, json_file)
