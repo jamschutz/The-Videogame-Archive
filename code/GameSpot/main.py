@@ -5,7 +5,7 @@ from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
 START_PAGE_NEWS = 4425
-END_PAGE_NEWS   = 4425
+END_PAGE_NEWS   = 3425
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 EXTEND_EXISTING = True
 
