@@ -135,12 +135,6 @@ function goToPreviousDay() {
 }
 
 
-function goToDay(d) {
-    console.log('going to day: ' + d);
-    window.location.href = '/html/archive.html?year=' + year + '&month=' + month + '&day=' + d;
-}
-
-
 function goToDate(date) {
     console.log('going to date: ' + date);
     date = date.split('/')
@@ -154,65 +148,12 @@ function goToDate(date) {
 
 
 function goToPreviousMonth() {
-    // let dayNumber = parseInt(day);
-    // let monthNumber = parseInt(month);
-    // let yearNumber = parseInt(year);
-
-    // // always safe
-    // if(monthNumber > 1) {
-    //     monthNumber--;
-    // }
-    // // roll back the year
-    // else {
-    //     yearNumber--;
-    //     monthNumber = 12;
-    // }
-
-    // // fix day if needed
-    // if(dayNumber > getMaxDayForMonth(monthNumber)) {
-    //     dayNumber = getMaxDayForMonth(monthNumber);
-    // }
-
-    // let d = intToString(dayNumber);
-    // let m = intToString(monthNumber);
-    // let y = intToString(yearNumber);
-
-    // updateCalendar(m, d, y);
-
     decrementCalendarMonth();
-
-    // window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
 }
 
 
 function goToNextMonth() {
-    // let dayNumber = parseInt(day);
-    // let monthNumber = parseInt(month);
-    // let yearNumber = parseInt(year);
-
-    // // always safe
-    // if(monthNumber < 12) {
-    //     monthNumber++;
-    // }
-    // // go to next year
-    // else {
-    //     yearNumber++;
-    //     monthNumber = 1;
-    // }
-
-    // // fix day if needed
-    // if(dayNumber > getMaxDayForMonth(monthNumber)) {
-    //     dayNumber = getMaxDayForMonth(monthNumber);
-    // }
-
-    // let d = intToString(dayNumber);
-    // let m = intToString(monthNumber);
-    // let y = intToString(yearNumber);
-
-    // updateCalendar(m, d, y);
     incrementCalendarMonth();
-
-    // window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
 }
 
 window.onload = function() {

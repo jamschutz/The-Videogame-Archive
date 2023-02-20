@@ -47,16 +47,16 @@ function intToString(i) {
 
 function getMaxDayForMonth(month) {
     // february
-    if(month === 2)  return 28;
+    if(month === 2 || month === '02')  return 28;
 
     // 31 day months
-    if(month === 1)  return 31;
-    if(month === 3)  return 31;
-    if(month === 5)  return 31;
-    if(month === 7)  return 31;
-    if(month === 8)  return 31;
-    if(month === 10) return 31;
-    if(month === 12) return 31;
+    if(month === 1  || month == '01')  return 31;
+    if(month === 3  || month == '03')  return 31;
+    if(month === 5  || month == '05')  return 31;
+    if(month === 7  || month == '07')  return 31;
+    if(month === 8  || month == '08')  return 31;
+    if(month === 10 || month == '10')  return 31;
+    if(month === 12 || month == '12')  return 31;
 
     // otherwise it's 30
     return 30;
