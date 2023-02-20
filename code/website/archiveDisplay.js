@@ -134,6 +134,12 @@ function goToPreviousDay() {
     window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
 }
 
+
+function goToDay(d) {
+    console.log('going to day: ' + d);
+    window.location.href = '/html/archive.html?year=' + year + '&month=' + month + '&day=' + d;
+}
+
 window.onload = function() {
     showCurrentDay();
 }

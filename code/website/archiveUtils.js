@@ -1,32 +1,29 @@
-
-
-
-function monthHas31Days(m) {
-    if(m === '01') return true;
-    if(m === '03') return true;
-    if(m === '05') return true;
-    if(m === '07') return true;
-    if(m === '08') return true;
-    if(m === '10') return true;
-    if(m === '12') return true;
+function monthHas31Days(month) {
+    if(month === '01') return true;
+    if(month === '03') return true;
+    if(month === '05') return true;
+    if(month === '07') return true;
+    if(month === '08') return true;
+    if(month === '10') return true;
+    if(month === '12') return true;
 
     return false;
 }
 
 
-function monthNumberToString(m) {
-    if(m == "01") return "January";
-    if(m == "02") return "February";
-    if(m == "03") return "March";
-    if(m == "04") return "April";
-    if(m == "05") return "May";
-    if(m == "06") return "June";
-    if(m == "07") return "July";
-    if(m == "08") return "August";
-    if(m == "09") return "September";
-    if(m == "10") return "October";
-    if(m == "11") return "November";
-    if(m == "12") return "December";
+function monthNumberToString(month) {
+    if(month == "01") return "January";
+    if(month == "02") return "February";
+    if(month == "03") return "March";
+    if(month == "04") return "April";
+    if(month == "05") return "May";
+    if(month == "06") return "June";
+    if(month == "07") return "July";
+    if(month == "08") return "August";
+    if(month == "09") return "September";
+    if(month == "10") return "October";
+    if(month == "11") return "November";
+    if(month == "12") return "December";
 
     console.error('unknown month ' + m);
     return "DATE UNKNOWN";
@@ -50,16 +47,16 @@ function intToString(i) {
 
 function getMaxDayForMonth(month) {
     // february
-    if(m === 2)  return 28;
+    if(month === 2)  return 28;
 
     // 31 day months
-    if(m === 1)  return 31;
-    if(m === 3)  return 31;
-    if(m === 5)  return 31;
-    if(m === 7)  return 31;
-    if(m === 8)  return 31;
-    if(m === 10) return 31;
-    if(m === 12) return 31;
+    if(month === 1)  return 31;
+    if(month === 3)  return 31;
+    if(month === 5)  return 31;
+    if(month === 7)  return 31;
+    if(month === 8)  return 31;
+    if(month === 10) return 31;
+    if(month === 12) return 31;
 
     // otherwise it's 30
     return 30;
