@@ -1,18 +1,21 @@
 const TITLE_ID = 'calendar-title'
-const CALENDAR_ID = 'calendar-month'
+const CALENDAR_ID = 'calendar-dates'
 
 
 function updateCalendar(month, day, year) {
     let daysInMonth  = getMaxDayForMonth(month);
     let weeksInMonth = daysInMonth / 7;
     let monthString = monthNumberToString(month);
+    
+    // clear calendar
+    let calendar = document.getElementById(CALENDAR_ID)
+    calendar.innerHTML = "";
 
     // set title
     let title = monthString + ', ' + year;
     document.getElementById(TITLE_ID).innerHTML = title;
 
     // set days
-    let calendar = document.getElementById(CALENDAR_ID)
     for(let week = 0; week <= weeksInMonth; week++) {
         // create new week div
         let weekDiv = document.createElement("div");

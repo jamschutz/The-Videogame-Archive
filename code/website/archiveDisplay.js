@@ -141,7 +141,8 @@ function goToDay(d) {
 }
 
 
-function goToNextMonth() {
+function goToPreviousMonth() {
+    console.log('previous month');
     let dayNumber = parseInt(day);
     let monthNumber = parseInt(month);
     let yearNumber = parseInt(year);
@@ -154,14 +155,51 @@ function goToNextMonth() {
     else {
         yearNumber--;
         monthNumber = 12;
-        dayNumber = 31;
+    }
+
+    // fix day if needed
+    if(dayNumber > getMaxDayForMonth(monthNumber)) {
+        dayNumber = getMaxDayForMonth(monthNumber);
     }
 
     let d = intToString(dayNumber);
     let m = intToString(monthNumber);
     let y = intToString(yearNumber);
 
-    window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
+    updateCalendar(m, d, y);
+
+    // window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
+}
+
+
+function goToNextMonth() {
+    console.log('next month');
+    let dayNumber = parseInt(day);
+    let monthNumber = parseInt(month);
+    let yearNumber = parseInt(year);
+
+    // always safe
+    if(monthNumber < 12) {
+        monthNumber++;
+    }
+    // go to next year
+    else {
+        yearNumber++;
+        monthNumber = 1;
+    }
+
+    // fix day if needed
+    if(dayNumber > getMaxDayForMonth(monthNumber)) {
+        dayNumber = getMaxDayForMonth(monthNumber);
+    }
+
+    let d = intToString(dayNumber);
+    let m = intToString(monthNumber);
+    let y = intToString(yearNumber);
+
+    updateCalendar(m, d, y);
+
+    // window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
 }
 
 
