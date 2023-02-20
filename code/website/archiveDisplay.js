@@ -140,8 +140,38 @@ function goToDay(d) {
     window.location.href = '/html/archive.html?year=' + year + '&month=' + month + '&day=' + d;
 }
 
+
+function goToNextMonth() {
+    let dayNumber = parseInt(day);
+    let monthNumber = parseInt(month);
+    let yearNumber = parseInt(year);
+
+    // always safe
+    if(monthNumber > 1) {
+        monthNumber--;
+    }
+    // roll back the year
+    else {
+        yearNumber--;
+        monthNumber = 12;
+        dayNumber = 31;
+    }
+
+    let d = intToString(dayNumber);
+    let m = intToString(monthNumber);
+    let y = intToString(yearNumber);
+
+    window.location.href = '/html/archive.html?year=' + y + '&month=' + m + '&day=' + d;
+}
+
+
+function goToPreviousMonth() {
+
+}
+
 window.onload = function() {
     showCurrentDay();
+    updateCalendar(month, day, year);
 }
 
 getArchiveData();

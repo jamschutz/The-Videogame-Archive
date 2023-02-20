@@ -25,7 +25,7 @@ function monthNumberToString(month) {
     if(month == "11") return "November";
     if(month == "12") return "December";
 
-    console.error('unknown month ' + m);
+    console.error('unknown month ' + month);
     return "DATE UNKNOWN";
 }
 
