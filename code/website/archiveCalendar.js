@@ -5,6 +5,12 @@ var _month = 12;
 var _day = 1;
 var _year = 1999
 
+// parse url params
+var url_string = window.location.href;
+var url = new URL(url_string);
+
+var currentDate = url.searchParams.get("month") + '/' + url.searchParams.get("day") + '/' + url.searchParams.get("year");
+
 
 function incrementCalendarMonth() {
     let dayNumber = parseInt(_day);
@@ -100,6 +106,10 @@ function updateCalendar(month, day, year) {
             }
 
             dayDiv.classList.add(articlesExistOnDate(dateString)? 'link-active' : 'link-inactive');
+
+            if(dateString === currentDate) {
+                dayDiv.classList.add('current-date-highlight');
+            }
 
             dayDiv.innerHTML = date;
             weekDiv.appendChild(dayDiv);

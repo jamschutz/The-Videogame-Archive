@@ -11,21 +11,6 @@ var month = url.searchParams.get("month");
 var year = url.searchParams.get("year");
 
 
-// function getArticlesOnDay(archive) {
-//     let empty = []
-    
-//     if(archive.hasOwnProperty(year)){
-//         if(archive[year].hasOwnProperty(month)){
-//             if(archive[year][month].hasOwnProperty(day)){
-//                 return archive[year][month][day]
-//             }
-//         }
-//     }
-
-//     return empty;
-// }
-
-
 
 function showArticlesOnDay() {
     let articles = getArticlesOnDay(year, month, day);
