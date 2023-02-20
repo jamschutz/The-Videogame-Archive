@@ -13,6 +13,11 @@ data_dump = []
 with open(DATA_DUMP_FILE) as f:
     data_dump = json.load(f)
 
+urls_recorded = {}
+with open(f'{ARCHIVE_FOLDER_PATH}urls_recorded.json') as f:
+    urls_recorded = json.load(f)
+
+
 
 # sort by date
 articles = sorted(data_dump, key=lambda d: d['date'])
@@ -21,6 +26,10 @@ articles = sorted(data_dump, key=lambda d: d['date'])
 full_archive = {}
 full_archive['urls_recorded'] = set()
 for article in articles:
+    # already recorded this article, skip it
+    if article['url'] in urls_recorded or f"{BASE_URL}{article['url']}" in urls_recorded:
+        continue
+
     year  = article['date'].split('/')[2]
     month = article['date'].split('/')[0]
     day   = article['date'].split('/')[1]
@@ -63,6 +72,9 @@ for year, articles in full_archive.items():
     """
     formatted_records = {}
     for article in articles:
+        # already recorded
+
+
         month = article['date'].split('/')[0]
         day   = article['date'].split('/')[1]
 
@@ -73,14 +85,17 @@ for year, articles in full_archive.items():
             formatted_records[month][day] = []
 
         # add article to records
+        urls_recorded[article['url']] = True
         formatted_records[month][day].append(article)
 
     # save formatted records to YEAR.json
     with open(f'{ARCHIVE_FOLDER_PATH}{year}.json', "w") as f:
-        # save here
         json.dump(formatted_records, f)
 
     # also save a record on the website
     with open(f'{WEBSITE_ARCHIVE_PATH}{year}.json', "w") as f:
-        # save here
         json.dump(formatted_records, f)
+
+# and finally, update list of urls recorded
+with open(f'{ARCHIVE_FOLDER_PATH}urls_recorded.json', "w") as f:
+    json.dump(urls_recorded, f)
