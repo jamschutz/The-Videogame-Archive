@@ -1,11 +1,77 @@
 const TITLE_ID = 'calendar-title'
 const CALENDAR_ID = 'calendar-dates'
 
+var _month = 12;
+var _day = 1;
+var _year = 1999
+
+
+function incrementCalendarMonth() {
+    let dayNumber = parseInt(_day);
+    let monthNumber = parseInt(_month);
+    let yearNumber = parseInt(_year);
+
+    // always safe
+    if(monthNumber < 12) {
+        monthNumber++;
+    }
+    // go to next year
+    else {
+        yearNumber++;
+        monthNumber = 1;
+    }
+
+    // fix day if needed
+    if(dayNumber > getMaxDayForMonth(monthNumber)) {
+        dayNumber = getMaxDayForMonth(monthNumber);
+    }
+
+    let d = intToString(dayNumber);
+    let m = intToString(monthNumber);
+    let y = intToString(yearNumber);
+
+    updateCalendar(m, d, y);
+}
+
+
+function decrementCalendarMonth() {
+    let dayNumber = parseInt(_day);
+    let monthNumber = parseInt(_month);
+    let yearNumber = parseInt(_year);
+
+    // always safe
+    if(monthNumber > 1) {
+        monthNumber--;
+    }
+    // roll back the year
+    else {
+        yearNumber--;
+        monthNumber = 12;
+    }
+
+    // fix day if needed
+    if(dayNumber > getMaxDayForMonth(monthNumber)) {
+        dayNumber = getMaxDayForMonth(monthNumber);
+    }
+
+    let d = intToString(dayNumber);
+    let m = intToString(monthNumber);
+    let y = intToString(yearNumber);
+
+    updateCalendar(m, d, y);
+}
+
 
 function updateCalendar(month, day, year) {
     let daysInMonth  = getMaxDayForMonth(month);
     let weeksInMonth = daysInMonth / 7;
     let monthString = monthNumberToString(month);
+
+    console.log('updating calendar with ' + daysInMonth + ' days in month');
+
+    _month = month;
+    _date = day;
+    _year = year;
     
     // clear calendar
     let calendar = document.getElementById(CALENDAR_ID)
@@ -28,12 +94,9 @@ function updateCalendar(month, day, year) {
 
             let date = (week * 7) + day;
 
-            let dateString = intToString(date);
-            // var goToDayEvent = function() {
-            //     goToDay(dateString);
-            // }
+            let dateString = _month + '/' + intToString(date) + '/' + _year;
             dayDiv.onclick = function() {
-                goToDay(dateString);
+                goToDate(dateString);
             }
 
             dayDiv.innerHTML = date;
