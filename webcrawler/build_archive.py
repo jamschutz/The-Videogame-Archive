@@ -5,6 +5,7 @@ from datetime import datetime
 BASE_URL = 'https://www.gamespot.com'
 DATA_DUMP_FILE = '../data/_dumps/GameSpot_news_08281999-05172006.json'
 ARCHIVE_FOLDER_PATH = '../data/_archive/'
+WEBSITE_ARCHIVE_PATH = '../website/data/'
 
 
 # load sitemap
@@ -45,7 +46,7 @@ for year, articles in full_archive.items():
     # not a real year...
     if year == 'urls_recorded':
         continue
-        
+
     print(f'got {len(articles)} records for {year}')
 
     """
@@ -76,4 +77,10 @@ for year, articles in full_archive.items():
 
     # save formatted records to YEAR.json
     with open(f'{ARCHIVE_FOLDER_PATH}{year}.json', "w") as f:
+        # save here
+        json.dump(formatted_records, f)
+
+    # also save a record on the website
+    with open(f'{WEBSITE_ARCHIVE_PATH}{year}.json', "w") as f:
+        # save here
         json.dump(formatted_records, f)
