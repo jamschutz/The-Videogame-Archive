@@ -158,9 +158,10 @@ function goToNextMonth() {
 
 
 function showArticlesOnArchiveLoad() {
-    if(archiveLoaded) {
+    if(archiveLoaded()) {
         console.log('archive ready');
         showArticlesOnDay();
+        updateCalendar(month, day, year);
     }
     else {
         console.log('waiting for archive...');
@@ -171,7 +172,4 @@ function showArticlesOnArchiveLoad() {
 window.onload = function() {
     showArticlesOnArchiveLoad();
     showCurrentDay();
-    updateCalendar(month, day, year);
 }
-
-// getArchiveData();

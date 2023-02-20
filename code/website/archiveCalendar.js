@@ -99,6 +99,8 @@ function updateCalendar(month, day, year) {
                 goToDate(dateString);
             }
 
+            dayDiv.classList.add(articlesExistOnDate(dateString)? 'link-active' : 'link-inactive');
+
             dayDiv.innerHTML = date;
             weekDiv.appendChild(dayDiv);
         }
