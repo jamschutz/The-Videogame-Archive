@@ -48,8 +48,20 @@ for year, articles in full_archive.items():
 
     print(f'got {len(articles)} records for {year}')
 
+    formatted_records = {}
+    for article in articles:
+        month = article['date'].split('/')[0]
+        day   = article['date'].split('/')[1]
+
+        if month not in formatted_records:
+            formatted_records[month] = {}
+        if day not in formatted_records[month]:
+            formatted_records[month][day] = []
+
+        formatted_records[month][day].append(article)
+
     with open(f'{ARCHIVE_FOLDER_PATH}{year}.json', "w") as f:
-        json.dump(articles, f)
+        json.dump(formatted_records, f)
 
 
     
