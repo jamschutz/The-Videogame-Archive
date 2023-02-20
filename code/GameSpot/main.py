@@ -18,6 +18,7 @@ def save_sitemap():
 
     page = START_PAGE_NEWS
     current_proxy = 0
+    consecutive_bad_proxy_attempts = 0
 
     # build sitemap 1 by 1, rotating proxies as needed
     while current_proxy < len(proxies) and page >= END_PAGE_NEWS:
@@ -29,13 +30,19 @@ def save_sitemap():
             # if we got here, proxy worked!
             sitemap.extend(article_links)
             page -= 1
+            consecutive_bad_proxy_attempts = 0
 
             # don't spam
             time.sleep(1)
         except Exception as e:
             # get next proxy
-            print(f'----------port {proxies[current_proxy]} is bad. trying next one----------')
+            print(f'{str(e)}\n\n----------port {proxies[current_proxy]} is bad. trying next one----------')
             current_proxy += 1
+            consecutive_bad_proxy_attempts += 1
+
+            # if we keep getting bad proxies, just bail
+            if consecutive_bad_proxy_attempts > 30:
+                break
             time.sleep(1)
     
     # sort by date
