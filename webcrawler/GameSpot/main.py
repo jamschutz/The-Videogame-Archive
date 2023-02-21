@@ -7,8 +7,8 @@ import random
 BASE_URL = 'https://www.gamespot.com'
 NEWS_URL = 'news/'
 REVIEWS_URL = 'games/reviews/'
-START_PAGE_NEWS = 2430
-END_PAGE_NEWS   = 1430
+START_PAGE_NEWS = 1450
+END_PAGE_NEWS   = 500
 
 START_PAGE_REVIEWS = 550
 END_PAGE_REVIEWS = 449

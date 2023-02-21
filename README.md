@@ -35,3 +35,15 @@ https://www.vice.com/en/topic/games-reviews?page=15 <br/>
 https://www.vice.com/en/topic/games-features?page=19 <br/>
 https://www.vice.com/en/topic/games-opinion?page=16 <br/>
 https://www.vice.com/en/topic/games-columns?page=3 <br/>
+
+
+
+### Game Informer
+News: https://www.gameinformer.com/news?page=2494 <br/>
+Reviews: https://www.gameinformer.com/reviews?page=196 <br/>
+Features: https://www.gameinformer.com/features?page=505 <br/>
+
+<br/>
+Earliest news article: Darksiders Video Brings Your Doom <br/>
+Earliest reviews article: Life, The Universe, And Everything <br/>
+Earliest feature article: The Rise of 3D Gaming - New PC Tech Coming to Home Consoles <br/>
