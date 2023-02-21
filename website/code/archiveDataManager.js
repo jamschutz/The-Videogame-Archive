@@ -10,13 +10,11 @@ var ARCHIVE_FILE_PATH = ARCHIVE_FOLDER_PATH + url.searchParams.get("year") + '.j
 function getArticlesOnDay(year, month, day) {
     let empty = []
     
-    // if(archive.hasOwnProperty(year)){
-        if(archive.hasOwnProperty(month)){
-            if(archive[month].hasOwnProperty(day)){
-                return archive[month][day]
-            }
+    if(archive.hasOwnProperty(month)){
+        if(archive[month].hasOwnProperty(day)){
+            return archive[month][day]
         }
-    // }
+    }
 
     return empty;
 }

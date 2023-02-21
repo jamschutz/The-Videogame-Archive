@@ -27,6 +27,7 @@ function showArticlesOnDay() {
     for(let i = 0; i < articles.length; i++) {
         let article = document.createElement("a");
         article.href = articles[i]['url'];
+        article.classList.add('article');
         
         let title = document.createTextNode(articles[i]['title']);
         article.appendChild(title);
