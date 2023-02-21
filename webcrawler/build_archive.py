@@ -3,7 +3,10 @@ from pathlib import Path
 from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
-DATA_DUMP_FILE = '../data/_dumps/GameSpot_news_08281999-05172006.json'
+# if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DATA_DUMP_FILE = '../data/_dumps/GameSpot_reviews_09222004-10262006.json'
+DATA_DUMP_FILE_TYPE = 'reviews'
+# change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ARCHIVE_FOLDER_PATH = '../data/_archive/'
 WEBSITE_ARCHIVE_PATH = '../website/data/'
 
@@ -36,7 +39,7 @@ for article in articles:
 
     article['url'] = f"{BASE_URL}{article['url']}"
     article['website'] = 'GameSpot'
-    article['type'] = 'news'
+    article['type'] = DATA_DUMP_FILE_TYPE
 
     if year not in full_archive:
         full_archive[year] = []
@@ -71,10 +74,13 @@ for year, articles in full_archive.items():
         }
     """
     formatted_records = {}
+    # if we already have records for this year, grab them
+    if Path(f'{ARCHIVE_FOLDER_PATH}{year}.json').exists():
+        with open(f'{ARCHIVE_FOLDER_PATH}{year}.json') as f:
+            formatted_records = json.load(f)
+            print(f'found existing records for year {year}')
+
     for article in articles:
-        # already recorded
-
-
         month = article['date'].split('/')[0]
         day   = article['date'].split('/')[1]
 
