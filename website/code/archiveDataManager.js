@@ -1,18 +1,22 @@
-const ARCHIVE_FILE_PATH = '../data/archive.json'
+const ARCHIVE_FOLDER_PATH = '../data/'
 var archive = {}
 var isArchiveLoaded = false;
+
+// parse url params and set file path
+var url = new URL(window.location.href);
+var ARCHIVE_FILE_PATH = ARCHIVE_FOLDER_PATH + url.searchParams.get("year") + '.json';
 
 
 function getArticlesOnDay(year, month, day) {
     let empty = []
     
-    if(archive.hasOwnProperty(year)){
-        if(archive[year].hasOwnProperty(month)){
-            if(archive[year][month].hasOwnProperty(day)){
-                return archive[year][month][day]
+    // if(archive.hasOwnProperty(year)){
+        if(archive.hasOwnProperty(month)){
+            if(archive[month].hasOwnProperty(day)){
+                return archive[month][day]
             }
         }
-    }
+    // }
 
     return empty;
 }
