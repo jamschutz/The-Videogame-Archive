@@ -4,7 +4,7 @@ from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
 # if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-DATA_DUMP_FILE = '../../data/_dumps/GameSpot_news_05172006-04162013.json'
+DATA_DUMP_FILE = '../../data/_dumps/GameSpot_news_03292013-09152017.json'
 DATA_DUMP_FILE_TYPE = 'news'
 # change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'

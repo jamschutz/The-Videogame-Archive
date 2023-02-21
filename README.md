@@ -6,28 +6,32 @@ To use this tool, you'll need the python library `Beautiful Soup` installed. Jus
 You'll also need the html parser `lxml`: `pip install lxml`
 
 
+## List of sites
+https://docs.google.com/spreadsheets/d/1tNX5DDV8z8kwRLprMd4WY1AQPN260hw4tQmyLW0t4F0/edit#gid=0
+
+
 ## Sitemap links TODO
-https://warpdoor.com/sitemap.xml
-https://jayisgames.com/archives.php
-https://web.archive.org/web/20001121105100/http://www.zdnet.com:80/gamespot/filters/features/0,10851,6013548,00.html
+https://warpdoor.com/sitemap.xml <br/>
+https://jayisgames.com/archives.php <br/>
+https://web.archive.org/web/20001121105100/http://www.zdnet.com:80/gamespot/filters/features/0,10851,6013548,00.html <br/>
 
 
 ### PC Gamer
-Note: Website started in 2010, magazine in 1993
-
-https://www.pcgamer.com/news/archive/
-https://www.pcgamer.com/reviews/archive/
+Note: Website started in 2010, magazine in 1993 <br/>
+ <br/>
+https://www.pcgamer.com/news/archive/ <br/>
+https://www.pcgamer.com/reviews/archive/ <br/>
 
 
 ### Eurogamer
-https://www.eurogamer.net/archive/2023/02
+https://www.eurogamer.net/archive/2023/02 <br/>
 
 
 ### Waypoint
-Note: for some reason seems to not go back farther than 2019 right now. Maybe that's when they got swooped up by Vice?
-
-https://www.vice.com/en/topic/games-news?page=46
-https://www.vice.com/en/topic/games-reviews?page=15
-https://www.vice.com/en/topic/games-features?page=19
-https://www.vice.com/en/topic/games-opinion?page=16
-https://www.vice.com/en/topic/games-columns?page=3
+Note: for some reason seems to not go back farther than 2019 right now. Maybe that's when they got swooped up by Vice? <br/>
+ <br/>
+https://www.vice.com/en/topic/games-news?page=46 <br/>
+https://www.vice.com/en/topic/games-reviews?page=15 <br/>
+https://www.vice.com/en/topic/games-features?page=19 <br/>
+https://www.vice.com/en/topic/games-opinion?page=16 <br/>
+https://www.vice.com/en/topic/games-columns?page=3 <br/>
