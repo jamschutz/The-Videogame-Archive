@@ -4,11 +4,11 @@ from datetime import datetime
 
 BASE_URL = 'https://www.gamespot.com'
 # if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-DATA_DUMP_FILE = '../data/_dumps/GameSpot_reviews_09222004-10262006.json'
+DATA_DUMP_FILE = '../../data/_dumps/GameSpot_reviews_09222004-10262006.json'
 DATA_DUMP_FILE_TYPE = 'reviews'
 # change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-ARCHIVE_FOLDER_PATH = '../data/_archive/'
-WEBSITE_ARCHIVE_PATH = '../website/data/'
+ARCHIVE_FOLDER_PATH = '../../data/_archive/'
+WEBSITE_ARCHIVE_PATH = '../../website/data/'
 
 
 # load sitemap

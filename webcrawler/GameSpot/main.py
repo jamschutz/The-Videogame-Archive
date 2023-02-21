@@ -2,6 +2,7 @@ import web_scraper as ws
 import json, time
 from pathlib import Path
 from datetime import datetime
+import random
 
 BASE_URL = 'https://www.gamespot.com'
 NEWS_URL = 'news/'
@@ -9,8 +10,8 @@ REVIEWS_URL = 'games/reviews/'
 START_PAGE_NEWS = 3424
 END_PAGE_NEWS   = 2924
 
-START_PAGE_REVIEWS = 524
-END_PAGE_REVIEWS = 524
+START_PAGE_REVIEWS = 450
+END_PAGE_REVIEWS = 2
 
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 EXTEND_EXISTING = True
@@ -31,7 +32,7 @@ def save_sitemap():
         try:
             # get articles at page number
             print(f'fetching page {str(page)}. proxies remaining: {str(len(proxies) - current_proxy)}')
-            article_links = ws.get_links_from_news_page(page, proxies[current_proxy], target_page=REVIEWS_URL)
+            article_links = ws.get_links_from_news_page(page, proxies[current_proxy], target_page=REVIEWS_URL, use_proxy=False)
 
             # if we got here, proxy worked!
             sitemap.extend(article_links)
@@ -39,7 +40,7 @@ def save_sitemap():
             consecutive_bad_proxy_attempts = 0
 
             # don't spam
-            time.sleep(1)
+            time.sleep(random.uniform(0.9, 2.1))
         except Exception as e:
             # get next proxy
             print(f'{str(e)}\n\n----------port {proxies[current_proxy]} is bad. trying next one----------')
@@ -49,7 +50,7 @@ def save_sitemap():
             # if we keep getting bad proxies, just bail
             if consecutive_bad_proxy_attempts > 30:
                 break
-            time.sleep(1)
+            time.sleep(random.uniform(0.9, 2.1))
     
     # sort by date
     sitemap = sorted(sitemap, key=lambda d: d['date']) 
