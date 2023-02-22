@@ -37,6 +37,17 @@ function getWebsiteColumnDiv(website) {
 
 
 
+function websiteHasArticles(website, articles) {
+    for(let i = 0; i < articles.length; i++) {
+        if(articles[i]['website'] === website) 
+            return true;
+    }
+
+    return false;
+}
+
+
+
 function showArticlesOnDay() {
     let articles = getArticlesOnDay(year, month, day);
     console.log(articles);
@@ -50,10 +61,17 @@ function showArticlesOnDay() {
     }
 
     let allWebsites = getWebsites();
+    let numWebsiteColumnsMade = 0;
     for(let i = 0; i < allWebsites.length; i++) {
         let website = allWebsites[i];
+
+        // if no articles for this day, don't make a column
+        if(!websiteHasArticles(website, articles)) {
+            continue;
+        }
+
         let websiteDiv = getWebsiteColumnDiv(website);
-        websiteDiv.style.marginLeft = SPACE_BETWEEN_COLUMNS * i + 'px';
+        websiteDiv.style.marginLeft = SPACE_BETWEEN_COLUMNS * numWebsiteColumnsMade + 'px';
 
         for(let j = 0; j < articles.length; j++) {
             if(articles[j]['website'] != website) continue;
@@ -71,6 +89,7 @@ function showArticlesOnDay() {
         }
 
         articlesDiv.appendChild(websiteDiv);
+        numWebsiteColumnsMade++;
     }
 
     // for(let i = 0; i < articles.length; i++) {
