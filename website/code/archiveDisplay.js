@@ -2,6 +2,11 @@
 const ARTICLES_DIV_ID = 'articles'
 const DATE_DISPLAY_ID = 'date-display'
 
+const WEBSITE_COLUMN_CLASS = 'news-site-column'
+const WEBSITE_COLUMN_HEADER_CLASS = 'news-site-column-header'
+
+const SPACE_BETWEEN_COLUMNS = 400;
+
 // parse url params
 var url_string = window.location.href;
 var url = new URL(url_string);
@@ -9,6 +14,26 @@ var url = new URL(url_string);
 var day = url.searchParams.get("day");
 var month = url.searchParams.get("month");
 var year = url.searchParams.get("year");
+
+
+
+function getWebsiteColumnDiv(website) {
+    let websiteColumn = document.createElement('div');
+    websiteColumn.classList.add(WEBSITE_COLUMN_CLASS)
+
+    let label = document.createElement('span');
+    label.classList.add(WEBSITE_COLUMN_HEADER_CLASS);
+    label.innerHTML = website;
+
+    let newLine1 = document.createElement("br");
+    let newLine2 = document.createElement("br");
+
+    websiteColumn.appendChild(label);
+    websiteColumn.appendChild(newLine1);
+    websiteColumn.appendChild(newLine2);
+    
+    return websiteColumn;
+}
 
 
 
@@ -24,20 +49,44 @@ function showArticlesOnDay() {
         return;
     }
 
-    for(let i = 0; i < articles.length; i++) {
-        if(articles[i]['website'] != 'GameSpot') continue;
+    let allWebsites = getWebsites();
+    for(let i = 0; i < allWebsites.length; i++) {
+        let website = allWebsites[i];
+        let websiteDiv = getWebsiteColumnDiv(website);
+        websiteDiv.style.marginLeft = SPACE_BETWEEN_COLUMNS * i + 'px';
 
-        let article = document.createElement("a");
-        article.href = articles[i]['url'];
-        article.classList.add('article');
-        
-        let title = document.createTextNode(articles[i]['title']);
-        article.appendChild(title);
+        for(let j = 0; j < articles.length; j++) {
+            if(articles[j]['website'] != website) continue;
+    
+            let article = document.createElement("a");
+            article.href = articles[j]['url'];
+            article.classList.add('article');
+            
+            let title = document.createTextNode(articles[j]['title']);
+            article.appendChild(title);
+    
+            let newLine = document.createElement("br");
+            websiteDiv.appendChild(article);
+            websiteDiv.appendChild(newLine);
+        }
 
-        let newLine = document.createElement("br");
-        articlesDiv.appendChild(article);
-        articlesDiv.appendChild(newLine);
+        articlesDiv.appendChild(websiteDiv);
     }
+
+    // for(let i = 0; i < articles.length; i++) {
+    //     if(articles[i]['website'] != 'GameSpot') continue;
+
+    //     let article = document.createElement("a");
+    //     article.href = articles[i]['url'];
+    //     article.classList.add('article');
+        
+    //     let title = document.createTextNode(articles[i]['title']);
+    //     article.appendChild(title);
+
+    //     let newLine = document.createElement("br");
+    //     articlesDiv.appendChild(article);
+    //     articlesDiv.appendChild(newLine);
+    // }
 }
 
 
