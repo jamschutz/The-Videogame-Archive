@@ -16,7 +16,8 @@ DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 # =================================================== #
 # ============== SET THESE VARS ===================== #
 USE_PROXY = False
-SCROLL_PAUSE_TIME = 8
+SCROLL_PAUSE_TIME = 1
+SCROLL_AMOUNT = 10000
 # =================================================== #
 # =================================================== #
 
@@ -94,7 +95,7 @@ def get_webdriver():
 
 # Web scrapper for infinite scrolling page
 driver = get_webdriver()
-driver.get('https://www.ign.com/reviews/games')
+driver.get('https://www.ign.com/reviews')
 
 
 time.sleep(2)  # Allow 2 seconds for the web page to open
@@ -103,15 +104,16 @@ i = 1
 
 while True and i < 100:
     # scroll one screen height each time
-    driver.execute_script("window.scrollTo(0, {screen_height}*{i});".format(screen_height=screen_height, i=i))  
+    driver.execute_script("window.scrollTo(0, {screen_height}*{i});".format(screen_height=SCROLL_AMOUNT, i=i))  
     i += 1
     time.sleep(SCROLL_PAUSE_TIME)
     # update scroll height each time after scrolled, as the scroll height can change after we scrolled the page
     scroll_height = driver.execute_script("return document.body.scrollHeight;")
-    print('scrolling...')
+    print(f'scrolling {i}...')
     # Break the loop when the height we need to scroll to is larger than the total scroll height
-    if (screen_height) * i > scroll_height:
-        break
+    # if (screen_height) * i > scroll_height:
+    #     print('nothing more to scroll, closing')
+    #     break
 
 driver.quit()
-print('done')
+print(f'got to {i}th scroll. done.')
