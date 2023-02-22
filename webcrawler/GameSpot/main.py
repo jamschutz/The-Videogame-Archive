@@ -7,11 +7,11 @@ import random
 BASE_URL = 'https://www.gamespot.com'
 NEWS_URL = 'news/'
 REVIEWS_URL = 'games/reviews/'
-START_PAGE_NEWS = 550
-END_PAGE_NEWS   = 2
+START_PAGE_NEWS = 2
+END_PAGE_NEWS   = 1
 
-START_PAGE_REVIEWS = 550
-END_PAGE_REVIEWS = 449
+START_PAGE_REVIEWS = 2
+END_PAGE_REVIEWS = 1
 
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 EXTEND_EXISTING = True
@@ -23,16 +23,16 @@ def save_sitemap():
     proxies = ws.get_free_proxies()
     sitemap = []
 
-    page = START_PAGE_NEWS
+    page = START_PAGE_REVIEWS
     current_proxy = 0
     consecutive_bad_proxy_attempts = 0
 
     # build sitemap 1 by 1, rotating proxies as needed
-    while current_proxy < len(proxies) and page >= END_PAGE_NEWS:
+    while current_proxy < len(proxies) and page >= END_PAGE_REVIEWS:
         try:
             # get articles at page number
             print(f'fetching page {str(page)}. proxies remaining: {str(len(proxies) - current_proxy)}')
-            article_links = ws.get_links_from_news_page(page, proxies[current_proxy], target_page=NEWS_URL, use_proxy=False)
+            article_links = ws.get_links_from_news_page(page, proxies[current_proxy], target_page=REVIEWS_URL, use_proxy=False)
 
             # if we got here, proxy worked!
             sitemap.extend(article_links)
