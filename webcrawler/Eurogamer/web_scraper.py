@@ -4,12 +4,17 @@ from selenium import webdriver
 from datetime import datetime
 
 # constants
-BASE_URL = 'https://www.gamespot.com'
-ARTICLE_DIV_CLASS = 'card-item__content'
-ARTICLE_TITLE_CLASS = 'card-item__link'
-# in format: Wednesday, Feb 15, 2023 10:36am
-DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
+BASE_URL = 'https://www.eurogamer.net/archive'
+CONTAINER_DIV_CLASS = 'archive_by_date_items'
+WEBSITE_NAME = 'Eurogamer'
 
+# in format YYYY-MM-DD
+DATETIME_FORMAT = '%Y-%m-%d'
+
+# ARTICLE_DIV_CLASS = 'card-item__content'
+# ARTICLE_TITLE_CLASS = 'card-item__link'
+# in format: Wednesday, Feb 15, 2023 10:36am
+# DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 
 def get_website_soup(url):
     source = requests.get(url).content
@@ -17,29 +22,32 @@ def get_website_soup(url):
     return soup
 
 
-def get_links_from_news_page(page_number, proxy, target_page='news/', use_proxy=True):
+def get_links_from_archive_month(month, year):
     # download webpage
-    url = f'{BASE_URL}/{target_page}?page={str(page_number)}' if page_number > 1 else f'{BASE_URL}/{target_page}'
-    source = requests.get(url, proxies = {'http': proxy, 'https': proxy}).text if use_proxy else requests.get(url).text
+    url = f'{BASE_URL}/{year}/{month}'
+    source = requests.get(url).text
     soup = BeautifulSoup(source, 'lxml')
 
-    articles = soup.find_all('div', class_=ARTICLE_DIV_CLASS)
+    day_archives = soup.find('div', class_=CONTAINER_DIV_CLASS).ol.find_all('li', recursive=False)
 
     article_data = []
+    for day_archive in day_archives:
+        date = day_archive.div.time['datetime']
+        articles_on_day = day_archive.ol.find_all('li')
 
-    for article in articles:
-        article_title = article.a.h4.text
-        article_url   = article.a['href']
-        article_date  = article.find('time')['datetime']
+        for article in articles_on_day:
+            article_title = article.a.text.strip()
+            article_url   = article.a['href']
 
-        # convert to datetime
-        article_date = datetime.strptime(article_date, DATETIME_FORMAT)
+            # convert to datetime
+            article_date = datetime.strptime(date, DATETIME_FORMAT)
 
-        article_data.append({
-            'title': article_title,
-            'url': article_url,
-            'date': article_date
-        })
+            article_data.append({
+                'title': article_title,
+                'url': article_url,
+                'date': article_date,
+                'website': WEBSITE_NAME
+            })
 
     return article_data
 
