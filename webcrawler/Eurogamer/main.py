@@ -6,8 +6,8 @@ import random
 from utils import get_next_month
 
 BASE_URL = 'https://www.eurogamer.net/archive'
-START_DATE   = '2007/01'
-STOP_AT_DATE = '2010/01'
+START_DATE   = '2012/01'
+STOP_AT_DATE = '2014/01'
 
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 

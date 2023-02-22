@@ -57,3 +57,12 @@ Oldest review from scrolling called: Earth Defense Force 5 Review (2018) <br/>
 <br/>
 Example older article: https://www.ign.com/articles/2006/09/07/lego-star-wars-ii-the-original-trilogy-review-5
 
+
+
+### Gameplanet
+
+https://www.gameplanet.co.nz/features/page69/ <br/>
+https://www.gameplanet.co.nz/previews/page22/ <br/>
+https://www.gameplanet.co.nz/reviews/page56/ <br/>
+https://www.gameplanet.co.nz/news/page635/ <br/>
+
