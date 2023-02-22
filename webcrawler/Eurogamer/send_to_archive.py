@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime
 
 # if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-DATA_DUMP_FILE = '../../data/_dumps/Eurogamer_01-2004_12-2006.json'
+DATA_DUMP_FILE = '../../data/_dumps/Eurogamer_01-2007_12-2009.json'
 # DATA_DUMP_FILE_TYPE = 'review'
 # change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'
