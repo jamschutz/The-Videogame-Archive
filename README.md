@@ -16,6 +16,16 @@ https://jayisgames.com/archives.php <br/>
 https://web.archive.org/web/20001121105100/http://www.zdnet.com:80/gamespot/filters/features/0,10851,6013548,00.html <br/>
 
 
+## Fonts
+
+https://fonts.google.com/featured/Perfect+Pairings
+https://fonts.google.com/featured/New+Multi-Script+Typefaces+2016
+https://fonts.google.com/featured/2016+Fonts+Refresh
+https://fonts.google.com/featured/High-Impact+Vernacular+Display
+https://fonts.google.com/featured/Headline-Worthy+Serifs
+https://fonts.google.com/featured/Five+Fresh+Headline+and+Body+Text+Pairings
+
+
 ### PC Gamer
 Note: Website started in 2010, magazine in 1993 <br/>
  <br/>
