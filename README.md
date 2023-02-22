@@ -47,3 +47,13 @@ Features: https://www.gameinformer.com/features?page=505 <br/>
 Earliest news article: Darksiders Video Brings Your Doom <br/>
 Earliest reviews article: Life, The Universe, And Everything <br/>
 Earliest feature article: The Rise of 3D Gaming - New PC Tech Coming to Home Consoles <br/>
+
+
+
+### IGN
+
+Oldest review from scrolling called: Earth Defense Force 5 Review (2018) <br/>
+[Earth Defense Force 5 Review](https://www.ign.com/articles/2018/12/07/earth-defense-force-5-review) <br/>
+<br/>
+Example older article: https://www.ign.com/articles/2006/09/07/lego-star-wars-ii-the-original-trilogy-review-5
+

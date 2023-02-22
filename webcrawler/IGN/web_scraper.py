@@ -102,7 +102,7 @@ time.sleep(2)  # Allow 2 seconds for the web page to open
 screen_height = driver.execute_script("return window.screen.height;")   # get the screen height of the web
 i = 1
 
-while True and i < 100:
+while True:
     # scroll one screen height each time
     driver.execute_script("window.scrollTo(0, {screen_height}*{i});".format(screen_height=SCROLL_AMOUNT, i=i))  
     i += 1
