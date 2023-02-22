@@ -6,10 +6,39 @@ import random
 from utils import get_next_month
 
 BASE_URL = 'https://www.eurogamer.net/archive'
-START_DATE   = '2020/01'
-STOP_AT_DATE = '2022/01'
+START_DATE   = '2023/02'
+STOP_AT_DATE = '2023/02'
 
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
+
+
+def save_archive_month():
+    current_date = START_DATE
+    sitemap = []
+    try:
+        # get articles at page number
+        print(f'fetching date {current_date}.')
+        m = current_date.split('/')[1]
+        y = current_date.split('/')[0]
+        article_links = ws.get_links_from_archive_month(month=m, year=y)
+
+        # if we got here, proxy worked!
+        sitemap.extend(article_links)
+    except Exception as e:
+        # get next proxy
+        print(f'{str(e)}\n\n----------unable to get archive month----------')
+        return
+    
+    # sort by date
+    sitemap = sorted(sitemap, key=lambda d: d['date']) 
+
+    # for each article, convert datetime back to string (so it saves okay)
+    for article in sitemap:
+        article['date'] = article['date'].strftime('%m/%d/%Y')
+
+    # save sitemap
+    with open("../../data/_dumps/temp.json", "w") as json_file:
+        json.dump(sitemap, json_file)
 
 
 def save_sitemap():
@@ -91,5 +120,5 @@ def save_wegpage(url, date, title):
             print('trying next proxy...')
 
 
-save_sitemap()
+save_archive_month()
 print('done')
