@@ -2,10 +2,9 @@ import json, time
 from pathlib import Path
 from datetime import datetime
 
-BASE_URL = 'https://www.gamespot.com'
 # if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-DATA_DUMP_FILE = '../../data/_dumps/GameSpot_reviews_10262022-02152023.json'
-DATA_DUMP_FILE_TYPE = 'review'
+DATA_DUMP_FILE = '../../data/_dumps/Eurogamer_09-1999_09-1999.json'
+# DATA_DUMP_FILE_TYPE = 'review'
 # change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'
 WEBSITE_ARCHIVE_PATH = '../../website/data/'
@@ -30,16 +29,15 @@ full_archive = {}
 full_archive['urls_recorded'] = set()
 for article in articles:
     # already recorded this article, skip it
-    if article['url'] in urls_recorded or f"{BASE_URL}{article['url']}" in urls_recorded:
+    if article['url'] in urls_recorded:
         continue
 
     year  = article['date'].split('/')[2]
     month = article['date'].split('/')[0]
     day   = article['date'].split('/')[1]
 
-    article['url'] = f"{BASE_URL}{article['url']}"
-    article['website'] = 'GameSpot'
-    article['type'] = DATA_DUMP_FILE_TYPE
+    # article['url'] = f"{BASE_URL}{article['url']}"
+    # article['type'] = DATA_DUMP_FILE_TYPE
 
     if year not in full_archive:
         full_archive[year] = []
