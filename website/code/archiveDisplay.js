@@ -61,35 +61,39 @@ function showArticlesOnDay() {
     }
 
     let allWebsites = getWebsites();
-    let numWebsiteColumnsMade = 0;
     for(let i = 0; i < allWebsites.length; i++) {
         let website = allWebsites[i];
 
-        // if no articles for this day, don't make a column
-        if(!websiteHasArticles(website, articles)) {
-            continue;
-        }
-
         let websiteDiv = getWebsiteColumnDiv(website);
-        websiteDiv.style.marginLeft = SPACE_BETWEEN_COLUMNS * numWebsiteColumnsMade + 'px';
+        websiteDiv.style.marginLeft = SPACE_BETWEEN_COLUMNS * i + 'px';
+        
 
-        for(let j = 0; j < articles.length; j++) {
-            if(articles[j]['website'] != website) continue;
-    
-            let article = document.createElement("a");
-            article.href = articles[j]['url'];
-            article.classList.add('article');
-            
-            let title = document.createTextNode(articles[j]['title']);
-            article.appendChild(title);
-    
-            let newLine = document.createElement("br");
-            websiteDiv.appendChild(article);
-            websiteDiv.appendChild(newLine);
+        // if no articles for this day, just say so
+        if(!websiteHasArticles(website, articles)) {
+            let noArticles = document.createElement('p');
+            noArticles.innerHTML = "No articles found for this date.";
+            noArticles.classList.add('no-article-msg');
+            websiteDiv.appendChild(noArticles);
         }
+        // otherwise, list articles
+        else {
+            for(let j = 0; j < articles.length; j++) {
+                if(articles[j]['website'] != website) continue;
+        
+                let article = document.createElement("a");
+                article.href = articles[j]['url'];
+                article.classList.add('article');
+                
+                let title = document.createTextNode(articles[j]['title']);
+                article.appendChild(title);
+        
+                let newLine = document.createElement("br");
+                websiteDiv.appendChild(article);
+                websiteDiv.appendChild(newLine);
+            }
+        }        
 
         articlesDiv.appendChild(websiteDiv);
-        numWebsiteColumnsMade++;
     }
 
     // for(let i = 0; i < articles.length; i++) {
