@@ -25,6 +25,8 @@ function showArticlesOnDay() {
     }
 
     for(let i = 0; i < articles.length; i++) {
+        if(articles[i]['website'] != 'GameSpot') continue;
+
         let article = document.createElement("a");
         article.href = articles[i]['url'];
         article.classList.add('article');

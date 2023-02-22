@@ -1,0 +1,1 @@
+const WEBSITES = ['GameSpot', 'Eurogamer']

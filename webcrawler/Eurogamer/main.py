@@ -6,8 +6,8 @@ import random
 from utils import get_next_month
 
 BASE_URL = 'https://www.eurogamer.net/archive'
-START_DATE   = '1999/09'
-STOP_AT_DATE = '1999/10'
+START_DATE   = '1999/10'
+STOP_AT_DATE = '2004/01'
 
 DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 
@@ -24,7 +24,9 @@ def save_sitemap():
         try:
             # get articles at page number
             print(f'fetching date {current_date}. bad attemps: {consecutive_bad_proxy_attempts}')
-            article_links = ws.get_links_from_archive_month(month='09', year='1999')
+            m = current_date.split('/')[1]
+            y = current_date.split('/')[0]
+            article_links = ws.get_links_from_archive_month(month=m, year=y)
 
             # if we got here, proxy worked!
             sitemap.extend(article_links)
