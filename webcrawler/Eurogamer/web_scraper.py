@@ -11,10 +11,6 @@ WEBSITE_NAME = 'Eurogamer'
 # in format YYYY-MM-DD
 DATETIME_FORMAT = '%Y-%m-%d'
 
-# ARTICLE_DIV_CLASS = 'card-item__content'
-# ARTICLE_TITLE_CLASS = 'card-item__link'
-# in format: Wednesday, Feb 15, 2023 10:36am
-# DATETIME_FORMAT = '%A, %b %d, %Y %I:%M%p'
 
 def get_website_soup(url):
     source = requests.get(url).content
