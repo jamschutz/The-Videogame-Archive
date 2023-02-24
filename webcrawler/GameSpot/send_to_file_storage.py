@@ -72,8 +72,7 @@ def save_articles_for_year(year):
     # for each month.day entry...
     for month in articles_for_year:
         for day in articles_for_year[month]:
-            # for article in articles_for_year[month][day]:
-                article = articles_for_year[month][day][i]
+            for article in articles_for_year[month][day]:
                 # skip articles from other sites
                 if article['website'] != WEBSITE_NAME:
                     continue
@@ -83,4 +82,4 @@ def save_articles_for_year(year):
                 counter += 1
     
 
-save_articles_for_year(1996)
+save_articles_for_year(1999)
