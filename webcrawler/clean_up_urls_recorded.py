@@ -1,6 +1,7 @@
 import json
 
 ARCHIVE_FOLDER_PATH = '../data/_archive/'
+WEBSITE_ARCHIVE_PATH = '../website/data/'
 
 
 START_YEAR = 1996
@@ -10,20 +11,25 @@ END_YEAR = 2023
 def remove_bad_entries(year):
     year_articles = {}
     with open(f'{ARCHIVE_FOLDER_PATH}{str(year)}.json') as f:
-    # with open(f'{ARCHIVE_FOLDER_PATH}_test.json') as f:
         year_articles = json.load(f)
 
     for month in year_articles:
         for day in year_articles[month]:
             year_articles[month][day] = [item for item in year_articles[month][day] if item['url'][0] != '/']
 
-    with open(f'{ARCHIVE_FOLDER_PATH}{str(year)}.json') as f:
-    # with open(f'{ARCHIVE_FOLDER_PATH}_test.json', "w") as f:
+    # print(year_articles)
+    with open(f'{ARCHIVE_FOLDER_PATH}{str(year)}.json', 'w') as f:
+        json.dump(year_articles, f)
+
+    with open(f'{WEBSITE_ARCHIVE_PATH}{str(year)}.json', 'w') as f:
         json.dump(year_articles, f)
 
 
-
-remove_bad_entries(1996)
+y = START_YEAR
+while y <= END_YEAR:
+    print(f'cleaning up {y}...')
+    remove_bad_entries(y)
+    y += 1
 
 
 #     for url in urls_recorded:
