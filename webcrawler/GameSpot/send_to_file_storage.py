@@ -40,7 +40,7 @@ def send_article_to_storage(article):
 
     # and save
     raw_html = get_webpage(url)
-    with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
+    with open(f'{folder_path}/{filename}.html', "w") as html_file:
         html_file.write(raw_html)
 
 
