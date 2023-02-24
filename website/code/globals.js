@@ -1,4 +1,4 @@
-const WEBSITES = ['GameSpot', 'Eurogamer']
+const WEBSITES = ['GameSpot', 'Eurogamer', 'Gameplanet']
 
 
 function getWebsites() {

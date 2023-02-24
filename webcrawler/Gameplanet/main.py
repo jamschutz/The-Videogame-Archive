@@ -50,6 +50,7 @@ def save_sitemap(start_page, end_page, target_page):
     # for each article, convert datetime back to string (so it saves okay)
     for article in sitemap:
         article['date'] = article['date'].strftime('%m/%d/%Y')
+        article['url'] = f'{BASE_URL}{article["url"]}'
 
     earliest_article_date = sitemap[0]['date'].replace('/', '')
     latest_article_date   = sitemap[-1]['date'].replace('/', '')

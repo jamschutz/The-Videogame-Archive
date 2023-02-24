@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime
 
 # if you change the below!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_01232003-12212004.json'
+DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_01232003-12212004.json'
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_03242014-09222015.json'
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_03262010-09202012.json'
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_07132007-03262010.json'
@@ -11,11 +11,12 @@ from datetime import datetime
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_09202012-03242014.json'
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_09222015-09282017.json'
 # DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_09282017-04292020.json'
-DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_12212004-07132007.json'
+# DATA_DUMP_FILE = '../../data/_dumps/Gameplanet_news_12212004-07132007.json'
 DATA_DUMP_FILE_TYPE = 'news'
 # change the above too!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'
 WEBSITE_ARCHIVE_PATH = '../../website/data/'
+BASE_URL = 'https://www.gameplanet.co.nz'
 
 
 # load sitemap
@@ -44,8 +45,8 @@ for article in articles:
     month = article['date'].split('/')[0]
     day   = article['date'].split('/')[1]
 
-    # article['url'] = f"{BASE_URL}{article['url']}"
-    # article['type'] = DATA_DUMP_FILE_TYPE
+    article['url'] = f"{BASE_URL}{article['url']}"
+    article['type'] = DATA_DUMP_FILE_TYPE
 
     if year not in full_archive:
         full_archive[year] = []
