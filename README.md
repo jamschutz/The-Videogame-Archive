@@ -3,8 +3,13 @@
 ## Setup
 
 To use this tool, you'll need the python library `Beautiful Soup` installed. Just run `pip install beautifulsoup4`.<br/><br/>
-You'll also need the html parser `lxml`: `pip install lxml`
+You'll also need the html parser `lxml`: `pip install lxml` <br/>
+<br/>
+You'll also need the `sqlite3` library for javascript, which you can install via: `npm install sqlite3`
 
+
+### document holder
+https://medium.com/@codesprintpro/getting-started-sqlite3-with-nodejs-8ef387ad31c4
 
 ## List of sites
 https://docs.google.com/spreadsheets/d/1tNX5DDV8z8kwRLprMd4WY1AQPN260hw4tQmyLW0t4F0/edit#gid=0
