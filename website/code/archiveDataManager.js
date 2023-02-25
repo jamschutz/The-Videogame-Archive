@@ -63,7 +63,6 @@ function getArchiveData() {
     })
         .then(response => response.json())
         .then((json) => {
-            console.log('here!');
             console.log(json);
         });
 }

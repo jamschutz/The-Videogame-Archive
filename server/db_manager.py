@@ -43,7 +43,6 @@ def get_articles_for_date():
         })
 
     response = jsonify(articles_formatted)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 app.run()
