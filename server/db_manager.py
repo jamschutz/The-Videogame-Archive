@@ -2,14 +2,17 @@
 # encoding: utf-8
 import json
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import sqlite3
 
 DATABASE_FILE = 'D:/dev/Code/VideogameArchive/_database/VideogamesDatabase.db'
 
 
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'OPTIONS'])
+@cross_origin(origin='*')
 def get_articles_for_date():
     year = request.args.get('year')
     month = request.args.get('month')
@@ -40,7 +43,7 @@ def get_articles_for_date():
         })
 
     response = jsonify(articles_formatted)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 app.run()
