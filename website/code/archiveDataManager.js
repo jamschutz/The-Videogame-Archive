@@ -49,12 +49,38 @@ function saveArchive(data) {
 }
 
 function getArchiveData() {
-    fetch(ARCHIVE_FILE_PATH)
+    // fetch(ARCHIVE_FILE_PATH)
+    //     .then(response => response.json())
+    //     .then((json) => {
+    //         saveArchive(json);
+    //     });
+
+    fetch('http://127.0.0.1:5000/?year=2003&month=3&day=12', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
         .then(response => response.json())
         .then((json) => {
-            saveArchive(json);
+            console.log('here!');
+            console.log(json);
         });
 }
 
 
 getArchiveData();
+
+
+// var articlesForDate;
+// const userAction = async () => {
+//     console.log('getting database file...');
+//     const response = await fetch('http://127.0.0.1:5000/?year=2003&month=3&day=12', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     });
+//     articlesForDate = await response.json(); //extract JSON from the http response
+//     console.log(articlesForDate);
+//   }
