@@ -1,6 +1,6 @@
 import pathlib
 from bs4 import BeautifulSoup
-import requests, json
+import requests, json, time, random
 
 
 WEBSITE_NAME = 'GameSpot'
@@ -40,7 +40,7 @@ def send_article_to_storage(article):
 
     # and save
     raw_html = get_webpage(url)
-    with open(f'{folder_path}/{filename}.html', "w") as html_file:
+    with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
         html_file.write(raw_html)
 
 
@@ -80,6 +80,10 @@ def save_articles_for_year(year):
                 print(f'saving article {article["title"]}....{counter} of {total_article_count}')
                 send_article_to_storage(article)
                 counter += 1
+
+                # don't spam
+                time.sleep(random.uniform(0.7, 1.6))
+
     
 
-save_articles_for_year(1999)
+save_articles_for_year(2000)

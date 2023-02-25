@@ -11,6 +11,12 @@ PREVIEWS_URL = 'previews'
 FEATURES_URL = 'features'
 WEBSITE_NAME = 'Gameplanet'
 
+
+MAX_NEWS_PAGE = 635
+MAX_REVIEWS_PAGE = 1
+MAX_PREVIEWS_PAGE = 1
+MAX_FEATURES_PAGE = 1
+
 # ================================= #
 # == set these variables!!! ======= #
 TARGET_PAGE = NEWS_URL    # ======= #

@@ -45,7 +45,7 @@ for article in articles:
     month = article['date'].split('/')[0]
     day   = article['date'].split('/')[1]
 
-    article['url'] = f"{BASE_URL}{article['url']}"
+    # article['url'] = f"{BASE_URL}{article['url']}"
     article['type'] = DATA_DUMP_FILE_TYPE
 
     if year not in full_archive:
