@@ -5,7 +5,7 @@ import requests, json, time, random
 
 WEBSITE_NAME = 'GameSpot'
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'
-FILE_STORAGE_PATH = f'../../../VideogameArchive/{WEBSITE_NAME}'
+FILE_STORAGE_PATH = f'/_website_backups/{WEBSITE_NAME}'
 
 START_YEAR = 1996
 STOP_YEAR  = 1996
@@ -29,7 +29,9 @@ def send_article_to_storage(article):
 
     # in the example below, we want 'endorfun-review_1900-2535824' -- lop off first 4 '/' sections
     # https://www.gamespot.com/reviews/endorfun-review/1900-2535824/
+    # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
     filename = f'{day}_{"_".join(url.split("/")[4:])}'
+    # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
 
     # if ends in underscore, remove it
     if filename[-1] == '_':
