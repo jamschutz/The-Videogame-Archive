@@ -6,6 +6,10 @@ To use this tool, you'll need the python library `Beautiful Soup` installed. Jus
 You'll also need the html parser `lxml`: `pip install lxml`
 
 
+### Wayback Machine API
+https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server#basic-usage
+
+
 ## List of sites
 https://docs.google.com/spreadsheets/d/1tNX5DDV8z8kwRLprMd4WY1AQPN260hw4tQmyLW0t4F0/edit#gid=0
 
@@ -56,6 +60,9 @@ Oldest review from scrolling called: Earth Defense Force 5 Review (2018) <br/>
 [Earth Defense Force 5 Review](https://www.ign.com/articles/2018/12/07/earth-defense-force-5-review) <br/>
 <br/>
 Example older article: https://www.ign.com/articles/2006/09/07/lego-star-wars-ii-the-original-trilogy-review-5
+
+Potentially might be able to reach out here: pressinquiries@ign.com
+https://www.reddit.com/r/IGN/comments/yyskl5/is_there_an_easy_way_to_get_a_list_of_every_game/
 
 
 
