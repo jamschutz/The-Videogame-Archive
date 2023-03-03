@@ -6,6 +6,10 @@ To use this tool, you'll need the python library `Beautiful Soup` installed. Jus
 You'll also need the html parser `lxml`: `pip install lxml`
 
 
+## To run the python
+Open terminal in the root directory and run: `python -m webcrawler.GameSpot.send_to_file_storage` (or whatever file you want)
+
+
 ### Wayback Machine API
 https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server#basic-usage
 

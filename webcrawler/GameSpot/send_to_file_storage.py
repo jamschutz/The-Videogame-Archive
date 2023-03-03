@@ -1,11 +1,18 @@
 import pathlib
 from bs4 import BeautifulSoup
 import requests, json, time, random
+import .._Shared.Config
 
 
 WEBSITE_NAME = 'GameSpot'
+WEBSITE_ID = 1
 ARCHIVE_FOLDER_PATH = '../../data/_archive/'
 FILE_STORAGE_PATH = f'/_website_backups/{WEBSITE_NAME}'
+
+MAX_WEBSITES_TO_ARCHIVE = 50
+
+DB_API_BASE_URL = 'http://127.0.0.1:5000'
+GET_ARCHIVED_WEBSITES_API = f'/ArchivedWebsites?limit={MAX_WEBSITES_TO_ARCHIVE}&websiteId={WEBSITE_ID}'
 
 START_YEAR = 1996
 STOP_YEAR  = 1996

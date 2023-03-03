@@ -23,7 +23,7 @@ def get_db_query(year, month, day, website_id):
     return query
 
 
-@app.route('/Article', methods=['GET', 'OPTIONS'])
+@app.route('/Articles', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
 def get_articles_for_date():
     year = request.args.get('year')
