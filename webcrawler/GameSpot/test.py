@@ -1,5 +1,5 @@
 
-from ..shared.Config import Config
+from .._shared.Config import Config
 
 config = Config()
 

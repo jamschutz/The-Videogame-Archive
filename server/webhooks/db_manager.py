@@ -68,18 +68,18 @@ def get_archived_websites():
 
     # execute script, save, and close
     query = f"""
-SELECT
-	Title, Url, YearPublished, MonthPublished, DayPublished, WebsiteId
-FROM
-	Article
-WHERE
-	IsArchived = 0 
+        SELECT
+            Title, Url, YearPublished, MonthPublished, DayPublished, WebsiteId
+        FROM
+            Article
+        WHERE
+            IsArchived = 0 
     """
     if website_id > 0:
         query += f' AND WebsiteId = {website_id}'
 
     query += f"""
-LIMIT {limit}
+        LIMIT {limit}
     """
 
 
