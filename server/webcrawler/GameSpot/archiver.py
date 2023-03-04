@@ -7,7 +7,8 @@ from server._shared.Utils import Utils
 
 
 WEBSITE_NAME = 'GameSpot'
-MAX_WEBSITES_TO_ARCHIVE = 5000
+MAX_WEBSITES_TO_ARCHIVE = 1000
+BATCH_SIZE = 10
 
 SUBTITLE_DIV_CLASS = 'news-deck'
 AUTHOR_DIV_CLASS = 'byline-author'
@@ -42,6 +43,9 @@ def add_article_info_to_db(article, raw_html):
 
 
 def send_article_to_archive(article, raw_html):
+    # reset articles failed to parse
+    ARTICLES_THAT_FAILED_TO_PARSE = []
+
     # parse the bits we need (for folder / filename)
     url = article['url']
     month = utils.get_two_char_int_string(article['month'])
@@ -90,11 +94,21 @@ def archive_queued_urls(num_urls_to_archive):
         time.sleep(random.uniform(0.7, 1.6))
         counter += 1
 
-    db_manager.mark_articles_as_archived(articles_to_archive)
-
-    print(f'done. failed to parse the following article: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')
+    # get list of articles that were succesfully archived
+    articles_archived_successfully = []
+    for article in articles_to_archive:
+        if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
+            articles_archived_successfully.append(article)
+    
+    # and mark as archived in the db
+    db_manager.mark_articles_as_archived(articles_archived_successfully)
+    print(f'*********************failed to parse the following articles: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')
 
 
 
 if __name__ == '__main__':
-    archive_queued_urls(MAX_WEBSITES_TO_ARCHIVE)
+    counter = 0
+    while counter <= MAX_WEBSITES_TO_ARCHIVE:
+        archive_queued_urls(BATCH_SIZE)
+        counter += BATCH_SIZE
+    print('done')
