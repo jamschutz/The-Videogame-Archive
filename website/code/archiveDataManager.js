@@ -8,15 +8,17 @@ var ARCHIVE_FILE_PATH = ARCHIVE_FOLDER_PATH + url.searchParams.get("year") + '.j
 
 
 function getArticlesOnDay(year, month, day) {
-    let empty = []
+    // let empty = []
     
-    if(archive.hasOwnProperty(month)){
-        if(archive[month].hasOwnProperty(day)){
-            return archive[month][day]
-        }
-    }
+    // if(archive.hasOwnProperty(month)){
+    //     if(archive[month].hasOwnProperty(day)){
+    //         return archive[month][day]
+    //     }
+    // }
 
-    return empty;
+    // return empty;
+
+    return archive;
 }
 
 
@@ -55,7 +57,7 @@ function getArchiveData() {
     //         saveArchive(json);
     //     });
 
-    fetch('http://127.0.0.1:5000/?year=2003&month=3&day=12', {
+    fetch('http://127.0.0.1:5000/Articles?year=2003&month=3&day=12', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -64,6 +66,7 @@ function getArchiveData() {
         .then(response => response.json())
         .then((json) => {
             console.log(json);
+            saveArchive(json);
         });
 }
 
