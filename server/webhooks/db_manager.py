@@ -28,16 +28,16 @@ def get_articles_for_date():
 
 
 
-@app.route('/UrlsToBeArchived', methods=['GET', 'OPTIONS'])
+@app.route('/UrlsToArchive', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
-def get_archived_websites():
+def get_urls_to_archive():
     # parse params
     limit = request.args.get('limit') if request.args.get('websiteId') != None else 50
     website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
     # fetch db data and return
     db_manager = DbManager()
-    response = db_manager.get_archived_websites(limit, website_id)
+    response = db_manager.get_urls_to_archive(limit, website_id)
     return jsonify(response)
 
 

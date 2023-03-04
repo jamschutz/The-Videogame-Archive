@@ -1,11 +1,15 @@
+# suppress __pycache__ folders
+PYTHONDONTWRITEBYTECODE = True
+
 class Config:
     # api vars
     API_BASE_URL = 'http://127.0.0.1:5000'
     GET_ARTICLES_API = 'Articles'
-    GET_ARCHIVED_WEBSITES_API = 'ArchivedWebsites'
+    GET_URLS_TO_ARCHIVE_API = 'UrlsToArchive'
 
     # file vars
     DATABASE_FILE = '/_database/VideogamesDatabase.db'
+    ARCHIVE_FOLDER = '/_website_backups'
     
 
     # website lookups

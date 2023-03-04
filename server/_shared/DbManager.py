@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 from .._shared.Config import Config
 
 class DbManager:
@@ -42,7 +43,7 @@ class DbManager:
         return articles_formatted
 
 
-    def get_archived_websites(self, limit, website_id):
+    def get_urls_to_archive(self, limit, website_id):
         # connect to db, and save
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -79,3 +80,45 @@ class DbManager:
             })
 
         return articles_formatted
+
+
+
+    def get_sql_insert_command(self, article):
+        # parse the bits we need (for folder / filename)
+        url = article['url']
+        title = article['title'].replace("'", "''") # escape single quotes (' --> '')
+        website = article['website']
+        article_type = article['type'] if 'type' in article else None
+
+        month = article['date'].split('/')[0]
+        day   = article['date'].split('/')[1]
+        year  = article['date'].split('/')[2]
+
+        date_published_epoch = (datetime(int(year), int(month), int(day)) - datetime(1970, 1, 1)).total_seconds()
+
+        # Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished
+        return f"('{title}', '{url}', {self.config.website_id_lookup[website]}, {date_published_epoch}, '{article_type}', {year}, {month}, {day})"
+
+
+    def save_articles(self, articles):
+        sql_script = f"""
+            INSERT OR IGNORE INTO
+                Article(Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished)
+            VALUES
+        """
+
+        # for each article, add it's info to insert statement
+        for article in articles:
+            sql_script += f"{self.get_sql_insert_command(article)},\n"
+
+        # chop off trailing comma
+        sql_script = sql_script[:-2]
+
+        # connect to db, and save
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+
+        # execute script, save, and close
+        result = cursor.execute(sql_script)
+        db.commit()
+        db.close()
