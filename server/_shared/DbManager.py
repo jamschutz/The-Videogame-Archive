@@ -42,10 +42,7 @@ class DbManager:
         return articles_formatted
 
 
-    def get_archived_websites(self):
-        limit = request.args.get('limit') if request.args.get('websiteId') != None else 50
-        website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
-
+    def get_archived_websites(self, limit, website_id):
         # connect to db, and save
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
