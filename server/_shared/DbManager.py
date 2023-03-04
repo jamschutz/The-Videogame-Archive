@@ -7,6 +7,17 @@ class DbManager:
         self.config = Config()
 
 
+    def run_query(self, query):
+        # connect to db, and save
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+
+        # execute script, save, and close
+        cursor.execute(query)
+        db.commit()
+        db.close()
+
+
     def get_date_query(self, year, month, day, website_id):
         query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
         if month != None:
@@ -146,3 +157,80 @@ class DbManager:
         result = cursor.execute(sql_script)
         db.commit()
         db.close()
+
+
+    def save_new_author(self, author):
+        query = f"""
+            INSERT INTO
+                Writer(Name)
+            VALUES
+                ('{author}')
+        """
+
+        # connect to db, and save
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+
+        # execute script, save, and close
+        result = cursor.execute(query)
+        db.commit()
+        db.close()
+
+
+    def get_author_id(self, author):
+        query = f"""
+            SELECT
+                Id, Name
+            FROM
+                Writer
+            WHERE
+                Name = '{author}'
+        """
+        # connect to db, and fetch
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+        result = cursor.execute(query)
+        authors = result.fetchall()
+        db.close()
+
+        # if no authors, make a new entry
+        if len(authors) == 0:
+            print(f'no author named {author} found. making a new entry...')
+            self.save_new_author(author)
+            return self.get_author_id(author)
+        # if *multiple* authors with that name, we have a problem...
+        elif len(authors) > 1:
+            raise Exception(f'ERROR!!!!! Multiple authors with the name {author} were found')
+            return None
+
+        # parse author id and return
+        author_id = authors[0][0]
+        return author_id
+
+
+    def update_article(self, article):
+        # get author id
+        author_id = self.get_author_id(article['author'])
+        subtitle = article['subtitle'] if 'subtitle' in article else ''
+
+        # build query
+        query = f"""
+            UPDATE
+                Article
+            SET
+                AuthorId = {author_id},
+                Subtitle = '{subtitle.replace("'", "''")}'
+            WHERE
+                Url = '{article['url']}'
+        """
+        self.run_query(query)
+
+
+if __name__ == '__main__':
+    db_manager = DbManager()
+    test = {
+        'url': 'https://www.gamespot.com/articles/ace-combat-4-preview/1100-2681406/',
+        'subtitle': "Ace Combat 4 gives you a chance to step into the cockpits of the world's most technologically advanced fighters. While its photo-realistic graphics clearly separate it from its PlayStation roots, you can expect the series' arcadelike gameplay to remain intact.",
+        'author': 'Chris Kirchgasler'
+    }
+    db_manager.update_article(test)

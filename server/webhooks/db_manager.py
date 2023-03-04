@@ -3,10 +3,10 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import sqlite3
 from .._shared.DbManager import DbManager
+from .._shared.Config import Config
 
 
-DATABASE_FILE = '/_database/VideogamesDatabase.db'
-
+config = Config()
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
