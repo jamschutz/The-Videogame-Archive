@@ -28,7 +28,7 @@ def get_articles_for_date():
 
 
 
-@app.route('/UnarchivedUrls', methods=['GET', 'OPTIONS'])
+@app.route('/UrlsToBeArchived', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
 def get_archived_websites():
     limit = request.args.get('limit') if request.args.get('websiteId') != None else 50
