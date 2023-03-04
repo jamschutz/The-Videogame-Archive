@@ -122,3 +122,27 @@ class DbManager:
         result = cursor.execute(sql_script)
         db.commit()
         db.close()
+
+
+    def mark_articles_as_archived(self, articles):
+        urls = []
+        for article in articles:
+            urls.append(f"'{article['url']}'")
+
+        sql_script = f"""
+            UPDATE
+                Article
+            SET
+                IsArchived = 1
+            WHERE
+                Url IN ({','.join(urls)})
+        """
+
+        # connect to db, and save
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+
+        # execute script, save, and close
+        result = cursor.execute(sql_script)
+        db.commit()
+        db.close()

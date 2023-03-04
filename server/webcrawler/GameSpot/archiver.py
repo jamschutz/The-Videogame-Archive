@@ -60,6 +60,8 @@ def archive_queued_urls(num_urls_to_archive):
         time.sleep(random.uniform(0.7, 1.6))
         counter += 1
 
+    db_manager.mark_articles_as_archived(articles_to_archive)
+
 
 
 if __name__ == '__main__':
