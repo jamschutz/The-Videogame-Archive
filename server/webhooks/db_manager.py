@@ -15,13 +15,13 @@ CORS(app, support_credentials=True)
 @app.route('/Articles', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
 def get_articles_for_date():
+    # parse params
     year = request.args.get('year')
     month = request.args.get('month')
     day = request.args.get('day')
     website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
-    print(f'year: {year}')
-
+    # fetch db data and return
     db_manager = DbManager()
     response = db_manager.get_articles_for_date(year=year, month=month, day=day, website_id=website_id)
     return jsonify(response)
@@ -31,9 +31,11 @@ def get_articles_for_date():
 @app.route('/UrlsToBeArchived', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
 def get_archived_websites():
+    # parse params
     limit = request.args.get('limit') if request.args.get('websiteId') != None else 50
     website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
+    # fetch db data and return
     db_manager = DbManager()
     response = db_manager.get_archived_websites(limit, website_id)
     return jsonify(response)
