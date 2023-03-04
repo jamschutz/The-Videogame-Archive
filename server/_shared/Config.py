@@ -3,6 +3,9 @@ class Config:
     API_BASE_URL = 'http://127.0.0.1:5000'
     GET_ARTICLES_API = 'Articles'
     GET_ARCHIVED_WEBSITES_API = 'ArchivedWebsites'
+
+    # file vars
+    DATABASE_FILE = '/_database/VideogamesDatabase.db'
     
 
     # website lookups

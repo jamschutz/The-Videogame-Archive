@@ -4,6 +4,8 @@ import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import sqlite3
+from .._shared.DbManager import DbManager
+
 
 DATABASE_FILE = '/_database/VideogamesDatabase.db'
 
@@ -11,16 +13,16 @@ DATABASE_FILE = '/_database/VideogamesDatabase.db'
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-def get_db_query(year, month, day, website_id):
-    query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
-    if month != None:
-        query += f' AND MonthPublished = {month}'
-    if day != None:
-        query += f' AND DayPublished = {day}'
-    if website_id >= 0:
-        query += f"AND WebsiteId = {website_id}"
+# def get_db_query(year, month, day, website_id):
+#     query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
+#     if month != None:
+#         query += f' AND MonthPublished = {month}'
+#     if day != None:
+#         query += f' AND DayPublished = {day}'
+#     if website_id >= 0:
+#         query += f"AND WebsiteId = {website_id}"
 
-    return query
+#     return query
 
 
 @app.route('/Articles', methods=['GET', 'OPTIONS'])
@@ -31,25 +33,32 @@ def get_articles_for_date():
     day = request.args.get('day')
     website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
-    # connect to db, and save
-    db = sqlite3.connect(DATABASE_FILE)
-    cursor = db.cursor()
+    print(f'year: {year}')
 
-    # execute script, save, and close
-    query = get_db_query(year, month, day, website_id)    
-    result = cursor.execute(query)
-    articles = result.fetchall()
-    db.close()
+    db_manager = DbManager()
+    response = db_manager.get_articles_for_date(year=year, month=month, day=day, website_id=website_id)
+    # response = db_manager.get_articles_for_date(year)
+    return jsonify(response)
 
-    articles_formatted = []
-    for article in articles:
-        articles_formatted.append({
-            'title': article[0],
-            'month': article[1],
-            'day': article[2],
-            'url': article[3],
-            'website': article[4]
-        })
+    # # connect to db, and save
+    # db = sqlite3.connect(DATABASE_FILE)
+    # cursor = db.cursor()
+
+    # # execute script, save, and close
+    # query = get_db_query(year, month, day, website_id)    
+    # result = cursor.execute(query)
+    # articles = result.fetchall()
+    # db.close()
+
+    # articles_formatted = []
+    # for article in articles:
+    #     articles_formatted.append({
+    #         'title': article[0],
+    #         'month': article[1],
+    #         'day': article[2],
+    #         'url': article[3],
+    #         'website': article[4]
+    #     })
 
     response = jsonify(articles_formatted)
     return response

@@ -1,7 +1,12 @@
 import sqlite3
+from .._shared.Config import Config
 
 class DbManager:
-    def get_date_query(year, month, day, website_id):
+    def __init__(self):
+        self.config = Config()
+
+
+    def get_date_query(self, year, month, day, website_id):
         query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
         if month != None:
             query += f' AND MonthPublished = {month}'
@@ -13,13 +18,13 @@ class DbManager:
         return query
 
 
-    def get_articles_for_date(year, month=None, day=None, website_id=-1):
+    def get_articles_for_date(self, year, month=None, day=None, website_id=-1):
         # connect to db, and save
-        db = sqlite3.connect(DATABASE_FILE)
+        db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
 
         # execute script, save, and close
-        query = get_date_query(year, month, day, website_id)    
+        query = self.get_date_query(year, month, day, website_id)    
         result = cursor.execute(query)
         articles = result.fetchall()
         db.close()
@@ -37,12 +42,12 @@ class DbManager:
         return articles_formatted
 
 
-    def get_archived_websites():
+    def get_archived_websites(self):
         limit = request.args.get('limit') if request.args.get('websiteId') != None else 50
         website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
         # connect to db, and save
-        db = sqlite3.connect(DATABASE_FILE)
+        db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
 
         # execute script, save, and close
