@@ -8,7 +8,7 @@ from server._shared.Utils import Utils
 
 WEBSITE_NAME = 'GameSpot'
 MAX_WEBSITES_TO_ARCHIVE = 1000
-BATCH_SIZE = 10
+BATCH_SIZE = 100
 
 SUBTITLE_DIV_CLASS = 'news-deck'
 AUTHOR_DIV_CLASS = 'byline-author'
@@ -74,7 +74,8 @@ def send_article_to_archive(article, raw_html):
 
 
 
-def archive_queued_urls(num_urls_to_archive):
+def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
+    actual_max = num_urls_to_archive if actual_max < 0 else actual_max
     # get articles to archive
     website_id = config.website_id_lookup[WEBSITE_NAME]
     articles_to_archive = db_manager.get_urls_to_archive(num_urls_to_archive, website_id)
@@ -82,7 +83,7 @@ def archive_queued_urls(num_urls_to_archive):
     # and archive each one
     counter = 1
     for article in articles_to_archive:
-        print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter}/{num_urls_to_archive}]')
+        print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
         # download webpage
         raw_html = requests.get(article['url']).text
         # save to filepath
@@ -109,6 +110,6 @@ def archive_queued_urls(num_urls_to_archive):
 if __name__ == '__main__':
     counter = 0
     while counter <= MAX_WEBSITES_TO_ARCHIVE:
-        archive_queued_urls(BATCH_SIZE)
+        archive_queued_urls(BATCH_SIZE, 0, MAX_WEBSITES_TO_ARCHIVE)
         counter += BATCH_SIZE
     print('done')
