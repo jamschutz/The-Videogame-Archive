@@ -27,6 +27,7 @@ def get_thumbnails_from_page(page_number, target_page='news/'):
     for div in article_divs:
         thumbnail_url = div.find('div', class_='card-item__img').img['src']
         article_date = div.find('div', class_='card-item__content').find('time')['datetime']
+        article_url = div.find('div', class_='card-item__content').a['href']
 
         # convert to datetime
         article_date = datetime.strptime(article_date, DATETIME_FORMAT)
@@ -36,24 +37,32 @@ def get_thumbnails_from_page(page_number, target_page='news/'):
             'img_url': thumbnail_url,
             'year':  article_date.split('/')[2],
             'month': article_date.split('/')[0],
-            'day':   article_date.split('/')[1]
+            'day':   article_date.split('/')[1],
+            'article_url': f'https://www.gamespot.com{article_url}'
         })
 
     return thumbnails
 
 
 if __name__ == '__main__':
-    print(get_thumbnails_from_page(4435))
-    # start_page = 4435
-    # end_page = 4435
-    # target_page = 'news/'
+    start_page = 4435
+    end_page = 4435
+    target_page = 'news/'
 
-    # page = start_page
-    # while page >= end_page:
-    #     # get thumbnails
-    #     print(f'getting thumbnails for page {page}...')
-    #     thumbnails = get_thumbnails_from_page(page, target_page)
+    page = start_page
+    while page >= end_page:
+        # get thumbnails
+        print(f'getting thumbnails for page {page}...')
+        thumbnails = get_thumbnails_from_page(page, target_page)
 
-    #     # save each one to disk
-    #     for thumbnail in thumbnails:
-    #         filename = config.url_to_filename()
+        # save each one to disk
+        for thumbnail in thumbnails:
+            file_extension = thumbnail['img_url'].split('.')[-1]
+            filename = f"{config.url_to_filename(thumbnail['article_url'], thumbnail['day'])}_thumbnail.{file_extension}"
+            filepath = f'{config.ARCHIVE_FOLDER}/GameSpot/_thumbnails/{thumbnail["year"]}/{thumbnail["month"]}'
+
+            # print(f'url {thumbnail["article_url"]}, converts to filename: {config.url_to_filename(thumbnail["article_url"], thumbnail["day"])}')
+
+            utils.save_thumbnail(thumbnail['img_url'], filename, filepath)
+
+        page -= 1
