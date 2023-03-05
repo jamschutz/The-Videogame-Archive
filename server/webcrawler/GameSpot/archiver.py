@@ -35,7 +35,8 @@ def add_article_info_to_db(article, raw_html):
         db_manager.update_article(article)
     except Exception as e:
         print(f'ERROR parsing: {article["title"]}: {str(e)}')
-        ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
+        if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
+            ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
         return
 
     
@@ -54,17 +55,6 @@ def send_article_to_archive(article, raw_html):
 
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
-
-    # # in the example below, we want 'endorfun-review_1900-2535824' -- lop off first 4 '/' sections
-    # # https://www.gamespot.com/reviews/endorfun-review/1900-2535824/
-    # # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
-    # filename = f'{day}_{"_".join(url.split("/")[4:])}'
-    # # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
-
-    # # if ends in underscore, remove it
-    # if filename[-1] == '_':
-    #     filename = filename[:-1]
-
     filename = config.url_to_filename(url, day)
 
     # make sure folder path exists
@@ -112,6 +102,6 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
 if __name__ == '__main__':
     counter = 0
     while counter <= MAX_WEBSITES_TO_ARCHIVE:
-        archive_queued_urls(BATCH_SIZE, 0, MAX_WEBSITES_TO_ARCHIVE)
+        archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
         counter += BATCH_SIZE
     print('done')

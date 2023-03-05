@@ -18,11 +18,6 @@ class Utils:
         # download image
         img_data = requests.get(img_url).content
 
-        # get file name info
-        # filepath = f'{self.config.ARCHIVE_FOLDER}/{website_name}/thumbnails/{year}/{month}'
-        # filename = f'{self.config.url_to_filename(webpage_url)}_thumbnail'
-        # file_extension = img_url.split('.')[-1]
-
         # clean up folder path
         if folderpath[-1] == '/':
             folderpath = folderpath[:-1]
