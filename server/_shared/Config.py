@@ -23,3 +23,14 @@ class Config:
         2: 'Eurogamer',
         3: 'Gameplanet'
     }
+
+
+
+    def url_to_filename(self, url, day):
+        filename = f'{day}_{"_".join(url.split("/")[4:])}'
+
+        # if ends in underscore, remove it
+        if filename[-1] == '_':
+            filename = filename[:-1]
+
+        return filename

@@ -55,15 +55,17 @@ def send_article_to_archive(article, raw_html):
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
 
-    # in the example below, we want 'endorfun-review_1900-2535824' -- lop off first 4 '/' sections
-    # https://www.gamespot.com/reviews/endorfun-review/1900-2535824/
-    # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
-    filename = f'{day}_{"_".join(url.split("/")[4:])}'
-    # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
+    # # in the example below, we want 'endorfun-review_1900-2535824' -- lop off first 4 '/' sections
+    # # https://www.gamespot.com/reviews/endorfun-review/1900-2535824/
+    # # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
+    # filename = f'{day}_{"_".join(url.split("/")[4:])}'
+    # # NOTE: IF YOU CHANGE THIS, CHANGE THE OTHER FILE'S NAMING SCHEME TOO!!!!!!!!!!!!
 
-    # if ends in underscore, remove it
-    if filename[-1] == '_':
-        filename = filename[:-1]
+    # # if ends in underscore, remove it
+    # if filename[-1] == '_':
+    #     filename = filename[:-1]
+
+    filename = config.url_to_filename(url, day)
 
     # make sure folder path exists
     pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
