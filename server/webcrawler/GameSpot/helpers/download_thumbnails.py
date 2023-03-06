@@ -44,6 +44,7 @@ def get_thumbnails_from_page(page_number, target_page='news/'):
     return thumbnails
 
 
+# last got: 3435
 if __name__ == '__main__':
     start_page = 4435
     end_page = 3435
