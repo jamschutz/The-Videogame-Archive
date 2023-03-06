@@ -65,17 +65,14 @@ class WebsiteColumn {
         let author = document.createElement('span');
         author.classList.add('article-author');
         author.innerText = article.author;
-        
-        // create new line
-        let newLine = document.createElement('br');
 
         // and add everything to the container
         containerDiv.appendChild(thumbnail);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(title);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(subtitle);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(author);
 
         // and return 
@@ -103,7 +100,11 @@ class WebsiteColumn {
 
 
     private getThumbnailUrl(article: Article) {
-        let publishDay = article.date.split("/")[1];
-        return Config.url_to_filename(article.url, publishDay) + "_thumbnail.jpg";
+        let day = article.date.split("/")[1];
+        let month = article.date.split("/")[0];
+        let year = article.date.split("/")[2];
+
+        let filename = Config.url_to_filename(article.url, day) + "_thumbnail.jpg";
+        return `${Config.LOCAL_FILE_BASE_URL}/${this.websiteName}/_thumbnails/${year}/${month}/${filename}`;
     }
 }

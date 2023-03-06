@@ -45,15 +45,13 @@ var WebsiteColumn = /** @class */ (function () {
         var author = document.createElement('span');
         author.classList.add('article-author');
         author.innerText = article.author;
-        // create new line
-        var newLine = document.createElement('br');
         // and add everything to the container
         containerDiv.appendChild(thumbnail);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(title);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(subtitle);
-        containerDiv.appendChild(newLine);
+        containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(author);
         // and return 
         return containerDiv;
@@ -72,8 +70,11 @@ var WebsiteColumn = /** @class */ (function () {
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {
-        var publishDay = article.date.split("/")[1];
-        return Config.url_to_filename(article.url, publishDay) + "_thumbnail.jpg";
+        var day = article.date.split("/")[1];
+        var month = article.date.split("/")[0];
+        var year = article.date.split("/")[2];
+        var filename = Config.url_to_filename(article.url, day) + "_thumbnail.jpg";
+        return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.websiteName, "/_thumbnails/").concat(year, "/").concat(month, "/").concat(filename);
     };
     // class declarations
     WebsiteColumn.ARTICLES_DIV_ID = 'articles';
