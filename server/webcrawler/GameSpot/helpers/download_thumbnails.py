@@ -46,7 +46,7 @@ def get_thumbnails_from_page(page_number, target_page='news/'):
 
 if __name__ == '__main__':
     start_page = 4435
-    end_page = 4435
+    end_page = 3435
     target_page = 'news/'
 
     page = start_page
@@ -60,8 +60,6 @@ if __name__ == '__main__':
             file_extension = thumbnail['img_url'].split('.')[-1]
             filename = f"{config.url_to_filename(thumbnail['article_url'], thumbnail['day'])}_thumbnail.{file_extension}"
             filepath = f'{config.ARCHIVE_FOLDER}/GameSpot/_thumbnails/{thumbnail["year"]}/{thumbnail["month"]}'
-
-            # print(f'url {thumbnail["article_url"]}, converts to filename: {config.url_to_filename(thumbnail["article_url"], thumbnail["day"])}')
 
             utils.save_thumbnail(thumbnail['img_url'], filename, filepath)
 
