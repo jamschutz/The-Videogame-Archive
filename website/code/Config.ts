@@ -13,4 +13,16 @@ class Config {
         
         return 'Unknown';
     }
+
+
+    static url_to_filename(url: string, day: string): string {
+        let filename = `${day}_${url.split("/").slice(4).join("_")}`;
+
+        // if ends in underscore, remove it
+        if(filename[filename.length - 1] === "_") {
+            filename = filename.slice(0, filename.length - 1);
+        }
+
+        return filename;
+    }
 }

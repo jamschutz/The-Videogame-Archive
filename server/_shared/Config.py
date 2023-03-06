@@ -27,6 +27,7 @@ class Config:
 
 
     def url_to_filename(self, url, day):
+        # convert https://example.com/something/TAKE_THIS_PART
         filename = f'{day}_{"_".join(url.split("/")[4:])}'
 
         # if ends in underscore, remove it
