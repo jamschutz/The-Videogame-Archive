@@ -19,7 +19,17 @@ class DbManager:
 
 
     def get_date_query(self, year, month, day, website_id):
-        query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
+        # query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
+        query = f"""
+            SELECT 
+                Article.Title, Article.MonthPublished, Article.DayPublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
+            FROM 
+                Article
+            INNER JOIN
+                Writer ON Article.AuthorId = Writer.Id
+            WHERE
+                YearPublished = {year}
+        """
         if month != None:
             query += f' AND MonthPublished = {month}'
         if day != None:
@@ -48,7 +58,9 @@ class DbManager:
                 'month': article[1],
                 'day': article[2],
                 'url': article[3],
-                'website': article[4]
+                'website': article[4],
+                'subtitle': article[5],
+                'author': article[6]
             })
 
         return articles_formatted

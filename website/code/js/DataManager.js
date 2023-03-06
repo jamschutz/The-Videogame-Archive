@@ -66,6 +66,8 @@ var DataManager = /** @class */ (function () {
                             article.url = json[i]['url'];
                             article.website = Config.websiteIdToName(json[i]['website']);
                             article.date = "".concat(month, "/").concat(day, "/").concat(year);
+                            article.author = json[i]['author'];
+                            article.subtitle = json[i]['subtitle'];
                             articles.push(article);
                         }
                         return [2 /*return*/, articles];

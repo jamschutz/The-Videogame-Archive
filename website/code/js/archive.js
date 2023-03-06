@@ -36,15 +36,36 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var dataManager = new DataManager();
+// parse url params
+var url = new URL(window.location.href);
+var day = url.searchParams.get("day");
+var month = url.searchParams.get("month");
+var year = url.searchParams.get("year");
 function printData() {
     return __awaiter(this, void 0, void 0, function () {
-        var data;
+        var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, dataManager.get_articles_for_day_async("2000", "10", "22")];
+                case 0: return [4 /*yield*/, dataManager.get_articles_for_day_async(year, month, day)];
                 case 1:
-                    data = _a.sent();
-                    console.log(data);
+                    articles = _a.sent();
+                    console.log(articles);
+                    websites = {
+                        'GameSpot': [],
+                        'Eurogamer': [],
+                        'Gameplanet': []
+                    };
+                    for (i = 0; i < articles.length; i++) {
+                        websites[articles[i].website].push(articles[i]);
+                    }
+                    articlesDiv = document.getElementById('articles');
+                    for (i = 0; i < 3; i++) {
+                        websiteName = Config.websiteIdToName(i + 1);
+                        paddingLeft = 400 * i;
+                        websiteArticles = websites[websiteName];
+                        websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
+                        articlesDiv.appendChild(websiteColumn.toHtml());
+                    }
                     return [2 /*return*/];
             }
         });

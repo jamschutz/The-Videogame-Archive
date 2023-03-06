@@ -3,7 +3,7 @@ class DataManager {
         // do nothing
     }
 
-    async get_articles_for_day_async(year: string, month: string, day: string) {
+    async get_articles_for_day_async(year: string, month: string, day: string): Promise<Article[]> {
         console.log('getting articles...');
         let response = await fetch(`${Config.API_BASE_URL}/Articles?year=${year}&month=${month}&day=${day}`, {
             method: 'GET',
@@ -22,6 +22,8 @@ class DataManager {
             article.url = json[i]['url'];
             article.website = Config.websiteIdToName(json[i]['website']);
             article.date = `${month}/${day}/${year}`;
+            article.author = json[i]['author'];
+            article.subtitle = json[i]['subtitle'];
 
             articles.push(article);
         }
