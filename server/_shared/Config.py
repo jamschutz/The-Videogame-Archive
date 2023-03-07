@@ -30,8 +30,20 @@ class Config:
         # convert https://example.com/something/TAKE_THIS_PART
         filename = f'{day}_{"_".join(url.split("/")[4:])}'
 
+        # if it has url parameters, remove them
+        if '?' in filename:
+            filename = filename[:filename.find('?')]
+
         # if ends in underscore, remove it
         if filename[-1] == '_':
             filename = filename[:-1]
 
         return filename
+
+
+if __name__ == '__main__':
+    config = Config()
+    test_url = 'https://www.gamespot.com/review/destiny-the-taken-king/?slug=destiny-the-taken-king-review-in-progress&typeId=1100&id=6430557'
+    test_day = '04'
+
+    print(config.url_to_filename(test_url, test_day))
