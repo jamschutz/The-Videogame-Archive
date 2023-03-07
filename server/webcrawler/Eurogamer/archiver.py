@@ -10,8 +10,9 @@ WEBSITE_NAME = 'Eurogamer'
 MAX_WEBSITES_TO_ARCHIVE = 15000
 BATCH_SIZE = 500
 
-SUBTITLE_DIV_CLASS = 'news-deck'
-AUTHOR_DIV_CLASS = 'byline-author'
+SUBTITLE_DIV_CLASS = 'synopsis'
+AUTHOR_DIV_CLASS = 'author'
+ARTICLE_TYPE_DIV_CLASS = 'article_type'
 
 
 # initialize helpers
@@ -49,11 +50,21 @@ def get_article_data(article, raw_html):
 
     try:
         # add info we need
-        article['subtitle'] = soup.find('p', class_=SUBTITLE_DIV_CLASS).text.strip()
-        article['author'] = soup.find('span', class_=AUTHOR_DIV_CLASS).a.text.strip()
+        # not all articles have subtitles...
+        article['subtitle'] = soup.find('section', class_=SUBTITLE_DIV_CLASS)
+        if article['subtitle'] == None:
+            article['subtitle'] = ''
+        else:
+            article['subtitle'] = article['subtitle'].text.strip()
+
+        article['author'] = soup.find('div', class_=AUTHOR_DIV_CLASS).find('span', class_='name').a.text.strip()
+        article['type'] = soup.find('span', class_=ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
+        article['thumbnail_url'] = get_thumbnail_url(soup)
+
+        return article
 
         # save to db
-        db_manager.update_article(article)
+        # db_manager.update_article(article)
     except Exception as e:
         print(f'ERROR parsing: {article["title"]}: {str(e)}')
         if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
@@ -144,6 +155,7 @@ if __name__ == '__main__':
     #     archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
     #     counter += BATCH_SIZE
     # print('done')
-    raw_html = requests.get('https://www.eurogamer.net/article-25042').text
-    soup = BeautifulSoup(raw_html, 'lxml')
-    print(get_thumbnail_url(soup))
+
+    raw_html = requests.get('https://www.eurogamer.net/atomic-heart-review-confusion-and-fear-reflects-the-growing-concerns-of-an-industry').text
+    test_article = {}
+    print(get_article_data(test_article, raw_html))
