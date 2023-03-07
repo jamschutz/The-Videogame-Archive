@@ -7,8 +7,9 @@ from server._shared.Utils import Utils
 
 
 WEBSITE_NAME = 'Eurogamer'
-MAX_WEBSITES_TO_ARCHIVE = 15000
-BATCH_SIZE = 500
+WEBSITE_ID = 2
+MAX_WEBSITES_TO_ARCHIVE = 1
+BATCH_SIZE = 1
 
 SUBTITLE_DIV_CLASS = 'synopsis'
 AUTHOR_DIV_CLASS = 'author'
@@ -69,27 +70,23 @@ def get_article_data(article, raw_html):
         print(f'ERROR parsing: {article["title"]}: {str(e)}')
         if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
             ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
-        return
-
-
-def add_article_info_to_db(article, raw_html):
-    # parse html
-    soup = BeautifulSoup(raw_html, 'lxml')
-
-    try:
-        # add info we need
-        article['subtitle'] = soup.find('p', class_=SUBTITLE_DIV_CLASS).text.strip()
-        article['author'] = soup.find('span', class_=AUTHOR_DIV_CLASS).a.text.strip()
-
-        # save to db
-        db_manager.update_article(article)
-    except Exception as e:
-        print(f'ERROR parsing: {article["title"]}: {str(e)}')
-        if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
-            ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
-        return
+        return None
+        
 
     
+def send_thumbnail_to_archive(article):
+    thumbnail_url = article['thumbnail_url']
+    article_url = article['url']
+    month = utils.get_two_char_int_string(article['month'])
+    day   = utils.get_two_char_int_string(article['day'])
+    year  = article['year']
+
+    # if there's no file extension, just slap a .jpg on it
+    file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
+    filename = f"{config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
+    filepath = f'{config.ARCHIVE_FOLDER}/Eurogamer/_thumbnails/{year}/{month}'
+
+    utils.save_thumbnail(thumbnail_url, filename, filepath)
 
 
 
@@ -105,7 +102,7 @@ def send_article_to_archive(article, raw_html):
 
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
-    filename = config.url_to_filename(url, day)
+    filename = config.url_to_filename(url, day, WEBSITE_ID)
 
     # make sure folder path exists
     pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
@@ -113,6 +110,9 @@ def send_article_to_archive(article, raw_html):
     # and save
     with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
         html_file.write(raw_html)
+
+    # and also save the thumbnail
+    send_thumbnail_to_archive(article)
 
 
 
@@ -126,12 +126,19 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     counter = 1
     for article in articles_to_archive:
         print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
+        
         # download webpage
         raw_html = requests.get(article['url']).text
-        # save to filepath
-        send_article_to_archive(article, raw_html)
-        # and update its info in the DB
-        add_article_info_to_db(article, raw_html)
+
+        # get article data
+        article = get_article_data(article, raw_html)
+        
+        # if None, something went wrong, just skip
+        if article != None:
+            # save to filepath
+            send_article_to_archive(article, raw_html)
+            # and update its info in the DB
+            db_manager.update_article(article)
 
         # don't spam
         time.sleep(random.uniform(0.7, 1.6))
@@ -150,12 +157,8 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
 
 
 if __name__ == '__main__':
-    # counter = 0
-    # while counter <= MAX_WEBSITES_TO_ARCHIVE:
-    #     archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
-    #     counter += BATCH_SIZE
-    # print('done')
-
-    raw_html = requests.get('https://www.eurogamer.net/atomic-heart-review-confusion-and-fear-reflects-the-growing-concerns-of-an-industry').text
-    test_article = {}
-    print(get_article_data(test_article, raw_html))
+    counter = 0
+    while counter <= MAX_WEBSITES_TO_ARCHIVE:
+        archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
+        counter += BATCH_SIZE
+    print('done')

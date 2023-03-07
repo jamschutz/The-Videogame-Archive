@@ -26,9 +26,14 @@ class Config:
 
 
 
-    def url_to_filename(self, url, day):
-        # convert https://example.com/something/TAKE_THIS_PART
-        filename = f'{day}_{"_".join(url.split("/")[4:])}'
+    def url_to_filename(self, url, day, website_id=1):
+        filename = ''
+        if website_id == 1:
+            # convert https://example.com/something/TAKE_THIS_PART
+            filename = f'{day}_{"_".join(url.split("/")[4:])}'
+        else:
+            # convert https://www.eurogamer.net/TAKE_THIS_PART
+            filename = f'{day}_{"_".join(url.split("/")[3:])}'
 
         # if it has url parameters, remove them
         if '?' in filename:
