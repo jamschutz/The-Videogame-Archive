@@ -224,6 +224,8 @@ class DbManager:
         # get author id
         author_id = self.get_author_id(article['author'])
         subtitle = article['subtitle'] if 'subtitle' in article else ''
+        article_type = article['type'] if 'type' in article else None
+        set_type_query = f",Type = '{article_type}'" if article_type != None else ''
 
         # build query
         query = f"""
@@ -232,6 +234,7 @@ class DbManager:
             SET
                 AuthorId = {author_id},
                 Subtitle = '{subtitle.replace("'", "''")}'
+                {set_type_query}
             WHERE
                 Url = '{article['url']}'
         """

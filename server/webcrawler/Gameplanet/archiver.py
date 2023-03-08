@@ -6,14 +6,18 @@ from server._shared.DbManager import DbManager
 from server._shared.Utils import Utils
 
 
-WEBSITE_NAME = 'Eurogamer'
-WEBSITE_ID = 2
+#=============================================
+# CHANGE THESE IF YOU COPY TO NEW FILE!!!!!!!!
+WEBSITE_NAME = 'Gameplanet'
+WEBSITE_ID = 3
+# CHANGE THESE IF YOU COPY TO NEW FILE!!!!!!!!
+#=============================================
+
 MAX_WEBSITES_TO_ARCHIVE = 15000
 BATCH_SIZE = 500
 
-SUBTITLE_DIV_CLASS = 'synopsis'
+SUBTITLE_DIV_CLASS = 'abstract'
 AUTHOR_DIV_CLASS = 'author'
-ARTICLE_TYPE_DIV_CLASS = 'article_type'
 
 
 # initialize helpers
@@ -25,23 +29,23 @@ ARTICLES_THAT_FAILED_TO_PARSE = []
 
 
 def get_thumbnail_url(soup):
-    thumbnail_url = soup.find('img', class_='headline_image')
+    thumbnail_url = soup.find('div', id='gridSliceArticleTitleImage')
 
-    # if no image, return Eurogamer's placeholder
+    # if no image, return None
     if(thumbnail_url == None):
-        return 'https://www.eurogamer.net/static/img/placeholder.png'
+        return None
 
     # otherwise, we want to turn something like this:
-    #               https://img.jpg/resize/690%3E/format/jpg/img.jpg
-    # into this:    https://img.jpg/thumbnail/384x216/format/jpg/img.jpg
-    # e.g.: replace '/resize/690%30E/' with '/thumbnail/384x216/'
-    thumbnail_url = thumbnail_url['src']
-    split_index = thumbnail_url.find('/resize/690%3E/')
+    #               https://url/article_title_large/img.jpg
+    # into this:    https://url/feature_small/img.jpg
+    # e.g.: replace 'article_title_large' with '/feature_small/'
+    thumbnail_url = thumbnail_url.img['src']
+    split_index = thumbnail_url.find('/article_title_large/')
 
     url_part1 = thumbnail_url[:split_index]
-    url_part2 = thumbnail_url[split_index + len('/resize/690%30E/') - 1:]
+    url_part2 = thumbnail_url[split_index + len('/article_title_large/'):]
 
-    return f'{url_part1}/thumbnail/384x216/{url_part2}'
+    return f'{url_part1}/feature_small/{url_part2}'
 
 
 
@@ -52,14 +56,13 @@ def get_article_data(article, raw_html):
     try:
         # add info we need
         # not all articles have subtitles...
-        article['subtitle'] = soup.find('section', class_=SUBTITLE_DIV_CLASS)
+        article['subtitle'] = soup.find('h2', class_=SUBTITLE_DIV_CLASS)
         if article['subtitle'] == None:
             article['subtitle'] = ''
         else:
             article['subtitle'] = article['subtitle'].text.strip()
 
-        article['author'] = soup.find('div', class_=AUTHOR_DIV_CLASS).find('span', class_='name').a.text.strip()
-        article['type'] = soup.find('span', class_=ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
+        article['author'] = soup.find('a', class_=AUTHOR_DIV_CLASS).text.strip()
         article['thumbnail_url'] = get_thumbnail_url(soup)
 
         return article
@@ -74,6 +77,10 @@ def get_article_data(article, raw_html):
     
 def send_thumbnail_to_archive(article):
     thumbnail_url = article['thumbnail_url']
+    # if no thumbnail, just bail
+    if thumbnail_url == None:
+        return
+
     article_url = article['url']
     month = utils.get_two_char_int_string(article['month'])
     day   = utils.get_two_char_int_string(article['day'])
@@ -82,7 +89,7 @@ def send_thumbnail_to_archive(article):
     # if there's no file extension, just slap a .jpg on it
     file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
     filename = f"{config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
-    filepath = f'{config.ARCHIVE_FOLDER}/Eurogamer/_thumbnails/{year}/{month}'
+    filepath = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/_thumbnails/{year}/{month}'
 
     utils.save_thumbnail(thumbnail_url, filename, filepath)
 
