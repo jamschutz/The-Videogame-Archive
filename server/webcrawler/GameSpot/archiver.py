@@ -7,7 +7,7 @@ from server._shared.Utils import Utils
 
 
 WEBSITE_NAME = 'GameSpot'
-MAX_WEBSITES_TO_ARCHIVE = 15000
+MAX_WEBSITES_TO_ARCHIVE = 5000
 BATCH_SIZE = 500
 
 SUBTITLE_DIV_CLASS = 'news-deck'

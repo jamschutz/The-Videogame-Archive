@@ -8,8 +8,8 @@ from server._shared.Utils import Utils
 
 WEBSITE_NAME = 'Eurogamer'
 WEBSITE_ID = 2
-MAX_WEBSITES_TO_ARCHIVE = 1
-BATCH_SIZE = 1
+MAX_WEBSITES_TO_ARCHIVE = 3000
+BATCH_SIZE = 500
 
 SUBTITLE_DIV_CLASS = 'synopsis'
 AUTHOR_DIV_CLASS = 'author'
@@ -71,7 +71,7 @@ def get_article_data(article, raw_html):
         if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
             ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
         return None
-        
+
 
     
 def send_thumbnail_to_archive(article):

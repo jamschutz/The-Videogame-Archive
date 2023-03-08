@@ -73,8 +73,12 @@ https://www.reddit.com/r/IGN/comments/yyskl5/is_there_an_easy_way_to_get_a_list_
 
 ### Gameplanet
 
-https://www.gameplanet.co.nz/features/page69/ <br/>
-https://www.gameplanet.co.nz/previews/page22/ <br/>
-https://www.gameplanet.co.nz/reviews/page56/ <br/>
-https://www.gameplanet.co.nz/news/page635/ <br/>
+https://www.gameplanet.co.nz/features/page69/ <br/> DONE
+https://www.gameplanet.co.nz/previews/page22/ <br/> DONE
+https://www.gameplanet.co.nz/reviews/page56/ <br/> DONE
+https://www.gameplanet.co.nz/news/page635/ <br/> DONE
 
+
+### Free Indie Games
+https://www.freeindiegam.es/wp-sitemap-posts-post-1.xml
+https://www.freeindiegam.es/wp-sitemap-posts-post-2.xml

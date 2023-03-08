@@ -14,7 +14,7 @@ utils = Utils()
 
 def get_thumbnails_from_page(page_number, target_page='news/'):
     # download webpage
-    url = f'https://www.gamespot.com/{target_page}?page={str(page_number)}' if page_number > 1 else f'{BASE_URL}/{target_page}'
+    url = f'https://www.gamespot.com/{target_page}?page={str(page_number)}' if page_number > 1 else f'https://www.gamespot.com/{target_page}'
     source = requests.get(url).text
     soup = BeautifulSoup(source, 'lxml')
 
@@ -46,7 +46,7 @@ def get_thumbnails_from_page(page_number, target_page='news/'):
 
 # last got: 2109
 if __name__ == '__main__':
-    start_page = 1941
+    start_page = 2
     end_page = 1
     target_page = 'news/'
 
