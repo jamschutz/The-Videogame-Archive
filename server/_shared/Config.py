@@ -16,12 +16,14 @@ class Config:
     website_id_lookup = {
         'GameSpot': 1,
         'Eurogamer': 2,
-        'Gameplanet': 3
+        'Gameplanet': 3,
+        'JayIsGames': 4
     }
     website_name_lookup = {
         1: 'GameSpot',
         2: 'Eurogamer',
-        3: 'Gameplanet'
+        3: 'Gameplanet',
+        4: 'JayIsGames'
     }
 
 

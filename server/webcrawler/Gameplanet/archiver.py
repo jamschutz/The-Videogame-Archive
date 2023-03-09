@@ -14,7 +14,7 @@ WEBSITE_ID = 3
 #=============================================
 
 MAX_WEBSITES_TO_ARCHIVE = 15000
-BATCH_SIZE = 500
+BATCH_SIZE = 100
 
 SUBTITLE_DIV_CLASS = 'abstract'
 AUTHOR_DIV_CLASS = 'author'
@@ -133,7 +133,9 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
         print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
         
         # download webpage
+        print('(getting webpage...)')
         raw_html = requests.get(article['url']).text
+        print('(done!)')
 
         # get article data
         article = get_article_data(article, raw_html)
