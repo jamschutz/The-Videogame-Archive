@@ -66,7 +66,7 @@ class DbManager:
         return articles_formatted
 
 
-    def get_urls_to_archive(self, limit, website_id):
+    def get_urls_to_archive(self, limit, website_id, urls_to_ignore=[]):
         # connect to db, and save
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -82,6 +82,13 @@ class DbManager:
         """
         if website_id > 0:
             query += f' AND WebsiteId = {website_id}'
+        if len(urls_to_ignore) > 0:
+            # make sure urls are wrapped in single quotes
+            for i in range(len(urls_to_ignore)):
+                if urls_to_ignore[i][0] != "'":
+                    urls_to_ignore[i] = f"'{urls_to_ignore[i]}'"
+
+            query += f' AND Url NOT IN ({",".join(urls_to_ignore)})'
 
         query += f"""
             LIMIT {limit}

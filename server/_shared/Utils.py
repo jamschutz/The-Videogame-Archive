@@ -1,6 +1,7 @@
 import requests
 from server._shared.Config import Config
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 class Utils:
     def __init__(self):
@@ -28,6 +29,34 @@ class Utils:
         # and write to disk
         with open(f'{folderpath}/{filename}', 'wb') as f:
             f.write(img_data)
+
+
+    def inject_css(self, raw_html, base_url):
+        soup = BeautifulSoup(raw_html, 'lxml')
+
+        # find all referenced css links
+        css_links = soup.find_all('link', rel="stylesheet")
+
+        # download each file, and store its contents in a list
+        css = ''
+        for css_link in css_links:
+            href = f"{base_url}{css_link['href']}"
+            css += requests.get(href).text + "\n"
+
+            # remove this css element from the html
+            css_link.decompose()
+
+        # find head element
+        head = soup.find('head')
+
+        # create css style element
+        css_style = soup.new_tag("style")
+        css_style.string = css
+
+        # and add to the head
+        head.append(css_style)
+
+        return str(soup)
 
 
 if __name__ == '__main__':

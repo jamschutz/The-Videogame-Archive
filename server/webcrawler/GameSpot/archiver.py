@@ -4,6 +4,7 @@ import requests, json, time, random
 from server._shared.Config import Config
 from server._shared.DbManager import DbManager
 from server._shared.Utils import Utils
+from .helpers.ignore_these_articles import get_articles_to_ignore
 
 
 WEBSITE_NAME = 'GameSpot'
@@ -28,8 +29,8 @@ def add_article_info_to_db(article, raw_html):
 
     try:
         # add info we need
-        article['subtitle'] = soup.find('p', class_=SUBTITLE_DIV_CLASS).text.strip()
-        article['author'] = soup.find('span', class_=AUTHOR_DIV_CLASS).a.text.strip()
+        article['subtitle'] = soup.find('p', class_=SUBTITLE_DIV_CLASS).text.strip().replace("'", "''")
+        article['author'] = soup.find('span', class_=AUTHOR_DIV_CLASS).a.text.strip().replace("'", "''")
 
         # save to db
         db_manager.update_article(article)
@@ -68,9 +69,10 @@ def send_article_to_archive(article, raw_html):
 
 def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     actual_max = num_urls_to_archive if actual_max < 0 else actual_max
+    articles_to_ignore = get_articles_to_ignore()
     # get articles to archive
     website_id = config.website_id_lookup[WEBSITE_NAME]
-    articles_to_archive = db_manager.get_urls_to_archive(num_urls_to_archive, website_id)
+    articles_to_archive = db_manager.get_urls_to_archive(num_urls_to_archive, website_id, urls_to_ignore=articles_to_ignore)
 
     # and archive each one
     counter = 1
@@ -105,3 +107,19 @@ if __name__ == '__main__':
         archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
         counter += BATCH_SIZE
     print('done')
+
+    # article = {
+    #     'url': 'https://www.gamespot.com/articles/full-twitch-support-for-the-xbox-one-to-be-release/1100-6437135/',
+    #     'month': 2,
+    #     'day': 25,
+    #     'year': 2014,
+    #     'title': 'Full Twitch support for the Xbox One to be released in March'
+    # }
+    # raw_html = requests.get(article['url']).text
+    
+    # # download webpage
+    # raw_html = requests.get(article['url']).text
+    # # save to filepath
+    # send_article_to_archive(article, raw_html)
+    # # and update its info in the DB
+    # add_article_info_to_db(article, raw_html)
