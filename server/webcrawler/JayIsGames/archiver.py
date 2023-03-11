@@ -9,8 +9,8 @@ from server._shared.Utils import Utils
 BASE_URL = 'https://jayisgames.com'
 WEBSITE_NAME = 'JayIsGames'
 WEBSITE_ID = 4
-MAX_WEBSITES_TO_ARCHIVE = 500
-BATCH_SIZE = 50
+MAX_WEBSITES_TO_ARCHIVE = 12000
+BATCH_SIZE = 500
 
 AUTHOR_DIV_CLASS = 'author'
 ARTICLE_TYPE_DIV_CLASS = 'article_type'
@@ -25,14 +25,6 @@ ARTICLES_THAT_FAILED_TO_PARSE = []
 
 
 def get_html(url):
-    # raw_html = requests.get(url).text
-    # soup = BeautifulSoup(raw_html, 'lxml')
-
-    # # find all referenced css links
-    # css_links = soup.find_all('link', rel="stylesheet")
-    # for css in css_links:
-    #     href = f"{BASE_URL}{css['href']}"
-
     # return soup
     raw_html = requests.get(url).text
     raw_html = utils.inject_css(raw_html, BASE_URL)
@@ -98,7 +90,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
         print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
         
         # download webpage
-        raw_html = requests.get(article['url']).text
+        raw_html = get_html(article['url'])
 
         # get article data
         article = get_article_data(article, raw_html)
@@ -129,14 +121,8 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
 
 
 if __name__ == '__main__':
-    # counter = 0
-    # while counter < MAX_WEBSITES_TO_ARCHIVE:
-    #     archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
-    #     counter += BATCH_SIZE
-    # print('done')
-
-    url = 'https://jayisgames.com/review/deserted-island-2.php'
-    html = get_html(url)
-
-    with open('test.html', "w", encoding="utf-8") as html_file:
-        html_file.write(html)
+    counter = 0
+    while counter < MAX_WEBSITES_TO_ARCHIVE:
+        archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
+        counter += BATCH_SIZE
+    print('done')
