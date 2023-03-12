@@ -31,7 +31,12 @@ var WebsiteColumn = /** @class */ (function () {
         // create thumbnail
         var thumbnail = document.createElement("img");
         thumbnail.classList.add('article-thumbnail');
-        thumbnail.src = this.getThumbnailUrl(article);
+        var thumbnailSrc = this.getThumbnailUrl(article);
+        thumbnail.src = "".concat(thumbnailSrc, ".jpg");
+        thumbnail.onerror = function () {
+            this.onerror = null;
+            this.src = "".concat(thumbnailSrc, ".png");
+        };
         // create title
         var title = document.createElement('a');
         title.href = article.url;
@@ -70,10 +75,11 @@ var WebsiteColumn = /** @class */ (function () {
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {
-        var day = article.date.split("/")[1];
-        var month = article.date.split("/")[0];
-        var year = article.date.split("/")[2];
-        var filename = Config.url_to_filename(article.url, day) + "_thumbnail.jpg";
+        var day = Utils.getTwoCharNum(article.date.split("/")[1]);
+        var month = Utils.getTwoCharNum(article.date.split("/")[0]);
+        var year = Utils.getTwoCharNum(article.date.split("/")[2]);
+        var websiteId = Config.websiteNameToId(this.websiteName);
+        var filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";
         return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.websiteName, "/_thumbnails/").concat(year, "/").concat(month, "/").concat(filename);
     };
     // class declarations

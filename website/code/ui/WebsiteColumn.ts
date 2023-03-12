@@ -48,7 +48,13 @@ class WebsiteColumn {
         // create thumbnail
         let thumbnail = document.createElement("img");
         thumbnail.classList.add('article-thumbnail');
-        thumbnail.src = this.getThumbnailUrl(article);
+
+        let thumbnailSrc = this.getThumbnailUrl(article);
+        thumbnail.src = `${thumbnailSrc}.jpg`;
+        thumbnail.onerror = function() {
+            this.onerror=null;
+            this.src= `${thumbnailSrc}.png`;
+        }
 
         // create title
         let title = document.createElement('a');
@@ -100,11 +106,12 @@ class WebsiteColumn {
 
 
     private getThumbnailUrl(article: Article) {
-        let day = article.date.split("/")[1];
-        let month = article.date.split("/")[0];
-        let year = article.date.split("/")[2];
+        let day = Utils.getTwoCharNum(article.date.split("/")[1]);
+        let month = Utils.getTwoCharNum(article.date.split("/")[0]);
+        let year = Utils.getTwoCharNum(article.date.split("/")[2]);
+        let websiteId = Config.websiteNameToId(this.websiteName);
 
-        let filename = Config.url_to_filename(article.url, day) + "_thumbnail.jpg";
+        let filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";
         return `${Config.LOCAL_FILE_BASE_URL}/${this.websiteName}/_thumbnails/${year}/${month}/${filename}`;
     }
 }
