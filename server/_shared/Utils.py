@@ -1,6 +1,7 @@
 import requests
 from server._shared.Config import Config
 from pathlib import Path
+from url_normalize import url_normalize
 from bs4 import BeautifulSoup
 
 class Utils:
@@ -59,13 +60,32 @@ class Utils:
         return str(soup)
 
 
-if __name__ == '__main__':
-    img_url = 'https://www.gamespot.com/a/uploads/screen_petite/1440/14409144/2230806-default-art--screen.jpg'
-    filename = ''
-    
-    config = Config()
-    filepath = f'{config.ARCHIVE_FOLDER}/GameSpot/_thumbnails/2000/02'
-    filename = f'17_john-romero-loses-daikatana_1100-2440247_thumbnail.jpg'
+    def normalize_url(self, url):
+        # run through basic normalization
+        url = url_normalize(url)
 
+        # just slap https onto everything
+        url = f"https://{url.split('://')[1]}"
+
+        # if it doesn't start with www, add it in
+        www_start = len('https://')
+        www_end = www_start + len('www')
+        if url[www_start:www_end] != 'www':
+            url = f"https://www.{url.split('://')[1]}"
+
+        # remove #some_tag at the end of urls
+        end_directory = url.split('/')[-1]
+        if len(end_directory) > 0 and end_directory.find('#') >= 0:
+            url = url[:url.rfind('#') + 1]
+        
+        # and remove url parameters
+        url = url[:url.rfind('?')]
+
+        return url
+        
+
+
+if __name__ == '__main__':
+    url = 'https://www.gamespot.com/#message_inbo'
     utils = Utils()
-    utils.save_thumbnail(img_url, filename, filepath)
+    print(utils.normalize_url(url))

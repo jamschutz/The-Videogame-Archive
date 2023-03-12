@@ -18,6 +18,17 @@ class DbManager:
         db.close()
 
 
+    def get_query(self, query):
+        # connect to db, and fetch
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+        result = cursor.execute(query)
+        result = result.fetchall()
+        db.close()
+
+        return result
+
+
     def get_date_query(self, year, month, day, website_id):
         # query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
         query = f"""
@@ -246,6 +257,7 @@ class DbManager:
                 Url = '{article['url']}'
         """
         self.run_query(query)
+
 
 
 if __name__ == '__main__':

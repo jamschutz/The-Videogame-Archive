@@ -9,7 +9,9 @@ class Config:
 
     # file vars
     DATABASE_FILE = '/_database/VideogamesDatabase.db'
+    WAYBACK_DATABASE_FILE = '/_database/WaybackDatabase.db'
     ARCHIVE_FOLDER = '/_website_backups'
+    WAYBACK_MACHINE_DUMP_FOLDER = '/_WaybackMachineDumps'
     
 
     # website lookups

@@ -3,7 +3,8 @@
 ## Setup
 
 To use this tool, you'll need the python library `Beautiful Soup` installed. Just run `pip install beautifulsoup4`.<br/><br/>
-You'll also need the html parser `lxml`: `pip install lxml`
+You'll also need the html parser `lxml`: `pip install lxml` <br/>
+As well as the url normalizer: `pip install url-normalize`
 
 ## Notes to self
 
@@ -13,6 +14,8 @@ https://www.neh.gov/grants/odh/digital-humanities-advancement-grants
 
 ### Wayback Machine API
 https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server#basic-usage
+
+NOTE: No need to store snapshots where the status code isn't `301` or `200`
 
 
 ## List of sites
