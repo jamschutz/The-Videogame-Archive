@@ -8,7 +8,6 @@ class UrlParser {
     static getDate() : CalendarDate {
         let url = new URL(window.location.href);
         let rawDate = url.searchParams.get("date");
-        console.log('got raw date: ' + rawDate);
 
         let year  = rawDate.substring(0,4);
         let month = rawDate.substring(4,6);
