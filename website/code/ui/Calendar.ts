@@ -86,7 +86,7 @@ class Calendar {
 
         // create weeks
         let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
-        let numWeekRows = (this.date.getDaysInMonth() + dayOffset) % 7;
+        let numWeekRows = (this.date.getDaysInMonth() + dayOffset) / 7;
         console.log('day offset: ' + dayOffset + ',  number of rows: ' + numWeekRows);
         for(let i = 0; i < numWeekRows; i++) {
             let week = this.getWeek(i, dayOffset);

@@ -54,7 +54,7 @@ var Calendar = /** @class */ (function () {
         container.appendChild(weekdayHeader);
         // create weeks
         var dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
-        var numWeekRows = (this.date.getDaysInMonth() + dayOffset) % 7;
+        var numWeekRows = (this.date.getDaysInMonth() + dayOffset) / 7;
         console.log('day offset: ' + dayOffset + ',  number of rows: ' + numWeekRows);
         for (var i = 0; i < numWeekRows; i++) {
             var week = this.getWeek(i, dayOffset);
