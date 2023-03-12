@@ -11,7 +11,7 @@ let year = url.searchParams.get("year");
 
 
 async function printData() {
-    let articles = await dataManager.get_articles_for_day_async(year, month, day);
+    let articles = await dataManager.get_articles_for_day_async(UrlParser.getDate());
     console.log(articles);
 
     let websites = {

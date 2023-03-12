@@ -38,14 +38,14 @@ var DataManager = /** @class */ (function () {
     function DataManager() {
         // do nothing
     }
-    DataManager.prototype.get_articles_for_day_async = function (year, month, day) {
+    DataManager.prototype.get_articles_for_day_async = function (date) {
         return __awaiter(this, void 0, void 0, function () {
             var response, json, articles, i, article;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         console.log('getting articles...');
-                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Articles?year=").concat(year, "&month=").concat(month, "&day=").concat(day), {
+                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Articles?year=").concat(date.year, "&month=").concat(date.month, "&day=").concat(date.day), {
                                 method: 'GET',
                                 headers: {
                                     'Content-Type': 'application/json'
@@ -53,24 +53,42 @@ var DataManager = /** @class */ (function () {
                             })];
                     case 1:
                         response = _a.sent();
-                        console.log('parsing json...');
                         return [4 /*yield*/, response.json()];
                     case 2:
                         json = _a.sent();
-                        console.log(json);
-                        console.log('parsing articles...');
                         articles = [];
                         for (i = 0; i < json.length; i++) {
                             article = new Article();
                             article.title = json[i]['title'];
                             article.url = json[i]['url'];
                             article.website = Config.websiteIdToName(json[i]['website']);
-                            article.date = "".concat(month, "/").concat(day, "/").concat(year);
+                            article.date = "".concat(date.month, "/").concat(date.day, "/").concat(date.year);
                             article.author = json[i]['author'];
                             article.subtitle = json[i]['subtitle'];
                             articles.push(article);
                         }
                         return [2 /*return*/, articles];
+                }
+            });
+        });
+    };
+    DataManager.get_article_count_for_day_async = function (date) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('getting articles...');
+                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/ArticleCount?year=").concat(date.year, "&month=").concat(date.month, "&day=").concat(date.day), {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.json()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });

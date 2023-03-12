@@ -26,7 +26,7 @@ class Calendar {
     // ====== Public methods ============================= //
     // =================================================== //
 
-    public updateHtml(): HTMLElement {
+    public async updateHtml(): Promise<void> {
         // grab container
         let containerDiv = document.getElementById(Calendar.CONTAINER_ID);
         // clear current contents
@@ -35,14 +35,12 @@ class Calendar {
         // build elements
         let header = this.getHeader();
         let border = this.getBorder();
-        let dates = this.getDates();
+        let dates = await this.getDates();
 
         // add to container
         containerDiv.appendChild(header);
         containerDiv.appendChild(border);
         containerDiv.appendChild(dates);
-
-        return containerDiv;
     }
 
 
@@ -72,7 +70,7 @@ class Calendar {
     // =================================================== //
 
 
-    private getDates(): HTMLElement {
+    private async getDates(): Promise<HTMLElement> {
         let container = document.createElement('div');
         container.id = Calendar.CALENDAR_ID;
 
@@ -88,7 +86,7 @@ class Calendar {
         let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
         let numWeekRows = (this.date.getDaysInMonth() + dayOffset) / 7;
         for(let i = 0; i < numWeekRows; i++) {
-            let week = this.getWeek(i, dayOffset);
+            let week = await this.getWeek(i, dayOffset);
             container.append(week);
         }
 
@@ -161,7 +159,14 @@ class Calendar {
     }
 
 
-    private getWeek(weekNumber: number, offset: number): HTMLElement {
+    private async dayHasArticles(day) {
+        return await DataManager.get_article_count_for_day_async(
+            new CalendarDate(this.date.year, this.date.month, day)
+        ) > 0;
+    }
+
+
+    private async getWeek(weekNumber: number, offset: number): Promise<HTMLElement> {
         let week = document.createElement('div');
         week.classList.add(Calendar.WEEK_CLASS);
 
@@ -178,8 +183,13 @@ class Calendar {
             }
             // add date number text
             else {
-                day.classList.add(Calendar.DAY_LINK_ACTIVE);
+                // check if has articles
+                let dayHasArticles = await this.dayHasArticles(dateNumber);
+                let dayClass = dayHasArticles? Calendar.DAY_LINK_ACTIVE : Calendar.DAY_LINK_INACTIVE;
+
+                day.classList.add(dayClass);
                 day.innerText = dateNumber.toString();
+                // day.href = window.location.href = `/html/archive.html?date=${this.date.year}${Utils.getTwoCharNum(this.date.month)}${Utils.getTwoCharNum(this.date.day)}`;
             }
 
             // if this is the current date, highlight it

@@ -259,7 +259,7 @@ class DbManager:
         self.run_query(query)
 
 
-    def get_article_count_for_date(self, year, month, day):
+    def get_article_count_between_dates(self, start, end):
         # build query
         query = f"""
             SELECT
@@ -267,7 +267,7 @@ class DbManager:
             FROM
                 Article
             WHERE
-                YearPublished = {year} AND MonthPublished = {month} AND DayPublished = {day}
+                DatePublished >= {start} AND DatePublished <= {end}
         """
         results = self.get_query(query)
         return len(results)

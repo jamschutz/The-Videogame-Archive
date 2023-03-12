@@ -47,7 +47,7 @@ function printData() {
         var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, dataManager.get_articles_for_day_async(year, month, day)];
+                case 0: return [4 /*yield*/, dataManager.get_articles_for_day_async(UrlParser.getDate())];
                 case 1:
                     articles = _a.sent();
                     console.log(articles);
