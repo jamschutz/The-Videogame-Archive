@@ -37,11 +37,6 @@ class Calendar {
         let border = this.getBorder();
         let dates = this.getDates();
 
-        console.log(containerDiv);
-        console.log(header);
-        console.log(border);
-        console.log(dates);
-
         // add to container
         containerDiv.appendChild(header);
         containerDiv.appendChild(border);
@@ -90,8 +85,9 @@ class Calendar {
         container.appendChild(weekdayHeader);
 
         // create weeks
-        let dayOffset = this.date.getWeekdayInt() - 1;
+        let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
         let numWeekRows = (this.date.getDaysInMonth() + dayOffset) % 7;
+        console.log('day offset: ' + dayOffset + ',  number of rows: ' + numWeekRows);
         for(let i = 0; i < numWeekRows; i++) {
             let week = this.getWeek(i, dayOffset);
             container.append(week);

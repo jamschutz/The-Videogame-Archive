@@ -87,6 +87,8 @@ class CalendarDate {
     public getWeekdayInt(): number {
         let helper = new Date(this.toString());
         let weekday = helper.toLocaleString('en-us', {weekday:'short'})
+
+        console.log(`getting weekday int for date ${this.toString()}, got weekday: ${weekday}`);
         
         if(weekday === 'Sun') return 1;
         if(weekday === 'Mon') return 2;

@@ -14,10 +14,6 @@ var Calendar = /** @class */ (function () {
         var header = this.getHeader();
         var border = this.getBorder();
         var dates = this.getDates();
-        console.log(containerDiv);
-        console.log(header);
-        console.log(border);
-        console.log(dates);
         // add to container
         containerDiv.appendChild(header);
         containerDiv.appendChild(border);
@@ -57,8 +53,9 @@ var Calendar = /** @class */ (function () {
         });
         container.appendChild(weekdayHeader);
         // create weeks
-        var dayOffset = this.date.getWeekdayInt() - 1;
+        var dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
         var numWeekRows = (this.date.getDaysInMonth() + dayOffset) % 7;
+        console.log('day offset: ' + dayOffset + ',  number of rows: ' + numWeekRows);
         for (var i = 0; i < numWeekRows; i++) {
             var week = this.getWeek(i, dayOffset);
             container.append(week);
