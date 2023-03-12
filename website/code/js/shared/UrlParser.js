@@ -1,0 +1,18 @@
+var UrlParser = /** @class */ (function () {
+    function UrlParser() {
+        // do nothing
+    }
+    // date should be in format YYYYMMDD
+    UrlParser.getDate = function () {
+        var url = new URL(window.location.href);
+        var rawDate = url.searchParams.get("date");
+        console.log('got raw date: ' + rawDate);
+        var year = rawDate.substring(0, 4);
+        var month = rawDate.substring(4, 6);
+        var day = rawDate.substring(6);
+        var date = new CalendarDate(year, month, day);
+        console.log("got date: ".concat(date.toString()));
+        return date;
+    };
+    return UrlParser;
+}());

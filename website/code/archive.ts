@@ -36,3 +36,4 @@ async function printData() {
 
 
 printData();
+let calendar = new Calendar();

@@ -72,3 +72,4 @@ function printData() {
     });
 }
 printData();
+var calendar = new Calendar();
