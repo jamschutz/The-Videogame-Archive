@@ -142,7 +142,7 @@ class Calendar {
 
         // figure out how tall it should be...
         let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
-        let numWeekRows = Math.floor((this.date.getDaysInMonth() + dayOffset) / 7);
+        let numWeekRows = Math.floor((this.date.getDaysInMonth() + dayOffset - 1) / 7);
 
         if(numWeekRows === 5) {
             border.style.height = '239px';
