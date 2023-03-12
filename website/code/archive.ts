@@ -1,6 +1,7 @@
 // export {}
 
 let dataManager = new DataManager();
+let calendar = new Calendar();
 
 // parse url params
 let url = new URL(window.location.href);
@@ -34,6 +35,29 @@ async function printData() {
     }
 }
 
+// calendar button functions
+function goToNextCalendarMonth() {
+    calendar.goToNextMonth();
+}
+function goToNextCalendarYear() {
+    calendar.goToNextYear();
+}
+function goToPreviousCalendarMonth() {
+    calendar.goToPreviousMonth();
+}
+function goToPreviousCalendarYear() {
+    calendar.goToPreviousYear();
+}
+
 
 printData();
-let calendar = new Calendar();
+
+// on window load
+(function(window, document, undefined) {  
+    window.onload = init;
+  
+    function init(){
+        calendar.updateHtml();
+    }
+  
+})(window, document, undefined);

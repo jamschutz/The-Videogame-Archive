@@ -61,6 +61,7 @@ class Utils:
 
 
     def normalize_url(self, url):
+        url = url.replace('..', '.')
         # run through basic normalization
         url = url_normalize(url)
 

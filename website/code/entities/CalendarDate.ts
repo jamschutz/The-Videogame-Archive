@@ -22,6 +22,50 @@ class CalendarDate {
     }
 
 
+    public addDay(): void {
+        this.day++;
+
+        if(this.day > this.getDaysInMonth()) {
+            this.day = 1;
+            this.addMonth();
+        }
+    }
+    public subtractDay(): void {
+        this.day--;
+
+        if(this.day < 1) {
+            this.subtractMonth();
+            this.day = this.getDaysInMonth();
+        }
+    }
+
+
+    public addMonth(): void {
+        this.month++;
+
+        if(this.month > 12) {
+            this.month = 1;
+            this.year++;
+        }
+    }
+    public subtractMonth(): void {
+        this.month--;
+
+        if(this.month < 1) {
+            this.month = 12;
+            this.year--;
+        }
+    }
+
+
+    public addYear(): void {
+        this.year++;
+    }
+    public subtractYear(): void {
+        this.year--;
+    }
+
+
     public getDaysInMonth(): number {
         switch(this.month) {
             case 1: return 31;
@@ -37,6 +81,23 @@ class CalendarDate {
             case 11: return 30;
             case 12: return 31;
         }
+    }
+
+
+    public getWeekdayInt(): number {
+        let helper = new Date(this.toString());
+        let weekday = helper.toLocaleString('en-us', {weekday:'short'})
+        
+        if(weekday === 'Sun') return 1;
+        if(weekday === 'Mon') return 2;
+        if(weekday === 'Tue') return 3;
+        if(weekday === 'Wed') return 4;
+        if(weekday === 'Thu') return 5;
+        if(weekday === 'Fri') return 6;
+        if(weekday === 'Sat') return 7;
+
+        console.error(`unknown weekday: ${weekday}`);
+        return 0;
     }
 
 

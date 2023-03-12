@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var dataManager = new DataManager();
+var calendar = new Calendar();
 // parse url params
 var url = new URL(window.location.href);
 var day = url.searchParams.get("day");
@@ -71,5 +72,24 @@ function printData() {
         });
     });
 }
+// calendar button functions
+function goToNextCalendarMonth() {
+    calendar.goToNextMonth();
+}
+function goToNextCalendarYear() {
+    calendar.goToNextYear();
+}
+function goToPreviousCalendarMonth() {
+    calendar.goToPreviousMonth();
+}
+function goToPreviousCalendarYear() {
+    calendar.goToPreviousYear();
+}
 printData();
-var calendar = new Calendar();
+// on window load
+(function (window, document, undefined) {
+    window.onload = init;
+    function init() {
+        calendar.updateHtml();
+    }
+})(window, document, undefined);

@@ -26,11 +26,26 @@ class Calendar {
     // ====== Public methods ============================= //
     // =================================================== //
 
-    public toHtml(): HTMLElement {
-        let containerDiv = this.getCalendarContainer();
+    public updateHtml(): HTMLElement {
+        // grab container
+        let containerDiv = document.getElementById(Calendar.CONTAINER_ID);
+        // clear current contents
+        containerDiv.innerHTML = "";
+
+        // build elements
         let header = this.getHeader();
         let border = this.getBorder();
+        let dates = this.getDates();
 
+        console.log(containerDiv);
+        console.log(header);
+        console.log(border);
+        console.log(dates);
+
+        // add to container
+        containerDiv.appendChild(header);
+        containerDiv.appendChild(border);
+        containerDiv.appendChild(dates);
 
         return containerDiv;
     }
@@ -39,16 +54,20 @@ class Calendar {
     // button functions 
     // note: need the 'any' return type for the onclick to work
     public goToNextMonth(): any {
-
+        this.date.addMonth();
+        this.updateHtml();
     }
     public goToPreviousMonth(): any {
-        
+        this.date.subtractMonth();
+        this.updateHtml();
     }
     public goToNextYear(): any {
-
+        this.date.addYear();
+        this.updateHtml();
     }
     public goToPreviousYear(): any {
-        
+        this.date.subtractYear();
+        this.updateHtml();
     }
 
 
@@ -60,6 +79,7 @@ class Calendar {
 
     private getDates(): HTMLElement {
         let container = document.createElement('div');
+        container.id = Calendar.CALENDAR_ID;
 
         // create weekday header
         let weekdayHeader = document.createElement('div');
@@ -67,8 +87,17 @@ class Calendar {
         ['S', 'M', 'T', 'W', 'T', 'F', 'S'].forEach(d => {
             weekdayHeader.appendChild(this.getWeekdayLabel(d));
         });
+        container.appendChild(weekdayHeader);
 
-                
+        // create weeks
+        let dayOffset = this.date.getWeekdayInt() - 1;
+        let numWeekRows = (this.date.getDaysInMonth() + dayOffset) % 7;
+        for(let i = 0; i < numWeekRows; i++) {
+            let week = this.getWeek(i, dayOffset);
+            container.append(week);
+        }
+
+        return container;
     }
 
 
@@ -84,16 +113,16 @@ class Calendar {
         let previousMonthButton = document.createElement('button');
 
         // add button events
-        nextYearButton.onclick = this.goToNextYear();
-        nextMonthButton.onclick = this.goToNextMonth();
-        previousYearButton.onclick = this.goToPreviousYear();
-        previousMonthButton.onclick = this.goToPreviousMonth();
+        nextYearButton.onclick = goToNextCalendarYear;
+        nextMonthButton.onclick = goToNextCalendarMonth;
+        previousYearButton.onclick = goToPreviousCalendarYear;
+        previousMonthButton.onclick = goToPreviousCalendarMonth;
 
         // add button labels
-        nextYearButton.innerText = '&gt;&gt;';
-        nextMonthButton.innerText = '&gt;';
-        previousYearButton.innerText = '&lt;&lt;';
-        previousMonthButton.innerText = '&lt;';
+        nextYearButton.innerText = '>>';
+        nextMonthButton.innerText = '>';
+        previousYearButton.innerText = '<<';
+        previousMonthButton.innerText = '<';
 
         // create date header
         let dateHeader = document.createElement('span');
@@ -111,13 +140,6 @@ class Calendar {
     }
 
 
-    private getCalendarContainer(): HTMLElement {
-        let containerDiv = document.createElement('div');
-        containerDiv.id = Calendar.CONTAINER_ID;
-        return containerDiv;
-    }
-
-
     private getBorder(): HTMLElement {
         let border = document.createElement('div');
         border.id = Calendar.BORDER_CLASS;
@@ -130,5 +152,39 @@ class Calendar {
         label.classList.add(Calendar.WEEKDAY_LABEL_CLASS);
         label.innerText = weekday;
         return label;
+    }
+
+
+    private getWeek(weekNumber: number, offset: number): HTMLElement {
+        let week = document.createElement('div');
+        week.classList.add(Calendar.WEEK_CLASS);
+
+        for(let i = 1; i <= 7; i++) {
+            let day = document.createElement('a');
+            day.classList.add(Calendar.DAY_CLASS);
+
+            let dateNumber = (i - offset) + (weekNumber * 7);
+            // not a date, just filler
+            if(dateNumber < 1 || dateNumber > this.date.getDaysInMonth()) {
+                day.classList.remove(Calendar.DAY_CLASS);
+                day.classList.add(Calendar.DAY_NO_DATE_CLASS)
+                day.innerText = '-';
+            }
+            // add date number text
+            else {
+                day.classList.add(Calendar.DAY_LINK_ACTIVE);
+                day.innerText = dateNumber.toString();
+            }
+
+            // if this is the current date, highlight it
+            if(dateNumber == this.date.day) {
+                day.id = Calendar.CURRENT_DATE_HIGHLIGHT_ID;
+            }
+            
+            // add to week
+            week.appendChild(day);
+        }
+
+        return week;
     }
 }

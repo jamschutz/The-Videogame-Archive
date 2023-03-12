@@ -6,7 +6,6 @@ var UrlParser = /** @class */ (function () {
     UrlParser.getDate = function () {
         var url = new URL(window.location.href);
         var rawDate = url.searchParams.get("date");
-        console.log('got raw date: ' + rawDate);
         var year = rawDate.substring(0, 4);
         var month = rawDate.substring(4, 6);
         var day = rawDate.substring(6);
