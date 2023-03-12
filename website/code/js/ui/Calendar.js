@@ -96,6 +96,15 @@ var Calendar = /** @class */ (function () {
     Calendar.prototype.getBorder = function () {
         var border = document.createElement('div');
         border.id = Calendar.BORDER_CLASS;
+        // figure out how tall it should be...
+        var dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
+        var numWeekRows = Math.floor((this.date.getDaysInMonth() + dayOffset) / 7);
+        if (numWeekRows === 5) {
+            border.style.height = '239px';
+        }
+        else {
+            border.style.height = '205px';
+        }
         return border;
     };
     Calendar.prototype.getWeekdayLabel = function (weekday) {
