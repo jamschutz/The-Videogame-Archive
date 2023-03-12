@@ -259,6 +259,20 @@ class DbManager:
         self.run_query(query)
 
 
+    def get_article_count_for_date(self, year, month, day):
+        # build query
+        query = f"""
+            SELECT
+                Id
+            FROM
+                Article
+            WHERE
+                YearPublished = {year} AND MonthPublished = {month} AND DayPublished = {day}
+        """
+        results = self.get_query(query)
+        return len(results)
+
+
 
 if __name__ == '__main__':
     db_manager = DbManager()

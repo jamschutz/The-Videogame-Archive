@@ -41,4 +41,18 @@ def get_urls_to_archive():
     return jsonify(response)
 
 
+@app.route('/ArticleCount', methods=['GET', 'OPTIONS'])
+@cross_origin(origin='*')
+def get_article_count_for_date():
+    # parse params
+    year = request.args.get('year')
+    month = request.args.get('month')
+    day = request.args.get('day')
+
+    # fetch db data and return
+    db_manager = DbManager()
+    response = db_manager.get_article_count_for_date(year=year, month=month, day=day)
+    return jsonify(response)
+
+
 app.run()
