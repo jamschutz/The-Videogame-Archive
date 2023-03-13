@@ -263,14 +263,15 @@ class DbManager:
         # build query
         query = f"""
             SELECT
-                Id
+                Count(*) AS NumArticles, YearPublished, MonthPublished, DayPublished
             FROM
                 Article
             WHERE
                 DatePublished >= {start} AND DatePublished <= {end}
+            GROUP BY DatePublished
         """
         results = self.get_query(query)
-        return len(results)
+        return results
 
 
 

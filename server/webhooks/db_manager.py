@@ -62,7 +62,16 @@ def get_article_count_for_date():
 
     # fetch db data and return
     db_manager = DbManager()
-    response = db_manager.get_article_count_between_dates(start=start_epoch, end=end_epoch)
+    db_result = db_manager.get_article_count_between_dates(start=start_epoch, end=end_epoch)
+
+    response = []
+    for date in db_result:
+        response.append({
+            'count': date[0],
+            'date': f'{date[2]}/{date[3]}/{date[1]}'
+        })
+
+    return jsonify(response)
     return jsonify(response)
 
 
