@@ -38,10 +38,11 @@ class SearchResult {
         let dateLabel = document.createElement('div');
         let dateInfo = new CalendarDate(year, month, day);
         dateLabel.innerText = dateInfo.toPrettyString_FullDate();
+        dateLabel.classList.add('article-date-website-panel-date');
 
         // add it all and return
-        containerDiv.appendChild(websiteLabel);
         containerDiv.appendChild(dateLabel);
+        containerDiv.appendChild(websiteLabel);
 
         return containerDiv;
     }
