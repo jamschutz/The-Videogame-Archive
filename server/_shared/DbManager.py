@@ -274,6 +274,23 @@ class DbManager:
         return results
 
 
+    def get_search_results(self, title_query, subtitle_query):
+        # build query
+        query = f"""
+            SELECT
+                Article.Title, Article.Subtitle, Article.Url, Article.YearPublished, Article.MonthPublished, Article.DayPublished, Article.WebsiteId, Writer.Name AS Author
+            FROM
+                Article
+            INNER JOIN
+                Writer
+            ON
+                Article.AuthorId = Writer.Id
+            WHERE
+                Article.Title LIKE '{title_query}' OR Article.Subtitle LIKE '{subtitle_query}'
+        """
+        return self.get_query(query)
+
+
 
 if __name__ == '__main__':
     db_manager = DbManager()

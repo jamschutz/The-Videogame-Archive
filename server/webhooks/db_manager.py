@@ -72,6 +72,38 @@ def get_article_count_for_date():
         })
 
     return jsonify(response)
+
+
+@app.route('/Search', methods=['GET', 'OPTIONS'])
+@cross_origin(origin='*')
+def get_search_results():
+    # parse params
+    title_query = request.args.get('title')
+    subtitle_query = request.args.get('subtitle')
+
+    print(f'title: {title_query}')
+
+    title_query = f'%{title_query.replace(" ", "%")}%'
+    subtitle_query = f'%{subtitle_query.replace(" ", "%")}%'
+
+    print(f'adjusted: {title_query}')
+
+    # fetch db data and return
+    db_manager = DbManager()
+    db_result = db_manager.get_search_results(title_query=title_query, subtitle_query=subtitle_query)
+
+    response = []
+    for article in db_result:
+        # Article.Title, Article.Subtitle, Article.Url, Article.YearPublished, Article.MonthPublished, Article.DayPublished, Article.WebsiteId, Writer.Name AS Author
+        response.append({
+            'title': article[0],
+            'subtitle': article[1],
+            'url': article[2],
+            'date': f'{article[4]}/{article[5]}/{article[3]}',
+            'website_id': article[6],
+            'author': article[7]
+        })
+
     return jsonify(response)
 
 

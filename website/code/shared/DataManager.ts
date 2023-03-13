@@ -3,7 +3,7 @@ class DataManager {
         // do nothing
     }
 
-    async get_articles_for_day_async(date: CalendarDate): Promise<Article[]> {
+    async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
         console.log('getting articles...');
         let response = await fetch(`${Config.API_BASE_URL}/Articles?year=${date.year}&month=${date.month}&day=${date.day}`, {
             method: 'GET',
@@ -38,5 +38,10 @@ class DataManager {
             }
         });
         return new GetArticleCountResponse(await response.json());
+    }
+
+
+    static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
+        
     }
 }
