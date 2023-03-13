@@ -40,9 +40,7 @@ var WebsiteColumn = /** @class */ (function () {
             }
             else {
                 this.onerror = null;
-                // this.style.visibility = 'hidden';
                 this.parentNode.removeChild(this);
-                // this.nextSibling.style.visibility = 'hidden';
             }
         };
         // create title
@@ -60,11 +58,13 @@ var WebsiteColumn = /** @class */ (function () {
         author.innerText = article.author;
         // and add everything to the container
         containerDiv.appendChild(thumbnail);
-        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(title);
-        // containerDiv.appendChild(document.createElement('br'));
-        containerDiv.appendChild(subtitle);
-        // containerDiv.appendChild(document.createElement('br'));
+        if (article.subtitle !== '') { // don't add subtitle div if there is none
+            containerDiv.appendChild(subtitle);
+        }
+        else { // and if there isn't a subtitle, add a new line (for the author)
+            containerDiv.appendChild(document.createElement("br"));
+        }
         containerDiv.appendChild(author);
         // and return 
         return containerDiv;
@@ -75,11 +75,12 @@ var WebsiteColumn = /** @class */ (function () {
         var label = document.createElement('span');
         label.classList.add(WebsiteColumn.WEBSITE_COLUMN_HEADER_CLASS);
         label.innerHTML = this.websiteName;
-        var newLine1 = document.createElement("br");
-        var newLine2 = document.createElement("br");
+        // let newLine1 = document.createElement("br");
+        // let newLine2 = document.createElement("br");
         websiteColumn.appendChild(label);
-        websiteColumn.appendChild(newLine1);
-        websiteColumn.appendChild(newLine2);
+        websiteColumn.appendChild(document.createElement('hr'));
+        // websiteColumn.appendChild(newLine1);
+        // websiteColumn.appendChild(newLine2);
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {
