@@ -29,14 +29,14 @@ class DataManager {
         return articles;
     }
 
-    static async get_article_count_for_day_async(date: CalendarDate): Promise<number> {
+    static async getArticleCountBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<GetArticleCountResponse> {
         console.log('getting articles...');
-        let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?year=${date.year}&month=${date.month}&day=${date.day}`, {
+        let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        return await response.json();
+        return new GetArticleCountResponse(await response.json());
     }
 }

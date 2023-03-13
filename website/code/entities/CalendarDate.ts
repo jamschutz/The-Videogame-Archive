@@ -4,8 +4,6 @@ class CalendarDate {
     public day : number;
 
     constructor(year: number | string, month: number | string, day: number | string) {
-        console.log('year: ' + year + ', month: ' + month + ', day: ' + day);
-
         this.year  = (typeof year === 'number')? year : parseInt(year);
         this.month = (typeof month === 'number')? month : parseInt(month);
         this.day   = (typeof day === 'number')? day : parseInt(day);
@@ -16,9 +14,17 @@ class CalendarDate {
         return `${this.month}/${this.day}/${this.year}`;
     }
 
+    public toUrlString(): string {
+        return `${this.year}${Utils.getTwoCharNum(this.month)}${Utils.getTwoCharNum(this.day)}`;
+    }
+
 
     public toPrettyString_MonthYear(): string {
         return `${this.getMonthString()}, ${this.year}`;
+    }
+
+    public toPrettyString_FullDate(): string {
+        return `${this.getMonthString()} ${this.day}, ${this.year}`;
     }
 
 

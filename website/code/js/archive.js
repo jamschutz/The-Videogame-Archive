@@ -1,4 +1,3 @@
-// export {}
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,14 +34,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var PADDING_BETWEEN_WEBSITE_COLUMNS = 450;
+var NUM_WEBSITES = 4;
 var dataManager = new DataManager();
 var calendar = new Calendar();
+var dateHeader = new DateHeader();
 // parse url params
 var url = new URL(window.location.href);
 var day = url.searchParams.get("day");
 var month = url.searchParams.get("month");
 var year = url.searchParams.get("year");
-function printData() {
+function initPage() {
     return __awaiter(this, void 0, void 0, function () {
         var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
         return __generator(this, function (_a) {
@@ -54,15 +56,16 @@ function printData() {
                     websites = {
                         'GameSpot': [],
                         'Eurogamer': [],
-                        'Gameplanet': []
+                        'Gameplanet': [],
+                        'JayIsGames': []
                     };
                     for (i = 0; i < articles.length; i++) {
                         websites[articles[i].website].push(articles[i]);
                     }
                     articlesDiv = document.getElementById('articles');
-                    for (i = 0; i < 3; i++) {
+                    for (i = 0; i < 4; i++) {
                         websiteName = Config.websiteIdToName(i + 1);
-                        paddingLeft = 400 * i;
+                        paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
                         websiteArticles = websites[websiteName];
                         websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
                         articlesDiv.appendChild(websiteColumn.toHtml());
@@ -71,6 +74,20 @@ function printData() {
             }
         });
     });
+}
+// buttons for the day
+function goToNextDay() {
+    var targetDate = UrlParser.getDate();
+    targetDate.addDay();
+    goToTargetDate(targetDate);
+}
+function goToPreviousDay() {
+    var targetDate = UrlParser.getDate();
+    targetDate.subtractDay();
+    goToTargetDate(targetDate);
+}
+function goToTargetDate(targetDate) {
+    window.location.href = "/html/archive.html?date=".concat(targetDate.year).concat(Utils.getTwoCharNum(targetDate.month)).concat(Utils.getTwoCharNum(targetDate.day));
 }
 // calendar button functions
 function goToNextCalendarMonth() {
@@ -85,11 +102,12 @@ function goToPreviousCalendarMonth() {
 function goToPreviousCalendarYear() {
     calendar.goToPreviousYear();
 }
-printData();
+initPage();
 // on window load
 (function (window, document, undefined) {
     window.onload = init;
     function init() {
+        dateHeader.updateHtml();
         calendar.updateHtml();
     }
 })(window, document, undefined);

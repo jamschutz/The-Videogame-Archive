@@ -83,10 +83,14 @@ class Calendar {
         container.appendChild(weekdayHeader);
 
         // create weeks
-        let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
+        let monthStart = new CalendarDate(this.date.year, this.date.month, 1);
+        let monthEnd  = new CalendarDate(this.date.year, this.date.month, this.date.getDaysInMonth());
+        let monthArticleCounts = await DataManager.getArticleCountBetweenDatesAsync(monthStart, monthEnd);
+
+        let dayOffset = monthStart.getWeekdayInt() - 1;
         let numWeekRows = (this.date.getDaysInMonth() + dayOffset) / 7;
         for(let i = 0; i < numWeekRows; i++) {
-            let week = await this.getWeek(i, dayOffset);
+            let week = await this.getWeek(i, dayOffset, monthArticleCounts);
             container.append(week);
         }
 
@@ -159,14 +163,24 @@ class Calendar {
     }
 
 
-    private async dayHasArticles(day) {
-        return await DataManager.get_article_count_for_day_async(
-            new CalendarDate(this.date.year, this.date.month, day)
-        ) > 0;
+    private dayHasArticles(day: number, articleCounts: GetArticleCountResponse): boolean {
+        let targetDate = `${this.date.month}/${day}/${this.date.year}`;
+
+        for(let i = 0; i < articleCounts.data.length; i++) {
+            let info = articleCounts.data[i];
+            let isTargetDate = info.date.toString() === targetDate;
+            
+            if(isTargetDate) {
+                return info.count > 0;
+            }
+        }
+
+        // no records for this date
+        return false;
     }
 
 
-    private async getWeek(weekNumber: number, offset: number): Promise<HTMLElement> {
+    private async getWeek(weekNumber: number, offset: number, articleCounts: GetArticleCountResponse): Promise<HTMLElement> {
         let week = document.createElement('div');
         week.classList.add(Calendar.WEEK_CLASS);
 
@@ -184,12 +198,12 @@ class Calendar {
             // add date number text
             else {
                 // check if has articles
-                let dayHasArticles = await this.dayHasArticles(dateNumber);
+                let dayHasArticles = this.dayHasArticles(dateNumber, articleCounts);
                 let dayClass = dayHasArticles? Calendar.DAY_LINK_ACTIVE : Calendar.DAY_LINK_INACTIVE;
 
                 day.classList.add(dayClass);
                 day.innerText = dateNumber.toString();
-                // day.href = window.location.href = `/html/archive.html?date=${this.date.year}${Utils.getTwoCharNum(this.date.month)}${Utils.getTwoCharNum(this.date.day)}`;
+                day.href = `/html/archive.html?date=${this.date.year}${Utils.getTwoCharNum(this.date.month)}${Utils.getTwoCharNum(dateNumber.toString())}`;
             }
 
             // if this is the current date, highlight it

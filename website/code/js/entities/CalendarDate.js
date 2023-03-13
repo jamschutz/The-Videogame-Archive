@@ -1,6 +1,5 @@
 var CalendarDate = /** @class */ (function () {
     function CalendarDate(year, month, day) {
-        console.log('year: ' + year + ', month: ' + month + ', day: ' + day);
         this.year = (typeof year === 'number') ? year : parseInt(year);
         this.month = (typeof month === 'number') ? month : parseInt(month);
         this.day = (typeof day === 'number') ? day : parseInt(day);
@@ -8,8 +7,14 @@ var CalendarDate = /** @class */ (function () {
     CalendarDate.prototype.toString = function () {
         return "".concat(this.month, "/").concat(this.day, "/").concat(this.year);
     };
+    CalendarDate.prototype.toUrlString = function () {
+        return "".concat(this.year).concat(Utils.getTwoCharNum(this.month)).concat(Utils.getTwoCharNum(this.day));
+    };
     CalendarDate.prototype.toPrettyString_MonthYear = function () {
         return "".concat(this.getMonthString(), ", ").concat(this.year);
+    };
+    CalendarDate.prototype.toPrettyString_FullDate = function () {
+        return "".concat(this.getMonthString(), " ").concat(this.day, ", ").concat(this.year);
     };
     CalendarDate.prototype.addDay = function () {
         this.day++;

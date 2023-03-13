@@ -10,6 +10,7 @@ class Config {
         if(websiteId === 1) return 'GameSpot';
         if(websiteId === 2) return 'Eurogamer';
         if(websiteId === 3) return 'Gameplanet';
+        if(websiteId === 4) return 'JayIsGames';
         
         return 'Unknown';
     }

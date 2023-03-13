@@ -9,6 +9,8 @@ var Config = /** @class */ (function () {
             return 'Eurogamer';
         if (websiteId === 3)
             return 'Gameplanet';
+        if (websiteId === 4)
+            return 'JayIsGames';
         return 'Unknown';
     };
     Config.websiteNameToId = function (websiteName) {

@@ -72,23 +72,24 @@ var DataManager = /** @class */ (function () {
             });
         });
     };
-    DataManager.get_article_count_for_day_async = function (date) {
+    DataManager.getArticleCountBetweenDatesAsync = function (start, end) {
         return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var response, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         console.log('getting articles...');
-                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/ArticleCount?year=").concat(date.year, "&month=").concat(date.month, "&day=").concat(date.day), {
+                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/ArticleCount?start=").concat(start.toUrlString(), "&end=").concat(end.toUrlString()), {
                                 method: 'GET',
                                 headers: {
                                     'Content-Type': 'application/json'
                                 }
                             })];
                     case 1:
-                        response = _a.sent();
+                        response = _b.sent();
+                        _a = GetArticleCountResponse.bind;
                         return [4 /*yield*/, response.json()];
-                    case 2: return [2 /*return*/, _a.sent()];
+                    case 2: return [2 /*return*/, new (_a.apply(GetArticleCountResponse, [void 0, _b.sent()]))()];
                 }
             });
         });
