@@ -1,4 +1,4 @@
-const PADDING_BETWEEN_WEBSITE_COLUMNS = 450;
+const PADDING_BETWEEN_WEBSITE_COLUMNS = 500;
 const NUM_WEBSITES = 4;
 
 let dataManager = new DataManager();

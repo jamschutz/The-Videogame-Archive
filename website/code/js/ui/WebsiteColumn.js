@@ -34,8 +34,16 @@ var WebsiteColumn = /** @class */ (function () {
         var thumbnailSrc = this.getThumbnailUrl(article);
         thumbnail.src = "".concat(thumbnailSrc, ".jpg");
         thumbnail.onerror = function () {
-            this.onerror = null;
-            this.src = "".concat(thumbnailSrc, ".png");
+            var fileExtension = this.src.split(".")[this.src.split(".").length - 1];
+            if (fileExtension === 'jpg') {
+                this.src = "".concat(thumbnailSrc, ".png");
+            }
+            else {
+                this.onerror = null;
+                // this.style.visibility = 'hidden';
+                this.parentNode.removeChild(this);
+                // this.nextSibling.style.visibility = 'hidden';
+            }
         };
         // create title
         var title = document.createElement('a');
@@ -43,20 +51,20 @@ var WebsiteColumn = /** @class */ (function () {
         title.classList.add('article-title');
         title.innerText = article.title;
         // create subtitle
-        var subtitle = document.createElement('span');
+        var subtitle = document.createElement('div');
         subtitle.classList.add('article-subtitle');
         subtitle.innerText = article.subtitle;
         // create author
-        var author = document.createElement('span');
+        var author = document.createElement('div');
         author.classList.add('article-author');
         author.innerText = article.author;
         // and add everything to the container
         containerDiv.appendChild(thumbnail);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(title);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(subtitle);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(author);
         // and return 
         return containerDiv;

@@ -52,8 +52,17 @@ class WebsiteColumn {
         let thumbnailSrc = this.getThumbnailUrl(article);
         thumbnail.src = `${thumbnailSrc}.jpg`;
         thumbnail.onerror = function() {
-            this.onerror=null;
-            this.src= `${thumbnailSrc}.png`;
+            let fileExtension = this.src.split(".")[this.src.split(".").length - 1];
+
+            if(fileExtension === 'jpg') {
+                this.src= `${thumbnailSrc}.png`;
+            }
+            else {
+                this.onerror=null;
+                // this.style.visibility = 'hidden';
+                this.parentNode.removeChild(this);
+                // this.nextSibling.style.visibility = 'hidden';
+            }
         }
 
         // create title
@@ -63,22 +72,22 @@ class WebsiteColumn {
         title.innerText = article.title;
 
         // create subtitle
-        let subtitle = document.createElement('span');
+        let subtitle = document.createElement('div');
         subtitle.classList.add('article-subtitle');
         subtitle.innerText = article.subtitle;
 
         // create author
-        let author = document.createElement('span');
+        let author = document.createElement('div');
         author.classList.add('article-author');
         author.innerText = article.author;
 
         // and add everything to the container
         containerDiv.appendChild(thumbnail);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(title);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(subtitle);
-        containerDiv.appendChild(document.createElement('br'));
+        // containerDiv.appendChild(document.createElement('br'));
         containerDiv.appendChild(author);
 
         // and return 
