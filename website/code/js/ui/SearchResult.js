@@ -6,7 +6,33 @@ var SearchResult = /** @class */ (function () {
         // create container
         var containerDiv = document.createElement("div");
         containerDiv.classList.add('article');
-        containerDiv.style.width = '500px';
+        containerDiv.appendChild(this.getDateWebsiteInfo());
+        containerDiv.appendChild(this.getMainInfo());
+        return containerDiv;
+    };
+    SearchResult.prototype.getDateWebsiteInfo = function () {
+        // create container
+        var containerDiv = document.createElement('div');
+        containerDiv.classList.add('article-date-website-panel');
+        // website label
+        var websiteLabel = document.createElement('div');
+        websiteLabel.innerText = this.article.website;
+        // date
+        var year = this.article.date.split('/')[2];
+        var month = this.article.date.split('/')[0];
+        var day = this.article.date.split('/')[1];
+        var dateLabel = document.createElement('div');
+        var dateInfo = new CalendarDate(year, month, day);
+        dateLabel.innerText = dateInfo.toPrettyString_FullDate();
+        // add it all and return
+        containerDiv.appendChild(websiteLabel);
+        containerDiv.appendChild(dateLabel);
+        return containerDiv;
+    };
+    SearchResult.prototype.getMainInfo = function () {
+        // create container
+        var containerDiv = document.createElement("div");
+        containerDiv.classList.add('article-main-info');
         // create thumbnail
         var thumbnail = document.createElement("img");
         thumbnail.classList.add('article-thumbnail');
