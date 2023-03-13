@@ -189,34 +189,34 @@ var Calendar = /** @class */ (function () {
     };
     Calendar.prototype.getWeek = function (weekNumber, offset, articleCounts) {
         return __awaiter(this, void 0, void 0, function () {
-            var week, i, day_1, dateNumber, dayHasArticles, dayClass;
+            var week, i, day, dateNumber, dayHasArticles, dayClass;
             return __generator(this, function (_a) {
                 week = document.createElement('div');
                 week.classList.add(Calendar.WEEK_CLASS);
                 for (i = 1; i <= 7; i++) {
-                    day_1 = document.createElement('a');
-                    day_1.classList.add(Calendar.DAY_CLASS);
+                    day = document.createElement('a');
+                    day.classList.add(Calendar.DAY_CLASS);
                     dateNumber = (i - offset) + (weekNumber * 7);
                     // not a date, just filler
                     if (dateNumber < 1 || dateNumber > this.date.getDaysInMonth()) {
-                        day_1.classList.remove(Calendar.DAY_CLASS);
-                        day_1.classList.add(Calendar.DAY_NO_DATE_CLASS);
-                        day_1.innerText = '-';
+                        day.classList.remove(Calendar.DAY_CLASS);
+                        day.classList.add(Calendar.DAY_NO_DATE_CLASS);
+                        day.innerText = '-';
                     }
                     // add date number text
                     else {
                         dayHasArticles = this.dayHasArticles(dateNumber, articleCounts);
                         dayClass = dayHasArticles ? Calendar.DAY_LINK_ACTIVE : Calendar.DAY_LINK_INACTIVE;
-                        day_1.classList.add(dayClass);
-                        day_1.innerText = dateNumber.toString();
-                        day_1.href = "/html/archive.html?date=".concat(this.date.year).concat(Utils.getTwoCharNum(this.date.month)).concat(Utils.getTwoCharNum(dateNumber.toString()));
+                        day.classList.add(dayClass);
+                        day.innerText = dateNumber.toString();
+                        day.href = "/html/archive.html?date=".concat(this.date.year).concat(Utils.getTwoCharNum(this.date.month)).concat(Utils.getTwoCharNum(dateNumber.toString()));
                     }
                     // if this is the current date, highlight it
                     if (dateNumber == this.date.day) {
-                        day_1.id = Calendar.CURRENT_DATE_HIGHLIGHT_ID;
+                        day.id = Calendar.CURRENT_DATE_HIGHLIGHT_ID;
                     }
                     // add to week
-                    week.appendChild(day_1);
+                    week.appendChild(day);
                 }
                 return [2 /*return*/, week];
             });

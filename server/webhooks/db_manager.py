@@ -81,12 +81,9 @@ def get_search_results():
     title_query = request.args.get('title')
     subtitle_query = request.args.get('subtitle')
 
-    print(f'title: {title_query}')
-
+    # wrap % around search terms, for sql query
     title_query = f'%{title_query.replace(" ", "%")}%'
     subtitle_query = f'%{subtitle_query.replace(" ", "%")}%'
-
-    print(f'adjusted: {title_query}')
 
     # fetch db data and return
     db_manager = DbManager()

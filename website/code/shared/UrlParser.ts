@@ -16,4 +16,11 @@ class UrlParser {
         console.log(`got date: ${date.toString()}`);
         return date;
     }
+
+
+    static getSearchRequest(): SearchRequest {
+        let url = new URL(window.location.href);
+        let searchTerms = url.searchParams.get('search');
+        return new SearchRequest(searchTerms.split(','));
+    }
 }

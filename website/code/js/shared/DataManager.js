@@ -38,7 +38,7 @@ var DataManager = /** @class */ (function () {
     function DataManager() {
         // do nothing
     }
-    DataManager.prototype.get_articles_for_day_async = function (date) {
+    DataManager.prototype.getArticlesForDayAsync = function (date) {
         return __awaiter(this, void 0, void 0, function () {
             var response, json, articles, i, article;
             return __generator(this, function (_a) {
@@ -90,6 +90,28 @@ var DataManager = /** @class */ (function () {
                         _a = GetArticleCountResponse.bind;
                         return [4 /*yield*/, response.json()];
                     case 2: return [2 /*return*/, new (_a.apply(GetArticleCountResponse, [void 0, _b.sent()]))()];
+                }
+            });
+        });
+    };
+    DataManager.getSearchResults = function (searchRequest) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        console.log('getting search results...');
+                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Search?title=").concat(searchRequest.searchTerms.join('+'), "&subtitle=").concat(searchRequest.searchTerms.join('+')), {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                }
+                            })];
+                    case 1:
+                        response = _b.sent();
+                        _a = SearchResponse.bind;
+                        return [4 /*yield*/, response.json()];
+                    case 2: return [2 /*return*/, new (_a.apply(SearchResponse, [void 0, _b.sent()]))().results];
                 }
             });
         });

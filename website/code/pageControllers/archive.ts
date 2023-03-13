@@ -5,12 +5,7 @@ const NUM_WEBSITES = 4;
 let dataManager = new DataManager();
 let calendar = new Calendar();
 let dateHeader = new DateHeader();
-
-// parse url params
-let url = new URL(window.location.href);
-let day = url.searchParams.get("day");
-let month = url.searchParams.get("month");
-let year = url.searchParams.get("year");
+let searchBar = new SearchBar();
 
 
 async function initPage() {
@@ -78,6 +73,7 @@ initPage();
     function init(){
         dateHeader.updateHtml();
         calendar.updateHtml();
+        searchBar.init();
     }
   
 })(window, document, undefined);

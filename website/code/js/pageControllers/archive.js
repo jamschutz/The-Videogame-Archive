@@ -41,11 +41,6 @@ var dataManager = new DataManager();
 var calendar = new Calendar();
 var dateHeader = new DateHeader();
 var searchBar = new SearchBar();
-// parse url params
-var url = new URL(window.location.href);
-var day = url.searchParams.get("day");
-var month = url.searchParams.get("month");
-var year = url.searchParams.get("year");
 function initPage() {
     return __awaiter(this, void 0, void 0, function () {
         var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
@@ -104,14 +99,6 @@ function goToPreviousCalendarMonth() {
 function goToPreviousCalendarYear() {
     calendar.goToPreviousYear();
 }
-// search bar functions
-// async function onSearchSubmit() {
-//     let searchTerms = document.getElementById('search-bar').innerText;
-//     console.log('getting search results for ' + searchTerms);
-//     let searchRequest = new SearchRequest(searchTerms);
-//     let results = await DataManager.getSearchResults(searchRequest);
-//     console.log(results);
-// }
 initPage();
 // on window load
 (function (window, document, undefined) {

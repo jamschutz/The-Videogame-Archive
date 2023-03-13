@@ -13,5 +13,10 @@ var UrlParser = /** @class */ (function () {
         console.log("got date: ".concat(date.toString()));
         return date;
     };
+    UrlParser.getSearchRequest = function () {
+        var url = new URL(window.location.href);
+        var searchTerms = url.searchParams.get('search');
+        return new SearchRequest(searchTerms.split(','));
+    };
     return UrlParser;
 }());

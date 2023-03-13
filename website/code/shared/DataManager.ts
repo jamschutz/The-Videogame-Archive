@@ -42,6 +42,13 @@ class DataManager {
 
 
     static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
-        
+        console.log('getting search results...');
+        let response = await fetch(`${Config.API_BASE_URL}/Search?title=${searchRequest.searchTerms.join('+')}&subtitle=${searchRequest.searchTerms.join('+')}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return new SearchResponse(await response.json()).results;
     }
 }
