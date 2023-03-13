@@ -34,7 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var PADDING_BETWEEN_WEBSITE_COLUMNS = 500;
+// const PADDING_BETWEEN_WEBSITE_COLUMNS = 500
+var PADDING_BETWEEN_WEBSITE_COLUMNS = 0;
 var NUM_WEBSITES = 4;
 var dataManager = new DataManager();
 var calendar = new Calendar();

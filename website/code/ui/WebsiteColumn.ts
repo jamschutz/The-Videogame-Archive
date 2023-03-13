@@ -17,7 +17,7 @@ class WebsiteColumn {
 
     public toHtml() {
         let containerDiv = this.getWebsiteColumn();
-        containerDiv.style.marginLeft = `${this.paddingLeft}px`;
+        // containerDiv.style.marginLeft = `${this.paddingLeft}px`;
         
         // if no articles for this day, just say so
         if(this.articles.length === 0) {
