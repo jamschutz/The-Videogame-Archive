@@ -54,6 +54,10 @@ var SearchBar = /** @class */ (function () {
                 SearchBar.onSubmit(e);
             }
         });
+        var searchHistory = UrlParser.getSearchRequest();
+        if (searchHistory !== null) {
+            searchBar.value = searchHistory.searchTerms.join(' ');
+        }
     };
     return SearchBar;
 }());

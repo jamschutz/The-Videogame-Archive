@@ -31,11 +31,14 @@ function showSearchResults(results: Article[]) {
     async function init(){
         se_searchBar.init();
 
+        let startTime = Date.now();
         let searchRequest = UrlParser.getSearchRequest();
         console.log('getting results for: ' + searchRequest.searchTerms);
 
         let results = await DataManager.getSearchResults(searchRequest);
         console.log(results);
+        let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
+        document.getElementById('search-result-count').innerText = `${results.length} results (${calculationTime.toFixed(2)} seconds)`;
         showSearchResults(results);
     }
 })(window, document, undefined);

@@ -59,17 +59,20 @@ function showSearchResults(results) {
     window.onload = init;
     function init() {
         return __awaiter(this, void 0, void 0, function () {
-            var searchRequest, results;
+            var startTime, searchRequest, results, calculationTime;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         se_searchBar.init();
+                        startTime = Date.now();
                         searchRequest = UrlParser.getSearchRequest();
                         console.log('getting results for: ' + searchRequest.searchTerms);
                         return [4 /*yield*/, DataManager.getSearchResults(searchRequest)];
                     case 1:
                         results = _a.sent();
                         console.log(results);
+                        calculationTime = (Date.now() - startTime) / 1000;
+                        document.getElementById('search-result-count').innerText = "".concat(results.length, " results (").concat(calculationTime.toFixed(2), " seconds)");
                         showSearchResults(results);
                         return [2 /*return*/];
                 }
