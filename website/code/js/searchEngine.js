@@ -50,6 +50,7 @@ function showSearchResults(results) {
             var article = results[i];
             var articleDiv = new SearchResult(article);
             containerDiv.appendChild(articleDiv.toHtml());
+            containerDiv.appendChild(document.createElement('hr'));
         }
     }
 }

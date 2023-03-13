@@ -17,6 +17,7 @@ function showSearchResults(results: Article[]) {
             let article = results[i];
             let articleDiv = new SearchResult(article);
             containerDiv.appendChild(articleDiv.toHtml());
+            containerDiv.appendChild(document.createElement('hr'));
         }
     }
 }

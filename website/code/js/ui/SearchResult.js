@@ -6,7 +6,7 @@ var SearchResult = /** @class */ (function () {
         // create container
         var containerDiv = document.createElement("div");
         containerDiv.classList.add('article');
-        containerDiv.style.width = '350px';
+        containerDiv.style.width = '500px';
         // create thumbnail
         var thumbnail = document.createElement("img");
         thumbnail.classList.add('article-thumbnail');

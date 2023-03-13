@@ -13,7 +13,7 @@ class SearchResult {
         // create container
         let containerDiv = document.createElement("div");
         containerDiv.classList.add('article');
-        containerDiv.style.width = '350px';
+        containerDiv.style.width = '500px';
 
         // create thumbnail
         let thumbnail = document.createElement("img");
