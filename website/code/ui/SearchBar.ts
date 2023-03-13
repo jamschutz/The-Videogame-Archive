@@ -6,10 +6,11 @@ class SearchBar {
 
     static async onSubmit(e: KeyboardEvent) {
         let searchTerms = (<HTMLTextAreaElement>e.target).value;
-        console.log('getting search results for ' + searchTerms);
-        let searchRequest = new SearchRequest(searchTerms);
-        let results = await DataManager.getSearchResults(searchRequest);
-        console.log(results);
+        window.location.href = `/html/searchEngine.html?search=${encodeURIComponent(searchTerms)}`;
+        // console.log('getting search results for ' + searchTerms);
+        // let searchRequest = new SearchRequest(searchTerms);
+        // let results = await DataManager.getSearchResults(searchRequest);
+        // console.log(results);
     }
 
 

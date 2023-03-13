@@ -39,19 +39,11 @@ var SearchBar = /** @class */ (function () {
     }
     SearchBar.onSubmit = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var searchTerms, searchRequest, results;
+            var searchTerms;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        searchTerms = e.target.value;
-                        console.log('getting search results for ' + searchTerms);
-                        searchRequest = new SearchRequest(searchTerms);
-                        return [4 /*yield*/, DataManager.getSearchResults(searchRequest)];
-                    case 1:
-                        results = _a.sent();
-                        console.log(results);
-                        return [2 /*return*/];
-                }
+                searchTerms = e.target.value;
+                window.location.href = "/html/searchEngine.html?search=".concat(encodeURIComponent(searchTerms));
+                return [2 /*return*/];
             });
         });
     };

@@ -34,6 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var se_searchBar = new SearchBar();
 function showSearchResults(results) {
     var containerDiv = document.getElementById('search-results-container');
     // if no articles for this day, just say so
@@ -61,6 +62,7 @@ function showSearchResults(results) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        se_searchBar.init();
                         searchRequest = UrlParser.getSearchRequest();
                         console.log('getting results for: ' + searchRequest.searchTerms);
                         return [4 /*yield*/, DataManager.getSearchResults(searchRequest)];

@@ -1,4 +1,4 @@
-
+let se_searchBar = new SearchBar();
 
 function showSearchResults(results: Article[]) {
     let containerDiv = document.getElementById('search-results-container');
@@ -28,6 +28,8 @@ function showSearchResults(results: Article[]) {
     window.onload = init;
   
     async function init(){
+        se_searchBar.init();
+
         let searchRequest = UrlParser.getSearchRequest();
         console.log('getting results for: ' + searchRequest.searchTerms);
 
