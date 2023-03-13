@@ -6,7 +6,6 @@ var WebsiteColumn = /** @class */ (function () {
     }
     WebsiteColumn.prototype.toHtml = function () {
         var containerDiv = this.getWebsiteColumn();
-        // containerDiv.style.marginLeft = `${this.paddingLeft}px`;
         // if no articles for this day, just say so
         if (this.articles.length === 0) {
             var noArticles = document.createElement('p');

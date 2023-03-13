@@ -287,6 +287,8 @@ class DbManager:
                 Article.AuthorId = Writer.Id
             WHERE
                 Article.Title LIKE '{title_query}' OR Article.Subtitle LIKE '{subtitle_query}'
+            ORDER BY
+                Article.DatePublished
         """
         return self.get_query(query)
 
