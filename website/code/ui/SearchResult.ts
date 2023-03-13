@@ -67,6 +67,16 @@ class SearchResult {
             }
             else {
                 this.onerror=null;
+
+                // for each sibling
+                let element = this;
+                while (element = element.nextSibling) {
+                    if (element.nodeType === 3) continue; // text node
+                    
+                    // set width to 100%
+                    element.style.width = '100%';
+                }
+
                 this.parentNode.removeChild(this);
             }
         }

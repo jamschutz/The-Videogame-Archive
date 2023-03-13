@@ -46,6 +46,14 @@ var SearchResult = /** @class */ (function () {
             }
             else {
                 this.onerror = null;
+                // for each sibling
+                var element = this;
+                while (element = element.nextSibling) {
+                    if (element.nodeType === 3)
+                        continue; // text node
+                    // set width to 100%
+                    element.style.width = '100%';
+                }
                 this.parentNode.removeChild(this);
             }
         };
