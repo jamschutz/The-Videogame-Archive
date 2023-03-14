@@ -19,13 +19,15 @@ class Config:
         'GameSpot': 1,
         'Eurogamer': 2,
         'Gameplanet': 3,
-        'JayIsGames': 4
+        'JayIsGames': 4,
+        'TIGSource': 5
     }
     website_name_lookup = {
         1: 'GameSpot',
         2: 'Eurogamer',
         3: 'Gameplanet',
-        4: 'JayIsGames'
+        4: 'JayIsGames',
+        5: 'TIGSource'
     }
 
 

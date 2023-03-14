@@ -1,4 +1,6 @@
 from server._shared.DbManager import DbManager
+from server._shared.Config import Config
+from server._shared.Utils import Utils
 
 import json, time, random, requests
 from pathlib import Path
@@ -7,10 +9,13 @@ from bs4 import BeautifulSoup
 
 BASE_URL = 'https://www.tigsource.com'
 WEBSITE_NAME = 'TIGSource'
+WEBSITE_ID = 5
 MAX_PAGE = 232
 DATETIME_FORMAT = '%B %d, %Y'
 
-DB_MANAGER = DbManager()
+db = DbManager()
+config = Config()
+utils = Utils()
 
 # ================================= #
 # == set these variables!!! ======= #
@@ -20,7 +25,7 @@ END_PAGE_NUMBER   = 1           # = #
 # ================================= #
 
 
-def get_links_from_news_page(page_number):
+def get_links_from_page(page_number):
     # download webpage
     url = f'{BASE_URL}/page/{str(page_number)}' if page_number > 1 else BASE_URL
     source = requests.get(url).text
@@ -33,12 +38,15 @@ def get_links_from_news_page(page_number):
         title  = article.h1.a.text.strip()
         url    = article.h1.a['href']
         author = article.h2.text.strip()[len('By: '):] # remove opening 'By: ' from text
-        tags   = article.find('div', class_='blog_post_footer').find_all('a', rel=True)
-        tags   = get_tags(tags)
+        tags   = get_tags(article)
+        thumbnail = article.find('img')['src']
         # date time is in format: Month Day, Year
         # we only care about the date, so split on the space and take only the first part
         date  = article.h3.text.strip()
 
+        # if thumbnail starts with '//', add 'https:' to the start
+        if thumbnail[0:2] == '//':
+            thumbnail = f'https:{thumbnail}'
 
         # convert to datetime
         date = get_date(date)
@@ -46,17 +54,17 @@ def get_links_from_news_page(page_number):
         article_data.append({
             'title': title,
             'url': url,
-            # 'date': date,
-            'date': date.strftime('%m/%d/%Y'),
+            'date': date,
             'author': author,
             'website': WEBSITE_NAME,
-            'tags': tags
+            'tags': tags,
+            'thumbnail': thumbnail
         })
 
     return article_data
 
 
-def index_pages(start_page, end_page, target_page):
+def index_pages(start_page, end_page):
     articles = []
 
     page = start_page
@@ -64,7 +72,7 @@ def index_pages(start_page, end_page, target_page):
         try:
             # get articles at page number
             print(f'fetching page {str(page)}')
-            article_links = get_links_from_news_page(page, target_page=target_page)
+            article_links = get_links_from_page(page)
 
             # if we got here, proxy worked!
             articles.extend(article_links)
@@ -83,15 +91,31 @@ def index_pages(start_page, end_page, target_page):
     # for each article, convert datetime back to string (so it saves okay)
     for article in articles:
         article['date'] = article['date'].strftime('%m/%d/%Y')
-        article['url'] = f'{BASE_URL}{article["url"]}'
-        article['type'] = URL_TO_TYPE_LOOKUP[target_page]
         
         article['year']  = article['date'].split('/')[2]
         article['month'] = article['date'].split('/')[0]
         article['day']   = article['date'].split('/')[1]
 
+        # and save the thumbnail
+        send_thumbnail_to_archive(article)
+
     # save articles to database
-    DB_MANAGER.save_articles(articles)
+    # db.save_articles(articles)
+
+
+def send_thumbnail_to_archive(article):
+    thumbnail_url = article['thumbnail']
+    article_url = article['url']
+    month = utils.get_two_char_int_string(int(article['month']))
+    day   = utils.get_two_char_int_string(int(article['day']))
+    year  = article['year']
+
+    # if there's no file extension, just slap a .jpg on it
+    file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
+    filename = f"{config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
+    filepath = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/_thumbnails/{year}/{month}'
+
+    utils.save_thumbnail(thumbnail_url, filename, filepath)
 
 
 def get_date(date):
@@ -111,7 +135,8 @@ def get_date(date):
     return datetime.strptime(f'{month} {day}, {year}', DATETIME_FORMAT)
 
 
-def get_tags(tags_div):
+def get_tags(article):
+    tags_div = article.find('div', class_='blog_post_footer').find_all('a', rel=True)
     tags = []
 
     for tag in tags_div:
@@ -122,5 +147,7 @@ def get_tags(tags_div):
 
 
 if __name__ == '__main__':
-    links = get_links_from_news_page(232)
-    print(links)
+    # links = get_links_from_news_page(232)
+    # print(links)
+    index_pages(MAX_PAGE, MAX_PAGE)
+    print('done')
