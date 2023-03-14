@@ -93,6 +93,11 @@ class DbManager:
         # and run
         self.run_query(query)
 
+        # with articles created, add thumbnails and tags
+        for article in articles:
+            self.create_thumbnail(article)
+            self.create_article_tags(article)
+
 
     def mark_articles_as_archived(self, articles):
         urls = []
@@ -159,6 +164,7 @@ class DbManager:
     # ============================================================ #
 
     def run_query(self, query):
+        print(f'running query: \n{query}')
         # connect to db, and save
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -170,6 +176,7 @@ class DbManager:
 
 
     def get_query(self, query):
+        print(f'running query: \n{query}')
         # connect to db, and fetch
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -229,17 +236,36 @@ class DbManager:
         return self.get_query(query)
 
 
+    def get_article_id(self, article):
+        website_id = self.config.website_id_lookup[article['website']]
+        # build query
+        query = f"""
+            SELECT
+                Id
+            FROM
+                Article
+            WHERE
+                WebsiteId = {website_id} AND Url = '{article['url']}'
+        """
+        results = self.get_query(query)
+        return results[0][0]
+
+
     def get_tag_id(self, tag):
         # build query
         query = f"""
             SELECT
-                Id, Name
+                Id
             FROM
                 Tag
             WHERE
                 Name = '{tag}'
         """
-        return self.get_query(query)
+        results = self.get_query(query)
+        if len(results) == 0:
+            return None
+
+        return results[0][0]
 
 
     # ============================================================ #
@@ -247,15 +273,23 @@ class DbManager:
     # ============================================================ #
 
 
-    def create_thumbnail(self, thumbnail_filename, article_id):
+    def create_thumbnail(self, article):
+        # if no thumbnail, just return
+        if 'thumbnail_filename' not in article:
+            return
+
+        # get article id
+        article_id = self.get_article_id(article)
+        thumbnail_filename = article['thumbnail_filename']
+
         # build query
         query = f"""
             INSERT INTO
-                ArticleThumbnail(ArticleId, ThumbnailFilename)
+                Thumbnail(ArticleId, Filename)
             VALUES
                 ({article_id}, '{thumbnail_filename}')
         """
-        self.run_query()
+        self.run_query(query)
 
 
     def create_tag(self, tag):
@@ -266,7 +300,7 @@ class DbManager:
             VALUES
                 ('{tag}')
         """
-        self.run_query()
+        self.run_query(query)
 
 
     def create_author(self, author):
@@ -277,6 +311,33 @@ class DbManager:
                 ('{author}')
         """
         self.run_query(query)
+
+
+    def create_article_tags(self, article):
+        # if no tags, just bail
+        if 'tags' not in article or len(article['tags']) == 0:
+            return
+
+        # get article id
+        article_id = self.get_article_id(article)
+
+        for tag in article['tags']:
+            tag_id = self.get_tag_id(tag)
+
+            # if no tag exists yet, create one
+            if tag_id == None:
+                self.create_tag(tag)
+                tag_id = self.get_tag_id(tag)
+
+            # build query
+            query = f"""
+                INSERT INTO
+                    ArticleTag(ArticleId, TagId)
+                VALUES
+                    ({article_id}, {tag_id})
+            """
+            self.run_query(query)
+        
 
 
     # ============================================================ #

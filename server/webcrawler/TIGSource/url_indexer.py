@@ -96,6 +96,12 @@ def index_pages(start_page, end_page):
         article['month'] = article['date'].split('/')[0]
         article['day']   = article['date'].split('/')[1]
 
+        # build thumbnail filename...
+        # if there's no file extension, just slap a .jpg on it
+        day_2digits = utils.get_two_char_int_string(int(article['day']))
+        thumbnail_file_extension = article['thumbnail'].split('.')[-1] if article['thumbnail'][-4] == '.' else '.jpg'
+        article['thumbnail_filename'] = f"{config.url_to_filename(article['url'], day_2digits, WEBSITE_ID)}_thumbnail.{thumbnail_file_extension}"
+
         # and save the thumbnail
         send_thumbnail_to_archive(article)
 
@@ -104,18 +110,11 @@ def index_pages(start_page, end_page):
 
 
 def send_thumbnail_to_archive(article):
-    thumbnail_url = article['thumbnail']
-    article_url = article['url']
     month = utils.get_two_char_int_string(int(article['month']))
-    day   = utils.get_two_char_int_string(int(article['day']))
     year  = article['year']
-
-    # if there's no file extension, just slap a .jpg on it
-    file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
-    filename = f"{config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
     filepath = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/_thumbnails/{year}/{month}'
 
-    utils.save_thumbnail(thumbnail_url, filename, filepath)
+    utils.save_thumbnail(article['thumbnail'], article['thumbnail_filename'], filepath)
 
 
 def get_date(date):
