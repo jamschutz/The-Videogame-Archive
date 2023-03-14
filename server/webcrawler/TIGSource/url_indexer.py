@@ -20,7 +20,7 @@ utils = Utils()
 # ================================= #
 # == set these variables!!! ======= #
 START_PAGE_NUMBER = MAX_PAGE    # = #
-END_PAGE_NUMBER   = 1           # = #
+END_PAGE_NUMBER   = MAX_PAGE           # = #
 # ================================= #
 # ================================= #
 
@@ -39,13 +39,13 @@ def get_links_from_page(page_number):
         url    = article.h1.a['href']
         author = article.h2.text.strip()[len('By: '):] # remove opening 'By: ' from text
         tags   = get_tags(article)
-        thumbnail = article.find('img')['src']
+        thumbnail = article.find('img')['src'] if article.find('img') != None else None
         # date time is in format: Month Day, Year
         # we only care about the date, so split on the space and take only the first part
         date  = article.h3.text.strip()
 
         # if thumbnail starts with '//', add 'https:' to the start
-        if thumbnail[0:2] == '//':
+        if thumbnail != None and thumbnail[0:2] == '//':
             thumbnail = f'https:{thumbnail}'
 
         # convert to datetime
@@ -57,9 +57,12 @@ def get_links_from_page(page_number):
             'date': date,
             'author': author,
             'website': WEBSITE_NAME,
-            'tags': tags,
-            'thumbnail': thumbnail
+            'tags': tags
         })
+
+        # if we have a thumbnail, tack it on
+        if thumbnail != None:
+            article_data[-1]['thumbnail'] = thumbnail
 
     return article_data
 
@@ -97,15 +100,17 @@ def index_pages(start_page, end_page):
         article['day']   = article['date'].split('/')[1]
 
         # build thumbnail filename...
-        # if there's no file extension, just slap a .jpg on it
-        day_2digits = utils.get_two_char_int_string(int(article['day']))
-        thumbnail_file_extension = article['thumbnail'].split('.')[-1] if article['thumbnail'][-4] == '.' else '.jpg'
-        article['thumbnail_filename'] = f"{config.url_to_filename(article['url'], day_2digits, WEBSITE_ID)}_thumbnail.{thumbnail_file_extension}"
+        if 'thumbnail' in article:
+            # if there's no file extension, just slap a .jpg on it
+            day_2digits = utils.get_two_char_int_string(int(article['day']))
+            thumbnail_file_extension = article['thumbnail'].split('.')[-1] if article['thumbnail'][-4] == '.' else '.jpg'
+            article['thumbnail_filename'] = f"{config.url_to_filename(article['url'], day_2digits, WEBSITE_ID)}_thumbnail.{thumbnail_file_extension}"
 
-        # and save the thumbnail
-        send_thumbnail_to_archive(article)
+            # and save the thumbnail
+            send_thumbnail_to_archive(article)
 
     # save articles to database
+    print('saving to db...')
     db.save_articles(articles)
 
 
@@ -146,7 +151,5 @@ def get_tags(article):
 
 
 if __name__ == '__main__':
-    # links = get_links_from_news_page(232)
-    # print(links)
-    index_pages(MAX_PAGE, MAX_PAGE)
+    index_pages(START_PAGE_NUMBER, END_PAGE_NUMBER)
     print('done')

@@ -164,7 +164,6 @@ class DbManager:
     # ============================================================ #
 
     def run_query(self, query):
-        print(f'running query: \n{query}')
         # connect to db, and save
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -176,7 +175,6 @@ class DbManager:
 
 
     def get_query(self, query):
-        print(f'running query: \n{query}')
         # connect to db, and fetch
         db = sqlite3.connect(self.config.DATABASE_FILE)
         cursor = db.cursor()
@@ -284,7 +282,7 @@ class DbManager:
 
         # build query
         query = f"""
-            INSERT INTO
+            INSERT OR IGNORE INTO
                 Thumbnail(ArticleId, Filename)
             VALUES
                 ({article_id}, '{thumbnail_filename}')
@@ -329,12 +327,15 @@ class DbManager:
                 self.create_tag(tag)
                 tag_id = self.get_tag_id(tag)
 
+            # build unique name to avoid duplicate entries
+            hash_id = f'{str(article_id)}_{str(tag_id)}'
+
             # build query
             query = f"""
-                INSERT INTO
-                    ArticleTag(ArticleId, TagId)
+                INSERT OR IGNORE INTO
+                    ArticleTag(ArticleId, TagId, HashId)
                 VALUES
-                    ({article_id}, {tag_id})
+                    ({article_id}, {tag_id}, '{hash_id}')
             """
             self.run_query(query)
         
