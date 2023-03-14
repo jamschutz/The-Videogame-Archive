@@ -94,3 +94,9 @@ http://www.oldmanmurray.com/shortreviews/sr34.html
 http://www.oldmanmurray.com/features/
 
 NOTE: Short reviews seem to not have dedicated urls, which throws a wrench in my DB design....can think of what to do; maybe i can add URL parameters to it...? (site ignores them)
+
+
+
+### Terry Cavanagh Blog
+
+https://distractionware.com/blog/page/70/

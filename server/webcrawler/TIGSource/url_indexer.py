@@ -19,8 +19,8 @@ utils = Utils()
 
 # ================================= #
 # == set these variables!!! ======= #
-START_PAGE_NUMBER = MAX_PAGE    # = #
-END_PAGE_NUMBER   = MAX_PAGE           # = #
+START_PAGE_NUMBER = 200    # = #
+END_PAGE_NUMBER   = 175           # = #
 # ================================= #
 # ================================= #
 
@@ -107,19 +107,28 @@ def index_pages(start_page, end_page):
             article['thumbnail_filename'] = f"{config.url_to_filename(article['url'], day_2digits, WEBSITE_ID)}_thumbnail.{thumbnail_file_extension}"
 
             # and save the thumbnail
-            send_thumbnail_to_archive(article)
+            if try_send_thumbnail_to_archive(article):
+                "nothing more to do, it worked"
+            else:
+                # remove thumbnail_filename from article, so it doesn't get saved to the DB
+                del article['thumbnail_filename']
 
     # save articles to database
     print('saving to db...')
     db.save_articles(articles)
 
 
-def send_thumbnail_to_archive(article):
+def try_send_thumbnail_to_archive(article):
     month = utils.get_two_char_int_string(int(article['month']))
     year  = article['year']
     filepath = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/_thumbnails/{year}/{month}'
 
-    utils.save_thumbnail(article['thumbnail'], article['thumbnail_filename'], filepath)
+    try:
+        utils.save_thumbnail(article['thumbnail'], article['thumbnail_filename'], filepath)
+        return True
+    except:
+        print(f'unable to save thumbnail for url: {article["url"]}')
+        return False
 
 
 def get_date(date):
