@@ -100,7 +100,7 @@ def index_pages(start_page, end_page):
         send_thumbnail_to_archive(article)
 
     # save articles to database
-    # db.save_articles(articles)
+    db.save_articles(articles)
 
 
 def send_thumbnail_to_archive(article):

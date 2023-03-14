@@ -7,48 +7,9 @@ class DbManager:
         self.config = Config()
 
 
-    def run_query(self, query):
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
-        cursor.execute(query)
-        db.commit()
-        db.close()
-
-
-    def get_query(self, query):
-        # connect to db, and fetch
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-        result = cursor.execute(query)
-        result = result.fetchall()
-        db.close()
-
-        return result
-
-
-    def get_date_query(self, year, month, day, website_id):
-        # query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
-        query = f"""
-            SELECT 
-                Article.Title, Article.MonthPublished, Article.DayPublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
-            FROM 
-                Article
-            INNER JOIN
-                Writer ON Article.AuthorId = Writer.Id
-            WHERE
-                YearPublished = {year}
-        """
-        if month != None:
-            query += f' AND MonthPublished = {month}'
-        if day != None:
-            query += f' AND DayPublished = {day}'
-        if website_id >= 0:
-            query += f"AND WebsiteId = {website_id}"
-
-        return query
+    # ============================================================ #
+    # ========  Public Methods  ================================== #
+    # ============================================================ #
 
 
     def get_articles_for_date(self, year, month=None, day=None, website_id=-1):
@@ -78,11 +39,7 @@ class DbManager:
 
 
     def get_urls_to_archive(self, limit, website_id, urls_to_ignore=[]):
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
+        # build query
         query = f"""
             SELECT
                 Title, Url, YearPublished, MonthPublished, DayPublished, WebsiteId
@@ -104,10 +61,7 @@ class DbManager:
         query += f"""
             LIMIT {limit}
         """
-
-        result = cursor.execute(query)
-        articles = result.fetchall()
-        db.close()
+        articles = self.get_query(query)
 
         articles_formatted = []
         for article in articles:
@@ -119,50 +73,25 @@ class DbManager:
                 'day': article[4],
                 'website': article[5]
             })
-
         return articles_formatted
 
 
-
-    def get_sql_insert_command(self, article):
-        # parse the bits we need (for folder / filename)
-        url = article['url']
-        title = article['title'].replace("'", "''") # escape single quotes (' --> '')
-        website = article['website']
-        article_type = article['type'] if 'type' in article else None
-
-        month = article['date'].split('/')[0]
-        day   = article['date'].split('/')[1]
-        year  = article['date'].split('/')[2]
-
-        date_published_epoch = (datetime(int(year), int(month), int(day)) - datetime(1970, 1, 1)).total_seconds()
-
-        # Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished
-        return f"('{title}', '{url}', {self.config.website_id_lookup[website]}, {date_published_epoch}, '{article_type}', {year}, {month}, {day})"
-
-
     def save_articles(self, articles):
-        sql_script = f"""
+        if len(articles) == 0: return
+        query = f"""
             INSERT OR IGNORE INTO
-                Article(Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished)
+                Article(Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished, IsArchived{', AuthorId' if 'author' in articles[0] else ''})
             VALUES
         """
-
         # for each article, add it's info to insert statement
         for article in articles:
-            sql_script += f"{self.get_sql_insert_command(article)},\n"
+            query += f"{self.get_sql_insert_command(article)},\n"
 
         # chop off trailing comma
-        sql_script = sql_script[:-2]
+        query = query[:-2]
 
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
-        result = cursor.execute(sql_script)
-        db.commit()
-        db.close()
+        # and run
+        self.run_query(query)
 
 
     def mark_articles_as_archived(self, articles):
@@ -189,53 +118,19 @@ class DbManager:
         db.close()
 
 
-    def save_new_author(self, author):
-        query = f"""
-            INSERT INTO
-                Writer(Name)
-            VALUES
-                ('{author}')
-        """
-
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
-        result = cursor.execute(query)
-        db.commit()
-        db.close()
-
-
-    def get_author_id(self, author):
+    def get_article_count_between_dates(self, start, end):
+        # build query
         query = f"""
             SELECT
-                Id, Name
+                Count(*) AS NumArticles, YearPublished, MonthPublished, DayPublished
             FROM
-                Writer
+                Article
             WHERE
-                Name = '{author}'
+                DatePublished >= {start} AND DatePublished <= {end}
+            GROUP BY DatePublished
         """
-        # connect to db, and fetch
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-        result = cursor.execute(query)
-        authors = result.fetchall()
-        db.close()
-
-        # if no authors, make a new entry
-        if len(authors) == 0:
-            print(f'no author named {author} found. making a new entry...')
-            self.save_new_author(author)
-            return self.get_author_id(author)
-        # if *multiple* authors with that name, we have a problem...
-        elif len(authors) > 1:
-            raise Exception(f'ERROR!!!!! Multiple authors with the name {author} were found')
-            return None
-
-        # parse author id and return
-        author_id = authors[0][0]
-        return author_id
+        results = self.get_query(query)
+        return results
 
 
     def update_article(self, article):
@@ -259,19 +154,60 @@ class DbManager:
         self.run_query(query)
 
 
-    def get_article_count_between_dates(self, start, end):
-        # build query
+    # ============================================================ #
+    # ========  Main Methods  ==================================== #
+    # ============================================================ #
+
+    def run_query(self, query):
+        # connect to db, and save
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+
+        # execute script, save, and close
+        cursor.execute(query)
+        db.commit()
+        db.close()
+
+
+    def get_query(self, query):
+        # connect to db, and fetch
+        db = sqlite3.connect(self.config.DATABASE_FILE)
+        cursor = db.cursor()
+        result = cursor.execute(query)
+        result = result.fetchall()
+        db.close()
+
+        return result
+
+
+    # ============================================================ #
+    # ========  GET Methods   ==================================== #
+    # ============================================================ #
+
+    def get_author_id(self, author):
         query = f"""
             SELECT
-                Count(*) AS NumArticles, YearPublished, MonthPublished, DayPublished
+                Id, Name
             FROM
-                Article
+                Writer
             WHERE
-                DatePublished >= {start} AND DatePublished <= {end}
-            GROUP BY DatePublished
+                Name = '{author}'
         """
-        results = self.get_query(query)
-        return results
+        authors = self.get_query(query)
+
+        # if no authors, make a new entry
+        if len(authors) == 0:
+            print(f'no author named {author} found. making a new entry...')
+            self.create_author(author)
+            return self.get_author_id(author)
+        # if *multiple* authors with that name, we have a problem...
+        elif len(authors) > 1:
+            raise Exception(f'ERROR!!!!! Multiple authors with the name {author} were found')
+            return None
+
+        # parse author id and return
+        author_id = authors[0][0]
+        return author_id
 
 
     def get_search_results(self, title_query, subtitle_query):
@@ -293,7 +229,107 @@ class DbManager:
         return self.get_query(query)
 
 
+    def get_tag_id(self, tag):
+        # build query
+        query = f"""
+            SELECT
+                Id, Name
+            FROM
+                Tag
+            WHERE
+                Name = '{tag}'
+        """
+        return self.get_query(query)
 
+
+    # ============================================================ #
+    # ========  CREATE Methods   ================================= #
+    # ============================================================ #
+
+
+    def create_thumbnail(self, thumbnail_filename, article_id):
+        # build query
+        query = f"""
+            INSERT INTO
+                ArticleThumbnail(ArticleId, ThumbnailFilename)
+            VALUES
+                ({article_id}, '{thumbnail_filename}')
+        """
+        self.run_query()
+
+
+    def create_tag(self, tag):
+        # build query
+        query = f"""
+            INSERT INTO
+                Tag(Name)
+            VALUES
+                ('{tag}')
+        """
+        self.run_query()
+
+
+    def create_author(self, author):
+        query = f"""
+            INSERT INTO
+                Writer(Name)
+            VALUES
+                ('{author}')
+        """
+        self.run_query(query)
+
+
+    # ============================================================ #
+    # ========  Helper Methods   ================================= #
+    # ============================================================ #
+
+
+    def get_date_query(self, year, month, day, website_id):
+        # query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
+        query = f"""
+            SELECT 
+                Article.Title, Article.MonthPublished, Article.DayPublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
+            FROM 
+                Article
+            INNER JOIN
+                Writer ON Article.AuthorId = Writer.Id
+            WHERE
+                YearPublished = {year}
+        """
+        if month != None:
+            query += f' AND MonthPublished = {month}'
+        if day != None:
+            query += f' AND DayPublished = {day}'
+        if website_id >= 0:
+            query += f"AND WebsiteId = {website_id}"
+
+        return query
+
+
+
+    def get_sql_insert_command(self, article):
+        # parse the bits we need (for folder / filename)
+        url = article['url']
+        title = article['title'].replace("'", "''") # escape single quotes (' --> '')
+        website = article['website']
+        article_type = article['type'] if 'type' in article else None
+        author = None if 'author' not in article else article['author']
+        author_id = None if author == None else self.get_author_id(author)
+
+        month = article['date'].split('/')[0]
+        day   = article['date'].split('/')[1]
+        year  = article['date'].split('/')[2]
+
+        date_published_epoch = (datetime(int(year), int(month), int(day)) - datetime(1970, 1, 1)).total_seconds()
+
+        # Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished, IsArchived, AuthorId?
+        optional_author_id = f', {author_id}' if author_id != None else ''
+        return f"('{title}', '{url}', {self.config.website_id_lookup[website]}, {date_published_epoch}, '{article_type}', {year}, {month}, {day}, 0{optional_author_id})"
+
+
+
+#---------------------------------------- #
+# ----- testing ------------------------- #
 if __name__ == '__main__':
     db_manager = DbManager()
     test = {
