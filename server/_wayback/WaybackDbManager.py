@@ -112,3 +112,18 @@ class WaybackDbManager:
 
         print(f'running query...({current_file})')
         self.run_query(query)
+
+
+    def get_urls_for_website(self, website, offset, batch_size):
+        website_id = self.config.website_id_lookup[website]
+
+        query = f"""
+            SELECT
+                Id, Url
+            FROM
+                Url
+            WHERE
+                WebsiteId = {website_id}
+            LIMIT {batch_size} OFFSET {offset}
+        """
+        return self.get_query(query)

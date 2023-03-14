@@ -2,8 +2,8 @@ from enum import Enum
 from url_normalize import url_normalize
 import requests, pathlib, json, os
 
+from .WaybackDbManager import WaybackDbManager
 from .._shared.Config import Config
-from .._shared.WaybackDbManager import WaybackDbManager
 from .._shared.Utils import Utils
 
 
@@ -43,7 +43,7 @@ class WaybackManager:
         num_pages = int(requests.get(num_pages_url).text.strip())
 
         # and for each page, save to dump folder
-        for page in range(num_pages)[1085:]:
+        for page in range(num_pages)[355:]:  # stopped at page 356
             print(f'getting page {page + 1} of {num_pages}...')
             # get page result
             results = requests.get(f'{wayback_api_url}&page={str(page)}').text
@@ -78,7 +78,7 @@ class WaybackManager:
 
 
     def consolidate_url_lists(self, website):
-        folderpath = f'{self.config.WAYBACK_MACHINE_DUMP_FOLDER}/{website}/firstpass'
+        folderpath = f'{self.config.WAYBACK_MACHINE_DUMP_FOLDER}/{website}'
         urls = {}
         files_already_done = [
             0, 1, 2
@@ -110,11 +110,11 @@ class WaybackManager:
 
 
 if __name__ == '__main__':
-    test_url = 'www.gamespot.com'
+    test_url = 'www.ign.com'
     wayback = WaybackManager()
-    # wayback.save_list_of_urls('www.ign.com', 'IGN')
+    wayback.save_list_of_urls('www.ign.com', 'IGN')
 
-    wayback.consolidate_url_lists('GameSpot')
+    # wayback.consolidate_url_lists('IGN')
 
     # results = wayback.get_oldest_snapshopt_url(test_url)
     # # and save
