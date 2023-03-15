@@ -21,6 +21,11 @@ class UrlParser {
     static getSearchRequest(): SearchRequest {
         let url = new URL(window.location.href);
         let searchTerms = url.searchParams.get('search');
-        return new SearchRequest(searchTerms.split(','));
+        if(searchTerms !== null) {
+            return new SearchRequest(searchTerms.split(','));
+        }
+        else {
+            return new SearchRequest('');
+        }        
     }
 }

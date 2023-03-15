@@ -11,6 +11,7 @@ class Config {
         if(websiteId === 2) return 'Eurogamer';
         if(websiteId === 3) return 'Gameplanet';
         if(websiteId === 4) return 'JayIsGames';
+        if(websiteId === 5) return 'TIGSource';
         
         return 'Unknown';
     }
@@ -21,6 +22,7 @@ class Config {
         if(websiteName === 'Eurogamer')  return 2;
         if(websiteName === 'Gameplanet') return 3;
         if(websiteName === 'JayIsGames') return 4;
+        if(websiteName === 'TIGSource')  return 5;
 
         return -1;
     }

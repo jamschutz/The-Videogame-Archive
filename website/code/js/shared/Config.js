@@ -11,6 +11,8 @@ var Config = /** @class */ (function () {
             return 'Gameplanet';
         if (websiteId === 4)
             return 'JayIsGames';
+        if (websiteId === 5)
+            return 'TIGSource';
         return 'Unknown';
     };
     Config.websiteNameToId = function (websiteName) {
@@ -22,6 +24,8 @@ var Config = /** @class */ (function () {
             return 3;
         if (websiteName === 'JayIsGames')
             return 4;
+        if (websiteName === 'TIGSource')
+            return 5;
         return -1;
     };
     Config.url_to_filename = function (url, day, websiteId) {

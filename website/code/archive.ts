@@ -1,6 +1,6 @@
 // const PADDING_BETWEEN_WEBSITE_COLUMNS = 500
 const PADDING_BETWEEN_WEBSITE_COLUMNS = 0;
-const NUM_WEBSITES = 4;
+const NUM_WEBSITES = 5;
 
 let dataManager = new DataManager();
 let calendar = new Calendar();
@@ -16,7 +16,8 @@ async function initPage() {
         'GameSpot': [],
         'Eurogamer': [],
         'Gameplanet': [], 
-        'JayIsGames': []
+        'JayIsGames': [],
+        'TIGSource': []
     };
 
     for(let i = 0; i < articles.length; i++) {
@@ -24,7 +25,7 @@ async function initPage() {
     }
 
     let articlesDiv = document.getElementById('articles');
-    for(let i = 0; i < 4; i++) {
+    for(let i = 0; i < NUM_WEBSITES; i++) {
         let websiteName = Config.websiteIdToName(i + 1);
         let paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
         let websiteArticles = websites[websiteName];

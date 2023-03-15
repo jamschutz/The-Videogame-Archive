@@ -19,8 +19,8 @@ utils = Utils()
 
 # ================================= #
 # == set these variables!!! ======= #
-START_PAGE_NUMBER = 200    # = #
-END_PAGE_NUMBER   = 175           # = #
+START_PAGE_NUMBER = 50    # = #
+END_PAGE_NUMBER   = 1           # = #
 # ================================= #
 # ================================= #
 

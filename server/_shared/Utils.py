@@ -3,6 +3,7 @@ from server._shared.Config import Config
 from pathlib import Path
 from url_normalize import url_normalize
 from bs4 import BeautifulSoup
+import re
 
 class Utils:
     def __init__(self):
@@ -42,7 +43,9 @@ class Utils:
         css = ''
         for css_link in css_links:
             href = f"{base_url}{css_link['href']}"
-            css += requests.get(href).text + "\n"
+            raw_css = requests.get(href).text
+            css += raw_css + "\n"
+            # self.download_css_images(raw_css, href, website)
 
             # remove this css element from the html
             css_link.decompose()
@@ -83,10 +86,44 @@ class Utils:
         url = url[:url.rfind('?')]
 
         return url
+
+
+    def download_css_images(self, css, css_url, css_img_folderpath):
+        css_host_url = css_url[:css_url.rfind('/')]
+        img_urls = []
+
+        # parse img urls from css file
+        for url in re.finditer('background: url\(([^()]+)\)', css):
+            # grab between start / end of regex
+            img_url = css[url.start():url.end()]
+            # lop of take on the part in the parentheses, e.g.: "background: url(TAKE_THIS_PART)"
+            img_url = img_url[len('background: url('):-1]
+            
+            # and store, adding the css url at the start
+            img_urls.append(f'{css_host_url}/{img_url}')
+
+        # now, download each img, and save
+        folderpath = f''
+        for url in img_urls:
+            # download image
+            img_data = requests.get(url).content
+
+            # make sure folder path exists
+            Path(folderpath).mkdir(parents=True, exist_ok=True)
+
+            # and write to disk
+            with open(f'{folderpath}/{filename}', 'wb') as f:
+                f.write(img_data)
+
+
+        print(background_url_declarations)
         
 
 
 if __name__ == '__main__':
-    url = 'https://www.gamespot.com/#message_inbo'
     utils = Utils()
-    print(utils.normalize_url(url))
+    css = ''
+    with open('server/_shared/test.css', 'r') as f:
+        css = f.read().replace('\n', '')
+    
+    # utils.download_css_images(css, 'TIGSource')

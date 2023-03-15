@@ -140,9 +140,11 @@ class DbManager:
 
     def update_article(self, article):
         # get author id
-        author_id = self.get_author_id(article['author'])
         subtitle = article['subtitle'] if 'subtitle' in article else ''
+        author_id = self.get_author_id(article['author']) if 'author' in article else None
         article_type = article['type'] if 'type' in article else None
+
+        set_author_query = f",AuthorId = {author_id}" if author_id != None else ''
         set_type_query = f",Type = '{article_type}'" if article_type != None else ''
 
         # build query
@@ -150,8 +152,8 @@ class DbManager:
             UPDATE
                 Article
             SET
-                AuthorId = {author_id},
                 Subtitle = '{subtitle.replace("'", "''")}'
+                {set_author_query}
                 {set_type_query}
             WHERE
                 Url = '{article['url']}'
@@ -320,6 +322,7 @@ class DbManager:
         article_id = self.get_article_id(article)
 
         for tag in article['tags']:
+            tag = tag.replace("'", "''")
             tag_id = self.get_tag_id(tag)
 
             # if no tag exists yet, create one

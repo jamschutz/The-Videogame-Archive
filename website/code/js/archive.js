@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 // const PADDING_BETWEEN_WEBSITE_COLUMNS = 500
 var PADDING_BETWEEN_WEBSITE_COLUMNS = 0;
-var NUM_WEBSITES = 4;
+var NUM_WEBSITES = 5;
 var dataManager = new DataManager();
 var calendar = new Calendar();
 var dateHeader = new DateHeader();
@@ -54,13 +54,14 @@ function initPage() {
                         'GameSpot': [],
                         'Eurogamer': [],
                         'Gameplanet': [],
-                        'JayIsGames': []
+                        'JayIsGames': [],
+                        'TIGSource': []
                     };
                     for (i = 0; i < articles.length; i++) {
                         websites[articles[i].website].push(articles[i]);
                     }
                     articlesDiv = document.getElementById('articles');
-                    for (i = 0; i < 4; i++) {
+                    for (i = 0; i < NUM_WEBSITES; i++) {
                         websiteName = Config.websiteIdToName(i + 1);
                         paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
                         websiteArticles = websites[websiteName];
