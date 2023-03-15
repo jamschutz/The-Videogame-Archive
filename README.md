@@ -100,3 +100,9 @@ NOTE: Short reviews seem to not have dedicated urls, which throws a wrench in my
 ### Terry Cavanagh Blog
 
 https://distractionware.com/blog/page/70/
+
+
+### The Escapist
+
+think everything before "Welcome to the Lounge" does not need to be archived (they're all empty pages) <br/>
+https://www.escapistmagazine.com/category/news/page/3951/

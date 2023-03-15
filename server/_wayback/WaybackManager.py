@@ -94,8 +94,8 @@ class WaybackManager:
 
                 # normalize data
                 for item in data:
-                    item['url'] = self.utils.normalize_url(item['url']).replace("'", "''")
                     item['raw_url'] = item['url'].replace("'", "''")
+                    item['url'] = self.utils.normalize_url(item['url']).replace("'", "''")
                     item['url_data'] = item['url_data'].replace("'", "''")
                     item['statuscode'] = None if item['statuscode'] == '-' else item['statuscode']
                     item['length'] = 0 if item['length'] == '-' else item['length']

@@ -133,23 +133,24 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
         print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
         
         # download webpage
-        print('(getting webpage...)')
-        raw_html = requests.get(article['url']).text
-        print('(done!)')
+        try:
+            raw_html = requests.get(article['url']).text
 
-        # get article data
-        article = get_article_data(article, raw_html)
-        
-        # if None, something went wrong, just skip
-        if article != None:
-            # save to filepath
-            send_article_to_archive(article, raw_html)
-            # and update its info in the DB
-            db_manager.update_article(article)
+            # get article data
+            article = get_article_data(article, raw_html)
+            
+            # if None, something went wrong, just skip
+            if article != None:
+                # save to filepath
+                send_article_to_archive(article, raw_html)
+                # and update its info in the DB
+                db_manager.update_article(article)
 
-        # don't spam
-        time.sleep(random.uniform(0.7, 1.6))
-        counter += 1
+            # don't spam
+            time.sleep(random.uniform(0.7, 1.6))
+            counter += 1
+        except:
+            print(f"ERROR: couldn't get article {article['title']}")
 
     # get list of articles that were succesfully archived
     articles_archived_successfully = []
