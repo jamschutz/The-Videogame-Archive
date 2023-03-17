@@ -1,7 +1,7 @@
 import sqlite3, os
 from pathlib import Path
 
-TARGET_WEBSITE_NAME = 'GameSpot'
+TARGET_WEBSITE_NAME = 'Eurogamer'
 TARGET_WEBISTE_ID = 1
 
 def get_query(query):
@@ -13,6 +13,17 @@ def get_query(query):
     db.close()
 
     return result
+
+
+def run_query(query):
+    # connect to db, and save
+    db = sqlite3.connect('/_database/VideogamesDatabase.db')
+    cursor = db.cursor()
+
+    # execute script, save, and close
+    cursor.execute(query)
+    db.commit()
+    db.close()
 
 
 def url_to_filename(url, day):
@@ -65,7 +76,22 @@ def get_article_thumbnail(article, thumbnails):
     return None
 
 
+def add_thumbnails_to_db(thumbnails):
+    if(len(thumbnails)) == 0:
+        return
+    
+    query = f"""
+        INSERT OR IGNORE INTO
+            Thumbnail(ArticleId, Filename)
+        VALUES
+            
+    """
+    for thumbnail in thumbnails:
+        query += f"({thumbnail['article_id']}, '{thumbnail['filename']}'),\n"
 
+    # chop off trailing comma
+    query = query[:-2]
+    run_query(query)
 
 
 
@@ -95,21 +121,29 @@ def get_articles(year, month):
     return articles
 
 
-# for i in range(2):
-    # print(get_articles(2000, 11))
-    # article_has_thumbnail('https://www.gamespot.com/reviews/rise-2-resurrection-review/1900-2532810/', 19960501)
-    # print(get_thumbnails_for_month(1996, 5))
+start_year = 2001
+end_year = 2023
 
-articles = get_articles(2001, 8)
-thumbnails = get_thumbnails_for_month(2001, 8)
+year = start_year
+while year <= end_year:
+    for month in range(12):
+        # convert [0,11] to [1,12]
+        month = month + 1
 
-thumbnail_files = []
-for article in articles:
-    filename = get_article_thumbnail(article, thumbnails)
-    if filename != None:
-        thumbnail_files.append({
-            'article_id': article['id'],
-            'filename': filename
-        })
+        articles = get_articles(year, month)
+        thumbnails = get_thumbnails_for_month(year, month)
 
-print(thumbnail_files)
+        thumbnail_files = []
+        for article in articles:
+            filename = get_article_thumbnail(article, thumbnails)
+            if filename != None:
+                thumbnail_files.append({
+                    'article_id': article['id'],
+                    'filename': filename
+                })
+
+        print(f'sending {len(thumbnail_files)} files to db ({month}/{year})...')
+        add_thumbnails_to_db(thumbnail_files)
+
+    year += 1
+
