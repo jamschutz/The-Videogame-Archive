@@ -43,7 +43,7 @@ class WaybackManager:
         num_pages = int(requests.get(num_pages_url).text.strip())
 
         # and for each page, save to dump folder
-        for page in range(num_pages)[355:]:  # stopped at page 356
+        for page in range(num_pages):  # stopped at page 356
             print(f'getting page {page + 1} of {num_pages}...')
             # get page result
             results = requests.get(f'{wayback_api_url}&page={str(page)}').text
@@ -112,7 +112,7 @@ class WaybackManager:
 if __name__ == '__main__':
     test_url = 'www.ign.com'
     wayback = WaybackManager()
-    wayback.save_list_of_urls('www.ign.com', 'IGN')
+    wayback.save_list_of_urls('www.n64.com', 'N64.com')
 
     # wayback.consolidate_url_lists('IGN')
 

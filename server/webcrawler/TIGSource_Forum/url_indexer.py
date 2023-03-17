@@ -11,7 +11,7 @@ BASE_URL = 'https://forums.tigsource.com/'
 WEBSITE_NAME = 'TIGSource Forum'
 WEBSITE_ID = 6
 
-PAGE_URL = {
+TOPIC_URL = {
     'Townhall': 'https://forums.tigsource.com/index.php?board=17.0',
     'DevLogs': 'https://forums.tigsource.com/index.php?board=27.0',
     'Jams & Events': 'https://forums.tigsource.com/index.php?board=15.0',
@@ -30,7 +30,7 @@ PAGE_URL = {
 }
 
 # we'll build the url with {BASEURL}.{offset}, e.g.: https://forums.tigsource.com/index.php?board=17.0.8850
-PAGE_MAX_OFFSET = {
+TOPIC_MAX_OFFSET = {
     'Townhall': 8850,
     'DevLogs': 11280,
     'Jams & Events': 1050,
@@ -52,9 +52,6 @@ PAGE_MAX_OFFSET = {
 # we can use this to iterate the page urls (e.g. next page is current_offset + posts_per_page)
 POSTS_PER_PAGE = 30
 
-
-
-MAX_PAGE = 232
 DATETIME_FORMAT = '%B %d, %Y'
 
 db = DbManager()
@@ -63,6 +60,7 @@ utils = Utils()
 
 # ================================= #
 # == set these variables!!! ======= #
+TARGET_TOPIC = 'Townhall'       # = #
 START_PAGE_NUMBER = 50    # = #
 END_PAGE_NUMBER   = 1           # = #
 # ================================= #

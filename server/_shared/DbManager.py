@@ -13,26 +13,20 @@ class DbManager:
 
 
     def get_articles_for_date(self, year, month=None, day=None, website_id=-1):
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
         # execute script, save, and close
-        query = self.get_date_query(year, month, day, website_id)    
-        result = cursor.execute(query)
-        articles = result.fetchall()
-        db.close()
+        query = self.get_date_query(year, month, day, website_id)
+        articles = self.get_query(query)
 
         articles_formatted = []
         for article in articles:
+            # Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
             articles_formatted.append({
                 'title': article[0],
-                'month': article[1],
-                'day': article[2],
-                'url': article[3],
-                'website': article[4],
-                'subtitle': article[5],
-                'author': article[6]
+                'date': article[1],
+                'url': article[2],
+                'website': article[3],
+                'subtitle': article[4],
+                'author': article[5]
             })
 
         return articles_formatted
@@ -42,7 +36,7 @@ class DbManager:
         # build query
         query = f"""
             SELECT
-                Title, Url, YearPublished, MonthPublished, DayPublished, WebsiteId
+                Title, Url, DatePublished, WebsiteId
             FROM
                 Article
             WHERE
@@ -68,10 +62,8 @@ class DbManager:
             articles_formatted.append({
                 'title': article[0],
                 'url': article[1],
-                'year': article[2],
-                'month': article[3],
-                'day': article[4],
-                'website': article[5]
+                'date': article[2],
+                'website': article[3]
             })
         return articles_formatted
 
@@ -80,7 +72,7 @@ class DbManager:
         if len(articles) == 0: return
         query = f"""
             INSERT OR IGNORE INTO
-                Article(Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished, IsArchived{', AuthorId' if 'author' in articles[0] else ''})
+                Article(Title, Url, WebsiteId, DatePublished, Type, IsArchived{', AuthorId' if 'author' in articles[0] else ''})
             VALUES
         """
         # for each article, add it's info to insert statement
@@ -104,7 +96,7 @@ class DbManager:
         for article in articles:
             urls.append(f"'{article['url']}'")
 
-        sql_script = f"""
+        query = f"""
             UPDATE
                 Article
             SET
@@ -112,30 +104,21 @@ class DbManager:
             WHERE
                 Url IN ({','.join(urls)})
         """
-
-        # connect to db, and save
-        db = sqlite3.connect(self.config.DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
-        result = cursor.execute(sql_script)
-        db.commit()
-        db.close()
+        self.run_query(query)
 
 
     def get_article_count_between_dates(self, start, end):
         # build query
         query = f"""
             SELECT
-                Count(*) AS NumArticles, YearPublished, MonthPublished, DayPublished
+                Count(*) AS NumArticles, DatePublished
             FROM
                 Article
             WHERE
                 DatePublished >= {start} AND DatePublished <= {end}
             GROUP BY DatePublished
         """
-        results = self.get_query(query)
-        return results
+        return self.get_query(query)
 
 
     def update_article(self, article):
@@ -159,6 +142,36 @@ class DbManager:
                 Url = '{article['url']}'
         """
         self.run_query(query)
+
+
+    def get_search_results(self, title_query, subtitle_query):
+        # build query
+        query = f"""
+            SELECT
+                Article.Title, Article.Subtitle, Article.Url, Article.DatePublished, Article.WebsiteId, Writer.Name AS Author
+            FROM
+                Article
+            INNER JOIN
+                Writer
+            ON
+                Article.AuthorId = Writer.Id
+            WHERE
+                Article.Title LIKE '{title_query}' OR Article.Subtitle LIKE '{subtitle_query}'
+            ORDER BY
+                Article.DatePublished
+        """
+        results = []
+        for article in self.get_query(query):
+            # Article.Title, Article.Subtitle, Article.Url, Article.DatePublished, Article.WebsiteId, Writer.Name AS Author
+            results.append({
+                'title': article[0],
+                'subtitle': article[1],
+                'url': article[2],
+                'date': article[3],
+                'website_id': article[4],
+                'author': article[5]
+            })
+        return results
 
 
     # ============================================================ #
@@ -215,25 +228,6 @@ class DbManager:
         # parse author id and return
         author_id = authors[0][0]
         return author_id
-
-
-    def get_search_results(self, title_query, subtitle_query):
-        # build query
-        query = f"""
-            SELECT
-                Article.Title, Article.Subtitle, Article.Url, Article.YearPublished, Article.MonthPublished, Article.DayPublished, Article.WebsiteId, Writer.Name AS Author
-            FROM
-                Article
-            INNER JOIN
-                Writer
-            ON
-                Article.AuthorId = Writer.Id
-            WHERE
-                Article.Title LIKE '{title_query}' OR Article.Subtitle LIKE '{subtitle_query}'
-            ORDER BY
-                Article.DatePublished
-        """
-        return self.get_query(query)
 
 
     def get_article_id(self, article):
@@ -350,23 +344,19 @@ class DbManager:
 
 
     def get_date_query(self, year, month, day, website_id):
-        # query = f"SELECT Title, MonthPublished, DayPublished, Url, WebsiteId FROM Article WHERE YearPublished = {year}"
+        date_published = int(year) * 10000 + int(month) * 100 + int(day)
         query = f"""
             SELECT 
-                Article.Title, Article.MonthPublished, Article.DayPublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
+                Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
             FROM 
                 Article
             INNER JOIN
                 Writer ON Article.AuthorId = Writer.Id
             WHERE
-                YearPublished = {year}
+                DatePublished = {date_published}
         """
-        if month != None:
-            query += f' AND MonthPublished = {month}'
-        if day != None:
-            query += f' AND DayPublished = {day}'
         if website_id >= 0:
-            query += f"AND WebsiteId = {website_id}"
+            query += f" AND WebsiteId = {website_id}"
 
         return query
 
@@ -385,11 +375,11 @@ class DbManager:
         day   = article['date'].split('/')[1]
         year  = article['date'].split('/')[2]
 
-        date_published_epoch = (datetime(int(year), int(month), int(day)) - datetime(1970, 1, 1)).total_seconds()
+        date_published = int(year) * 10000 + int(month) * 100 + int(day)
 
-        # Title, Url, WebsiteId, DatePublished, Type, YearPublished, MonthPublished, DayPublished, IsArchived, AuthorId?
+        # Title, Url, WebsiteId, DatePublished, Type, IsArchived, AuthorId?
         optional_author_id = f', {author_id}' if author_id != None else ''
-        return f"('{title}', '{url}', {self.config.website_id_lookup[website]}, {date_published_epoch}, '{article_type}', {year}, {month}, {day}, 0{optional_author_id})"
+        return f"('{title}', '{url}', {self.config.website_id_lookup[website]}, {date_published}, '{article_type}', 0{optional_author_id})"
 
 
 
