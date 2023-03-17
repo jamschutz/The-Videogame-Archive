@@ -10,6 +10,15 @@ class CalendarDate {
     }
 
 
+    static fromDateString(dateString: string): CalendarDate {
+        // datestring in format YYYYMMDD
+        let year = dateString.substring(0, 4);
+        let month = dateString.substring(4, 6);
+        let day = dateString.substring(6);
+        return new CalendarDate(year, month, day);
+    }
+
+
     public toString(): string {
         return `${this.month}/${this.day}/${this.year}`;
     }

@@ -31,13 +31,8 @@ class SearchResult {
         websiteLabel.innerText = this.article.website;
 
         // date
-        let year = this.article.date.split('/')[2];
-        let month = this.article.date.split('/')[0];
-        let day = this.article.date.split('/')[1];
-
         let dateLabel = document.createElement('div');
-        let dateInfo = new CalendarDate(year, month, day);
-        dateLabel.innerText = dateInfo.toPrettyString_FullDate();
+        dateLabel.innerText = this.article.date.toPrettyString_FullDate();
         dateLabel.classList.add('article-date-website-panel-date');
 
         // add it all and return
@@ -114,9 +109,9 @@ class SearchResult {
 
 
     private getThumbnailUrl() {
-        let day = Utils.getTwoCharNum(this.article.date.split("/")[1]);
-        let month = Utils.getTwoCharNum(this.article.date.split("/")[0]);
-        let year = Utils.getTwoCharNum(this.article.date.split("/")[2]);
+        let day = Utils.getTwoCharNum(this.article.date.day);
+        let month = Utils.getTwoCharNum(this.article.date.month);
+        let year = Utils.getTwoCharNum(this.article.date.year);
         let websiteId = Config.websiteNameToId(this.article.website);
 
         let filename = Config.url_to_filename(this.article.url, day, websiteId) + "_thumbnail";

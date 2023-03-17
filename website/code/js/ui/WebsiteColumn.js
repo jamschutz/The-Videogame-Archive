@@ -83,9 +83,9 @@ var WebsiteColumn = /** @class */ (function () {
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {
-        var day = Utils.getTwoCharNum(article.date.split("/")[1]);
-        var month = Utils.getTwoCharNum(article.date.split("/")[0]);
-        var year = Utils.getTwoCharNum(article.date.split("/")[2]);
+        var day = Utils.getTwoCharNum(article.date.day);
+        var month = Utils.getTwoCharNum(article.date.month);
+        var year = Utils.getTwoCharNum(article.date.year);
         var websiteId = Config.websiteNameToId(this.websiteName);
         var filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";
         return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.websiteName, "/_thumbnails/").concat(year, "/").concat(month, "/").concat(filename);

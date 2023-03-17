@@ -11,10 +11,7 @@ var GetArticleCountResponse = /** @class */ (function () {
 var ArticleCountData = /** @class */ (function () {
     function ArticleCountData(data) {
         this.count = data['count'];
-        var year = data['date'].split('/')[2];
-        var month = data['date'].split('/')[0];
-        var day = data['date'].split('/')[1];
-        this.date = new CalendarDate(year, month, day);
+        this.date = CalendarDate.fromDateString(data['date']);
     }
     return ArticleCountData;
 }());

@@ -16,10 +16,6 @@ class ArticleCountData {
 
     constructor(data: JSON) {
         this.count = data['count'];
-
-        let year = data['date'].split('/')[2];
-        let month = data['date'].split('/')[0];
-        let day = data['date'].split('/')[1];
-        this.date = new CalendarDate(year, month, day);
+        this.date = CalendarDate.fromDateString(data['date']);
     }
 }

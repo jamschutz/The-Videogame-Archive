@@ -4,7 +4,7 @@ var SearchResponse = /** @class */ (function () {
         this.results = [];
         jsonData.forEach(function (d) {
             var article = new Article();
-            article.date = d['date'];
+            article.date = CalendarDate.fromDateString(d['date']);
             article.title = d['title'];
             article.subtitle = d['subtitle'];
             article.author = d['author'];

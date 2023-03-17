@@ -57,19 +57,18 @@ def get_article_count_for_date():
     start_date = request.args.get('start')
     end_date = request.args.get('end')
 
-    start_epoch = get_epoch(start_date)
-    end_epoch = get_epoch(end_date)
-
     # fetch db data and return
     db_manager = DbManager()
-    db_result = db_manager.get_article_count_between_dates(start=start_epoch, end=end_epoch)
+    db_result = db_manager.get_article_count_between_dates(start=start_date, end=end_date)
 
     response = []
     for date in db_result:
         response.append({
             'count': date[0],
-            'date': f'{date[2]}/{date[3]}/{date[1]}'
+            'date': f'{date[1]}'
         })
+
+    print(f'returning response: \n{db_result}')
 
     return jsonify(response)
 

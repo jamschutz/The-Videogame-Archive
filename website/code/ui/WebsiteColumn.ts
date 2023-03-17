@@ -115,9 +115,9 @@ class WebsiteColumn {
 
 
     private getThumbnailUrl(article: Article) {
-        let day = Utils.getTwoCharNum(article.date.split("/")[1]);
-        let month = Utils.getTwoCharNum(article.date.split("/")[0]);
-        let year = Utils.getTwoCharNum(article.date.split("/")[2]);
+        let day = Utils.getTwoCharNum(article.date.day);
+        let month = Utils.getTwoCharNum(article.date.month);
+        let year = Utils.getTwoCharNum(article.date.year);
         let websiteId = Config.websiteNameToId(this.websiteName);
 
         let filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";

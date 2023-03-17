@@ -18,12 +18,8 @@ var SearchResult = /** @class */ (function () {
         var websiteLabel = document.createElement('div');
         websiteLabel.innerText = this.article.website;
         // date
-        var year = this.article.date.split('/')[2];
-        var month = this.article.date.split('/')[0];
-        var day = this.article.date.split('/')[1];
         var dateLabel = document.createElement('div');
-        var dateInfo = new CalendarDate(year, month, day);
-        dateLabel.innerText = dateInfo.toPrettyString_FullDate();
+        dateLabel.innerText = this.article.date.toPrettyString_FullDate();
         dateLabel.classList.add('article-date-website-panel-date');
         // add it all and return
         containerDiv.appendChild(dateLabel);
@@ -84,9 +80,9 @@ var SearchResult = /** @class */ (function () {
         return containerDiv;
     };
     SearchResult.prototype.getThumbnailUrl = function () {
-        var day = Utils.getTwoCharNum(this.article.date.split("/")[1]);
-        var month = Utils.getTwoCharNum(this.article.date.split("/")[0]);
-        var year = Utils.getTwoCharNum(this.article.date.split("/")[2]);
+        var day = Utils.getTwoCharNum(this.article.date.day);
+        var month = Utils.getTwoCharNum(this.article.date.month);
+        var year = Utils.getTwoCharNum(this.article.date.year);
         var websiteId = Config.websiteNameToId(this.article.website);
         var filename = Config.url_to_filename(this.article.url, day, websiteId) + "_thumbnail";
         return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.article.website, "/_thumbnails/").concat(year, "/").concat(month, "/").concat(filename);

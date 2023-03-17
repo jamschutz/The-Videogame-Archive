@@ -3,7 +3,7 @@ class Article {
 
     }
 
-    date : string;
+    date : CalendarDate;
     title: string;
     subtitle: string;
     author: string;

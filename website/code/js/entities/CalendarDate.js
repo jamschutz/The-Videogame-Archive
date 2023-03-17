@@ -4,6 +4,13 @@ var CalendarDate = /** @class */ (function () {
         this.month = (typeof month === 'number') ? month : parseInt(month);
         this.day = (typeof day === 'number') ? day : parseInt(day);
     }
+    CalendarDate.fromDateString = function (dateString) {
+        // datestring in format YYYYMMDD
+        var year = dateString.substring(0, 4);
+        var month = dateString.substring(4, 6);
+        var day = dateString.substring(6);
+        return new CalendarDate(year, month, day);
+    };
     CalendarDate.prototype.toString = function () {
         return "".concat(this.month, "/").concat(this.day, "/").concat(this.year);
     };
