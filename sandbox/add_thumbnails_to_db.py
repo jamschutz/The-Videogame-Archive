@@ -1,8 +1,8 @@
 import sqlite3, os
 from pathlib import Path
 
-TARGET_WEBSITE_NAME = 'Eurogamer'
-TARGET_WEBISTE_ID = 1
+TARGET_WEBSITE_NAME = 'Gameplanet'
+TARGET_WEBISTE_ID = 3
 
 def get_query(query):
     # connect to db, and fetch
@@ -121,8 +121,8 @@ def get_articles(year, month):
     return articles
 
 
-start_year = 2001
-end_year = 2023
+start_year = 2000
+end_year = 2020
 
 year = start_year
 while year <= end_year:
