@@ -4,7 +4,8 @@
 
 To use this tool, you'll need the python library `Beautiful Soup` installed. Just run `pip install beautifulsoup4`.<br/><br/>
 You'll also need the html parser `lxml`: `pip install lxml` <br/>
-As well as the url normalizer: `pip install url-normalize`
+As well as the url normalizer: `pip install url-normalize` <br/>
+And pyodbc: `pip install pyodbc`
 
 ## Notes to self
 
