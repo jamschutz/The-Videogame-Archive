@@ -63,6 +63,7 @@ var DataManager = /** @class */ (function () {
                             article.date = new CalendarDate(date.year, date.month, date.day);
                             article.author = json[i]['author'];
                             article.subtitle = json[i]['subtitle'];
+                            article.thumbnail = json[i]['thumbnail'];
                             articles.push(article);
                         }
                         return [2 /*return*/, articles];

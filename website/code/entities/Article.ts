@@ -9,4 +9,5 @@ class Article {
     author: string;
     url: string;
     website: string;
+    thumbnail: string;
 }

@@ -44,22 +44,12 @@ class WebsiteColumn {
         let containerDiv = document.createElement("div");
         containerDiv.classList.add('article');
 
-        // create thumbnail
-        let thumbnail = document.createElement("img");
-        thumbnail.classList.add('article-thumbnail');
-
-        let thumbnailSrc = this.getThumbnailUrl(article);
-        thumbnail.src = `${thumbnailSrc}.jpg`;
-        thumbnail.onerror = function() {
-            let fileExtension = this.src.split(".")[this.src.split(".").length - 1];
-
-            if(fileExtension === 'jpg') {
-                this.src= `${thumbnailSrc}.png`;
-            }
-            else {
-                this.onerror=null;
-                this.parentNode.removeChild(this);
-            }
+        // create thumbnail, if it exists
+        let thumbnail = null;
+        if(article.thumbnail !== null) {
+            thumbnail = document.createElement('img');
+            thumbnail.classList.add('article-thumbnail');
+            thumbnail.src = this.getThumbnailUrl(article);
         }
 
         // create title
@@ -67,19 +57,24 @@ class WebsiteColumn {
         title.href = article.url;
         title.classList.add('article-title');
         title.innerText = article.title;
+        if(thumbnail === null) title.style.width = '100%';
 
         // create subtitle
         let subtitle = document.createElement('div');
         subtitle.classList.add('article-subtitle');
         subtitle.innerText = article.subtitle;
+        if(thumbnail === null) subtitle.style.width = '100%';
 
         // create author
         let author = document.createElement('div');
         author.classList.add('article-author');
         author.innerText = article.author;
+        if(thumbnail === null) author.style.width = '100%';
 
         // and add everything to the container
-        containerDiv.appendChild(thumbnail);
+        if(thumbnail !== null) { // don't add thumbnail if there i snone
+            containerDiv.appendChild(thumbnail);
+        }
         containerDiv.appendChild(title);
         if(article.subtitle !== '') { // don't add subtitle div if there is none
             containerDiv.appendChild(subtitle);
@@ -102,25 +97,15 @@ class WebsiteColumn {
         label.classList.add(WebsiteColumn.WEBSITE_COLUMN_HEADER_CLASS);
         label.innerHTML = this.websiteName;
 
-        // let newLine1 = document.createElement("br");
-        // let newLine2 = document.createElement("br");
-
         websiteColumn.appendChild(label);
         websiteColumn.appendChild(document.createElement('hr'));
-        // websiteColumn.appendChild(newLine1);
-        // websiteColumn.appendChild(newLine2);
         
         return websiteColumn;
     }
 
 
     private getThumbnailUrl(article: Article) {
-        let day = Utils.getTwoCharNum(article.date.day);
         let month = Utils.getTwoCharNum(article.date.month);
-        let year = Utils.getTwoCharNum(article.date.year);
-        let websiteId = Config.websiteNameToId(this.websiteName);
-
-        let filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";
-        return `${Config.LOCAL_FILE_BASE_URL}/${this.websiteName}/_thumbnails/${year}/${month}/${filename}`;
+        return `${Config.LOCAL_FILE_BASE_URL}/${this.websiteName}/_thumbnails/${article.date.year.toString()}/${month}/${article.thumbnail}`;
     }
 }

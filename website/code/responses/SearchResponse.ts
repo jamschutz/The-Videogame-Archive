@@ -11,6 +11,9 @@ class SearchResponse {
             article.author = d['author'];
             article.url = d['url'];
             article.website = Config.websiteIdToName(d['website_id']);
+            article.thumbnail = d['thumbnail'];
+
+            console.log(article);
 
             this.results.push(article);
         });

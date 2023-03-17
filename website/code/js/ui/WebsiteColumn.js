@@ -27,36 +27,36 @@ var WebsiteColumn = /** @class */ (function () {
         // create container
         var containerDiv = document.createElement("div");
         containerDiv.classList.add('article');
-        // create thumbnail
-        var thumbnail = document.createElement("img");
-        thumbnail.classList.add('article-thumbnail');
-        var thumbnailSrc = this.getThumbnailUrl(article);
-        thumbnail.src = "".concat(thumbnailSrc, ".jpg");
-        thumbnail.onerror = function () {
-            var fileExtension = this.src.split(".")[this.src.split(".").length - 1];
-            if (fileExtension === 'jpg') {
-                this.src = "".concat(thumbnailSrc, ".png");
-            }
-            else {
-                this.onerror = null;
-                this.parentNode.removeChild(this);
-            }
-        };
+        // create thumbnail, if it exists
+        var thumbnail = null;
+        if (article.thumbnail !== null) {
+            thumbnail = document.createElement('img');
+            thumbnail.classList.add('article-thumbnail');
+            thumbnail.src = this.getThumbnailUrl(article);
+        }
         // create title
         var title = document.createElement('a');
         title.href = article.url;
         title.classList.add('article-title');
         title.innerText = article.title;
+        if (thumbnail === null)
+            title.style.width = '100%';
         // create subtitle
         var subtitle = document.createElement('div');
         subtitle.classList.add('article-subtitle');
         subtitle.innerText = article.subtitle;
+        if (thumbnail === null)
+            subtitle.style.width = '100%';
         // create author
         var author = document.createElement('div');
         author.classList.add('article-author');
         author.innerText = article.author;
+        if (thumbnail === null)
+            author.style.width = '100%';
         // and add everything to the container
-        containerDiv.appendChild(thumbnail);
+        if (thumbnail !== null) { // don't add thumbnail if there i snone
+            containerDiv.appendChild(thumbnail);
+        }
         containerDiv.appendChild(title);
         if (article.subtitle !== '') { // don't add subtitle div if there is none
             containerDiv.appendChild(subtitle);
@@ -83,12 +83,8 @@ var WebsiteColumn = /** @class */ (function () {
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {
-        var day = Utils.getTwoCharNum(article.date.day);
         var month = Utils.getTwoCharNum(article.date.month);
-        var year = Utils.getTwoCharNum(article.date.year);
-        var websiteId = Config.websiteNameToId(this.websiteName);
-        var filename = Config.url_to_filename(article.url, day, websiteId) + "_thumbnail";
-        return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.websiteName, "/_thumbnails/").concat(year, "/").concat(month, "/").concat(filename);
+        return "".concat(Config.LOCAL_FILE_BASE_URL, "/").concat(this.websiteName, "/_thumbnails/").concat(article.date.year.toString(), "/").concat(month, "/").concat(article.thumbnail);
     };
     // class declarations
     WebsiteColumn.ARTICLES_DIV_ID = 'articles';

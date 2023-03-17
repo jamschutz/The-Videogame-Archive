@@ -19,14 +19,15 @@ class DbManager:
 
         articles_formatted = []
         for article in articles:
-            # Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
+            # Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name, Thumbnail.Filename
             articles_formatted.append({
                 'title': article[0],
                 'date': article[1],
                 'url': article[2],
                 'website': article[3],
                 'subtitle': article[4],
-                'author': article[5]
+                'author': article[5],
+                'thumbnail': article[6]
             })
 
         return articles_formatted
@@ -148,13 +149,17 @@ class DbManager:
         # build query
         query = f"""
             SELECT
-                Article.Title, Article.Subtitle, Article.Url, Article.DatePublished, Article.WebsiteId, Writer.Name AS Author
+                Article.Title, Article.Subtitle, Article.Url, Article.DatePublished, Article.WebsiteId, Writer.Name AS Author, Thumbnail.Filename AS Thumbnail
             FROM
                 Article
             INNER JOIN
                 Writer
             ON
                 Article.AuthorId = Writer.Id
+            LEFT JOIN
+                Thumbnail
+            ON
+                Article.Id = Thumbnail.ArticleId
             WHERE
                 Article.Title LIKE '{title_query}' OR Article.Subtitle LIKE '{subtitle_query}'
             ORDER BY
@@ -169,7 +174,8 @@ class DbManager:
                 'url': article[2],
                 'date': article[3],
                 'website_id': article[4],
-                'author': article[5]
+                'author': article[5],
+                'thumbnail': article[6]
             })
         return results
 
@@ -347,11 +353,13 @@ class DbManager:
         date_published = int(year) * 10000 + int(month) * 100 + int(day)
         query = f"""
             SELECT 
-                Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name
+                Article.Title, Article.DatePublished, Article.Url, Article.WebsiteId, Article.Subtitle, Writer.Name, Thumbnail.Filename
             FROM 
                 Article
             INNER JOIN
                 Writer ON Article.AuthorId = Writer.Id
+            LEFT JOIN
+                Thumbnail ON Article.Id = Thumbnail.ArticleId
             WHERE
                 DatePublished = {date_published}
         """

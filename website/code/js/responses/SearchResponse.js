@@ -10,6 +10,8 @@ var SearchResponse = /** @class */ (function () {
             article.author = d['author'];
             article.url = d['url'];
             article.website = Config.websiteIdToName(d['website_id']);
+            article.thumbnail = d['thumbnail'];
+            console.log(article);
             _this.results.push(article);
         });
     }

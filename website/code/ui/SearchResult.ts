@@ -48,32 +48,13 @@ class SearchResult {
         let containerDiv = document.createElement("div");
         containerDiv.classList.add('article-main-info');
 
-        // create thumbnail
-        let thumbnail = document.createElement("img");
-        thumbnail.classList.add('article-thumbnail');
-
-        let thumbnailSrc = this.getThumbnailUrl();
-        thumbnail.src = `${thumbnailSrc}.jpg`;
-        thumbnail.onerror = function() {
-            let fileExtension = this.src.split(".")[this.src.split(".").length - 1];
-
-            if(fileExtension === 'jpg') {
-                this.src= `${thumbnailSrc}.png`;
-            }
-            else {
-                this.onerror=null;
-
-                // for each sibling
-                let element = this;
-                while (element = element.nextSibling) {
-                    if (element.nodeType === 3) continue; // text node
-                    
-                    // set width to 100%
-                    element.style.width = '100%';
-                }
-
-                this.parentNode.removeChild(this);
-            }
+        // create thumbnail, if it exists
+        let thumbnail = null;
+        if(this.article.thumbnail !== null) {
+            thumbnail = document.createElement("img");
+            thumbnail.classList.add('article-thumbnail');
+            let month = Utils.getTwoCharNum(this.article.date.month);
+            thumbnail.src = `${Config.LOCAL_FILE_BASE_URL}/${this.article.website}/_thumbnails/${this.article.date.year}/${month}/${this.article.thumbnail}`;
         }
 
         // create title
@@ -81,19 +62,24 @@ class SearchResult {
         title.href = this.article.url;
         title.classList.add('article-title');
         title.innerText = this.article.title;
+        if(thumbnail === null) title.style.width = '100%';
 
         // create subtitle
         let subtitle = document.createElement('div');
         subtitle.classList.add('article-subtitle');
         subtitle.innerText = this.article.subtitle;
+        if(thumbnail === null) subtitle.style.width = '100%';
 
         // create author
         let author = document.createElement('div');
         author.classList.add('article-author');
         author.innerText = this.article.author;
+        if(thumbnail === null) author.style.width = '100%';
 
         // and add everything to the container
-        containerDiv.appendChild(thumbnail);
+        if(thumbnail !== null) { // don't add thumbnail if there is none
+            containerDiv.appendChild(thumbnail);
+        }
         containerDiv.appendChild(title);
         if(this.article.subtitle !== '') { // don't add subtitle div if there is none
             containerDiv.appendChild(subtitle);
