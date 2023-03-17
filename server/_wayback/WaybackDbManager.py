@@ -5,35 +5,42 @@ from .._shared.Config import Config
 class WaybackDbManager:
     def __init__(self):
         self.config = Config()
+        self.secrets = Secrets()
+
+        self.connection_string = 'DRIVER='+self.secrets.SQL_DRIVER+';SERVER=tcp:'+self.secrets.SQL_SERVER_NAME+';PORT=1433;DATABASE='+self.secrets.SQL_DB_NAME+';UID='+self.secrets.SQL_SERVER_ADMIN_USER+';PWD='+ self.secrets.SQL_SERVER_ADMIN_PASSWORD
 
 
     def run_query(self, query):
-        # connect to db, and save
-        db = sqlite3.connect(self.config.WAYBACK_DATABASE_FILE)
-        cursor = db.cursor()
-
-        # execute script, save, and close
-        cursor.execute(query)
-        db.commit()
-        db.close()
+        with pyodbc.connect(self.connection_string) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query)
 
 
     def get_query(self, query):
-        # connect to db, and fetch
-        db = sqlite3.connect(self.config.WAYBACK_DATABASE_FILE)
-        cursor = db.cursor()
-        result = cursor.execute(query)
-        result = result.fetchall()
-        db.close()
+        result = []
+        with pyodbc.connect(self.connection_string) as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query)
+                result = cursor.fetchall()
 
         return result
 
     def save_new_wayback_url(self, url, website_id):
         query = f"""
-            INSERT INTO
-                Url(Url, WebsiteId)
-            VALUES
-                ('{url}', {website_id})
+            INSERT 
+                Url (Url, WebsiteId)
+            SELECT 
+                Url, WebsiteId
+            FROM 
+                (VALUES('{url}', {website_id})) 
+                U(Url, WebsiteId)
+            WHERE NOT EXISTS 
+                (SELECT 1
+                FROM 
+                    Url other
+                WHERE 
+                    other.Url = u.Url
+                );
         """
         self.run_query(query)
 
@@ -77,14 +84,12 @@ class WaybackDbManager:
 
         urlkey = snapshot['url_data']
         timestamp = snapshot['timestamp']
-        mimetype = snapshot['mimetype']
         statuscode = 'NULL' if snapshot['statuscode'] == None else snapshot['statuscode']
-        digest = snapshot['digest']
-        length = snapshot['length']
         raw_url = snapshot['raw_url']
         wayback_url_id = self.get_wayback_url_id(snapshot['url'], website_id, current_file)
 
-        return f"\t\t\t\t('{urlkey}', '{timestamp}', {wayback_url_id}, '{mimetype}', {statuscode}, '{digest}', {length}, {website_id}, '{raw_url}'),\n"
+        # UrlKey, Timestamp, UrlId, StatusCode, WebsiteId, RawUrl
+        return f"\t\t\t\t('{urlkey}', '{timestamp}', {wayback_url_id}, {statuscode}, {website_id}, '{raw_url}'),\n"
 
 
     def add_wayback_snapshots(self, snapshots, website, current_file):
@@ -92,8 +97,8 @@ class WaybackDbManager:
 
         print(f'building query...({current_file})')
         query = f"""
-            INSERT OR IGNORE INTO
-                Snapshot(UrlKey, Timestamp, UrlId, MimeType, StatusCode, Digest, ResponseLength, WebsiteId, RawUrl)
+            INSERT INTO
+                Snapshot(UrlKey, Timestamp, UrlId, StatusCode, WebsiteId, RawUrl)
             VALUES
         """
         for snapshot in snapshots:
