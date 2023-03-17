@@ -35,9 +35,10 @@ def send_article_to_archive(article, raw_html):
 
     # parse the bits we need (for folder / filename)
     url = article['url']
-    month = utils.get_two_char_int_string(article['month'])
-    day   = utils.get_two_char_int_string(article['day'])
-    year  = article['year']
+    date_published = str(article['date'])
+    year = date_published[:4]
+    month = date_published[4:6]
+    day = date_published[6:]
 
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
@@ -61,7 +62,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     # and archive each one
     counter = 1
     for article in articles_to_archive:
-        print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
+        print(f'saving article {article["title"]} ({article["date"]})....[{counter + counter_offset}/{actual_max}]')
         
         # download webpage
         raw_html = get_html(article['url'])

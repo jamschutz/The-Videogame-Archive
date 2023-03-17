@@ -75,9 +75,10 @@ def get_article_data(article, raw_html):
 def send_thumbnail_to_archive(article):
     thumbnail_url = article['thumbnail_url']
     article_url = article['url']
-    month = utils.get_two_char_int_string(article['month'])
-    day   = utils.get_two_char_int_string(article['day'])
-    year  = article['year']
+    date_published = str(article['date'])
+    year = date_published[:4]
+    month = date_published[4:6]
+    day = date_published[6:]
 
     # if there's no file extension, just slap a .jpg on it
     file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
@@ -94,9 +95,10 @@ def send_article_to_archive(article, raw_html):
 
     # parse the bits we need (for folder / filename)
     url = article['url']
-    month = utils.get_two_char_int_string(article['month'])
-    day   = utils.get_two_char_int_string(article['day'])
-    year  = article['year']
+    date_published = str(article['date'])
+    year = date_published[:4]
+    month = date_published[4:6]
+    day = date_published[6:]
 
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
@@ -123,7 +125,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     # and archive each one
     counter = 1
     for article in articles_to_archive:
-        print(f'saving article {article["title"]} ({article["month"]}/{article["day"]}/{article["year"]})....[{counter + counter_offset}/{actual_max}]')
+        print(f'saving article {article["title"]} ({article["date"])....[{counter + counter_offset}/{actual_max}]')
         
         # download webpage
         raw_html = requests.get(article['url']).text
