@@ -68,8 +68,6 @@ def get_article_count_for_date():
             'date': f'{date[1]}'
         })
 
-    print(f'returning response: \n{db_result}')
-
     return jsonify(response)
 
 

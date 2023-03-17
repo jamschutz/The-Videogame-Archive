@@ -118,7 +118,6 @@ class DbManager:
                 DatePublished >= {start} AND DatePublished <= {end}
             GROUP BY DatePublished
         """
-        print(query)
         return self.get_query(query)
 
 

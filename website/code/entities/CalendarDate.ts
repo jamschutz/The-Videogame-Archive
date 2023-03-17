@@ -10,7 +10,11 @@ class CalendarDate {
     }
 
 
-    static fromDateString(dateString: string): CalendarDate {
+    static fromDateString(dateString: string | number): CalendarDate {
+        if(typeof dateString === 'number') {
+            dateString = dateString.toString();
+        }
+
         // datestring in format YYYYMMDD
         let year = dateString.substring(0, 4);
         let month = dateString.substring(4, 6);

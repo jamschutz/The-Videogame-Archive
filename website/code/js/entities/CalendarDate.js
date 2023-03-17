@@ -5,6 +5,9 @@ var CalendarDate = /** @class */ (function () {
         this.day = (typeof day === 'number') ? day : parseInt(day);
     }
     CalendarDate.fromDateString = function (dateString) {
+        if (typeof dateString === 'number') {
+            dateString = dateString.toString();
+        }
         // datestring in format YYYYMMDD
         var year = dateString.substring(0, 4);
         var month = dateString.substring(4, 6);
