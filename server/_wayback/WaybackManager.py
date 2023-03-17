@@ -81,11 +81,11 @@ class WaybackManager:
         folderpath = f'{self.config.WAYBACK_MACHINE_DUMP_FOLDER}/{website}'
         urls = {}
         files_already_done = [
-            0, 1, 2
+            0, 1, 2, 3
         ]
         # for filename in os.listdir(folderpath):
-        for i in range(1234):
-            if i in files_already_done or i < 1002: 
+        for i in range(4):
+            if i in files_already_done or i < 4: 
                 continue
             filename = f'{i}.json'
             print(f'looking in file {filename}...')
@@ -111,10 +111,10 @@ class WaybackManager:
 
 if __name__ == '__main__':
     # test_url = 'www.ign.com'
-    # wayback = WaybackManager()
+    wayback = WaybackManager()
     # wayback.save_list_of_urls('www.n64.com', 'N64.com')
 
-    wayback.consolidate_url_lists('IGN')
+    wayback.consolidate_url_lists('N64.com')
 
     # results = wayback.get_oldest_snapshopt_url(test_url)
     # # and save
