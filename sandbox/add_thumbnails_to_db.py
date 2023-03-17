@@ -2,7 +2,6 @@ import sqlite3
 
 TARGET_WEBSITE_NAME = 'GameSpot'
 TARGET_WEBISTE_ID = 1
-BATCH_SIZE = 1000
 
 def get_query(query):
     # connect to db, and fetch
@@ -15,15 +14,16 @@ def get_query(query):
     return result
 
 
-def get_articles(offset):
+def get_articles(year, month):
+    start = int(year) * 10000 + int(month) * 100
+    end = start + 100
     query = f"""
         SELECT
             Id, Url, DatePublished
         FROM
             Article
         WHERE
-            WebsiteId = {TARGET_WEBISTE_ID}
-        LIMIT {BATCH_SIZE} OFFSET {offset}
+            WebsiteId = {TARGET_WEBISTE_ID} AND DatePublished >= {start} AND DatePublished < {end}
     """
     result = get_query(query)
 
@@ -39,4 +39,4 @@ def get_articles(offset):
 
 
 for i in range(2):
-    print(get_articles(i * BATCH_SIZE))
+    print(get_articles(2000, 11))
