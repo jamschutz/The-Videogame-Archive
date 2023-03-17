@@ -78,12 +78,12 @@ class Utils:
             url = f"https://www.{url.split('://')[1]}"
 
         # remove #some_tag at the end of urls
-        end_directory = url.split('/')[-1]
-        if len(end_directory) > 0 and end_directory.find('#') >= 0:
-            url = url[:url.rfind('#') + 1]
+        if url.find('#') >= 0:
+            url = url[:url.rfind('#')]
         
         # and remove url parameters
-        url = url[:url.rfind('?')]
+        if url.find('?') >= 0:
+            url = url[:url.rfind('?')]
 
         return url
 
@@ -123,7 +123,10 @@ class Utils:
 if __name__ == '__main__':
     utils = Utils()
     css = ''
-    with open('server/_shared/test.css', 'r') as f:
-        css = f.read().replace('\n', '')
+    # with open('server/_shared/test.css', 'r') as f:
+    #     css = f.read().replace('\n', '')
     
     # utils.download_css_images(css, 'TIGSource')
+
+    url = 'http://www.n64.com:80/web/n64_ext_stan_news_archive#go/to/the/end'
+    print(utils.normalize_url(url))

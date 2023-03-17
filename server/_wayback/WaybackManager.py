@@ -110,11 +110,11 @@ class WaybackManager:
 
 
 if __name__ == '__main__':
-    test_url = 'www.ign.com'
-    wayback = WaybackManager()
-    wayback.save_list_of_urls('www.n64.com', 'N64.com')
+    # test_url = 'www.ign.com'
+    # wayback = WaybackManager()
+    # wayback.save_list_of_urls('www.n64.com', 'N64.com')
 
-    # wayback.consolidate_url_lists('IGN')
+    wayback.consolidate_url_lists('IGN')
 
     # results = wayback.get_oldest_snapshopt_url(test_url)
     # # and save
