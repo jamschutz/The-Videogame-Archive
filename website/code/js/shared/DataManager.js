@@ -43,14 +43,12 @@ var DataManager = /** @class */ (function () {
             var response, json, articles, i, article;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('getting articles...');
-                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Articles?year=").concat(date.year, "&month=").concat(date.month, "&day=").concat(date.day), {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })];
+                    case 0: return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Articles?year=").concat(date.year, "&month=").concat(date.month, "&day=").concat(date.day), {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -77,14 +75,12 @@ var DataManager = /** @class */ (function () {
             var response, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0:
-                        console.log('getting articles...');
-                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/ArticleCount?start=").concat(start.toUrlString(), "&end=").concat(end.toUrlString()), {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })];
+                    case 0: return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/ArticleCount?start=").concat(start.toUrlString(), "&end=").concat(end.toUrlString()), {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })];
                     case 1:
                         response = _b.sent();
                         _a = GetArticleCountResponse.bind;
@@ -99,14 +95,12 @@ var DataManager = /** @class */ (function () {
             var response, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0:
-                        console.log('getting search results...');
-                        return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Search?title=").concat(searchRequest.searchTerms.join('+'), "&subtitle=").concat(searchRequest.searchTerms.join('+')), {
-                                method: 'GET',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                }
-                            })];
+                    case 0: return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Search?title=").concat(searchRequest.searchTerms.join('+'), "&subtitle=").concat(searchRequest.searchTerms.join('+')), {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })];
                     case 1:
                         response = _b.sent();
                         _a = SearchResponse.bind;

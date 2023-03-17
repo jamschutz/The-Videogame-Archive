@@ -4,7 +4,6 @@ class DataManager {
     }
 
     async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
-        console.log('getting articles...');
         let response = await fetch(`${Config.API_BASE_URL}/Articles?year=${date.year}&month=${date.month}&day=${date.day}`, {
             method: 'GET',
             headers: {
@@ -30,7 +29,6 @@ class DataManager {
     }
 
     static async getArticleCountBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<GetArticleCountResponse> {
-        console.log('getting articles...');
         let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
             method: 'GET',
             headers: {
@@ -42,7 +40,6 @@ class DataManager {
 
 
     static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
-        console.log('getting search results...');
         let response = await fetch(`${Config.API_BASE_URL}/Search?title=${searchRequest.searchTerms.join('+')}&subtitle=${searchRequest.searchTerms.join('+')}`, {
             method: 'GET',
             headers: {

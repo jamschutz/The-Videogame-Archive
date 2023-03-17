@@ -49,7 +49,6 @@ function initPage() {
                 case 0: return [4 /*yield*/, dataManager.getArticlesForDayAsync(UrlParser.getDate())];
                 case 1:
                     articles = _a.sent();
-                    console.log(articles);
                     websites = {
                         'GameSpot': [],
                         'Eurogamer': [],

@@ -10,7 +10,6 @@ var UrlParser = /** @class */ (function () {
         var month = rawDate.substring(4, 6);
         var day = rawDate.substring(6);
         var date = new CalendarDate(year, month, day);
-        console.log("got date: ".concat(date.toString()));
         return date;
     };
     UrlParser.getSearchRequest = function () {

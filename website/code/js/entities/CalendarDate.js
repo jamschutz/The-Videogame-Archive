@@ -79,7 +79,6 @@ var CalendarDate = /** @class */ (function () {
     CalendarDate.prototype.getWeekdayInt = function () {
         var helper = new Date(this.toString());
         var weekday = helper.toLocaleString('en-us', { weekday: 'short' });
-        console.log("getting weekday int for date ".concat(this.toString(), ", got weekday: ").concat(weekday));
         if (weekday === 'Sun')
             return 1;
         if (weekday === 'Mon')

@@ -10,7 +10,6 @@ let searchBar = new SearchBar();
 
 async function initPage() {
     let articles = await dataManager.getArticlesForDayAsync(UrlParser.getDate());
-    console.log(articles);
 
     let websites = {
         'GameSpot': [],

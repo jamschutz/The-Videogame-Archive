@@ -13,7 +13,6 @@ class UrlParser {
         let month = rawDate.substring(4,6);
         let day   = rawDate.substring(6);
         let date = new CalendarDate(year, month, day);
-        console.log(`got date: ${date.toString()}`);
         return date;
     }
 
