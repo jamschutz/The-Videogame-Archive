@@ -23,10 +23,8 @@ archiver = Archiver()
 ARTICLES_THAT_FAILED_TO_PARSE = []
 
 
-def get_html(url):
+def get_html(url, snapshot):
     print(f'downloading {url["url"]}....')
-    # get earliest snapshot for this url
-    snapshot = db_manager.get_earliest_url_snapshot(url['id'], WEBSITE_ID)
 
     # grab date info from timestamp
     timestamp = str(snapshot['timestamp'])
@@ -37,24 +35,25 @@ def get_html(url):
     # http://web.archive.org/web/20000129130354/www.n64.com/codes/doom/intro/doom64.pdf
     wayback_url = f'http://web.archive.org/web/{snapshot["timestamp"]}/{snapshot["url"]}'
 
-    # return soup
+    # download from wayback
     raw_html = requests.get(wayback_url).text
+    # and download css and images
     raw_html = archiver.inject_css(raw_html, 'https://web.archive.org', WEBSITE_NAME, year, month, day, url['url'])
-    # raw_html = utils.inject_css(raw_html, "https://web.archive.org")
+    # and return
     return raw_html
 
 
 
-def send_article_to_archive(article, raw_html):
+def send_article_to_archive(url, snapshot, raw_html):
     # reset articles failed to parse
     ARTICLES_THAT_FAILED_TO_PARSE = []
 
     # parse the bits we need (for folder / filename)
-    url = article['url']
-    date_published = str(article['date'])
-    year = date_published[:4]
-    month = date_published[4:6]
-    day = date_published[6:]
+    url = url['url']
+    timestamp = str(snapshot['timestamp'])
+    year  = timestamp[:4]
+    month = timestamp[4:6]
+    day   = timestamp[6:8]
 
     # set target folder and filename
     folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
@@ -64,7 +63,7 @@ def send_article_to_archive(article, raw_html):
     pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
 
     # and save
-    with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
+    with open(f'{folder_path}/{filename}_wayback.html', "w", encoding="utf-8") as html_file:
         html_file.write(raw_html)
 
 
@@ -73,26 +72,25 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     actual_max = num_urls_to_archive if actual_max < 0 else actual_max
     # get articles to archive
     website_id = config.website_id_lookup[WEBSITE_NAME]
-    urls_to_archive = db_manager.get_urls_to_archive(website_id, num_urls_to_archive)
+    urls_to_archive = db_manager.get_urls_to_archive(WEBSITE_ID, num_urls_to_archive)
+
+    print(f'found {len(urls_to_archive)} urls to archive')
 
     # and archive each one
     counter = 1
     for url in urls_to_archive:
         print(f'saving article {url["url"]}....[{counter + counter_offset}/{actual_max}]')
+
+        # get earliest snapshot for this url
+        snapshot = db_manager.get_earliest_url_snapshot(url['id'], WEBSITE_ID)
         
         # download webpage
-        raw_html = get_html(url)
+        raw_html = get_html(url, snapshot)
         
-        # if None, something went wrong, just skip
-        # if article != None:
-        #     # save to filepath
-        #     send_article_to_archive(article, raw_html)
-            # and update its info in the DB
-            # actually -- nothing to update for TIGSource
-            # db_manager.update_article(article)
+        # save to filepath
+        send_article_to_archive(url, snapshot, raw_html)
 
-        # don't spam
-        # time.sleep(random.uniform(0.7, 1.6))
+        # increase counter
         counter += 1
 
     # get list of articles that were succesfully archived
@@ -121,4 +119,6 @@ if __name__ == '__main__':
         'url': 'https://www.n64.com/'
     }
 
-    print(get_html(url))
+    # print(get_html(url))
+    archive_queued_urls(1, 0)
+    # print(db_manager.get_urls_to_archive(WEBSITE_ID, 1))
