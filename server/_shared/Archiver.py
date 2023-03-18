@@ -58,16 +58,17 @@ class Archiver:
 
     def save_css(self, css, folderpath, filename):
         # make sure folder path exists
-        Path(folderpath).mkdir(parents=True, exists_ok=True)
+        Path(folderpath).mkdir(parents=True, exist_ok=True)
 
         # and write to disk
-        with open(f'{folderpath}/{filename}', 'w') as f:
+        with open(f'{folderpath}/{filename}', 'w', encoding='cp932', errors='ignore') as f:
             f.write(css)
 
 
     def download_html_imgs(self, soup, base_url, website, year, month, day, url):
         # check background
-        background_img = soup.find('body')['background'] if soup.find('body') != None else None
+        body = soup.find('body')
+        background_img = body['background'] if body != None and 'background' in body else None
 
         # download image if it exists
         if background_img != None:
@@ -104,7 +105,6 @@ class Archiver:
         return f'{self.config.ARCHIVE_FOLDER}/{website}/_{filetype}/{year}/{month}'
 
     def get_filename(self, website, day, url, filetype, extension):
-        print(f'url: {url}')
         return f"{self.config.url_to_filename(url, day, self.config.website_id_lookup[website])}_{filetype}.{extension}"
 
     def get_local_folder_path(self, website, year, month, filetype):

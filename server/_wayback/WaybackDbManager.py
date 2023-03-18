@@ -233,3 +233,19 @@ class WaybackDbManager:
             LIMIT {batch_size} OFFSET {offset}
         """
         return self.get_query(query)
+
+
+    def mark_urls_as_archived(self, urls):
+        urls_formatted = []
+        for url in urls:
+            urls_formatted.append(f"'{url['url']}'")
+
+        query = f"""
+            UPDATE
+                Url
+            SET
+                IsArchived = 1
+            WHERE
+                Url IN ({','.join(urls_formatted)})
+        """
+        self.run_query(query)

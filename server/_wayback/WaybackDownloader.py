@@ -100,7 +100,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
             urls_archived_successfully.append(url)
     
     # and mark as archived in the db
-    # db_manager.mark_articles_as_archived(urls_archived_successfully)
+    db_manager.mark_urls_as_archived(urls_archived_successfully)
 
     if len(ARTICLES_THAT_FAILED_TO_PARSE) > 0:
         print(f'*********************failed to parse the following articles: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')
@@ -108,17 +108,17 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
 
 
 if __name__ == '__main__':
-    # counter = 0
-    # while counter < MAX_WEBSITES_TO_ARCHIVE:
-    #     archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
-    #     counter += BATCH_SIZE
-    # print('done')
+    counter = 0
+    while counter < MAX_WEBSITES_TO_ARCHIVE:
+        archive_queued_urls(BATCH_SIZE, counter, MAX_WEBSITES_TO_ARCHIVE)
+        counter += BATCH_SIZE
+    print('done')
 
-    url = {
-        'id': 5,
-        'url': 'https://www.n64.com/'
-    }
+    # url = {
+    #     'id': 5,
+    #     'url': 'https://www.n64.com/'
+    # }
 
-    # print(get_html(url))
-    archive_queued_urls(1, 0)
-    # print(db_manager.get_urls_to_archive(WEBSITE_ID, 1))
+    # # print(get_html(url))
+    # archive_queued_urls(1, 0)
+    # # print(db_manager.get_urls_to_archive(WEBSITE_ID, 1))
