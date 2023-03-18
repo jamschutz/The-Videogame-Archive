@@ -10,8 +10,8 @@ from server._shared.Archiver import Archiver
 BASE_URL = 'https://www.n64.com'
 WEBSITE_NAME = 'N64.com'
 WEBSITE_ID = 7
-MAX_WEBSITES_TO_ARCHIVE = 10
-BATCH_SIZE = 10
+MAX_WEBSITES_TO_ARCHIVE = 1
+BATCH_SIZE = 1
 
 
 # initialize helpers
@@ -84,11 +84,15 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
         # get earliest snapshot for this url
         snapshot = db_manager.get_earliest_url_snapshot(url['id'], WEBSITE_ID)
         
-        # download webpage
-        raw_html = get_html(url, snapshot)
+        try:
+            # download webpage
+            raw_html = get_html(url, snapshot)
         
-        # save to filepath
-        send_article_to_archive(url, snapshot, raw_html)
+            # save to filepath
+            send_article_to_archive(url, snapshot, raw_html)
+        except Exception as e:
+            print(f'error downloading {url["url"]}...skipping!\n\n{str(e)}')
+            ARTICLES_THAT_FAILED_TO_PARSE.append(url['url'])
 
         # increase counter
         counter += 1
@@ -100,7 +104,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
             urls_archived_successfully.append(url)
     
     # and mark as archived in the db
-    db_manager.mark_urls_as_archived(urls_archived_successfully)
+    # db_manager.mark_urls_as_archived(urls_archived_successfully)
 
     if len(ARTICLES_THAT_FAILED_TO_PARSE) > 0:
         print(f'*********************failed to parse the following articles: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')
