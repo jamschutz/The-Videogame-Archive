@@ -21,7 +21,8 @@ class Config:
         'Gameplanet': 3,
         'JayIsGames': 4,
         'TIGSource': 5,
-        'Indygamer': 6
+        'Indygamer': 6,
+        'N64.com': 99
     }
     website_name_lookup = {
         1: 'GameSpot',
@@ -29,7 +30,8 @@ class Config:
         3: 'Gameplanet',
         4: 'JayIsGames',
         5: 'TIGSource',
-        6: 'Indygamer'
+        6: 'Indygamer',
+        99: 'N64.com'
     }
 
 

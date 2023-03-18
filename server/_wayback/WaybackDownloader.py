@@ -4,6 +4,7 @@ import requests, json, time, random
 from server._shared.Config import Config
 from server._wayback.WaybackDbManager import WaybackDbManager
 from server._shared.Utils import Utils
+from server._shared.Archiver import Archiver
 
 
 BASE_URL = 'https://www.n64.com'
@@ -17,6 +18,7 @@ BATCH_SIZE = 10
 config = Config()
 db_manager = WaybackDbManager()
 utils = Utils()
+archiver = Archiver()
 
 ARTICLES_THAT_FAILED_TO_PARSE = []
 
@@ -26,12 +28,19 @@ def get_html(url):
     # get earliest snapshot for this url
     snapshot = db_manager.get_earliest_url_snapshot(url['id'], WEBSITE_ID)
 
+    # grab date info from timestamp
+    timestamp = str(snapshot['timestamp'])
+    year  = timestamp[:4]
+    month = timestamp[4:6]
+    day   = timestamp[6:8]
+
     # http://web.archive.org/web/20000129130354/www.n64.com/codes/doom/intro/doom64.pdf
     wayback_url = f'http://web.archive.org/web/{snapshot["timestamp"]}/{snapshot["url"]}'
 
     # return soup
     raw_html = requests.get(wayback_url).text
-    raw_html = utils.inject_css(raw_html, "https://web.archive.org")
+    raw_html = archiver.inject_css(raw_html, 'https://web.archive.org', WEBSITE_NAME, year, month, day, url['url'])
+    # raw_html = utils.inject_css(raw_html, "https://web.archive.org")
     return raw_html
 
 
