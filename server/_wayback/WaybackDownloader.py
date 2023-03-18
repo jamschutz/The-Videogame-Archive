@@ -10,8 +10,8 @@ from server._shared.Archiver import Archiver
 BASE_URL = 'https://www.n64.com'
 WEBSITE_NAME = 'N64.com'
 WEBSITE_ID = 7
-MAX_WEBSITES_TO_ARCHIVE = 1
-BATCH_SIZE = 1
+MAX_WEBSITES_TO_ARCHIVE = 10
+BATCH_SIZE = 10
 
 
 # initialize helpers
@@ -23,24 +23,50 @@ archiver = Archiver()
 ARTICLES_THAT_FAILED_TO_PARSE = []
 
 
-def get_html(url, snapshot):
-    print(f'downloading {url["url"]}....')
+def html_has_no_content(html):
+    soup = BeautifulSoup(html, 'lxml')
+    return soup.text.strip() == ''
 
-    # grab date info from timestamp
-    timestamp = str(snapshot['timestamp'])
-    year  = timestamp[:4]
-    month = timestamp[4:6]
-    day   = timestamp[6:8]
 
-    # http://web.archive.org/web/20000129130354/www.n64.com/codes/doom/intro/doom64.pdf
-    wayback_url = f'http://web.archive.org/web/{snapshot["timestamp"]}/{snapshot["url"]}'
+def get_earliest_snapshot(url):
+    # get all snapshot for this url -- they'll be sorted earliest to latest
+    snapshots = db_manager.get_url_snapshots(url['id'], WEBSITE_ID)
 
-    # download from wayback
-    raw_html = requests.get(wayback_url).text
-    # and download css and images
-    raw_html = archiver.inject_css(raw_html, 'https://web.archive.org', WEBSITE_NAME, year, month, day, url['url'])
-    # and return
-    return raw_html
+    counter = 1
+    for snapshot in snapshots:
+        # grab date info from timestamp
+        timestamp = str(snapshot['timestamp'])
+        year  = timestamp[:4]
+        month = timestamp[4:6]
+        day   = timestamp[6:8]
+
+        # http://web.archive.org/web/20000129130354/www.n64.com/codes/doom/intro/doom64.pdf
+        wayback_url = f'http://web.archive.org/web/{snapshot["timestamp"]}/{snapshot["url"]}'
+
+        try:
+            # download from wayback
+            raw_html = requests.get(wayback_url).text
+
+            # if html empty, try next snapshot
+            if html_has_no_content(raw_html):
+                raise Exception("url has no content")
+
+            # and download css and images
+            raw_html = archiver.inject_css(raw_html, 'https://web.archive.org', WEBSITE_NAME, year, month, day, url['url'])
+            # and return
+            return {
+                'html': raw_html,
+                'snapshot': snapshot
+            }
+        except Exception as e:
+            # if something goes wrong, just try next snapshot
+            print(f'bad snapshot, trying next one ({counter} of {len(snapshots)})\n{str(e)}')
+
+            counter += 1
+            continue
+
+    # no good snapshots, return none
+    return None
 
 
 
@@ -80,16 +106,17 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
     counter = 1
     for url in urls_to_archive:
         print(f'saving article {url["url"]}....[{counter + counter_offset}/{actual_max}]')
-
-        # get earliest snapshot for this url
-        snapshot = db_manager.get_earliest_url_snapshot(url['id'], WEBSITE_ID)
         
         try:
             # download webpage
-            raw_html = get_html(url, snapshot)
+            snapshot = get_earliest_snapshot(url)
+
+            # unable to find a valid snapshot
+            if snapshot == None:
+                raise Exception("no good snapshot found")
         
             # save to filepath
-            send_article_to_archive(url, snapshot, raw_html)
+            send_article_to_archive(url, snapshot['snapshot'], snapshot['html'])
         except Exception as e:
             print(f'error downloading {url["url"]}...skipping!\n\n{str(e)}')
             ARTICLES_THAT_FAILED_TO_PARSE.append(url['url'])
@@ -122,6 +149,8 @@ if __name__ == '__main__':
     #     'id': 5,
     #     'url': 'https://www.n64.com/'
     # }
+
+    # print(get_earliest_snapshot(url))
 
     # # print(get_html(url))
     # archive_queued_urls(1, 0)

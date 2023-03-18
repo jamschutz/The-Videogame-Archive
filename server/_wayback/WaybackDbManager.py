@@ -27,9 +27,9 @@ class WaybackDbManager:
         return result
 
 
-    def get_earliest_url_snapshot(self, url_id, website_id):
+    def get_url_snapshots(self, url_id, website_id):
         query = f"""
-            SELECT TOP(1)
+            SELECT
                 UrlKey, Timestamp, StatusCode, RawUrl
             FROM
                 Snapshot
@@ -39,12 +39,16 @@ class WaybackDbManager:
                 Timestamp ASC
         """
         results = self.get_query(query)
-        return {
-            'urlkey': results[0][0],
-            'timestamp': results[0][1],
-            'statuscode': results[0][2],
-            'url': results[0][3]
-        }
+        snapshots = []
+        for snapshot in results:
+            snapshots.append({
+                'urlkey': snapshot[0],
+                'timestamp': snapshot[1],
+                'statuscode': snapshot[2],
+                'url': snapshot[3]
+            })
+
+        return snapshots
 
 
     def get_urls_to_archive(self, website_id, limit):
@@ -236,6 +240,9 @@ class WaybackDbManager:
 
 
     def mark_urls_as_archived(self, urls):
+        if len(urls) == 0:
+            return
+
         urls_formatted = []
         for url in urls:
             urls_formatted.append(f"'{url['url']}'")

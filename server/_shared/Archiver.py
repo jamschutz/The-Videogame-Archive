@@ -17,27 +17,6 @@ class Archiver:
 
         soup = BeautifulSoup(raw_html, 'lxml')
 
-        # # find all referenced css links
-        # css_links = soup.find_all('link', rel="stylesheet")
-
-        # # download each file, and store its contents in a list
-        # counter = 1
-        # for css_link in css_links:
-        #     # download css
-        #     href = f"{base_url}{css_link['href']}"
-        #     css = requests.get(href).text
-
-        #     # save to disk
-        #     folderpath = self.get_folder_path(website, year, month, 'css')
-        #     filename = self.get_filename(website, day, url, 'css', 'css', suffix=f'{counter}')
-        #     self.save_css(css, folderpath, filename)
-
-        #     # and update our css to use our internal files
-        #     local_folderpath = self.get_local_folder_path(website, year, month, 'css')
-        #     css_link['href'] = f'{local_folderpath}/{filename}'
-
-        #     counter += 1
-
         # download and inject images in html
         soup = self.download_html_imgs(soup, base_url, website, year, month, day, url)
 
@@ -129,7 +108,6 @@ class Archiver:
             img_url = f'{base_url}{img_filename}'
             
         # download image
-        print(f'downloading {img_url}...')
         img_data = requests.get(img_url).content
 
         # make sure folder path exists
