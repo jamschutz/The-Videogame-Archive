@@ -26,23 +26,48 @@ class WaybackDbManager:
 
         return result
 
+
+    def get_earliest_url_snapshot(self, url_id, website_id):
+        query = f"""
+            SELECT TOP(1)
+                UrlKey, Timestamp, StatusCode, RawUrl
+            FROM
+                Snapshot
+            WHERE
+                UrlId = {url_id}
+            ORDER BY
+                Timestamp ASC
+        """
+        results = self.get_query(query)
+        return {
+            'urlkey': results[0][0],
+            'timestamp': results[0][1],
+            'statuscode': results[0][2],
+            'url': results[0][3]
+        }
+
+
+    def get_urls_to_archive(self, website_id, limit):
+        query = f"""
+            SELECT TOP({limit})
+                Id, Url
+            FROM
+                Url
+            WHERE
+                WebsiteId = {website_id} AND IsArchived = 0
+        """
+        results = self.get_query(query)
+
+        urls = []
+        for url in results:
+            urls.append({
+                'id': url[0],
+                'url': url[1]
+            })
+        return urls
+    
+
     def save_new_wayback_url(self, url, website_id):
-        # query = f"""
-        #     INSERT 
-        #         Url (Url, WebsiteId)
-        #     SELECT 
-        #         Url, WebsiteId
-        #     FROM 
-        #         (VALUES('{url}', {website_id})) 
-        #         U(Url, WebsiteId)
-        #     WHERE NOT EXISTS 
-        #         (SELECT 1
-        #         FROM 
-        #             Url other
-        #         WHERE 
-        #             other.Url = u.Url
-        #         );
-        # """
         query = f"""
             INSERT INTO
                 Url(Url, WebsiteId)

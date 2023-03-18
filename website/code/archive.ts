@@ -1,6 +1,6 @@
 // const PADDING_BETWEEN_WEBSITE_COLUMNS = 500
 const PADDING_BETWEEN_WEBSITE_COLUMNS = 0;
-const NUM_WEBSITES = 5;
+const NUM_WEBSITES = 6;
 
 let dataManager = new DataManager();
 let calendar = new Calendar();
@@ -16,7 +16,8 @@ async function initPage() {
         'Eurogamer': [],
         'Gameplanet': [], 
         'JayIsGames': [],
-        'TIGSource': []
+        'TIGSource': [],
+        'Indygamer': []
     };
 
     for(let i = 0; i < articles.length; i++) {

@@ -74,12 +74,8 @@ var WebsiteColumn = /** @class */ (function () {
         var label = document.createElement('span');
         label.classList.add(WebsiteColumn.WEBSITE_COLUMN_HEADER_CLASS);
         label.innerHTML = this.websiteName;
-        // let newLine1 = document.createElement("br");
-        // let newLine2 = document.createElement("br");
         websiteColumn.appendChild(label);
         websiteColumn.appendChild(document.createElement('hr'));
-        // websiteColumn.appendChild(newLine1);
-        // websiteColumn.appendChild(newLine2);
         return websiteColumn;
     };
     WebsiteColumn.prototype.getThumbnailUrl = function (article) {

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 // const PADDING_BETWEEN_WEBSITE_COLUMNS = 500
 var PADDING_BETWEEN_WEBSITE_COLUMNS = 0;
-var NUM_WEBSITES = 5;
+var NUM_WEBSITES = 6;
 var dataManager = new DataManager();
 var calendar = new Calendar();
 var dateHeader = new DateHeader();
@@ -54,7 +54,8 @@ function initPage() {
                         'Eurogamer': [],
                         'Gameplanet': [],
                         'JayIsGames': [],
-                        'TIGSource': []
+                        'TIGSource': [],
+                        'Indygamer': []
                     };
                     for (i = 0; i < articles.length; i++) {
                         websites[articles[i].website].push(articles[i]);
