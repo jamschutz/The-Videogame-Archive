@@ -104,7 +104,7 @@ def archive_queued_urls(num_urls_to_archive, counter_offset=0, actual_max=-1):
             urls_archived_successfully.append(url)
     
     # and mark as archived in the db
-    # db_manager.mark_urls_as_archived(urls_archived_successfully)
+    db_manager.mark_urls_as_archived(urls_archived_successfully)
 
     if len(ARTICLES_THAT_FAILED_TO_PARSE) > 0:
         print(f'*********************failed to parse the following articles: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')

@@ -99,25 +99,37 @@ class Archiver:
             file_extension = img['src'].split('.')[-1]
             filename = self.get_filename(website, day, url, 'img', file_extension, suffix=f'img{str(counter)}')
             
-            # download img
             try:
+                # download img
                 self.download_img(img['src'], base_url, folderpath, filename)
+                
+                # and update html
+                img['src'] = f'{local_folderpath}/{filename}'
             except:
                 print(f'error downloading img file. skipping!')
                 counter += 1
                 continue
-
-            # and update html
-            soup.find('body')['background'] = f'{local_folderpath}/{filename}'
 
             counter += 1
 
         return soup
             
 
-    def download_img(self, img_filename, base_url, folderpath, filename):
+    def download_img(self, img_filename, base_url, folderpath, filename):        
+        img_url = img_filename
+
+        # if it already starts with https:, do nothing
+        if img_url.startswith('https://'):
+            "do nothing, url is good"
+        # else, change http:// to https://
+        elif img_url.startswith('http://'):
+                img_url = f'https://{img_url[len("http://"):]}'
+        # otherwise, add base url
+        else:
+            img_url = f'{base_url}{img_filename}'
+            
         # download image
-        img_url = f"{base_url}{img_filename}"
+        print(f'downloading {img_url}...')
         img_data = requests.get(img_url).content
 
         # make sure folder path exists
@@ -143,4 +155,10 @@ class Archiver:
 
 if __name__ == '__main__':
     archiver = Archiver()
-    print(archiver.get_local_folder_path('N64.com', '1996', '12', 'img'))
+    # print(archiver.get_local_folder_path('N64.com', '1996', '12', 'img'))
+    # http://localhost:5000/web/20071011130018im_/http://www.n64.com/img/topnav/sidenav_needhelp.png
+    # img_filename = '/web/20071011130018im_/https://www.n64.com/img/btn_arrow.gif'
+    # base_url = 'https://web.archive.org'
+    # folderpath = '/N64.com/_img/2007/10'
+    # filename = r'11_%26from%3Dinsert_wayback2.png'
+    # archiver.download_img(img_filename, base_url, folderpath, filename)
