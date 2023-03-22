@@ -10,8 +10,8 @@ from server._shared.Archiver import Archiver
 BASE_URL = 'https://www.n64.com'
 WEBSITE_NAME = 'N64.com'
 WEBSITE_ID = 7
-MAX_WEBSITES_TO_ARCHIVE = 10
-BATCH_SIZE = 10
+MAX_WEBSITES_TO_ARCHIVE = 5000
+BATCH_SIZE = 500
 
 
 # initialize helpers
