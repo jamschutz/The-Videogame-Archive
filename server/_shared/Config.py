@@ -55,6 +55,29 @@ class Config:
 
         return filename
 
+    def get_three_char_int_string(self, n):
+        if(n < 10):
+            return f'00{str(n)}'
+        elif(n < 100):
+            return f'0{str(n)}'
+        else:
+            return str(n)
+
+
+    def pdf_filename_to_archive_filename(self, magazine_name, issue_number, article_title=None):
+        # make sure issue number is 3 characters
+        issue_number = self.get_three_char_int_string(issue_number)
+        
+        # if it's not an article, it's the full issue
+        if article_title == None:
+            return f'{magazine_name}_{issue_number}_FullIssue'
+
+        # otherwise, return the article name in the title
+        # normalize title -- replace spaces with underscores, and remove special chars
+        normalized_title = ''.join(c for c in article_title.replace(' ', '_') if c.isalnum() or c == '_')
+        return f'{magazine_name}_{issue_number}_{normalized_title}'
+
+
 
 if __name__ == '__main__':
     config = Config()
@@ -62,3 +85,7 @@ if __name__ == '__main__':
     test_day = '04'
 
     print(config.url_to_filename(test_url, test_day))
+
+
+    print(config.pdf_filename_to_archive_filename('Edge', 1, 'Things to come'))
+    print(config.pdf_filename_to_archive_filename('Edge', 1))

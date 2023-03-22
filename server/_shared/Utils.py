@@ -16,6 +16,14 @@ class Utils:
         else:
             return str(n)
 
+    def get_three_char_int_string(self, n):
+        if(n < 10):
+            return f'00{str(n)}'
+        elif(n < 100):
+            return f'0{str(n)}'
+        else:
+            return str(n)
+
 
     def save_thumbnail(self, img_url, filename, folderpath):
         # download image
