@@ -64,7 +64,7 @@ class Config:
             return str(n)
 
 
-    def pdf_filename_to_archive_filename(self, magazine_name, issue_number, article_title=None):
+    def pdf_filename_to_archive_filename(self, magazine_name, issue_number, article_start_page=None, article_title=None):
         # make sure issue number is 3 characters
         issue_number = self.get_three_char_int_string(issue_number)
         
@@ -75,7 +75,8 @@ class Config:
         # otherwise, return the article name in the title
         # normalize title -- replace spaces with underscores, and remove special chars
         normalized_title = ''.join(c for c in article_title.replace(' ', '_') if c.isalnum() or c == '_')
-        return f'{magazine_name}_{issue_number}_{normalized_title}'
+        article_start_page = self.get_three_char_int_string(article_start_page)
+        return f'{magazine_name}_{issue_number}_{article_start_page}_{normalized_title}'
 
 
 
