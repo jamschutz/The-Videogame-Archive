@@ -3,7 +3,7 @@ from server._shared.Config import Config
 from pathlib import Path
 from url_normalize import url_normalize
 from bs4 import BeautifulSoup
-import re
+import re, subprocess
 
 class Utils:
     def __init__(self):
@@ -39,6 +39,10 @@ class Utils:
         # and write to disk
         with open(f'{folderpath}/{filename}', 'wb') as f:
             f.write(img_data)
+
+
+    def save_pdf_as_jpg(self, pdf_file):
+        subprocess.Popen('"%s" -jpg "%s" out' % (self.config.PDF_TO_PPM_PATH, pdf_file))
 
 
     def inject_css(self, raw_html, base_url):

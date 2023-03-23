@@ -15,6 +15,10 @@ pip install ocrmypdf
 choco install --pre tesseract
 choco install ghostscript
 ```
+<br/>
+
+You will also need to [install Poppler for Windows](https://blog.alivate.com.au/poppler-windows/) <br/>
+When you install it, place it in this path: `C:\Program Files (x86)\Poppler\poppler-0.68.0\bin\pdftoppm.exe`, and add it to your PATH.
 
 ## Notes to self
 

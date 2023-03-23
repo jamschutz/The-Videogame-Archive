@@ -12,6 +12,9 @@ class Config:
     WAYBACK_DATABASE_FILE = '/_database/WaybackDatabase.db'
     ARCHIVE_FOLDER = '/_website_backups'
     WAYBACK_MACHINE_DUMP_FOLDER = '/_WaybackMachineDumps'
+
+    # libary vars
+    PDF_TO_PPM_PATH = '/The Videogame Archive/thirdparty/poppler-0.68.9/bin/pdftoppm.exe'
     
 
     # website lookups
@@ -76,7 +79,7 @@ class Config:
         # normalize title -- replace spaces with underscores, and remove special chars
         normalized_title = ''.join(c for c in article_title.replace(' ', '_') if c.isalnum() or c == '_')
         article_start_page = self.get_three_char_int_string(article_start_page)
-        return f'{magazine_name}_{issue_number}_{article_start_page}_{normalized_title}'
+        return f'{magazine_name}_{issue_number}_p{article_start_page}_{normalized_title}'
 
 
 
