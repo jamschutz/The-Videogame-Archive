@@ -54,21 +54,13 @@ def save_issue_thumbnail(full_issue_pdf_filename, year, month):
     filename = f'{full_issue_pdf_filename.split("/")[-1]}_thumbnail'
 
     # grab first page of pdf
-    print(f'converting file {full_issue_pdf_filename}')
-    # pdf_pages = pdf2image.convert_from_path(f'{full_issue_pdf_filename}.pdf', single_file=True, fmt='jpeg', output_file=f'{folderpath}/{filename}.jpg')
     pdf_pages = pdf2image.convert_from_path(f'{full_issue_pdf_filename}.pdf', single_file=True)
-    print(len(pdf_pages))
-    print('done!')
 
     # make sure folder path exists
     pathlib.Path(folderpath).mkdir(parents=True, exist_ok=True)
 
-    # # and save
-    print(f'and saving to {folderpath}/{filename}.jpg...')
+    # and save
     pdf_pages[0].save(f'{folderpath}/{filename}.jpg', 'JPEG')
-
-    # # then move to the actual directory we want...
-    # shutil.move(f'{full_issue_pdf_filename}.jpg', f'{folderpath}/{filename}')
 
 
 
