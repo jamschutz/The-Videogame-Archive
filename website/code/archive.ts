@@ -8,6 +8,35 @@ let dateHeader = new DateHeader();
 let searchBar = new SearchBar();
 
 
+async function appendMagazinePOC() {
+    let full_issue = new Article();
+    full_issue.date = new CalendarDate(1993, 10, 1);
+    full_issue.title = 'Edge, Issue 1';
+    // full_issue.thumbnail = `${Config.LOCAL_FILE_BASE_URL}/Edge/_thumbnails/1993/10/Edge_001_FullIssue_thumbnail.jpg`;
+    full_issue.thumbnail = 'Edge_001_FullIssue_thumbnail.jpg'
+    full_issue.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_FullIssue.jpg`;
+
+    let articles = [];
+    articles.push(full_issue);
+    let data = await fetch("/test/Edge_1.json");
+    data = await data.json();
+    
+    data['articles'].forEach(a => {
+        let article = new Article();
+        article.date = full_issue.date;
+        article.title = a['title'];
+        article.subtitle = a['subtitle'];
+        article.thumbnail = null;
+        article.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_p${Utils.getThreeCharNum(a["start_page"])}_${Utils.getNormalizedMagazineTitle(a["title"])}.pdf`;
+
+        articles.push(article);
+    });
+
+    let magazineColumn = new WebsiteColumn('Edge', articles, 0);
+    document.getElementById('articles').appendChild(magazineColumn.toHtml());
+}
+
+
 async function initPage() {
     let articles = await dataManager.getArticlesForDayAsync(UrlParser.getDate());
 
@@ -33,6 +62,10 @@ async function initPage() {
         let websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
         articlesDiv.appendChild(websiteColumn.toHtml());
     }
+
+    await appendMagazinePOC();
+
+
 }
 
 // buttons for the day

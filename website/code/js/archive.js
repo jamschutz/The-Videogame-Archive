@@ -41,6 +41,42 @@ var dataManager = new DataManager();
 var calendar = new Calendar();
 var dateHeader = new DateHeader();
 var searchBar = new SearchBar();
+function appendMagazinePOC() {
+    return __awaiter(this, void 0, void 0, function () {
+        var full_issue, articles, data, magazineColumn;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    full_issue = new Article();
+                    full_issue.date = new CalendarDate(1993, 10, 1);
+                    full_issue.title = 'Edge, Issue 1';
+                    // full_issue.thumbnail = `${Config.LOCAL_FILE_BASE_URL}/Edge/_thumbnails/1993/10/Edge_001_FullIssue_thumbnail.jpg`;
+                    full_issue.thumbnail = 'Edge_001_FullIssue_thumbnail.jpg';
+                    full_issue.url = "".concat(Config.LOCAL_FILE_BASE_URL, "/Edge/1993/10/Edge_001_FullIssue.jpg");
+                    articles = [];
+                    articles.push(full_issue);
+                    return [4 /*yield*/, fetch("/test/Edge_1.json")];
+                case 1:
+                    data = _a.sent();
+                    return [4 /*yield*/, data.json()];
+                case 2:
+                    data = _a.sent();
+                    data['articles'].forEach(function (a) {
+                        var article = new Article();
+                        article.date = full_issue.date;
+                        article.title = a['title'];
+                        article.subtitle = a['subtitle'];
+                        article.thumbnail = null;
+                        article.url = "".concat(Config.LOCAL_FILE_BASE_URL, "/Edge/1993/10/Edge_001_p").concat(Utils.getThreeCharNum(a["start_page"]), "_").concat(Utils.getNormalizedMagazineTitle(a["title"]), ".pdf");
+                        articles.push(article);
+                    });
+                    magazineColumn = new WebsiteColumn('Edge', articles, 0);
+                    document.getElementById('articles').appendChild(magazineColumn.toHtml());
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function initPage() {
     return __awaiter(this, void 0, void 0, function () {
         var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
@@ -68,6 +104,9 @@ function initPage() {
                         websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
                         articlesDiv.appendChild(websiteColumn.toHtml());
                     }
+                    return [4 /*yield*/, appendMagazinePOC()];
+                case 2:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });

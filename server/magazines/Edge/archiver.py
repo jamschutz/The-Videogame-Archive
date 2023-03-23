@@ -54,13 +54,13 @@ def save_issue_thumbnail(full_issue_pdf_filename, year, month):
     filename = f'{full_issue_pdf_filename.split("/")[-1]}_thumbnail'
 
     # grab first page of pdf
-    pdf_pages = pdf2image.convert_from_path(f'{full_issue_pdf_filename}.pdf', single_file=True)
+    cover_page = pdf2image.convert_from_path(f'{full_issue_pdf_filename}.pdf', single_file=True)
 
     # make sure folder path exists
     pathlib.Path(folderpath).mkdir(parents=True, exist_ok=True)
 
     # and save
-    pdf_pages[0].save(f'{folderpath}/{filename}.jpg', 'JPEG')
+    cover_page[0].save(f'{folderpath}/{filename}.jpg', 'JPEG')
 
 
 
