@@ -9,28 +9,35 @@ let searchBar = new SearchBar();
 
 
 async function appendMagazinePOC() {
+    let currentDate = UrlParser.getDate();
+
     let full_issue = new Article();
     full_issue.date = new CalendarDate(1993, 10, 1);
     full_issue.title = 'Edge, Issue 1';
-    // full_issue.thumbnail = `${Config.LOCAL_FILE_BASE_URL}/Edge/_thumbnails/1993/10/Edge_001_FullIssue_thumbnail.jpg`;
-    full_issue.thumbnail = 'Edge_001_FullIssue_thumbnail.jpg'
-    full_issue.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_FullIssue.jpg`;
+    full_issue.subtitle = '';
+    full_issue.author = null;
+    full_issue.thumbnail = 'Edge_001_FullIssue_thumbnail.jpg';
+    full_issue.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_FullIssue.pdf`;
 
     let articles = [];
-    articles.push(full_issue);
-    let data = await fetch("/test/Edge_1.json");
-    data = await data.json();
-    
-    data['articles'].forEach(a => {
-        let article = new Article();
-        article.date = full_issue.date;
-        article.title = a['title'];
-        article.subtitle = a['subtitle'];
-        article.thumbnail = null;
-        article.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_p${Utils.getThreeCharNum(a["start_page"])}_${Utils.getNormalizedMagazineTitle(a["title"])}.pdf`;
 
-        articles.push(article);
-    });
+    if(currentDate.year === 1993 && currentDate.month === 10 && currentDate.day === 1) {
+        articles.push(full_issue);
+        let data = await fetch("/test/Edge_1.json");
+        data = await data.json();
+        
+        data['articles'].forEach(a => {
+            let article = new Article();
+            article.date = full_issue.date;
+            article.title = a['title'];
+            article.subtitle = a['subtitle'];
+            article.author = null;
+            article.thumbnail = null;
+            article.url = `${Config.LOCAL_FILE_BASE_URL}/Edge/1993/10/Edge_001_p${Utils.getThreeCharNum(a["start_page"])}_${Utils.getNormalizedMagazineTitle(a["title"])}.pdf`;
+
+            articles.push(article);
+        });
+    }    
 
     let magazineColumn = new WebsiteColumn('Edge', articles, 0);
     document.getElementById('articles').appendChild(magazineColumn.toHtml());

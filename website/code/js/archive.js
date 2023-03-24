@@ -43,17 +43,20 @@ var dateHeader = new DateHeader();
 var searchBar = new SearchBar();
 function appendMagazinePOC() {
     return __awaiter(this, void 0, void 0, function () {
-        var full_issue, articles, data, magazineColumn;
+        var currentDate, full_issue, articles, data, magazineColumn;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    currentDate = UrlParser.getDate();
                     full_issue = new Article();
                     full_issue.date = new CalendarDate(1993, 10, 1);
                     full_issue.title = 'Edge, Issue 1';
-                    // full_issue.thumbnail = `${Config.LOCAL_FILE_BASE_URL}/Edge/_thumbnails/1993/10/Edge_001_FullIssue_thumbnail.jpg`;
+                    full_issue.subtitle = '';
+                    full_issue.author = null;
                     full_issue.thumbnail = 'Edge_001_FullIssue_thumbnail.jpg';
-                    full_issue.url = "".concat(Config.LOCAL_FILE_BASE_URL, "/Edge/1993/10/Edge_001_FullIssue.jpg");
+                    full_issue.url = "".concat(Config.LOCAL_FILE_BASE_URL, "/Edge/1993/10/Edge_001_FullIssue.pdf");
                     articles = [];
+                    if (!(currentDate.year === 1993 && currentDate.month === 10 && currentDate.day === 1)) return [3 /*break*/, 3];
                     articles.push(full_issue);
                     return [4 /*yield*/, fetch("/test/Edge_1.json")];
                 case 1:
@@ -66,10 +69,13 @@ function appendMagazinePOC() {
                         article.date = full_issue.date;
                         article.title = a['title'];
                         article.subtitle = a['subtitle'];
+                        article.author = null;
                         article.thumbnail = null;
                         article.url = "".concat(Config.LOCAL_FILE_BASE_URL, "/Edge/1993/10/Edge_001_p").concat(Utils.getThreeCharNum(a["start_page"]), "_").concat(Utils.getNormalizedMagazineTitle(a["title"]), ".pdf");
                         articles.push(article);
                     });
+                    _a.label = 3;
+                case 3:
                     magazineColumn = new WebsiteColumn('Edge', articles, 0);
                     document.getElementById('articles').appendChild(magazineColumn.toHtml());
                     return [2 /*return*/];

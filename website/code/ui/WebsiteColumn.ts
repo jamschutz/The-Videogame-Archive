@@ -82,7 +82,9 @@ class WebsiteColumn {
         else { // and if there isn't a subtitle, add a new line (for the author)
             containerDiv.appendChild(document.createElement("br"));
         }
-        containerDiv.appendChild(author);
+        if(article.author !== null) {
+            containerDiv.appendChild(author);
+        }        
 
         // and return 
         return containerDiv;
