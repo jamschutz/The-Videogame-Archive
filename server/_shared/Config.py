@@ -91,5 +91,5 @@ if __name__ == '__main__':
     print(config.url_to_filename(test_url, test_day))
 
 
-    print(config.pdf_filename_to_archive_filename('Edge', 1, 'Things to come'))
-    print(config.pdf_filename_to_archive_filename('Edge', 1))
+    # print(config.pdf_filename_to_archive_filename('Edge', 1, 'Things to come'))
+    # print(config.pdf_filename_to_archive_filename('Edge', 1))
