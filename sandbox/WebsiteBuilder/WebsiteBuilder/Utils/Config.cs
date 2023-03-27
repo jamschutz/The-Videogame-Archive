@@ -10,6 +10,7 @@ namespace WebsiteBuilder
     {
         public static string DatabaseFile = "/_database/VideogamesDatabase.db";
         public static string ArchiveFolder = "/_website_backups";
+        public static string StaticWebsiteFolder = "/StaticWebsite/html";
 
 
         public static string GetWebsiteName(int id)
