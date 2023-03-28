@@ -8,14 +8,14 @@ using WebsiteBuilder.Entities;
 
 namespace WebsiteBuilder.UI
 {
-    class WebsiteColumn
+    class PublicationColumn
     {
-        private string websiteName;
+        private string publicationName;
         private Article[] articles;
 
-        public WebsiteColumn(string websiteName, Article[] articles)
+        public PublicationColumn(string websiteName, Article[] articles)
         {
-            this.websiteName = websiteName;
+            this.publicationName = websiteName;
             this.articles = articles;
         }
     }
