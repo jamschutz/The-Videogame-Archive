@@ -18,5 +18,15 @@ namespace WebsiteBuilder.UI
             this.publicationName = websiteName;
             this.articles = articles;
         }
+
+
+        public string ToHtml()
+        {
+            return $@"
+                <div class=""article"">
+                    <img class=""article-thumbnail"" src =""{Config.FileHostBaseUrl}/{publicationName}"">
+                </div>
+            ";
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace WebsiteBuilder
             Console.WriteLine($"got {articles.Length} articles");
             foreach (var article in articles) {
                 Console.WriteLine("\n---------------------------------------\n");
-                Console.WriteLine(article.ToString());
+                Console.WriteLine(article.ToHtml());
             }
 
             int x = 0;
