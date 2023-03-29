@@ -22,10 +22,13 @@ namespace WebsiteBuilder.Entities
         }
 
 
-        public string ToHtml()
+        public string ToHtml(string indentation="")
         {
-            // create article div
-            StringBuilder html = new StringBuilder("<div class=\"article\">\n", 800);
+            string extraIndentation = $"{indentation}\t";
+            StringBuilder html = new StringBuilder(800);
+
+            // create div
+            html.AppendLine($"{indentation}<div class=\"article\">");
 
             // add thumbnail if we have it
             if (thumbnail != null)
@@ -33,24 +36,24 @@ namespace WebsiteBuilder.Entities
                 string dateString = datePublished.ToString();
                 string year = dateString.Substring(0, 4);
                 string month = dateString.Substring(4, 2);
-                html.Append($"<img class=\"article-thumbnail\" src =\"{Config.FileHostBaseUrl}/{website}/_thumbnails/{year}/{month}/{thumbnail}\">");
+                html.Append($"{extraIndentation}<img class=\"article-thumbnail\" src =\"{Config.FileHostBaseUrl}/{website}/_thumbnails/{year}/{month}/{thumbnail}\">\n");
             }
 
             // add title
-            html.Append($"<a href=\"{url}\" class=\"article-title\">{title}</a>");
+            html.Append($"{extraIndentation}<a href=\"{url}\" class=\"article-title\">{title}</a>\n");
 
             // add subtitle if we have it
             if (subtitle != null && subtitle != "") {
-                html.Append($"<div class=\"article-subtitle\">{subtitle}</div>");
+                html.Append($"{extraIndentation}<div class=\"article-subtitle\">{subtitle}</div>\n");
             }
 
             // add author if we have it
             if (author != null && author != "") {
-                html.Append($"<div class=\"article-author\">{author}</div>");
+                html.Append($"{extraIndentation}<div class=\"article-author\">{author}</div>\n");
             }
 
             // close article div
-            html.Append("</div>");
+            html.Append($"{indentation}</div>");
             return html.ToString();
         }
     }
