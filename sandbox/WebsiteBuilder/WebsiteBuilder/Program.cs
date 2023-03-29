@@ -21,6 +21,7 @@ namespace WebsiteBuilder
             foreach (var article in articles) {
                 Console.WriteLine("\n---------------------------------------\n");
                 Console.WriteLine(article.ToHtml());
+                Console.WriteLine($"length: {article.ToHtml().Length}");
             }
 
             int x = 0;

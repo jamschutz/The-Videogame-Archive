@@ -24,19 +24,34 @@ namespace WebsiteBuilder.Entities
 
         public string ToHtml()
         {
-            string dateString = datePublished.ToString();
-            string year = dateString.Substring(0, 4);
-            string month = dateString.Substring(4, 2);
-            string day = dateString.Substring(6, 2);
+            // create article div
+            StringBuilder html = new StringBuilder("<div class=\"article\">\n", 800);
 
-            return $@"
-                <div class=""article"">
-                    <img class=""article-thumbnail"" src =""{Config.FileHostBaseUrl}/{website}/_thumbnails/{year}/{month}/{thumbnail}"">
-                    <a href=""{url}"" class=""article-title"">{title}</a>
-                    <div class=""article-subtitle"">{subtitle}</div>
-                    <div class=""article-author"">{author}</div>
-                </div>
-            ";
+            // add thumbnail if we have it
+            if (thumbnail != null)
+            {
+                string dateString = datePublished.ToString();
+                string year = dateString.Substring(0, 4);
+                string month = dateString.Substring(4, 2);
+                html.Append($"<img class=\"article-thumbnail\" src =\"{Config.FileHostBaseUrl}/{website}/_thumbnails/{year}/{month}/{thumbnail}\">");
+            }
+
+            // add title
+            html.Append($"<a href=\"{url}\" class=\"article-title\">{title}</a>");
+
+            // add subtitle if we have it
+            if (subtitle != null && subtitle != "") {
+                html.Append($"<div class=\"article-subtitle\">{subtitle}</div>");
+            }
+
+            // add author if we have it
+            if (author != null && author != "") {
+                html.Append($"<div class=\"article-author\">{author}</div>");
+            }
+
+            // close article div
+            html.Append("</div>");
+            return html.ToString();
         }
     }
 }
