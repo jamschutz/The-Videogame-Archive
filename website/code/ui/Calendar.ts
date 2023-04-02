@@ -203,7 +203,7 @@ class Calendar {
 
                 day.classList.add(dayClass);
                 day.innerText = dateNumber.toString();
-                day.href = `/html/archive.html?date=${this.date.year}${Utils.getTwoCharNum(this.date.month)}${Utils.getTwoCharNum(dateNumber.toString())}`;
+                day.href = `/html/archive/${this.date.year}/${Utils.getTwoCharNum(this.date.month)}/${Utils.getTwoCharNum(dateNumber.toString())}.html`;
             }
 
             // if this is the current date, highlight it
