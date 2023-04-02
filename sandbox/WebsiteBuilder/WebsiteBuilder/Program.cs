@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 using WebsiteBuilder.Entities;
 using WebsiteBuilder.UI;
@@ -13,24 +14,65 @@ namespace WebsiteBuilder
     {
         static void Main(string[] args)
         {
-            //string test_url = "https://www.gamespot.com/review/destiny-the-taken-king/?slug=destiny-the-taken-king-review-in-progress&typeId=1100&id=6430557";
-            //Console.WriteLine($"original: {test_url}");
-            //Console.WriteLine($"filename: {Config.UrlToFilename(test_url, 30, 1)}");
+            int year = 2003;
+            int month = 10;
+            int day = 13;
 
             DbManager dbManager = new DbManager();
+
+            HtmlHead htmlHead = new HtmlHead();
+            Calendar calendar = new Calendar(dbManager);
+
+            Console.WriteLine("fetching articles...");
             var articles = dbManager.GetArticlesPublishedOnDate(20031013);
+            Console.WriteLine("building publication columns...");
             var publicationColumns = GetPublicationColumns(articles);
 
-            Console.WriteLine(publicationColumns[1].ToHtml());
+            StringBuilder publicationColumnsHtml = new StringBuilder(800 * articles.Length + 800 * publicationColumns.Count);
+            foreach (var publicationColumn in publicationColumns) {
+                publicationColumnsHtml.AppendLine(publicationColumn.ToHtml());
+            }
 
-            //Console.WriteLine($"got {articles.Length} articles");
-            //foreach (var article in articles) {
-            //    Console.WriteLine("\n---------------------------------------\n");
-            //    Console.WriteLine(article.ToHtml("\t"));
-            //    Console.WriteLine($"length: {article.ToHtml().Length}");
-            //}
+            Console.WriteLine("generating html...");
+            string html = $@"
 
-            int x = 0;
+<!DOCTYPE html>
+<meta charset=""utf-8"">
+<meta name=""viewport"" content=""width=device-width,height=device-height,initial-scale=1.0"" />
+
+{htmlHead.ToHtml()}
+
+<html>
+
+<body>
+    <div>
+        <div id=""calendar-month"">
+        </div>
+    
+        <div class=""container"">
+            <div class=""date-header"">
+                <button onclick=""goToPreviousDay()"" >&lt;</button>
+                <span id=""date-display"">{Utils.Utils.GetMonthName(month)} {day}, {year}</span>
+                <button onclick=""goToNextDay()"" >&gt;</button>
+                <input id=""search-bar"" type=""search"" placeholder=""Search..."" >
+            </div>
+
+            <div id=""articles"" class=""article-container"">
+                {publicationColumnsHtml.ToString()}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            ";
+
+
+            Console.WriteLine("writing to file...");
+            // make sure folder exists
+            Directory.CreateDirectory($"{Config.StaticWebsiteFolder}/{year}/{month}");
+            // and write to file
+            File.WriteAllText($"{Config.StaticWebsiteFolder}/{year}/{month}/{day}.html", html);
         }
 
 

@@ -63,6 +63,42 @@ namespace WebsiteBuilder
 
             return articles.ToArray();
         }
+
+
+        public Dictionary<string, int> GetArticleCountBetweenDates(string start, string end)
+        {
+            var results = new Dictionary<string, int>();
+
+            string query = $@"
+                SELECT 
+                    Count(*) AS NumArticles, DatePublished
+                FROM 
+                    Article
+                WHERE
+                    DatePublished >= {start} AND DatePublished <= {end}
+                GROUP BY DatePublished
+            ";
+            using (var connection = new SQLiteConnection($"Data Source={Config.DatabaseFile}"))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = query;
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string date = reader.GetInt32(1).ToString();
+                        int count = reader.GetInt32(0);
+
+                        results[date] = count;
+                    }
+                }
+            }
+
+            return results;
+        }
         
 
 

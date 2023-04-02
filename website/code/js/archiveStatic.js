@@ -1,3 +1,34 @@
+let calendar = new Calendar();
+
+// buttons for the day
+function goToNextDay() {
+    let targetDate = UrlParser.getDate();
+    targetDate.addDay();
+    goToTargetDate(targetDate);
+}
+function goToPreviousDay() {
+    let targetDate = UrlParser.getDate();
+    targetDate.subtractDay();
+    goToTargetDate(targetDate);
+}
+function goToTargetDate(targetDate) {
+    window.location.href = `/html/archive.html?date=${targetDate.year}${Utils.getTwoCharNum(targetDate.month)}${Utils.getTwoCharNum(targetDate.day)}`;
+}
+
+// calendar button functions
+function goToNextCalendarMonth() {
+    calendar.goToNextMonth();
+}
+function goToNextCalendarYear() {
+    calendar.goToNextYear();
+}
+function goToPreviousCalendarMonth() {
+    calendar.goToPreviousMonth();
+}
+function goToPreviousCalendarYear() {
+    calendar.goToPreviousYear();
+}
+
 (function(window, document, undefined) {  
     window.onload = init;
   
@@ -8,6 +39,8 @@
                 onSearchSubmit(e);
             }
         });
+
+        calendar.updateHtml();
     }
   
 })(window, document, undefined);

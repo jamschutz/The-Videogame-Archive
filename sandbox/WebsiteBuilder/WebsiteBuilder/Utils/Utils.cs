@@ -39,5 +39,41 @@ namespace WebsiteBuilder.Utils
 
             return n.ToString();
         }
+
+
+        public static int GetDaysInMonth(int month, int year)
+        {
+            switch (month) {
+                case 1: return 31;
+                case 2: return IsLeapYear(year)? 29 : 28;
+                case 3: return 31;
+                case 4: return 30;
+                case 5: return 31;
+                case 6: return 30;
+                case 7: return 31;
+                case 8: return 31;
+                case 9: return 30;
+                case 10: return 31;
+                case 11: return 30;
+                case 12: return 31;
+                default:
+                    Console.WriteLine($"ERROR: Unknown month: {month}");
+                    return 30;
+            }
+        }
+
+
+        public static bool IsLeapYear(int year)
+        {
+            // if divisible by 100, special case
+            if (year % 100 == 0)
+            {
+                // if it's divisible by 400, it's a leap year, otherwise, it isn't
+                return year % 400 == 0;
+            }
+
+            // otherwise, return if it's divisible by 4
+            return year % 4 == 0;
+        }
     }
 }
