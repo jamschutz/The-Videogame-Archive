@@ -12,7 +12,7 @@ function goToPreviousDay() {
     goToTargetDate(targetDate);
 }
 function goToTargetDate(targetDate) {
-    window.location.href = `/html/archive.html?date=${targetDate.year}${Utils.getTwoCharNum(targetDate.month)}${Utils.getTwoCharNum(targetDate.day)}`;
+    window.location.href = `/html/archive/${targetDate.year}/${Utils.getTwoCharNum(targetDate.month)}/${Utils.getTwoCharNum(targetDate.day)}.html`;
 }
 
 // calendar button functions

@@ -21,20 +21,42 @@ namespace WebsiteBuilder
             DbManager dbManager = new DbManager();
             List<string> publications = dbManager.GetAllPublicationNames();
 
+
+
+            //BuildWebpageForDate(year, month, day, dbManager, publications);
+            BuildWebpageForYear(1999, dbManager, publications);
+        }
+
+
+        private static void BuildWebpageForYear(int year, DbManager dbManager, List<string> publications)
+        {
+            // for each month...
+            for (int month = 1; month <= 12; month++) {
+                // and each day in month...
+                for (int day = 1; day <= Utils.Utils.GetDaysInMonth(month, year); day++) {
+                    // build webpage
+                    Console.WriteLine($"building webpage for {month}/{day}/{year}...");
+                    BuildWebpageForDate(year, month, day, dbManager, publications);
+                }
+            }
+        }
+
+
+        private static void BuildWebpageForDate(int year, int month, int day, DbManager dbManager, List<string> publications)
+        {
             HtmlHead htmlHead = new HtmlHead();
             Calendar calendar = new Calendar(dbManager);
 
-            Console.WriteLine("fetching articles...");
-            var articles = dbManager.GetArticlesPublishedOnDate(20031013);
-            Console.WriteLine("building publication columns...");
+            int dateInt = year * 10000 + month * 100 + day;
+            var articles = dbManager.GetArticlesPublishedOnDate(dateInt);
             var publicationColumns = GetPublicationColumns(articles, publications);
 
             StringBuilder publicationColumnsHtml = new StringBuilder(800 * articles.Length + 800 * publicationColumns.Count);
-            foreach (var publicationColumn in publicationColumns) {
+            foreach (var publicationColumn in publicationColumns)
+            {
                 publicationColumnsHtml.AppendLine(publicationColumn.ToHtml());
             }
-
-            Console.WriteLine("generating html...");
+            
             string html = $@"
 
 <!DOCTYPE html>
@@ -71,9 +93,9 @@ namespace WebsiteBuilder
 
             Console.WriteLine("writing to file...");
             // make sure folder exists
-            Directory.CreateDirectory($"{Config.StaticWebsiteFolder}/{year}/{month}");
+            Directory.CreateDirectory($"{Config.StaticWebsiteFolder}/{year}/{Utils.Utils.GetTwoCharInt(month)}");
             // and write to file
-            File.WriteAllText($"{Config.StaticWebsiteFolder}/{year}/{month}/{day}.html", html);
+            File.WriteAllText($"{Config.StaticWebsiteFolder}/{year}/{Utils.Utils.GetTwoCharInt(month)}/{Utils.Utils.GetTwoCharInt(day)}.html", html);
         }
 
 
