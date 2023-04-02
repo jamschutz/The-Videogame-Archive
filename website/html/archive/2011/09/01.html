@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 1, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-baconing-review/1900-6332258/" class="article-title">The Baconing Review</a>
+			<div class="article-subtitle">A strong sense of deja vu and poorly balanced combat loom over The Baconing, but smart puzzles and humorous dialogue entertain throughout.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bastion-review/1900-6332259/" class="article-title">Bastion Review</a>
+			<div class="article-subtitle">Bastion is a wonderfully diverse game that offers up a great deal of flexibility in how you approach its many challenges.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/street-fighter-iii-third-strike-online-review/1900-6332402/" class="article-title">Street Fighter III: Third Strike Online Review</a>
+			<div class="article-subtitle">This faithful port of Third Strike comes with all of the pluses and minuses of the arcade version, including tight, fun gameplay coupled with a steep learning curve.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/street-fighter-iii-third-strike-online-review/1900-6332002/" class="article-title">Street Fighter III: Third Strike Online Review</a>
+			<div class="article-subtitle">This faithful port of Third Strike comes with all of the pluses and minuses of the arcade version, including tight, fun gameplay coupled with a steep learning curve.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_shippin-out-aug-28-sept-3-madden-nfl-12_1100-6331568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-aug-28-sept-3-madden-nfl-12/1100-6331568/" class="article-title">Shippin' Out Aug. 28 - Sept. 3: Madden NFL 12</a>
+			<div class="article-subtitle">EA Sports' pigskin sim rushes into retail as downloadable stores get Mortal Kombat compilation, The Baconing, Rock of Ages, new BloodRayne, and more.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_red-flame-nintendo-3ds-australia-bound_1100-6332189_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-flame-nintendo-3ds-australia-bound/1100-6332189/" class="article-title">Red Flame Nintendo 3DS Australia Bound</a>
+			<div class="article-subtitle">New Nintendo 3DS color is set to arrive Down Under in late September.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_yakuza-creator-forms-new-studio-report_1100-6332023_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yakuza-creator-forms-new-studio-report/1100-6332023/" class="article-title">Yakuza creator forms new studio - Report</a>
+			<div class="article-subtitle">Toshihiro Nagoshi sets up Ryu ga Gotoku Studio out of Binary Domain team; Yakuza Black Panther 2 announced in Japan for PSP.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_team-bondi-goes-into-administration_1100-6332196_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-bondi-goes-into-administration/1100-6332196/" class="article-title">Team Bondi goes into administration</a>
+			<div class="article-subtitle">Control of L.A. Noire developer handed to external firm, according to Australian Securities and Investments Commission documents.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_ps3-sales-surge-over-400-in-australia-sony_1100-6332195_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-sales-surge-over-400-in-australia-sony/1100-6332195/" class="article-title">PS3 Sales Surge Over 400% in Australia - Sony</a>
+			<div class="article-subtitle">Sony Computer Entertainment Australia says the PS3 price drop has led to a sharp rise in sales of the console Down Under.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_tgx-2011-announces-arena-regional-e-sports-tournament_1100-6332199_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgx-2011-announces-arena-regional-e-sports-tournament/1100-6332199/" class="article-title">TGX 2011 Announces Arena Regional e-Sports Tournament</a>
+			<div class="article-subtitle">Singapore tournament to use DOTA and StarCraft II; 48 gamers from seven countries to compete.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_dota2-qanda-with-singapore-team-scythesg_1100-6331978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dota2-qanda-with-singapore-team-scythesg/1100-6331978/" class="article-title">DOTA2 Q&A With Singapore Team Scythe.sg</a>
+			<div class="article-subtitle">We have a chat with the Singaporean team that placed third in the DOTA2 worldwide tournament held at this year's Gamescom.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_daily-report-rave-reader-reviews_1100-6332208_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-report-rave-reader-reviews/1100-6332208/" class="article-title">Daily Report: Rave Reader Reviews</a>
+			<div class="article-subtitle">It's another Thursday, which means it's time for reader reviews!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_rocketbirds-hardboiled-chicken-hatching-on-ps3_1100-6332201_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocketbirds-hardboiled-chicken-hatching-on-ps3/1100-6332201/" class="article-title">Rocketbirds: Hardboiled Chicken hatching on PS3</a>
+			<div class="article-subtitle">Expansion of PC browser-based title to be released exclusively on PSN this October with cooperative campaign, 3D support.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_big-in-japan-august-22-28-monster-hunter-portable-3rd-hd-version_1100-6332198_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-august-22-28-monster-hunter-portable-3rd-hd-version/1100-6332198/" class="article-title">Big in Japan August 22-28: Monster Hunter Portable 3rd HD version</a>
+			<div class="article-subtitle">PS3 action-RPG topped a quarter million sold in first week as new releases topped the charts; 3DS again led hardware sales by a wide margin.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_red-dead-redemption-free-dlc-hits-sept-13_1100-6332204_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-redemption-free-dlc-hits-sept-13/1100-6332204/" class="article-title">Red Dead Redemption free DLC hits Sept. 13</a>
+			<div class="article-subtitle">Rockstar confirms Myths & Mavericks Bonus Pack with new multiplayer characters and locations confirmed for release on PlayStation Network, Xbox Live.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_call-of-duty-black-ops-average-user-spend-is-76_1100-6332210_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-black-ops-average-user-spend-is-76/1100-6332210/" class="article-title">Call of Duty: Black Ops average user spend is $76</a>
+			<div class="article-subtitle">Activision sells 18 million map packs for last year's shooter; Modern Warfare 3 preorders to break Black Ops' record "by a significant margin"; Elite pricing to make it a "no-brainer" for fans.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_mafia-ii-studio-loses-40-staff_1100-6332211_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mafia-ii-studio-loses-40-staff/1100-6332211/" class="article-title">Mafia II studio loses 40 staff</a>
+			<div class="article-subtitle">Take-Two confirms layoffs at 2K Czech, while affirming commitment to continue making games; cuts mostly made at Brno studio.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_dungeon-siege-iii-turning-up-dlc-in-october_1100-6332215_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dungeon-siege-iii-turning-up-dlc-in-october/1100-6332215/" class="article-title">Dungeon Siege III turning up DLC in October</a>
+			<div class="article-subtitle">Obsidian Entertainment bringing $10 Treasures of the Sun add-on to action RPG next month on 360, PS3, PC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_sony-showing-18-unannounced-ps-vita-games-at-tgs_1100-6332227_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-showing-18-unannounced-ps-vita-games-at-tgs/1100-6332227/" class="article-title">Sony showing 18 unannounced PS Vita games at TGS</a>
+			<div class="article-subtitle">Publisher's booth will have 31 titles for upcoming portable in total at show; The Last Guardian MIA from 21-game PS3 lineup.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_nascar-unleashed-on-360-ps3-wii-3ds-this-year_1100-6332228_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nascar-unleashed-on-360-ps3-wii-3ds-this-year/1100-6332228/" class="article-title">NASCAR Unleashed on 360, PS3, Wii, 3DS this year</a>
+			<div class="article-subtitle">Activision combines circuit and street racing in latest game based on popular stock car series; 15 licensed drivers and five tracks including Daytona included.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_sony-hmz-t1-personal-3d-and-hd-viewer-preview_1100-6331897_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-hmz-t1-personal-3d-and-hd-viewer-preview/1100-6331897/" class="article-title">Sony HMZ-T1 Personal 3D & HD Viewer Preview</a>
+			<div class="article-subtitle">Eat your heart out Geordi La Forge. Sony's giving us 3D HDTVs stuffed into a set of glasses.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_psn-has-added-3-million-users-since-hack_1100-6332233_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psn-has-added-3-million-users-since-hack/1100-6332233/" class="article-title">PSN has added 3 million users since hack</a>
+			<div class="article-subtitle">Sony CEO Howard Stringer touts recovery of PlayStation Network in the months since outage, says sales have exceeded pre-hack levels.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_rock-of-ages-tumbles-to-pc-september-7_1100-6332236_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-of-ages-tumbles-to-pc-september-7/1100-6332236/" class="article-title">Rock of Ages tumbles to PC September 7</a>
+			<div class="article-subtitle">Atlus take on tower defense arrives on Steam next week, PlayStation 3 debut set for release later this summer.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_zynga-opening-adventure-world_1100-6332251_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zynga-opening-adventure-world/1100-6332251/" class="article-title">Zynga opening Adventure World</a>
+			<div class="article-subtitle">Social game giant's first title from Boston studio to be 40 times larger than publisher's previous offerings; debut expected in a matter of weeks.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_pax-prime-2011-pulls-in-70000_1100-6332256_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pax-prime-2011-pulls-in-70000/1100-6332256/" class="article-title">PAX Prime 2011 pulls in 70,000</a>
+			<div class="article-subtitle">Seattle-based open-to-the-public gaming event draws largest turnout in show history; PAX East scheduled for April 6-8, 2012.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/01_asia-shippin-out-august-28-september-3-bodycount_1100-6331566_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-august-28-september-3-bodycount/1100-6331566/" class="article-title">Asia Shippin' Out August 28-September 3: Bodycount</a>
+			<div class="article-subtitle">Codemaster's new shooter debuts on the end of Ramadan month alongside new Sims expansion and action RPG sequels.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_free-dlc-for-dc-universe-online_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-dlc-for-dc-universe-online" class="article-title">Free DLC for DC Universe Online</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_lay-offs-at-2ks-mafia-2-studio_thumbnail.png">
+			<a href="https://www.eurogamer.net/lay-offs-at-2ks-mafia-2-studio" class="article-title">Lay-offs at 2K's Mafia 2 studio</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_section-8-prejudice-dlc-for-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/section-8-prejudice-dlc-for-psn" class="article-title">Section 8: Prejudice DLC for PSN</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_18-million-black-ops-map-packs-sold_thumbnail.png">
+			<a href="https://www.eurogamer.net/18-million-black-ops-map-packs-sold" class="article-title">18 million Black Ops map packs sold</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_dungeon-siege-3-dlc-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/dungeon-siege-3-dlc-announced" class="article-title">Dungeon Siege 3 DLC announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_3m-new-psn-users-since-security-breach_thumbnail.png">
+			<a href="https://www.eurogamer.net/3m-new-psn-users-since-security-breach" class="article-title">3m new PSN users since security breach</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_always-online-with-blizzard-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/always-online-with-blizzard-interview" class="article-title">Always Online with Blizzard</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_final-red-dead-dlc-dated-and-detailed-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-red-dead-dlc-dated-and-detailed-1" class="article-title">Final Red Dead DLC dated and detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_nascar-unleashed-announced-for-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/nascar-unleashed-announced-for-us" class="article-title">Activision reveals NASCAR Unleashed</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_star-fox-64-ds-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-fox-64-ds-review" class="article-title">Star Fox 64 3D</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_quarrel-review-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/quarrel-review-1" class="article-title">Quarrel</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_nintendo-eshop-update-01-09-11_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-eshop-update-01-09-11" class="article-title">Nintendo eShop update - 01/09/11</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_hogrocket-releases-tiny-invaders-on-ios_thumbnail.png">
+			<a href="https://www.eurogamer.net/hogrocket-releases-tiny-invaders-on-ios" class="article-title">Hogrocket releases Tiny Invaders on iOS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_star-trek-online-free-to-play-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-trek-online-free-to-play-this-year" class="article-title">Star Trek Online free-to-play this year</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_how-to-get-your-3ds-ambassador-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/how-to-get-your-3ds-ambassador-games" class="article-title">How to get your 3DS Ambassador games</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_playstation-vita-playable-at-eg-expo_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-vita-playable-at-eg-expo" class="article-title">PlayStation Vita playable at EG Expo</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_playstation-tablet-prices-tech-specs_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-tablet-prices-tech-specs" class="article-title">PlayStation tablet date, price, specs</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_18-unannounced-vita-games-set-for-tgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/18-unannounced-vita-games-set-for-tgs" class="article-title">18 unannounced Vita games set for TGS</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_la-noire-dev-in-administration-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/la-noire-dev-in-administration-report" class="article-title">LA Noire dev in administration - report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/01_modern-warfare-3-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/modern-warfare-3-preview" class="article-title">Modern Warfare 3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137829/Team-Bondi-goes-into-administration/" class="article-title">Team Bondi goes into administration</a>
+			<div class="article-subtitle">Moves closer to insolvency.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137828/Releasing-in-Germany-Doom-Doom-2/" class="article-title">Releasing in Germany: Doom, Doom 2</a>
+			<div class="article-subtitle">And you thought SWTOR was a mess.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i137823/DICE-discusses-campaign-co-op-in-Battlefield-3/" class="article-title">DICE discusses campaign co-op in Battlefield 3</a>
+			<div class="article-subtitle">DICE: more challenging than singleplayer.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/you-are-games-letters-in-boxes-13.php" class="article-title">You Are Games: Letters In Boxes #13</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/monkey-go-happy-4.php" class="article-title">Monkey GO Happy 4</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/kingstory.php" class="article-title">KingStory</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/09/01_2011_09_01_rpg-in-14-days-for-charity_thumbnail.png">
+			<a href="https://www.tigsource.com/2011/09/01/rpg-in-14-days-for-charity/" class="article-title">RPG in 14 Days for Charity</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/09/01_2011_09_01_maldita-castilla-demo_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/09/01/maldita-castilla-demo/" class="article-title">Maldita Castilla Demo</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

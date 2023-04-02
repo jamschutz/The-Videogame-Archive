@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 26, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/obscure-the-aftermath-review/1900-6238099/" class="article-title">Obscure: The Aftermath Review</a>
+			<div class="article-subtitle">This survival horror game looks good and controls well but never manages to bring either the scares or the laughs it's aiming for.</div>
+			<div class="article-author">Allen Rausch</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tower-bloxx-deluxe-review/1900-6238106/" class="article-title">Tower Bloxx Deluxe Review</a>
+			<div class="article-subtitle">This puzzle game is fun in short bursts, but it lacks the depth and gameplay options to hold your interest for long.</div>
+			<div class="article-author">Joseph Barron</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-and-sonic-at-the-olympic-winter-games-review/1900-6238093/" class="article-title">Mario & Sonic at the Olympic Winter Games Review</a>
+			<div class="article-subtitle">There's some multiplayer fun to be had in this winter sports collection, but you'll have to sift through a lot of lousy stuff to find it.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/wwe-smackdown-vs-raw-2010-review/1900-6238089/" class="article-title">WWE Smackdown vs. Raw 2010 Review</a>
+			<div class="article-subtitle">An intriguing new creation tool and widespread refinements make it another good year for Smackdown vs. RAW, but it still hasn't received the overhaul that it needs.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_pc-modern-warfare-2-minimum-specs-revealed_1100-6237899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-modern-warfare-2-minimum-specs-revealed/1100-6237899/" class="article-title">PC Modern Warfare 2 minimum specs revealed</a>
+			<div class="article-subtitle">Infinity Ward announces basic kit required for desktop edition of highly anticipated FPS, Valve's Steamworks bringing auto-updates, achievements.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_au-shippin-out-october-26-30-dj-hero_1100-6237952_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-october-26-30-dj-hero/1100-6237952/" class="article-title">AU Shippin' Out October 26-30: DJ Hero</a>
+			<div class="article-subtitle">Go <i>Around the World</i> in DJ Hero.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_dj-hero-renegade-edition-delayed-for-australia_1100-6237953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dj-hero-renegade-edition-delayed-for-australia/1100-6237953/" class="article-title">DJ Hero Renegade Edition delayed for Australia</a>
+			<div class="article-subtitle">Activision blames delay of limited-edition DJ Hero bundle stock on "manufacturing restraints."</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_playtv-ready-for-aussie-launch_1100-6237955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playtv-ready-for-aussie-launch/1100-6237955/" class="article-title">PlayTV ready for Aussie launch?</a>
+			<div class="article-subtitle">New patch released by Sony for the UK version of the PS3-based PVR adds in Australian TV support.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_shippin-out-oct-25-31-dj-hero-gtaiv-gay-tony-tekken-6-forza-3-ratchet-and-clank_1100-6237617_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-oct-25-31-dj-hero-gtaiv-gay-tony-tekken-6-forza-3-ratchet-and-clank/1100-6237617/" class="article-title">Shippin' Out Oct. 25-31: DJ Hero, GTAIV: Gay Tony, Tekken 6, Forza 3, Ratchet & Clank </a>
+			<div class="article-subtitle">Activision spins out turntable-equipped rhythm game, along with Rockstar's second 360-only add-on and Episodes From Liberty City; Namco Bandai fighter, Microsoft racer, and Sony platformer also launching.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_aliens-vs-predator-multiplayer-hands-on_1100-6237959_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aliens-vs-predator-multiplayer-hands-on/1100-6237959/" class="article-title">Aliens vs. Predator Multiplayer Hands-On</a>
+			<div class="article-subtitle">We finally got to play AVP's multiplayer mode, including all three factions and a number of match types.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_gamespot-uk-visits-london-mcm-expo_1100-6237964_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-uk-visits-london-mcm-expo/1100-6237964/" class="article-title">GameSpot UK visits London MCM Expo</a>
+			<div class="article-subtitle">GameSpot UK went down to the Excel exhibition centre in East London and witnessed the craziness of the London MCM Expo 2009.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_dsi-speak-channel-accidentally-revealed_1100-6237895_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dsi-speak-channel-accidentally-revealed/1100-6237895/" class="article-title">DSi Speak Channel accidentally revealed? </a>
+			<div class="article-subtitle">[UPDATE] Error page on Nintendo's official Web site may have revealed a VoIP option may soon be coming to Nintendo's camera-enabled handheld; reps say there are "no plans" for service.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_dj-hero-preorders-augur-weak-sales-analyst_1100-6237976_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dj-hero-preorders-augur-weak-sales-analyst/1100-6237976/" class="article-title">DJ Hero preorders augur weak sales - Analyst </a>
+			<div class="article-subtitle">[UPDATE] Cowen and Company's Doug Creutz cuts sales projections for Activision's latest rhythm game by 61 percent, citing online demand that is "well below" expectations.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_modern-warfare-2-getting-third-person-mp-view_1100-6238096_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modern-warfare-2-getting-third-person-mp-view/1100-6238096/" class="article-title">Modern Warfare 2 getting third-person MP view</a>
+			<div class="article-subtitle">Following video leak, Infinity Ward's Robert Bowling confirms alternate viewpoint will be accessible during private multiplayer matches.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/10/26_netflix-breaks-down-ps3-deal_1100-6238087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflix-breaks-down-ps3-deal/1100-6238087/" class="article-title">Netflix breaks down PS3 deal</a>
+			<div class="article-subtitle">Q&A: VP Steve Swasey explains how video service works on the PS3; firmware update planned for 2010, will offer same options as PC and Xbox Live streaming.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_rockstar-sponsors-movember-charity_thumbnail.png">
+			<a href="https://www.eurogamer.net/rockstar-sponsors-movember-charity" class="article-title">Rockstar sponsors Movember charity</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_aliens-vs-predator-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/aliens-vs-predator-hands-on" class="article-title">Aliens vs. Predator</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_the-lord-of-the-rings-online-siege-of-mirkwood-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-lord-of-the-rings-online-siege-of-mirkwood-interview" class="article-title">The Lord of the Rings Online: Siege of Mirkwood</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_eurogamer-expo-sessions-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-expo-sessions-detailed" class="article-title">Eurogamer Expo sessions detailed</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_new-prinny-shadow-of-memories-for-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-prinny-shadow-of-memories-for-psp" class="article-title">New Prinny, Shadow of Memories for PSP</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_uk-charts-pes-2010-overturns-fifa-10_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-charts-pes-2010-overturns-fifa-10" class="article-title">UK charts: PES 2010 overturns FIFA 10</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_disney-asked-spector-to-reinvent-mickey_thumbnail.png">
+			<a href="https://www.eurogamer.net/disney-asked-spector-to-reinvent-mickey" class="article-title">Spector was asked to "reinvent" Mickey</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_mw2-picks-steamworks-over-gfw-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/mw2-picks-steamworks-over-gfw-live" class="article-title">MW2 picks Steamworks over GfW - Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_fat-princess-gets-patch-and-free-map_thumbnail.png">
+			<a href="https://www.eurogamer.net/fat-princess-gets-patch-and-free-map" class="article-title">Fat Princess gets patch and free map</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_left-4-dead-2-steam-demo-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/left-4-dead-2-steam-demo-tomorrow" class="article-title">Left 4 Dead 2 Steam demo tomorrow</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_psp-to-get-monster-hunter-spin-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-to-get-monster-hunter-spin-off" class="article-title">PSP to get Monster Hunter spin-off</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_champions-online-free-weekend_thumbnail.png">
+			<a href="https://www.eurogamer.net/champions-online-free-weekend" class="article-title">Champions Online free this weekend</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_sony-us-signs-netflix-deal-for-ps3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sony-us-signs-netflix-deal-for-ps3" class="article-title">Sony US signs Netflix deal for PS3</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/10/26_football-manager-2010-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/football-manager-2010-review" class="article-title">Football Manager 2010</a>
+			<div class="article-author">Martin Korda</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dragon-age-journeys-the-deep-roads.php" class="article-title">Dragon Age Journeys: The Deep Roads</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/rob-allens-banner-game-revisited.php" class="article-title">Rob Allen's Banner Game Revisited</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-40.php" class="article-title">Mobile Monday №39</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bloons-tower-defense-4.php" class="article-title">Bloons Tower Defense 4</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

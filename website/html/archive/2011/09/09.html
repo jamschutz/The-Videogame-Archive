@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 9, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bloodrayne-betrayal-review/1900-6333644/" class="article-title">BloodRayne: Betrayal Review</a>
+			<div class="article-subtitle">Finicky controls taint the exciting combat in BloodRayne: Betrayal, creating an uneven and frustrating adventure.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avadon-the-black-fortress-review/1900-6333629/" class="article-title">Avadon: The Black Fortress Review</a>
+			<div class="article-subtitle">Avadon: The Black Fortress offers up some good old-fashioned role-playing, as long as you can handle the dated production values and a few design quirks.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_vidrhythm-now-available-on-itunes_1100-6333347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vidrhythm-now-available-on-itunes/1100-6333347/" class="article-title">VidRhythm now available on iTunes</a>
+			<div class="article-subtitle">Harmonix launches audio-video mash-up app for Apple's handhelds at $2 price point.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_nintendo-trading-in-the-blue-ocean-for-a-white-flag_1100-6333295_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-trading-in-the-blue-ocean-for-a-white-flag/1100-6333295/" class="article-title">Nintendo trading in the blue ocean for a white flag?</a>
+			<div class="article-subtitle">Reports of a 3DS analog add-on suggest the once-confident company is neck-deep in knee-jerk reactions.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_gamefly-digital-client-preview_1100-6333293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamefly-digital-client-preview/1100-6333293/" class="article-title">GameFly Digital Client Preview</a>
+			<div class="article-subtitle">GameFly shows off its new digital client.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_tales-of-xillia-ships-500000-copies-in-japan_1100-6333378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tales-of-xillia-ships-500000-copies-in-japan/1100-6333378/" class="article-title">Tales of Xillia ships 500,000 copies in Japan</a>
+			<div class="article-subtitle">High preorder numbers due to numerous cross promotions.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_crysis-striking-xbox-360-ps3-in-october_1100-6333385_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crysis-striking-xbox-360-ps3-in-october/1100-6333385/" class="article-title">Crysis striking Xbox 360, PS3 in October</a>
+			<div class="article-subtitle">Single-player campaign of Crytek's 2007 PC first-person shooter makes console debut as $20 downloadable title; "remastered" title to feature tweaked controls, stereoscopic 3D support.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_aussie-bargains-september-9_1100-6333379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-bargains-september-9/1100-6333379/" class="article-title">Aussie bargains September 9</a>
+			<div class="article-subtitle">This week we look at how you can save money on Resistance 3, Dead Island, and Warhammer 40,000: Space Marine.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_ace-combat-assault-horizon-updated-hands-on_1100-6333228_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ace-combat-assault-horizon-updated-hands-on/1100-6333228/" class="article-title">Ace Combat: Assault Horizon Updated Hands-On</a>
+			<div class="article-subtitle">We take to the not-so-blue-and-usually-heavy-under-fire skies of this upcoming reboot.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_deus-ex-human-revolution-ships-2-million_1100-6333396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deus-ex-human-revolution-ships-2-million/1100-6333396/" class="article-title">Deus Ex: Human Revolution ships 2 million</a>
+			<div class="article-subtitle">Square Enix's latest sci-fi action game hits sell-in milestone; Japanese launch expected next month.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_metallic-rose-dsi-xl-blooming-september-18_1100-6333615_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metallic-rose-dsi-xl-blooming-september-18/1100-6333615/" class="article-title">Metallic rose DSi XL blooming September 18</a>
+			<div class="article-subtitle">Nintendo's supersized handheld picking up new hue in time for Kirby Mass Attack debut, maintaining $170 price.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_xbox-live-fall-update-2011-preview_1100-6333624_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-fall-update-2011-preview/1100-6333624/" class="article-title">Xbox Live Fall Update 2011 Preview</a>
+			<div class="article-subtitle">Microsoft's got a new "new experience" for Xbox Live.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_sound-byte-meet-the-composers-behind-warhammer-40k-space-marine_1100-6333625_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-meet-the-composers-behind-warhammer-40k-space-marine/1100-6333625/" class="article-title">Sound Byte: Meet the Composers Behind Warhammer 40K: Space Marine</a>
+			<div class="article-subtitle">Here's your chance to listen to Captain Titus' theme in the latest Sound Byte.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_weekly-report-double-exp-weekend_1100-6332615_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-report-double-exp-weekend/1100-6332615/" class="article-title">Weekly Report: Double EXP Weekend! </a>
+			<div class="article-subtitle">Today's wrap-up includes COD, ATGGSK, Now Playing, and a new video feature.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_the-state-of-pc-gaming_1100-6333387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-state-of-pc-gaming/1100-6333387/" class="article-title">The State of PC Gaming</a>
+			<div class="article-subtitle">PC publishing and development luminaries share their thoughts on the current state of the PC gaming platform and where it's heading.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_sound-byte-dissidia-012-duodecim-final-fantasy_1100-6321066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-dissidia-012-duodecim-final-fantasy/1100-6321066/" class="article-title">Sound Byte: Dissidia 012: Duodecim Final Fantasy</a>
+			<div class="article-subtitle">We talk to composer Ishimoto-san and the band Kidneythieves about its work on the newest Dissidia.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_weekly-wrap-up-tgs-is-almost-here_1100-6333632_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-wrap-up-tgs-is-almost-here/1100-6333632/" class="article-title">Weekly Wrap-Up: TGS Is Almost Here!</a>
+			<div class="article-subtitle">This week we have a Mario Kart game night, sidekick voting, and more!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_ea-origin-installs-hit-39-million_1100-6333640_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-origin-installs-hit-39-million/1100-6333640/" class="article-title">EA Origin installs hit 3.9 million</a>
+			<div class="article-subtitle">EA CFO Eric Brown says online distribution service is growing steadily; freemium brand extensions bringing in new customers.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_planetside-2-waging-freemium-warfare_1100-6333652_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/planetside-2-waging-freemium-warfare/1100-6333652/" class="article-title">Planetside 2 waging freemium warfare</a>
+			<div class="article-subtitle">SOE president John Smedley indicates online shooter will have League of Legends-style microtransaction-based business model; beta may begin this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_top-android-games-september-9-2011_1100-6333381_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-android-games-september-9-2011/1100-6333381/" class="article-title">Top Android Games - September 9, 2011</a>
+			<div class="article-subtitle">The world game (that's soccer, by the way), hack-and-slash action, and pooping unicorns explode onto our top Android games list this week.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/09_top-iphone-games-september-9-2011_1100-6333380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-iphone-games-september-9-2011/1100-6333380/" class="article-title">Top iPhone Games - September 9, 2011</a>
+			<div class="article-subtitle">Robot adventuring, high-speed racing, and severed heads and arms take pride of place in this week's top list for iPhone and iPad games.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_space-marine-misses-uk-steam-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/space-marine-misses-uk-steam-release" class="article-title">Space Marine misses UK Steam release</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_study-measures-scariest-xbox-360-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/study-measures-scariest-xbox-360-game" class="article-title">Study measures scariest Xbox 360 game</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_ps-move-game-a-sony-santa-monica-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps-move-game-a-sony-santa-monica-title" class="article-title">PS Move game a Sony Santa Monica title</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_age-of-conan-film-content-pack-arrives_thumbnail.png">
+			<a href="https://www.eurogamer.net/age-of-conan-film-content-pack-arrives" class="article-title">Age of Conan film content pack arrives</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_new-dragon-quest-10-gameplay-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-dragon-quest-10-gameplay-details" class="article-title">New Dragon Quest 10 gameplay details</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_jonah-lomu-rugby-uk-release-narrowed_thumbnail.png">
+			<a href="https://www.eurogamer.net/jonah-lomu-rugby-uk-release-narrowed" class="article-title">Jonah Lomu Rugby UK release narrowed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_remastered-crysis-1-coming-to-console_thumbnail.png">
+			<a href="https://www.eurogamer.net/remastered-crysis-1-coming-to-console" class="article-title">"Remastered" Crysis 1 coming to console</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_nintendo-launches-3ds-ambassador-tool_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-launches-3ds-ambassador-tool" class="article-title">Nintendo launches 3DS Ambassador tool</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_eurogamer-interviews-the-eve-council-chairman-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-interviews-the-eve-council-chairman-interview" class="article-title">Eurogamer Interviews the Eve Council Chairman</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_deus-ex-human-revolution-ships-2m-units_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-human-revolution-ships-2m-units" class="article-title">Deus Ex: Human Revolution ships 2m units</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_techland-reflects-on-dead-island-blooper_thumbnail.png">
+			<a href="https://www.eurogamer.net/techland-reflects-on-dead-island-blooper" class="article-title">Techland reflects on Dead Island blooper</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_download-games-roundup-review-49_thumbnail.png">
+			<a href="https://www.eurogamer.net/download-games-roundup-review-49" class="article-title">Download Games Roundup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_zen-rejects-xbox-inferior-tech-claim_thumbnail.png">
+			<a href="https://www.eurogamer.net/zen-rejects-xbox-inferior-tech-claim" class="article-title">Zen rejects "Xbox inferior tech" claim</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_white-ps3-is-uk-gamestop-exclusive_thumbnail.png">
+			<a href="https://www.eurogamer.net/white-ps3-is-uk-gamestop-exclusive" class="article-title">White PS3 is UK GameStop exclusive</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_pc-from-dust-now-playable-offline_thumbnail.png">
+			<a href="https://www.eurogamer.net/pc-from-dust-now-playable-offline" class="article-title">PC From Dust now playable offline</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_dead-island-dlc-out-within-weeks_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-island-dlc-out-within-weeks" class="article-title">Dead Island DLC out within weeks</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_infamous-2-update-3-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/infamous-2-update-3-released" class="article-title">Infamous 2 Update 3 released</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_pinball-fx-dev-stands-up-for-microsoft_thumbnail.png">
+			<a href="https://www.eurogamer.net/pinball-fx-dev-stands-up-for-microsoft" class="article-title">Pinball FX dev stands up for Microsoft</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_sony-offers-last-guardian-reassurance_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-offers-last-guardian-reassurance" class="article-title">Sony offers Last Guardian reassurance</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_acti-gamers-still-love-guitar-hero_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-gamers-still-love-guitar-hero" class="article-title">Acti: gamers still "love" Guitar Hero</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_3ds-price-cut-dramatically-boosts-sales_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-price-cut-dramatically-boosts-sales" class="article-title">3DS price cut dramatically boosts sales</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_el-shaddai-ascension-of-the-metatron-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/el-shaddai-ascension-of-the-metatron-review" class="article-title">El Shaddai: Ascension of the Metatron</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_ico-and-shadow-of-the-colossus-collection-hd-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/ico-and-shadow-of-the-colossus-collection-hd-review" class="article-title">Ico & Shadow of the Colossus Collection HD</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/09_the-making-of-el-shaddai-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-making-of-el-shaddai-article" class="article-title">The Making of El Shaddai</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137885/MW3-to-support-LAN-dedicated-servers-on-PC/" class="article-title">MW3 to support LAN, dedicated servers on PC</a>
+			<div class="article-subtitle">Also player-defined restrictions.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i137884/Activision-ousts-MW3.com-squatter/" class="article-title">Activision ousts MW3.com squatter</a>
+			<div class="article-subtitle">Troll site culled.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/haunted-legends-the-bronze-horseman.php" class="article-title">Haunted Legends: The Bronze Horseman</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-231.php" class="article-title">Link Dump Friday №232</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

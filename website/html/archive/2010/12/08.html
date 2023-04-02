@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 8, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/unbound-saga-review/1900-6285045/" class="article-title">Unbound Saga Review</a>
+			<div class="article-subtitle">Unbound Saga is one brutally boring brawler.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/majesty-2-battles-of-ardania-review/1900-6285040/" class="article-title">Majesty 2: Battles of Ardania Review</a>
+			<div class="article-subtitle">Only masochists need to bother with Majesty 2: Battles of Ardania, an incredibly tough expansion pack.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ys-the-oath-in-felghana-review/1900-6285033/" class="article-title">Ys: The Oath in Felghana Review</a>
+			<div class="article-subtitle">Adol the Red has some trouble finding his footing, but his sword remains true in this remake of an Ys classic.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_playtv-update-postlaunch-hands-on_1100-6284862_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playtv-update-postlaunch-hands-on/1100-6284862/" class="article-title">PlayTV Update Postlaunch Hands-On</a>
+			<div class="article-subtitle">PlayTV’s latest update promises to make TV a social experience; we spent hours tinkering with the software.</div>
+			<div class="article-author">Alastair Stevenson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_new-site-celebrates-best-aussie-mobile-devs_1100-6284966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-site-celebrates-best-aussie-mobile-devs/1100-6284966/" class="article-title">New site celebrates best Aussie mobile devs</a>
+			<div class="article-subtitle">iPhone and iPad users Down Under can score locally made apps for cheap, plus browse development news from local mobile dev studios.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_final-report-in-r18-consultation-released_1100-6284983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-report-in-r18-consultation-released/1100-6284983/" class="article-title">Final report in R18+ consultation released</a>
+			<div class="article-subtitle">Federal Minister for Home Affairs releases final analysis into R18+ public consultation response; out of the 58,400 respondents, 98.4 percent said they support the introduction of the adult classification.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_world-of-warcraft-cataclysm-london-launch_1100-6285007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-cataclysm-london-launch/1100-6285007/" class="article-title">World of Warcraft: Cataclysm London Launch</a>
+			<div class="article-subtitle">Check out these photos from the London launch of World of Warcraft: Cataclysm.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_world-of-warcraft-cataclysm-live-event_1100-6284815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-cataclysm-live-event/1100-6284815/" class="article-title">World of Warcraft: Cataclysm Live Event</a>
+			<div class="article-subtitle">Drop by on Monday late at night to experience the live event of World of Warcraft: Cataclysm!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_konami-to-bring-x-men-arcade-to-psn-xbla_1100-6281416_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-to-bring-x-men-arcade-to-psn-xbla/1100-6281416/" class="article-title">Konami to bring X-Men Arcade to PSN, XBLA</a>
+			<div class="article-subtitle">Marvel and Konami announce 1992 side-scrolling beat 'em up classic is coming to home consoles; release date TBA.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_alien-breed-2-assault-kung-fu-live-hit-psn_1100-6285006_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alien-breed-2-assault-kung-fu-live-hit-psn/1100-6285006/" class="article-title">Alien Breed 2: Assault, Kung-Fu Live hit PSN</a>
+			<div class="article-subtitle">PlayStation Store Update: Team 17's top-down Martian title out this week alongside PlayStation Eye game; PSP storefront adds LOTR: Aragorn's Quest, Tron: Evolution, Michael Jackson The Experience.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_bomberman-battlefest-fights-way-onto-xbla_1100-6285008_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bomberman-battlefest-fights-way-onto-xbla/1100-6285008/" class="article-title">Bomberman Battlefest fights way onto XBLA</a>
+			<div class="article-subtitle">Xbox Live Update: Hudson's top-down action game hits hub alongside two free titles; Army of Two: The 40th Day for Games on Demand; add-on content for Guardian of Light, Pinball FX2 also out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_new-ssx-in-the-works-at-ea-canada_1100-6285015_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ssx-in-the-works-at-ea-canada/1100-6285015/" class="article-title">New SSX in the works at EA Canada?</a>
+			<div class="article-subtitle">Snowboarding series reboot reportedly in the works for Xbox 360, PS3; may include heliboarding, avalanches; VGA reveal hinted at by EA Sports.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_activision-not-bailing-on-tony-hawk-report_1100-6285005_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-not-bailing-on-tony-hawk-report/1100-6285005/" class="article-title">Activision not bailing on Tony Hawk - Report</a>
+			<div class="article-subtitle">Publisher's CEO of publishing defends Shred's slow sales start and says the extreme sports legend has staying power on par with Michael Jordan.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_dead-space-2-demo-drops-dec-21_1100-6285024_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-space-2-demo-drops-dec-21/1100-6285024/" class="article-title">Dead Space 2 demo drops Dec. 21</a>
+			<div class="article-subtitle">Sample of EA's upcoming outer space spookfest hits Xbox Live and PlayStation Network in two weeks; will consist of Church of Unitology level.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_two-worlds-ii-spinning-january-25_1100-6285021_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/two-worlds-ii-spinning-january-25/1100-6285021/" class="article-title">Two Worlds II spinning January 25</a>
+			<div class="article-subtitle">TopWare Interactive confirms UK, North American release date for Reality Pump role-playing game sequel; already available European edition surpasses 1 million sold in three weeks.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_aussie-industry-body-releases-console-lock-videos_1100-6284997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-industry-body-releases-console-lock-videos/1100-6284997/" class="article-title">Aussie industry body releases console lock videos</a>
+			<div class="article-subtitle">The Interactive Games and Entertainment Association (iGEA) releases tutorials to help parents Down Under set up parental controls on consoles.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_strong-bad-headed-to-ps3_1100-6285034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/strong-bad-headed-to-ps3/1100-6285034/" class="article-title">Strong Bad headed to PS3</a>
+			<div class="article-subtitle">Episodic Cool Game for Attractive People adventure series debuts December 21 on Sony's PlayStation Network; Mac version to follow.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_spector-defends-epic-mickey_1100-6285043_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spector-defends-epic-mickey/1100-6285043/" class="article-title">Spector defends Epic Mickey</a>
+			<div class="article-subtitle">Disney developer says team took the hardest problem in 3D platformers and made it harder, and he's happy about the game's mixed critical reception.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/08_aussie-game-retailers-prepare-for-r18_1100-6284998_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-retailers-prepare-for-r18/1100-6284998/" class="article-title">Aussie game retailers prepare for R18+</a>
+			<div class="article-subtitle">GAME and EB share their thoughts on how R18+ games will be sold when Australia finally receives an adult classification.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_strong-bad-confirmed-for-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/strong-bad-confirmed-for-psn" class="article-title">Strong Bad confirmed for PSN</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_acti-feels-nothing-but-love-for-harmonix_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-feels-nothing-but-love-for-harmonix" class="article-title">Acti feels "nothing but love" for Harmonix</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_namco-dates-knights-contract-god-eater_thumbnail.png">
+			<a href="https://www.eurogamer.net/namco-dates-knights-contract-god-eater" class="article-title">Namco dates Knight's Contract, God Eater</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_what-is-square-enixs-clover-e-rth_thumbnail.png">
+			<a href="https://www.eurogamer.net/what-is-square-enixs-clover-e-rth" class="article-title">What is Square Enix's Clover E@rth?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_the-settlers-7-gets-update-new-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-settlers-7-gets-update-new-dlc" class="article-title">The Settlers 7 gets update, new DLC</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_new-lara-croft-dlc-hits-xbl_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-lara-croft-dlc-hits-xbl" class="article-title">New Lara Croft DLC hits XBL</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_dead-space-2-demo-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-space-2-demo-confirmed" class="article-title">Dead Space 2 demo confirmed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_smash-bros-melee-was-too-difficult_thumbnail.png">
+			<a href="https://www.eurogamer.net/smash-bros-melee-was-too-difficult" class="article-title">Smash Bros. Melee was "too difficult"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_big-cup-cricket-hits-the-app-store_thumbnail.png">
+			<a href="https://www.eurogamer.net/big-cup-cricket-hits-the-app-store" class="article-title">Big Cup Cricket hits the App Store</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_playstation-phone-gets-march-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-phone-gets-march-date" class="article-title">March 2011 launch for PS Phone?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_blizzard-mulling-5-man-molten-core_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-mulling-5-man-molten-core" class="article-title">Blizzard mulling 5-man Molten Core</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_x-men-arcade-a-two-month-xbla-exclusive_thumbnail.png">
+			<a href="https://www.eurogamer.net/x-men-arcade-a-two-month-xbla-exclusive" class="article-title">X-Men Arcade a timed XBLA exclusive</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_ea-single-player-only-games-finished_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-single-player-only-games-finished" class="article-title">EA: Single-player only games "finished"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_condom-campaign-parodies-mario-mega-man_thumbnail.png">
+			<a href="https://www.eurogamer.net/condom-campaign-parodies-mario-mega-man" class="article-title">Condom campaign loves Mario, Mega Man</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_suzuki-concept-for-shenmue-3-exists_thumbnail.png">
+			<a href="https://www.eurogamer.net/suzuki-concept-for-shenmue-3-exists" class="article-title">Suzuki: "Concept for Shenmue 3 exists"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_ps3-gets-kinect-like-kung-fu-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-gets-kinect-like-kung-fu-game" class="article-title">PS3 gets Kinect-like Kung-Fu game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_dissidia-3rd-birthday-for-spring-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/dissidia-3rd-birthday-for-spring-2011" class="article-title">Dissidia, 3rd Birthday for spring 2011</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_bulletstorm-were-misunderstood-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/bulletstorm-were-misunderstood-interview" class="article-title">Bulletstorm: We're misunderstood</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_mj-anti-piracy-vuvuzela-was-for-laughs_thumbnail.png">
+			<a href="https://www.eurogamer.net/mj-anti-piracy-vuvuzela-was-for-laughs" class="article-title">MJ anti-piracy vuvuzela was for laughs</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_ea-marketing-the-f-out-of-bulletstorm_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-marketing-the-f-out-of-bulletstorm" class="article-title">EA marketing the f*** out of Bulletstorm</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_total-uk-console-installed-base-is_thumbnail.png">
+			<a href="https://www.eurogamer.net/total-uk-console-installed-base-is" class="article-title">Total UK console installed base is...</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_acti-insists-tony-hawk-is-still-relevant_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-insists-tony-hawk-is-still-relevant" class="article-title">Acti insists Tony Hawk is still relevant</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_jeff-minter-has-made-a-new-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/jeff-minter-has-made-a-new-game" class="article-title">Jeff Minter has made a new game!</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_ps-plus-subs-get-lbp-spin-off-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps-plus-subs-get-lbp-spin-off-free" class="article-title">PS Plus subs get LBP spin-off free</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_singstar-guitar-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/singstar-guitar-review" class="article-title">SingStar Guitar</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_splatterhouse_thumbnail.png">
+			<a href="https://www.eurogamer.net/splatterhouse" class="article-title">Splatterhouse</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_enslaved-odyssey-to-the-west-pigsys-perfect-10-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/enslaved-odyssey-to-the-west-pigsys-perfect-10-review" class="article-title">Enslaved: Odyssey to the West – Pigsy's Perfect 10</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_michael-jackson-the-experience-review-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/michael-jackson-the-experience-review-2" class="article-title">Michael Jackson: The Experience</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_bejeweled-3-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/bejeweled-3-review" class="article-title">Bejeweled 3</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_kinect-roundup-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/kinect-roundup-review" class="article-title">Kinect Roundup</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_footage-of-ravens-stealth-bond-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/footage-of-ravens-stealth-bond-game" class="article-title">Footage of Raven's stealth Bond game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_two-worlds-ii-finally-gets-uk-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/two-worlds-ii-finally-gets-uk-date" class="article-title">Two Worlds II finally gets UK date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_3ds-resi-mercs-lets-you-move-and-shoot_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-resi-mercs-lets-you-move-and-shoot" class="article-title">3DS Resi Mercs lets you move and shoot</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_psp2-has-early-ps3-game-quality-visuals_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp2-has-early-ps3-game-quality-visuals" class="article-title">PSP2 has "early PS3 game quality visuals"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_new-ssx-takes-series-back-to-its-roots_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-ssx-takes-series-back-to-its-roots" class="article-title">New SSX takes series "back to its roots"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_kratos-in-ps3-mortal-kombat-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/kratos-in-ps3-mortal-kombat-report" class="article-title">Kratos in PS3 Mortal Kombat – report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/08_play-gt5-on-pc-early-next-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/play-gt5-on-pc-early-next-year" class="article-title">Play GT5 on PC "early next year"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136224/Snippets-EA-SWTOR-a-10-year-opportunity-EA-Games-boss-Non-online-games-finished/" class="article-title">Snippets: EA: SWTOR a “10 year opportunity”; EA Games boss: Non-online games finished</a>
+			<div class="article-subtitle">We didn't get that memo.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136223/The-Agency-delayed/" class="article-title">The Agency delayed</a>
+			<div class="article-subtitle">Sony: Spy MMO needs work.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/endeavor.php" class="article-title">endeavor</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/as-i-lay-dying.php" class="article-title">As I Lay Dying</a>
+			<div class="article-author">corygalliher</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/imagia-2-the-dome.php" class="article-title">Imagia 2: The Dome</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mystic-asylum.php" class="article-title">Mystic Asylum</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

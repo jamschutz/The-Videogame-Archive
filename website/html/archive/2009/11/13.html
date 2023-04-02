@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 13, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/new-super-mario-bros-wii-review/1900-6239677/" class="article-title">New Super Mario Bros. Wii Review</a>
+			<div class="article-subtitle">Classic gameplay, challenging levels, and some fun multiplayer make New Super Mario Bros. Wii another stellar outing for the plump plumber.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rainbow-islands-towering-adventure-review/1900-6239812/" class="article-title">Rainbow Islands Towering Adventure Review</a>
+			<div class="article-subtitle">Towering Adventure comes close to reinvigorating the Rainbow Islands formula, but this platformer is still tough to recommend.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/braid-review/1900-6240143/" class="article-title">Braid Review</a>
+			<div class="article-subtitle">A moving story, serene visuals, and brilliant puzzles make Braid an adventure that you absolutely should experience.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/drawn-to-life-the-next-chapter-review/1900-6238333/" class="article-title">Drawn to Life: The Next Chapter Review</a>
+			<div class="article-subtitle">Despite its originality and charm, Drawn to Life: The Next Chapter is a mediocre platforming game.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-nitro-review/1900-6239814/" class="article-title">Need for Speed: Nitro Review</a>
+			<div class="article-subtitle">Need for Speed: Nitro gets off to a fast start, but lacks enough variety to make it into the winner's circle.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shaun-white-snowboarding-world-stage-review/1900-6240139/" class="article-title">Shaun White Snowboarding: World Stage Review</a>
+			<div class="article-subtitle">Awesome controls and a bunch of fancy tricks make World Stage a lot of fun, but little has changed from last year's release.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_brutal-legend-sells-216k-dj-hero-123k_1100-6239988_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brutal-legend-sells-216k-dj-hero-123k/1100-6239988/" class="article-title">Brutal Legend sells 216K, DJ Hero 123K</a>
+			<div class="article-subtitle">Double Fine's heavy metal odyssey doesn't sell out--but does outsell former publisher's massively hyped turntable rhythm game.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_just-cause-2-hands-on-impressions_1100-6239993_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/just-cause-2-hands-on-impressions/1100-6239993/" class="article-title">Just Cause 2 Hands-On Impressions</a>
+			<div class="article-subtitle">We can see for miles and miles in this huge open-world action game. But that's only when we're not tormenting enemies with a grapple hook.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_final-fantasy-xiii-due-march-9_1100-6239986_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiii-due-march-9/1100-6239986/" class="article-title">Final Fantasy XIII due March 9</a>
+			<div class="article-subtitle">Square Enix's latest J-RPG headed to North America and Europe in early 2010, Leona Lewis' "My Hands" named as theme song; new trailer inside.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_ps3-modern-warfare-2-battling-server-issues_1100-6239671_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-modern-warfare-2-battling-server-issues/1100-6239671/" class="article-title">PS3 Modern Warfare 2 battling server issues</a>
+			<div class="article-subtitle">[UPDATE] Infinity Ward shooter runs into multiplayer problems; trophy patch arrives, patch by week's end; developer gets servers back up and running.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_littlebigplanet-psp-launch-center_1100-6198424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/littlebigplanet-psp-launch-center/1100-6198424/" class="article-title">LittleBigPlanet PSP Launch Center</a>
+			<div class="article-subtitle">When the world is your playground, what will you do? The possibilities are endless! Keep an eye on our launch center for the latest news, previews, videos, and our review.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_tekken-6-psp-update-game-modes-and-more_1100-6240129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tekken-6-psp-update-game-modes-and-more/1100-6240129/" class="article-title">Tekken 6 PSP Update - Game Modes and More</a>
+			<div class="article-subtitle">We go toe-to-toe with Namco's upcoming portable brawler.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_silent-hill-shattered-memories-hands-on_1100-6240126_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/silent-hill-shattered-memories-hands-on/1100-6240126/" class="article-title">Silent Hill: Shattered Memories Hands-On</a>
+			<div class="article-subtitle">The town of Silent Hill is just as creepy as ever in this reimagining of the original game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_southpeak-pins-tna-wrestling_1100-6240124_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/southpeak-pins-tna-wrestling/1100-6240124/" class="article-title">SouthPeak pins TNA Wrestling </a>
+			<div class="article-subtitle">Publisher grabs license from Midway bankruptcy, confirms DS, PSP installments of Impact; Two Worlds 2 set for spring; publisher's sales double, turns a profit.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_sgt-pepper-dlc-storms-beatles-rock-band-next-week_1100-6240030_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sgt-pepper-dlc-storms-beatles-rock-band-next-week/1100-6240030/" class="article-title">Sgt. Pepper DLC storms Beatles: Rock Band next week</a>
+			<div class="article-subtitle">Eight remaining tracks from Fab Four's classic album available beginning Nov. 17 for $2 a track or $13.49 as a bundle.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_big-in-japan-nov-2-8-pro-evolution-soccer-2010_1100-6240137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-nov-2-8-pro-evolution-soccer-2010/1100-6240137/" class="article-title">Big in Japan Nov. 2-8: Pro Evolution Soccer 2010</a>
+			<div class="article-subtitle">Latest installment in Konami's Winning Eleven series dominates a sales chart crammed with older releases.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/13_the-legend-of-zelda-spirit-tracks-flutes-and-choo-choo-trains_1100-6240142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-legend-of-zelda-spirit-tracks-flutes-and-choo-choo-trains/1100-6240142/" class="article-title">The Legend of Zelda: Spirit Tracks - Flutes and Choo Choo Trains</a>
+			<div class="article-subtitle">We go over a couple of new mechanics in this upcoming sequel to the Phantom Hourglass.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_final-fantasy-xiii-dated-for-us-and-europe_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fantasy-xiii-dated-for-us-and-europe" class="article-title">Final Fantasy XIII dated for US/Europe</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_wii-getting-new-iplayer-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-getting-new-iplayer-next-week" class="article-title">New iPlayer Channel for Wii next week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_ps3-tops-weekly-japanese-hardware-sales_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-tops-weekly-japanese-hardware-sales" class="article-title">PS3 tops weekly Japanese hardware sales</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_call-of-duty-modern-warfare-reflex-edition-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-modern-warfare-reflex-edition-review" class="article-title">Call of Duty: Modern Warfare - Reflex Edition</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_psp-socom-fireteam-3-supports-16-online_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-socom-fireteam-3-supports-16-online" class="article-title">PSP SOCOM Fireteam 3 supports 16 online</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_wiiware-scaled-by-rock-n-roll-climber_thumbnail.png">
+			<a href="https://www.eurogamer.net/wiiware-scaled-by-rock-n-roll-climber" class="article-title">WiiWare scaled by Rock 'n Roll Climber</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_just-cause-2-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/just-cause-2-hands-on" class="article-title">Just Cause 2</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_free-unreal-engine-3-is-very-popular_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-unreal-engine-3-is-very-popular" class="article-title">Free Unreal Engine 3 is very popular</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_soes-john-smedley-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/soes-john-smedley-interview" class="article-title">SOE's John Smedley</a>
+			<div class="article-author">Thomas Norwood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_diablo-iii-new-mmo-in-next-few-years_thumbnail.png">
+			<a href="https://www.eurogamer.net/diablo-iii-new-mmo-in-next-few-years" class="article-title">Diablo III, new MMO in "next few years"</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_time-hails-natal-as-bright-spark-of-2009_thumbnail.png">
+			<a href="https://www.eurogamer.net/time-hails-natal-as-bright-spark-of-2009" class="article-title">Time hails Natal as invention of 2009</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_us-date-for-sh-shattered-memories_thumbnail.png">
+			<a href="https://www.eurogamer.net/us-date-for-sh-shattered-memories" class="article-title">US date for SH: Shattered Memories</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_ms-spins-npd-result-towards-a-positive_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-spins-npd-result-towards-a-positive" class="article-title">MS spins third place in October NPD</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_torchlight-mmo-out-in-two-years_thumbnail.png">
+			<a href="https://www.eurogamer.net/torchlight-mmo-out-in-two-years" class="article-title">Torchlight MMO out in two years</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_50-per-cent-off-crysis-and-warhead_thumbnail.png">
+			<a href="https://www.eurogamer.net/50-per-cent-off-crysis-and-warhead" class="article-title">50 per cent off Crysis and Warhead</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_xbox-live-breaks-concurrent-users-record_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-breaks-concurrent-users-record" class="article-title">Xbox Live breaks concurrent users record</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_october-npd-uncharted-2-sells-big_thumbnail.png">
+			<a href="https://www.eurogamer.net/october-npd-uncharted-2-sells-big" class="article-title">October NPD: Uncharted 2 sells big</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_ubi-talks-up-splinter-cell-in-game-ads_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubi-talks-up-splinter-cell-in-game-ads" class="article-title">Ubi talks up Splinter Cell in-game ads</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_blizzcon-moving-to-vegas-in-july_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzcon-moving-to-vegas-in-july" class="article-title">BlizzCon moving to Vegas in July?</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_acti-boss-makes-usd20-million-from-shares_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-boss-makes-usd20-million-from-shares" class="article-title">Acti boss makes $20 million from shares</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_microsoft-unapologetic-about-xbox-bans_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-unapologetic-about-xbox-bans" class="article-title">Microsoft "unapologetic" about Xbox bans</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_european-xbox-360-sales-hit-10-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/european-xbox-360-sales-hit-10-million" class="article-title">European Xbox 360 sales hit 10 million</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/13_tropico-3-pc-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/tropico-3-pc-review" class="article-title">Tropico 3</a>
+			<div class="article-author">Will Porter</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134143/Snippets-PS3-to-get-Facebook-XBL-to-get-Bible-MW2-kills-PSN-Kotick-makes-a-killing/" class="article-title">Snippets: PS3 to get Facebook, XBL to get Bible, MW2 kills PSN, Kotick makes a killing</a>
+			<div class="article-subtitle">Your daily bread.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i134139/Activision-4.7m-copies-of-MW2-sold/" class="article-title">Activision: 4.7m copies of MW2 sold</a>
+			<div class="article-subtitle">Grossing approximately $310m</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i134138/EA-dates-Command-Conquer-4/" class="article-title">EA dates Command & Conquer 4</a>
+			<div class="article-subtitle">Due mid-March.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/alabama-smith-in-the-quest-of-fate.php" class="article-title">Alabama Smith in the Quest of Fate</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/level-editor.php" class="article-title">Level Editor</a>
+			<div class="article-author">Jerrad</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-139.php" class="article-title">Link Dump Friday №140</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

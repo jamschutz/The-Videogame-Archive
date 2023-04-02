@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 30, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cave-story-3d-review/1900-6346795/" class="article-title">Cave Story 3D Review</a>
+			<div class="article-subtitle">Cave Story gets a spiffy 3D makeover in this worthwhile adaptation.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/might-and-magic-heroes-vi-review/1900-6346819/" class="article-title">Might & Magic Heroes VI Review</a>
+			<div class="article-subtitle">Engrossing exploration, diverse development, and challenging combat return in Might & Magic Heroes VI.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tekken-hybrid-review/1900-6346816/" class="article-title">Tekken Hybrid Review</a>
+			<div class="article-subtitle">Tekken Hybrid is a shallow collection that doesn't give Tekken Tag Tournament the rerelease it deserves.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-sims-3-pets-review/1900-6346882/" class="article-title">The Sims 3: Pets Review</a>
+			<div class="article-subtitle">Horses and controllable cats and dogs give The Sims 3: Pets a good deal of heart.</div>
+			<div class="article-author">Jeremiah Johnson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-sims-3-pets-review/1900-6346800/" class="article-title">The Sims 3: Pets Review</a>
+			<div class="article-subtitle">The Sims 3: Pets doesn't add much to the series aside from cats and dogs, but it's hard to resist the charm they bring with them.</div>
+			<div class="article-author">Jeremiah Johnson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/corpse-party-review/1900-6346854/" class="article-title">Corpse Party Review</a>
+			<div class="article-subtitle">Terrifying moments make Corpse Party a get-together worth attending.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-kart-7-review/1900-6346887/" class="article-title">Mario Kart 7 Review</a>
+			<div class="article-subtitle">Mario Kart 7 features the best racing yet in the franchise, though it takes a step back in other areas.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_minecraft-mod-adds-carbon-emissions_1100-6346830_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/minecraft-mod-adds-carbon-emissions/1100-6346830/" class="article-title">Minecraft mod adds carbon emissions </a>
+			<div class="article-subtitle">Minecraft mod adds carbon emissions based on Intergovernmental Panel on Climate Change data.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_battlefield-3-hits-8-million-in-sales_1100-6346818_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-3-hits-8-million-in-sales/1100-6346818/" class="article-title">Battlefield 3 hits 8 million in sales</a>
+			<div class="article-subtitle">EA has revealed that the military shooter has sold roughly 3 million more units throughout the month of November.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_borderlands-dev-searching-for-lilith-look-alike_1100-6346831_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/borderlands-dev-searching-for-lilith-look-alike/1100-6346831/" class="article-title">Borderlands dev searching for Lilith look-alike</a>
+			<div class="article-subtitle">Gearbox is looking for a live-action version of the Borderlands character to cast in the upcoming sequel.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_capcom-puckering-up-for-sour-patch-kids_1100-6346837_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-puckering-up-for-sour-patch-kids/1100-6346837/" class="article-title">Capcom puckering up for Sour Patch Kids</a>
+			<div class="article-subtitle">Soundtrack featuring Method Man song "World Gone Sour (The Lost Kids)" sweetens the deal for downloadable Xbox 360, PS3, and PC action adventure game based on top American sour candy brand.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_mobile-wonder-wednesday-shadowgun_1100-6346835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mobile-wonder-wednesday-shadowgun/1100-6346835/" class="article-title">Mobile Wonder Wednesday: Shadowgun</a>
+			<div class="article-subtitle">We've got a new feature for Wednesday where we showcase mobile and social games. This week we look at Shadowgun, written by musicalmac.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_choplifter-hd-grounded-until-winter_1100-6346842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/choplifter-hd-grounded-until-winter/1100-6346842/" class="article-title">Choplifter HD grounded until winter</a>
+			<div class="article-subtitle">Zombie-infused take on Broderbund classic pushed back as Konami signs on to co-publish Xbox Live Arcade version; PSN and PC editions still in the works.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_garriott-predicts-demise-of-traditional-consoles_1100-6346871_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/garriott-predicts-demise-of-traditional-consoles/1100-6346871/" class="article-title">Garriott predicts demise of traditional consoles</a>
+			<div class="article-subtitle">Ultima creator sees mobile and social games pushing out current consoles' viability; says industry may not even see another generation of boxes.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_the-witcher-2-pirated-45-million-times-cd-projekt_1100-6346876_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-witcher-2-pirated-45-million-times-cd-projekt/1100-6346876/" class="article-title">The Witcher 2 pirated 4.5 million times - CD Projekt</a>
+			<div class="article-subtitle">CEO of Polish publisher says latest PC role-playing game sold over a million legal copies, but was stolen much more often.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_indie-game-the-movie-accepted-to-sundance_1100-6346885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/indie-game-the-movie-accepted-to-sundance/1100-6346885/" class="article-title">Indie Game: The Movie accepted to Sundance</a>
+			<div class="article-subtitle">Annual independent film festival selects game-based documentary for its 2012 lineup of in-competition films to be screened.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_ea-cooking-up-dead-space-spin-offs-dragon-age-multiplayer_1100-6346857_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-cooking-up-dead-space-spin-offs-dragon-age-multiplayer/1100-6346857/" class="article-title">EA cooking up Dead Space spin-offs, Dragon Age multiplayer?</a>
+			<div class="article-subtitle">Rumor mill indicates horror franchise getting space flight, FPS, Uncharted-like action adventure installments; BioWare adding co-op, competitive modes to fantasy RPG.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_the-hotspot-infinity-blade-ii-11-30-2011_1100-6346879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-hotspot-infinity-blade-ii-11-30-2011/1100-6346879/" class="article-title">The HotSpot - Infinity Blade II - 11/30/2011</a>
+			<div class="article-subtitle">Chair Entertainment creative director Donald Mustard stops by The HotSpot to talk iPhone 4S poster child Infinity Blade II; claims no knowledge of Professor Plum whereabouts.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/30_gamepro-shutting-down_1100-6346883_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamepro-shutting-down/1100-6346883/" class="article-title">GamePro shutting down</a>
+			<div class="article-subtitle">Both print and online sections of long-running gaming publication closing down; website to become part of PCWorld.com.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_resident-evil-6-takes-place-in-china-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-6-takes-place-in-china-report" class="article-title">Resident Evil 6 takes place in China - report</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_call-of-duty-black-ops-zombies-announced-for-ios_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-black-ops-zombies-announced-for-ios" class="article-title">Call of Duty: Black Ops Zombies announced for iOS</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_glitch-mmo-unlaunched_thumbnail.png">
+			<a href="https://www.eurogamer.net/glitch-mmo-unlaunched" class="article-title">Glitch MMO "unlaunched"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_final-fantasy-type-0-localisation-underway_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fantasy-type-0-localisation-underway" class="article-title">Final Fantasy Type-0 localisation underway</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_zavvi-tweaks-metal-gear-solid-hd-ultimate-edition_thumbnail.png">
+			<a href="https://www.eurogamer.net/zavvi-tweaks-metal-gear-solid-hd-ultimate-edition" class="article-title">Zavvi tweaks Metal Gear Solid HD Ultimate Edition</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_activision-denies-storing-call-of-duty-elite-passwords-in-plain-text_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-denies-storing-call-of-duty-elite-passwords-in-plain-text" class="article-title">Activision denies storing Call of Duty Elite passwords in plain text</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_eu-playstation-store-update-30th-november_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-30th-november" class="article-title">EU PlayStation Store update 30th November</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_the-last-guardian-creator-fumito-ueda-leaves-sony-rumour_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-last-guardian-creator-fumito-ueda-leaves-sony-rumour" class="article-title">The Last Guardian creator Fumito Ueda leaves Sony - rumour</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_purple-dildo-kills-2-million-in-saints-row-the-third_thumbnail.png">
+			<a href="https://www.eurogamer.net/purple-dildo-kills-2-million-in-saints-row-the-third" class="article-title">Purple dildo kills 2 million in Saints Row: The Third</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_lucasarts-to-take-around-35-percent-of-old-republic-revenue-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/lucasarts-to-take-around-35-percent-of-old-republic-revenue-report" class="article-title">LucasArts to take "around 35%" of Old Republic revenue - report</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_duke-nukem-to-cameo-in-choplifter-hd-xbla-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/duke-nukem-to-cameo-in-choplifter-hd-xbla-game" class="article-title">Duke Nukem to cameo in Choplifter HD XBLA game</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_infinity-blade-2-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/infinity-blade-2-review" class="article-title">Infinity Blade 2 Review</a>
+			<div class="article-author">Mark Brown</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_sony-playstation-vita-will-break-uk-launch-record_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-playstation-vita-will-break-uk-launch-record" class="article-title">Sony: PlayStation Vita will break UK launch record</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_eurogamers-top-10-psp-games-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/eurogamers-top-10-psp-games-article" class="article-title">Eurogamer's Top 10 PSP Games</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_motorstorm-boss-feared-apocalypse-failure-might-be-the-end-of-evolution_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/motorstorm-boss-feared-apocalypse-failure-might-be-the-end-of-evolution" class="article-title">MotorStorm boss feared Apocalypse failure "might be the end" of Evolution</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_eurogamers-top-10-games-lists-blog-entry_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/eurogamers-top-10-games-lists-blog-entry" class="article-title">Eurogamer's Top 10 Games lists</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_new-total-war-shogun-2-dlc-released-on-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-total-war-shogun-2-dlc-released-on-steam" class="article-title">New Total War: Shogun 2 DLC released on Steam</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_world-of-tanks-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/world-of-tanks-review" class="article-title">World of Tanks Review</a>
+			<div class="article-author">Paul Dean</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_next-forza-4-dlc-pack-dated-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/next-forza-4-dlc-pack-dated-detailed" class="article-title">Next Forza 4 DLC pack dated, detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_ps3-firmware-4-0-releasing-this-week-details_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ps3-firmware-4-0-releasing-this-week-details" class="article-title">PS3 firmware 4.0 releasing this week, details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_sony-planning-more-tailored-approach-to-vita-game-pricing_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-planning-more-tailored-approach-to-vita-game-pricing" class="article-title">Sony planning "more tailored approach" to Vita game pricing</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_assassins-creed-ezio-costume-in-final-fantasy-13-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/assassins-creed-ezio-costume-in-final-fantasy-13-2" class="article-title">Assassin's Creed Ezio costume in Final Fantasy 13-2</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_zombie-apocalypse-ps3-release-date-pure-pwnage-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/zombie-apocalypse-ps3-release-date-pure-pwnage-dlc" class="article-title">Zombie Apocalypse PS3 release date, Pure Pwnage DLC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_ten-unsung-gaming-heroes-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ten-unsung-gaming-heroes-article" class="article-title">Ten Unsung Gaming Heroes</a>
+			<div class="article-author">Tristan Donovan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/30_techland-not-shocked-by-germanys-dead-island-ban_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/techland-not-shocked-by-germanys-dead-island-ban" class="article-title">Techland not shocked by Germany's Dead Island ban</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/zipzip-secret-dimension.php" class="article-title">Zipzip: Secret Dimension</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dismantlement-mini-keyboard-2.php" class="article-title">Dismantlement: Mini Keyboard 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dummy-never-fails-2.php" class="article-title">Dummy Never Fails 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/11/30/introversion-smuggles-out-first-teaser-of-prison-architect/" class="article-title">First Teaser of Prison Architect Sneaks Out</a>
+			<div class="article-author">Alehkhs</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

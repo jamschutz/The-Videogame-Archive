@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 13, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_telstra-to-launch-game-streaming-service-in-australia-report_1100-6347496_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/telstra-to-launch-game-streaming-service-in-australia-report/1100-6347496/" class="article-title">Telstra to launch game-streaming service in Australia - Report</a>
+			<div class="article-subtitle"><i>The Australian</i> reports that a national telco will launch a subscription game-streaming service by next year; Telstra tells GameSpot AU that plans are "still at the concept stage."</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_asia-shippin-out-dec-11-17-gta-iii-gears-of-war-3-raams-shadow_1100-6347431_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-dec-11-17-gta-iii-gears-of-war-3-raams-shadow/1100-6347431/" class="article-title">Asia Shippin' Out Dec. 11-17: GTA III, Gears of War 3: RAAM's Shadow</a>
+			<div class="article-subtitle">iOS version of classic sandbox title, new DLC for third Gears of War game, and stunt-performing racer are highlights for the week.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_kid-icarus-uprising-takes-wing-march-23_1100-6347511_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kid-icarus-uprising-takes-wing-march-23/1100-6347511/" class="article-title">Kid Icarus: Uprising takes wing March 23</a>
+			<div class="article-subtitle">Nintendo lays out early 2012 release slate; $20 3DS Circle Pad Pro peripheral on sale exclusively at GameStop starting Feb. 7, Rhythm Heaven Fever hits Wii Feb. 13.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_metal-gear-rising-revengeance-revisions-revealed_1100-6347519_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-rising-revengeance-revisions-revealed/1100-6347519/" class="article-title">Metal Gear Rising: Revengeance revisions revealed</a>
+			<div class="article-subtitle">Spin-off drops stealth, shifts story to follow Metal Gear Solid 4; Platinum Games producer dismisses idea that Kojima Productions couldn't get the game done itself.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_new-mass-effect-3-the-last-of-us-metal-gear-rising-trailers_1100-6347083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-mass-effect-3-the-last-of-us-metal-gear-rising-trailers/1100-6347083/" class="article-title">New Mass Effect 3, The Last of Us, Metal Gear Rising Trailers</a>
+			<div class="article-subtitle">Check out all of the latest announcements and new trailers from the VGAs.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_starhawk-private-beta-giveaway_1100-6347546_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starhawk-private-beta-giveaway/1100-6347546/" class="article-title">Starhawk Private Beta Giveaway</a>
+			<div class="article-subtitle">Here's your chance to get in on the Starhawk Private Beta before everyone else! Grab a free code and get ready to wreak some havoc on foot, in vehicles, and in the air!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_star-wars-the-old-republic-now-live_1100-6347552_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-old-republic-now-live/1100-6347552/" class="article-title">Star Wars: The Old Republic now live</a>
+			<div class="article-subtitle">Early Game Access program for BioWare MMORPG rolling out in waves to those with preorders; first players already in-game.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_netherrealm-still-working-on-mortal-kombat-after-all-boon_1100-6347524_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netherrealm-still-working-on-mortal-kombat-after-all-boon/1100-6347524/" class="article-title">NetherRealm still working on Mortal Kombat after all - Boon</a>
+			<div class="article-subtitle">WBIE's gory fighting series will go on as developer clarifies the studio is currently working on projects both within and apart from famed franchise.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_pixeljunk-shooter-2-limbo-top-2011-psn-indie-sales-charts_1100-6347570_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pixeljunk-shooter-2-limbo-top-2011-psn-indie-sales-charts/1100-6347570/" class="article-title">PixelJunk Shooter 2, Limbo top 2011 PSN indie sales charts</a>
+			<div class="article-subtitle">Q Games dubbed biggest earner for Sony-published titles, while Playdead's platformer sets high bar for third parties.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_humble-indie-bundle-4-now-live_1100-6347577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/humble-indie-bundle-4-now-live/1100-6347577/" class="article-title">Humble Indie Bundle 4 now live</a>
+			<div class="article-subtitle">Super Meat Boy, Bit.Trip Runner, Shank, Jamestown, and more included in the latest "pay what you want" independent games/charity package.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_sydney-it-company-installs-portal-style-video-chat_1100-6347498_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sydney-it-company-installs-portal-style-video-chat/1100-6347498/" class="article-title">Sydney IT company installs Portal-style video chat </a>
+			<div class="article-subtitle">Aussie software company builds two Portal-themed teleconferencing screens.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/12/13_aussie-arcades-playing-into-the-future_1100-6347494_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-arcades-playing-into-the-future/1100-6347494/" class="article-title">Aussie Arcades: Playing Into the Future</a>
+			<div class="article-subtitle">In this feature, GameSpot Australia investigates the state of our nation's once-favored social hangouts.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_ultimate-marvel-vs-capcom-3-free-dlc-pack-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/ultimate-marvel-vs-capcom-3-free-dlc-pack-dated" class="article-title">Ultimate Marvel vs Capcom 3 free DLC pack dated</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_psns-best-selling-indies-of-2011-revealed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/psns-best-selling-indies-of-2011-revealed" class="article-title">PSN's best-selling indies of 2011 revealed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_hard-reset-extended-edition-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/hard-reset-extended-edition-announced" class="article-title">Hard Reset: Extended Edition announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_blinkbox-now-available-on-xbox-360-dash_thumbnail.png">
+			<a href="https://www.eurogamer.net/blinkbox-now-available-on-xbox-360-dash" class="article-title">Blinkbox now available on Xbox 360 dash</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_sonic-cd-trine-2-xbox-live-arcade-release-dates-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sonic-cd-trine-2-xbox-live-arcade-release-dates-article" class="article-title">Sonic CD, Trine 2 Xbox Live Arcade release dates</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_playstation-3-other-os-lawsuit-dismissed-by-judge_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-3-other-os-lawsuit-dismissed-by-judge" class="article-title">PlayStation 3 Other OS lawsuit dismissed by judge</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_biowares-greg-zeschuk-gets-swtor-tattoo-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/biowares-greg-zeschuk-gets-swtor-tattoo-article" class="article-title">BioWare's Greg Zeschuk gets SWTOR tattoo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_platinum-acknowledges-mixed-reaction-to-metal-gear-rising-reveal_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/platinum-acknowledges-mixed-reaction-to-metal-gear-rising-reveal" class="article-title">Platinum acknowledges "mixed" reaction to Metal Gear Rising reveal</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_gears-of-war-3-raams-shadow-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gears-of-war-3-raams-shadow-review" class="article-title">Gears of War 3: Raam's Shadow Review</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_american-mcgees-studio-announces-bighead-bash_thumbnail.png">
+			<a href="https://www.eurogamer.net/american-mcgees-studio-announces-bighead-bash" class="article-title">American McGee's studio announces BigHead Bash</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_xbox-360-modern-warfare-3-online-matchmaking-problem_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-360-modern-warfare-3-online-matchmaking-problem" class="article-title">Xbox 360 Modern Warfare 3 online matchmaking problem</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_gears-of-war-3-season-pass-owners-cant-get-raams-shadow-dlc-for-free_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gears-of-war-3-season-pass-owners-cant-get-raams-shadow-dlc-for-free" class="article-title">Gears of War 3 Season Pass owners can't get Raam's Shadow DLC for free</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_alan-wake-spotted-in-steam-registry_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/alan-wake-spotted-in-steam-registry" class="article-title">Alan Wake spotted in Steam registry</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_nintendo-dates-2012-3ds-wii-ds-software-line-up_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-dates-2012-3ds-wii-ds-software-line-up" class="article-title">Nintendo dates 2012 3DS, Wii, DS software line-up</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_saturday-soapbox-was-2011-a-vintage-year-opinion_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/saturday-soapbox-was-2011-a-vintage-year-opinion" class="article-title">Saturday Soapbox: Was 2011 a Vintage Year?</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_final-fantasy-type-0-on-vita-uses-second-analogue-stick_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fantasy-type-0-on-vita-uses-second-analogue-stick" class="article-title">Final Fantasy Type-0 on Vita uses second analogue stick</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_monster-hunter-tri-g-sells-471k-in-two-days_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/monster-hunter-tri-g-sells-471k-in-two-days" class="article-title">Monster Hunter Tri G sells 471k in two days</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_kojima-doesnt-have-enough-staff-to-make-zone-of-the-enders-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/kojima-doesnt-have-enough-staff-to-make-zone-of-the-enders-3" class="article-title">Kojima doesn't have enough staff to make Zone of the Enders 3</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_the-last-of-us-preview-1_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-last-of-us-preview-1" class="article-title">The Last of Us Preview</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_new-official-metal-gear-solid-website-explains-series-plot_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-official-metal-gear-solid-website-explains-series-plot" class="article-title">New official Metal Gear Solid website explains series plot</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_plants-vs-zombies-vita-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/plants-vs-zombies-vita-announced" class="article-title">Plants vs. Zombies Vita announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_fallout-new-vegas-dev-hopes-digital-distribution-stabs-used-game-market-in-the-heart_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fallout-new-vegas-dev-hopes-digital-distribution-stabs-used-game-market-in-the-heart" class="article-title">Fallout: New Vegas dev hopes digital distribution "stabs used game market in the heart"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_naughty-dog-wants-to-change-the-f-ing-industry-with-the-last-of-us_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/naughty-dog-wants-to-change-the-f-ing-industry-with-the-last-of-us" class="article-title">Naughty Dog wants to "change the f***ing industry" with The Last of Us</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_kojima-promises-authentic-stealth-metal-gear-solid-sequel-is-coming_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/kojima-promises-authentic-stealth-metal-gear-solid-sequel-is-coming" class="article-title">Kojima promises "authentic stealth Metal Gear Solid" sequel is coming</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_modern-warfare-3-hot-fix-december-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/modern-warfare-3-hot-fix-december-update" class="article-title">Modern Warfare 3 hot-fix December update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_the-last-guardian-sony-confirms-fumito-uedas-departure_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-last-guardian-sony-confirms-fumito-uedas-departure" class="article-title">The Last Guardian: Sony confirms Fumito Ueda's departure</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_garriott-what-went-wrong-with-tabula-rasa_thumbnail.png">
+			<a href="https://www.eurogamer.net/garriott-what-went-wrong-with-tabula-rasa" class="article-title">Garriott: what went wrong with Tabula Rasa</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/12/13_the-last-of-us-scored-by-oscar-winner-gustavo-santaolalla_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-last-of-us-scored-by-oscar-winner-gustavo-santaolalla" class="article-title">The Last Of Us scored by Oscar-winner Gustavo Santaolalla</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138347/S.T.A.L.K.E.R.-studio-to-close/" class="article-title">S.T.A.L.K.E.R. studio to close?</a>
+			<div class="article-subtitle">Mixed reports from GSC Game World.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i138342/Epic-Games-next-title-inspired-by-Minecraft/" class="article-title">Epic Games' next title inspired by Minecraft</a>
+			<div class="article-subtitle">Fortnite a change of pace.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138341/THQ-slashes-uDraw-team/" class="article-title">THQ slashes uDraw team</a>
+			<div class="article-subtitle">30 staff laid-off.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/volcania.php" class="article-title">Volcania</a>
+			<div class="article-author">Alex</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/theme-hotel.php" class="article-title">Theme Hotel</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/imperfect-balance-3.php" class="article-title">Imperfect Balance 3</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-62.php" class="article-title">The Vault №73</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

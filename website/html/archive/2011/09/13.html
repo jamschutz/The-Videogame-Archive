@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 13, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-gunstringer-review/1900-6334310/" class="article-title">The Gunstringer Review</a>
+			<div class="article-subtitle">Thanks to expertly implemented controls and tons of goofy situations, The Gunstringer is a rollicking adventure in the Old West.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/driver-renegade-3d-review/1900-6333650/" class="article-title">Driver: Renegade 3D Review</a>
+			<div class="article-subtitle">Driver: Renegade 3D's solid driving mechanics are squandered on overwhelming repetition and poor production values.</div>
+			<div class="article-author">Sean Evans</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_nintendo-confirms-3ds-analog-pad-accessory_1100-6334065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-confirms-3ds-analog-pad-accessory/1100-6334065/" class="article-title">Nintendo confirms 3DS analog pad accessory </a>
+			<div class="article-subtitle">Battery-powered add-on arrives in December in Japan; Resident Evil Revelations, Metal Gear Solid Snake Eater 3D, Kingdom Hearts 3D among compatible titles.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_limited-edition-skyward-sword-pointed-at-australia_1100-6334066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/limited-edition-skyward-sword-pointed-at-australia/1100-6334066/" class="article-title">Limited-edition Skyward Sword pointed at Australia</a>
+			<div class="article-subtitle">Nintendo Australia confirms special Zelda-themed Wii Remote headed Down Under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_daily-report-video-games-day_1100-6333774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-report-video-games-day/1100-6333774/" class="article-title">Daily Report: Video Games Day!</a>
+			<div class="article-subtitle">Happy National Video Games Day! This week we talk about MVPs, TGS, and the All-Time Greatest.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_inversion-multiplayer-hands-on-preview_1100-6334110_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/inversion-multiplayer-hands-on-preview/1100-6334110/" class="article-title">Inversion Multiplayer Hands-On Preview</a>
+			<div class="article-subtitle">This cover-based shooter may flip you upside down, but does it have what it takes to stand out?</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_red-dead-dlc-targeted-market-trends-take-two_1100-6334125_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-dlc-targeted-market-trends-take-two/1100-6334125/" class="article-title">Red Dead DLC targeted market trends - Take-Two</a>
+			<div class="article-subtitle">Publisher "didn't even have a fantasy" of making Undead Nightmare zombie add-on when game launched, says first add-on freebie was intended to combat used-game sales.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/13_mario-3d-land-opens-nov-13-mario-kart-hits-dec-4_1100-6334111_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mario-3d-land-opens-nov-13-mario-kart-hits-dec-4/1100-6334111/" class="article-title">Mario 3D Land opens Nov. 13, Mario Kart hits Dec. 4</a>
+			<div class="article-subtitle">Nintendo drops North American dates for 3DS slate, Kid Icarus delayed to 2012, Zelda: Four Swords downloadable for free starting Sept. 28, system update to enable 3D video recording.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_nintendo-eshop-update-15-09-11_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-eshop-update-15-09-11" class="article-title">Nintendo eShop update - 15/09/11</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-red-faction-armageddon-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-red-faction-armageddon-face-off" class="article-title">Face-Off: Red Faction: Armageddon</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-alice-madness-returns-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-alice-madness-returns-face-off" class="article-title">Face-Off: Alice: Madness Returns</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-shadows-of-the-damned-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-shadows-of-the-damned-face-off" class="article-title">Face-Off: Shadows of the Damned</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-fear3-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-fear3-face-off" class="article-title">Face-Off: F.E.A.R. 3</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-call-of-juarez-the-cartel-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-call-of-juarez-the-cartel-face-off" class="article-title">Face-Off: Call of Juarez: The Cartel</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-bodycount-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-bodycount-face-off" class="article-title">Face-Off: Bodycount</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_digitalfoundry-dead-island-face-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-dead-island-face-off" class="article-title">Face-Off: Dead Island</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_zelda-four-swords-dsiware-date-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-four-swords-dsiware-date-details" class="article-title">Zelda Four Swords DSiWare date, details</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_3ds-update-to-add-3d-video-recording_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-update-to-add-3d-video-recording" class="article-title">3DS update to add 3D video recording</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_fifa-12-pc-360-demos-out-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/fifa-12-pc-360-demos-out-now" class="article-title">FIFA 12 PC, 360 demos out now</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_agarest-generations-of-war-zero-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/agarest-generations-of-war-zero-review" class="article-title">Agarest: Generations of War Zero</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_super-pokemon-rumble-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-pokemon-rumble-release-date" class="article-title">3DS Super Pokemon Rumble release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_european-mario-kart-7-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/european-mario-kart-7-release-date" class="article-title">European Mario Kart 7 release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_single-player-ace-combat-demo-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/single-player-ace-combat-demo-tomorrow" class="article-title">Single-player Ace Combat demo tomorrow</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_zelda-four-swords-free-on-eshop_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-four-swords-free-on-eshop" class="article-title">Zelda: Four Swords free on eShop soon</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_starbreeze-defends-new-syndicate-fps_thumbnail.png">
+			<a href="https://www.eurogamer.net/starbreeze-defends-new-syndicate-fps" class="article-title">Starbreeze defends new Syndicate FPS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_new-skyward-sword-details-at-tgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-skyward-sword-details-at-tgs" class="article-title">New Skyward Sword details at TGS</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_sonic-generations-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonic-generations-release-date" class="article-title">Sonic Generations release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_new-batch-of-3ds-games-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-batch-of-3ds-games-announced" class="article-title">New batch of 3DS games announced</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_3ds-circle-pad-price-date-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-circle-pad-price-date-games" class="article-title">3DS circle pad price, date, games</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_lollipop-chainsaw-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/lollipop-chainsaw-preview" class="article-title">Lollipop Chainsaw</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_super-mario-and-mario-kart-3ds-get-release-dates_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-mario-and-mario-kart-3ds-get-release-dates" class="article-title">Mario and Mario Kart 3DS release dates</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_mario-tennis-revealed-for-3ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/mario-tennis-revealed-for-3ds" class="article-title">Mario Tennis revealed for 3DS</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/13_monster-hunter-4-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/monster-hunter-4-announced" class="article-title">Monster Hunter 4 announced</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137902/Original-Max-Payne-coming-to-mobile-devices/" class="article-title">Original Max Payne coming to mobile devices</a>
+			<div class="article-subtitle">Max Payne 3 trailer coming Thursday.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137900/Study-uncovers-Xbox-360-s-scariest-game/" class="article-title">Study uncovers Xbox 360’s "scariest" game</a>
+			<div class="article-subtitle">Fright fights measured.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i137894/Double-Fine-s-Trenched-to-be-renamed/" class="article-title">Double Fine’s Trenched to be renamed</a>
+			<div class="article-subtitle">Loses legal battle with obscure boardgame.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137893/Sims-Social-bigger-than-FarmVille/" class="article-title">Sims Social bigger than FarmVille</a>
+			<div class="article-subtitle">Second only to CityVille.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/brother.php" class="article-title">Brother</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flee-buster.php" class="article-title">Flee Buster</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-49.php" class="article-title">The Vault №60</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

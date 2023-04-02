@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 13, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_3ds-sells-31k-down-under_1100-6308412_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3ds-sells-31k-down-under/1100-6308412/" class="article-title">3DS Sells 31K Down Under</a>
+			<div class="article-subtitle">Nintendo announces initial Aussie sales figures for its latest handheld.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_prototype-2-ssx-deadly-descents-insane-confirmed-at-vgas-forza-4-due-fall-2011_1100-6285282_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prototype-2-ssx-deadly-descents-insane-confirmed-at-vgas-forza-4-due-fall-2011/1100-6285282/" class="article-title">Prototype 2, SSX: Deadly Descents, Insane confirmed at VGAs, Forza 4 due fall 2011</a>
+			<div class="article-subtitle">Ceremony sees Activision sequel, EA snowboard game's existence, Guillermo del Toro games locked down; Kratos playable in PS3 Mortal Kombat.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_new-classes-revealed-for-kingdom-under-fire-ii_1100-6308414_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-classes-revealed-for-kingdom-under-fire-ii/1100-6308414/" class="article-title">New classes revealed for Kingdom Under Fire II</a>
+			<div class="article-subtitle">RPG/RTS hybrid slated for PS3 and PC release.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_fallout-new-vegas-patch-inbound_1100-6308422_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-new-vegas-patch-inbound/1100-6308422/" class="article-title">Fallout: New Vegas patch inbound</a>
+			<div class="article-subtitle">Bethesda announces "optimizations and stability improvements" update currently in certification and coming to the PC, Xbox 360, and PlayStation 3 in the coming weeks.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_ssx-to-shred-in-january-2012_1100-6308429_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ssx-to-shred-in-january-2012/1100-6308429/" class="article-title">SSX to shred in January 2012</a>
+			<div class="article-subtitle">PS3, 360 revamp of EA's snowboarding series will hit the virtual slopes in the middle of ski season next year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_e3-revenues-tripled-in-2009_1100-6308525_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-revenues-tripled-in-2009/1100-6308525/" class="article-title">E3 revenues tripled in 2009</a>
+			<div class="article-subtitle">ESA tax form reveals return to super-sized LACC show brought in nearly $12 million for trade group; income from member dues dropped nearly 20 percent.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_playstation-store-update-killzone-3-bulletstorm-dlc_1100-6308424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-store-update-killzone-3-bulletstorm-dlc/1100-6308424/" class="article-title">PlayStation Store Update: Killzone 3, Bulletstorm DLC </a>
+			<div class="article-subtitle">New digital wares available for Sony's systems include add-on content for shooters; Dungeon Hunter: Alliance, Might & Magic: Clash of Heroes, and Assassin's Creed hit PS3 hub; Patapon 3 added to PSP download space.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_ps3-la-noire-puzzles-out-exclusive-content_1100-6308524_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-la-noire-puzzles-out-exclusive-content/1100-6308524/" class="article-title">PS3 L.A. Noire puzzles out exclusive content</a>
+			<div class="article-subtitle">Rockstar confirms Sony edition of detective drama will feature bonus Consul's Car Traffic Case over Xbox 360 game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_halo-waypoint-update-drops-april-15_1100-6308428_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-waypoint-update-drops-april-15/1100-6308428/" class="article-title">Halo: Waypoint update drops April 15</a>
+			<div class="article-subtitle">Microsoft speeding up sci-fi shooter franchise's Xbox Live community-content service; Mona Lisa motion comic due April 23.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_ratchet-and-clank-all-4-one-hands-on-preview_1100-6308528_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ratchet-and-clank-all-4-one-hands-on-preview/1100-6308528/" class="article-title">Ratchet & Clank: All 4 One Hands-On Preview</a>
+			<div class="article-subtitle">We kick fish and discover the importance of teamwork in our first hands-on look at this upcoming brawler.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_madden-nfl-12-kicks-off-august-30_1100-6308534_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-12-kicks-off-august-30/1100-6308534/" class="article-title">Madden NFL 12 kicks off August 30</a>
+			<div class="article-subtitle">EA Sports delivering annual installment in pro gridiron sim irrespective of possible NFL lockout this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_resistance-3-updated-preview_1100-6308545_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resistance-3-updated-preview/1100-6308545/" class="article-title">Resistance 3 Updated Preview</a>
+			<div class="article-subtitle">We get off the mean streets and stalk through bushland in our latest look at Resistance 3.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_ssx-first-look-preview_1100-6308403_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ssx-first-look-preview/1100-6308403/" class="article-title">SSX First Look Preview</a>
+			<div class="article-subtitle">EA Canada revisits the popular snowboarding franchise and unveils new details about SSX.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_steam-for-ps3-portal-2-detailed_1100-6308527_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steam-for-ps3-portal-2-detailed/1100-6308527/" class="article-title">Steam for PS3 Portal 2 detailed</a>
+			<div class="article-subtitle">Puzzle-platformer will offer cross-platform gameplay, matchmaking, friends list, achievements, cloud saves, and chat via Valve's online service on Sony's console.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_doctor-lautrec-makes-appointment-with-3ds_1100-6308553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/doctor-lautrec-makes-appointment-with-3ds/1100-6308553/" class="article-title">Doctor Lautrec makes appointment with 3DS</a>
+			<div class="article-subtitle">Konami bringing new puzzle adventure game to Nintendo's newest handheld in Europe and North America this summer.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_ngp-launch-unaffected-by-quake-after-all_1100-6307283_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ngp-launch-unaffected-by-quake-after-all/1100-6307283/" class="article-title">NGP launch unaffected by quake after all</a>
+			<div class="article-subtitle">Sony spokesperson tells Wall Street Journal that earlier report was "wrong"--and that a region-staggered launch was always in the cards.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_new-tony-hawk-game-likely-for-2012_1100-6307687_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-tony-hawk-game-likely-for-2012/1100-6307687/" class="article-title">New Tony Hawk game likely for 2012</a>
+			<div class="article-subtitle">Legendary skateboarder says fresh series entry "probably" coming sometime next year; developer/publisher not named.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_sony-hotz-settlement-details-surface_1100-6308347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-hotz-settlement-details-surface/1100-6308347/" class="article-title">Sony/Hotz settlement details surface</a>
+			<div class="article-subtitle">"GeoHot" could be subject to up to a $250,000 if he engages in "unauthorized access" to any Sony product; hacker urges boycott of electronics giant.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_dead-or-alive-dimensions-first-impressions_1100-6286538_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-or-alive-dimensions-first-impressions/1100-6286538/" class="article-title">Dead or Alive: Dimensions First Impressions</a>
+			<div class="article-subtitle">We reacquaint ourselves with Kasumi and her friends, now fully 3D, in Team Ninja's latest fighting game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/13_women-in-games_1100-6308305_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/women-in-games/1100-6308305/" class="article-title">Women in Games</a>
+			<div class="article-subtitle">We take a look at the changing role of women in video game development and the rise of female gaming audiences.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_bungie-wants-blizzard-esque-rep_thumbnail.png">
+			<a href="https://www.eurogamer.net/bungie-wants-blizzard-esque-rep" class="article-title">Bungie wants Blizzard-esque rep</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_digital-art-store-launched-for-ps3-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/digital-art-store-launched-for-ps3-psp" class="article-title">Digital art store launched for PS3, PSP</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_disgaea-4-special-edition-shown-off_thumbnail.png">
+			<a href="https://www.eurogamer.net/disgaea-4-special-edition-shown-off" class="article-title">Disgaea 4 special edition shown off</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_new-ds-kirby-game-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-ds-kirby-game-detailed" class="article-title">New DS Kirby game detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_dissidia-012-dlc-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/dissidia-012-dlc-detailed" class="article-title">Dissidia 012 DLC detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_ssx-release-window-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/ssx-release-window-announced" class="article-title">SSX release window announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_new-burnout-crash-details-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-burnout-crash-details-revealed" class="article-title">New Burnout Crash details revealed?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_no-iphone-5-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-iphone-5-this-year" class="article-title">No iPhone 5 this year?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_bioware-worked-on-jade-empire-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-worked-on-jade-empire-2" class="article-title">Did BioWare work on Jade Empire 2?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_the-most-popular-resi-evil-characters_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-most-popular-resi-evil-characters" class="article-title">The most popular Resi Evil characters</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_the-mona-lisa-halo-motion-comic-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-mona-lisa-halo-motion-comic-dated" class="article-title">Mona Lisa Halo motion comic release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_ps3-l-a-noire-cuffs-exclusive-case_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-l-a-noire-cuffs-exclusive-case" class="article-title">PS3 L.A. Noire cuffs exclusive case</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_geohot-vows-to-boycott-sony-products_thumbnail.png">
+			<a href="https://www.eurogamer.net/geohot-vows-to-boycott-sony-products" class="article-title">Geohot vows to boycott Sony products</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_uk-video-game-prices-going-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-video-game-prices-going-up" class="article-title">UK video game prices going up</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_dynasty-warriors-7-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/dynasty-warriors-7-review" class="article-title">Dynasty Warriors 7</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_rare-voice-control-the-future-for-kinect_thumbnail.png">
+			<a href="https://www.eurogamer.net/rare-voice-control-the-future-for-kinect" class="article-title">Rare: Voice control the future for Kinect</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_eu-playstation-store-update-13th-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-13th-april" class="article-title">EU PlayStation Store update 13th April</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_evolution-recounts-motorstorm-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/evolution-recounts-motorstorm-launch" class="article-title">Evolution recounts MotorStorm launch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_bioware-fixes-da-o-server-failure_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-fixes-da-o-server-failure" class="article-title">BioWare fixes DA: O server failure</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_peter-harrap-wants-new-monty-mole_thumbnail.png">
+			<a href="https://www.eurogamer.net/peter-harrap-wants-new-monty-mole" class="article-title">Peter Harrap wants new Monty Mole</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_capcom-reorc-will-be-slant-6s-best-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/capcom-reorc-will-be-slant-6s-best-game" class="article-title">Capcom: REORC will be Slant 6's best game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_dead-rising-2-off-the-record-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-rising-2-off-the-record-preview" class="article-title">Dead Rising 2: Off the Record</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_dead-rising-2-dev-defends-off-the-record_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-rising-2-dev-defends-off-the-record" class="article-title">Dead Rising 2 dev defends Off the Record</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_ps3-owners-will-embrace-frank-west_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-owners-will-embrace-frank-west" class="article-title">PS3 owners "will embrace" Frank West</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_valves-half-life-dev-hampered-by-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/valves-half-life-dev-hampered-by-steam" class="article-title">Valve's Half-Life dev hampered by Steam?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_how-halos-monk-chant-music-came-to-be_thumbnail.png">
+			<a href="https://www.eurogamer.net/how-halos-monk-chant-music-came-to-be" class="article-title">How Halo's monk chant music came to be</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_resident-evil-operation-raccoon-city-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/resident-evil-operation-raccoon-city-preview" class="article-title">Resident Evil: Operation Raccoon City</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_garrys-mod-sets-trap-for-pirates_thumbnail.png">
+			<a href="https://www.eurogamer.net/garrys-mod-sets-trap-for-pirates" class="article-title">Garry's Mod sets trap for pirates</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_nintendo-wii-price-drop-in-may-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-wii-price-drop-in-may-report" class="article-title">Nintendo Wii price drop in May – report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_out-this-week-15-04-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/out-this-week-15-04-2011" class="article-title">Out This Week - 15/04/2011</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/13_fallout-new-vegas-patch-due-before-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fallout-new-vegas-patch-due-before-dlc" class="article-title">Fallout: New Vegas patch due before DLC</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136853/BlizzCon-ticket-sales-announced/" class="article-title">BlizzCon ticket sales announced</a>
+			<div class="article-subtitle">Two batches in mid-May.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136850/Activision-Guitar-Hero-on-Hiatus-only/" class="article-title">Activision: Guitar Hero on Hiatus only</a>
+			<div class="article-subtitle">Spyro a CoD-like pillar of the company.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136848/THQ-boss-Homefront-not-a-71/" class="article-title">THQ boss: Homefront not a 71</a>
+			<div class="article-subtitle">"You can’t apply math to art."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136846/Capcom-unveils-Dragon-s-Dogma/" class="article-title">Capcom unveils Dragon’s Dogma</a>
+			<div class="article-subtitle">Capcom's first open-world game.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bela-kovacs-and-the-trail-of-blood.php" class="article-title">Bela Kovacs and the Trail of Blood</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/shadow.php" class="article-title">Shadow</a>
+			<div class="article-author">Chiktionary</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/coming-soon-steamlands.php" class="article-title">Coming Soon... Steamlands</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/binb.php" class="article-title">BinB</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/18-who-am-i.php" class="article-title">18 Who Am I?</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 8, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/who-wants-to-be-a-millionaire-second-edition-revie/1900-2591876/" class="article-title">Who Wants to Be a Millionaire Second Edition Review</a>
+			<div class="article-subtitle">Who Wants to Be a Millionaire doesn't have a terribly large bank of questions to choose from, and you'll probably start to recognize a few questions after only three or four sessions.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hexyz-force-review/1900-6264953/" class="article-title">Hexyz Force Review</a>
+			<div class="article-subtitle">This role-playing adventure strikes an enjoyable balance between classic and new elements, risk and reward, combat and crafting.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/plain-sight-review/1900-6264958/" class="article-title">Plain Sight Review</a>
+			<div class="article-subtitle">This beautiful, gravity-defying multiplayer action game is a robot-killing blast.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_new-driver-officially-in-the-shop_1100-6192701_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-driver-officially-in-the-shop/1100-6192701/" class="article-title">New Driver officially in the shop</a>
+			<div class="article-subtitle">BBC reveals Ubisoft hard at work on PS3, 360 revamp of classic series.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_apple-iphone-4-unveiled_1100-6264925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/apple-iphone-4-unveiled/1100-6264925/" class="article-title">Apple iPhone 4 Unveiled</a>
+			<div class="article-subtitle">Apple's got a swanky new phone.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_metal-gear-solid-peace-walker-mp3-player-sneaking-down-under_1100-6264787_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-solid-peace-walker-mp3-player-sneaking-down-under/1100-6264787/" class="article-title">Metal Gear Solid: Peace Walker MP3 player sneaking down under</a>
+			<div class="article-subtitle">2GB camouflaged Walkman and game bundle is being released exclusively through Sony for A$129.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_elemental-war-of-magic-raging-august-24_1100-6264922_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elemental-war-of-magic-raging-august-24/1100-6264922/" class="article-title">Elemental: War of Magic raging August 24</a>
+			<div class="article-subtitle">Stardock's strategy game arriving late summer on PC alongside backstory-heavy novel.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_marvelous-gives-up-on-original-titles_1100-6264927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvelous-gives-up-on-original-titles/1100-6264927/" class="article-title">Marvelous gives up on original titles</a>
+			<div class="article-subtitle">Poor sales force Harvest Moon and No More Heroes publisher into financial restructure; new focus to be on sequels and Web games instead of original IP.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_accio-demo-lego-harry-potter-trial-hits-xbl_1100-6264934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/accio-demo-lego-harry-potter-trial-hits-xbl/1100-6264934/" class="article-title">Accio demo! Lego: Harry Potter trial hits XBL</a>
+			<div class="article-subtitle">Xbox Live Update: Traveller's Tales' magical brick sample alongside destruction-based Red Faction: Guerilla, and Need for Speed: Undercover for Games on Demand, rounded out by an Earthworm Jim revival.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_dj-hero-2-spinning-dr-dre-metallica-lady-gaga_1100-6264930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dj-hero-2-spinning-dr-dre-metallica-lady-gaga/1100-6264930/" class="article-title">DJ Hero 2 spinning Dr. Dre, Metallica, Lady Gaga</a>
+			<div class="article-subtitle">Activision lets first details of mixing-game's lineup slip; 90 artists promised, new freestyle and party modes teased.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_dsi-xl-feeling-midnight-blue-july-11_1100-6264937_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dsi-xl-feeling-midnight-blue-july-11/1100-6264937/" class="article-title">DSi XL feeling midnight blue July 11</a>
+			<div class="article-subtitle">Nintendo augmenting supersized handheld's color scheme next month, will retain $190 price tag.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_mag-expanding-june-22_1100-6264951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mag-expanding-june-22/1100-6264951/" class="article-title">MAG expanding June 22</a>
+			<div class="article-subtitle">Interdiction add-on brings new game type, three maps, armor set, accolades to Zipper-developed PS3 online shooter for $10.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_power-gig-signs-eric-clapton-padless-drum-controller_1100-6264945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/power-gig-signs-eric-clapton-padless-drum-controller/1100-6264945/" class="article-title">Power Gig signs Eric Clapton, padless drum controller</a>
+			<div class="article-subtitle">Boston-based developer also adds the Dave Matthews Band and Kid Rock to exclusive lineup for game with fully functional guitar and innovative drum kit.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_power-gig-rise-of-the-sixstring-update-hands-on-with-guitar-and-drums_1100-6264938_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/power-gig-rise-of-the-sixstring-update-hands-on-with-guitar-and-drums/1100-6264938/" class="article-title">Power Gig: Rise of the SixString Update - Hands-On With Guitar and Drums</a>
+			<div class="article-subtitle">How does a rhythm game work with a real guitar and invisible drums?</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_def-jam-rapstar-dropping-in-na-october-5_1100-6264522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/def-jam-rapstar-dropping-in-na-october-5/1100-6264522/" class="article-title">Def Jam Rapstar dropping in NA October 5</a>
+			<div class="article-subtitle">Konami's hip-hop-centric rhythm game spitting rhymes on 360, PS3, Wii this fall; Ice Cube, Outkast, Salt-N-Pepa on board.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_downloadable-games-for-windows-to-arrive-day-and-date_1100-6264961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/downloadable-games-for-windows-to-arrive-day-and-date/1100-6264961/" class="article-title">Downloadable Games for Windows to arrive day-and-date</a>
+			<div class="article-subtitle">Microsoft signs 2K Games, Ubisoft, THQ, others to release PC titles through its Games on Demand distribution service in tandem with official launch dates.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_alienware-updates-the-m11x-gaming-laptop_1100-6264967_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alienware-updates-the-m11x-gaming-laptop/1100-6264967/" class="article-title">Alienware Updates the M11x Gaming Laptop</a>
+			<div class="article-subtitle">Alienware releases an updated M11x gaming laptop.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_joe-danger-lands-safely-on-psn_1100-6264973_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/joe-danger-lands-safely-on-psn/1100-6264973/" class="article-title">Joe Danger lands safely on PSN</a>
+			<div class="article-subtitle">PlayStation Store Update: Hello Games' IGF finalist joined by Death Track, Sam & Max: Penal Zone, Voodoo Dice; PSP gets MGS: Peace Walker.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_hands-on-with-thqs-e3-wwe-games_1100-6264944_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hands-on-with-thqs-e3-wwe-games/1100-6264944/" class="article-title">Hands-On With THQ's E3 WWE Games</a>
+			<div class="article-subtitle">We check out WWE SmackDown! vs. Raw 2011 and the brand-new WWE All Stars in this exclusive look at THQ's wrestling lineup for E3 2010!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/06/08_harry-potter-and-the-deathly-hallows-part-1-hands-on-impressions_1100-6264416_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harry-potter-and-the-deathly-hallows-part-1-hands-on-impressions/1100-6264416/" class="article-title">Harry Potter and the Deathly Hallows: Part 1 Hands-On Impressions</a>
+			<div class="article-subtitle">Far from Hogwarts and beset by Death Eaters, we whip out the wand and start slinging spells as if Harry's life depended on it (because it does).</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_joe-danger-could-appear-on-other-formats_thumbnail.png">
+			<a href="https://www.eurogamer.net/joe-danger-could-appear-on-other-formats" class="article-title">Joe Danger could appear on other formats</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_yakuza-4-heading-to-europe-in-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/yakuza-4-heading-to-europe-in-2011" class="article-title">Yakuza 4 heading to Europe in 2011</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_forza-3-summer-velocity-pack-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/forza-3-summer-velocity-pack-released" class="article-title">Forza 3 Summer Velocity pack released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_fifa-11-detailed-in-uk-lads-mag_thumbnail.png">
+			<a href="https://www.eurogamer.net/fifa-11-detailed-in-uk-lads-mag" class="article-title">FIFA 11 detailed in UK lads mag</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_dj-hero-2-due-out-this-autumn_thumbnail.png">
+			<a href="https://www.eurogamer.net/dj-hero-2-due-out-this-autumn" class="article-title">DJ Hero 2 due out this autumn</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_marvelous-sticking-to-sequels-in-future_thumbnail.png">
+			<a href="https://www.eurogamer.net/marvelous-sticking-to-sequels-in-future" class="article-title">Marvelous sticking to sequels in future</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_psn-dragon-blaster-hoard-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/psn-dragon-blaster-hoard-unveiled" class="article-title">PSN dragon blaster Hoard unveiled</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_metal-gear-solid-peace-walker-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-solid-peace-walker-review" class="article-title">Metal Gear Solid: Peace Walker</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_farmville-for-iphone-this-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/farmville-for-iphone-this-month" class="article-title">FarmVille for iPhone this month</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_joe-danger-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/joe-danger-review" class="article-title">Joe Danger</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_new-guitar-hero-guitars-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-guitar-hero-guitars-detailed" class="article-title">New Guitar Hero guitars detailed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_apple-announces-and-dates-iphone-4_thumbnail.png">
+			<a href="https://www.eurogamer.net/apple-announces-and-dates-iphone-4" class="article-title">Apple announces and dates iPhone 4</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_countdown-clock-appears-on-rare-site_thumbnail.png">
+			<a href="https://www.eurogamer.net/countdown-clock-appears-on-rare-site" class="article-title">Countdown clock appears on Rare site</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/06/08_green-day-rock-band-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/green-day-rock-band-review" class="article-title">Green Day: Rock Band</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135015/Snippets-Respawn-at-E3-Ice-T-in-Gears-3-Natal-and-Move-debated/" class="article-title">Snippets: Respawn at E3, Ice-T in Gears 3, Natal and Move debated</a>
+			<div class="article-subtitle">Ex-IW cooking something "big."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135011/Dungeon-Siege-III-announced/" class="article-title">Dungeon Siege III announced</a>
+			<div class="article-subtitle">Obsidian handling duties.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135010/HL2-Episode-3-is-not-Valve-s-E3-surprise/" class="article-title">HL2: Episode 3 is not Valve’s E3 surprise</a>
+			<div class="article-subtitle">What? No, these aren’t tears.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135008/inFamous-2-confirmed/" class="article-title">inFamous 2 confirmed</a>
+			<div class="article-subtitle">To be shown at E3.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/take-something-literally-2.php" class="article-title">Take Something Literally 2</a>
+			<div class="article-author">AdamC</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/king-of-shapes.php" class="article-title">King of Shapes</a>
+			<div class="article-author">Kyle E. Moore</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/hold-your-ground.php" class="article-title">Hold Your Ground</a>
+			<div class="article-author">joye</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2010/06/08_2010_06_08_bronzemurder_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2010/06/08/bronzemurder/" class="article-title">Bronzemurder</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 5, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gravity-crash-review/1900-6242686/" class="article-title">Gravity Crash Review</a>
+			<div class="article-subtitle">Sharp controls and smooth physics create a great blend of challenge and fun in this retro-styled arcade game.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alter-ego-review/1900-6272422/" class="article-title">Alter Ego Review</a>
+			<div class="article-subtitle">A boring story, a dreadful ending, and easy puzzles bury this dull point-and-click adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_madden-nfl-11-ps3-bundle-spotted-retail-radar_1100-6272303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-11-ps3-bundle-spotted-retail-radar/1100-6272303/" class="article-title">Madden NFL 11 PS3 bundle spotted - Retail Radar</a>
+			<div class="article-subtitle">Best Buy Canada lists $349 system/software collection; retailer says gridiron compilation touches down August 5.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_gran-turismo-5-unveils-luxury-game-bundles_1100-6272392_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-5-unveils-luxury-game-bundles/1100-6272392/" class="article-title">Gran Turismo 5 unveils luxury game bundles</a>
+			<div class="article-subtitle">Sony reveals GT5 collector's edition details and pricing; win a real-life supercar.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_arkham-asylum-sequel-breaking-out-next-year_1100-6272397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arkham-asylum-sequel-breaking-out-next-year/1100-6272397/" class="article-title">Arkham Asylum sequel breaking out next year</a>
+			<div class="article-subtitle">Batman: Arkham City named, dated by Warner Bros.; Autumn 2011 release window targeted.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_bioshock-2-entering-minervas-den_1100-6272401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-2-entering-minervas-den/1100-6272401/" class="article-title">BioShock 2 entering Minerva's Den</a>
+			<div class="article-subtitle">2K announces single-player story-driven DLC pack coming this fall; new weapons, characters, plasmid promised.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_red-dead-redemption-legends-and-killers-dlc-hands-on_1100-6272396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-redemption-legends-and-killers-dlc-hands-on/1100-6272396/" class="article-title">Red Dead Redemption: Legends and Killers DLC Hands-On</a>
+			<div class="article-subtitle">Redemption's first paid-for DLC pack adds nine multiplayer maps, eight characters, and the deadly tomahawk.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_ufc-trainer-hits-kinect-move-wii-on-january-1_1100-6265835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ufc-trainer-hits-kinect-move-wii-on-january-1/1100-6265835/" class="article-title">UFC Trainer hits Kinect, Move, Wii on January 1</a>
+			<div class="article-subtitle">E3 2010: THQ reveals new mixed martial arts tutorial title for multiplatform motion-sensing systems.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_ufc-pummels-psp-september-7_1100-6272408_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ufc-pummels-psp-september-7/1100-6272408/" class="article-title">UFC pummels PSP September 7</a>
+			<div class="article-subtitle">THQ's mixed-martial arts series set to make its handheld debut with Undisputed 2010; more than 100 fighters, multiple modes from console versions confirmed.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_assassins-creed-brotherhood-multiplayer-beta-slicing-ps3-sept-13_1100-6272404_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-brotherhood-multiplayer-beta-slicing-ps3-sept-13/1100-6272404/" class="article-title">Assassin's Creed: Brotherhood multiplayer beta slicing PS3 Sept. 13</a>
+			<div class="article-subtitle">Ubisoft partners with GameStop for preorder exclusive prerelease sampler limited to Sony's console.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_pans-labyrinth-director-finalizing-thq-game-deal-report_1100-6272412_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pans-labyrinth-director-finalizing-thq-game-deal-report/1100-6272412/" class="article-title">Pan's Labyrinth director finalizing THQ game deal - Report</a>
+			<div class="article-subtitle"><i>Los Angeles Times</i>' sources say Mexican film director Guillermo del Toro aligning with Red Faction publisher.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_kaka-scores-fifa-11-cover_1100-6272415_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kaka-scores-fifa-11-cover/1100-6272415/" class="article-title">Kaka scores FIFA 11 cover</a>
+			<div class="article-subtitle">Real Madrid midfielder to join local soccer heroes across the globe as the cover stars of EA's next footie sim.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_all-time-greatest-game-villain-unleashed_1100-6272403_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-time-greatest-game-villain-unleashed/1100-6272403/" class="article-title">All-Time Greatest Game Villain Unleashed</a>
+			<div class="article-subtitle">Can you choose the greatest video game villain in history? Get the preliminary details on the competition and prepare to do battle!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_battle-vs-chess-impressions_1100-6272425_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battle-vs-chess-impressions/1100-6272425/" class="article-title">Battle vs. Chess Impressions</a>
+			<div class="article-subtitle">If you've been yearning for a combo system and a health bar in your games of chess, you're in luck here.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_peace-walker-world-cup-fever-bolster-konami-earnings_1100-6272426_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/peace-walker-world-cup-fever-bolster-konami-earnings/1100-6272426/" class="article-title">Peace Walker, World Cup fever bolster Konami earnings</a>
+			<div class="article-subtitle">First quarter game revenues up slightly on strength of Metal Gear Solid: Peace Walker and Pro Evolution Soccer games; publisher posts net profit of $15 million.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_starcraft-ii-on-the-cheap_1100-6272315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starcraft-ii-on-the-cheap/1100-6272315/" class="article-title">Starcraft II: On the Cheap</a>
+			<div class="article-subtitle">We'll tell you how to get Starcraft II running well without stealing all your pennies.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_e3-video-treasure-trove_1100-6268834_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-video-treasure-trove/1100-6268834/" class="article-title">E3 Video Treasure Trove</a>
+			<div class="article-subtitle">Grab some popcorn and catch up on a ton of new gameplay video for some of the most highly anticipated games of this year, and next.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_metroid-other-m-updated-hands-on-exploring-the-bottle-ship_1100-6272432_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metroid-other-m-updated-hands-on-exploring-the-bottle-ship/1100-6272432/" class="article-title">Metroid: Other M Updated Hands-On: Exploring the Bottle Ship</a>
+			<div class="article-subtitle">We get a look at new enemies and environments in Nintendo and Team Ninja's new entry in the Metroid series.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_activision-q2-sales-slide-to-967m-true-crime-delayed_1100-6272429_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-q2-sales-slide-to-967m-true-crime-delayed/1100-6272429/" class="article-title">Activision Q2 sales slide to $967M, True Crime delayed</a>
+			<div class="article-subtitle">Publisher reports 7% decline in April-June revenues as digital sales surpass retail; Hong Kong-set sequel bumped to 2011.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_nelly-nas-method-man-rapping-def-jam-rapstar_1100-6272434_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nelly-nas-method-man-rapping-def-jam-rapstar/1100-6272434/" class="article-title">Nelly, Nas, Method Man rapping Def Jam Rapstar</a>
+			<div class="article-subtitle">Volley of additional artists confirmed for Konami's upcoming hip-hop karaoke game also includes Public Enemy, DJ Khaled, Young Joc, and producers Danja and Nitti Beats.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_namco-bandai-integrates-us-game-network-divisions_1100-6272437_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-bandai-integrates-us-game-network-divisions/1100-6272437/" class="article-title">Namco Bandai integrates US game, network divisions</a>
+			<div class="article-subtitle">Publisher merging operations of traditional gaming, casual and mobile businesses; CEO plans to emphasize networked offerings, cross-platform functionality.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_halo-reach-golden_1100-6272440_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-golden/1100-6272440/" class="article-title">Halo: Reach golden</a>
+			<div class="article-subtitle">Bungie wraps development on its final installment in acclaimed Xbox 360-exclusive sci-fi shooter franchise; "majority" of team has moved on to Activision project.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_gt4s-best-in-show_1100-6237017_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gt4s-best-in-show/1100-6237017/" class="article-title">GT4's Best in Show</a>
+			<div class="article-subtitle">If you caught last Thursday's On the Spot, you saw the incredible footage from the Gran Turismo 4 Awards held at the SEMA (Specialty Equipment Market Association). In addition to some incredible cars on hand, all vying for a roster spot in the newest Gran Turismo game as reward for being chosen...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/05_i-game-and-i-vote_1100-6271499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/i-game-and-i-vote/1100-6271499/" class="article-title">I Game and I Vote</a>
+			<div class="article-subtitle">Before Aussies vote in the federal election for 2010, GameSpot AU guides you through four election-worthy topics for gamers.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_true-crime-hong-kong-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/true-crime-hong-kong-delayed" class="article-title">True Crime: Hong Kong delayed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_sid-meiers-civilization-v-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/sid-meiers-civilization-v-hands-on" class="article-title">Sid Meier's Civilization V</a>
+			<div class="article-author">Will Porter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_uk-pc-gamers-denied-mafia-ii-ce_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-pc-gamers-denied-mafia-ii-ce" class="article-title">UK PC gamers denied Mafia II CE</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_public-enemy-nas-wily-in-def-jam_thumbnail.png">
+			<a href="https://www.eurogamer.net/public-enemy-nas-wily-in-def-jam" class="article-title">Public Enemy, Nas, Wiley in Def Jam</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_story-driven-bioshock-2-dlc-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/story-driven-bioshock-2-dlc-announced" class="article-title">Story-driven BioShock 2 DLC announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_uk-chart-rayman-spent-5-years-there_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-chart-rayman-spent-5-years-there" class="article-title">UK chart: Rayman spent 5 years there</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_molynuex-admits-milo-is-contentious_thumbnail.png">
+			<a href="https://www.eurogamer.net/molynuex-admits-milo-is-contentious" class="article-title">Molyneux admits Milo is "contentious"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_activision-denies-lose-the-chick-report-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-denies-lose-the-chick-report-article" class="article-title">Activision denies "lose the chick" report</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_blizzard-policing-erotic-role-play-in-wow_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-policing-erotic-role-play-in-wow" class="article-title">Blizzard policing erotic role-play in WOW</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_enslaveds-tameem-antoniades-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/enslaveds-tameem-antoniades-interview" class="article-title">Enslaved's Tameem Antoniades</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_who-would-have-improved-heavenly-sword_thumbnail.png">
+			<a href="https://www.eurogamer.net/who-would-have-improved-heavenly-sword" class="article-title">Who would've improved Heavenly Sword?</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_civilization-v-demo-next-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/civilization-v-demo-next-month" class="article-title">Civilization V demo next month</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_gt5-signature-edition-costs-180_thumbnail.png">
+			<a href="https://www.eurogamer.net/gt5-signature-edition-costs-180" class="article-title">GT5 Signature Edition costs €180</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_high-voltage-lays-off-staff_thumbnail.png">
+			<a href="https://www.eurogamer.net/high-voltage-lays-off-staff" class="article-title">High Voltage lays off staff</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_halo-2-maps-remade-for-reach-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-2-maps-remade-for-reach-article" class="article-title">Halo 2 maps remade for Reach</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_world-of-darkness-mmo-reveal-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-of-darkness-mmo-reveal-soon" class="article-title">World of Darkness MMO reveal soon?</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_soundgarden-album-free-with-us-guitar-hero_thumbnail.png">
+			<a href="https://www.eurogamer.net/soundgarden-album-free-with-us-guitar-hero" class="article-title">Soundgarden album free with Guitar Hero</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_modern-warfare-2-demo-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/modern-warfare-2-demo-released" class="article-title">Modern Warfare 2 demo released</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_red-dead-anti-griefing-patch-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-anti-griefing-patch-released" class="article-title">Red Dead anti-griefing patch released</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/05_fable-iii-kinect-support-confusion_thumbnail.png">
+			<a href="https://www.eurogamer.net/fable-iii-kinect-support-confusion" class="article-title">Fable III Kinect support confusion</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135407/Snippets-EA-Halo-and-CoD-to-rule-2010-EA-files-new-Syndicate-trademarks/" class="article-title">Snippets: EA: Halo and CoD to rule 2010, EA files new Syndicate trademarks</a>
+			<div class="article-subtitle">Talk of a reboot mounts.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135404/GT5-to-ship-in-three-editions/" class="article-title">GT5 to ship in three editions</a>
+			<div class="article-subtitle">Win a real Mercedes-Benz SLS AMG.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135402/Torchlight-II-announced/" class="article-title">Torchlight II announced</a>
+			<div class="article-subtitle">Torchlight MMO on hold.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135401/LEGO-Harry-Potter-sells-2.7m/" class="article-title">LEGO Harry Potter sells 2.7m</a>
+			<div class="article-subtitle">Blimey.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/babylon-sticks-space-dimensions.php" class="article-title">Babylon Sticks: Space Dimensions</a>
+			<div class="article-author">James Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-fog-fall-3.php" class="article-title">The Fog Fall 3</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/moonster-safe.php" class="article-title">Moonster Safe</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2010/08/05_2010_08_05_babycastles-hardcore-feelings_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2010/08/05/babycastles-hardcore-feelings/" class="article-title">Babycastles – Hardcore Feelings</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

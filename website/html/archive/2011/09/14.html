@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 14, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/skydrift-review/1900-6334176/" class="article-title">SkyDrift Review</a>
+			<div class="article-subtitle">While there's nothing unique about SkyDrift, it successfully delivers fun and frantic arcade racing that's best enjoyed online.</div>
+			<div class="article-author">Sean Evans</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/skydrift-review/1900-6334364/" class="article-title">SkyDrift Review</a>
+			<div class="article-subtitle">While there's nothing unique about SkyDrift, it successfully delivers fun and frantic arcade racing that's best enjoyed online.</div>
+			<div class="article-author">Sean Evans</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/men-of-war-vietnam-review/1900-6334313/" class="article-title">Men of War: Vietnam Review</a>
+			<div class="article-subtitle">Brutally tough and unforgiving, Men of War: Vietnam is a serious test of your patience and your real-time strategy skills.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_ultimate-marvel-vs-capcom-3-costume-breakdown-week-3_1100-6334142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-marvel-vs-capcom-3-costume-breakdown-week-3/1100-6334142/" class="article-title">Ultimate Marvel vs. Capcom 3 Costume Breakdown - Week 3</a>
+			<div class="article-subtitle">This week's Ultimate Marvel vs. Capcom 3 update features a duo of deities with Marvel's Thor and Capcom's Amaterasu.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_serious-sam-double-d-dev-makes-plea-to-pirates_1100-6334144_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/serious-sam-double-d-dev-makes-plea-to-pirates/1100-6334144/" class="article-title">Serious Sam: Double D dev makes plea to pirates</a>
+			<div class="article-subtitle">After PC action spin-off cracked within hours of launch, Mommy's Best Games sets up ability to donate directly to the studio, asks those who enjoyed title to support it.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_syndicate-remake-was-always-going-to-be-an-fps-starbreeze_1100-6334150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/syndicate-remake-was-always-going-to-be-an-fps-starbreeze/1100-6334150/" class="article-title">Syndicate remake 'was always going to be an FPS' - Starbreeze</a>
+			<div class="article-subtitle">Director of strategy series reboot planned on shooter approach from the outset, designer says "time has moved on" from old games' approach.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_red-dead-redemption-gets-game-of-the-year-edition_1100-6334164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-redemption-gets-game-of-the-year-edition/1100-6334164/" class="article-title">Red Dead Redemption gets Game of the Year Edition</a>
+			<div class="article-subtitle">Rockstar open-world Western for Xbox 360 and PS3 gets $50 compilation with all DLC October 11 in North America, October 14 internationally.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_xbox-live-coming-to-windows-8_1100-6334181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-coming-to-windows-8/1100-6334181/" class="article-title">Xbox Live coming to Windows 8</a>
+			<div class="article-subtitle">Microsoft taking a second shot at bringing its console online service to PCs with launch of upcoming operating system.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_playstation-vita-launching-in-japan-december-17_1100-6334311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-vita-launching-in-japan-december-17/1100-6334311/" class="article-title">PlayStation Vita launching in Japan December 17</a>
+			<div class="article-subtitle">TGS 2011: Sony devotes media briefing to new handheld; 26 titles due at launch, including Ultimate Marvel vs. Capcom 3, Uncharted: Golden Abyss, Lord of Apocalypse.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_microsoft-drops-price-of-aussie-xbox-360-kinect-bundles_1100-6334344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-drops-price-of-aussie-xbox-360-kinect-bundles/1100-6334344/" class="article-title">Microsoft drops price of Aussie Xbox 360 Kinect bundles</a>
+			<div class="article-subtitle">The new recommended retail price of the 4GB Xbox 360 with Kinect bundle and the 250GB Xbox 360 with Kinect bundle will now be A$399 RRP and A$499 RRP respectively.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_jonathan-blow-can-i-get-a-witness-podcast_1100-6334402_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jonathan-blow-can-i-get-a-witness-podcast/1100-6334402/" class="article-title">Jonathan Blow, Can I Get a Witness? Podcast</a>
+			<div class="article-subtitle">The HotSpot asks Braid and The Witness creator Jonathan Blow to stop by the studio. In turn, he, erm, veritably carpet bombs us with game-design insight. And then Tom Mc Shea said this: "Braid isn't a game I'd really classify as fun." So, in sum, things went pretty well. Pretty, pretty well.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_dead-or-alive-5-set-for-2012_1100-6334355_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-or-alive-5-set-for-2012/1100-6334355/" class="article-title">Dead or Alive 5 set for 2012</a>
+			<div class="article-subtitle">Team Ninja confirms next installment in Dead or Alive franchise headed to Xbox 360 and PS3 next year, releases more details about Ninja Gaiden 3.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_asia-shippin-out-sept-11-17-god-of-war-origins_1100-6333765_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-sept-11-17-god-of-war-origins/1100-6333765/" class="article-title">Asia Shippin' Out Sept. 11-17: God of War Origins</a>
+			<div class="article-subtitle">The handheld adventures of Kratos, an "old-school" cyberpunk FPS, and a historical shooter are what's in store for gamers this week.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_resistance-3-walkthrough-primer-guide_1100-6333123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resistance-3-walkthrough-primer-guide/1100-6333123/" class="article-title">Resistance 3 Walkthrough Primer Guide</a>
+			<div class="article-subtitle">The Chimera continue to invade Earth! Our Resistance 3 Walkthrough Primer gets you started for on-line multiplayer with info about weapons, berserk abilities, and matches.</div>
+			<div class="article-author">Kurtis Seid</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_suda-51-winds-up-diabolical-pitch_1100-6334359_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/suda-51-winds-up-diabolical-pitch/1100-6334359/" class="article-title">Suda-51 winds up Diabolical Pitch </a>
+			<div class="article-subtitle">Grasshopper Manufacture's Kinect baseball action game Codename D gets new moniker; two-player mode confirmed.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_goldeneye-007-reloaded-shooting-up-november-1_1100-6334371_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/goldeneye-007-reloaded-shooting-up-november-1/1100-6334371/" class="article-title">GoldenEye 007: Reloaded shooting up November 1</a>
+			<div class="article-subtitle">Xbox 360 and PS3 remake dated; PS3-exclusive Double 'O' Edition bundled with Move and Sharp Shooter peripheral plus downloadable Moonraker villain.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_minecraft-adventure-update-launched_1100-6334389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/minecraft-adventure-update-launched/1100-6334389/" class="article-title">Minecraft Adventure Update launched</a>
+			<div class="article-subtitle">Version 1.8 of open-ended PC game introduces randomly generated dungeons, new creatures, sprinting, critical attacks, and more.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_civilization-v-game-of-the-year-edition-reign-begins-sept-27_1100-6334401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/civilization-v-game-of-the-year-edition-reign-begins-sept-27/1100-6334401/" class="article-title">Civilization V: Game of the Year Edition reign begins Sept. 27</a>
+			<div class="article-subtitle">2K Games packing six of seven add-on nations, two map packs, digital soundtrack into $50 PC package this month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_apple-pulls-game-critical-of-apple-from-itunes_1100-6334426_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/apple-pulls-game-critical-of-apple-from-itunes/1100-6334426/" class="article-title">Apple pulls game critical of Apple from iTunes</a>
+			<div class="article-subtitle">Phone Story offers unflattering depiction of child labor used in manufacturing of high-tech gadgets like iPhones and iPads; game now available for Android.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_halo-reach-title-update-beta-dropping-october-4_1100-6334425_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-title-update-beta-dropping-october-4/1100-6334425/" class="article-title">Halo: Reach title update beta dropping October 4</a>
+			<div class="article-subtitle">343 Industries offering advance play window for upcoming multiplayer changes; Headlong map coming to Anniversary.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_gameflicks-betamax-plus_1100-6334396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gameflicks-betamax-plus/1100-6334396/" class="article-title">GameFlicks: Betamax Plus!</a>
+			<div class="article-subtitle">It's Wednesday, so let's see what's showing at the GameSpot Spotlight!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_we-just-played-tekken-tag-tournament-2_1100-6334358_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/we-just-played-tekken-tag-tournament-2/1100-6334358/" class="article-title">We Just Played Tekken Tag Tournament 2</a>
+			<div class="article-subtitle">Namco Bandai team-based brawler debuts in Japanese arcades, and we test our skills against real-life arcade experts.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/14_codemasters-planning-bodycount-studio-closure_1100-6334431_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-planning-bodycount-studio-closure/1100-6334431/" class="article-title">Codemasters planning Bodycount studio closure</a>
+			<div class="article-subtitle">British publisher says increased emphasis on racing IP may result in shuttering of 66-man Guildford outfit.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_toy-soldiers-cw-best-selling-xbla-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/toy-soldiers-cw-best-selling-xbla-game" class="article-title">Toy Soldiers: CW best-selling XBLA game</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_uk-gears-of-war-3-midnight-launches_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-gears-of-war-3-midnight-launches" class="article-title">UK Gears of War 3 midnight launches</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_dead-or-alive-5-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-or-alive-5-unveiled" class="article-title">Dead or Alive 5 unveiled</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_eu-playstation-store-update-14th-sept-news_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-14th-sept-news" class="article-title">EU PlayStation Store update 14th Sept</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_rares-about-being-hugely-successful_thumbnail.png">
+			<a href="https://www.eurogamer.net/rares-about-being-hugely-successful" class="article-title">Rare's about being "hugely successful"</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_apple-bans-satirical-phone-story-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/apple-bans-satirical-phone-story-game" class="article-title">Apple bans satirical Phone Story game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_second-pes-2012-demo-out-on-xbox-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/second-pes-2012-demo-out-on-xbox-360" class="article-title">Second PES 2012 demo out on Xbox 360</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_iwata-nintendo-wont-make-mobile-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/iwata-nintendo-wont-make-mobile-games" class="article-title">Iwata: Nintendo won't make mobile games</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_codemasters-closing-bodycount-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/codemasters-closing-bodycount-dev" class="article-title">Codemasters closing Bodycount dev</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_grasshopper-unveils-diabolical-pitch_thumbnail.png">
+			<a href="https://www.eurogamer.net/grasshopper-unveils-diabolical-pitch" class="article-title">Grasshopper unveils Diabolical Pitch</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_playstation-vita-the-other-74-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-vita-the-other-74-games" class="article-title">PlayStation Vita: the other 74 games</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_vita-battery-life-is-3-5-hours_thumbnail.png">
+			<a href="https://www.eurogamer.net/vita-battery-life-is-3-5-hours" class="article-title">Vita battery life is 3-5 hours</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_final-fantasy-x-remake-for-vita-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fantasy-x-remake-for-vita-ps3" class="article-title">Final Fantasy 10 HD for Vita, PS3</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_sonys-tgs-2011-press-conference-live-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonys-tgs-2011-press-conference-live-report" class="article-title">Sony's TGS 2011 press conference</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_vita-release-date-for-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/vita-release-date-for-japan" class="article-title">Vita release date for Japan</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_mgs-zoe-hd-collections-for-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-zoe-hd-collections-for-vita" class="article-title">MGS, ZOE HD Collections for Vita</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_ultimate-marvel-vs-capcom-3-for-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/ultimate-marvel-vs-capcom-3-for-vita" class="article-title">Ultimate Marvel vs Capcom 3 for Vita</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_ps3-worldwide-sales-reach-51-8-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-worldwide-sales-reach-51-8-million" class="article-title">PS3 worldwide sales reach 51.8 million</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_xbox-live-coming-to-windows-8_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-coming-to-windows-8" class="article-title">Xbox Live coming to Windows 8</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_activision-hails-3ds-circle-pad-add-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-hails-3ds-circle-pad-add-on" class="article-title">Activision hails 3DS circle pad add-on</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/14_nintendo-stock-drops-post-3ds-event_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-stock-drops-post-3ds-event" class="article-title">Nintendo stock drops post-3DS event</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137907/Nintendo-announces-3DS-Circle-Pad/" class="article-title">Nintendo announces 3DS Circle Pad</a>
+			<div class="article-subtitle">Additional analogue stick clip-on.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137905/FIFA-12-demo-released/" class="article-title">FIFA 12 demo released</a>
+			<div class="article-subtitle">Six teams featured.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-night-circus.php" class="article-title">The Night Circus</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/kakuro-light.php" class="article-title">Kakuro Light</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/diamond-penthouse-escape-2.php" class="article-title">Diamond Penthouse Escape 2</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

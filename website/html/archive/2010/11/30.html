@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 30, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mafia-ii-joes-adventures-review/1900-6284672/" class="article-title">Mafia II: Joe's Adventures Review</a>
+			<div class="article-subtitle">Brilliant shoot-outs are dulled by maddening side missions in this inconsistent add-on.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mafia-ii-joes-adventures-review/1900-6284670/" class="article-title">Mafia II: Joe's Adventures Review</a>
+			<div class="article-subtitle">Brilliant shoot-outs are dulled by maddening side missions in this inconsistent add-on.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/disney-epic-mickey-review/1900-6284664/" class="article-title">Disney Epic Mickey Review</a>
+			<div class="article-subtitle">Tedium and monotony overwhelm Mickey's new adventure, smothering its clever use of the Disney license.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_this-week-on-pc-chrono-rage-but-that-was-yesterday-and-more_1100-6284608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-week-on-pc-chrono-rage-but-that-was-yesterday-and-more/1100-6284608/" class="article-title">This Week on PC - Chrono Rage, But That Was Yesterday, and more. </a>
+			<div class="article-subtitle">This Week on PC is back. Check it out!</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_ghost-trick-phantom-detective-playable-flash-demo_1100-6284628_thumbnail.gif">
+			<a href="https://www.gamespot.com/articles/ghost-trick-phantom-detective-playable-flash-demo/1100-6284628/" class="article-title">Ghost Trick: Phantom Detective Playable Flash Demo</a>
+			<div class="article-subtitle">Here's your chance to use your wits to solve a crime before it happens.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_aussie-teen-sets-his-sights-on-gaming-world-record_1100-6284624_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-teen-sets-his-sights-on-gaming-world-record/1100-6284624/" class="article-title">Aussie teen sets his sights on gaming world record</a>
+			<div class="article-subtitle">Michael Puterflam takes on the world's best and attempts to set a gaming marathon record using EA Sports' latest football sim.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_shippin-out-nov-28-dec-4-epic-mickey-golden-sun-dark-dawn_1100-6284589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-nov-28-dec-4-epic-mickey-golden-sun-dark-dawn/1100-6284589/" class="article-title">Shippin' Out Nov. 28-Dec. 4: Epic Mickey, Golden Sun: Dark Dawn</a>
+			<div class="article-subtitle">New release slate led by Junction Point's Disney mascot platformer for Wii, DS role-playing game; other new titles out include Nail'd, Deadliest Catch: Sea of Chaos.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_nintendo-sells-15m-systems-over-thanksgiving_1100-6284596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-sells-15m-systems-over-thanksgiving/1100-6284596/" class="article-title">Nintendo sells 1.5M systems over Thanksgiving</a>
+			<div class="article-subtitle">Gaming giant moves 900,000 DS units, 600,000 Wii consoles in seven days in the US thanks to limited-edition Mario Anniversary system bundles and new DSi colors.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_driver-studio-hit-by-layoffs-report_1100-6284618_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/driver-studio-hit-by-layoffs-report/1100-6284618/" class="article-title">Driver studio hit by layoffs - Report</a>
+			<div class="article-subtitle">Nearly 12 may be let go as Ubisoft Reflections reorganizes post-Driver: San Francisco delay.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_asia-shippin-out-november-29-december-3_1100-6284625_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-november-29-december-3/1100-6284625/" class="article-title">Asia Shippin' Out: November 29-December 3</a>
+			<div class="article-subtitle">Mickey makes a return, while James Bond gets blood out of a stone in this week's releases.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_kinect-sells-25-million-in-25-days_1100-6284632_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kinect-sells-25-million-in-25-days/1100-6284632/" class="article-title">Kinect sells 2.5 million in 25 days</a>
+			<div class="article-subtitle">Microsoft says its motion-sensing system is on track to hit 5 million units sold by year's end.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_coalition-sympathetic-to-aussie-r18-cause_1100-6284638_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/coalition-sympathetic-to-aussie-r18-cause/1100-6284638/" class="article-title">Coalition sympathetic to Aussie R18+ cause</a>
+			<div class="article-subtitle">Federal Shadow Attorney-General George Brandis says "inconsistencies" in current classification system need to be addressed.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_uncharted-3-to-be-set-in-the-desert_1100-6284644_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncharted-3-to-be-set-in-the-desert/1100-6284644/" class="article-title">Uncharted 3 to be set in the desert?</a>
+			<div class="article-subtitle">Sources claim Nathan Drake's third adventure title will feature <i>Raiders of the Lost Ark</i>-like desert locales; full reveal expected next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_mark-wahlberg-playing-nathan-drake_1100-6284526_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mark-wahlberg-playing-nathan-drake/1100-6284526/" class="article-title">Mark Wahlberg playing Nathan Drake</a>
+			<div class="article-subtitle"><i>Max Payne</i> star re-collaborating with <i>Fighter</i> director on big-screen version of Uncharted; Pesci, De Niro being courted.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_battlefield-bad-company-2-vietnam-drops-in-december_1100-6284646_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-bad-company-2-vietnam-drops-in-december/1100-6284646/" class="article-title">Battlefield: Bad Company 2 Vietnam drops in December</a>
+			<div class="article-subtitle">Shooter's $15 expansion pack comes to PC Dec. 18, hitting consoles on Dec. 21; VIP Map Pack 7 dropping tomorrow.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_dead-rising-2-case-west-set-for-december_1100-6284654_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-2-case-west-set-for-december/1100-6284654/" class="article-title">Dead Rising 2: Case West set for December</a>
+			<div class="article-subtitle">Capcom sets release window for Xbox 360-exclusive addendum to zombie action game, confirms return of photography gameplay mechanic.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/11/30_black-ops-five-day-sales-hit-650-million_1100-6284243_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-ops-five-day-sales-hit-650-million/1100-6284243/" class="article-title">Black Ops five-day sales hit $650 million</a>
+			<div class="article-subtitle">Activision's Cold War-era Call of Duty bests Modern Warfare 2's record $550M first-week haul; Xbox Live records broken as well.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_free-monday-night-combat-dlc-arrives_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-monday-night-combat-dlc-arrives" class="article-title">Free Monday Night Combat DLC arrives</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_inception-game-tie-in-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/inception-game-tie-in-confirmed" class="article-title">Inception game tie-in confirmed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_killzone-3-collectors-edition-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/killzone-3-collectors-edition-detailed" class="article-title">Killzone 3 Collector's Edition detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_game-dev-story-2-gets-green-light_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-dev-story-2-gets-green-light" class="article-title">Game Dev Story 2 gets green light</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_digitalfoundry-gran-turismo-evolution_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-gran-turismo-evolution" class="article-title">Gran Turismo Evolution</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_black-creator-resurfaces-at-city-interactive_thumbnail.png">
+			<a href="https://www.eurogamer.net/black-creator-resurfaces-at-city-interactive" class="article-title">Black creator surfaces at City Interactive</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_ea-boss-sees-a-future-for-music-genre_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-boss-sees-a-future-for-music-genre" class="article-title">EA boss sees a future for music genre</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_nfs-shift-2-we-wont-add-1000-irrelevant-cars-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/nfs-shift-2-we-wont-add-1000-irrelevant-cars-interview" class="article-title">NFS Shift 2: We won't add 1000 irrelevant cars</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_shift-2-dev-slams-gran-turismo-forza_thumbnail.png">
+			<a href="https://www.eurogamer.net/shift-2-dev-slams-gran-turismo-forza" class="article-title">Shift 2 dev slams Gran Turismo, Forza</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_deus-ex-hr-special-edition-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-hr-special-edition-detailed" class="article-title">Deus Ex: HR special edition detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_new-dlc-announced-for-the-fight_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-dlc-announced-for-the-fight" class="article-title">New DLC announced for The Fight</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_kinect-brain-training-euro-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/kinect-brain-training-euro-release-date" class="article-title">Kinect Brain Training Euro release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_shift-2-unleashed-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/shift-2-unleashed-hands-on" class="article-title">Shift 2: Unleashed</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_bad-company-2-vietnam-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/bad-company-2-vietnam-release-date" class="article-title">Bad Company 2 Vietnam release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_dj-hero-2-dlc-announced-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/dj-hero-2-dlc-announced-1" class="article-title">DJ Hero 2 DLC announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_sony-over-4-1-million-moves-sold_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-over-4-1-million-moves-sold" class="article-title">Sony: Over 4.1 million Moves sold</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_rumour-microsoft-remaking-halo-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/rumour-microsoft-remaking-halo-1" class="article-title">Rumour: Microsoft remaking Halo 1</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_16-witcher-2-endings-claim-clarified_thumbnail.png">
+			<a href="https://www.eurogamer.net/16-witcher-2-endings-claim-clarified" class="article-title">16 Witcher 2 endings claim clarified</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_blazblue-continuum-shift-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/blazblue-continuum-shift-review" class="article-title">BlazBlue: Continuum Shift</a>
+			<div class="article-author">Matt Edwards</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_sbk-2011-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/sbk-2011-announced" class="article-title">SBK 2011 announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_pc-360-bad-company-2-will-lag-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/pc-360-bad-company-2-will-lag-today" class="article-title">PC, 360 Bad Company 2 will lag today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_nsmb-wii-does-the-business-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/nsmb-wii-does-the-business-in-japan" class="article-title">NSMB Wii does the business in Japan</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_pirates-of-the-burning-sea-free-to-play_thumbnail.png">
+			<a href="https://www.eurogamer.net/pirates-of-the-burning-sea-free-to-play" class="article-title">Pirates of the Burning Sea free-to-play</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_will-ea-buy-rock-band-dev-harmonix_thumbnail.png">
+			<a href="https://www.eurogamer.net/will-ea-buy-rock-band-dev-harmonix" class="article-title">Will EA buy Rock Band dev Harmonix?</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_new-apb-customising-will-cost-you_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-apb-customising-will-cost-you" class="article-title">New APB: customising will cost you</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_wiiware-game-cave-story-gets-uk-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/wiiware-game-cave-story-gets-uk-date" class="article-title">WiiWare game Cave Story gets UK date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_10-mvc3-fighters-left-to-reveal_thumbnail.png">
+			<a href="https://www.eurogamer.net/10-mvc3-fighters-left-to-reveal" class="article-title">10 MVC3 fighters left to reveal</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_3ds-way-cooler-than-kinect-or-move_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-way-cooler-than-kinect-or-move" class="article-title">3DS "way cooler" than Kinect or Move</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_more-kinectimals-plush-toys-inbound_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-kinectimals-plush-toys-inbound" class="article-title">More Kinectimals plush toys inbound</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_dead-rising-2-case-west-out-next-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-rising-2-case-west-out-next-month" class="article-title">Dead Rising 2: Case West out next month</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_yakuza-dev-announces-binary-domain_thumbnail.png">
+			<a href="https://www.eurogamer.net/yakuza-dev-announces-binary-domain" class="article-title">Yakuza dev announces Binary Domain</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_jason-isaacs-voicing-el-shaddais-lucifel_thumbnail.png">
+			<a href="https://www.eurogamer.net/jason-isaacs-voicing-el-shaddais-lucifel" class="article-title">Jason Isaacs voicing El Shaddai's Lucifel</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_gears-reveal-not-what-youre-expecting_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-reveal-not-what-youre-expecting" class="article-title">Gears reveal "not what you're expecting"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_xbla-case-zero-sales-are-600-000_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbla-case-zero-sales-are-600-000" class="article-title">XBLA Case Zero sales are 600,000</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_ps-move-getting-two-core-games-from-thq_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps-move-getting-two-core-games-from-thq" class="article-title">PS Move getting two core games from THQ</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_sonic-4s-physics-deliberately-different_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonic-4s-physics-deliberately-different" class="article-title">Sonic 4's physics deliberately different</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/11/30_uncharted-3-set-in-the-desert-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/uncharted-3-set-in-the-desert-report" class="article-title">Uncharted 3 set in the desert – report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136178/Snippets-Billy-Mitchells-tie-cameos-in-Kong-Returns-Kinect-sells-2.5-million/" class="article-title">Snippets: Billy Mitchell's tie cameos in Kong Returns; Kinect sells 2.5 million</a>
+			<div class="article-subtitle">USA.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i136177/Warcraft-offers-a-new-charity-pet/" class="article-title">Warcraft offers a new charity pet</a>
+			<div class="article-subtitle">Half of proceeds go to Make a Wish.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136173/Layoffs-at-Ubisoft-Reflections/" class="article-title">Layoffs at Ubisoft Reflections</a>
+			<div class="article-subtitle">Driver studio trimmed.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136172/Analyst-Sony-Microsoft-telling-fibs/" class="article-title">Analyst: Sony, Microsoft telling fibs</a>
+			<div class="article-subtitle">Controller "shortages" mere marketing.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/alter-ego.php" class="article-title">Alter Ego</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flyde.php" class="article-title">Flyde</a>
+			<div class="article-author">J-Witz</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/robot-wants-jig-banner-game-by-hamumu.php" class="article-title">Robot Wants JIG Banner Game by Hamumu</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-8.php" class="article-title">The Vault №19</a>
+			<div class="article-author">StaceyG</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

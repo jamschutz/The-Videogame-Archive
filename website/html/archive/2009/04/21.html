@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 21, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-gundam-2-review/1900-6208300/" class="article-title">Dynasty Warriors: Gundam 2 Review</a>
+			<div class="article-subtitle">This bot-filled sequel delivers all of the mind-numbing monotony we've come to expect from the Dynasty Warriors franchise.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-gundam-2-review/1900-6208297/" class="article-title">Dynasty Warriors: Gundam 2 Review</a>
+			<div class="article-subtitle">This bot-filled sequel delivers all of the mind-numbing monotony we've come to expect from the Dynasty Warriors franchise.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/company-of-heroes-tales-of-valor-review/1900-6208294/" class="article-title">Company of Heroes: Tales of Valor Review</a>
+			<div class="article-subtitle">This short expansion is only for Company of Heroes completionists.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_street-fighter-iv-tournament-coming-to-europe_1100-6208253_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-fighter-iv-tournament-coming-to-europe/1100-6208253/" class="article-title">Street Fighter IV Tournament coming to Europe</a>
+			<div class="article-subtitle">With the upcoming release of the free Street Fighter IV Championship Mode update on April 24, players will be able to grab their arcade sticks and Hadouken their way through fighters online, competing for the online equivalent of prize money, "grade points," and, of course, to be "the best. "Now...</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_fallout-3-broken-steel-dlc-qanda_1100-6208228_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-3-broken-steel-dlc-qanda/1100-6208228/" class="article-title">Fallout 3: Broken Steel DLC Q&A</a>
+			<div class="article-subtitle">Designer Alan Nanes discusses this upcoming downloadable adventure for Fallout 3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_activision-ordered-to-hand-over-scratch-source-code_1100-6208243_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-ordered-to-hand-over-scratch-source-code/1100-6208243/" class="article-title">Activision ordered to hand over Scratch source code</a>
+			<div class="article-subtitle">Judge orders megapublisher-owned 7 Studios to return source code of $6 million rhythm game, which has been in development for 18 months.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_madden-nfl-10-wildcat-is-in-dolphin-resizing-imminent_1100-6233907_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-10-wildcat-is-in-dolphin-resizing-imminent/1100-6233907/" class="article-title">Madden NFL 10: Wildcat Is In, Dolphin Resizing Imminent</a>
+			<div class="article-subtitle">We&#39;re just a few days away from the official unveil of Madden NFL 10  and NCAA Football 10. Homer and I will be heading to NYC tomorrow to go see the game, interview a ton of future NFL stars, and chat with the cover star of Madden NFL 10, who will be announced on Friday morning. I&#39;ll also...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_call-of-juarez-bound-in-blood-qanda-characters-story-and-shoot-outs_1100-6208231_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-juarez-bound-in-blood-qanda-characters-story-and-shoot-outs/1100-6208231/" class="article-title">Call of Juarez: Bound in Blood Q&A - Characters, Story, and Shoot-Outs</a>
+			<div class="article-subtitle">Techland product manager Pawel Kopinski discusses the story, characters, and gunfights in this Western-inspired sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_xbox-360-passes-one-million-units-sold-in-japan_1100-6208247_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-passes-one-million-units-sold-in-japan/1100-6208247/" class="article-title">Xbox 360 passes one million units sold in Japan </a>
+			<div class="article-subtitle">Microsoft celebrates hardware-sales milestone with "thank you" campaign; plans to give away one million Microsoft points in Japan; Japanese 2009 release schedule outlined.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_the-hotspot-fallout-new-vegas-gta-chinatown-wars-leisure-suit-larry-box-office-bust_1100-6208287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-hotspot-fallout-new-vegas-gta-chinatown-wars-leisure-suit-larry-box-office-bust/1100-6208287/" class="article-title">The HotSpot - Fallout: New Vegas, GTA: Chinatown Wars, Leisure Suit Larry: Box Office Bust</a>
+			<div class="article-subtitle">This week, we talk about Fallout: New Vegas, M-rated games for the Wii and DS, and interview Leisure Suit Larry creator Al Lowe!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_ea-sports-games-get-bundled-with-motionplus_1100-6208272_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-games-get-bundled-with-motionplus/1100-6208272/" class="article-title">EA Sports games get bundled with MotionPlus</a>
+			<div class="article-subtitle">North American gamers will have option of getting EA's latest Tiger Woods game with precision-enhancing add-on; Europeans will also get Grand Slam Tennis bundle.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_sony-sparking-trash-panic-for-ps3_1100-6208279_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-sparking-trash-panic-for-ps3/1100-6208279/" class="article-title">Sony sparking Trash Panic for PS3</a>
+			<div class="article-subtitle">Downloadable refuse-themed puzzle game coming to PlayStation Network in North America, Europe this spring.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_lego-rock-band-jams-this-holiday_1100-6208263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-rock-band-jams-this-holiday/1100-6208263/" class="article-title">Lego Rock Band jams this holiday</a>
+			<div class="article-subtitle">"The Final Countdown," "Kung Fu Fighting" confirmed for WBIE, TT Games, MTV Games, Harmonix's family-friendly rhythm game for Xbox 360, PS3, Wii, DS.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_brutal-legend-tunes-up-for-october-debut_1100-6208259_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brutal-legend-tunes-up-for-october-debut/1100-6208259/" class="article-title">Brutal Legend tunes up for October debut</a>
+			<div class="article-subtitle">Headbanging action game starring Jack Black set for release October 16 in the UK, October 13 in North America.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_halo-wars-dlc-igniting-soon_1100-6208295_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-wars-dlc-igniting-soon/1100-6208295/" class="article-title">Halo Wars DLC igniting soon</a>
+			<div class="article-subtitle">Ensemble Studios' sci-fi real-time strategy game Halo Wars shifted 639,000 units in the US during its March debut, according to the NPD Group, a healthy number considering its mixed reception and platform exclusivity. And even though the studio that made Halo Wars isn't around anymore, Microsoft...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_batman-arkham-asylum-qanda-writer-paul-dini-on-arkham-batman-and-more_1100-6208260_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/batman-arkham-asylum-qanda-writer-paul-dini-on-arkham-batman-and-more/1100-6208260/" class="article-title">Batman: Arkham Asylum Q&A: Writer Paul Dini on Arkham, Batman, and More</a>
+			<div class="article-subtitle">The longtime Batman scribe talks about bringing the dark knight to the Xbox 360 and PlayStation 3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_nimf-study-8-percent-of-gamers-addicted_1100-6208293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nimf-study-8-percent-of-gamers-addicted/1100-6208293/" class="article-title">NIMF study: 8 percent of gamers addicted</a>
+			<div class="article-subtitle">Researcher for parent watchdog group and Iowa State University finds "pathological" behavior correlating to ADD, worse grades in school.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_broken-steel-falls-on-fallout-3-may-5_1100-6208306_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/broken-steel-falls-on-fallout-3-may-5/1100-6208306/" class="article-title">Broken Steel falls on Fallout 3 May 5</a>
+			<div class="article-subtitle">It may have taken a few attempts, but Bethesda Softworks finally got The Pitt--the second game add-on for its highly acclaimed action role-playing game Fallout 3--out the door in late March. Just a little more than a month on, the publisher is preparing to release its third Fallout 3 expansion,...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_download-of-the-week-trackmania-nations-forever_1100-6233906_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/download-of-the-week-trackmania-nations-forever/1100-6233906/" class="article-title">Download of the Week - TrackMania Nations Forever</a>
+			<div class="article-subtitle">TrackMania Nations is the FREE offspring of TrackMania United Forever, the retail version of the series. In this game you have one car model to choose from, but the ability to edit your cars look. There are five tracks to start off with, and 10 more to unlock by winning medals or gaining...</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_madden-nfl-10-refs-beware_1100-6233905_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-10-refs-beware/1100-6233905/" class="article-title">Madden NFL 10: Refs Beware</a>
+			<div class="article-subtitle">While staring at today's new batch of Madden screens, I noticed something else that's got me excited about the game. Check it out:Knocking down refs--be it in real life or in a game--just never gets old.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_new-marvel-vs-capcom-2-teased_1100-6208315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-marvel-vs-capcom-2-teased/1100-6208315/" class="article-title">New Marvel vs. Capcom 2 teased</a>
+			<div class="article-subtitle">Ask anyone who has played Capcom's classic crossover fighter Marvel vs. Capcom 2 what is most indelibly burned into his or her memories of the game, and the response might be a huge roster of more than 50 fighters; dream matchups pitting the likes of Mega Man, Ryu, and Strider against Wolverine,...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/04/21_karaoke-revolution-taking-wii-360-ps3-stages_1100-6208316_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/karaoke-revolution-taking-wii-360-ps3-stages/1100-6208316/" class="article-title">Karaoke Revolution taking Wii, 360, PS3 stages</a>
+			<div class="article-subtitle">Konami's latest sing-along rhythm game will include 50 master tracks, expanded multiplayer; due this holiday.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_ea-games-to-bundle-wii-motionplus_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-games-to-bundle-wii-motionplus" class="article-title">EA games to bundle Wii MotionPlus</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_stephen-fry-voicing-lbp-on-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/stephen-fry-voicing-lbp-on-psp" class="article-title">Stephen Fry voicing LBP on PSP</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_halo-wars-add-on-in-coming-weeks_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-wars-add-on-in-coming-weeks" class="article-title">Halo Wars add-on in "coming weeks"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_brutal-legend-out-in-october_thumbnail.png">
+			<a href="https://www.eurogamer.net/brutal-legend-out-in-october" class="article-title">Brütal Legend out in October</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_warner-confirms-lego-rock-band_thumbnail.png">
+			<a href="https://www.eurogamer.net/warner-confirms-lego-rock-band" class="article-title">Warner confirms LEGO Rock Band</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_fallout-3-broken-steel-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/fallout-3-broken-steel-preview" class="article-title">Fallout 3: Broken Steel</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_fallout-3-broken-steel-dated-for-may_thumbnail.png">
+			<a href="https://www.eurogamer.net/fallout-3-broken-steel-dated-for-may" class="article-title">Fallout 3: Broken Steel dated for May</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_deep-silver-reveals-dj-star_thumbnail.png">
+			<a href="https://www.eurogamer.net/deep-silver-reveals-dj-star" class="article-title">Deep Silver reveals DJ Star</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_war-beyond-the-sands-event-begins_thumbnail.png">
+			<a href="https://www.eurogamer.net/war-beyond-the-sands-event-begins" class="article-title">WAR Beyond the Sands event begins</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_new-360-goty-bundle-iffy-for-europe_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-360-goty-bundle-iffy-for-europe" class="article-title">New 360 GOTY bundle iffy for Europe</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_apple-so-far-ahead-with-digital-platform_thumbnail.png">
+			<a href="https://www.eurogamer.net/apple-so-far-ahead-with-digital-platform" class="article-title">Apple "so far ahead" with digital platform</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_nebulus-remake-a-quid-on-iphone_thumbnail.png">
+			<a href="https://www.eurogamer.net/nebulus-remake-a-quid-on-iphone" class="article-title">Nebulus remake available for iPhone</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_activision-must-return-scratch-dj-code_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-must-return-scratch-dj-code" class="article-title">Activision ordered to return Scratch DJ</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_new-monster-hunter-demo-due-in-june_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-monster-hunter-demo-due-in-june" class="article-title">New Monster Hunter demo due in June</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_3m-us-gamers-are-addicted-says-study_thumbnail.png">
+			<a href="https://www.eurogamer.net/3m-us-gamers-are-addicted-says-study" class="article-title">3m US gamers are addicted, says study</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_sony-reveals-go-view-retail-deals_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-reveals-go-view-retail-deals" class="article-title">Sony reveals Go!View retail deals</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_new-left-4-dead-dlc-released-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-left-4-dead-dlc-released-today" class="article-title">New Left 4 Dead DLC released today</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_psp-firmware-update-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-firmware-update-today" class="article-title">PSP firmware update out today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/04/21_wsc-real-09-world-snooker-championship-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/wsc-real-09-world-snooker-championship-review" class="article-title">WSC Real 09: World Snooker Championship</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i133081/Bethesda-announces-new-Fallout-title/" class="article-title">Bethesda announces new Fallout title</a>
+			<div class="article-subtitle">Surprise reveal for standalone game.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i133078/Stalin-vs.-Martians-delayed/" class="article-title">Stalin vs. Martians delayed</a>
+			<div class="article-subtitle">Final tweaking necessary.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/puzzle-defence.php" class="article-title">Puzzle Defence</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tantrix.php" class="article-title">Tantrix</a>
+			<div class="article-author">Steve</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/04/21_2009_04_21_zeno-clash-release-later-today_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2009/04/21/zeno-clash-release-later-today/" class="article-title">Zeno Clash – Releases today! (Or, right now!)</a>
+			<div class="article-author">Xander</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2009/04/21/stalin-vs-martians-out-now/" class="article-title">Stalin Vs. Martians: Delayed</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/04/21_2009_04_21_planet-of-goo_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2009/04/21/planet-of-goo/" class="article-title">Planet of Goo</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

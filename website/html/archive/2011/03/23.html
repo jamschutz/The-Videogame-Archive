@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 23, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/top-spin-4-review/1900-6305302/" class="article-title">Top Spin 4 Review</a>
+			<div class="article-subtitle">Terrible motion controls and poor visuals sap all the fun out of this poor excuse for a tennis game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/top-spin-4-review/1900-6305154/" class="article-title">Top Spin 4 Review</a>
+			<div class="article-subtitle">With a wealth of content to explore, tight controls, and great visuals, Top Spin 4 is a fantastic tennis simulation that caters to pros and novices alike.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/top-spin-4-review/1900-6305156/" class="article-title">Top Spin 4 Review</a>
+			<div class="article-subtitle">With a wealth of content to explore, tight controls, and great visuals, Top Spin 4 is a fantastic tennis simulation that caters to pros and novices alike.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crysis-2-review/1900-6305347/" class="article-title">Crysis 2 Review</a>
+			<div class="article-subtitle">This big, bold sequel offers an eerie vision of a city under siege.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/slam-bolt-scrappers-review/1900-6305297/" class="article-title">Slam Bolt Scrappers Review</a>
+			<div class="article-subtitle">A short campaign and the lack of online multiplayer hobble this ambitious puzzle adventure.</div>
+			<div class="article-author">Jeremiah Johnson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_sydney-man-gets-yakuza-inspired-tattoo_1100-6305323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sydney-man-gets-yakuza-inspired-tattoo/1100-6305323/" class="article-title">Sydney man gets Yakuza-inspired tattoo</a>
+			<div class="article-subtitle">After six months of regular tattoo sessions, martial arts instructor Fari Salievski unveils his replica Kazuma Kiryu dragon tattoo.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_legend-of-heroes-trails-of-blue-arriving-september_1100-6305155_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/legend-of-heroes-trails-of-blue-arriving-september/1100-6305155/" class="article-title">Legend of Heroes: Trails of Blue arriving September</a>
+			<div class="article-subtitle">Follow-up to Zero no Kiseki to continue ongoing story.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_playstation-network-update-ghostbusters-sanctum-of-slime-hits-psn_1100-6305329_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-network-update-ghostbusters-sanctum-of-slime-hits-psn/1100-6305329/" class="article-title">PlayStation Network Update: Ghostbusters: Sanctum of Slime hits PSN</a>
+			<div class="article-subtitle">New digital wares include Atari's ghost wrangling game, Swarm, Battle: LA, DC Universe Online, Premier Manager, and PlayStation Move Heroes for PS3; Castlevania 'Reverie' DLC also out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_ex-bizarre-staffers-form-hogrocket_1100-6305327_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ex-bizarre-staffers-form-hogrocket/1100-6305327/" class="article-title">Ex-Bizarre staffers form Hogrocket</a>
+			<div class="article-subtitle">Three-man team including Geometry Wars creator working on unannounced game for iPhone/iPad.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_eala-hiring-for-new-third-person-shooter_1100-6305328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eala-hiring-for-new-third-person-shooter/1100-6305328/" class="article-title">EALA hiring for new third-person shooter</a>
+			<div class="article-subtitle">New position listings soliciting talent for new, unannounced multiplayer-focused game using Frosbite 2 engine.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_ea-ditching-paper-game-manuals_1100-6305332_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-ditching-paper-game-manuals/1100-6305332/" class="article-title">EA ditching paper game manuals</a>
+			<div class="article-subtitle">Megapublisher's green-packaging initiative will see physical instructions replaced by electronic versions on the game discs.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_this-week-on-pc-the-uncanny-fish-hunt-and-jamestown_1100-6305336_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-week-on-pc-the-uncanny-fish-hunt-and-jamestown/1100-6305336/" class="article-title">This Week on PC - The Uncanny Fish Hunt & Jamestown</a>
+			<div class="article-subtitle">This week on PC, we check out Independent Propeller Award Winner The Uncanny Fish Hunt and IGF Excellence in Audio Honorable Mention Jamestown.</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_splinter-cell-3d-qanda_1100-6305333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/splinter-cell-3d-qanda/1100-6305333/" class="article-title">Splinter Cell 3D Q&A</a>
+			<div class="article-subtitle">We catch up with Fabrice Cuny to get the latest on the 3DS remake of Splinter Cell: Chaos Theory.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_gilbert-gottfried-voicing-lead-in-gtav_1100-6305338_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gilbert-gottfried-voicing-lead-in-gtav/1100-6305338/" class="article-title">Gilbert Gottfried voicing lead in GTAV?</a>
+			<div class="article-subtitle">Controversial comedic and avian voice specialist said to be cast in primary role for Rockstar's next Grand Theft Auto; totally bogus.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_igf-interview-solace_1100-6305341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/igf-interview-solace/1100-6305341/" class="article-title">IGF Interview - Solace</a>
+			<div class="article-subtitle">We stop by the Independent Games Festival booth and chat with Dan Rosas, one of the developers of the top-down shooter Solace. Check it out!</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_thq-deploying-space-marine-in-august_1100-6305343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-deploying-space-marine-in-august/1100-6305343/" class="article-title">THQ deploying Space Marine in August</a>
+			<div class="article-subtitle">Publisher narrows release window for Relic's multiplatform third-person action take on Warhammer 40,000 universe.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_god-of-war-psp-dev-working-on-new-aaa-ip-for-consoles_1100-6305344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/god-of-war-psp-dev-working-on-new-aaa-ip-for-consoles/1100-6305344/" class="article-title">God of War PSP dev working on 'new AAA IP' for consoles</a>
+			<div class="article-subtitle">Ready at Dawn job listing reveals studio is working on third-person action adventure for non-portable platforms.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_gdc-interview-david-helgason-ceo-of-unity-technology_1100-6305346_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gdc-interview-david-helgason-ceo-of-unity-technology/1100-6305346/" class="article-title">GDC Interview - David Helgason, CEO of UNITY Technology </a>
+			<div class="article-subtitle">We interview David Helgason, CEO of UNITY. Check it out!</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_brit-jailed-over-zynga-poker-chip-theft_1100-6305366_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brit-jailed-over-zynga-poker-chip-theft/1100-6305366/" class="article-title">Brit jailed over Zynga poker chip theft</a>
+			<div class="article-subtitle">Hacker given two years after making off with virtual currency valued at $12 million by social-gaming kingpin.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_splinter-cell-prince-of-persia-bundles-delayed_1100-6305357_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/splinter-cell-prince-of-persia-bundles-delayed/1100-6305357/" class="article-title">Splinter Cell, Prince of Persia bundles delayed</a>
+			<div class="article-subtitle">Ubisoft's HD, 3D update for acrobatic action adventure trilogy due April 19, followed by classic Sam Fisher stealth action series on June 21.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_wizardry-journeys-west_1100-6305362_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wizardry-journeys-west/1100-6305362/" class="article-title">Wizardry journeys West</a>
+			<div class="article-subtitle">Xseed Games picks up North American and European publishing rights to dungeon-crawling franchise's first downloadable PS3 iteration.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/23_singapore-3ds-launch-slated-for-march-28_1100-6304721_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singapore-3ds-launch-slated-for-march-28/1100-6304721/" class="article-title">Singapore 3DS launch slated for March 28</a>
+			<div class="article-subtitle">Shipment to arrive 24 hours after US launch timing; official price S$399 ($315).</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_stronghold-3-release-pushed-back_thumbnail.png">
+			<a href="https://www.eurogamer.net/stronghold-3-release-pushed-back" class="article-title">Stronghold 3 release pushed back</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_the-first-templar-dated-for-pc-and-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-first-templar-dated-for-pc-and-360" class="article-title">The First Templar dated for PC and 360</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_left-4-dead-cold-stream-dlc-enters-beta_thumbnail.png">
+			<a href="https://www.eurogamer.net/left-4-dead-cold-stream-dlc-enters-beta" class="article-title">Left 4 Dead Cold Stream DLC enters beta</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_report-wii-rules-lounge-360-bedroom_thumbnail.png">
+			<a href="https://www.eurogamer.net/report-wii-rules-lounge-360-bedroom" class="article-title">Report: Wii rules lounge, 360 bedroom</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_warhammer-40k-space-marine-out-in-august_thumbnail.png">
+			<a href="https://www.eurogamer.net/warhammer-40k-space-marine-out-in-august" class="article-title">Warhammer 40k: Space Marine dated</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_mafia-ii-directors-cut-sighted_thumbnail.png">
+			<a href="https://www.eurogamer.net/mafia-ii-directors-cut-sighted" class="article-title">Mafia II: Director's Cut sighted</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_heavy-rain-dev-staying-ps3-exclusive_thumbnail.png">
+			<a href="https://www.eurogamer.net/heavy-rain-dev-staying-ps3-exclusive" class="article-title">Heavy Rain dev staying PS3-exclusive</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_capcom-reveals-new-3ds-mystery-ip_thumbnail.png">
+			<a href="https://www.eurogamer.net/capcom-reveals-new-3ds-mystery-ip" class="article-title">Capcom reveals new 3DS mystery IP</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_ea-working-on-mystery-3rd-person-shooter_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-working-on-mystery-3rd-person-shooter" class="article-title">EA working on mystery 3rd person shooter</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_hudson-cancels-planned-3ds-titles_thumbnail.png">
+			<a href="https://www.eurogamer.net/hudson-cancels-planned-3ds-titles" class="article-title">Hudson cancels planned 3DS titles</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_dodgy-legality-halts-gothic-4-expansion_thumbnail.png">
+			<a href="https://www.eurogamer.net/dodgy-legality-halts-gothic-4-expansion" class="article-title">Dodgy legality halts Gothic 4 expansion</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_ps3-hacker-flees-to-south-america_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-hacker-flees-to-south-america" class="article-title">PS3 hacker flees to South America</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_eu-playstation-store-update-23rd-march_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-23rd-march" class="article-title">EU PlayStation Store update 23rd March</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_homefront-xbox-freeze-bug-fix-asap-thq_thumbnail.png">
+			<a href="https://www.eurogamer.net/homefront-xbox-freeze-bug-fix-asap-thq" class="article-title">Homefront Xbox freeze bug fix ASAP - THQ</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_f-e-a-r-3-uk-release-date-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/f-e-a-r-3-uk-release-date-confirmed" class="article-title">F.E.A.R. 3 UK release date confirmed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_motoheroz-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/motoheroz-hands-on" class="article-title">MotoHeroz</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_steam-video-filmmaker-tools-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/steam-video-filmmaker-tools-soon" class="article-title">Steam video, filmmaker tools "soon"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_geometry-wars-creator-forms-hogrocket_thumbnail.png">
+			<a href="https://www.eurogamer.net/geometry-wars-creator-forms-hogrocket" class="article-title">Geometry Wars creator forms Hogrocket</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_marvel-vs-capcom-3-sentinel-nerfed_thumbnail.png">
+			<a href="https://www.eurogamer.net/marvel-vs-capcom-3-sentinel-nerfed" class="article-title">Marvel vs. Capcom 3: Sentinel nerfed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_splinter-cell-trilogy-release-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/splinter-cell-trilogy-release-delayed" class="article-title">Splinter Cell Trilogy release delayed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_ipad-2-uk-price-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/ipad-2-uk-price-revealed" class="article-title">iPad 2 UK price revealed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_dev-defends-dead-island-child-violence_thumbnail.png">
+			<a href="https://www.eurogamer.net/dev-defends-dead-island-child-violence" class="article-title">Dev defends Dead Island child violence</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/23_no-pain-no-game-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-pain-no-game-article" class="article-title">No pain, no game</a>
+			<div class="article-author">Brendan Caldwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136732/Snippets-Apple-sues-Amazon-over-Apps-Uncharted-3-co-op-No-subs-for-Torchlight-MMO/" class="article-title">Snippets: Apple sues Amazon over “Apps”; Uncharted 3 co-op?; No subs for Torchlight MMO</a>
+			<div class="article-subtitle">Schaefer: WoW owns sub market.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136729/New-Spider-Man-game-coming-soon/" class="article-title">New Spider-Man game coming soon</a>
+			<div class="article-subtitle">To debut at WonderCon.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136727/MS-confirms-more-Fable-Halo-Gears-Forza/" class="article-title">MS confirms more Fable, Halo, Gears, Forza</a>
+			<div class="article-subtitle">Promises E3 surprises.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/antimatiere.php" class="article-title">Antimatiere</a>
+			<div class="article-author">James Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/infect-evolve-repeat-2.php" class="article-title">infect. evolve. repeat. 2</a>
+			<div class="article-author">J-Witz</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/escape-from-the-room-surrounded-by-bookshelves-2.php" class="article-title">Escape from the Room Surrounded by Bookshelves 2</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

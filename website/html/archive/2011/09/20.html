@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 20, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/burnout-crash-review/1900-6335579/" class="article-title">Burnout Crash! Review</a>
+			<div class="article-subtitle">Well-integrated social features fuel the competitive kinetic chaos of Burnout Crash.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/burnout-crash-review/1900-6335867/" class="article-title">Burnout Crash! Review</a>
+			<div class="article-subtitle">Well-integrated social features fuel the competitive kinetic chaos of Burnout Crash.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-12-review/1900-6335845/" class="article-title">NHL 12 Review</a>
+			<div class="article-subtitle">Little things mean a lot in NHL 12, which subtly refines the best arcade hockey game ever made.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_shippin-out-sept-18-24-gears-of-war-3_1100-6335133_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-sept-18-24-gears-of-war-3/1100-6335133/" class="article-title">Shippin' Out Sept. 18-24: Gears of War 3</a>
+			<div class="article-subtitle">Epic Games' trilogy capper joined by Dragon Quest Monsters: Joker 2, Kirby Mass Attack at retail; Black Ops: Rezurrection comes to PS3, PC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_assassins-creed-revelations-for-ps3-packs-in-original-game_1100-6335581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-revelations-for-ps3-packs-in-original-game/1100-6335581/" class="article-title">Assassin's Creed: Revelations for PS3 packs in original game</a>
+			<div class="article-subtitle">Altair's complete first adventure bundled as bonus for first run of Ubisoft's latest historical adventure game on Sony's console.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_au-shippin-out-sept-20-23-gears-of-war-3_1100-6335595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-sept-20-23-gears-of-war-3/1100-6335595/" class="article-title">AU Shippin' Out Sept 20-23: Gears of War 3</a>
+			<div class="article-subtitle">Can Marcus Fenix and Delta Squad battle it out against near-impossible odds this week in the final instalment in the Gears trilogy?</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_tokyo-game-show-2012-set-for-september-20-23_1100-6335608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-game-show-2012-set-for-september-20-23/1100-6335608/" class="article-title">Tokyo Game Show 2012 set for September 20-23</a>
+			<div class="article-subtitle">2011 show reaches 222,668 attendance within four days.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_final-fantasy-xiii-2-launches-january-31_1100-6335610_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiii-2-launches-january-31/1100-6335610/" class="article-title">Final Fantasy XIII-2 launches January 31</a>
+			<div class="article-subtitle">Square Enix nails down North American, European launch dates for PS3 and Xbox 360 role-playing game sequel.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_crytek-uk-reigniting-homefront_1100-6335613_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crytek-uk-reigniting-homefront/1100-6335613/" class="article-title">Crytek UK reigniting Homefront </a>
+			<div class="article-subtitle">Nottingham-based studio responsible for Haze, TimeSplitters taking on development duties for as-yet-unnamed sequel.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_battlefield-3-open-beta-begins-september-29_1100-6335621_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-3-open-beta-begins-september-29/1100-6335621/" class="article-title">Battlefield 3 open beta begins September 29</a>
+			<div class="article-subtitle">PC, Xbox 360, and PS3 multiplayer test for DICE military shooter downloadable a month before game's launch; beta features a single mode on a single map.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_batman-arkham-city-pc-pushed-to-november_1100-6335628_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/batman-arkham-city-pc-pushed-to-november/1100-6335628/" class="article-title">Batman: Arkham City PC pushed to November</a>
+			<div class="article-subtitle">Warner Bros. Interactive Entertainment confirms Xbox 360, PS3 versions have gone gold for mid-October debut, but PC players will need to wait a few more weeks.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_lego-harry-potter-years-5-7-launches-november-11_1100-6335646_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-harry-potter-years-5-7-launches-november-11/1100-6335646/" class="article-title">Lego Harry Potter: Years 5-7 launches November 11</a>
+			<div class="article-subtitle">Warner Bros. bringing the boy wizard's building-block adventures to a close at height of holiday release season.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_ultimate-marvel-vs-capcom-3-costume-breakdown-week-4_1100-6335619_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-marvel-vs-capcom-3-costume-breakdown-week-4/1100-6335619/" class="article-title">Ultimate Marvel vs. Capcom 3 Costume Breakdown - Week 4</a>
+			<div class="article-subtitle">Marvel's Iron Fist and Capcom's Vergil are on deck for this week's look at costume alternates in Ultimate Marvel vs. Capcom 3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_tokyo-game-show-activity-blogs_1100-6335624_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-game-show-activity-blogs/1100-6335624/" class="article-title">Tokyo Game Show Activity Blogs</a>
+			<div class="article-subtitle">Here we see the blogs submitted for the TGS blog activities.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_blog-bunker-happy-punch-day_1100-6335626_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blog-bunker-happy-punch-day/1100-6335626/" class="article-title">Blog Bunker: Happy Punch Day!</a>
+			<div class="article-subtitle">TGS blogs and a Punch Day activity!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_diablo-iii-closed-beta-begins_1100-6335830_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-closed-beta-begins/1100-6335830/" class="article-title">Diablo III closed beta begins</a>
+			<div class="article-subtitle">Blizzard Entertainment confirms beta under way for action role-playing game sequel; more invitations to be rolled out over course of beta.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/20_nhl-12-sets-franchise-sales-record_1100-6335842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nhl-12-sets-franchise-sales-record/1100-6335842/" class="article-title">NHL 12 sets franchise sales record</a>
+			<div class="article-subtitle">EA Sports' latest hockey sim sells more than 450,000 copies in first week, tops $27 million in retail receipts worldwide; Facebook version of franchise launching next month.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_vita-to-psp-connectivity-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/vita-to-psp-connectivity-confirmed" class="article-title">Vita to PSP connectivity confirmed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_viacom-sues-harmonix-for-usd131m_thumbnail.png">
+			<a href="https://www.eurogamer.net/viacom-sues-harmonix-for-usd131m" class="article-title">Viacom sues Harmonix for $131m</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_konami-announces-boom-boom-dance_thumbnail.png">
+			<a href="https://www.eurogamer.net/konami-announces-boom-boom-dance" class="article-title">Konami announces Boom Boom Dance</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_diablo-3-closed-beta-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/diablo-3-closed-beta-goes-live" class="article-title">Diablo 3 closed beta goes live</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_swtor-to-be-final-subscription-mmo_thumbnail.png">
+			<a href="https://www.eurogamer.net/swtor-to-be-final-subscription-mmo" class="article-title">SWTOR to be final subscription MMO?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_xbox-live-marketplace-schedule-update-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-marketplace-schedule-update-2" class="article-title">Xbox Live Marketplace schedule update</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_first-bravely-default-flying-fairy-info_thumbnail.png">
+			<a href="https://www.eurogamer.net/first-bravely-default-flying-fairy-info" class="article-title">First Bravely Default: Flying Fairy info</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_amazon-appstore-opens-for-business_thumbnail.png">
+			<a href="https://www.eurogamer.net/amazon-appstore-opens-for-business" class="article-title">Amazon Appstore opens for business</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_lego-harry-potter-years-5-7-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/lego-harry-potter-years-5-7-date" class="article-title">Lego Harry Potter: Years 5-7 date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_game-rolls-out-psn-stock-across-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-rolls-out-psn-stock-across-uk" class="article-title">Game rolls out PSN stock across UK</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_forza-4-demo-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/forza-4-demo-release-date" class="article-title">Forza 4 demo release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_zen-pinball-3d-rolling-to-3ds-eshop_thumbnail.png">
+			<a href="https://www.eurogamer.net/zen-pinball-3d-rolling-to-3ds-eshop" class="article-title">Zen Pinball 3D rolling to 3DS eShop</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_half-life-2-episode-3-code-in-dota-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/half-life-2-episode-3-code-in-dota-2" class="article-title">Half-Life 2: Episode 3 code in Dota 2?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_robots-orcs-must-die-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/robots-orcs-must-die-release-date" class="article-title">Robot's Orcs Must Die! release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_gears-of-war-3-wheres-cheapest_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-of-war-3-wheres-cheapest" class="article-title">Gears of War 3: Where's cheapest?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_trackmania-2-canyon-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/trackmania-2-canyon-review" class="article-title">TrackMania 2: Canyon</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_deadly-premonition-dev-making-vita-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/deadly-premonition-dev-making-vita-game" class="article-title">Deadly Premonition dev making Vita game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_battlefield-dev-doesnt-want-500-devs_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlefield-dev-doesnt-want-500-devs" class="article-title">Battlefield dev doesn't want 500+ devs</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_ps3-psp-title-maintenance-this-sunday_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-psp-title-maintenance-this-sunday" class="article-title">PS3, PSP title maintenance Sunday am</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_gears-3-story-map-and-co-op-dlc-planned_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-3-story-map-and-co-op-dlc-planned" class="article-title">Gears 3 story, map and co-op DLC planned</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_ac-revelations-ps3-includes-first-ac_thumbnail.png">
+			<a href="https://www.eurogamer.net/ac-revelations-ps3-includes-first-ac" class="article-title">AC: Revelations PS3 includes first AC</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_team-meats-binding-of-isaac-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-meats-binding-of-isaac-release-date" class="article-title">Team Meat's Binding of Isaac release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_expo-uncharted-3-and-vita-competitions-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/expo-uncharted-3-and-vita-competitions-blog-entry" class="article-title">Expo: Win a €10,000 Uncharted 3 Treasure Hunt in Jordan</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_gearbox-wants-duke-nukem-feedback_thumbnail.png">
+			<a href="https://www.eurogamer.net/gearbox-wants-duke-nukem-feedback" class="article-title">Gearbox wants Duke Nukem feedback</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-beta-latency-issues-explained_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-beta-latency-issues-explained" class="article-title">OnLive beta latency issues explained</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_grand-theft-auto-hits-headlines-again_thumbnail.png">
+			<a href="https://www.eurogamer.net/grand-theft-auto-hits-headlines-again" class="article-title">Grand Theft Auto hits headlines again</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_david-perry-demos-onlive-style-tech_thumbnail.png">
+			<a href="https://www.eurogamer.net/david-perry-demos-onlive-style-tech" class="article-title">David Perry demos OnLive-style tech</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_can-we-measure-onlive-lag-yes-we-can_thumbnail.png">
+			<a href="https://www.eurogamer.net/can-we-measure-onlive-lag-yes-we-can" class="article-title">Can We Measure OnLive Lag? Yes, We Can</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_gdc-david-perrys-onlive-style-service_thumbnail.png">
+			<a href="https://www.eurogamer.net/gdc-david-perrys-onlive-style-service" class="article-title">GDC: David Perry's OnLive-style service</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_head-in-the-cloud-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/head-in-the-cloud-article" class="article-title">Head in the Cloud</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_ea-rejects-cloud-only-future-for-gaming_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-rejects-cloud-only-future-for-gaming" class="article-title">EA rejects cloud-only future for gaming</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-goes-into-public-beta-testing_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-goes-into-public-beta-testing" class="article-title">OnLive goes into public beta testing</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_xbox-not-worried-about-gaikai-onlive_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-not-worried-about-gaikai-onlive" class="article-title">Xbox not worried about Gaikai, OnLive</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-to-stay-away-from-e3_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-to-stay-away-from-e3" class="article-title">OnLive to stay away from E3</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-mobile-phone-tech-demoed_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-mobile-phone-tech-demoed" class="article-title">OnLive mobile phone tech demoed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_aliens-vs-predator-heading-to-onlive_thumbnail.png">
+			<a href="https://www.eurogamer.net/aliens-vs-predator-heading-to-onlive" class="article-title">Aliens vs Predator heading to OnLive</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-claims-cloud-based-games-patent_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-claims-cloud-based-games-patent" class="article-title">OnLive claims cloud-based games patent</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-microconsole-dated-and-priced_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-microconsole-dated-and-priced" class="article-title">OnLive MicroConsole dated, priced</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_gaikai-not-worried-by-onlive-patent_thumbnail.png">
+			<a href="https://www.eurogamer.net/gaikai-not-worried-by-onlive-patent" class="article-title">Gaikai not worried by OnLive patent</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_movie-streaming-heading-to-onlive_thumbnail.png">
+			<a href="https://www.eurogamer.net/movie-streaming-heading-to-onlive" class="article-title">Movie streaming heading to OnLive?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-announces-usd9-99-monthly-subs-plan_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-announces-usd9-99-monthly-subs-plan" class="article-title">OnLive to launch $9.99 monthly subs plan</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-early-adopters-get-first-year-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-early-adopters-get-first-year-free" class="article-title">OnLive early adopters get first year free</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-to-launch-this-winter_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-to-launch-this-winter" class="article-title">Perlman: OnLive to launch this winter</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_ea-sceptical-about-onlive_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-sceptical-about-onlive" class="article-title">EA sceptical about OnLive</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_bt-hopes-to-launch-onlive-in-late-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/bt-hopes-to-launch-onlive-in-late-2011" class="article-title">BT hopes to launch OnLive in late 2011</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-convinces-tv-giant-vizio_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-convinces-tv-giant-vizio" class="article-title">OnLive convinces TV giant VIZIO</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_onlive-to-launch-in-uk-this-autumn_thumbnail.png">
+			<a href="https://www.eurogamer.net/onlive-to-launch-in-uk-this-autumn" class="article-title">OnLive to launch in UK this Autumn</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/20_call-of-duty-elite-beta-now-on-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-elite-beta-now-on-ps3" class="article-title">Call of Duty Elite beta now on PS3</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137938/Gamers-solve-decades-old-scientific-problem-in-the-battle-against-AIDS/" class="article-title">Gamers solve decades-old scientific problem in the battle against AIDS</a>
+			<div class="article-subtitle">Retrovirus structure crowdsourced.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137937/Deus-Ex-boss-battles-were-outsourced/" class="article-title">Deus Ex boss battles were outsourced</a>
+			<div class="article-subtitle">Developed by little-known studio.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i137935/Gearbox-creates-Duke-Nukem-survey/" class="article-title">Gearbox creates Duke Nukem survey</a>
+			<div class="article-subtitle">Have your say on DNF.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/libra-1.php" class="article-title">Libra</a>
+			<div class="article-author">SonicLover</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/fodo.php" class="article-title">Fodo!</a>
+			<div class="article-author">Kate</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/siege-hero---viking-vengeance.php" class="article-title">Siege Hero - Viking Vengeance</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-50.php" class="article-title">The Vault №61</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

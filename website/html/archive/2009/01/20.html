@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 20, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-ocean-second-evolution-review/1900-6203390/" class="article-title">Star Ocean: Second Evolution Review</a>
+			<div class="article-subtitle">Second Evolution is an engaging action role-playing game that's just as enjoyable as its PlayStation forebear.</div>
+			<div class="article-author">Shiva Stella</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cuboid-review/1900-6203380/" class="article-title">Cuboid Review</a>
+			<div class="article-subtitle">This interesting puzzle game is a great challenge but not a great value.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/skate-2-review/1900-6203395/" class="article-title">Skate 2 Review</a>
+			<div class="article-subtitle">Skate 2 adds a number of new features to the Skate formula, but not all of them are winners.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/skate-2-review/1900-6203393/" class="article-title">Skate 2 Review</a>
+			<div class="article-subtitle">Skate 2 adds a number of new features to the Skate formula, but not all of them are winners.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_microsoft-gets-game-smart_1100-6203217_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-gets-game-smart/1100-6203217/" class="article-title">Microsoft Gets Game Smart</a>
+			<div class="article-subtitle">Xbox 360 maker joins with Best Buy to launch family-education Web site for digital media, soliciting ambassadors, sweepstakes entrants.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_ps2-sells-50-million-in-north-america_1100-6203174_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps2-sells-50-million-in-north-america/1100-6203174/" class="article-title">PS2 sells 50 million in North America</a>
+			<div class="article-subtitle">Sony's stalwart gaming console secures milestone during its ninth year on the market.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_resident-evil-5-demo-infects-360s-jan-26_1100-6203191_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-5-demo-infects-360s-jan-26/1100-6203191/" class="article-title">Resident Evil 5 demo infects 360s Jan. 26</a>
+			<div class="article-subtitle">Capcom's survival horror sequel lurches onto Microsoft's console later this month; expected to spread to PS3 a week later.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_360-gtaiv-most-rented-game-of-08_1100-6203222_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/360-gtaiv-most-rented-game-of-08/1100-6203222/" class="article-title">360 GTAIV most-rented game of '08</a>
+			<div class="article-subtitle">Rockstar's crime-spree sim tops Rentrak's annual rental top 10, which sports seven 360 games and three Wii games; PS3 MIA.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_guitar-hero-metallica-rides-lightning-march-29_1100-6203254_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-metallica-rides-lightning-march-29/1100-6203254/" class="article-title">Guitar Hero: Metallica rides lightning March 29</a>
+			<div class="article-subtitle">Activision's PS3 and Xbox 360 rhythm game gets North American date; Wii, PS2, and international releases set for early May.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_npd-2008-game-sales-reach-21-billion-wii-play-sells-528m_1100-6203257_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/npd-2008-game-sales-reach-21-billion-wii-play-sells-528m/1100-6203257/" class="article-title">NPD: 2008 game sales reach $21 billion, Wii Play sells 5.28M</a>
+			<div class="article-subtitle">US retailers rack up another record year as Nintendo dominates hardware and software charts; Sony sees December system sales shrink.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_madworld-passes-through-aussie-censors_1100-6203343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madworld-passes-through-aussie-censors/1100-6203343/" class="article-title">Madworld passes through Aussie censors</a>
+			<div class="article-subtitle">Ultrastylised gladiator sports game receives MA15+ rating; Sega confirms that no edits were made to Aussie version.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_au-shippin-out-january-19-23-skate-2_1100-6203344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-january-19-23-skate-2/1100-6203344/" class="article-title">AU Shippin' Out January 19-23: Skate 2</a>
+			<div class="article-subtitle">Avoid security and stick it to the man in EA's latest skateboarding game.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_deadly-creatures-updated-hands-on_1100-6203260_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deadly-creatures-updated-hands-on/1100-6203260/" class="article-title">Deadly Creatures Updated Hands-On</a>
+			<div class="article-subtitle">We explore the arachnid-infested underground labyrinths where only the strongest survive.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_ps3-firmware-260-coming-jan-21_1100-6234154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-firmware-260-coming-jan-21/1100-6234154/" class="article-title">PS3 Firmware 2.60 coming Jan. 21</a>
+			<div class="article-subtitle">Eric Lempel, Sony director of PlayStation Network Operations, has just updated  the official Sony PlayStation Blog with information about the PlayStation 3 firmware 2.60 update coming tomorrow. The update will include Divx 3.11 video playback support, "guest access" to the PlayStation Store that...</div>
+			<div class="article-author">James Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_soe-picks-up-steam-tucson-studio_1100-6203365_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soe-picks-up-steam-tucson-studio/1100-6203365/" class="article-title">SOE picks up Steam, Tucson studio</a>
+			<div class="article-subtitle">MMOG maker adds bulk of its MMOG games to Valve's digital delivery storefront, acquires Pox Nora online CCG creator Octopi.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_wheelman-garaged-until-march-20_1100-6203359_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wheelman-garaged-until-march-20/1100-6203359/" class="article-title">Wheelman garaged until March 20</a>
+			<div class="article-subtitle">Midway delays long-awaited PS3, 360, PC driving game to "provide a more optimal launch timeframe"; demo hitting XBL, PSN beforehand.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_io-deploys-mini-ninjas_1100-6203367_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/io-deploys-mini-ninjas/1100-6203367/" class="article-title">Io deploys Mini Ninjas</a>
+			<div class="article-subtitle">Hitman developer preps E10+ action adventure for release on 360, PS3, Wii, DS, PC this fall.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_hands-on-with-3-on-3-nhl-arcade_1100-6234153_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hands-on-with-3-on-3-nhl-arcade/1100-6234153/" class="article-title">Hands-On With 3 on 3 NHL Arcade</a>
+			<div class="article-subtitle">Sure Joe Thornton is a big dude in real life, but this is ridiculous. Rumbling down the ice with the puck, Joe's at least twice the size of the defender ahead of him and--what's this?--probably twenty times larger than goalie Roberto Luongo. The Vancouver goalie has shrunk to a speck in net and,...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_hands-on-with-3-on-3-nhl-arcade_1100-6203373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hands-on-with-3-on-3-nhl-arcade/1100-6203373/" class="article-title">Hands-On With 3 on 3 NHL Arcade</a>
+			<div class="article-subtitle">We check out 3 on 3 NHL Arcade, a downloadable arcade hockey game for Xbox Live Arcade and PlayStation Network from the same folks who brought us last year's masterpiece, NHL 09.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_crosshairs-season-2009-teaser_1100-6234152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crosshairs-season-2009-teaser/1100-6234152/" class="article-title">Crosshairs Season 2009 Teaser</a>
+			<div class="article-subtitle">Want to know what happened after last year&#39;s cliffhanger ending to Crosshairs? Find out in this special teaser. Watch out for the full episode of Crosshairs returning 22 January 2009.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_australian-game-industry-grows-47-in-2008_1100-6203354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/australian-game-industry-grows-47-in-2008/1100-6203354/" class="article-title">Australian game industry grows 47% in 2008</a>
+			<div class="article-subtitle">UPDATE: Aussie game sector now worth A$1.96 billion in sales; family games (including rhythm and puzzle genres) the dominant genre for local gamers.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_rumored-crackdown-2-dev-officially-opens_1100-6203381_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumored-crackdown-2-dev-officially-opens/1100-6203381/" class="article-title">Rumored Crackdown 2 dev officially opens</a>
+			<div class="article-subtitle">Scottish developer Ruffian announces work on unannounced title for "major publisher" that will feature vehicles, minigames, in-game rewards for gaming feats.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_inauguration-hits-xbl-white-house-gets-wii_1100-6203389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/inauguration-hits-xbl-white-house-gets-wii/1100-6203389/" class="article-title">Inauguration hits XBL, White House gets Wii</a>
+			<div class="article-subtitle">Though history and politics were obviously the focus of the news blitz surrounding today's US presidential inauguration, the event did mark two firsts for games. Barack Obama's swearing-in ceremony, which officials say attracted over 1 million spectators to Washington, DC, will be the first...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_ps3-psp-firmware-updates-en-route_1100-6203391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-psp-firmware-updates-en-route/1100-6203391/" class="article-title">PS3, PSP firmware updates en route</a>
+			<div class="article-subtitle">It may not be what many gamers are clamoring for, but Sony has got a slew of media-management tweaks in store for the PlayStation 3. By way of its PlayStation Blog, Sony today detailed what gamers can expect out of firmware update v2.60, which it expects to roll out in the near future.  Foremost...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_mythic-staff-facing-reckoning_1100-6203399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mythic-staff-facing-reckoning/1100-6203399/" class="article-title">Mythic staff facing Reckoning?</a>
+			<div class="article-subtitle">Source: See below.  What we heard: Electronic Arts may be one of the biggest third-party publishers in the gaming industry, but that fact hasn't saved it from the worsening global economic crisis. Reporting on its financial performance during the July-September quarter in October, EA announced...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_aussie-classification-round-up-january-21-2009_1100-6234150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-classification-round-up-january-21-2009/1100-6234150/" class="article-title">Aussie Classification Round-Up January 21 2009</a>
+			<div class="article-subtitle">2008 has so far been a kind year for Aussie gamers when it comes to classification, with a few titles which were suspected to possibly fall under the ban hammer making it through without any hassles. Top of the list is Madword--the stylised Wii action game with a major focus on creative...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/01/20_qanda-microsoft-australia-talks-latest-xbox-360-sales_1100-6203422_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-microsoft-australia-talks-latest-xbox-360-sales/1100-6203422/" class="article-title">Q&amp;A: Microsoft Australia talks latest  Xbox 360 sales</a>
+			<div class="article-subtitle">Yesterday, the Interactive Entertainment Association of Australia unveiled figures showing game sales in Australia increased significantly in 2008. Microsoft was quick to tout its own figures, claiming more than half a million Xbox 360s had been sold down under so far. GameSpot AU caught up with...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_grand-theft-auto-chinatown-wars-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/grand-theft-auto-chinatown-wars-hands-on" class="article-title">Grand Theft Auto: Chinatown Wars</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_dawn-of-war-ii-dlc-in-first-few-weeks_thumbnail.png">
+			<a href="https://www.eurogamer.net/dawn-of-war-ii-dlc-in-first-few-weeks" class="article-title">Dawn of War II DLC in "first few weeks"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_gridrunner-shapes-up-for-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/gridrunner-shapes-up-for-april" class="article-title">Gridrunner+++ shapes up for April</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_wii-pikmin-and-mario-power-tennis-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-pikmin-and-mario-power-tennis-dated" class="article-title">Wii Mario Power Tennis dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_guilt-propels-wii-fit-atop-uk-chart_thumbnail.png">
+			<a href="https://www.eurogamer.net/guilt-propels-wii-fit-atop-uk-chart" class="article-title">Guilt propels Wii Fit to the top of UK chart</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_midway-cements-wheelman-delay_thumbnail.png">
+			<a href="https://www.eurogamer.net/midway-cements-wheelman-delay" class="article-title">Midway cements Wheelman delay</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_hirai-were-the-official-industry-leader_thumbnail.png">
+			<a href="https://www.eurogamer.net/hirai-were-the-official-industry-leader" class="article-title">Hirai: We're the "official" industry leader</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_coming-attractions-shooters-and-racing-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/coming-attractions-shooters-and-racing-article" class="article-title">Coming Attractions: Shooters & Racing</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_ea-sports-to-learn-from-world-of-goo_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-sports-to-learn-from-world-of-goo" class="article-title">EA Sports to learn from World of Goo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_flower-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/flower-hands-on" class="article-title">Flower</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_killzone-2-ps3-bundle-confirmed-for-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/killzone-2-ps3-bundle-confirmed-for-uk" class="article-title">Killzone 2 PS3 bundle confirmed for UK</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_wedgwood-metacritic-pressure-is-ridiculous_thumbnail.png">
+			<a href="https://www.eurogamer.net/wedgwood-metacritic-pressure-is-ridiculous" class="article-title">Wedgwood: Metacritic strain "ridiculous"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_dawn-of-war-ii-us-date-moves-forward_thumbnail.png">
+			<a href="https://www.eurogamer.net/dawn-of-war-ii-us-date-moves-forward" class="article-title">No change to Dawn of War II Euro date</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_midway-birthing-five-for-iphone_thumbnail.png">
+			<a href="https://www.eurogamer.net/midway-birthing-five-for-iphone" class="article-title">Midway birthing five for iPhone</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_ea-job-cuts-rumoured-at-mythic_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-job-cuts-rumoured-at-mythic" class="article-title">EA job cuts rumoured at Mythic</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_puzzle-quest-galactrix-flash-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/puzzle-quest-galactrix-flash-demo" class="article-title">Puzzle Quest Galactrix Flash demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_rolando-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/rolando-review" class="article-title">Rolando</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_rolando-price-cut-to-gbp-3-49_thumbnail.png">
+			<a href="https://www.eurogamer.net/rolando-price-cut-to-gbp-3-49" class="article-title">Rolando price cut to GBP 3.49</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/01/20_football-manager-live-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/football-manager-live-review" class="article-title">Football Manager Live</a>
+			<div class="article-author">Martin Korda</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132776/Flower-gets-release-date/" class="article-title">Flower gets release date</a>
+			<div class="article-subtitle">Quirky PS3 title coming soon</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132775/Resident-Evil-5-PS3-demo-announced/" class="article-title">Resident Evil 5 PS3 demo announced</a>
+			<div class="article-subtitle">360 still gets the jump on PS3.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/grow-tower.php" class="article-title">Grow Tower</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dodge.php" class="article-title">Dodge</a>
+			<div class="article-author">Kyle E. Moore</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/godlaser.php" class="article-title">Godlaser</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/electric-box.php" class="article-title">Electric Box</a>
+			<div class="article-author">SonicLover</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/best-of-2008-voting-is-now-closed.php" class="article-title">Best of 2008 voting is now closed</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2009/01/20/a-new-zero-open-beta/" class="article-title">A New Zero (Open Beta)</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

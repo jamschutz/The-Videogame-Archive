@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 20, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_infamous-2-updated-impressions_1100-6273913_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infamous-2-updated-impressions/1100-6273913/" class="article-title">Infamous 2 Updated Impressions</a>
+			<div class="article-subtitle">Cole MacGrath makes his first public playable appearance at Gamescom 2010 in Germany, where a new demo also shows him facing off against a huge enemy in a new section from the game.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_need-for-speed-hot-pursuit-updated-hands-on_1100-6273925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-hot-pursuit-updated-hands-on/1100-6273925/" class="article-title">Need for Speed: Hot Pursuit Updated Hands-On</a>
+			<div class="article-subtitle">We went hands-on with a multiplayer build of Criterion’s cops-and-robbers racing game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_crysis-2-art-panel-shows-light-at-the-end-of-the-tunnel_1100-6273914_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crysis-2-art-panel-shows-light-at-the-end-of-the-tunnel/1100-6273914/" class="article-title">Crysis 2 art panel shows light at the end of the tunnel</a>
+			<div class="article-subtitle">GDC Europe 2010: Crytek art director shows off some of the impressive technical aspects of its CryEngine 3 and explains the technical hurdles the studio has cleared.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_udraw-gametablet-first-impressions_1100-6273637_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/udraw-gametablet-first-impressions/1100-6273637/" class="article-title">uDraw GameTablet First Impressions</a>
+			<div class="article-subtitle">We inspect THQ's newly unveiled graphics tablet Wii peripheral.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_diablo-iii-director-jay-wilson-on-crafting-artisans_1100-6273927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-director-jay-wilson-on-crafting-artisans/1100-6273927/" class="article-title">Diablo III director Jay Wilson on crafting Artisans</a>
+			<div class="article-subtitle">Gamescom 2010: Blizzard unveils new non-player character companions; says there are "no plans" to bring RPG to consoles...yet.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_portal-2-opening-february-9_1100-6273853_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/portal-2-opening-february-9/1100-6273853/" class="article-title">Portal 2 opening February 9</a>
+			<div class="article-subtitle">Sequel to Valve's mind-bending PS3, PC, and Xbox 360 action-platformer will arrive before Valentine's Day next year; <i>The Office</i>'s Stephen Merchant to voice British robot.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_gamers-will-drive-the-3d-movement-sony-3d-game-head_1100-6273918_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamers-will-drive-the-3d-movement-sony-3d-game-head/1100-6273918/" class="article-title">'Gamers will drive the 3D movement' - Sony 3D game head</a>
+			<div class="article-subtitle">Gamescom 2010: SCEE senior director Mick Hocking explains why the market will get over the glasses and embrace the third dimension on the PS3.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_realtime-worlds-hemorrhages-staff_1100-6273979_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/realtime-worlds-hemorrhages-staff/1100-6273979/" class="article-title">Realtime Worlds hemorrhages staff</a>
+			<div class="article-subtitle">UPDATE: APB studio sheds 185 positions as part of bankruptcy administration; online shooter to remain operational, receive updates. Twenty-three staff since rehired for MyWorld.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_gamestop-rides-red-dead-sales-to-34-growth-in-q2_1100-6274007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-rides-red-dead-sales-to-34-growth-in-q2/1100-6274007/" class="article-title">GameStop rides Red Dead sales to 3.4% growth in Q2</a>
+			<div class="article-subtitle">Mario Galaxy 2, UFC 2010, Starcraft II, and NCAA Football 11 round out top sellers; specialty retailer says it has "not seen any impact" from publishers' Online Pass schemes, increased competition in market.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_kinect-joy-ride-hands-on_1100-6273653_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kinect-joy-ride-hands-on/1100-6273653/" class="article-title">Kinect Joy Ride Hands-On</a>
+			<div class="article-subtitle">We wave our hands in the air like we just don't care with Microsoft's kart racing game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_thq-locks-down-wwe-smackdown-vs-raw-2011-online-mode_1100-6274003_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-locks-down-wwe-smackdown-vs-raw-2011-online-mode/1100-6274003/" class="article-title">THQ locks down WWE Smackdown vs. Raw 2011 online mode</a>
+			<div class="article-subtitle">Publisher bundles single-use online admission code and DLC with new copies of fighting game; used-game purchasers must pay $10 for access.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_5th-cells-next-game-powered-by-source-engine-report_1100-6274033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/5th-cells-next-game-powered-by-source-engine-report/1100-6274033/" class="article-title">5th Cell's next game powered by Source engine - Report</a>
+			<div class="article-subtitle">Valve's game tech to power new title from Scribblenauts studio; public reveal coming in the "next few months."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_castle-crashers-storming-psn-august-31_1100-6274044_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castle-crashers-storming-psn-august-31/1100-6274044/" class="article-title">Castle Crashers storming PSN August 31</a>
+			<div class="article-subtitle">The Behemoth's beat-'em-up downloadable game hits Sony's virtual storefront in two weeks.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_from-dust-set-for-march-launch_1100-6274053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/from-dust-set-for-march-launch/1100-6274053/" class="article-title">From Dust set for March launch</a>
+			<div class="article-subtitle">Gamescom 2010: Ubisoft reveals new name for Project Dust, puts release window on downloadable god game for 360, PS3, PC.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_italian-american-group-protests-mafia-ii-stereotypes_1100-6274095_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/italian-american-group-protests-mafia-ii-stereotypes/1100-6274095/" class="article-title">Italian-American group protests Mafia II stereotypes</a>
+			<div class="article-subtitle">UNICO National calls for release of mobster simulator to be halted, calling it "a pile of racist nonsense"; Take-Two chairman calls game "socially responsible."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_krome-confirms-staff-studios-on-notice_1100-6274099_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/krome-confirms-staff-studios-on-notice/1100-6274099/" class="article-title">Krome confirms staff, studios "on notice"</a>
+			<div class="article-subtitle">Undisclosed number of staff and at least one studio on four-week lifeline; future remains undecided pending outcome of projects; current development not affected.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_rock-band-3-complete-track-listing-revealed_1100-6273988_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-3-complete-track-listing-revealed/1100-6273988/" class="article-title">Rock Band 3 complete track listing revealed?</a>
+			<div class="article-subtitle">[UPDATE] Video shows Harmonix staffer scrolling through entire song listing at Gamescom; artists range from Amy Winehouse to Yes.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_psp2-gains-touch-sensitive-controls_1100-6274050_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp2-gains-touch-sensitive-controls/1100-6274050/" class="article-title">PSP2 gains touch-sensitive controls?</a>
+			<div class="article-subtitle">Sony's unannounced handheld will reportedly feature a tactile pad on its reverse side to interact with games; dimensions similar to that of the PSP-3000.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_starcraft-ii-southeast-asian-tournament-announced_1100-6274129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starcraft-ii-southeast-asian-tournament-announced/1100-6274129/" class="article-title">Starcraft II Southeast Asian tournament announced</a>
+			<div class="article-subtitle">Top 16 players from Southeast Asian servers set to battle it out in September for the chance to be invited to BlizzCon 2010.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_dj-hero-2-spinning-october-19_1100-6274151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dj-hero-2-spinning-october-19/1100-6274151/" class="article-title">DJ Hero 2 spinning October 19 </a>
+			<div class="article-subtitle">Activision's turntable-based rhythm game returns for 360, PS3, Wii in two months with 90 on-disc tracks.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_gran-turismo-5-update-course-maker-driver-management-and-kart-racing_1100-6273983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-5-update-course-maker-driver-management-and-kart-racing/1100-6273983/" class="article-title">Gran Turismo 5 Update - Course Maker, Driver Management, and Kart Racing</a>
+			<div class="article-subtitle">Kazunori Yamauchi shows a few more features, including two that let you get creative and tactical.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_sound-byte-free-soundtrack-for-shank_1100-6274097_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-free-soundtrack-for-shank/1100-6274097/" class="article-title">Sound Byte: Free Soundtrack for Shank</a>
+			<div class="article-subtitle">Find out how you can download the soundtrack to this upcoming downloadable game for free.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_lord-of-the-rings-war-in-the-north-updated-impressions_1100-6273987_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lord-of-the-rings-war-in-the-north-updated-impressions/1100-6273987/" class="article-title">Lord of the Rings: War in the North Updated Impressions</a>
+			<div class="article-subtitle">Snowblind Studios' upcoming action RPG aims to be the bloodiest Middle-earth game yet.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_super-scribblenauts-updated-hands-on_1100-6273996_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-scribblenauts-updated-hands-on/1100-6273996/" class="article-title">Super Scribblenauts Updated Hands-On</a>
+			<div class="article-subtitle">We create our fair share of abominations of nature using this sequel's new adjective system.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_inversion-first-impressions_1100-6273997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/inversion-first-impressions/1100-6273997/" class="article-title">Inversion: First Impressions</a>
+			<div class="article-subtitle">The development team behind TimeShift shows off its new physics-focused third-person shooter.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_little-big-planet-2-impressions_1100-6274056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/little-big-planet-2-impressions/1100-6274056/" class="article-title">Little Big Planet 2 Impressions</a>
+			<div class="article-subtitle">Little Big Planet 2 continues to grow as it progresses in development, as we found out when Media Molecule showed its latest demo at Gamescom 2010.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_heroes-on-the-move-updated-impressions_1100-6274061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heroes-on-the-move-updated-impressions/1100-6274061/" class="article-title">Heroes on the Move Updated Impressions</a>
+			<div class="article-subtitle">We bowled, threw a Frisbee, and busted open some robotic heads with a ray gun in Nihilistic’s heroic character mash-up.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_medal-of-honor-hands-on_1100-6274079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-hands-on/1100-6274079/" class="article-title">Medal of Honor Hands-On</a>
+			<div class="article-subtitle">We take to the skies in an Apache attack helicopter in a recently unveiled single-player mission.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_motorstorm-apocalypse-hands-on_1100-6274094_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorstorm-apocalypse-hands-on/1100-6274094/" class="article-title">Motorstorm: Apocalypse Hands-On</a>
+			<div class="article-subtitle">We got to see a brand-new section of Evolution Studios' destructive racer behind closed doors at Gamescom 2010.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_fallout-new-vegas-updated-hands-on_1100-6274096_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-new-vegas-updated-hands-on/1100-6274096/" class="article-title">Fallout: New Vegas Updated Hands-On</a>
+			<div class="article-subtitle">We spent an hour customizing our character, chasing geckos, and roaming the wasteland in Obsidian’s postapocalyptic role-playing game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_call-of-duty-black-ops-updated-impressions_1100-6274098_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-black-ops-updated-impressions/1100-6274098/" class="article-title">Call of Duty: Black Ops Updated Impressions</a>
+			<div class="article-subtitle">Our latest look at Treyarch's Cold War spin on the Call of Duty series takes us underwater and up in the air.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_goldeneye-007-updated-multiplayer-hands-on_1100-6274100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/goldeneye-007-updated-multiplayer-hands-on/1100-6274100/" class="article-title">Goldeneye 007 Updated Multiplayer Hands-On</a>
+			<div class="article-subtitle">Bond ventures into the jungle in our latest look at the reimagining of the N64 classic.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_everquest-ii-extended-goes-live_1100-6274157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/everquest-ii-extended-goes-live/1100-6274157/" class="article-title">EverQuest II Extended goes live</a>
+			<div class="article-subtitle">Free-to-play option for SOE's fantasy MMORPG now available; $200/year top-tier plan to launch August 31.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_big-in-japan-august-9-15-wii-party-sengoku-basara_1100-6274159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-august-9-15-wii-party-sengoku-basara/1100-6274159/" class="article-title">Big in Japan August 9-15: Wii Party, Sengoku Basara</a>
+			<div class="article-subtitle">Nintendo minigame collection and Capcom historical action game hold sway as no new releases crack the Japanese top 10.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_mortal-kombat-hands-on_1100-6274136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-hands-on/1100-6274136/" class="article-title">Mortal Kombat Hands-On</a>
+			<div class="article-subtitle">We do the robot and kick our opponent into itty-bitty pieces with a fresh look at the Mortal Kombat reboot.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_fear-3-updated-impressions_1100-6274137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-3-updated-impressions/1100-6274137/" class="article-title">F.E.A.R. 3 Updated Impressions</a>
+			<div class="article-subtitle">We get ghostly with a buddy and take a look at the cooperative play in this upcoming paranormal shooter.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_virtua-tennis-4-first-look_1100-6274140_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtua-tennis-4-first-look/1100-6274140/" class="article-title">Virtua Tennis 4 First Look</a>
+			<div class="article-subtitle">We pull on our tennis shoes and take to the court to hit a few balls around in our first look at this motion-driven sports game.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/20_killzone-3-multiplayer-hands-on_1100-6273911_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/killzone-3-multiplayer-hands-on/1100-6273911/" class="article-title">Killzone 3 Multiplayer Hands-On</a>
+			<div class="article-subtitle">We check out the new Guerrilla Warfare and Operation modes from Guerrilla’s futuristic squad-based shooter.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_realtime-crisis-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/realtime-crisis-article" class="article-title">Realtime Crisis</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_the-art-of-fable-iii-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-art-of-fable-iii-interview" class="article-title">The Art of Fable III</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_realtime-staff-sacked-via-tannoy_thumbnail.png">
+			<a href="https://www.eurogamer.net/realtime-staff-sacked-via-tannoy" class="article-title">Realtime staff sacked via PA address</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_lionhead-working-10x-faster-on-fable-iii_thumbnail.png">
+			<a href="https://www.eurogamer.net/lionhead-working-10x-faster-on-fable-iii" class="article-title">Lionhead working 10x faster on Fable III</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_killzone-3-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/killzone-3-preview" class="article-title">Killzone 3</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_tesco-buying-used-games-nationwide_thumbnail.png">
+			<a href="https://www.eurogamer.net/tesco-buying-used-games-nationwide" class="article-title">Tesco buying used games nationwide</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_master-chiefs-voice-in-halo-reach_thumbnail.png">
+			<a href="https://www.eurogamer.net/master-chiefs-voice-in-halo-reach" class="article-title">Master Chief's voice in Halo: Reach</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_download-games-roundup-review-37_thumbnail.png">
+			<a href="https://www.eurogamer.net/download-games-roundup-review-37" class="article-title">Download Games Roundup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_guillemot-urges-patience-with-bg-and-e2_thumbnail.png">
+			<a href="https://www.eurogamer.net/guillemot-urges-patience-with-bg-and-e2" class="article-title">Guillemot urges "patience" with BG&E2</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_ea-crysis-2-will-be-a-90-rated-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-crysis-2-will-be-a-90-rated-game" class="article-title">EA: Crysis 2 will be a 90-rated game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_third-doctor-who-game-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/third-doctor-who-game-revealed" class="article-title">Third Doctor Who game revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_castlevania-lords-of-shadow-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/castlevania-lords-of-shadow-dated" class="article-title">Castlevania: Lords of Shadow dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_rest-of-rock-band-3-setlist-leaked_thumbnail.png">
+			<a href="https://www.eurogamer.net/rest-of-rock-band-3-setlist-leaked" class="article-title">Rest of Rock Band 3 setlist leaked?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/20_deus-ex-human-revolution-preview-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-human-revolution-preview-3" class="article-title">Deus Ex: Human Revolution</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135489/Snippets-Levine-Infinite-is-not-BioShock-3-Police-Zynga-ads-vandalism/" class="article-title">Snippets: Levine: Infinite is not BioShock 3, Police: Zynga ads "vandalism"</a>
+			<div class="article-subtitle">"Illegal marketing tactics."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i135486/StarCraft-II-Invitational-Tournament-announced/" class="article-title">StarCraft II Invitational Tournament announced</a>
+			<div class="article-subtitle">Cash, BlizzCon access up for grabs.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135485/GT5-updates-from-GamesCom/" class="article-title">GT5 updates from GamesCom</a>
+			<div class="article-subtitle">Course maker, Kart racing, more.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/snark-busters-welcome-to-the-club.php" class="article-title">Snark Busters: Welcome to the Club</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/choice-of-romance.php" class="article-title">Choice of Romance</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-178.php" class="article-title">Link Dump Friday №179</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/save-my-robotos.php" class="article-title">Save My Robotos</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

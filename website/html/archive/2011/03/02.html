@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 2, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fight-night-round-4-review/1900-6212739/" class="article-title">Fight Night Round 4 Review</a>
+			<div class="article-subtitle">Though definitely an improvement over its predecessor, this boxing game isn't without a few problems.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/acceleration-of-suguri-x-edition-review/1900-6301655/" class="article-title">Acceleration of Suguri X Edition Review</a>
+			<div class="article-subtitle">A delicious mix of arena fighting and bullet-hell chaos wins out over weak presentation in this action battler.</div>
+			<div class="article-author">Nathan Meunier</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cities-in-motion-review/1900-6301612/" class="article-title">Cities in Motion Review</a>
+			<div class="article-subtitle">Cities in Motion finds fun and challenge in the hustle and bustle of modern urban transit.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_infamous-2-hands-on-preview-custom-missions_1100-6301580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infamous-2-hands-on-preview-custom-missions/1100-6301580/" class="article-title">Infamous 2 Hands-On Preview - Custom Missions</a>
+			<div class="article-subtitle">GDC 2011: We get a taste of what's possible using Infamous 2's new mission creation tools.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_zynga-and-mol-launch-game-cards-in-southeast-asia_1100-6301326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zynga-and-mol-launch-game-cards-in-southeast-asia/1100-6301326/" class="article-title">Zynga and MOL launch game cards in Southeast Asia</a>
+			<div class="article-subtitle">Six countries in the region will have cards in different outlets.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_japanese-developers-comment-on-ngp_1100-6301569_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/japanese-developers-comment-on-ngp/1100-6301569/" class="article-title">Japanese developers comment on NGP</a>
+			<div class="article-subtitle">Majority talk about price point and network connectivity.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_sega-rally-online-arcade-preview_1100-6301581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-rally-online-arcade-preview/1100-6301581/" class="article-title">Sega Rally Online Arcade Preview</a>
+			<div class="article-subtitle">The next entry in the Sega Rally series looks to bring the arcade experience to your home console.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_nintendo-3ds-dated-priced_1100-6280013_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-3ds-dated-priced/1100-6280013/" class="article-title">Nintendo 3DS dated, priced</a>
+			<div class="article-subtitle">Stereoscopic handheld to launch February 2011 in Japan, March 2011 for US/Europe; price pegged at ¥25,000 ($299) in home nation; to include Game Boy Virtual Console.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_win-a-trip-to-see-the-nintendo-3ds-in-amsterdam_1100-6285829_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/win-a-trip-to-see-the-nintendo-3ds-in-amsterdam/1100-6285829/" class="article-title">Win a trip to see the Nintendo 3DS in Amsterdam</a>
+			<div class="article-subtitle">Enter Nintendo's competition to join GameSpot UK at the press-only 3DS showcase in Amsterdam.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_3ds-pricing-date-details-promised-in-sept-report_1100-6271503_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3ds-pricing-date-details-promised-in-sept-report/1100-6271503/" class="article-title">3DS pricing, date details promised in Sept. - Report</a>
+			<div class="article-subtitle">UPDATE: Nintendo has confirmed the announcement, but denied any release window confirmation.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_homefront-to-get-dedicated-servers-down-under_1100-6301330_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/homefront-to-get-dedicated-servers-down-under/1100-6301330/" class="article-title">Homefront to get dedicated servers Down Under </a>
+			<div class="article-subtitle">Aussie servers go live today for THQ's upcoming first-person shooter.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_want-to-win-the-igf-in-under-4-months-heres-how_1100-6301497_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/want-to-win-the-igf-in-under-4-months-heres-how/1100-6301497/" class="article-title">Want to win the IGF in under 4 months? (Here's how)</a>
+			<div class="article-subtitle">GDC 2011: Indie developer Andy Schatz talks about the design process that led to the creation of his 2010 IGF Grand Prize winner, Monaco.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_battlefield-3-first-look-preview_1100-6301586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-3-first-look-preview/1100-6301586/" class="article-title">Battlefield 3 First Look Preview </a>
+			<div class="article-subtitle">We head to the Iraqi border and see some impressive sights in this hands-off demo of DICE's returning shooter.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_shadows-of-the-damned-dropping-june-7_1100-6301572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadows-of-the-damned-dropping-june-7/1100-6301572/" class="article-title">Shadows of the Damned dropping June 7</a>
+			<div class="article-subtitle">EA-published psychological action thriller from Suda 51 and Shinji Mikami will arrive in the midst of E3, according to Grasshopper's Twitter.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_the-pros-and-cons-of-gamification_1100-6301575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-pros-and-cons-of-gamification/1100-6301575/" class="article-title">The pros and cons of gamification </a>
+			<div class="article-subtitle">GDC 2011: In a debate-style session, panelists argue the merits of bringing gameplay mechanics to just about everything.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_the-last-guardian-preview_1100-6301593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-last-guardian-preview/1100-6301593/" class="article-title">The Last Guardian Preview</a>
+			<div class="article-subtitle">Team Ico lead Fumito Ueda shows off a tantalizing glimpse of The Last Guardian in motion on the PlayStation 3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_with-fire-and-sword-first-look-preview_1100-6301607_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/with-fire-and-sword-first-look-preview/1100-6301607/" class="article-title">With Fire and Sword First Look Preview</a>
+			<div class="article-subtitle">GDC 2011: We check out some of the changes coming to the Mount & Blade series in this new sequel.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_magicka-vietnam-first-look-preview_1100-6301601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/magicka-vietnam-first-look-preview/1100-6301601/" class="article-title">Magicka Vietnam First Look Preview</a>
+			<div class="article-subtitle">GDC 2011: Like so many others before it, Magicka is going to Vietnam.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_3ds-super-mario-netflix-revealed-at-iwata-keynote_1100-6301568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3ds-super-mario-netflix-revealed-at-iwata-keynote/1100-6301568/" class="article-title">3DS Super Mario, Netflix revealed at Iwata keynote</a>
+			<div class="article-subtitle">GDC 2011: Nintendo president reveals new title, services at fourth GDC address, discusses game-design philosophy, offers lessons from the past; Game Gear, TurboGrafx coming to 3DS; AT&T to provide 10,000 wireless hotspots; 3D video recording also en route.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_lucy-lawless-voicing-hunted-the-demons-forge_1100-6301592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lucy-lawless-voicing-hunted-the-demons-forge/1100-6301592/" class="article-title">Lucy Lawless voicing Hunted: The Demon's Forge</a>
+			<div class="article-subtitle">Xena, Battlestar Galactica actress lending pipes to Bethesda's upcoming fantasy action game as Seraphine, an adventurer-turned-temptress.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_ipad-2-coming-march-11_1100-6301630_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ipad-2-coming-march-11/1100-6301630/" class="article-title">iPad 2 coming March 11</a>
+			<div class="article-subtitle">Apple unveils new 33-percent-thinner tablet with dual-core A5 processor, front- and rear-facing cameras, HD video; HDMI output available with adaptor; available for AT&T and Verizon.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_eas-visceral-games-working-on-bold-new-ip_1100-6301639_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eas-visceral-games-working-on-bold-new-ip/1100-6301639/" class="article-title">EA's Visceral Games working on 'bold new IP'</a>
+			<div class="article-subtitle">Dead Space 2 studio crafting new PS3, Xbox 360 property that is "heavily backed by EA leadership."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_playstation-store-update-pixeljunk-shooter-2-dead-space-2-dlc_1100-6301595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-store-update-pixeljunk-shooter-2-dead-space-2-dlc/1100-6301595/" class="article-title">PlayStation Store Update: PixelJunk Shooter 2, Dead Space 2 DLC</a>
+			<div class="article-subtitle">Sony's virtual marketplace adds colorful shooting game, add-on content for Visceral Games' horror title; ModNation Racers now available as full-game download; Vagrant Story hits PSOne Classics; demos for MLB 2K11 and Top Spin 4 also out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_dead-island-exclusive-preview-zombie-species-vehicles-and-electric-machetes_1100-6301600_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-island-exclusive-preview-zombie-species-vehicles-and-electric-machetes/1100-6301600/" class="article-title">Dead Island Exclusive Preview - Zombie Species, Vehicles, and Electric Machetes</a>
+			<div class="article-subtitle">We get an exclusive look at this action-packed zombie hack-and-slash game at the 2011 Game Developers Conference.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_risen-2-dark-waters-impressions-first-look_1100-6301598_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/risen-2-dark-waters-impressions-first-look/1100-6301598/" class="article-title">Risen 2: Dark Waters Impressions - First Look</a>
+			<div class="article-subtitle">We take our first look at Piranha Bytes' sequel to Risen and the spiritual successor to the Gothic series.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/03/02_dragon-age-legends-beta-key-giveaway_1100-6301530_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-legends-beta-key-giveaway/1100-6301530/" class="article-title">Dragon Age Legends Beta Key Giveaway</a>
+			<div class="article-subtitle">Return to Thedas and test the tides of battle by participating in EA's Dragon Age Legends beta on Facebook!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_xbla-islands-of-wakfu-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbla-islands-of-wakfu-release-date" class="article-title">XBLA Islands of Wakfu release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_ngp-chips-wont-rival-ps3-performance_thumbnail.png">
+			<a href="https://www.eurogamer.net/ngp-chips-wont-rival-ps3-performance" class="article-title">NGP chips won't rival PS3 performance</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_new-nintendo-3ds-mario-game-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-nintendo-3ds-mario-game-announced" class="article-title">Nintendo announces Super Mario 3DS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_sega-will-probably-let-suzuki-make-shenmue-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-will-probably-let-suzuki-make-shenmue-3" class="article-title">SEGA will "probably" let Suzuki make Shenmue 3</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_3ds-zelda-ocarina-of-time-in-june_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-zelda-ocarina-of-time-in-june" class="article-title">Zelda Ocarina of Time on 3DS in June</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_nintendos-satoru-iwata-gdc-2011-keynote-live-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendos-satoru-iwata-gdc-2011-keynote-live-report" class="article-title">Nintendo's Satoru Iwata GDC 2011 keynote</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_zelda-skyward-sword-vid-reveals-clues_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-skyward-sword-vid-reveals-clues" class="article-title">Zelda: Skyward Sword vid reveals clues</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_apple-announces-the-ipad-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/apple-announces-the-ipad-2" class="article-title">Apple announces the iPad 2</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_worldwide-nintendo-3ds-update-late-may_thumbnail.png">
+			<a href="https://www.eurogamer.net/worldwide-nintendo-3ds-update-late-may" class="article-title">Worldwide Nintendo 3DS update late May</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_uk-3ds-there-seems-to-be-enough-stock_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-3ds-there-seems-to-be-enough-stock" class="article-title">UK 3DS: "Seems to be enough stock"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_new-cod-engine-counter-productive_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-cod-engine-counter-productive" class="article-title">New COD engine "counter-productive"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_uncharted-movie-has-romance-and-sex_thumbnail.png">
+			<a href="https://www.eurogamer.net/uncharted-movie-has-romance-and-sex" class="article-title">Uncharted movie has "romance and sex"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_the-last-guardian-preview-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-last-guardian-preview-1" class="article-title">The Last Guardian</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_march-and-april-playstation-plus-content_thumbnail.png">
+			<a href="https://www.eurogamer.net/march-and-april-playstation-plus-content" class="article-title">March and April PlayStation Plus content</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_more-dj-hero-guitar-hero-dlc-promised_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-dj-hero-guitar-hero-dlc-promised" class="article-title">More DJ Hero, Guitar Hero DLC promised</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_ipad-2-has-a-march-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/ipad-2-has-a-march-release-date" class="article-title">Are these photos of the iPad 2?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_wrecked-revenge-revisited-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/wrecked-revenge-revisited-announced" class="article-title">Wrecked – Revenge Revisited announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_eu-playstation-store-update-2nd-march_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-2nd-march" class="article-title">EU PlayStation Store update 2nd March</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_battlefield-play4free-open-beta-in-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlefield-play4free-open-beta-in-april" class="article-title">Battlefield Play4Free open beta in April</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_ubisoft-bg-and-e-hd-ps3-later-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubisoft-bg-and-e-hd-ps3-later-this-year" class="article-title">Ubisoft: BG&E HD PS3 "later this year"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_eurogamer-expo-tickets-on-sale-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-expo-tickets-on-sale-blog-entry" class="article-title">Eurogamer Expo tickets on sale</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_super-street-fighter-iv-3d-edition-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-street-fighter-iv-3d-edition-review" class="article-title">Super Street Fighter IV 3D Edition</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_save-your-gran-turismo-5-endurance-race_thumbnail.png">
+			<a href="https://www.eurogamer.net/save-your-gran-turismo-5-endurance-race" class="article-title">Save your Gran Turismo 5 endurance race</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_dead-xbox-live-gamertags-re-circulated_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-xbox-live-gamertags-re-circulated" class="article-title">Dead Xbox Live Gamertags re-circulated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_rolando-publisher-slams-ngp-3ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/rolando-publisher-slams-ngp-3ds" class="article-title">Rolando publisher slams NGP, 3DS</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_dead-space-2-dev-making-bold-new-ip_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-space-2-dev-making-bold-new-ip" class="article-title">Dead Space 2 dev making "bold new IP"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_dragon-age-ii-campaign-shorter-than-das_thumbnail.png">
+			<a href="https://www.eurogamer.net/dragon-age-ii-campaign-shorter-than-das" class="article-title">Dragon Age II campaign shorter than DA's</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_infamous-2-has-user-generated-content_thumbnail.png">
+			<a href="https://www.eurogamer.net/infamous-2-has-user-generated-content" class="article-title">inFamous 2 has user-generated content</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_alice-madness-returns-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/alice-madness-returns-release-date" class="article-title">Alice: Madness Returns release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_minecraft-devs-new-game-is-scrolls_thumbnail.png">
+			<a href="https://www.eurogamer.net/minecraft-devs-new-game-is-scrolls" class="article-title">Minecraft dev's new game is Scrolls</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_pspgo-discounted-quickly-sharply_thumbnail.png">
+			<a href="https://www.eurogamer.net/pspgo-discounted-quickly-sharply" class="article-title">PSPgo now available for under 200 quid</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_shadows-of-the-damned-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/shadows-of-the-damned-release-date" class="article-title">Shadows of the Damned release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_new-video-shows-project-milo-in-action_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-video-shows-project-milo-in-action" class="article-title">New video shows Project Milo in action</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_nintendo-won-t-preach-kirby-to-cod-fans_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-won-t-preach-kirby-to-cod-fans" class="article-title">Nintendo won’t preach Kirby to COD fans</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_infinity-blade-designed-for-toilet-play_thumbnail.png">
+			<a href="https://www.eurogamer.net/infinity-blade-designed-for-toilet-play" class="article-title">Infinity Blade designed for toilet play</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_why-crysis-2-has-no-move-support_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-crysis-2-has-no-move-support" class="article-title">Why Crysis 2 has no Move support</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_shank-dev-summer-of-arcade-dangerous_thumbnail.png">
+			<a href="https://www.eurogamer.net/shank-dev-summer-of-arcade-dangerous" class="article-title">Shank dev attacks Summer of Arcade</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/03/02_pilotwings-resort-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/pilotwings-resort-review" class="article-title">Pilotwings Resort</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136619/All-Europe-bound-PS3s-seized-at-customs/" class="article-title">All Europe-bound PS3s seized at customs</a>
+			<div class="article-subtitle">UPDATE: SCENZ "Investigating."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i136628/THQ-holds-fake-anti-Noth-Korean-protests/" class="article-title">THQ holds fake anti-Noth Korean protests</a>
+			<div class="article-subtitle">Attempts to hype Homefront.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136627/Visceral-hiring-for-new-game/" class="article-title">Visceral hiring for new game</a>
+			<div class="article-subtitle">Dead Space developer back at work.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/test-subject-blue.php" class="article-title">Test Subject Blue</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/a-short-history-of-the-world.php" class="article-title">A Short History of the World</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/escape-from-the-lodge.php" class="article-title">Escape from the Lodge</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/03/02_2011_03_02_2011-igf-award-winners_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/03/02/2011-igf-award-winners/" class="article-title">2011 IGF Award Winners</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/03/02_2011_03_02_link-dead-build-1969_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/03/02/link-dead-build-1969/" class="article-title">Link-Dead Build 1969</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/03/02_2011_03_02_next-mojang-game-scrolls_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/03/02/next-mojang-game-scrolls/" class="article-title">Next Mojang Game: Scrolls</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/03/02/b-u-t-t-o-n/" class="article-title">B.U.T.T.O.N.</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

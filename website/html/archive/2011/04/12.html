@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 12, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/red-faction-battlegrounds-review/1900-6308384/" class="article-title">Red Faction: Battlegrounds Review</a>
+			<div class="article-subtitle">Battlegrounds is a forgettable entry in the Red Faction franchise that neither builds upon previous games nor forges an interesting path of its own.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-sims-medieval-review/1900-6308371/" class="article-title">The Sims Medieval Review</a>
+			<div class="article-subtitle">Playing The Sims Medieval is like looking at your neighbor's vacation slides: You're hearing about someone else's grand adventure rather than having one of your own.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_guitar-hero-gone-for-good-or-just-for-now_1100-6298454_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-gone-for-good-or-just-for-now/1100-6298454/" class="article-title">Guitar Hero: Gone for good or just for now?</a>
+			<div class="article-subtitle">Analysts disagree on whether Activision could have done things differently to keep rhythm series viable, but expect Tony Hawk to make an eventual return.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_dragons-dogma-hands-on-preview_1100-6308324_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragons-dogma-hands-on-preview/1100-6308324/" class="article-title">Dragon's Dogma Hands-On Preview</a>
+			<div class="article-subtitle">Capcom has revealed its next original project: a fantasy action game set in a vast open world.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_sony-ps3-hacker-settle-suit_1100-6307711_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-ps3-hacker-settle-suit/1100-6307711/" class="article-title">Sony, PS3 hacker settle suit</a>
+			<div class="article-subtitle">Game giant and George "GeoHot" Hotz reach settlement that sees the latter agree to a permanent injunction to not post PS3 security information.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_asuras-wrath-updated-preview-live-demo-of-space-tossing-and-finger-punching_1100-6308314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asuras-wrath-updated-preview-live-demo-of-space-tossing-and-finger-punching/1100-6308314/" class="article-title">Asura's Wrath Updated Preview: Live Demo of Space Tossing and Finger Punching</a>
+			<div class="article-subtitle">We check in on the six-armed rage-filled dynamo starring in Capcom’s upcoming action game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_street-fighter-x-tekken-first-look-preview_1100-6308318_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-fighter-x-tekken-first-look-preview/1100-6308318/" class="article-title">Street Fighter X Tekken First Look Preview</a>
+			<div class="article-subtitle">We go hands-on with Capcom's upcoming Street Fighter and Tekken mash-up.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_dead-rising-2-off-the-record-first-look-preview_1100-6308325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-2-off-the-record-first-look-preview/1100-6308325/" class="article-title">Dead Rising 2: Off the Record First Look Preview</a>
+			<div class="article-subtitle">More than a simple director's cut, Off the Record sees the return of Frank West as the main hero of the series.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_resident-evil-operation-raccoon-city-preview_1100-6308326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-operation-raccoon-city-preview/1100-6308326/" class="article-title">Resident Evil: Operation Raccoon City Preview</a>
+			<div class="article-subtitle">The latest Resident Evil spin-off is headed to the world of co-op shooters. We see how it's coming along.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_oconnor-r18-will-create-aussie-jobs_1100-6308312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oconnor-r18-will-create-aussie-jobs/1100-6308312/" class="article-title">O'Connor: R18+ will create Aussie jobs</a>
+			<div class="article-subtitle">Federal Minister for Home Affairs Brendan O'Connor says adult rating for games will create more jobs in Australia.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_resident-evil-the-mercenaries-3d-updated-hands-on-preview-local-multiplayer-and-more_1100-6308323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-the-mercenaries-3d-updated-hands-on-preview-local-multiplayer-and-more/1100-6308323/" class="article-title">Resident Evil: The Mercenaries 3D Updated Hands-On Preview: Local Multiplayer and More</a>
+			<div class="article-subtitle">We run around and shoot in an updated version of Capcom's 3DS third-person shooter set in the Resident Evil universe.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_persona-4-gets-animated_1100-6308311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/persona-4-gets-animated/1100-6308311/" class="article-title">Persona 4 gets animated</a>
+			<div class="article-subtitle">Anime adaptation of PS2 RPG to retain game's voice actors.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_xbox-live-update-bulletstorm-gun-sonata-dlc_1100-6308322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-update-bulletstorm-gun-sonata-dlc/1100-6308322/" class="article-title">Xbox Live Update: Bulletstorm Gun Sonata DLC </a>
+			<div class="article-subtitle">Microsoft's online platform updated with new content for People Can Fly's shooter; Games on Demand adds Toy Story 3, Raven Squad, and Sonic and Sega All Stars with Banjo Kazooie.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_super-street-fighter-iv-3d-ships-1-million-units_1100-6308320_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-street-fighter-iv-3d-ships-1-million-units/1100-6308320/" class="article-title">Super Street Fighter IV: 3D ships 1 million units</a>
+			<div class="article-subtitle">Capcom's portable fighting game for Nintendo’s 3DS hits global milestone; franchise shipment tally now sits at 31 million.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_capcom-crafting-dragons-dogma-for-2012_1100-6307879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-crafting-dragons-dogma-for-2012/1100-6307879/" class="article-title">Capcom crafting Dragon's Dogma for 2012</a>
+			<div class="article-subtitle">Publisher establishing new open-world PS3, 360 series that will see players lead party on fantastical dragon hunt.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_super-street-fighter-iv-arcade-edition-confirmed-for-pc-ps3-360_1100-6308118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-street-fighter-iv-arcade-edition-confirmed-for-pc-ps3-360/1100-6308118/" class="article-title">Super Street Fighter IV: Arcade Edition confirmed for PC, PS3, 360</a>
+			<div class="article-subtitle">Expanded edition of fighting game will be available as downloadable update, stand-alone title; will feature Street Fighter III's Yun and Yang, Evil Ryu, and Oni.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_infamous-2-hands-on-preview_1100-6308315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infamous-2-hands-on-preview/1100-6308315/" class="article-title">Infamous 2 Hands-On Preview</a>
+			<div class="article-subtitle">We face internal conflict between good and evil and take down glowing nipple beasts in our latest look at Sony's superhero sequel.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_guitar-hero-franchise-not-over_1100-6308336_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-franchise-not-over/1100-6308336/" class="article-title">Guitar Hero franchise not over</a>
+			<div class="article-subtitle">Activision confirms future plans to return to once-mighty rhythm-game franchise, status of possible 2012 game in question.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_dead-rising-2-reanimated-off-the-record_1100-6308327_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-2-reanimated-off-the-record/1100-6308327/" class="article-title">Dead Rising 2 reanimated Off the Record</a>
+			<div class="article-subtitle">Capcom spin-off reprises horror action game with Frank West in the starring role; Xbox 360, PS3, and PC title to feature new enemies, missions, combo weapons.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_blizzcon-is-on-for-oct-21-22_1100-6297974_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzcon-is-on-for-oct-21-22/1100-6297974/" class="article-title">BlizzCon is on for Oct. 21-22</a>
+			<div class="article-subtitle">Annual convention of all things Blizzard will once again be held at the Anaheim Convention Center this fall.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_powerup-heroes-striking-kinect-in-june_1100-6308373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/powerup-heroes-striking-kinect-in-june/1100-6308373/" class="article-title">PowerUp Heroes striking Kinect in June</a>
+			<div class="article-subtitle">Ubisoft bringing Avatar-supported motion-sensing fighter to Xbox 360 later this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_blizzcon-tickets-go-on-sale-may-21-and-25_1100-6308376_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzcon-tickets-go-on-sale-may-21-and-25/1100-6308376/" class="article-title">BlizzCon tickets go on sale May 21 & 25</a>
+			<div class="article-subtitle">$175 passes to October 21-22 fan convention hit the market in just over a month; $500 benefit dinner tickets up for grabs on May 28.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_tiger-woods-12-opening-week-tee-time-draws-225000_1100-6308377_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tiger-woods-12-opening-week-tee-time-draws-225000/1100-6308377/" class="article-title">Tiger Woods 12 opening-week tee time draws 225,000</a>
+			<div class="article-subtitle">EA trumpets franchise-best seven-day sales for Augusta National-set, Masters-themed golf simulation; digital revenue up 200%.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/12_duke-nukem-forever-questionarium_1100-6307941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/duke-nukem-forever-questionarium/1100-6307941/" class="article-title">Duke Nukem Forever Questionarium</a>
+			<div class="article-subtitle">We answer some of your questions about 3D Realms and Gearbox Software's long-awaited first-person shooter.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_new-dragon-age-ii-pc-patch-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-dragon-age-ii-pc-patch-goes-live" class="article-title">New Dragon Age II PC patch goes live</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_sega-stamps-on-streets-of-rage-fan-sequel_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-stamps-on-streets-of-rage-fan-sequel" class="article-title">SEGA stamps on Streets of Rage fan reboot</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_tiger-woods-12-breaks-series-records_thumbnail.png">
+			<a href="https://www.eurogamer.net/tiger-woods-12-breaks-series-records" class="article-title">Tiger Woods 12 breaks series records</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_nintendo-farms-out-ocarina-of-time-remake_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-farms-out-ocarina-of-time-remake" class="article-title">Nintendo farms out Ocarina of Time 3DS</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_limbo-shadow-complex-more-in-xbla-sale_thumbnail.png">
+			<a href="https://www.eurogamer.net/limbo-shadow-complex-more-in-xbla-sale" class="article-title">Limbo, Shadow Complex in XBLA sale</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_ubisoft-unveils-powerup-heroes-for-kinect_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubisoft-unveils-powerup-heroes-for-kinect" class="article-title">Ubisoft unveils PowerUp Heroes for Kinect</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_bilson-homefront-is-not-a-71_thumbnail.png">
+			<a href="https://www.eurogamer.net/bilson-homefront-is-not-a-71" class="article-title">Bilson: Homefront is "not a 71"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_l-a-noire-has-five-hours-of-cutscenes_thumbnail.png">
+			<a href="https://www.eurogamer.net/l-a-noire-has-five-hours-of-cutscenes" class="article-title">L.A. Noire has five hours of cutscenes</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_arcade-edition-ends-street-fighter-iv_thumbnail.png">
+			<a href="https://www.eurogamer.net/arcade-edition-ends-street-fighter-iv" class="article-title">Arcade Edition ends Street Fighter IV</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_dead-rising-2-off-the-record-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-rising-2-off-the-record-announced" class="article-title">Dead Rising 2: Off the Record announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_nintendo-dates-ocarina-of-time-3ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-dates-ocarina-of-time-3ds" class="article-title">Nintendo dates Ocarina of Time 3DS</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_six-sf-x-tekken-characters-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/six-sf-x-tekken-characters-announced" class="article-title">Six SF x Tekken characters announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_ssfiv-ae-confirmed-for-consoles-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/ssfiv-ae-confirmed-for-consoles-pc" class="article-title">SSFIV AE confirmed for consoles, PC</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_dragons-dogma-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/dragons-dogma-article" class="article-title">Dragon's Dogma</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_geohot-sony-settlement-details-leak_thumbnail.png">
+			<a href="https://www.eurogamer.net/geohot-sony-settlement-details-leak" class="article-title">Geohot Sony settlement details leak</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_fairchild-channel-f-inventor-lawson-dies_thumbnail.png">
+			<a href="https://www.eurogamer.net/fairchild-channel-f-inventor-lawson-dies" class="article-title">Fairchild Channel F inventor Lawson dies</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_guitar-hero-gets-paramore-tracks-more_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-gets-paramore-tracks-more" class="article-title">Guitar Hero gets Paramore tracks, more</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_brink-pc-system-requirements_thumbnail.png">
+			<a href="https://www.eurogamer.net/brink-pc-system-requirements" class="article-title">Brink PC system requirements</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_eurogamer-net-podcast-64-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-net-podcast-64-blog-entry" class="article-title">Eurogamer.net Podcast #64</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_kingdom-under-fire-ii-classes-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/kingdom-under-fire-ii-classes-revealed" class="article-title">Kingdom Under Fire II classes revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_infamous-2-hands-on-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/infamous-2-hands-on-1" class="article-title">inFamous 2</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_red-dead-redemption-was-for-ps2-xbox_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-redemption-was-for-ps2-xbox" class="article-title">Red Dead Redemption was for PS2, Xbox</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_reader-review-of-the-month-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/reader-review-of-the-month-blog-entry" class="article-title">Reader Review of the Month</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_space-channel-5-2-xbla-psn-this-summer_thumbnail.png">
+			<a href="https://www.eurogamer.net/space-channel-5-2-xbla-psn-this-summer" class="article-title">Space Channel 5.2 XBLA PSN this summer</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_iphone-5-release-late-2011-early-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/iphone-5-release-late-2011-early-2012" class="article-title">iPhone 5 release late 2011/early 2012?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_activision-guitar-hero-still-alive_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-guitar-hero-still-alive" class="article-title">Activision: Guitar Hero still alive</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_remedy-aims-to-beat-l-a-noire-tech_thumbnail.png">
+			<a href="https://www.eurogamer.net/remedy-aims-to-beat-l-a-noire-tech" class="article-title">Remedy aims to beat L.A. Noire tech</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_bangai-o-hd-missile-fury-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/bangai-o-hd-missile-fury-release-date" class="article-title">Bangai-O HD: Missile Fury release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_new-tony-hawk-game-next-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-tony-hawk-game-next-year" class="article-title">New Tony Hawk game next year</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/12_ssfiv-3d-edition-shifts-one-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/ssfiv-3d-edition-shifts-one-million" class="article-title">SSFIV 3D Edition shifts one million</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i136844/Red-Dead-Redemption-pre-order-bonuses-unlocked/" class="article-title">Red Dead Redemption pre-order bonuses unlocked</a>
+			<div class="article-subtitle">Not so special now, eh.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i136843/Black-Ops-Escalation-content-pack-due-3rd-May/" class="article-title">Black Ops Escalation content pack due 3rd May</a>
+			<div class="article-subtitle">Four new maps plus "Call of the Dead" mode.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i136839/Modding-is-a-declining-trend-says-Battlefield-producer/" class="article-title">Modding is "a declining trend", says Battlefield producer</a>
+			<div class="article-subtitle">"Sad but true."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i136835/Brink-release-moved-forward/" class="article-title">Brink release moved forward</a>
+			<div class="article-subtitle">Ready to go, says marketer.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136834/GeoHot-settles-with-Sony/" class="article-title">GeoHot settles with Sony</a>
+			<div class="article-subtitle">Legal saga ends.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/azurefish.php" class="article-title">Azurefish</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/this-is-a-work-of-fiction.php" class="article-title">This is a Work of Fiction</a>
+			<div class="article-author">Mike</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-27.php" class="article-title">The Vault №38</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/04/12_2011_04_12_don%e2%80%99t-take-it-personally-babe_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/04/12/don%e2%80%99t-take-it-personally-babe/" class="article-title">Don’t Take It Personally, Babe…</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/04/12/the-humble-frozenbyte-bundle/" class="article-title">The Humble Frozenbyte Bundle</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/04/12/the-dishwasher-vampire-smile/" class="article-title">The Dishwasher: Vampire Smile</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 23, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/puzzle-quest-2-review/1900-6274290/" class="article-title">Puzzle Quest 2 Review</a>
+			<div class="article-subtitle">This sequel goes light on the role-playing, but still presents a compelling puzzle experience that's as enjoyable and addictive as the original.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mafia-ii-review/1900-6274280/" class="article-title">Mafia II Review</a>
+			<div class="article-subtitle">Mafia II's exciting action and uncompromising mob story make for an impressive and violent adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mafia-ii-review/1900-6274046/" class="article-title">Mafia II Review</a>
+			<div class="article-subtitle">Mafia II's exciting action and uncompromising mob story make for an impressive and violent adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mafia-ii-review/1900-6274279/" class="article-title">Mafia II Review</a>
+			<div class="article-subtitle">Mafia II's exciting action and uncompromising mob story make for an impressive and violent adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/top-gun-review/1900-6274310/" class="article-title">Top Gun Review</a>
+			<div class="article-subtitle">Top Gun delivers some intense aerial action while it lasts, but it's a very short ride.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ys-seven-review/1900-6274314/" class="article-title">Ys Seven Review</a>
+			<div class="article-subtitle">The simple purity of hack-and-slash gameplay is Ys Seven's most realized and compelling feature.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_mafia-wars-promotion-runs-afoul-of-authorities_1100-6274176_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mafia-wars-promotion-runs-afoul-of-authorities/1100-6274176/" class="article-title">Mafia Wars promotion runs afoul of authorities</a>
+			<div class="article-subtitle">San Francisco city attorney threatens to sue Zynga for guerrilla marketing Facebook game by plastering sidewalks with stickers of fake $25,000 bills.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_new-neverwinter-set-for-2011_1100-6273953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-neverwinter-set-for-2011/1100-6273953/" class="article-title">New Neverwinter set for 2011</a>
+			<div class="article-subtitle">Atari and Cryptic are working on a new not-quite-massively multiplayer online game set in the Dungeons & Dragons universe.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_bbfc-cools-medal-of-honor-ban-talk_1100-6274272_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bbfc-cools-medal-of-honor-ban-talk/1100-6274272/" class="article-title">BBFC cools Medal of Honor ban talk</a>
+			<div class="article-subtitle">British classification body dismisses call for ban on Afghanistan-set game called "tasteless" and "un-British" by defence secretary Liam Fox.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_shippin-out-august-22-28-mafia-ii-nhl-2k11_1100-6274087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-august-22-28-mafia-ii-nhl-2k11/1100-6274087/" class="article-title">Shippin' Out August 22-28: Mafia II, NHL 2K11</a>
+			<div class="article-subtitle">2K Games' period mobster game hits retail this week alongside 2K Sports' Wii-exclusive hockey sim; Elemental: War of Magic, Shank, Scott Pilgrim vs. The World also due out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_deathspank-strikes-back-next-month_1100-6274256_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deathspank-strikes-back-next-month/1100-6274256/" class="article-title">DeathSpank strikes back next month</a>
+			<div class="article-subtitle">Thongs of Virtue arrives for PlayStation Network, Xbox Live on September 21 and 22, respectively; sequel adds new settings and co-op character.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_capcom-names-new-ceo-president-in-west_1100-6274278_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-names-new-ceo-president-in-west/1100-6274278/" class="article-title">Capcom names new CEO, president in West</a>
+			<div class="article-subtitle">Dead Rising 2 publisher raises former Japan-arm CFO Kazuhiko Abe to head of operations in North America, Europe.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_amazon-discontinues-sale-of-xbla-games_1100-6274281_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazon-discontinues-sale-of-xbla-games/1100-6274281/" class="article-title">Amazon discontinues sale of XBLA games</a>
+			<div class="article-subtitle">Online retailer no longer offering game codes for downloadable Xbox 360 titles; still selling instant Microsoft points.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_plants-vs-zombies-chomping-ds-in-january_1100-6274286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/plants-vs-zombies-chomping-ds-in-january/1100-6274286/" class="article-title">Plants vs. Zombies chomping DS in January </a>
+			<div class="article-subtitle">Undead-themed tower defense game planned for Nintendo's handheld early next year with exclusive content; Xbox Live Arcade and retail versions out next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_serious-sam-hd-sequel-firing-up-xbla-sept-22_1100-6274298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/serious-sam-hd-sequel-firing-up-xbla-sept-22/1100-6274298/" class="article-title">Serious Sam HD sequel firing up XBLA Sept. 22</a>
+			<div class="article-subtitle">Majesco announces release date for Serious Sam HD: The Second Encounter for Xbox 360 downloadable game hub.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_gamescom-draws-254000-attendees-505-exhibitors_1100-6274312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-draws-254000-attendees-505-exhibitors/1100-6274312/" class="article-title">Gamescom draws 254,000 attendees, 505 exhibitors</a>
+			<div class="article-subtitle">Germany-based event officially world's biggest gaming expo; 4,400 members of media turn out.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_forza-3-getting-ultimate-collection_1100-6274315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/forza-3-getting-ultimate-collection/1100-6274315/" class="article-title">Forza 3 getting 'Ultimate Collection'</a>
+			<div class="article-subtitle">Australian ratings board filing indicates Turn 10 working on new entry in racing simulator franchise.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_neverwinter-exclusive-qanda-first-details-on-cryptics-new-dungeons-and-dragons-game_1100-6274162_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/neverwinter-exclusive-qanda-first-details-on-cryptics-new-dungeons-and-dragons-game/1100-6274162/" class="article-title">Neverwinter Exclusive Q&A - First Details on Cryptic's New Dungeons & Dragons Game</a>
+			<div class="article-subtitle">Get the exclusive first details on the much-hinted-at Neverwinter, a Dungeons & Dragons-themed massively multiplayer game in development at Cryptic Studios.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_torchlight-ii-hands-on-impressions_1100-6274273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/torchlight-ii-hands-on-impressions/1100-6274273/" class="article-title">Torchlight II Hands-On Impressions</a>
+			<div class="article-subtitle">We stumble out of the dungeon and into the sun with our first look at the sequel to last year's hit indie RPG.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_alien-breed-2-assault_1100-6274274_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alien-breed-2-assault/1100-6274274/" class="article-title">Alien Breed 2: Assault</a>
+			<div class="article-subtitle">We grab our gun and roam the corridors of this upcoming alien shooter sequel.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_and-yet-it-moves-hits-wiiware_1100-6274276_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/and-yet-it-moves-hits-wiiware/1100-6274276/" class="article-title">And Yet It Moves hits WiiWare</a>
+			<div class="article-subtitle">Nintendo Store Update: phsyics-based platformer hits download hub alongside NES title Uforia: The Saga for Virtual Console; four new DSiWare titles added to portable download store.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/08/23_crackdown-2-getting-free-paid-dlc_1100-6274292_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crackdown-2-getting-free-paid-dlc/1100-6274292/" class="article-title">Crackdown 2 getting free, paid DLC </a>
+			<div class="article-subtitle">Toy Box add-on for Microsoft, Ruffian's open-world shooter adds god mode, multiplayer match type gratis; premium content includes vehicles, in-game items.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_cod-military-advisor-defends-moh_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod-military-advisor-defends-moh" class="article-title">COD military advisor defends MOH</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_assassins-creed-brotherhood-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/assassins-creed-brotherhood-preview" class="article-title">Assassin's Creed: Brotherhood</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_first-crackdown-2-add-on-announced-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/first-crackdown-2-add-on-announced-article" class="article-title">First Crackdown 2 add-on announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_new-neverwinter-game-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-neverwinter-game-announced" class="article-title">New Neverwinter game announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_red-dead-ban-hammer-coming-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-ban-hammer-coming-tomorrow" class="article-title">Red Dead ban hammer coming tomorrow</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_ea-hits-back-at-moh-un-british-claim_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-hits-back-at-moh-un-british-claim" class="article-title">EA hits back at MOH "un-British" claim</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_splash-damages-paul-wedgwood-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/splash-damages-paul-wedgwood-interview" class="article-title">Splash Damage's Paul Wedgwood</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_cod-mw2-uks-best-selling-game-ever_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod-mw2-uks-best-selling-game-ever" class="article-title">COD: MW2 UK's best-selling game ever</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_wedgwood-beth-lets-us-get-on-with-it_thumbnail.png">
+			<a href="https://www.eurogamer.net/wedgwood-beth-lets-us-get-on-with-it" class="article-title">Wedgwood: Beth lets us get on with it</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_dcms-backs-ratings-system-in-moh-row_thumbnail.png">
+			<a href="https://www.eurogamer.net/dcms-backs-ratings-system-in-moh-row" class="article-title">DCMS backs ratings system in MOH row</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_ea-were-not-toning-down-suda51_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-were-not-toning-down-suda51" class="article-title">EA: We're not "toning down" Suda51</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_uk-chart-kane-and-lynch-2-top-dog_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-chart-kane-and-lynch-2-top-dog" class="article-title">UK chart: Kane & Lynch 2 top dog</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_eurogamer-net-podcast-32-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-net-podcast-32-blog-entry" class="article-title">Eurogamer.net Podcast #32</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_ea-in-talks-with-valve-to-sign-portal-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-in-talks-with-valve-to-sign-portal-2" class="article-title">EA in talks with Valve to sign Portal 2</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_italian-city-upset-with-gran-turismo-5_thumbnail.png">
+			<a href="https://www.eurogamer.net/italian-city-upset-with-gran-turismo-5" class="article-title">Italian city upset with Gran Turismo 5</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_why-fallout-new-vegas-has-to-end-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-fallout-new-vegas-has-to-end-article" class="article-title">Why Fallout: New Vegas has to end</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_vanquish-demo-due-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/vanquish-demo-due-next-week" class="article-title">Vanquish demo due next week</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_the-force-unleashed-ii-demo-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-force-unleashed-ii-demo-confirmed" class="article-title">The Force Unleashed II demo confirmed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_madden-nfl-11-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/madden-nfl-11-review" class="article-title">Madden NFL 11</a>
+			<div class="article-author">Gerasimos Manolatos</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_defence-secretary-demands-moh-ban_thumbnail.png">
+			<a href="https://www.eurogamer.net/defence-secretary-demands-moh-ban" class="article-title">Defence Secretary demands MOH ban</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_halo-reach-leaked_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-reach-leaked" class="article-title">Halo: Reach leaked</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/08/23_new-left-4-dead-1-and-2-dlc-inbound_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-left-4-dead-1-and-2-dlc-inbound" class="article-title">New Left 4 Dead 1 and 2 DLC inbound</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135495/Snippets-UK-Minister-calls-for-MOH-ban-PS3-jailbreaker-losing-sales-to-piracy/" class="article-title">Snippets: UK Minister calls for MOH ban, PS3 jailbreaker losing sales to piracy</a>
+			<div class="article-subtitle">On irony.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i135494/Halo-Reach-leaked-online/" class="article-title">Halo: Reach leaked online</a>
+			<div class="article-subtitle">Weeks ahead of official release.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i135492/New-L4D1-and-2-DLC-announced/" class="article-title">New L4D1 and 2 DLC announced</a>
+			<div class="article-subtitle">"The Sacrifice."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/grow-valley.php" class="article-title">Grow Valley</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/liferaft-zero.php" class="article-title">Liferaft: Zero</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/one-button-arthur.php" class="article-title">One Button Arthur</a>
+			<div class="article-author">James Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc8-results.php" class="article-title">And the winner is... №8</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-83.php" class="article-title">Mobile Monday №82</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2010/08/23_2010_08_23_comicompo-3_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2010/08/23/comicompo-3/" class="article-title">Comicompo 3</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

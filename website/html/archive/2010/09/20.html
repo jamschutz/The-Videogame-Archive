@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 20, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deathspank-thongs-of-virtue-review/1900-6276563/" class="article-title">DeathSpank: Thongs of Virtue Review</a>
+			<div class="article-subtitle">The conclusion to DeathSpank's tale doesn't veer far from the original, but that doesn't make it any less fun.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kings-bounty-crossworlds-review/1900-6276557/" class="article-title">King's Bounty: Crossworlds Review</a>
+			<div class="article-subtitle">King's Bounty: Crossworlds may be a more-of-the-same expansion, but it's also the best edition of the strategy role-playing hybrid yet released.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_the-future-of-gaming-social-games_1100-6275311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-future-of-gaming-social-games/1100-6275311/" class="article-title">The Future of Gaming: Social Games</a>
+			<div class="article-subtitle">We take a look at the future of gaming in three parts: 3D, Social Gaming, and DLC.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_parental-controls_1100-6275158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/parental-controls/1100-6275158/" class="article-title">Parental Controls</a>
+			<div class="article-subtitle">Check out part one of GameSpot's guide for setting up restrictions on your home consoles.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_bob-marley-tokio-hotel-shredding-rock-band-3-report_1100-6273554_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bob-marley-tokio-hotel-shredding-rock-band-3-report/1100-6273554/" class="article-title">Bob Marley, Tokio Hotel shredding Rock Band 3 - Report</a>
+			<div class="article-subtitle">Ten new tracks revealed for the upcoming music game; additional artists include HIM, Slipknot, War, Mana, Roxette, Poni Hoax, and Rammstein.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_rock-band-3-in-the-works_1100-6215949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-3-in-the-works/1100-6215949/" class="article-title">Rock Band 3 in the works</a>
+			<div class="article-subtitle">MTV Games head confirms Harmonix is already working on third major entry in rhythm franchise, exploring possibility of another game devoted to one major band.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_zombies-invade-next-yakuza-game_1100-6276273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zombies-invade-next-yakuza-game/1100-6276273/" class="article-title">Zombies invade next Yakuza game</a>
+			<div class="article-subtitle">Sega introduces ravenous undead hordes into next PS3-exclusive installment of Japanese criminal underworld saga.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_mafia-ii-dlc-exploring-joes-adventures_1100-6276443_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mafia-ii-dlc-exploring-joes-adventures/1100-6276443/" class="article-title">Mafia II DLC exploring Joe's Adventures</a>
+			<div class="article-subtitle">New add-on for 2K Czech's open-world crime adventure picks up with Vito's paisano on the Xbox 360, PS3, and PC later this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_tokyo-game-show-2010-day-2-gut-reactions_1100-6276466_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-game-show-2010-day-2-gut-reactions/1100-6276466/" class="article-title">Tokyo Game Show 2010 - Day 2 Gut Reactions</a>
+			<div class="article-subtitle">What happens on day two of the Tokyo Game Show stays on day two of the Tokyo Game Show?</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_yun-and-yang-punch-into-ssfiv-arcade_1100-6276469_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yun-and-yang-punch-into-ssfiv-arcade/1100-6276469/" class="article-title">Yun and Yang punch into SSFIV Arcade</a>
+			<div class="article-subtitle">TGS 2010: Twin brothers finally officially confirmed as inclusions in arcade version of Super Street Fighter IV.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_spider-man-wesker-spin-onto-marvel-vs-capcom-3_1100-6276470_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-wesker-spin-onto-marvel-vs-capcom-3/1100-6276470/" class="article-title">Spider-Man, Wesker spin onto Marvel vs. Capcom 3</a>
+			<div class="article-subtitle">TGS 2010: Comic-book webslinger and Resident Evil antagonist confirmed for cross-universe fighting title, taking roster to 22.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_tekken-tag-tournament-2-arcade-bound_1100-6276477_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tekken-tag-tournament-2-arcade-bound/1100-6276477/" class="article-title">Tekken Tag Tournament 2 arcade bound</a>
+			<div class="article-subtitle">TGS 2010: Japanese-arcade-only sequel to dual character fighter confirmed for summer 2011 release; no confirmation of home console ports or international access.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_naruto-shippuden-ultimate-ninja-storm-2-hands-on_1100-6276474_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/naruto-shippuden-ultimate-ninja-storm-2-hands-on/1100-6276474/" class="article-title">Naruto Shippuden: Ultimate Ninja Storm 2 Hands-On</a>
+			<div class="article-subtitle">We stepped up to the analog sticks and threw some jutsu around the battlefield in this sharp-looking fighter.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_lara-croft-early-access-code-giveaway_1100-6276347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lara-croft-early-access-code-giveaway/1100-6276347/" class="article-title">Lara Croft Early Access Code Giveaway</a>
+			<div class="article-subtitle">Like raiding tombs? Get your free early access code now for Lara Croft and the Guardian of Light on the PS3 or PC!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_dissidia-012-duodecim-final-fantasy-hands-on_1100-6276074_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dissidia-012-duodecim-final-fantasy-hands-on/1100-6276074/" class="article-title">Dissidia 012 Duodecim: Final Fantasy Hands-On</a>
+			<div class="article-subtitle">Lightning and Kain Highwind join the cast of Dissidia characters in this sequel.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_microsoft-kinect-tgs-roundup-kinect-sports-and-joy-ride_1100-6276475_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-kinect-tgs-roundup-kinect-sports-and-joy-ride/1100-6276475/" class="article-title">Microsoft Kinect TGS Roundup - Kinect Sports and Joy Ride</a>
+			<div class="article-subtitle">We catch up with a pair of Kinect launch titles to see what's new in Tokyo.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_dragon-ball-z-tenkaichi-tag-team-first-look_1100-6276504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-z-tenkaichi-tag-team-first-look/1100-6276504/" class="article-title">Dragon Ball Z: Tenkaichi Tag Team First Look</a>
+			<div class="article-subtitle">We spike our hair, glow gold, and pulp some familiar faces with our first look at the latest game based on the hit anime series.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_racquet-sports-review_1100-6276491_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/racquet-sports-review/1100-6276491/" class="article-title">Racquet Sports Review</a>
+			<div class="article-subtitle">Imprecise motion controls ruin all five of the sports featured in this disappointing collection.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_kung-fu-rider-review_1100-6276493_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kung-fu-rider-review/1100-6276493/" class="article-title">Kung Fu Rider Review</a>
+			<div class="article-subtitle">This wacky action game doesn't contain any of the fun hinted at by its goofy premise.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_start-the-party-review_1100-6276487_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/start-the-party-review/1100-6276487/" class="article-title">Start the Party Review</a>
+			<div class="article-subtitle">This collection of Move-powered minigames is fun with friends but has little to offer solo players.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_eyepet-move-edition-review_1100-6276492_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eyepet-move-edition-review/1100-6276492/" class="article-title">EyePet: Move Edition Review</a>
+			<div class="article-subtitle">Sony's EyePet is a creative and fun game with plenty of content, but it suffers from a lack of proper instruction.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_sports-champions-review_1100-6276480_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sports-champions-review/1100-6276480/" class="article-title">Sports Champions Review</a>
+			<div class="article-subtitle">This eclectic sports collection is fun with friends and does a good job of showing what the PlayStation Move hardware is capable of.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_the-sims-3-mobile-images_1100-6276588_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-3-mobile-images/1100-6276588/" class="article-title">The Sims 3 Mobile Images</a>
+			<div class="article-subtitle">Check out these images for The Sims 3 Mobile!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_na-starcraft-ii-server-access-coming-thursday_1100-6276542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/na-starcraft-ii-server-access-coming-thursday/1100-6276542/" class="article-title">NA Starcraft II server access coming Thursday</a>
+			<div class="article-subtitle">Blizzard announces that a patch landing this week will allow Aussie and New Zealand gamers into international servers.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_halo-reach-hits-top-of-uk-chart_1100-6276547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-hits-top-of-uk-chart/1100-6276547/" class="article-title">Halo: Reach hits top of UK chart</a>
+			<div class="article-subtitle">Bungie's final game in the Halo franchise soars to the top of the UK games chart, holding off Sony Move launch title Sports Champions.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_triple-throwing-sports-lobbed-onto-wiiware_1100-6276556_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/triple-throwing-sports-lobbed-onto-wiiware/1100-6276556/" class="article-title">Triple Throwing Sports lobbed onto WiiWare</a>
+			<div class="article-subtitle">Nintendo Store Update: Olympic sports competition joined by The Very Hungry Caterpillar's ABCs on console, while DSiWare gets Everyday Soccer.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_psn-down-tomorrow-updates-tonight_1100-6276574_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psn-down-tomorrow-updates-tonight/1100-6276574/" class="article-title">PSN down tomorrow, updates tonight</a>
+			<div class="article-subtitle">PlayStation Store Update: Prior to server maintenance, Sony adding DeathSpank sequel, Blade Kitten to PS3's online marketplace; 101-in-1 Megamix getting PSP release.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_au-shippin-out-september-20-24-sid-meiers-civilization-v_1100-6276541_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-september-20-24-sid-meiers-civilization-v/1100-6276541/" class="article-title">AU Shippin' Out September 20-24: Sid Meier's Civilization V</a>
+			<div class="article-subtitle">Sid Meier proves the PC has still got game with the latest iteration in his famous strategy series.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_shippin-out-sept-19-25-civilization-v_1100-6276285_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-sept-19-25-civilization-v/1100-6276285/" class="article-title">Shippin' Out Sept. 19-25: Civilization V</a>
+			<div class="article-subtitle">Sid Meier's latest PC strategy sim headlines a relatively light week, as Final Fantasy XIV Online early access opens and F1 2010 peels out.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/20_konami-drops-rock-band-lawsuit_1100-6276552_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-drops-rock-band-lawsuit/1100-6276552/" class="article-title">Konami drops Rock Band lawsuit </a>
+			<div class="article-subtitle">Rock Revolution maker settles out of court with Harmonix parent Viacom in legal action stemming from rhythm game patents.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_alien-breed-2-spawns-this-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/alien-breed-2-spawns-this-week" class="article-title">Alien Breed 2 spawns this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_media-scandals-in-champman-would-be-fun_thumbnail.png">
+			<a href="https://www.eurogamer.net/media-scandals-in-champman-would-be-fun" class="article-title">ChampMan media scandals "would be fun"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_analysts-back-mss-3m-kinect-sales-claim_thumbnail.png">
+			<a href="https://www.eurogamer.net/analysts-back-mss-3m-kinect-sales-claim" class="article-title">Analysts back MS's 3m Kinect sales claim</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_littlebigplanet-2-beta-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/littlebigplanet-2-beta-hands-on" class="article-title">LittleBigPlanet 2 Beta</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_bungie-outlines-halo-reach-changes_thumbnail.png">
+			<a href="https://www.eurogamer.net/bungie-outlines-halo-reach-changes" class="article-title">Bungie outlines Halo: Reach changes</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_kojima-wants-to-show-next-at-tgs-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/kojima-wants-to-show-next-at-tgs-2011" class="article-title">Kojima wants to show next at TGS 2011</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_sony-move-piggybacked-kinect-enthusiasm_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-move-piggybacked-kinect-enthusiasm" class="article-title">Sony: Move piggybacked Kinect hype</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_inafune-japan-five-years-behind-west_thumbnail.png">
+			<a href="https://www.eurogamer.net/inafune-japan-five-years-behind-west" class="article-title">Inafune: Japan "five years behind" West</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_monster-hunter-portable-3rd-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/monster-hunter-portable-3rd-hands-on" class="article-title">Monster Hunter Portable 3rd</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_uk-chart-halo-reach-rockets-to-top_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-chart-halo-reach-rockets-to-top" class="article-title">UK chart: Halo: Reach rockets to top</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_doctor-who-games-get-second-series_thumbnail.png">
+			<a href="https://www.eurogamer.net/doctor-who-games-get-second-series" class="article-title">Doctor Who games get second series</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_sony-psp-to-skew-towards-kids_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-psp-to-skew-towards-kids" class="article-title">Sony: PSP to skew towards kids</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_global-agenda-wants-apb-refugees_thumbnail.png">
+			<a href="https://www.eurogamer.net/global-agenda-wants-apb-refugees" class="article-title">Global Agenda wants APB "refugees"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_eidos-montreal-to-present-deus-ex-human-revolution-at-eurogamer-expo_thumbnail.png">
+			<a href="https://www.eurogamer.net/eidos-montreal-to-present-deus-ex-human-revolution-at-eurogamer-expo" class="article-title">Eidos Montreal to present Deus Ex: Human Revolution at Eurogamer Expo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_limbo-won-xbla-summer-by-miles_thumbnail.png">
+			<a href="https://www.eurogamer.net/limbo-won-xbla-summer-by-miles" class="article-title">Limbo won XBLA summer by miles</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_halo-reach-played-for-a-millennia_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-reach-played-for-a-millennia" class="article-title">Halo: Reach played for a millennia</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_itagaki-id-like-devils-third-to-support-3d_thumbnail.png">
+			<a href="https://www.eurogamer.net/itagaki-id-like-devils-third-to-support-3d" class="article-title">Itagaki: I'd like Devil's Third to support 3D</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_f1-2010-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/f1-2010-review" class="article-title">F1 2010</a>
+			<div class="article-author">Joao Diniz Sanches</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_team-ico-collection-gets-trophies_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-ico-collection-gets-trophies" class="article-title">Team Ico Collection gets Trophies</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_tekken-tag-tournament-2-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/tekken-tag-tournament-2-announced" class="article-title">Tekken Tag Tournament 2 announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/20_the-dream-machine-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-dream-machine-interview" class="article-title">The Dream Machine</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135702/Snippets-Games-obsessed-with-gay-space-marines-2010-the-biggest-TGS-yet/" class="article-title">Snippets: Games obsessed with ‘gay space marines’?, 2010 the biggest TGS yet</a>
+			<div class="article-subtitle">According to Mafia II producer.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i135699/StarCraft-II-1.1-patch-coming-this-week/" class="article-title">StarCraft II 1.1 patch coming this week</a>
+			<div class="article-subtitle">North American access available.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135693/Capcom-profits-crash/" class="article-title">Capcom profits crash</a>
+			<div class="article-subtitle">A spate of underperforming titles.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135692/Spider-Man-and-Wesker-join-MvC3/" class="article-title">Spider-Man and Wesker join MvC3</a>
+			<div class="article-subtitle">Two more for the roster from TGS.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135691/DMC-creator-Kamiya-pans-new-version/" class="article-title">DMC creator Kamiya pans new version</a>
+			<div class="article-subtitle">"Whatever."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/survive-n-risk.php" class="article-title">Survive 'n' Risk</a>
+			<div class="article-author">J-Witz</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/record-shop-tycoon.php" class="article-title">Record Shop Tycoon</a>
+			<div class="article-author">Brad</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/earl-grey-and-this-rupert-guy.php" class="article-title">Earl Grey and This Rupert Guy</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-87.php" class="article-title">Mobile Monday №86</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

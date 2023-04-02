@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 27, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-wars-the-force-unleashed-ii-review/1900-6283099/" class="article-title">Star Wars: The Force Unleashed II Review</a>
+			<div class="article-subtitle">This Force-powered sequel is a better port than its predecessor, but it never jumps to lightspeed.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-shoot-review/1900-6283136/" class="article-title">The Shoot Review</a>
+			<div class="article-subtitle">It might be short, but there's some solid fun to be had in this family-friendly Move shooter.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/red-dead-redemption-undead-nightmare-pack-review/1900-6283137/" class="article-title">Red Dead Redemption: Undead Nightmare Pack Review</a>
+			<div class="article-subtitle">This zombie-themed add-on for Red Dead Redemption is the excuse you've been waiting for to don John Marston's boots again.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_dragon-age-ii-updated-hands-on-spotlighting-the-rogue_1100-6283067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-ii-updated-hands-on-spotlighting-the-rogue/1100-6283067/" class="article-title">Dragon Age II Updated Hands-On - Spotlighting the Rogue</a>
+			<div class="article-subtitle">We take a look at some of the ways BioWare aims to improve the rogue class in this fantasy role-playing game.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_majin-and-the-forsaken-kingdom-hands-on_1100-6281798_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/majin-and-the-forsaken-kingdom-hands-on/1100-6281798/" class="article-title">Majin and the Forsaken Kingdom Hands-On</a>
+			<div class="article-subtitle">With the oafish Majin in tow, we try to unravel the mystery behind this forsaken kingdom.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_rockstars-red-dead-zombies-zombies-blacklight-tango-down-hit-psn_1100-6283072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstars-red-dead-zombies-zombies-blacklight-tango-down-hit-psn/1100-6283072/" class="article-title">Rockstar's Red Dead zombies, Zombie's Blacklight: Tango Down hit PSN</a>
+			<div class="article-subtitle">PlayStation Store Update: Rockstar Games' content expansion for Western joined by Blacklight: Tango Down, Superstars V8 Racing; PSP catalog adds Bakugan, WWE 2011, Z.H.P: Unlosing Ranger.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_the-undergarden-hands-on_1100-6283075_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-undergarden-hands-on/1100-6283075/" class="article-title">The UnderGarden Hands-On</a>
+			<div class="article-subtitle">This downloadable side-scroller offers shades of Flower and PixelJunk Eden in its soothing ambience.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_medal-of-honor-for-pay-dlc-revealed_1100-6283077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-for-pay-dlc-revealed/1100-6283077/" class="article-title">Medal of Honor for-pay DLC revealed</a>
+			<div class="article-subtitle">Hot Zone King-of-the-Hill mode arrives Nov. 2 on 360, PS3, PC for $10; previously announced Clean Sweep add-on also hitting PC for those who purchase game new.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_dragon-age-ii-new-purchases-being-armed-with-free-dlc_1100-6283080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-ii-new-purchases-being-armed-with-free-dlc/1100-6283080/" class="article-title">Dragon Age II new purchases being armed with free DLC</a>
+			<div class="article-subtitle">EA and BioWare planning gratis downloadable goods for latest dark fantasy RPG a la last year's Origins, Mass Effect 2.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_seasonal-achievements_1100-6283057_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seasonal-achievements/1100-6283057/" class="article-title">Seasonal Achievements</a>
+			<div class="article-subtitle">We've rolled out some interesting achievements worthy of your attention!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_playstation-phone-images-surface_1100-6283087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-phone-images-surface/1100-6283087/" class="article-title">PlayStation Phone images surface?</a>
+			<div class="article-subtitle">Tech blog Engadget shows off images of touchpad-equipped, PSP Go-like device purported to be Android-powered and game-focused; cries of "fake!" follow.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_bioshock-2-dlc-heading-to-pc-after-all_1100-6283091_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-2-dlc-heading-to-pc-after-all/1100-6283091/" class="article-title">BioShock 2 DLC heading to PC after all</a>
+			<div class="article-subtitle">Publisher says fan outcry following cancellation of Protector Trials, Minerva's Den, patch for Windows edition caused studio to change stance.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_days-of-thunder-arcade-races-to-xbla_1100-6283102_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/days-of-thunder-arcade-races-to-xbla/1100-6283102/" class="article-title">Days of Thunder: Arcade races to XBLA</a>
+			<div class="article-subtitle">Piranha Games racer based on blockbuster 1990 film hits Microsoft's console this winter, PC and Mac versions to follow.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_psp-go-now-200_1100-6283107_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-go-now-200/1100-6283107/" class="article-title">PSP Go now $200</a>
+			<div class="article-subtitle">Rumored $50 price drop for Sony's UMD-less portable becomes a reality, with retailers now listing handheld at lower price point.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_first-kinect-cost-30000_1100-6283112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-kinect-cost-30000/1100-6283112/" class="article-title">First Kinect cost $30,000</a>
+			<div class="article-subtitle">Prototype for Microsoft's shortly shipping, motion-sensing system did not come cheap; hardware now profitable at $150 each.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_kinect-will-be-big-winner-in-holiday-2010-study_1100-6283121_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kinect-will-be-big-winner-in-holiday-2010-study/1100-6283121/" class="article-title">Kinect will be 'big winner' in holiday 2010 - Study</a>
+			<div class="article-subtitle">Market research firm Ipsos says Microsoft's new Xbox 360 motion controller will top PlayStation Move due to uniqueness, believability.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_ninite-installing-programs-for-you-since-2009_1100-6283114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ninite-installing-programs-for-you-since-2009/1100-6283114/" class="article-title">Ninite - Installing Programs for You Since 2009</a>
+			<div class="article-subtitle">Installing your essential programs has never been this easy.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/27_mobile-gaming-to-hit-10-billion-by-2014-study_1100-6283143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mobile-gaming-to-hit-10-billion-by-2014-study/1100-6283143/" class="article-title">Mobile gaming to hit $10 billion by 2014 - Study</a>
+			<div class="article-subtitle">Futuresource Consulting projections indicate smartphone growth, microtransactions will fuel explosive growth over next four years.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_rare-were-not-a-kinect-exclusive-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/rare-were-not-a-kinect-exclusive-dev" class="article-title">Rare: We're not a Kinect exclusive dev</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_xbox-veteran-takes-charge-of-rare_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-veteran-takes-charge-of-rare" class="article-title">Xbox veteran takes charge of Rare</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_super-scribblenauts-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-scribblenauts-review" class="article-title">Super Scribblenauts</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_angry-birds-sells-a-million-in-six-days_thumbnail.png">
+			<a href="https://www.eurogamer.net/angry-birds-sells-a-million-in-six-days" class="article-title">Angry Birds sells a million in six days</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_days-of-thunder-cruising-onto-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/days-of-thunder-cruising-onto-xbla" class="article-title">Days of Thunder cruising onto XBLA</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_team-ninja-not-missing-itagaki_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-ninja-not-missing-itagaki" class="article-title">Team Ninja not missing Itagaki</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_2k-backtrack-on-pc-bioshock-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/2k-backtrack-on-pc-bioshock-dlc" class="article-title">2K backtrack on PC BioShock DLC</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_more-multiplayer-dlc-for-medal-of-honor_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-multiplayer-dlc-for-medal-of-honor" class="article-title">More multiplayer DLC for Medal of Honor</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_new-blizzard-mmo-wont-replace-wow_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-blizzard-mmo-wont-replace-wow" class="article-title">New Blizzard MMO won't replace WoW</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_double-red-dead-xp-this-weekend_thumbnail.png">
+			<a href="https://www.eurogamer.net/double-red-dead-xp-this-weekend" class="article-title">Double Red Dead XP this weekend</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_sony-announces-playstation-rewards_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-announces-playstation-rewards" class="article-title">Sony announces PlayStation Rewards</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_ps-phone-images-definitely-fake_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps-phone-images-definitely-fake" class="article-title">PS Phone images "definitely fake"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_microsoft-thought-rare-was-activisions_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-thought-rare-was-activisions" class="article-title">Microsoft thought Rare was Activision's</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_greenpeace-dumps-on-nintendo_thumbnail.png">
+			<a href="https://www.eurogamer.net/greenpeace-dumps-on-nintendo" class="article-title">Greenpeace dumps on Nintendo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_four-demos-on-psn-store-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/four-demos-on-psn-store-today" class="article-title">Four demos on PSN Store today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_medal-of-honor-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/medal-of-honor-review" class="article-title">Medal of Honor</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_how-castlevania-nearly-didnt-happen-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/how-castlevania-nearly-didnt-happen-interview" class="article-title">How Castlevania Nearly Didn't Happen</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_nottinghams-gamecity-festival-this-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/nottinghams-gamecity-festival-this-week" class="article-title">Nottingham's GameCity festival this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_pokemon-black-and-white-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/pokemon-black-and-white-preview" class="article-title">Pokémon Black & White</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_back-to-the-future-not-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/back-to-the-future-not-for-wii" class="article-title">Back to the Future not for Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_shank-and-deathspank-out-on-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/shank-and-deathspank-out-on-pc" class="article-title">Shank and DeathSpank out on PC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_epic-yarn-has-potential-beyond-kirby_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-yarn-has-potential-beyond-kirby" class="article-title">Epic Yarn has "potential" beyond Kirby</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_ex-developer-apple-nearly-bought-bungie_thumbnail.png">
+			<a href="https://www.eurogamer.net/ex-developer-apple-nearly-bought-bungie" class="article-title">Ex developer: Apple nearly bought Bungie</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_zynga-valued-at-whopping-usd5-51-billion_thumbnail.png">
+			<a href="https://www.eurogamer.net/zynga-valued-at-whopping-usd5-51-billion" class="article-title">Zynga valued at whopping $5.51 billion</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_playstation-phone-pictures-in-wild_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-phone-pictures-in-wild" class="article-title">PlayStation Phone pictures in wild</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/27_shadow-harvest-phantom-ops-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/shadow-harvest-phantom-ops-preview" class="article-title">Shadow Harvest: Phantom Ops</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135982/Snippets-EA-MMA-dead-on-arrival-Jobs-outraged-by-MS-Bungie-buy-out/" class="article-title">Snippets: EA MMA "dead on arrival", Jobs outraged by MS Bungie buy-out</a>
+			<div class="article-subtitle">Points victory?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135981/PlayStation-Phone-outed/" class="article-title">PlayStation Phone outed?</a>
+			<div class="article-subtitle">Engadget scoops hardware.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135980/Ninty-announce-red-Wii-limited-edition-Mario/" class="article-title">Ninty announce red Wii & limited edition Mario</a>
+			<div class="article-subtitle">Plus a new DSi offer.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135973/Zynga-worth-more-than-EA/" class="article-title">Zynga worth more than EA?</a>
+			<div class="article-subtitle">FarmVille ascendant.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i135971/Champions-Online-going-free-to-play/" class="article-title">Champions Online going free-to-play</a>
+			<div class="article-subtitle">Gold and silver membership.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/wallaces-workshop.php" class="article-title">Wallace's Workshop</a>
+			<div class="article-author">Chiktionary</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/ghost-hacker.php" class="article-title">Ghost Hacker</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/lilith-and-emma-a-friend-at-hallows-eve.php" class="article-title">Lilith and Emma: A Friend at Hallows Eve</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/enigma.php" class="article-title">Enigma</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

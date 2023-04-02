@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 5, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/playstation-move-heroes-review/1900-6307235/" class="article-title">PlayStation Move Heroes Review</a>
+			<div class="article-subtitle">PlayStation Move Heroes pulls you in with its all-star cast, but problematic controls and repetitive gameplay kill that initial excitement.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-dishwasher-vampire-smile-review/1900-6307231/" class="article-title">The Dishwasher: Vampire Smile Review</a>
+			<div class="article-subtitle">Grimly gorgeous and violently entertaining, The Dishwasher: Vampire Smile is one of the finest games released so far this year.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_mx-vs-atv-alive-hands-on-preview-bar-banging_1100-6306957_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mx-vs-atv-alive-hands-on-preview-bar-banging/1100-6306957/" class="article-title">MX vs. ATV Alive Hands-On Preview - Bar Banging</a>
+			<div class="article-subtitle">We get physical in this latest installment in the MX vs. ATV series.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_anonymous-attacking-sony_1100-6306945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/anonymous-attacking-sony/1100-6306945/" class="article-title">Anonymous attacking Sony?</a>
+			<div class="article-subtitle">Hacking group possibly targeting console maker over recent legal action against PS3 jailbreaker George Hotz.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_fear-3-makes-it-past-aussie-censors_1100-6307111_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-3-makes-it-past-aussie-censors/1100-6307111/" class="article-title">F.E.A.R. 3 makes it past Aussie censors</a>
+			<div class="article-subtitle">Warner Bros. Interactive Australia successfully pitches its first-person horror shooter to the Australian Classification Board; game rated MA15+ for "strong violence, blood and gore, and coarse language."</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_nintendo-store-update-super-bonk-slams-virtual-console_1100-6306927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-store-update-super-bonk-slams-virtual-console/1100-6306927/" class="article-title">Nintendo Store Update: Super Bonk slams Virtual Console</a>
+			<div class="article-subtitle">House of Mario adds Hudson's adventure game to classic download spot; WiiWare welcomes Planet Fish and demo for A Monsteca Corral: Monsters vs. Robots; DSiWare adds Absolute Baseball and A Fairy Tale.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_burnout-crash-outed-by-aussie-ratings-board_1100-6306928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/burnout-crash-outed-by-aussie-ratings-board/1100-6306928/" class="article-title">Burnout Crash outed by Aussie ratings board</a>
+			<div class="article-subtitle">Down Under classification organization indicates Electronic Arts is preparing a new multiplatform auto racer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_battlefield-3-due-out-nov-2-says-ea-download-manager-report_1100-6306929_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-3-due-out-nov-2-says-ea-download-manager-report/1100-6306929/" class="article-title">Battlefield 3 due out Nov. 2, says EA Download Manager - Report </a>
+			<div class="article-subtitle">DICE's latest series entry gets a release date according to publisher's delivery platform; no official word yet.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_battlefield-play4free-hits-open-beta_1100-6306930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-play4free-hits-open-beta/1100-6306930/" class="article-title">Battlefield Play4Free hits open beta</a>
+			<div class="article-subtitle">Electronic Arts' microtransaction-driven first-person shooter now open for new recruits worldwide.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_pokemon-black-and-white-us-eu-sales-top-3-million_1100-6306932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-black-and-white-us-eu-sales-top-3-million/1100-6306932/" class="article-title">Pokemon Black & White US, EU sales top 3 million</a>
+			<div class="article-subtitle">Nintendo's latest tag-team RPG for DS adds platinum European sales to previously announced two-week tally.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_anno-2070-breaking-ground-in-2011_1100-6306942_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/anno-2070-breaking-ground-in-2011/1100-6306942/" class="article-title">Anno 2070 breaking ground in 2011</a>
+			<div class="article-subtitle">Related Designs developing futuristic follow-up to Dawn of Discovery series for winter release on PC.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_asia-shippin-out-april-3-9-hoard_1100-6306919_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-april-3-9-hoard/1100-6306919/" class="article-title">Asia Shippin' Out April 3-9: Hoard</a>
+			<div class="article-subtitle">Dragons and dinosaurs invade PC gamers' hard drives this week.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_violent-games-linked-to-lowered-sympathy-in-kids-study_1100-6307103_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/violent-games-linked-to-lowered-sympathy-in-kids-study/1100-6307103/" class="article-title">Violent games linked to lowered sympathy in kids - Study</a>
+			<div class="article-subtitle">Simmons College researcher finds children exposed to more violent games for longer periods of time less able to sympathize with others.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_shippin-out-april-3-9-remington-super-slam-hunting-alaska_1100-6306735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-april-3-9-remington-super-slam-hunting-alaska/1100-6306735/" class="article-title">Shippin' Out April 3-9: Remington Super Slam Hunting Alaska</a>
+			<div class="article-subtitle">Light week at retail highlighted by latest outdoors game; Carnival Games: Monkey See, Monkey Do, Karaoke Revolution Glee: Volume 2, Shadow Harvest: Phantom Ops also out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_gamestop-details-game-streaming-service_1100-6306997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-details-game-streaming-service/1100-6306997/" class="article-title">GameStop details game-streaming service</a>
+			<div class="article-subtitle">Spawn Labs purchase will let retailer distribute new-game demos, purchased titles through any Internet-connected device; beta begins this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_thq-random-house-crafting-new-ip_1100-6306958_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-random-house-crafting-new-ip/1100-6306958/" class="article-title">THQ, Random House crafting new IP</a>
+			<div class="article-subtitle">Game and book publishers teaming up to create transmedia properties across "multiple mediums," plan to translate more offerings from game library into novels.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_sony-on-top-as-japanese-game-market-sinks-14_1100-6306989_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-on-top-as-japanese-game-market-sinks-14/1100-6306989/" class="article-title">Sony on top as Japanese game market sinks 14%</a>
+			<div class="article-subtitle">PSP sells 2.6 million, PS3 sells 1.4 million in island nation during 2010, reports Enterbrain; Pokemon Black and White, Monster Hunter Portable 3 top sellers.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_metal-gear-solid-peace-walker-clothing-line-inbound_1100-6307115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-solid-peace-walker-clothing-line-inbound/1100-6307115/" class="article-title">Metal Gear Solid: Peace Walker clothing line inbound</a>
+			<div class="article-subtitle">Konami announces that "complete clothing collection" based on popular franchise's portable entry will be available in North America April 11.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_xbox-live-update-the-dishwasher-vampire-smile_1100-6307118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-update-the-dishwasher-vampire-smile/1100-6307118/" class="article-title">Xbox Live Update: The Dishwasher: Vampire Smile</a>
+			<div class="article-subtitle">New digital wares out this week include gory side-scroller, Stacking Hobo King DLC; Games on Demand adds MLB 2K9, Raiden IV, and Tales of Vesperia; 50% off Battlefield content sale also happening.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_charlie-sheen-tming-catchphrases-for-game-use_1100-6307129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/charlie-sheen-tming-catchphrases-for-game-use/1100-6307129/" class="article-title">Charlie Sheen TM'ing catchphrases for game use</a>
+			<div class="article-subtitle">"Duh, Winning," "Vatican Assassin," "Tiger Blood," and "Rock Star From Mars" amongst terms being locked down with the US Trademark and Patent Office.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_black-ops-escalation-dlc-outed_1100-6307116_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-ops-escalation-dlc-outed/1100-6307116/" class="article-title">Black Ops' Escalation DLC outed</a>
+			<div class="article-subtitle">Latest Call of Duty getting second map pack on May 3 according to pulled retailer advertisement; will arrive first on Xbox Live.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_popcap-mounts-unpleasant-horse_1100-6307122_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/popcap-mounts-unpleasant-horse/1100-6307122/" class="article-title">PopCap mounts Unpleasant Horse</a>
+			<div class="article-subtitle">Casual game developer-publisher launching new "edgier" label 4th & Battery with mature-oriented free iPhone, iPod touch game this month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_batman-arkham-city-comic-book-first-look_1100-6307107_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/batman-arkham-city-comic-book-first-look/1100-6307107/" class="article-title">Batman: Arkham City Comic Book First Look</a>
+			<div class="article-subtitle">We bring you an exclusive look at the first five pages of the upcoming DC Comics series that sets the stage for Warner Bros.' highly anticipated console game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_wondercon-2011-photo-gallery_1100-6306990_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wondercon-2011-photo-gallery/1100-6306990/" class="article-title">WonderCon 2011 Photo Gallery</a>
+			<div class="article-subtitle">See what happened at WonderCon 2011!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_psn-raises-129-million-for-japan_1100-6307130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psn-raises-129-million-for-japan/1100-6307130/" class="article-title">PSN raises $1.29 million for Japan</a>
+			<div class="article-subtitle">Sony says gamer contributions through PlayStation 3's online network top platinum milestone through March 31.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_rock-band-3-now-just-20_1100-6307218_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-3-now-just-20/1100-6307218/" class="article-title">Rock Band 3 now just $20</a>
+			<div class="article-subtitle">Harmonix discounts the stand-alone Wii, 360, and PS3s versions of its highly rated rhythm game to Greatest Hits price levels.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_bioware-confirms-dragon-age-ii_1100-6268691_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioware-confirms-dragon-age-ii/1100-6268691/" class="article-title">BioWare confirms Dragon Age II</a>
+			<div class="article-subtitle">Previously announced new Dragon Age project will be a full sequel; sets March 2011 release window.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_sound-byte-inon-zur-on-the-music-of-dragon-age-ii_1100-6302937_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-inon-zur-on-the-music-of-dragon-age-ii/1100-6302937/" class="article-title">Sound Byte: Inon Zur on the music of Dragon Age II</a>
+			<div class="article-subtitle">See what Inon Zur has to say about the highly anticipated sequel, download a free track from the album, and more!</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_shogun-2-total-war-final-thoughts_1100-6307220_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shogun-2-total-war-final-thoughts/1100-6307220/" class="article-title">Shogun 2: Total War Final Thoughts</a>
+			<div class="article-subtitle">Creative Assembly's creative director gives his thoughts on smaller-scale battles, nailing the art style, and more.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_ea-basketball-sim-benched-for-2011_1100-6307236_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-basketball-sim-benched-for-2011/1100-6307236/" class="article-title">EA basketball sim benched for 2011</a>
+			<div class="article-subtitle">Publisher says it will return with a new pro hoops game in fall 2012; NBA Jam: On Fire Edition due for XBL, PSN in October.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_sound-byte-meet-the-composer-behind-call-of-duty-black-ops_1100-6307148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-meet-the-composer-behind-call-of-duty-black-ops/1100-6307148/" class="article-title">Sound Byte: Meet the Composer Behind Call of Duty: Black Ops</a>
+			<div class="article-subtitle">Learn more about Sean Murray, the composer behind one of the best-selling games of all time.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/05_oz-developer-watch-firemint-infinite-interactive_1100-6286276_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oz-developer-watch-firemint-infinite-interactive/1100-6286276/" class="article-title">Oz Developer Watch: Firemint/Infinite Interactive</a>
+			<div class="article-subtitle">GameSpot AU's Aussie game developer blog is back in 2011 with a fresh look at the local industry; kicking things off is the newly formed Firemint/Infinite Interactive studio in Melbourne following a friendly merger between the Flight Control developer and the Puzzle Quest studio.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_ea-announces-nba-jam-on-fire-edition_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-announces-nba-jam-on-fire-edition" class="article-title">EA announces NBA Jam: On Fire Edition</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_new-mass-effect-novel-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-mass-effect-novel-announced" class="article-title">New Mass Effect novel announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_ea-planned-dead-space-2-wii-port_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-planned-dead-space-2-wii-port" class="article-title">EA planned Dead Space 2 Wii port?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_sony-online-ngp-perfect-for-mmos_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-online-ngp-perfect-for-mmos" class="article-title">Sony Online: NGP "perfect" for MMOs</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_buy-dragon-age-ii-on-pc-get-me2-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/buy-dragon-age-ii-on-pc-get-me2-free" class="article-title">Buy Dragon Age II, get ME2 free</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_popcap-launches-experimental-label_thumbnail.png">
+			<a href="https://www.eurogamer.net/popcap-launches-experimental-label" class="article-title">PopCap launches "experimental" label</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_killzone-3-dlc-priced-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/killzone-3-dlc-priced-dated" class="article-title">Killzone 3 DLC priced, dated</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_nintendo-discredits-3ds-headaches-story_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-discredits-3ds-headaches-story" class="article-title">Nintendo dismisses 3DS headaches story</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_steel-diver-gets-uk-3ds-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/steel-diver-gets-uk-3ds-date" class="article-title">Steel Diver gets UK 3DS date</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_pitchford-attacks-dead-space-multiplayer_thumbnail.png">
+			<a href="https://www.eurogamer.net/pitchford-attacks-dead-space-multiplayer" class="article-title">Pitchford attacks Dead Space multiplayer</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_eurogamer-net-podcast-63-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-net-podcast-63-blog-entry" class="article-title">Eurogamer.net Podcast #63</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_cod-black-ops-escalation-pack-outed_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod-black-ops-escalation-pack-outed" class="article-title">COD: Black Ops Escalation DLC outed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_pre-order-hunted-the-demons-forge-advertising-promotion_thumbnail.png">
+			<a href="https://www.eurogamer.net/pre-order-hunted-the-demons-forge-advertising-promotion" class="article-title">Pre-order Hunted: The Demon's Forge</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_sony-uk-boss-says-cheerio-after-17-years_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-uk-boss-says-cheerio-after-17-years" class="article-title">Sony UK boss says cheerio after 17 years</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_rayman-3d-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/rayman-3d-review" class="article-title">Rayman 3D</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_soe-free-realms-can-reach-100-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/soe-free-realms-can-reach-100-million" class="article-title">SOE: Free Realms can reach 100 million</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_sony-tablet-this-summer-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-tablet-this-summer-report" class="article-title">Sony tablet this summer - report</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_japan-quake-could-delay-ngp-until-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/japan-quake-could-delay-ngp-until-2012" class="article-title">Japan quake could delay NGP until 2012</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_anonymous-attack-on-sony-gets-personal_thumbnail.png">
+			<a href="https://www.eurogamer.net/anonymous-attack-on-sony-gets-personal" class="article-title">Anonymous attack on Sony gets personal</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/05_eve-online-reality-check-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-online-reality-check-article" class="article-title">EVE Online: Reality Check</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136803/Snippets-Possible-NGP-delay-secret-Squeenix-project-Max-Payne-3-details/" class="article-title">Snippets: Possible NGP delay, secret Squeenix project, Max Payne 3 details</a>
+			<div class="article-subtitle">Rockstar "always playing with time".</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i136799/Ubisoft-announce-Anno-2070/" class="article-title">Ubisoft announce Anno 2070</a>
+			<div class="article-subtitle">New addition to RTS series this year.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/roadkill-revenge.php" class="article-title">Roadkill Revenge</a>
+			<div class="article-author">J-Witz</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/choo-choo-puzzles.php" class="article-title">Choo Choo Puzzles</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-26.php" class="article-title">The Vault №37</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/04/05/streets-of-rage-remake-2/" class="article-title">Streets of Rage Remake</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

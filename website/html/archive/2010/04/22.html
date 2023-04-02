@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 22, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/beat-hazard-review/1900-6259809/" class="article-title">Beat Hazard Review</a>
+			<div class="article-subtitle">This dual-stick shooter gives you a fun new way to listen to your favorite bands.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_free-release-of-mechwarrior-4-approved_1100-6259454_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-release-of-mechwarrior-4-approved/1100-6259454/" class="article-title">Free release of MechWarrior 4 approved</a>
+			<div class="article-subtitle">Microsoft signs off on MekTek Studios' distribution of FASA Studios' 2000 PC mech sim, launch expected soon.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_ea-sports-active-20-first-look_1100-6259728_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-active-20-first-look/1100-6259728/" class="article-title">EA Sports Active 2.0 First Look</a>
+			<div class="article-subtitle">The next fitness game from EA is coming for the Wii and PS3, and we've got a first look.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_tony-hawk-officially-shred-ding_1100-6259289_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawk-officially-shred-ding/1100-6259289/" class="article-title">Tony Hawk officially Shred-ding</a>
+			<div class="article-subtitle">Activision confirms leaked title for next installment in pro skater's titular series, will not confirm if snowboarding or skating game.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_drew-brees-lands-madden-nfl-11-cover-gig_1100-6259781_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/drew-brees-lands-madden-nfl-11-cover-gig/1100-6259781/" class="article-title">Drew Brees lands Madden NFL 11 cover gig</a>
+			<div class="article-subtitle">New Orleans Saints QB and Super Bowl XLIV MVP will grace box of EA Sports' NFL-authorized football sim, due out in August on the PS2, PS3, PSP, 360, Wii, and iPhone.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_halo-reach-standard-limited-and-legendary-editions-confirmed_1100-6259782_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-standard-limited-and-legendary-editions-confirmed/1100-6259782/" class="article-title">Halo: Reach standard, limited, and legendary editions confirmed</a>
+			<div class="article-subtitle">Legendary edition set to retail for $150 and will contain an individually numbered and hand-painted 10-inch Noble Team statue made by McFarlane Toys and exclusive multiplayer armour.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_halo-reach-hands-on_1100-6259161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-hands-on/1100-6259161/" class="article-title">Halo: Reach Hands-On</a>
+			<div class="article-subtitle">We spend some quality time with the multiplayer beta of Bungie's next Halo game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_mlbtv-swinging-on-ps3_1100-6259797_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlbtv-swinging-on-ps3/1100-6259797/" class="article-title">MLB.TV swinging on PS3</a>
+			<div class="article-subtitle">Subscription service allows North American gamers to stream live HD home or away coverage of every regular season baseball game, complete with pause/rewind functions.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_sid-meiers-pirates-wii-bound-says-esrb_1100-6259790_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sid-meiers-pirates-wii-bound-says-esrb/1100-6259790/" class="article-title">Sid Meier's Pirates! Wii-bound, says ESRB</a>
+			<div class="article-subtitle">Ratings board slaps E10+ rating on an apparent port of the 2004 reboot of classic free-roaming buccaneer sim.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_naild-first-look_1100-6259778_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/naild-first-look/1100-6259778/" class="article-title">Nail'd First Look</a>
+			<div class="article-subtitle">Deep Silver combines offroad racing and abject speed in its upcoming racing game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_sega-lays-off-10-of-us-eu-staff_1100-6259812_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-lays-off-10-of-us-eu-staff/1100-6259812/" class="article-title">Sega lays off 10% of US, EU staff</a>
+			<div class="article-subtitle">Sonic publisher cuts more than 70 workers from London and San Francisco offices, creates new digital-focused division in latter location.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_prince-of-persia-the-forgotten-sands-extended-hands-on_1100-6259217_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-the-forgotten-sands-extended-hands-on/1100-6259217/" class="article-title">Prince of Persia: The Forgotten Sands Extended Hands-On</a>
+			<div class="article-subtitle">Death-defying leaps, booby-trapped hallways, and casual time travel all make a return in the prince's latest adventure.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_xbox-division-posts-165-million-q1-profit-despite-12-360-sales-drop_1100-6259815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-division-posts-165-million-q1-profit-despite-12-360-sales-drop/1100-6259815/" class="article-title">Xbox division posts $165 million Q1 profit despite 12% 360 sales drop</a>
+			<div class="article-subtitle">Increased Xbox Live revenue, lowered manufacturing costs, currency exchange help offset just 1.5 million consoles sold; Microsoft reports record $14.50 billion quarter overall.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_sony-sells-65m-ps3s-in-q4-posts-8712m-profit_1100-6249459_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-sells-65m-ps3s-in-q4-posts-8712m-profit/1100-6249459/" class="article-title">Sony sells 6.5M PS3s in Q4, posts $871.2M profit</a>
+			<div class="article-subtitle">Electronics giant back in black after months in red; PS3's sales jump by 2 million during holidays--life-to-date sales hit 33.5 million; PSP and PS2 sales slump, annual game-software sales estimate cut by 40 million units.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_microsoft-further-expands-xbox-360-warranty_1100-6168544_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-further-expands-xbox-360-warranty/1100-6168544/" class="article-title">Microsoft further expands Xbox 360 warranty</a>
+			<div class="article-subtitle">Gamemaker promises free shipping and faster repairs, extra one-year commitment on out-of-warranty services.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/04/22_xbox-360-sales-top-40-million_1100-6259832_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-sales-top-40-million/1100-6259832/" class="article-title">Xbox 360 sales top 40 million</a>
+			<div class="article-subtitle">Microsoft confirms its console crossed another worldwide sales milestone five years into its life cycle.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_prince-of-persia-the-forgotten-sands-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/prince-of-persia-the-forgotten-sands-hands-on" class="article-title">Prince of Persia: The Forgotten Sands</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_new-pal-releases-roundup-23rd-april-2010_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-pal-releases-roundup-23rd-april-2010" class="article-title">New PAL Releases Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_dr-who-the-adventure-games-city-of-the-daleks-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/dr-who-the-adventure-games-city-of-the-daleks-hands-on" class="article-title">Doctor Who: The Adventure Games - City of the Daleks</a>
+			<div class="article-author">Will Porter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_halo-reach-legendary-edition-is-gbp100_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-reach-legendary-edition-is-gbp100" class="article-title">Halo: Reach Legendary Edition is £100</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_lost-planet-2-multiplayer-demo-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/lost-planet-2-multiplayer-demo-on-psn" class="article-title">Lost Planet 2 multiplayer demo on PSN</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_usd25-wow-horse-makes-millions_thumbnail.png">
+			<a href="https://www.eurogamer.net/usd25-wow-horse-makes-millions" class="article-title">$25 WOW horse makes millions</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_bond-game-plans-unaffected-by-film_thumbnail.png">
+			<a href="https://www.eurogamer.net/bond-game-plans-unaffected-by-film" class="article-title">Bond game plans unaffected by film?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_nier-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/nier-review" class="article-title">Nier</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_city-of-the-daleks-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/city-of-the-daleks-detailed" class="article-title">City of the Daleks detailed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_eurogamer-expo-tickets-on-sale-now-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-expo-tickets-on-sale-now-blog-entry" class="article-title">Eurogamer Expo tickets on sale now!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_respawns-jason-west-and-vince-zampella-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/respawns-jason-west-and-vince-zampella-interview" class="article-title">Respawn's Jason West and Vince Zampella</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_epic-takes-25-percent-royalties-for-udk_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-takes-25-percent-royalties-for-udk" class="article-title">Epic takes 25% royalties for UDK</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_three-cod-games-coming-in-two-years_thumbnail.png">
+			<a href="https://www.eurogamer.net/three-cod-games-coming-in-two-years" class="article-title">Three COD games coming in two years</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_resi-evil-film-director-to-work-on-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/resi-evil-film-director-to-work-on-games" class="article-title">Resi Evil film director to work on games</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_natal-may-learn-from-your-actions_thumbnail.png">
+			<a href="https://www.eurogamer.net/natal-may-learn-from-your-actions" class="article-title">Natal may learn from your actions</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_ms-defends-halo-3-god-load-times_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-defends-halo-3-god-load-times" class="article-title">MS defends Halo 3 GOD load times</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/04/22_ps3-3d-firmware-available-shortly_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-3d-firmware-available-shortly" class="article-title">PS3 3D firmware "available shortly"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i134785/Blizzard-ban-320-000-accounts/" class="article-title">Blizzard ban 320,000 accounts</a>
+			<div class="article-subtitle">Diablo II and Warcraft III cheaters purged.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134782/Kiwi-devs-Flightless-release-debut-game/" class="article-title">Kiwi devs Flightless release debut game</a>
+			<div class="article-subtitle">iPhone title available now.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134789/Snippets-Lost-Planet-2-demo-Batman-DLC-a-Guinness-World-Record-for-MW2/" class="article-title">Snippets: Lost Planet 2 demo, Batman DLC, a Guinness World Record for MW2</a>
+			<div class="article-subtitle">Well, duh.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/babylon-sticks-heroic-quest.php" class="article-title">Babylon Sticks: Heroic Quest</a>
+			<div class="article-author">James Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/trickochet.php" class="article-title">Trickochet</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/enough-plumbers.php" class="article-title">Enough Plumbers</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

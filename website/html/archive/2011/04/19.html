@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 19, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/portal-2-review/1900-6309133/" class="article-title">Portal 2 Review</a>
+			<div class="article-subtitle">Portal 2 is an accessible, clever, and downright hilarious adventure into the eccentric world of Aperture Science.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/portal-2-review/1900-6309184/" class="article-title">Portal 2 Review</a>
+			<div class="article-subtitle">Portal 2 is an accessible, clever, and downright hilarious adventure into the eccentric world of Aperture Science.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/portal-2-review/1900-6309270/" class="article-title">Portal 2 Review</a>
+			<div class="article-subtitle">Portal 2 is an accessible, clever, and downright hilarious adventure into the eccentric world of Aperture Science.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mortal-kombat-review/1900-6309015/" class="article-title">Mortal Kombat Review</a>
+			<div class="article-subtitle">Over-the-top, bloody, and bursting with content, Mortal Kombat is a return to form for the franchise.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mortal-kombat-review/1900-6309219/" class="article-title">Mortal Kombat Review</a>
+			<div class="article-subtitle">Over-the-top, bloody, and bursting with content, Mortal Kombat is a return to form for the franchise.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_uncharted-3-multiplayer-hands-on-preview_1100-6308996_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncharted-3-multiplayer-hands-on-preview/1100-6308996/" class="article-title">Uncharted 3 Multiplayer Hands-On Preview</a>
+			<div class="article-subtitle">We defend a flight and punch out some bad guys in our first hands-on look at the multiplayer mode in Uncharted 3: Drake's Deception.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_asia-shippin-out-april-17-23-mortal-kombat_1100-6309137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-april-17-23-mortal-kombat/1100-6309137/" class="article-title">Asia Shippin' Out April 17-23: Mortal Kombat</a>
+			<div class="article-subtitle">It's all-out kombat, team-based squad shooting in the Strait of Malacca, and Aperture-branded science.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_road-to-evo-championship-series-tournament-held-in-singapore_1100-6309140_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/road-to-evo-championship-series-tournament-held-in-singapore/1100-6309140/" class="article-title">Road to Evo Championship series tournament held in Singapore</a>
+			<div class="article-subtitle">Clementi Game Festival to use Super Street Fighter IV as qualifier.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_psp-go-dead_1100-6309145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-go-dead/1100-6309145/" class="article-title">PSP Go dead?</a>
+			<div class="article-subtitle">Sony ceasing to manufacture UMD-free $200 portable system, according to Japanese Sony Shop employee.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_xbox-live-update-gears-of-war-3-beta-section-8-prejudice_1100-6309146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-update-gears-of-war-3-beta-section-8-prejudice/1100-6309146/" class="article-title">Xbox Live Update: Gears of War 3 beta, Section 8 Prejudice</a>
+			<div class="article-subtitle">Microsoft's online space updated with trial for Epic Games' new shooter, XBLA sci-fi title; Games on Demand adds Fallout: New Vegas, Mafia II, and Lost Planet II.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_esrb-to-auto-generate-dlc-ratings_1100-6308978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-to-auto-generate-dlc-ratings/1100-6308978/" class="article-title">ESRB to auto-generate DLC ratings</a>
+			<div class="article-subtitle">North American ratings board tweaks its procedure for downloadable content and games for consoles, handhelds; multiple-choice responses will result in automatically generated ratings via an algorithm.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_dungeon-siege-iii-updated-hands-on-katarina-and-abilities-galore_1100-6308579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dungeon-siege-iii-updated-hands-on-katarina-and-abilities-galore/1100-6308579/" class="article-title">Dungeon Siege III Updated Hands-On: Katarina and Abilities Galore</a>
+			<div class="article-subtitle">We check out the gunslinging Katarina and find out what she brings to the loot-hoarding table.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_mark-ingram-fronting-ncaa-football-12_1100-6309156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mark-ingram-fronting-ncaa-football-12/1100-6309156/" class="article-title">Mark Ingram fronting NCAA Football 12</a>
+			<div class="article-subtitle">Former Alabama Crimson Tide running back named cover athlete for EA Sports' college gridiron sim, due this year on 360, PS3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_kinect-sports-gets-calorie-challenge-add-on-april-29_1100-6309147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kinect-sports-gets-calorie-challenge-add-on-april-29/1100-6309147/" class="article-title">Kinect Sports gets Calorie Challenge add-on April 29</a>
+			<div class="article-subtitle">Microsoft releasing $4 downloadable content for motion-controlled party game next week; will include 250 Achievement points and two Avatar awards.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_ps3-under-siege-may-3_1100-6309157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-under-siege-may-3/1100-6309157/" class="article-title">PS3 Under Siege May 3</a>
+			<div class="article-subtitle">Move-compatible real-time strategy game from Portuguese outfit Seed Studios dated for PSN; European launch set for April 27.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_why-only-an-xbox-360-review-for-portal-2_1100-6309160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/why-only-an-xbox-360-review-for-portal-2/1100-6309160/" class="article-title">Why only an Xbox 360 review for Portal 2?</a>
+			<div class="article-subtitle">You may have noticed our reviews for the PC and PlayStation 3 version of Portal 2 aren't live yet. There's a good reason!</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_capcom-makes-beeline-for-social-mobile-market_1100-6309165_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-makes-beeline-for-social-mobile-market/1100-6309165/" class="article-title">Capcom makes Beeline for social mobile market</a>
+			<div class="article-subtitle">New brand to focus on microtransaction-driven smartphone games; eight new titles planned in the next year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_portal-sells-nearly-4-million_1100-6309201_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/portal-sells-nearly-4-million/1100-6309201/" class="article-title">Portal sells nearly 4 million</a>
+			<div class="article-subtitle">Not including Steam sales, highly acclaimed Orange Box pack-in has almost hit quadruple-platinum milestone.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_gamescom-exhibitor-count-swells-in-2011_1100-6309211_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/gamescom-exhibitor-count-swells-in-2011/1100-6309211/" class="article-title">Gamescom exhibitor count swells in 2011</a>
+			<div class="article-subtitle">Cologne-based gaming convention reports company attendance so far up 20% over 2010; many requesting more show floor space.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_centipede-infestation-burrowing-into-fall_1100-6309213_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/centipede-infestation-burrowing-into-fall/1100-6309213/" class="article-title">Centipede: Infestation burrowing into fall</a>
+			<div class="article-subtitle">Third-person "re-imagining" of Atari classic arcade game will feature run-and-gun combat, tower-defense gameplay on Wii and 3DS.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/04/19_rockstar-signed-on-for-wii-2_1100-6309218_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-signed-on-for-wii-2/1100-6309218/" class="article-title">Rockstar signed on for Wii 2?</a>
+			<div class="article-subtitle">French site claims Grand Theft Auto maker among the first to receive development kit for Nintendo's rumored new console.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_epic-usd1-apps-are-killing-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-usd1-apps-are-killing-us" class="article-title">Epic: $1 apps are "killing us"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_minecraft-1-5-update-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/minecraft-1-5-update-goes-live" class="article-title">Minecraft 1.5 update goes live</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_telltale-licensed-games-arent-dead_thumbnail.png">
+			<a href="https://www.eurogamer.net/telltale-licensed-games-arent-dead" class="article-title">Telltale: Licensed games aren't dead</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_dow2s-last-stand-gets-dlc-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/dow2s-last-stand-gets-dlc-release" class="article-title">DOW2's Last Stand gets DLC release</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_sword-and-sworcery-ep-gets-iphone-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/sword-and-sworcery-ep-gets-iphone-date" class="article-title">Sword & Sworcery EP gets iPhone date</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_microsoft-combats-xblig-ratings-abuse_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-combats-xblig-ratings-abuse" class="article-title">Microsoft combats XBLIG ratings "abuse"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_centipede-revival-announced-for-3ds-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/centipede-revival-announced-for-3ds-wii" class="article-title">Centipede revival announced for 3DS, Wii</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_portal-2-metacritic-user-score-pounded_thumbnail.png">
+			<a href="https://www.eurogamer.net/portal-2-metacritic-user-score-pounded" class="article-title">Portal 2 Metacritic user score pounded</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_the-master-of-synaesthesia-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-master-of-synaesthesia-article" class="article-title">The Master of Synaesthesia</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_tough-road-ahead_thumbnail.png">
+			<a href="https://www.eurogamer.net/tough-road-ahead" class="article-title">Tough Road Ahead</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_enslaved-up-for-ivor-novello-award_thumbnail.png">
+			<a href="https://www.eurogamer.net/enslaved-up-for-ivor-novello-award" class="article-title">Enslaved up for Ivor Novello Award</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_deus-ex-human-revolution-collectors-ed_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-human-revolution-collectors-ed" class="article-title">Deus Ex: Human Revolution Collector's Ed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_why-prey-2-ditches-portals-and-gravity_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-prey-2-ditches-portals-and-gravity" class="article-title">Why Prey 2 ditches portals and gravity</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_dj-heros-final-dlc-pack_thumbnail.png">
+			<a href="https://www.eurogamer.net/dj-heros-final-dlc-pack" class="article-title">DJ Hero's final DLC pack</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_driver-san-francisco-out-this-september_thumbnail.png">
+			<a href="https://www.eurogamer.net/driver-san-francisco-out-this-september" class="article-title">Driver: San Francisco out this September</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_zelda-ocarina-of-time-3d-gets-new-mode_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-ocarina-of-time-3d-gets-new-mode" class="article-title">Zelda: Ocarina of Time 3D gets new mode</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_red-faction-armageddon-multiplayer-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-faction-armageddon-multiplayer-hands-on" class="article-title">Red Faction: Armageddon Multiplayer</a>
+			<div class="article-author">Dan Griliopoulos</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_doom-fans-will-be-happy-with-doom-4_thumbnail.png">
+			<a href="https://www.eurogamer.net/doom-fans-will-be-happy-with-doom-4" class="article-title">Doom fans "will be happy" with Doom 4</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_2011-pokemon-championships-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/2011-pokemon-championships-detailed" class="article-title">2011 Pokémon Championships detailed</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_sony-halts-pspgo-production-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-halts-pspgo-production-report" class="article-title">Sony halts PSPgo production – report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_portal-2-out-now-on-steam-worldwide_thumbnail.png">
+			<a href="https://www.eurogamer.net/portal-2-out-now-on-steam-worldwide" class="article-title">Portal 2 out now on Steam worldwide</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_nascar-the-game-2011-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/nascar-the-game-2011-review" class="article-title">NASCAR The Game 2011</a>
+			<div class="article-author">Joao Diniz Sanches</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_socom-special-forces-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/socom-special-forces-review" class="article-title">SOCOM: Special Forces</a>
+			<div class="article-author">Steve Hill</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_mass-effect-2-arrival-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/mass-effect-2-arrival-review" class="article-title">Mass Effect 2: Arrival</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_men-of-war-assault-squad-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/men-of-war-assault-squad-review" class="article-title">Men of War: Assault Squad</a>
+			<div class="article-author">Al Bickham</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_portal-2-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/portal-2-review" class="article-title">Portal 2</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_mk-dev-wanted-xbox-exclusive-character_thumbnail.png">
+			<a href="https://www.eurogamer.net/mk-dev-wanted-xbox-exclusive-character" class="article-title">MK dev wanted Xbox exclusive character</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_sonic-generations-announced-for-ps3-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonic-generations-announced-for-ps3-360" class="article-title">Sonic Generations announced for PS3, 360</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/04/19_out-this-week-22-04-11_thumbnail.png">
+			<a href="https://www.eurogamer.net/out-this-week-22-04-11" class="article-title">Out This Week - 22/04/11</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136898/Snippets-SOCOM-4-includes-online-pass-BioWare-s-episodic-game-More-MW2-controversy/" class="article-title">Snippets: SOCOM 4 includes online pass; BioWare’s episodic game?; More MW2 controversy</a>
+			<div class="article-subtitle">For your consideration.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i136893/Uncharted-3-multiplayer-detailed/" class="article-title">Uncharted 3 multiplayer detailed</a>
+			<div class="article-subtitle">YouTube and Facebook integration.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136892/Anti-Sony-protest-a-flop/" class="article-title">Anti-Sony protest a flop</a>
+			<div class="article-subtitle">Activist buys Bravia TV instead.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i136891/RAGE-multiplayer-will-not-include-classic-deathmatch-modes/" class="article-title">RAGE multiplayer will not include classic deathmatch modes</a>
+			<div class="article-subtitle">Rally driving and co-op instead.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/magnum-pleasure-hunt.php" class="article-title">Magnum: Pleasure Hunt</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/raasool.php" class="article-title">RaaSool</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/zombie-cats.php" class="article-title">Zombie Cats</a>
+			<div class="article-author">Chiktionary</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-28.php" class="article-title">The Vault №39</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

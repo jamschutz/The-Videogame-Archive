@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 20, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/football-manager-2010-review/1900-6240556/" class="article-title">Football Manager 2010 Review</a>
+			<div class="article-subtitle">While there may be no star signings in this year's Football Manager, there are enough incremental improvements to keep it at the top of the table.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/call-of-duty-modern-warfare-reflex-review/1900-6241040/" class="article-title">Call of Duty: Modern Warfare: Reflex Review</a>
+			<div class="article-subtitle">This belated port successfully brings the greatness of Call of Duty 4: Modern Warfare to the Wii.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-shippuden-clash-of-ninja-revolution-3/1900-6241036/" class="article-title">Naruto Shippuden: Clash of Ninja Revolution 3 Review</a>
+			<div class="article-subtitle">Naruto's latest is a good fighting game that's held back by an unbalanced Story mode and laggy online play.</div>
+			<div class="article-author">Patrick Joynt</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ea-sports-active-more-workouts-review/1900-6240941/" class="article-title">EA Sports Active: More Workouts Review</a>
+			<div class="article-subtitle">Visit a tropical resort and blast those abs in EA Sports Active: More Workouts.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragon-ball-revenge-of-king-piccolo-review/1900-6241030/" class="article-title">Dragon Ball: Revenge of King Piccolo Review</a>
+			<div class="article-subtitle">Revenge of King Piccolo is more successful as a Dragon Ball primer than as an actual fighting game.</div>
+			<div class="article-author">Patrick Joynt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_talking-hoops-and-mma-with-gus-johnson_1100-6240896_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/talking-hoops-and-mma-with-gus-johnson/1100-6240896/" class="article-title">Talking Hoops and MMA With Gus Johnson</a>
+			<div class="article-subtitle">We chat with CBS Sports play-by-play announcer Gus Johnson about his role in NCAA Basketball 10.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_final-fantasy-crystal-chronicles-the-crystal-bearers-updated-hands-on_1100-6240929_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-crystal-chronicles-the-crystal-bearers-updated-hands-on/1100-6240929/" class="article-title">Final Fantasy Crystal Chronicles: The Crystal Bearers Updated Hands-On</a>
+			<div class="article-subtitle">Being a crystal bearer sure has its perks as we use our powers to explore the vast world of Final Fantasy Crystal Chronicles.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_bioshock-2-zapped-with-special-edition_1100-6240899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-2-zapped-with-special-edition/1100-6240899/" class="article-title">BioShock 2 zapped with Special Edition</a>
+			<div class="article-subtitle">Limited-run collectors' package for 2K Games' underwater dystopian shooter loaded with posters, soundtracks for $100 on 360, PS3, $90 for PC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_aussie-game-charts-november-9-15_1100-6240911_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-november-9-15/1100-6240911/" class="article-title">Aussie game charts: November 9-15</a>
+			<div class="article-subtitle">all of Duty: Modern Warfare 2 storms the top 10, followed by New Super Mario Bros. Wii, Cricket, and Wii Fit Plus.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_british-intelligence-spooking-xbox-live_1100-6240926_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/british-intelligence-spooking-xbox-live/1100-6240926/" class="article-title">British intelligence spooking Xbox Live</a>
+			<div class="article-subtitle">Adverts, gamer pictures, themes, and videos to hit Microsoft's online service as part of a recruitment drive by the GCHQ.</div>
+			<div class="article-author">Nick Akerman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_xbox-live-ban-class-action-suit-being-mulled_1100-6240934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-ban-class-action-suit-being-mulled/1100-6240934/" class="article-title">Xbox Live ban class-action suit being mulled</a>
+			<div class="article-subtitle">Law firm puts out call for gamers tossed from Microsoft's online service in pre-Modern Warfare 2 purges.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_star-trek-online-open-beta-warps-to-january_1100-6240936_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-trek-online-open-beta-warps-to-january/1100-6240936/" class="article-title">Star Trek Online open beta warps to January</a>
+			<div class="article-subtitle">Cryptic Studios' latest MMORPG will enter large-scale testing period January 12-26; keys offered as first come, first served.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_gamespots-new-video-player_1100-6240939_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespots-new-video-player/1100-6240939/" class="article-title">GameSpot's New Video Player</a>
+			<div class="article-subtitle">Check out some of the new improvements we recently made to our video player.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_3d-dot-game-heroes-hands-on_1100-6240538_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3d-dot-game-heroes-hands-on/1100-6240538/" class="article-title">3D Dot Game Heroes Hands-On</a>
+			<div class="article-subtitle">It's like mixing the best from the past and present as we jump into a classic 8-bit 3D world in From Software's latest adventure game.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_3d-ps3-gaming-coming-via-firmware-update-in-2010_1100-6240881_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3d-ps3-gaming-coming-via-firmware-update-in-2010/1100-6240881/" class="article-title">3D PS3 gaming coming via firmware update in 2010</a>
+			<div class="article-subtitle">[UPDATE] Japanese electronics giant says all consoles will benefit from stereoscopic depth-of-field technology after downloadable patch.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_adhocparty-peggle-pop-onto-ps3_1100-6240931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/adhocparty-peggle-pop-onto-ps3/1100-6240931/" class="article-title">adhocParty, Peggle pop onto PS3 </a>
+			<div class="article-subtitle">PlayStation Store Update: PopCap's money-minting puzzler joins PSOne classics Resident Evil 2, Legacy of Kain; PSP gets Assassin's Creed: Bloodlines.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_the-legend-of-zelda-spirit-tracks-updated-hands-on_1100-6241047_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-legend-of-zelda-spirit-tracks-updated-hands-on/1100-6241047/" class="article-title">The Legend of Zelda: Spirit Tracks Updated Hands-On</a>
+			<div class="article-subtitle">We dive deeper into Link's latest adventure on the Nintendo DS.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_bayonetta-xbox-360-demo-early-access_1100-6240735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bayonetta-xbox-360-demo-early-access/1100-6240735/" class="article-title">Bayonetta Xbox 360 Demo Early Access</a>
+			<div class="article-subtitle">The Xbox 360 demo for Bayonetta arrives December 3rd, but Sega's given us thousands of activation codes to hand out to our loyal readers for early access. Sign up now to grab yours!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_world-of-warcraft-wrath-of-the-lich-king-hardware-performance-guide_1100-6202200_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-wrath-of-the-lich-king-hardware-performance-guide/1100-6202200/" class="article-title">World of Warcraft: Wrath of the Lich King Hardware Performance Guide</a>
+			<div class="article-subtitle">World of Warcraft: Wrath of the Lich King comes with a slew of graphical improvements. Take a look and see what you need to run the game.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_nfs-shift-dlc-goes-gratis-next-month_1100-6241051_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nfs-shift-dlc-goes-gratis-next-month/1100-6241051/" class="article-title">NFS: Shift DLC goes gratis next month</a>
+			<div class="article-subtitle">EA and Slightly Mad's street racer gains five cars and one mode in Team Racing add-on pack on 360 beginning December 1, PS3 two days later.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_banned-psn-player-takes-aim-at-microsoft-nintendo_1100-6240940_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/banned-psn-player-takes-aim-at-microsoft-nintendo/1100-6240940/" class="article-title">Banned PSN player takes aim at Microsoft, Nintendo</a>
+			<div class="article-subtitle">Gamer appeals tossing of case against Sony, files new suit against Microsoft over red ring failure, Nintendo for disabling homebrew channel.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_media-watchdog-nimf-shutting-down_1100-6240959_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/media-watchdog-nimf-shutting-down/1100-6240959/" class="article-title">Media watchdog NIMF shutting down</a>
+			<div class="article-subtitle">National Institute on Media and the Family to close doors after nearly 14 years, marking an end to Video Game Report Card program.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_big-in-japan-nov-9-15-j-league-pro-soccer-club_1100-6241032_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-nov-9-15-j-league-pro-soccer-club/1100-6241032/" class="article-title">Big in Japan Nov. 9-15: J-League Pro Soccer Club</a>
+			<div class="article-subtitle">Sega dethrones Winning Eleven with its own footie sim for the PSP; Sony's portable, PS3 nearly tie at top of hardware chart.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_sony-planning-paid-psn-subscriptions-for-2010_1100-6240938_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-planning-paid-psn-subscriptions-for-2010/1100-6240938/" class="article-title">Sony planning paid PSN subscriptions for 2010</a>
+			<div class="article-subtitle">[UPDATE] Kaz Hirai confirms premium level will be added on top of PS3 and PSP's online service, which will remain free to play online; PSN revenue expected to hit $563 million this fiscal year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/11/20_modnation-racers-hands-on_1100-6240928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modnation-racers-hands-on/1100-6240928/" class="article-title">ModNation Racers Hands-On</a>
+			<div class="article-subtitle">We visit United Front Games to take a closer look at the fully customizable kart racer that is heading to the PlayStation 3.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_creatures-series-added-to-gog_thumbnail.png">
+			<a href="https://www.eurogamer.net/creatures-series-added-to-gog" class="article-title">Creatures series added to GOG</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_ffcc-crystal-bearers-here-in-february_thumbnail.png">
+			<a href="https://www.eurogamer.net/ffcc-crystal-bearers-here-in-february" class="article-title">FFCC: Crystal Bearers here in February</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_dedicated-servers-for-aliens-vs-predator-9_thumbnail.png">
+			<a href="https://www.eurogamer.net/dedicated-servers-for-aliens-vs-predator-9" class="article-title">Dedicated servers for Aliens vs Predator</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_steam-has-70-per-cent-of-pc-pie_thumbnail.png">
+			<a href="https://www.eurogamer.net/steam-has-70-per-cent-of-pc-pie" class="article-title">Steam has 70 per cent of PC pie</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_serious-sam-hd-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/serious-sam-hd-hands-on" class="article-title">Serious Sam HD</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_online-dynasty-warriors-in-february_thumbnail.png">
+			<a href="https://www.eurogamer.net/online-dynasty-warriors-in-february" class="article-title">Online Dynasty Warriors in February</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_ms-outlines-xbl-thanksgiving-deals_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-outlines-xbl-thanksgiving-deals" class="article-title">MS outlines XBL Thanksgiving deals</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_serious-sam-hd-out-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/serious-sam-hd-out-next-week" class="article-title">Serious Sam HD out next week</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_gravity-crash-lands-on-psn-on-tuesday_thumbnail.png">
+			<a href="https://www.eurogamer.net/gravity-crash-lands-on-psn-on-tuesday" class="article-title">Gravity Crash lands on PSN next week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_stark-contrasts-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/stark-contrasts-article" class="article-title">Stark Contrasts</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_buzz-quiz-world-ps3-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/buzz-quiz-world-ps3-review" class="article-title">Buzz!: Quiz World</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_battlefield-bad-company-2-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlefield-bad-company-2-hands-on" class="article-title">Battlefield: Bad Company 2</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_sony-still-bossing-nintendo-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-still-bossing-nintendo-in-japan" class="article-title">Sony still bossing Nintendo in Japan</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_resi-5-to-get-gold-edition-disc-in-march_thumbnail.png">
+			<a href="https://www.eurogamer.net/resi-5-to-get-gold-edition-disc-in-march" class="article-title">Resi 5 to get Gold Edition disc in March</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_pokemon-rumble-heads-wiiware-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/pokemon-rumble-heads-wiiware-update" class="article-title">Pokemon Rumble heads WiiWare update</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_super-monkey-ball-2-coming-to-iphone_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-monkey-ball-2-coming-to-iphone" class="article-title">Super Monkey Ball 2 coming to iPhone</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_mgs-hints-at-more-shadow-complex_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-hints-at-more-shadow-complex" class="article-title">MGS hints at more Shadow Complex</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_new-pal-releases-roundup-20th-nov-2009_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-pal-releases-roundup-20th-nov-2009" class="article-title">New PAL Releases Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_starcraft-ii-website-inundated-with-info_thumbnail.png">
+			<a href="https://www.eurogamer.net/starcraft-ii-website-inundated-with-info" class="article-title">StarCraft II website inundated with info</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_bioware-reveals-new-dragon-age-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-reveals-new-dragon-age-dlc" class="article-title">BioWare reveals new Dragon Age DLC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_ace-attorney-wiiware-ports-for-europe_thumbnail.png">
+			<a href="https://www.eurogamer.net/ace-attorney-wiiware-ports-for-europe" class="article-title">Ace Attorney WiiWare ports for Europe</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_phoenix-wright-confirmed-for-wiiware_thumbnail.png">
+			<a href="https://www.eurogamer.net/phoenix-wright-confirmed-for-wiiware" class="article-title">Phoenix Wright confirmed for WiiWare</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_star-trek-online-open-beta-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-trek-online-open-beta-dated" class="article-title">Star Trek Online open beta dated</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_brad-pitts-firm-to-do-dark-void-film_thumbnail.png">
+			<a href="https://www.eurogamer.net/brad-pitts-firm-to-do-dark-void-film" class="article-title">Brad Pitt's firm to do Dark Void film</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_bioshock-2-special-edition-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-2-special-edition-unveiled" class="article-title">BioShock 2 Special Edition unveiled</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_kane-and-lynch-2-to-get-online-co-op_thumbnail.png">
+			<a href="https://www.eurogamer.net/kane-and-lynch-2-to-get-online-co-op" class="article-title">Kane & Lynch 2 to get online co-op</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_iw-wanted-you-close-to-atrocity-in-mw2_thumbnail.png">
+			<a href="https://www.eurogamer.net/iw-wanted-you-close-to-atrocity-in-mw2" class="article-title">IW wanted you "close to atrocity" in MW2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/11/20_race-on-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/race-on-review" class="article-title">RACE On</a>
+			<div class="article-author">Tim Stone</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i134178/StarCraft-II-site-gets-revamp/" class="article-title">StarCraft II site gets revamp</a>
+			<div class="article-subtitle">No Zerging around.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i134177/Tropico-3-demo-released/" class="article-title">Tropico 3 demo released</a>
+			<div class="article-subtitle">Only for X360 at this stage.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i134176/BioShock-2-Special-Edition-revealed/" class="article-title">BioShock 2 Special Edition revealed</a>
+			<div class="article-subtitle">Art and audio celebrated.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i134174/Valve-teases-L4D2-band/" class="article-title">Valve teases L4D2 band</a>
+			<div class="article-subtitle">But exactly what it is...</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i134173/New-Dragon-Age-DLC-announced/" class="article-title">New Dragon Age DLC announced</a>
+			<div class="article-subtitle">“Return to Ostagar” coming in summer.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134179/Snippets-Exclusivity-is-draining-PSN-subs-a-possibility-Banned-360s-flood-eBay/" class="article-title">Snippets: Exclusivity is "draining", PSN subs a "possibility", Banned 360s flood eBay</a>
+			<div class="article-subtitle">Call of eBay: Modded Hardware</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/escape-the-museum-2.php" class="article-title">Escape the Museum 2</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-140.php" class="article-title">Link Dump Friday №141</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/11/20_2009_11_20_captain-successor_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2009/11/20/captain-successor/" class="article-title">Captain Successor</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/11/20_2009_11_20_space-spy_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2009/11/20/space-spy/" class="article-title">Space Spy</a>
+			<div class="article-author">Guest Reviewer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

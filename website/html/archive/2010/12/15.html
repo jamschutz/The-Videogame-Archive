@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 15, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-sims-3-late-night-expansion-pack-review/1900-6285447/" class="article-title">The Sims 3: Late Night Expansion Pack Review</a>
+			<div class="article-subtitle">This expansion doesn't radically alter the Sims gameplay you know and love, but it's got enough quality content to keep you partying late into the night.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pictionary-review/1900-6285466/" class="article-title">Pictionary Review</a>
+			<div class="article-subtitle">This is a fun version of the beloved game of quick sketches and crazy guesses, provided you've got the hang of drawing with your tablet peripheral.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_ipod-touch-4g-and-game-center-hands-on_1100-6276592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ipod-touch-4g-and-game-center-hands-on/1100-6276592/" class="article-title">iPod Touch 4G and Game Center Hands-On</a>
+			<div class="article-subtitle">We check out the latest iPod Touch and see how Game Center fares against the competition.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_crysis-2-updated-hands-on_1100-6285425_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crysis-2-updated-hands-on/1100-6285425/" class="article-title">Crysis 2 Updated Hands-On</a>
+			<div class="article-subtitle">We find out what those invading aliens are up to as we venture back into the remains of Manhattan.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_inafune-launches-new-company-report_1100-6285426_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/inafune-launches-new-company-report/1100-6285426/" class="article-title">Inafune launches new company - Report</a>
+			<div class="article-subtitle">Japanese analyst says former Capcom R&D head handing out business cards for upstart company called Comcept.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_enders-game-game-ended_1100-6285427_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enders-game-game-ended/1100-6285427/" class="article-title">Ender's Game game ended</a>
+			<div class="article-subtitle">Chair studio head says Epic acquisition has pushed the development house toward "original and unique" franchises.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_star-wars-the-old-republic-updated-hands-on-the-jedi-consular-and-multiplayer-flashpoints_1100-6285422_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-old-republic-updated-hands-on-the-jedi-consular-and-multiplayer-flashpoints/1100-6285422/" class="article-title">Star Wars: The Old Republic Updated Hands-On - The Jedi Consular and Multiplayer Flashpoints</a>
+			<div class="article-subtitle">We wield the mystical powers of the Jedi consular and take on an explosive group adventure in this upcoming massively multiplayer game that takes place in the same universe as Star Wars: Knights of the Old Republic.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_alan-wake-named-times-game-of-the-year_1100-6285429_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alan-wake-named-times-game-of-the-year/1100-6285429/" class="article-title">Alan Wake named Time's game of the year</a>
+			<div class="article-subtitle">Remedy's spookfest gets top honors from mainstream publication; Angry Birds, Red Dead Redemption, Halo: Reach also make the cut.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_new-conan-games-incoming_1100-6285436_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-conan-games-incoming/1100-6285436/" class="article-title">New Conan games incoming</a>
+			<div class="article-subtitle">Licensing house Paradox Entertainment, talent agency DDM planning to enlist developer, publisher to create new titles based on classic fantasy property.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_section-8-prejudice-gets-15-price-point_1100-6285441_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/section-8-prejudice-gets-15-price-point/1100-6285441/" class="article-title">Section 8: Prejudice gets $15 price point</a>
+			<div class="article-subtitle">Sequel to full-priced retail first-person shooter goes downloadable for one quarter the cost, will feature five-hour single-player campaign, four-player cooperative mode, full bot support.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_namco-bandai-reins-in-western-development_1100-6285442_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-bandai-reins-in-western-development/1100-6285442/" class="article-title">Namco Bandai reins in Western development</a>
+			<div class="article-subtitle">Publisher cites overseas flops as reason Japan staff will more directly oversee game creation going forward.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_amd-radeon-hd-6970-and-radeon-hd-6950-hands-on-preview_1100-6285440_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amd-radeon-hd-6970-and-radeon-hd-6950-hands-on-preview/1100-6285440/" class="article-title">AMD Radeon HD 6970 and Radeon HD 6950 Hands-On Preview</a>
+			<div class="article-subtitle">AMD unveils two new high-end GPUs - the Radeon HD 6970 and Radeon HD 6950.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_section-8-prejudice-hands-on-multiplayer_1100-6285448_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/section-8-prejudice-hands-on-multiplayer/1100-6285448/" class="article-title">Section 8: Prejudice Hands-On - Multiplayer</a>
+			<div class="article-subtitle">Prejudice is calling down a ton of new content for this upcoming multiplayer shooter release.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/12/15_triple-game-night-at-5-pm-pt-8-pm-et_1100-6285455_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/triple-game-night-at-5-pm-pt-8-pm-et/1100-6285455/" class="article-title">Triple Game Night at 5 p.m. PT/8 p.m. ET</a>
+			<div class="article-subtitle">Select which platform and game you'll play!</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_infinity-blade-started-life-as-kinect-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/infinity-blade-started-life-as-kinect-game" class="article-title">Infinity Blade started life as Kinect game</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_huge-civ-5-patch-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/huge-civ-5-patch-released" class="article-title">Huge Civ 5 patch released</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_ac-brotherhood-scrapes-into-japan-charts_thumbnail.png">
+			<a href="https://www.eurogamer.net/ac-brotherhood-scrapes-into-japan-charts" class="article-title">AC: Brotherhood scrapes into Japan charts</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_xbox-live-gets-gray-matter-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-gets-gray-matter-demo" class="article-title">Xbox Live gets Gray Matter demo</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_lara-croft-gets-app-store-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/lara-croft-gets-app-store-release" class="article-title">Lara Croft gets App Store release</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_gt5-gets-free-christmas-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/gt5-gets-free-christmas-dlc" class="article-title">GT5 gets free Christmas DLC</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_sackboy-lara-dlc-head-ps-store-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/sackboy-lara-dlc-head-ps-store-update" class="article-title">Sackboy, Lara DLC head PS Store update</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_star-wars-the-old-republic-hands-on-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-wars-the-old-republic-hands-on-1" class="article-title">Star Wars: The Old Republic</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_jonathan-blow-in-his-own-words-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/jonathan-blow-in-his-own-words-interview" class="article-title">Jonathan Blow in his own words</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_ps3-gamers-outraged-at-black-ops_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-gamers-outraged-at-black-ops" class="article-title">PS3 gamers outraged at Black Ops</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_dead-space-ignition-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-space-ignition-review" class="article-title">Dead Space Ignition</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_professor-layton-and-the-lost-future-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/professor-layton-and-the-lost-future-review" class="article-title">Professor Layton and the Lost Future</a>
+			<div class="article-author">John Teti</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_god-of-war-ghost-of-sparta-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/god-of-war-ghost-of-sparta-review" class="article-title">God of War: Ghost of Sparta</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_atelier-rorona-the-alchemist-of-arland-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/atelier-rorona-the-alchemist-of-arland-review" class="article-title">Atelier Rorona: The Alchemist of Arland</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_red-dead-redemption-undead-nightmare-pack-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-redemption-undead-nightmare-pack-review" class="article-title">Red Dead Redemption: Undead Nightmare Pack</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_the-fight-lights-out-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-fight-lights-out-review" class="article-title">The Fight: Lights Out</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_ivy-the-kiwi-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/ivy-the-kiwi-review" class="article-title">Ivy the Kiwi?</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_goldeneye-007-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/goldeneye-007-review" class="article-title">GoldenEye 007</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_singstar-dance-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/singstar-dance-review" class="article-title">SingStar Dance</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_guwange-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/guwange-review" class="article-title">Guwange</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_the-lord-of-the-rings-online-re-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-lord-of-the-rings-online-re-review" class="article-title">The Lord of the Rings Online</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_drawn-dark-flight-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/drawn-dark-flight-review" class="article-title">Drawn: Dark Flight</a>
+			<div class="article-author">Lewis Denby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_mario-vs-donkey-kong-mini-land-mayhem-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/mario-vs-donkey-kong-mini-land-mayhem-review" class="article-title">Mario vs. Donkey Kong: Mini-Land Mayhem!</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_trials-hd-big-thrills-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/trials-hd-big-thrills-review" class="article-title">Trials HD: Big Thrills</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_infinity-blade-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/infinity-blade-review" class="article-title">Infinity Blade</a>
+			<div class="article-author">Mark Brown</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_golden-sun-dark-dawn-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/golden-sun-dark-dawn-review" class="article-title">Golden Sun: Dark Dawn</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_kung-fu-live-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/kung-fu-live-review" class="article-title">Kung Fu LIVE!</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_whos-making-the-ps3-ico-sotc-remasters_thumbnail.png">
+			<a href="https://www.eurogamer.net/whos-making-the-ps3-ico-sotc-remasters" class="article-title">Who's making the Ico/SOTC remasters?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_3rd-birthdays-shower-scene-is-steamy_thumbnail.png">
+			<a href="https://www.eurogamer.net/3rd-birthdays-shower-scene-is-steamy" class="article-title">3rd Birthday's shower scene is steamy</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_id-softwares-first-game-is-20-years-old_thumbnail.png">
+			<a href="https://www.eurogamer.net/id-softwares-first-game-is-20-years-old" class="article-title">id Software's first game is 20-years-old</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_yamauchi-to-upgrade-gt5-standard-cars_thumbnail.png">
+			<a href="https://www.eurogamer.net/yamauchi-to-upgrade-gt5-standard-cars" class="article-title">Yamauchi to upgrade GT5 standard cars</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_chrono-cross-coming-to-japanese-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/chrono-cross-coming-to-japanese-psn" class="article-title">Chrono Cross coming to Japanese PSN</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_irish-playstation-3s-get-rte-player_thumbnail.png">
+			<a href="https://www.eurogamer.net/irish-playstation-3s-get-rte-player" class="article-title">Irish PlayStation 3s get RTE Player</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/12/15_infinity-blade-devs-enders-game-tabled_thumbnail.png">
+			<a href="https://www.eurogamer.net/infinity-blade-devs-enders-game-tabled" class="article-title">Infinity Blade dev's Ender's Game tabled</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136268/Snippets-More-free-AC-Brotherhood-DLC-inSANE-a-trilogy-TIME-s-top-10-games/" class="article-title">Snippets: More free AC Brotherhood DLC; inSANE a trilogy; TIME’s top 10 games</a>
+			<div class="article-subtitle">Surprise winner?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i136261/Sony-Discs-aren-t-going-away/" class="article-title">Sony: Discs aren’t going away</a>
+			<div class="article-subtitle">Never mind the elephant in the room.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flight.php" class="article-title">Flight</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/starlight-xmas.php" class="article-title">Starlight Xmas</a>
+			<div class="article-author">Chiktionary</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/stamp-rally-escape-1.php" class="article-title">Stamp Rally Escape 1</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2010/12/15/the-humble-indie-bundle-2/" class="article-title">The Humble Indie Bundle #2</a>
+			<div class="article-author">ithamore</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2010/12/15_2010_12_15_endeavor_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2010/12/15/endeavor/" class="article-title">Endeavor</a>
+			<div class="article-author">ithamore</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

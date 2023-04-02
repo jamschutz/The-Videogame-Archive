@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 30, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rugby-league-3-review/1900-6254370/" class="article-title">Rugby League 3 Review</a>
+			<div class="article-subtitle">Rugby League 3's expanded team roster and fast-paced multiplayer may breathe new life into the series, but its lousy motion controls and outdated player stats leave it sitting on the bench.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/motogp-09-10-review/1900-6254419/" class="article-title">MotoGP 09/10 Review</a>
+			<div class="article-subtitle">A revamped Career mode and some fine racing are offset by some strange AI quirks in Capcom's latest two-wheeled racing game.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/motogp-09-10-review/1900-6254418/" class="article-title">MotoGP 09/10 Review</a>
+			<div class="article-subtitle">A revamped Career mode and some fine racing are offset by some strange AI quirks in Capcom's latest two-wheeled racing game.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/global-agenda-review/1900-6254436/" class="article-title">Global Agenda Review</a>
+			<div class="article-subtitle">Global Agenda's novel take on class-based combat has the potential to be exciting, but drudgery and other issues present serious obstacles to your enjoyment.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/resonance-of-fate-review/1900-6254401/" class="article-title">Resonance of Fate Review</a>
+			<div class="article-subtitle">Stylish combat that is as challenging as it is exciting provides the backbone for this great role-playing game.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/resonance-of-fate-review/1900-6254358/" class="article-title">Resonance of Fate Review</a>
+			<div class="article-subtitle">Stylish combat that is as challenging as it is exciting provides the backbone for this great role-playing game.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_star-wars-the-old-republic-xbox-360-bound_1100-6254333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-old-republic-xbox-360-bound/1100-6254333/" class="article-title">Star Wars: The Old Republic Xbox 360-bound?</a>
+			<div class="article-subtitle">UK retailer schedule lists LucasArts and EA's MMORPG as coming to Microsoft's console in spring 2011; BioWare says no console version planned "at this time."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_activision-cfo-promoted-to-coo_1100-6254359_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-cfo-promoted-to-coo/1100-6254359/" class="article-title">Activision CFO promoted to COO</a>
+			<div class="article-subtitle">Thomas Tippl elected to publisher's chief operating officer position as base pay jumps to $850,000.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_weekly-report-better-late-than-never_1100-6254379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-report-better-late-than-never/1100-6254379/" class="article-title">Weekly Report: Better late than never?</a>
+			<div class="article-subtitle">This week's report has news about Battlefield Bad Company 2 game night, the upcoming box hunt, and other happenings in the community.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_aussie-price-for-dsi-xl-revealed_1100-6254363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-price-for-dsi-xl-revealed/1100-6254363/" class="article-title">Aussie price for DSi XL revealed</a>
+			<div class="article-subtitle">Nintendo's super-sized handheld coming to Australia on April 15 for A$299.95.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_battlefield-1943-enlists-1-million-on-xbox-live_1100-6254321_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-1943-enlists-1-million-on-xbox-live/1100-6254321/" class="article-title">Battlefield 1943 enlists 1 million on Xbox Live</a>
+			<div class="article-subtitle">EA DICE's multiplayer-only online shooter goes platinum on Microsoft's platform alone nearly nine months after launch.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_ps3-update-locking-out-linux-april-1_1100-6254322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-update-locking-out-linux-april-1/1100-6254322/" class="article-title">PS3 update locking out Linux April 1</a>
+			<div class="article-subtitle">Next firmware update for console will disable "Other OS" feature due to "security concerns"; owners who opt out will lose PSN access.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_after-burner-climax-takes-off-in-april_1100-6254361_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/after-burner-climax-takes-off-in-april/1100-6254361/" class="article-title">After Burner Climax takes off in April </a>
+			<div class="article-subtitle">Remake of Sega's classic jet-combat sim will land on Xbox Live on April 21, PlayStation Network on April 22 for $10.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_spider-man-shattered-dimensions-first-look_1100-6254383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-shattered-dimensions-first-look/1100-6254383/" class="article-title">Spider-Man: Shattered Dimensions First Look</a>
+			<div class="article-subtitle">Spider-Man saves a lot more than the neighborhood in the upcoming game from Activision and Beenox.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_xbox-360-branded-usb-drives-start-at-40-retail-radar_1100-6254384_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-branded-usb-drives-start-at-40-retail-radar/1100-6254384/" class="article-title">Xbox 360-branded USB drives start at $40 - Retail Radar</a>
+			<div class="article-subtitle">GameStop listing official "pre-configured" SanDisk 8GB USB drive going for $40, 16GB selling for $70--over twice the price of unbranded drives.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_nintendo-dsi-xl-hands-on-preview_1100-6254378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-dsi-xl-hands-on-preview/1100-6254378/" class="article-title">Nintendo DSi XL Hands-On Preview</a>
+			<div class="article-subtitle">Nintendo's large handheld console finally hits the American shores.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_xbox-360-slim-not-spotted-in-the-wild_1100-6254393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-slim-not-spotted-in-the-wild/1100-6254393/" class="article-title">Xbox 360 Slim (not) spotted in the wild</a>
+			<div class="article-subtitle">Dutch site Game Kings touts photos of rumored downsized model of Microsoft's console…but is in fact the long-dead HD DVD peripheral.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_xbox-live-arcades-block-party-lineup_1100-6250378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-arcades-block-party-lineup/1100-6250378/" class="article-title">Xbox Live Arcade's Block Party Lineup</a>
+			<div class="article-subtitle">Send your toys into the trenches, trick out your monster truck, and revisit some old favorites this March on XBLA.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_xbla-game-room-weekly-updates-start-next-month_1100-6254408_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbla-game-room-weekly-updates-start-next-month/1100-6254408/" class="article-title">XBLA Game Room weekly updates start next month</a>
+			<div class="article-subtitle">Microsoft says launch lineup for Xbox 360 and PC's virtual arcade service will have to tide rabid retro fans over until late April.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_madden-nfl-11-demo-voting_1100-6254410_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-11-demo-voting/1100-6254410/" class="article-title">Madden NFL 11: Demo Voting</a>
+			<div class="article-subtitle">EA asks: Which teams do you want in the Madden NFL 11 demo?</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_modern-warfare-2-dlc_1100-6254400_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modern-warfare-2-dlc/1100-6254400/" class="article-title">Modern Warfare 2 DLC</a>
+			<div class="article-subtitle">Download the Modern Warfare 2 - Stimulus Package downloadable content.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_darksiders-falls-on-pc_1100-6254414_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/darksiders-falls-on-pc/1100-6254414/" class="article-title">Darksiders falls on PC</a>
+			<div class="article-subtitle">Vigil Games' apocalyptic action game set for release on new platform this June.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/30_gamespot-aus-god-of-war-iii-event-photo-gallery_1100-6254307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-aus-god-of-war-iii-event-photo-gallery/1100-6254307/" class="article-title">GameSpot AU's God of War III event photo gallery!</a>
+			<div class="article-subtitle">Last week, GameSpot AU teamed up with Sony PlayStation to host a Sydney event to coincide with the launch of God of War III. Check out our photos from the event!</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_mw2-stimulus-dlc-doesnt-work_thumbnail.png">
+			<a href="https://www.eurogamer.net/mw2-stimulus-dlc-doesnt-work" class="article-title">MW2 Stimulus DLC doesn't work</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_darksiders-on-pc-in-june_thumbnail.png">
+			<a href="https://www.eurogamer.net/darksiders-on-pc-in-june" class="article-title">Darksiders on PC in June</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_penny-arcade-adventures-binned_thumbnail.png">
+			<a href="https://www.eurogamer.net/penny-arcade-adventures-binned" class="article-title">Penny Arcade Adventures binned</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_mafia-ii-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/mafia-ii-article" class="article-title">Mafia II</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_modern-warfare-2-stimulus-package-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/modern-warfare-2-stimulus-package-interview" class="article-title">Modern Warfare 2: Stimulus Package</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_tories-lib-dems-back-tax-breaks_thumbnail.png">
+			<a href="https://www.eurogamer.net/tories-lib-dems-back-tax-breaks" class="article-title">Tories, Lib Dems back tax breaks</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_after-burner-climax-dated-priced_thumbnail.png">
+			<a href="https://www.eurogamer.net/after-burner-climax-dated-priced" class="article-title">After Burner Climax dated, priced</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_afterburner-climax-psn-xbla-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/afterburner-climax-psn-xbla-confirmed" class="article-title">AfterBurner Climax PSN/XBLA confirmed</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_rock-band-3-has-vocal-harmonies_thumbnail.png">
+			<a href="https://www.eurogamer.net/rock-band-3-has-vocal-harmonies" class="article-title">Rock Band 3 will have vocal harmonies</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_why-sony-passed-on-natal-tech_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-sony-passed-on-natal-tech" class="article-title">Why Sony passed on Natal tech</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_gamestop-sued-over-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamestop-sued-over-dlc" class="article-title">GameStop sued over DLC issue</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_mod-war-2-double-xp-event-starts-early_thumbnail.png">
+			<a href="https://www.eurogamer.net/mod-war-2-double-xp-event-starts-early" class="article-title">Mod War 2 double XP event starts early</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_the-conduit-2-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-conduit-2-revealed" class="article-title">The Conduit 2 revealed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_fist-of-north-star-to-be-more-extreme_thumbnail.png">
+			<a href="https://www.eurogamer.net/fist-of-north-star-to-be-more-extreme" class="article-title">Fist of North Star to be "more extreme"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_battlefield-1943-is-xblas-fastest-seller_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlefield-1943-is-xblas-fastest-seller" class="article-title">Battlefield 1943 is XBLA's fastest-seller</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_no-new-game-room-games-for-a-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-new-game-room-games-for-a-month" class="article-title">No new Game Room games for a month</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_high-voltages-wii-gladiator-game-slips_thumbnail.png">
+			<a href="https://www.eurogamer.net/high-voltages-wii-gladiator-game-slips" class="article-title">High Voltage's Wii gladiator game slips</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/30_bioware-countdown-reveals-competition_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-countdown-reveals-competition" class="article-title">BioWare countdown reveals competition</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134692/Snippets-Stargate-offloaded-Game-Room-game-delays-Ubisoft-trademarks-Horse-Gaga/" class="article-title">Snippets: Stargate offloaded, Game Room game delays, Ubisoft trademarks Horse Gaga?</a>
+			<div class="article-subtitle">No thank you.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134691/Vanquish-dated-for-summer/" class="article-title">Vanquish dated for summer</a>
+			<div class="article-subtitle">After Japanese release.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134690/BioWare-s-countdown-announces-Bazaar/" class="article-title">BioWare’s countdown announces Bazaar</a>
+			<div class="article-subtitle">Hype balloon deflates.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/daymare-town-3.php" class="article-title">Daymare Town 3</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/light-up.php" class="article-title">Light UP</a>
+			<div class="article-author">Kyle E. Moore</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 15, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gears-of-war-3-review/1900-6334586/" class="article-title">Gears of War 3 Review</a>
+			<div class="article-subtitle">Gears of War 3 concludes an excellent trilogy with engrossing cooperative play, taut competitive action, and a masterful campaign.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/call-of-juarez-the-cartel-review/1900-6334821/" class="article-title">Call of Juarez: The Cartel Review</a>
+			<div class="article-subtitle">Call of Juarez: The Cartel proves that good ideas mean little when they don't have a solid foundation to support them.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_lucasarts-hiring-for-fps-aerial-combat-games_1100-6334433_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lucasarts-hiring-for-fps-aerial-combat-games/1100-6334433/" class="article-title">LucasArts hiring for FPS, aerial combat games</a>
+			<div class="article-subtitle">Publisher's job postings point to multiple unannounced projects under way at San Francisco-based development studio; action adventure game also in the works.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-soulcalibur-v-hands-on-preview-astaroth-action_1100-6334357_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-soulcalibur-v-hands-on-preview-astaroth-action/1100-6334357/" class="article-title">TGS 2011: SoulCalibur V Hands-On Preview - Astaroth Action</a>
+			<div class="article-subtitle">From Astaroth to Z.W.E.I., here's everything we've learned about SoulCalibur V.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-ultimate-marvel-vs-capcom-3-preview-vergil-and-iron-fist_1100-6334749_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-ultimate-marvel-vs-capcom-3-preview-vergil-and-iron-fist/1100-6334749/" class="article-title">TGS 2011: Ultimate Marvel vs. Capcom 3 Preview - Vergil and Iron Fist</a>
+			<div class="article-subtitle">We break down Vergil and Iron Fist alongside Capcom's Seth Killian at this year's Tokyo Game Show.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_arcades-holograms-cloud-computing-the-future-of-gaming-square-enix-ceo_1100-6334606_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arcades-holograms-cloud-computing-the-future-of-gaming-square-enix-ceo/1100-6334606/" class="article-title">Arcades, holograms, cloud computing the future of gaming - Square Enix CEO</a>
+			<div class="article-subtitle">TGS keynote address sees Yoichi Wada assess the changing industry landscape as Sony reps show off Resistance for the PS Vita, confirm November release for PlayStation Suite SDK.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_monster-hunter-4-headlines-nintendo-tgs-conference_1100-6333814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monster-hunter-4-headlines-nintendo-tgs-conference/1100-6333814/" class="article-title">Monster Hunter 4 headlines Nintendo TGS conference</a>
+			<div class="article-subtitle">Mario maker kicks off Tokyo Game Show week with its own event; Monster Hunter Tri, Animal Crossing, and more shown for 3DS; Kid Icarus delayed to next year; Miyamoto talks Skyward Sword for the Wii.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_nintendo-3ds-expansion-slide-pad_1100-6334436_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-3ds-expansion-slide-pad/1100-6334436/" class="article-title">Nintendo 3DS Expansion Slide Pad</a>
+			<div class="article-subtitle">Nintendo shows off the Expansion Slide Pad for the 3DS at TGS 2011.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-ace-combat-assault-horizon-multiplayer-hands-on_1100-6334591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-ace-combat-assault-horizon-multiplayer-hands-on/1100-6334591/" class="article-title">TGS 2011: Ace Combat Assault Horizon Multiplayer Hands-On</a>
+			<div class="article-subtitle">We spend some time in the skies with others in the next Ace Combat game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-steel-battalion-heavy-armor-impressions_1100-6334603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-steel-battalion-heavy-armor-impressions/1100-6334603/" class="article-title">TGS 2011: Steel Battalion: Heavy Armor Impressions</a>
+			<div class="article-subtitle">From Software takes Kinect and controller, combines them, and lets us see how the next Steel Battalion game incorporates the two.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tokyo-game-show-2011-photo-gallery_1100-6334804_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-game-show-2011-photo-gallery/1100-6334804/" class="article-title">Tokyo Game Show 2011 Photo Gallery</a>
+			<div class="article-subtitle">See the Tokyo Game Show in all its glory!</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-ridge-racer-vita-hands-on_1100-6334687_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-ridge-racer-vita-hands-on/1100-6334687/" class="article-title">TGS 2011: Ridge Racer Vita Hands-On</a>
+			<div class="article-subtitle">With the launch date for the PlayStation Vita confirmed, we take a spin with the popular racing franchise Ridge Racer.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-asuras-wrath-updated-preview_1100-6334708_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-asuras-wrath-updated-preview/1100-6334708/" class="article-title">TGS 2011: Asura's Wrath Updated Preview</a>
+			<div class="article-subtitle">What's the sound of one arm smashing? We find out in our latest look at this bizarre Japanese hybrid.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_new-psn-terms-of-service-prevents-class-action-suits_1100-6334669_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-psn-terms-of-service-prevents-class-action-suits/1100-6334669/" class="article-title">New PSN Terms of Service prevents class-action suits</a>
+			<div class="article-subtitle">Sony amends the PlayStation Network's Terms of Service in an attempt to stop future group legal action aimed at them.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_dead-island-ships-1-million_1100-6334767_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-island-ships-1-million/1100-6334767/" class="article-title">Dead Island ships 1 million</a>
+			<div class="article-subtitle">Techland-developed, Deep Silver-published survival horror action game expected to go double-platinum by week's end.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_mortal-kombat-makes-it-to-3-million_1100-6334748_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-makes-it-to-3-million/1100-6334748/" class="article-title">Mortal Kombat makes it to 3 million</a>
+			<div class="article-subtitle">NetherRealm Studios' reboot of violent fighting franchise marks another milestone; WBIE dubs it the highest-selling fighting game of the year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-final-fantasy-xiii-2-updated-hands-on_1100-6334718_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-final-fantasy-xiii-2-updated-hands-on/1100-6334718/" class="article-title">TGS 2011: Final Fantasy XIII-2 Updated Hands-On</a>
+			<div class="article-subtitle">We get to show you our hands-on of the build that was showcased at the last E3.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_infamous-2-festival-of-blood-gets-move-support-oct-25-date_1100-6334820_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infamous-2-festival-of-blood-gets-move-support-oct-25-date/1100-6334820/" class="article-title">Infamous 2: Festival of Blood gets Move support, Oct. 25 date</a>
+			<div class="article-subtitle">Sony introducing motion-sensing controls to open-world sequel, $15 vampire-themed stand-alone spin-off next month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_final-fantasy-xiii-2-getting-a-custom-ps3-dlc_1100-6334756_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiii-2-getting-a-custom-ps3-dlc/1100-6334756/" class="article-title">Final Fantasy XIII-2 getting a custom PS3, DLC</a>
+			<div class="article-subtitle">Limited-edition version of Sony's console hits Japan December 15 alongside role-playing game sequel; Square Enix confirms postrelease add-ons.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_saints-row-the-third-adds-itagaki-as-playable-character_1100-6334766_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/saints-row-the-third-adds-itagaki-as-playable-character/1100-6334766/" class="article-title">Saints Row: The Third adds Itagaki as playable character</a>
+			<div class="article-subtitle">Ninja Gaiden, Dead or Alive, Devil's Third designer confirmed to be making in-game debut with Volition's upcoming open-world action game.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_kingdoms-of-amalur-reckoning-preorders-earn-in-game-perks_1100-6334825_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kingdoms-of-amalur-reckoning-preorders-earn-in-game-perks/1100-6334825/" class="article-title">Kingdoms of Amalur: Reckoning preorders earn in-game perks</a>
+			<div class="article-subtitle">Customers who commit to EA and 38 Studios' fantasy RPG prior to February 7 will receive armor, weapons, dowsing rod.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_call-of-duty-elite-priced-for-australia_1100-6334704_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-elite-priced-for-australia/1100-6334704/" class="article-title">Call of Duty: Elite priced for Australia</a>
+			<div class="article-subtitle">Activision slaps a A$64.99/4,000 Microsoft point price tag on Call of Duty: Elite Down Under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_reader-reviews-press-start-to-play_1100-6334811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/reader-reviews-press-start-to-play/1100-6334811/" class="article-title">Reader Reviews: Press Start to Play</a>
+			<div class="article-subtitle">This week we feature 32 user reviews and introduce a new feature: "Platform Battle: Who Played It Better?"</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-saints-row-the-third-hands-on-preview_1100-6334707_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-saints-row-the-third-hands-on-preview/1100-6334707/" class="article-title">TGS 2011: Saints Row: The Third Hands-On Preview </a>
+			<div class="article-subtitle">Japanese gaming legend Tomonobu Itagaki will be featured as a playable character in THQ's upcoming open-world adventure.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/15_tgs-2011-street-fighter-x-tekken-what-the-heck-is-pandora-hands-on-preview_1100-6334752_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2011-street-fighter-x-tekken-what-the-heck-is-pandora-hands-on-preview/1100-6334752/" class="article-title">TGS 2011: Street Fighter X Tekken: "What the Heck Is Pandora?" Hands-On Preview</a>
+			<div class="article-subtitle">We get the straight shot about the mysterious new game mechanic unveiled this week for Capcom's upcoming crossover fighter.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_diablo-3-skill-calculator-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/diablo-3-skill-calculator-goes-live" class="article-title">Diablo 3 Skill Calculator goes live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_ea-responds-to-tiger-woods-pc-outcry_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-responds-to-tiger-woods-pc-outcry" class="article-title">EA responds to Tiger Woods 12 PC outcry</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_new-psn-terms-attack-class-action-suits_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-psn-terms-attack-class-action-suits" class="article-title">New PSN Terms attack class action suits</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_why-no-monster-hunter-4-on-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-no-monster-hunter-4-on-vita" class="article-title">Why no Monster Hunter 4 on Vita?</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_dark-souls-preview-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/dark-souls-preview-1" class="article-title">Dark Souls</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_lucasarts-making-aerial-combat-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/lucasarts-making-aerial-combat-title" class="article-title">LucasArts making "Aerial Combat Title"</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_mortal-kombat-9-sells-3-million-worldwide_thumbnail.png">
+			<a href="https://www.eurogamer.net/mortal-kombat-9-sells-3-million-worldwide" class="article-title">Mortal Kombat 9 sells 3 million worldwide</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_kingdoms-of-amalur-pre-order-treats_thumbnail.png">
+			<a href="https://www.eurogamer.net/kingdoms-of-amalur-pre-order-treats" class="article-title">Kingdoms of Amalur pre-order treats</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_money-from-mmo-subs-begins-to-decline_thumbnail.png">
+			<a href="https://www.eurogamer.net/money-from-mmo-subs-begins-to-decline" class="article-title">Money from MMO subs begins to decline</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_3ds-circle-pad-extension-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-circle-pad-extension-preview" class="article-title">3DS Circle Pad Extension</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_mgs-hd-collection-spans-two-discs-on-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-hd-collection-spans-two-discs-on-360" class="article-title">MGS HD Collection spans two discs on 360</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_just-dance-kids-for-wii-kinect-move_thumbnail.png">
+			<a href="https://www.eurogamer.net/just-dance-kids-for-wii-kinect-move" class="article-title">Just Dance Kids for Wii, Kinect, Move</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_european-final-fantasy-13-2-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/european-final-fantasy-13-2-release-date" class="article-title">European Final Fantasy 13-2 release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_grand-theft-auto-4-ships-22-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/grand-theft-auto-4-ships-22-million" class="article-title">Grand Theft Auto 4 ships 22 million</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_el-shaddai-announced-for-android_thumbnail.png">
+			<a href="https://www.eurogamer.net/el-shaddai-announced-for-android" class="article-title">El Shaddai announced for Android</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_jagex-reopening-runescape-classic-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/jagex-reopening-runescape-classic-today" class="article-title">Jagex reopening RuneScape Classic today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_diablo-3-will-support-paypal_thumbnail.png">
+			<a href="https://www.eurogamer.net/diablo-3-will-support-paypal" class="article-title">Diablo 3 will support PayPal</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_metal-gear-solid-hd-collection-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-solid-hd-collection-date" class="article-title">Metal Gear Solid HD Collection date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_guardian-heroes-2-planned-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/guardian-heroes-2-planned-article" class="article-title">Guardian Heroes 2 planned</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_ninja-gaiden-3-adds-consequences_thumbnail.png">
+			<a href="https://www.eurogamer.net/ninja-gaiden-3-adds-consequences" class="article-title">Ninja Gaiden 3 adds consequences</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_gears-of-war-3-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-of-war-3-review" class="article-title">Gears of War 3</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_android-gaming-coming-to-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/android-gaming-coming-to-vita" class="article-title">Android gaming coming to Vita</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/15_vita-remote-play-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/vita-remote-play-detailed" class="article-title">Vita Remote Play detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137918/SEA-StarCraft-II-Invitational-begins-this-weekend/" class="article-title">SEA StarCraft II Invitational begins this weekend</a>
+			<div class="article-subtitle">New Zealand represented.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i137914/Team-Ninja-reveals-Dead-or-Alive-5/" class="article-title">Team Ninja reveals Dead or Alive 5</a>
+			<div class="article-subtitle">The sound of one hairy palm clapping.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137910/Apple-removes-app-game-that-criticises-smartphone-production/" class="article-title">Apple removes app game that criticises smartphone production</a>
+			<div class="article-subtitle">Deemed objectionable: but to whom?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-kings-league.php" class="article-title">The King's League</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/you-are-games-letters-in-boxes-15.php" class="article-title">You Are Games: Letters In Boxes #15</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tamus-and-mitta.php" class="article-title">Tamus and Mitta</a>
+			<div class="article-author">Kyh</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/09/15_2011_09_15_super-smash-land_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/09/15/super-smash-land/" class="article-title">Super Smash Land</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

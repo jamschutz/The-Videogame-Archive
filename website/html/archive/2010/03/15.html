@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 15, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-strikeforce-review/1900-6214766/" class="article-title">Dynasty Warriors: Strikeforce Review</a>
+			<div class="article-subtitle">This entertaining hack-and-slash game is best played with a few friends.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-strikeforce-review/1900-6253423/" class="article-title">Dynasty Warriors: Strikeforce Review</a>
+			<div class="article-subtitle">The best of the Dynasty Warriors franchise struggles to compete with modern hack-and-slash games.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-strikeforce-review/1900-6253649/" class="article-title">Dynasty Warriors: Strikeforce Review</a>
+			<div class="article-subtitle">The best of the Dynasty Warriors franchise struggles to compete with modern hack-and-slash games.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_hardgrip-hands-on_1100-6253595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hardgrip-hands-on/1100-6253595/" class="article-title">HardGrip Hands-On</a>
+			<div class="article-subtitle">We went hands-on with this Wii rock-climbing game, which is also coming to the Xbox 360 Natal and the PlayStation 3 Move.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_crackdown-2-announced-for-360_1100-6210652_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crackdown-2-announced-for-360/1100-6210652/" class="article-title">Crackdown 2 announced for 360</a>
+			<div class="article-subtitle">E3 2009: Microsoft confirms sequel to 2007's open-world actioner; promises co-op and competitive game play.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_trivia-winners-of-gdc-shows_1100-6253562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/trivia-winners-of-gdc-shows/1100-6253562/" class="article-title">Trivia Winners of GDC Shows</a>
+			<div class="article-subtitle">The winners of GDC 2010 trivia announced.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_spotlight-on-war-rock-progress-report_1100-6253564_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spotlight-on-war-rock-progress-report/1100-6253564/" class="article-title">Spotlight On - War Rock Progress Report</a>
+			<div class="article-subtitle">We get a brief update on this free-to-play military shooter at GDC 2010.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_spotlight-on-runes-of-magic-progress-report_1100-6253571_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spotlight-on-runes-of-magic-progress-report/1100-6253571/" class="article-title">Spotlight On - Runes of Magic Progress Report</a>
+			<div class="article-subtitle">We catch up with this free-to-play, fantasy-themed online role-playing game at GDC 2010.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_arkham-asylum-art-director-on-rebooting-batman_1100-6253531_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arkham-asylum-art-director-on-rebooting-batman/1100-6253531/" class="article-title">Arkham Asylum art director on rebooting Batman</a>
+			<div class="article-subtitle">GDC 2010: Rocksteady's David Hego explains the approach taken to polishing up the Caped Crusader's tarnished image in games.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_black-creator-back-with-bodycount_1100-6253135_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-creator-back-with-bodycount/1100-6253135/" class="article-title">Black creator back with Bodycount</a>
+			<div class="article-subtitle">New destructible-environment, first-person shooter from Stuart Black and Codemasters' Guildford Studio revealed via UK magazine leak.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_spotlight-on-eve-online-progress-report-dust-514-discussion_1100-6253573_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spotlight-on-eve-online-progress-report-dust-514-discussion/1100-6253573/" class="article-title">Spotlight On - Eve Online Progress Report, Dust 514 Discussion</a>
+			<div class="article-subtitle">We get an update on the long-running Eve Online and discuss future plans for Dust 514 and other games from CCP.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_blizzard-bioware-valve-more-chat-about-connected-gaming_1100-6253566_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-bioware-valve-more-chat-about-connected-gaming/1100-6253566/" class="article-title">Blizzard, BioWare, Valve, more chat about connected gaming</a>
+			<div class="article-subtitle">GDC 2010: Rob Pardo, Ray Muzyka, Jason Holtman join Zynga's Brian Reynolds and Nexon's Min Kim to advocate the importance of community in game design.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_eedar-dishes-data-on-achievements-new-ip_1100-6253552_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eedar-dishes-data-on-achievements-new-ip/1100-6253552/" class="article-title">EEDAR dishes data on achievements, new IP</a>
+			<div class="article-subtitle">GDC 2010: Researchers find only four percent of players max out gamerscore for any given game, predict a surge in original intellectual properties sparked by Project Natal, PlayStation Move.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_ffxiii-director-intends-to-keep-series-story-driven_1100-6253527_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ffxiii-director-intends-to-keep-series-story-driven/1100-6253527/" class="article-title">FFXIII director intends to keep series story-driven</a>
+			<div class="article-subtitle">GDC 2010: Director Motomu Toriyama shares his experiences and offers a postmortem on the recently released Final Fantasy XIII.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_volition-on-co-op-play-in-sandbox-games_1100-6253555_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/volition-on-co-op-play-in-sandbox-games/1100-6253555/" class="article-title">Volition on co-op play in sandbox games</a>
+			<div class="article-subtitle">Saints Row 2 developer on the hassles of including cooperative mode in the game and why it was worthwhile in the end.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_meier-on-crafting-the-epic-journey-full-keynote-video-inside_1100-6253256_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/meier-on-crafting-the-epic-journey-full-keynote-video-inside/1100-6253256/" class="article-title">Meier on crafting the 'epic journey,' full keynote video inside</a>
+			<div class="article-subtitle">GDC 2010: The creator of Civilization, Colonization, and Alpha Centauri talks about his three decades in game development in the presentation "The Psychology of Game Design (Everything You Know Is Wrong)."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_ousted-call-of-duty-creators-get-hollywood-representation_1100-6253576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ousted-call-of-duty-creators-get-hollywood-representation/1100-6253576/" class="article-title">Ousted Call of Duty creators get Hollywood representation</a>
+			<div class="article-subtitle">The LA Times reports Vince Zampella and Jason West have signed up with Creative Artists Agency, which also represents Steven Spielberg, Brad Pitt, Tony Hawk, and David Letterman.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_will-wright-game-design-a-lot-like-dealing-drugs_1100-6253594_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/will-wright-game-design-a-lot-like-dealing-drugs/1100-6253594/" class="article-title">Will Wright: Game design a lot like dealing drugs</a>
+			<div class="article-subtitle">GDC 2010: Sim City, The Sims, and Spore creator offers thoughts on the rise of social media in games, the allure of Advance Wars, and how games fit into the overall entertainment picture.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_ubisoft-on-designing-assassins-creed-ii_1100-6253593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-on-designing-assassins-creed-ii/1100-6253593/" class="article-title">Ubisoft on designing Assassin's Creed II</a>
+			<div class="article-subtitle">GDC 2010: Sequel designer discusses core gameplay pillars, mission repetitiveness, using play tests as a mirror.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_comedy-in-games-no-laughing-matter_1100-6253577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/comedy-in-games-no-laughing-matter/1100-6253577/" class="article-title">Comedy in games no laughing matter</a>
+			<div class="article-subtitle">GDC 2010: Tim Schafer, Rhianna Pratchett, and Sean Vanaman trade tips that made Brutal Legend, Overlord, and Tales of Monkey Island humorous hits.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_harmonix-reviews-rock-band-networks-opening-act_1100-6253579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harmonix-reviews-rock-band-networks-opening-act/1100-6253579/" class="article-title">Harmonix reviews Rock Band Network's opening act</a>
+			<div class="article-subtitle">GDC 2010: Developers deliver a postmortem on their indie-friendly user-created song service, just weeks after taking the long-awaited project live in North America.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_mass-effect-2s-shooter-shift-examined_1100-6253578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-2s-shooter-shift-examined/1100-6253578/" class="article-title">Mass Effect 2's shooter shift examined</a>
+			<div class="article-subtitle">GDC 2010: Lead gameplay designer Christina Norman talks about amping up the intensity with heavier emphasis on real-time combat in BioWare's sci-fi role-playing game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_blur-qanda-with-gareth-wilson-and-ged-talbot_1100-6253604_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blur-qanda-with-gareth-wilson-and-ged-talbot/1100-6253604/" class="article-title">Blur Q&A With Gareth Wilson and Ged Talbot</a>
+			<div class="article-subtitle">We drop the clutch, swap some paint, and chat about all things racing with Bizarre Creations lead designers Gareth Wilson and Ged Talbot about Blur.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_au-shippin-out-march-15-19-god-of-war-iii_1100-6253605_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-march-15-19-god-of-war-iii/1100-6253605/" class="article-title">AU Shippin' Out March 15-19: God of War III</a>
+			<div class="article-subtitle">The conclusion of Santa Monica Studio's epic hack-and-slash trilogy arrives in Australia unedited.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_final-fantasy-xiii-tops-uk-chart_1100-6253608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiii-tops-uk-chart/1100-6253608/" class="article-title">Final Fantasy XIII tops UK chart</a>
+			<div class="article-subtitle">The Square-Enix developed RPG takes number one on the British sales chart and becomes the fastest selling game of the year; Modern Warfare 2 hits number two in the all-time chart.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_behind-borderlands-11th-hour-style-change_1100-6253257_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/behind-borderlands-11th-hour-style-change/1100-6253257/" class="article-title">Behind Borderlands' 11th-hour style change</a>
+			<div class="article-subtitle">GDC 2010: Gearbox's Mikey Neumann and Brian Martel explain the studio's risky decision to scrap its popular shooter's art style three-quarters of the way through development--and how it paid off.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_dantes-inferno-trials-of-st-lucia-dlc-hands-on_1100-6253515_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dantes-inferno-trials-of-st-lucia-dlc-hands-on/1100-6253515/" class="article-title">Dante's Inferno: Trials of St. Lucia DLC Hands-On</a>
+			<div class="article-subtitle">Creation and cooperation are the hallmarks of this upcoming downloadable content for EA's action game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_crackdown-2-drops-july-6_1100-6253612_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crackdown-2-drops-july-6/1100-6253612/" class="article-title">Crackdown 2 drops July 6</a>
+			<div class="article-subtitle">Ruffian-developed follow-up to Xbox 360-exclusive hybrid shooter-platformer slightly delayed; arrives in Asia and Australia July 8, UK and Europe July 9.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_shippin-out-march-14-20-god-of-war-iii-command-and-conquer-4_1100-6253506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-march-14-20-god-of-war-iii-command-and-conquer-4/1100-6253506/" class="article-title">Shippin' Out March 14-20: God of War III, Command & Conquer 4</a>
+			<div class="article-subtitle">Huge week at retail also sees launches of Metro 2033, Dragon Age Awakening expansion, Pokemon HeartGold/Soulsilver, and Resonance of Fate.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/03/15_castlevania-rondo-of-blood-drips-onto-vc-rage-of-the-gladiator-strikes-wiiware_1100-6253624_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castlevania-rondo-of-blood-drips-onto-vc-rage-of-the-gladiator-strikes-wiiware/1100-6253624/" class="article-title">Castlevania: Rondo of Blood drips onto VC, Rage of the Gladiator strikes WiiWare</a>
+			<div class="article-subtitle">Nintendo Store Update: Fantastical fighting title and Castlevania classic cross swords with Triple Shot Sports; handheld gets 101 MiniGolf World, Zoo Frenzy, Battle of Giants: Dinosaurs, and Car Jack Streets.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_god-of-war-iii-competition-won_thumbnail.png">
+			<a href="https://www.eurogamer.net/god-of-war-iii-competition-won" class="article-title">God of War III competition: won!</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_starcraft-ii-mac-beta-in-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/starcraft-ii-mac-beta-in-april" class="article-title">StarCraft II Mac beta in April</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_hunted-the-demons-forge-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/hunted-the-demons-forge-preview" class="article-title">Hunted: The Demon's Forge</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_bethesda-signs-hunted-the-demons-forge_thumbnail.png">
+			<a href="https://www.eurogamer.net/bethesda-signs-hunted-the-demons-forge" class="article-title">Bethesda signs Hunted: Demon's Forge</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_cheshire-psp-is-a-bollocking-useless-waste-of-space_thumbnail.png">
+			<a href="https://www.eurogamer.net/cheshire-psp-is-a-bollocking-useless-waste-of-space" class="article-title">Cheshire: PSP is a "bollocking useless waste of space"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_eedar-are-x360-achievements-too-hard_thumbnail.png">
+			<a href="https://www.eurogamer.net/eedar-are-x360-achievements-too-hard" class="article-title">EEDAR: Are X360 Achievements too hard?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_codemasters-confirms-dirt-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/codemasters-confirms-dirt-3" class="article-title">Codemasters confirms DiRT 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_crackdown-2-dated-for-july_thumbnail.png">
+			<a href="https://www.eurogamer.net/crackdown-2-dated-for-july" class="article-title">Crackdown 2 dated for July</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_ubi-to-consider-splinter-cell-dlc-later_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubi-to-consider-splinter-cell-dlc-later" class="article-title">Ubi to consider Splinter Cell DLC later</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_uk-charts-final-fantasy-xiii-is-top_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-charts-final-fantasy-xiii-is-top" class="article-title">UK charts: Final Fantasy XIII is top</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_way-of-the-samurai-3-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/way-of-the-samurai-3-review" class="article-title">Way of the Samurai 3</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_microsoft-patents-xbox-live-upsell-idea_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-patents-xbox-live-upsell-idea" class="article-title">Microsoft patents Xbox Live upsell idea</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_epic-can-do-what-we-want-with-gears_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-can-do-what-we-want-with-gears" class="article-title">Epic "can do what we want" with Gears</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_splinter-cell-conviction-demo-planned_thumbnail.png">
+			<a href="https://www.eurogamer.net/splinter-cell-conviction-demo-planned" class="article-title">Splinter Cell: Conviction demo planned</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_2k-explains-bioshock-2-on-disc-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/2k-explains-bioshock-2-on-disc-dlc" class="article-title">2K explains BioShock 2 on-disc DLC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_if-gowiii-epilogue-returns-itll-be-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/if-gowiii-epilogue-returns-itll-be-free" class="article-title">If GOWIII epilogue returns it'll be free</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_carmack-expects-rage-to-be-on-ipad_thumbnail.png">
+			<a href="https://www.eurogamer.net/carmack-expects-rage-to-be-on-ipad" class="article-title">Carmack expects Rage to be on iPad</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_mw2-stimulus-package-costs-1200-msp_thumbnail.png">
+			<a href="https://www.eurogamer.net/mw2-stimulus-package-costs-1200-msp" class="article-title">MW2 Stimulus Package costs 1200 MSP</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_sam-and-max-heading-to-playstation-3-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/sam-and-max-heading-to-playstation-3-article" class="article-title">Sam & Max heading to PlayStation 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_bioshock-2s-dlc-on-disc-already-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-2s-dlc-on-disc-already-article" class="article-title">BioShock 2's DLC on disc already?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_star-wars-the-old-republic-gdc-2010-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-wars-the-old-republic-gdc-2010-hands-on" class="article-title">Star Wars: The Old Republic</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/03/15_motogp-09-10-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/motogp-09-10-review" class="article-title">MotoGP 09/10</a>
+			<div class="article-author">Matt Edwards</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134623/Snippets-GT5-can-Move-PS3-3D-in-months-Move-sharp-enough-for-SC2-2K-playing-fair/" class="article-title">Snippets: GT5 can Move, PS3 3D in months, Move sharp enough for SC2, 2K playing fair?</a>
+			<div class="article-subtitle">Coinciding with 3DTV.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/jolls.php" class="article-title">Jolls</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/party-foul.php" class="article-title">Party Foul</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/i-was-hungry-but-there-were-cannons.php" class="article-title">I Was Hungry But There Were Cannons</a>
+			<div class="article-author">Kyle E. Moore</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-60.php" class="article-title">Mobile Monday №59</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2010/03/15/cave-story-developers-voice/" class="article-title">Cave Story: Developer’s Voice</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2010/03/15_2010_03_15_gdc-2010-photos_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2010/03/15/gdc-2010-photos/" class="article-title">GDC 2010: Photos</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

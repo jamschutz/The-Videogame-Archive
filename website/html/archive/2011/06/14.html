@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 14, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alice-madness-returns-review/1900-6316246/" class="article-title">Alice: Madness Returns Review</a>
+			<div class="article-subtitle">Playing Alice: Madness Returns isn't as exciting as looking at it, but you'll still enjoy getting lost in this twisted fantasy adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alice-madness-returns-review/1900-6316992/" class="article-title">Alice: Madness Returns Review</a>
+			<div class="article-subtitle">Playing Alice: Madness Returns isn't as exciting as looking at it, but you'll still enjoy getting lost in this twisted fantasy adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/child-of-eden-review/1900-6318967/" class="article-title">Child of Eden Review</a>
+			<div class="article-subtitle">Child of Eden may be over quickly, but it offers emotional highs you'll want to experience again and again.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alice-madness-returns-review/1900-6319282/" class="article-title">Alice: Madness Returns Review</a>
+			<div class="article-subtitle">Playing Alice: Madness Returns isn't as exciting as looking at it, but you'll still enjoy getting lost in this twisted fantasy adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/red-johnsons-chronicles-review/1900-6319307/" class="article-title">Red Johnson's Chronicles Review</a>
+			<div class="article-subtitle">Tough puzzles and grinding point-and-click pixel hunts are the main activities in Red Johnson's Chronicles.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/under-siege-review/1900-6319302/" class="article-title">Under Siege Review</a>
+			<div class="article-subtitle">Under Siege provides quick real-time strategy battles, but overly tough difficulty and a lack of depth prevent the game from being a complete success.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/duke-nukem-forever-review/1900-6319604/" class="article-title">Duke Nukem Forever Review</a>
+			<div class="article-subtitle">The bland and ugly Duke Nukem Forever turns a famous gaming icon into an embarrassment.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/duke-nukem-forever-review/1900-6319249/" class="article-title">Duke Nukem Forever Review</a>
+			<div class="article-subtitle">The bland and ugly Duke Nukem Forever turns a famous gaming icon into an embarrassment.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-microsoft-incorporating-kinect-into-all-first-party-games_1100-6318951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-microsoft-incorporating-kinect-into-all-first-party-games/1100-6318951/" class="article-title">E3 2011: Microsoft incorporating Kinect into all first-party games</a>
+			<div class="article-subtitle">Video Q&A: Game Studios boss Phil Spencer says internal development houses will integrate motion-sensing tech, but no mandate to do so.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_duke-nukem-forever-qanda-a-walking-armory_1100-6315441_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/duke-nukem-forever-qanda-a-walking-armory/1100-6315441/" class="article-title">Duke Nukem Forever Q&A - A Walking Armory</a>
+			<div class="article-subtitle">We chat with David Riegel, president of Triptych Games, about the outrageous weapons in Duke Nukem Forever.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_win-a-steelseries-7h-gaming-headset-and-pc-games-bundle_1100-6285478_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/win-a-steelseries-7h-gaming-headset-and-pc-games-bundle/1100-6285478/" class="article-title">Win a SteelSeries 7H gaming headset and PC games bundle</a>
+			<div class="article-subtitle">Bag yourself a SteelSeries gaming headset and an assortment of games and goodies in our Christmas giveaway.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_little-big-planet-spin-off-leads-psn_1100-6285414_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/little-big-planet-spin-off-leads-psn/1100-6285414/" class="article-title">Little Big Planet spin-off leads PSN</a>
+			<div class="article-subtitle">PlayStation Store Update: Sackboy's Prehistoric Moves lead off busy week of PS3 downloadable debuts, including X-Men, Marvel Pinball, Prototype, Prince of Persia: Warrior Within HD.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-puzzle-agent-preview-impressions_1100-6318870_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-puzzle-agent-preview-impressions/1100-6318870/" class="article-title">E3 2011: Puzzle Agent Preview Impressions</a>
+			<div class="article-subtitle">We got our first look at the sequel to last year's clever adventure game.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-wargame-european-escalation-first-look-preview_1100-6318941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-wargame-european-escalation-first-look-preview/1100-6318941/" class="article-title">E3 2011: Wargame: European Escalation First Look Preview</a>
+			<div class="article-subtitle">We check out Eugen Systems' next foray into the real-time strategy world.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-tom-clancys-ghost-recon-online-preview_1100-6318942_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-tom-clancys-ghost-recon-online-preview/1100-6318942/" class="article-title">E3 2011: Tom Clancy's Ghost Recon Online Preview</a>
+			<div class="article-subtitle">We check out one of the most interesting uses of the controller screen for the Wii U in a brief look at Ghost Recon Online.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-walking-dead-preview-impressions_1100-6318952_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-walking-dead-preview-impressions/1100-6318952/" class="article-title">E3 2011: Walking Dead Preview Impressions</a>
+			<div class="article-subtitle">Those lousy zombies are at it again in this upcoming adventure game based on the popular comic book.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-serious-sam-3-bfe-gun-nut_1100-6318947_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-serious-sam-3-bfe-gun-nut/1100-6318947/" class="article-title">E3 2011: Serious Sam 3: BFE - Gun Nut</a>
+			<div class="article-subtitle">This latest entry in the Serious Sam series takes us back to the good old days at this year's E3 convention.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-jurassic-park-preview_1100-6318954_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-jurassic-park-preview/1100-6318954/" class="article-title">E3 2011: Jurassic Park Preview</a>
+			<div class="article-subtitle">We sat down with Telltale to discuss and play its upcoming cinematic adventure game. It has dinosaurs in it!</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-torchlight-ii-hands-on-preview_1100-6318965_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-torchlight-ii-hands-on-preview/1100-6318965/" class="article-title">E3 2011: Torchlight II Hands-On Preview</a>
+			<div class="article-subtitle">Torchlight 2 will offer bigger worlds, more monsters, and online multiplayer. We take it for a spin at E3.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-centipede-infestation-hands-on-preview_1100-6318957_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-centipede-infestation-hands-on-preview/1100-6318957/" class="article-title">E3 2011: Centipede: Infestation Hands-On Preview</a>
+			<div class="article-subtitle">We take a shot at Atari's revamping of a classic.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-white-knight-chronicles-ii-updated-preview_1100-6318956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-white-knight-chronicles-ii-updated-preview/1100-6318956/" class="article-title">E3 2011: White Knight Chronicles II Updated Preview</a>
+			<div class="article-subtitle">We take our customizable incorruptus for a spin in the E3 demo of White Knight Chronicles II.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-face-racers-photo-finish-hands-on-preview_1100-6318959_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-face-racers-photo-finish-hands-on-preview/1100-6318959/" class="article-title">E3 2011: Face Racers: Photo Finish Hands-On Preview</a>
+			<div class="article-subtitle">We pay a visit to Majesco's E3 booth and take Renegade Kid's upcoming 3DS kart racer for a test-drive.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-two-worlds-ii-pirates-of-the-flying-fortress-preview-impressions_1100-6318961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-two-worlds-ii-pirates-of-the-flying-fortress-preview-impressions/1100-6318961/" class="article-title">E3 2011: Two Worlds II: Pirates of the Flying Fortress Preview Impressions</a>
+			<div class="article-subtitle">We get our first look at this upcoming expansion to Two Worlds II.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-rock-of-ages-hands-on-preview_1100-6318962_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-rock-of-ages-hands-on-preview/1100-6318962/" class="article-title">E3 2011: Rock of Ages Hands-On Preview</a>
+			<div class="article-subtitle">We find the fun in rolling a boulder at a door in our hands-on with this quirky downloadable title.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-tropico-4-preview-lots-more-stuff_1100-6318964_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-tropico-4-preview-lots-more-stuff/1100-6318964/" class="article-title">E3 2011: Tropico 4 Preview - Lots More Stuff</a>
+			<div class="article-subtitle">Tropico 4 will add many new ways to rule your little slice of Caribbean heaven. We take an updated look at E3 2011.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-jagged-alliance-back-in-action-preview-plan-and-go_1100-6318963_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-jagged-alliance-back-in-action-preview-plan-and-go/1100-6318963/" class="article-title">E3 2011: Jagged Alliance: Back in Action Preview - Plan-and-Go</a>
+			<div class="article-subtitle">Jagged Alliance: Back in Action is a fully 3D remake of the classic tactical strategy game Jagged Alliance 2. We take an updated look at E3 2011.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-star-trek-demo-preview_1100-6318660_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-star-trek-demo-preview/1100-6318660/" class="article-title">E3 2011: Star Trek Demo Preview</a>
+			<div class="article-subtitle">Bones, will you help Spock and me in this co-op action adventure? Damn it Jim, I'm a doctor not a digital game protagonist.</div>
+			<div class="article-author">Kurtis Seid</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-dancedancerevolution-ii-first-look-preview_1100-6318987_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-dancedancerevolution-ii-first-look-preview/1100-6318987/" class="article-title">E3 2011: DanceDanceRevolution II First Look Preview</a>
+			<div class="article-subtitle">We put on our dancing shoes for a blast on DanceDanceRevolution II.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-pro-evolution-soccer-2012-first-look-preview_1100-6319193_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-pro-evolution-soccer-2012-first-look-preview/1100-6319193/" class="article-title">E3 2011: Pro Evolution Soccer 2012 First Look Preview</a>
+			<div class="article-subtitle">Konami unveils a host of AI improvements for its football sim PES 12.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-airline-tycoon-2-preview-first-look_1100-6319297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-airline-tycoon-2-preview-first-look/1100-6319297/" class="article-title">E3 2011: Airline Tycoon 2 Preview - First Look</a>
+			<div class="article-subtitle">In Airline Tycoon 2, you can (easily) build an airline superior to our real-life counterparts. At this year's E3, we find out how.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-air-conflicts-secret-wars-preview-first-look_1100-6319296_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-air-conflicts-secret-wars-preview-first-look/1100-6319296/" class="article-title">E3 2011: Air Conflicts: Secret Wars Preview - First Look</a>
+			<div class="article-subtitle">We get a lesson in dogfighting while seeing Air Conflicts: Secret Wars at this year's E3.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_dead-or-alive-dimensions-aussie-rating-revoked_1100-6318966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-or-alive-dimensions-aussie-rating-revoked/1100-6318966/" class="article-title">Dead or Alive: Dimensions Aussie rating revoked</a>
+			<div class="article-subtitle">The Classification Board of Australia has revoked the PG classification for Tecmo Koei's Dead or Alive: Dimensions; Nintendo says distributor THQ's application for the game did not provide "adequate information."</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_id-holds-back-rage_1100-6318977_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/id-holds-back-rage/1100-6318977/" class="article-title">id holds back Rage</a>
+			<div class="article-subtitle">Postapocalyptic first-person shooter's release date pushed back to increasingly packed October 4, will now launch against Dark Souls, Twisted Metal, and The Darkness II.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_codemasters-customer-data-compromised_1100-6318978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-customer-data-compromised/1100-6318978/" class="article-title">Codemasters' customer data compromised </a>
+			<div class="article-subtitle">British developer latest gaming firm to admit loss of players' personal info; names, addresses, phone numbers, and gamertags all compromised.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_spain-apprehends-alleged-psn-hackers-report_1100-6318993_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spain-apprehends-alleged-psn-hackers-report/1100-6318993/" class="article-title">Spain apprehends alleged PSN hackers - Report</a>
+			<div class="article-subtitle">[UPDATE] Wall Street Journal reports three men caught in connection with PSN denial-of-service attack, not the theft of users' personal data.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-the-cursed-crusade-first-look-hands-on-preview_1100-6319232_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-the-cursed-crusade-first-look-hands-on-preview/1100-6319232/" class="article-title">E3 2011: The Cursed Crusade First Look Hands-On Preview</a>
+			<div class="article-subtitle">We enter the curse in our first hands-on experience with this upcoming action adventure game set during the late 12th century.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_new-bungie-game-set-in-steampunk-genre_1100-6319247_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-bungie-game-set-in-steampunk-genre/1100-6319247/" class="article-title">New Bungie game set in steampunk genre?</a>
+			<div class="article-subtitle">Photo shoot held at studio's Seattle offices looking for fans of steam-powered sci-fi genre; casting call director says it's for different studio's iPad game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_nintendo-store-updates-moved-to-thursday_1100-6319254_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-store-updates-moved-to-thursday/1100-6319254/" class="article-title">Nintendo Store updates moved to Thursday</a>
+			<div class="article-subtitle">House of Mario shifts virtual storefront additions to later in the week; WiiWare, Virtual Console, DSiWare, and 3DS eShop games included.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_shippin-out-june-12-18-duke-nukem-forever_1100-6319244_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-june-12-18-duke-nukem-forever/1100-6319244/" class="article-title">Shippin' Out June 12-18: Duke Nukem Forever</a>
+			<div class="article-subtitle">New release slate championed by premiere of Gearbox's long-in-development action game; Wii Play: Motion, Child of Eden, Alice: Madness Returns, Transformers: Dark of the Moon also out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_thq-shutters-kaos-digital-warrington_1100-6319245_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-shutters-kaos-digital-warrington/1100-6319245/" class="article-title">THQ shutters Kaos, Digital Warrington</a>
+			<div class="article-subtitle">Publisher shuts down Homefront, Juiced studios as part of "strategic realignment"; Homefront IP moved to Montreal.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_kirby-mass-attack-leads-nintendo-release-updates_1100-6319248_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kirby-mass-attack-leads-nintendo-release-updates/1100-6319248/" class="article-title">Kirby Mass Attack leads Nintendo release updates</a>
+			<div class="article-subtitle">Pink puffball's latest adventure hits September 19, Dragon Quest Monsters: Joker 2 out August 28.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_3ds-sales-top-1-million-in-japan-report_1100-6319251_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3ds-sales-top-1-million-in-japan-report/1100-6319251/" class="article-title">3DS sales top 1 million in Japan - Report</a>
+			<div class="article-subtitle">Nintendo announces 3D-enabled handheld hits platinum mark after 13 weeks of availability.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_call-of-duty-elite-registers-2-million_1100-6319250_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-elite-registers-2-million/1100-6319250/" class="article-title">Call of Duty: Elite registers 2 million</a>
+			<div class="article-subtitle">Activision's forthcoming online service for shooter series grabs another million users willing to test; scheduled to go live on July 14.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-ravens-cry-first-look_1100-6319194_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-ravens-cry-first-look/1100-6319194/" class="article-title">E3 2011: Raven's Cry First Look</a>
+			<div class="article-subtitle">We get an early glimpse of this grim pirate adventure.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_la-noire-tops-slumping-may-sales-npd_1100-6319253_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/la-noire-tops-slumping-may-sales-npd/1100-6319253/" class="article-title">L.A. Noire tops slumping May sales - NPD</a>
+			<div class="article-subtitle">Rockstar claims month for second year in a row as total sales slip 14 percent to $743 million; Xbox 360 leads hardware with 270,000 units.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_majesco-nearly-triples-quarterly-revenues_1100-6319255_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/majesco-nearly-triples-quarterly-revenues/1100-6319255/" class="article-title">Majesco nearly triples quarterly revenues</a>
+			<div class="article-subtitle">Zumba Fitness sales top 2 million worldwide as publisher plans BloodRayne: Betrayal launch by end of July.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_au-shippin-out-june-13-june-17-child-of-eden_1100-6319271_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-june-13-june-17-child-of-eden/1100-6319271/" class="article-title">AU Shippin' Out June 13-June 17: Child of Eden</a>
+			<div class="article-subtitle">Tetsuya Mizuguchi's sensory experience Child of Eden hits store shelves this week for the Xbox 360 Kinect system.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-the-lord-of-the-rings-online-rise-of-isengard-preview_1100-6319269_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-the-lord-of-the-rings-online-rise-of-isengard-preview/1100-6319269/" class="article-title">E3 2011: The Lord of the Rings Online: Rise of Isengard Preview</a>
+			<div class="article-subtitle">At E3 2011, we get a tour of the new lands coming to The Lord of the Rings Online.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_asia-shippin-out-june-12-18-child-of-eden_1100-6319274_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-june-12-18-child-of-eden/1100-6319274/" class="article-title">Asia Shippin' Out June 12-18: Child of Eden</a>
+			<div class="article-subtitle">Synaesthesia effects, a return trip to Wonderland, and robots in disguise will be on gamer's lists of things to check out in this week's releases.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_modern-warfare-3-makes-cover-of-time_1100-6319281_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modern-warfare-3-makes-cover-of-time/1100-6319281/" class="article-title">Modern Warfare 3 makes cover of Time</a>
+			<div class="article-subtitle">News magazine lets Activision use iconic front face for Call of Duty promotional campaign.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_e3-2011-the-war-of-the-worlds-demo-preview_1100-6319285_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-the-war-of-the-worlds-demo-preview/1100-6319285/" class="article-title">E3 2011: The War of the Worlds Demo Preview</a>
+			<div class="article-subtitle">Cruise through a global apocalypse while fanning past alien invaders.</div>
+			<div class="article-author">Kurtis Seid</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_free-to-play-games-arrive-on-steam_1100-6319293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-to-play-games-arrive-on-steam/1100-6319293/" class="article-title">Free-to-play games arrive on Steam</a>
+			<div class="article-subtitle">Digital distribution behemoth launches new software line with five titles: Champions Online, Alliance of Valiant Arms, Spiral Knights, Global Agenda, and Forsaken Worlds.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_xbox-live-update-magic-the-gathering-2012_1100-6319286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-update-magic-the-gathering-2012/1100-6319286/" class="article-title">Xbox Live Update: Magic: The Gathering 2012</a>
+			<div class="article-subtitle">XBLA  adds this year's Duel of the Planeswalkers and The Adventures of Shuggy tomorrow; Games on Demand welcomes PES 2011, Monopoly Streets, and Hasbro Family Game Night 3.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_bungie-aerospace-reveal-coming-soon_1100-6319284_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-aerospace-reveal-coming-soon/1100-6319284/" class="article-title">Bungie Aerospace reveal coming soon</a>
+			<div class="article-subtitle">Halo creator promises to offer "explicit detail" about corporation that trademarked "Crimson" as part of studio's 20th anniversary.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_analysts-weigh-in-on-vita-wii-u_1100-6319287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analysts-weigh-in-on-vita-wii-u/1100-6319287/" class="article-title">Analysts weigh in on Vita, Wii U</a>
+			<div class="article-subtitle">EEDAR's Jesse Divnich and Wedbush's Michael Pachter give thumbs-up to Nintendo's new console and price of Sony's portable, explain lack of investor enthusiasm for Mario maker stock.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_eve-online-minecraft-more-hit-by-lulzsec_1100-6319300_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eve-online-minecraft-more-hit-by-lulzsec/1100-6319300/" class="article-title">Eve Online, Minecraft, more hit by LulzSec</a>
+			<div class="article-subtitle">Internet hacking group targets CCP MMOG, Mojang indie hit, League of Legends, and The Escapist in distributed denial of service attacks.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/14_ea-sports-opening-retail-stores-this-fall_1100-6319589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-opening-retail-stores-this-fall/1100-6319589/" class="article-title">EA Sports opening retail stores this fall</a>
+			<div class="article-subtitle">Publishing label's brand marketing VP says first brick-and-mortar outlet has already broken ground in Charlotte, NC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_bit-trip-complete-announced-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/bit-trip-complete-announced-for-wii" class="article-title">Bit.Trip Complete announced for Wii</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_sony-hasnt-asked-for-twisted-metal-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-hasnt-asked-for-twisted-metal-vita" class="article-title">Sony hasn't asked for Twisted Metal Vita</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_acti-wii-u-friendlier-to-core-gamers_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-wii-u-friendlier-to-core-gamers" class="article-title">Acti: Wii U "friendlier" to core gamers</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_la-noire-sales-below-our-estimate_thumbnail.png">
+			<a href="https://www.eurogamer.net/la-noire-sales-below-our-estimate" class="article-title">LA Noire sales "below our estimate"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_90-percent-of-psn-users-have-returned-post-hack_thumbnail.png">
+			<a href="https://www.eurogamer.net/90-percent-of-psn-users-have-returned-post-hack" class="article-title">90% of PSN users have returned post-hack</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_eve-online-minecraft-hacked_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-online-minecraft-hacked" class="article-title">EVE Online, Minecraft servers attacked</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_valve-announces-steam-f2p-support_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-announces-steam-f2p-support" class="article-title">Valve announces Steam F2P support</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_nintendo-hardware-slumps-in-the-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-hardware-slumps-in-the-us" class="article-title">Nintendo hardware slumps in the US</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_new-xbox-will-be-at-e3-2012-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-xbox-will-be-at-e3-2012-report" class="article-title">New Xbox will be at E3 2012 – report</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_le-mans-glory-for-gt-academy-winner_thumbnail.png">
+			<a href="https://www.eurogamer.net/le-mans-glory-for-gt-academy-winner" class="article-title">Le Mans glory for GT Academy winner</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_devils-third-wii-u-looks-likely_thumbnail.png">
+			<a href="https://www.eurogamer.net/devils-third-wii-u-looks-likely" class="article-title">Devil's Third Wii U looks likely</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_child-of-eden-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/child-of-eden-review" class="article-title">Child of Eden</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_rage-team-to-move-on-to-doom-4_thumbnail.png">
+			<a href="https://www.eurogamer.net/rage-team-to-move-on-to-doom-4" class="article-title">Rage team to move onto Doom 4</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_runefest-2011-dates-prices-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/runefest-2011-dates-prices-details" class="article-title">RuneFest 2011 dates, prices, details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_thq-uk-closure-an-insiders-perspective_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-uk-closure-an-insiders-perspective" class="article-title">THQ UK closure: an insider's perspective</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_xbox-360-wireless-wheel-costs-gbp45_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-360-wireless-wheel-costs-gbp45" class="article-title">Xbox 360 Wireless Wheel costs £45</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_new-dirt-3-dlc-out-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-dirt-3-dlc-out-now" class="article-title">New DiRT 3 DLC out now</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_auto-club-revolution-has-console-physics_thumbnail.png">
+			<a href="https://www.eurogamer.net/auto-club-revolution-has-console-physics" class="article-title">Auto Club Revolution has console physics</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_thq-shuts-red-faction-battlegrounds-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-shuts-red-faction-battlegrounds-dev" class="article-title">THQ shuts Red Faction: Battlegrounds dev</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_halo-3-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-review" class="article-title">Halo 3</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_big-thq-announcement-set-for-gamescom_thumbnail.png">
+			<a href="https://www.eurogamer.net/big-thq-announcement-set-for-gamescom" class="article-title">"Big" THQ announcement for Gamescom</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_microsoft-denies-milking-halo_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-denies-milking-halo" class="article-title">Microsoft denies "milking" Halo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_cd-projekt-hypes-witcher-2-xbox-visuals_thumbnail.png">
+			<a href="https://www.eurogamer.net/cd-projekt-hypes-witcher-2-xbox-visuals" class="article-title">CD Projekt hypes Witcher 2 Xbox visuals</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_vita-ps3-sfxt-visuals-identical_thumbnail.png">
+			<a href="https://www.eurogamer.net/vita-ps3-sfxt-visuals-identical" class="article-title">Vita/PS3 SFxT visuals "identical"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_kojima-hates-nes-metal-gear-solid_thumbnail.png">
+			<a href="https://www.eurogamer.net/kojima-hates-nes-metal-gear-solid" class="article-title">Kojima despises NES Metal Gear</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_psn-roundup-comeback-special-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/psn-roundup-comeback-special-review" class="article-title">PSN Roundup: Comeback Special</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_no-dissidia-final-fantasy-ps3-plans_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-dissidia-final-fantasy-ps3-plans" class="article-title">No Dissidia: Final Fantasy PS3 plans</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_huge-call-of-duty-elite-beta-sign-ups_thumbnail.png">
+			<a href="https://www.eurogamer.net/huge-call-of-duty-elite-beta-sign-ups" class="article-title">Huge Call of Duty: Elite beta sign-ups</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_ea-we-lost-some-fans-with-dragon-age-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-we-lost-some-fans-with-dragon-age-2" class="article-title">EA: we lost some fans with Dragon Age 2</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_console-ttt2-probably-not-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/console-ttt2-probably-not-this-year" class="article-title">Console TTT2 "probably not this year"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_id-sequels-unfairly-criticised_thumbnail.png">
+			<a href="https://www.eurogamer.net/id-sequels-unfairly-criticised" class="article-title">id: sequels "unfairly criticised"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_suda51-teases-wii-u-no-more-heroes-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/suda51-teases-wii-u-no-more-heroes-3" class="article-title">Suda51 teases Wii U No More Heroes 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_ea-sports-to-stand-by-tiger-woods_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-sports-to-stand-by-tiger-woods" class="article-title">EA Sports to stand by Tiger Woods</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_mgs-3d-double-size-of-average-3ds-cart_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-3d-double-size-of-average-3ds-cart" class="article-title">MGS 3D double size of average 3DS cart</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/14_bungie-dates-aerospace-reveal_thumbnail.png">
+			<a href="https://www.eurogamer.net/bungie-dates-aerospace-reveal" class="article-title">Bungie dates Aerospace reveal</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137291/EA-defends-Battlefield-3-preorder-perks/" class="article-title">EA defends Battlefield 3 preorder perks</a>
+			<div class="article-subtitle">Items "chosen not to be overpowered."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137287/Games-company-communities-hacked/" class="article-title">Games company communities hacked</a>
+			<div class="article-subtitle">Epic, Bethesda, Codemasters.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137286/THQ-closes-Homefront-developer/" class="article-title">THQ closes Homefront developer</a>
+			<div class="article-subtitle">Kaos Studios shuttered.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137285/THQ-talks-Homefront-2/" class="article-title">THQ talks Homefront 2</a>
+			<div class="article-subtitle">Seeks to learn from mistakes.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/kolm-2.php" class="article-title">K.O.L.M. II</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flagstaff-chapter-three.php" class="article-title">Flagstaff: Chapter Three</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dillo-hills.php" class="article-title">Dillo Hills</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-36.php" class="article-title">The Vault №47</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/06/14/fract-beta/" class="article-title">Fract Beta</a>
+			<div class="article-author">ithamore</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/06/14/preview-wizorb/" class="article-title">Preview: Wizorb</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2011/06/14/terraria-1-0-4/" class="article-title">Terraria 1.0.4</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 15, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kirbys-epic-yarn-review/1900-6282135/" class="article-title">Kirby's Epic Yarn Review</a>
+			<div class="article-subtitle">Enticing visuals and varied gameplay make Kirby's latest adventure an absolute joy.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sonic-the-hedgehog-4-episode-1-review/1900-6282120/" class="article-title">Sonic the Hedgehog 4: Episode 1 Review</a>
+			<div class="article-subtitle">This faithful but inconsistent throwback to the earliest Sonic games mingles high-speed thrills with a few too many frustrations.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sonic-the-hedgehog-4-episode-1-review/1900-6282170/" class="article-title">Sonic the Hedgehog 4: Episode 1 Review</a>
+			<div class="article-subtitle">This faithful but inconsistent throwback to the earliest Sonic games mingles high-speed thrills with a few too many frustrations.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_user-videos-catch-up_1100-6282075_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/user-videos-catch-up/1100-6282075/" class="article-title">User Videos Catch-Up</a>
+			<div class="article-subtitle">Just a quick catch-up on some of the latest user videos.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_professor-layton-and-the-lost-fortune-dated-for-oz_1100-6282074_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/professor-layton-and-the-lost-fortune-dated-for-oz/1100-6282074/" class="article-title">Professor Layton and the Lost Fortune dated for Oz</a>
+			<div class="article-subtitle">The third game in Nintendo's popular puzzle solving series gets set to arrive on October 21.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_254000-wiis-312000-ps3s-sold-in-sept-analyst_1100-6282085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/254000-wiis-312000-ps3s-sold-in-sept-analyst/1100-6282085/" class="article-title">254,000 Wiis, 312,000 PS3s sold in Sept. - Analyst</a>
+			<div class="article-subtitle">NPD figures reveal sales of Nintendo's console plummeted 45% due to "gamer fatigue," says Wedbush; Sony's platform drops 37% compared to brisk 2009 post-price-drop sales.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_faery-legends-of-avalon-first-impressions_1100-6281915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/faery-legends-of-avalon-first-impressions/1100-6281915/" class="article-title">Faery: Legends of Avalon First Impressions</a>
+			<div class="article-subtitle">We come across all kinds of mythical creatures in this downloadable role-playing game.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_september-us-game-sales-slide-8-hardware-down-19-npd_1100-6281961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/september-us-game-sales-slide-8-hardware-down-19-npd/1100-6281961/" class="article-title">September US game sales slide 8%, hardware down 19% - NPD</a>
+			<div class="article-subtitle">Industry-reporting firm's new report format shows steep decline in console, portable sales; Halo: Reach, Madden NFL, Dead Rising 2 top games; PlayStation Move boosts accessories.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_monday-night-combat-title-update-hits-xbl_1100-6282080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monday-night-combat-title-update-hits-xbl/1100-6282080/" class="article-title">Monday Night Combat title update hits XBL</a>
+			<div class="article-subtitle">Uber Entertainment patches third-person shooter; rash of fixes, gameplay balance measures implemented; information on free DLC arriving in the coming weeks.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_australian-studio-krome-closing_1100-6282087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/australian-studio-krome-closing/1100-6282087/" class="article-title">Australian studio Krome closing? </a>
+			<div class="article-subtitle">Developer of Blade Kitten and Legend of the Guardians: The Owls of Ga'Hoole rumoured to be closing its remaining Melbourne and Brisbane studios.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_first-half-2010-us-game-content-sales-exceed-63-billion-npd_1100-6282100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-half-2010-us-game-content-sales-exceed-63-billion-npd/1100-6282100/" class="article-title">First half 2010 US game content sales exceed $6.3 billion - NPD</a>
+			<div class="article-subtitle">Market research firm finds used games, digital distribution, DLC, mobile, social platforms drove software sales up $2.3-$2.6 billion during first half of 2010.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_guitar-hero-warriors-of-rock-sells-under-100000_1100-6282111_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-warriors-of-rock-sells-under-100000/1100-6282111/" class="article-title">Guitar Hero: Warriors of Rock sells under 100,000</a>
+			<div class="article-subtitle">Rhythm game debut strikes sour note, underscores slide for both franchise and genre.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_bittrip-fate-sealed-october-25_1100-6282115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bittrip-fate-sealed-october-25/1100-6282115/" class="article-title">Bit.Trip Fate sealed October 25</a>
+			<div class="article-subtitle">Gaijin Games' rhythm-based series ventures to on-rails shoot-'em-up territory in North America later this month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_halo-reach-final-thoughts_1100-6282103_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-final-thoughts/1100-6282103/" class="article-title">Halo: Reach - Final Thoughts </a>
+			<div class="article-subtitle">Creative director Marcus Lehto takes us inside the development process behind Bungie's final Halo game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_fable-iii-launch-center-save-your-kingdom-from-utter-devastation_1100-6282122_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fable-iii-launch-center-save-your-kingdom-from-utter-devastation/1100-6282122/" class="article-title">Fable III Launch Center: Save Your Kingdom From Utter Devastation!</a>
+			<div class="article-subtitle">Will you lead the people of Albion to prosperity or become a tyrant? Make an informed decision by checking out the latest news in our Fable III Launch Center!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_big-in-japan-oct-4-10-red-dead-redemption-kingdom-hearts-ds_1100-6282123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-oct-4-10-red-dead-redemption-kingdom-hearts-ds/1100-6282123/" class="article-title">Big in Japan Oct. 4-10: Red Dead Redemption, Kingdom Hearts DS</a>
+			<div class="article-subtitle">Pokemon Black and White makes it four straight weeks atop the charts as Rockstar's latest makes the top 10 with both Xbox 360 and PS3 versions, Re:coded Disney-Square Enix crossover posts strong debut.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_udraw-doodling-on-wii-nov-14_1100-6282125_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/udraw-doodling-on-wii-nov-14/1100-6282125/" class="article-title">uDraw doodling on Wii Nov. 14</a>
+			<div class="article-subtitle">THQ's $70 tablet and art game arrives in the US for Nintendo's platform next month; $30 Pictionary and Dood's Big Adventure launching in tandem.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_shippin-out-sept-12-18-halo-reach-playstation-move_1100-6275523_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-sept-12-18-halo-reach-playstation-move/1100-6275523/" class="article-title">Shippin' Out Sept. 12-18: Halo: Reach, PlayStation Move</a>
+			<div class="article-subtitle">Release schedule ramps up in a big way with Bungie's final installment in sci-fi shooter series, motion-sensing PS3 add-on, Professor Layton, Lord of the Rings: Aragorn's Quest, and much more.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_the-hotspot-dead-rising-2_1100-6282134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-hotspot-dead-rising-2/1100-6282134/" class="article-title">The HotSpot - Dead Rising 2</a>
+			<div class="article-subtitle">Developer Blue Castle joins the HotSpot crew to discuss the secret of Chuck's coffee, what was too offensive and gory to make it into the final game, and more!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/10/15_playstation-moves-debut-modest-in-us-big-in-europe_1100-6282132_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-moves-debut-modest-in-us-big-in-europe/1100-6282132/" class="article-title">PlayStation Move's debut 'modest' in US, big in Europe</a>
+			<div class="article-subtitle">Wedbush estimates just 300,000 units of motion-sensing system sold in US; Sony Europe chief boasts of 1.5 million sold in EU, says demand "far in excess" of estimates.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_king-of-fighters-hits-up-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/king-of-fighters-hits-up-xbla" class="article-title">King of Fighters hits up XBLA</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_guitar-hero-series-in-trouble_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-series-in-trouble" class="article-title">Guitar Hero series in trouble</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_thq-sketch-out-udraw-launch-plans_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-sketch-out-udraw-launch-plans" class="article-title">THQ sketch out uDraw launch plans</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_bit-trip-fate-dated-for-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/bit-trip-fate-dated-for-us" class="article-title">Bit.Trip Fate dated for WiiWare</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_digitalfoundry-tfu2-demo-showdown-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-tfu2-demo-showdown-blog-entry" class="article-title">Star Wars: The Force Unleashed II PS3/360 demo showdown</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_new-starcraft-ii-update-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-starcraft-ii-update-goes-live" class="article-title">New StarCraft II update goes live</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_xbl-launches-in-nine-new-countries_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbl-launches-in-nine-new-countries" class="article-title">XBL launches in nine new countries</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_namco-hails-chilean-miners-causes-offence_thumbnail.png">
+			<a href="https://www.eurogamer.net/namco-hails-chilean-miners-causes-offence" class="article-title">Namco hails Chilean miners, causes offence</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_dead-space-heading-to-ipad_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-space-heading-to-ipad" class="article-title">Dead Space heading to iPad</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_kinects-sitting-down-woes-finally-over_thumbnail.png">
+			<a href="https://www.eurogamer.net/kinects-sitting-down-woes-finally-over" class="article-title">Kinect's sitting down woe finally over</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_uk-two-worlds-ii-delay-at-last-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-two-worlds-ii-delay-at-last-confirmed" class="article-title">UK Two Worlds II delay confirmed at last</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_marvel-vs-capcom-3-fate-of-two-worlds-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/marvel-vs-capcom-3-fate-of-two-worlds-hands-on" class="article-title">Marvel vs. Capcom 3: Fate of Two Worlds</a>
+			<div class="article-author">Matt Edwards</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_xbl-game-room-dev-dead-on-monday_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbl-game-room-dev-dead-on-monday" class="article-title">XBL Game Room dev dead on Monday</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_the-egtv-show-the-videogames-election-episode-3-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-egtv-show-the-videogames-election-episode-3-article" class="article-title">The EGTV Show: The Videogames Election - Episode 3</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_pachter-sets-record-straight-on-steam-trade-in_thumbnail.png">
+			<a href="https://www.eurogamer.net/pachter-sets-record-straight-on-steam-trade-in" class="article-title">Pachter sets record straight on Steam row</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_red-dead-zombie-dlc-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-zombie-dlc-dated" class="article-title">Red Dead zombie DLC dated</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_game-of-the-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-of-the-week" class="article-title">Game of the Week</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_eurogamer-wins-games-media-award-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eurogamer-wins-games-media-award-blog-entry" class="article-title">Eurogamer wins Games Media Award</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_unethical-langdell-booted-from-igda_thumbnail.png">
+			<a href="https://www.eurogamer.net/unethical-langdell-booted-from-igda" class="article-title">"Unethical" Langdell booted from IGDA</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_game-of-the-week-11_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-of-the-week-11" class="article-title">Game of the Week</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_wii-remote-motion-plus-combo-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-remote-motion-plus-combo-dated" class="article-title">Wii Remote/Motion Plus combo dated</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_download-games-roundup-review-5_thumbnail.png">
+			<a href="https://www.eurogamer.net/download-games-roundup-review-5" class="article-title">Download Games Roundup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_ferrari-the-race-experience-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/ferrari-the-race-experience-review" class="article-title">Ferrari The Race Experience</a>
+			<div class="article-author">Joao Diniz Sanches</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_how-many-hidden-vaults-in-fallout-nv_thumbnail.png">
+			<a href="https://www.eurogamer.net/how-many-hidden-vaults-in-fallout-nv" class="article-title">How many hidden Vaults in Fallout: NV?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_someones-got-to-be-the-taliban-opinion_thumbnail.png">
+			<a href="https://www.eurogamer.net/someones-got-to-be-the-taliban-opinion" class="article-title">"Someone's got to be the Taliban"</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_civilization-v-gets-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/civilization-v-gets-release-date" class="article-title">Civilization V gets release date</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_red-dead-standalone-dlc-disc-bundle_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-dead-standalone-dlc-disc-bundle" class="article-title">Red Dead standalone DLC disc bundle</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_this-wow-mouse-took-two-years-to-make_thumbnail.png">
+			<a href="https://www.eurogamer.net/this-wow-mouse-took-two-years-to-make" class="article-title">WOW mouse took two years to make</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_dark-void-dev-making-triple-a-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/dark-void-dev-making-triple-a-games" class="article-title">Dark Void dev making "triple-A" games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_pirates-caribbean-action-rpg-cancelled_thumbnail.png">
+			<a href="https://www.eurogamer.net/pirates-caribbean-action-rpg-cancelled" class="article-title">Pirates Caribbean action-RPG cancelled</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_shinji-mikami-explains-vanquish-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/shinji-mikami-explains-vanquish-demo" class="article-title">Shinji Mikami explains Vanquish demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_greenberg-360-sold-484k-in-september_thumbnail.png">
+			<a href="https://www.eurogamer.net/greenberg-360-sold-484k-in-september" class="article-title">Greenberg: 360 sold 484k in September</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_okamiden-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/okamiden-hands-on" class="article-title">Okamiden</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/10/15_move-sales-exceed-sonys-forecasts_thumbnail.png">
+			<a href="https://www.eurogamer.net/move-sales-exceed-sonys-forecasts" class="article-title">Move sales exceed Sony's forecasts</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135886/Snippets-Valve-no-plans-for-trade-ins-EA-MOH-day-one-figures-great/" class="article-title">Snippets: Valve: no plans for trade-ins, EA: MOH day one figures "great"</a>
+			<div class="article-subtitle">"Untrue."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135882/Armada-of-the-Damned-cancelled/" class="article-title">Armada of the Damned cancelled</a>
+			<div class="article-subtitle">Mass layoffs at Propaganda?</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135881/RDR-Undead-Nightmare-on-October-26/" class="article-title">RDR: Undead Nightmare on October 26</a>
+			<div class="article-subtitle">Also available on disc with other DLC.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i135877/First-Halo-Reach-map-pack-detailed/" class="article-title">First Halo: Reach map pack detailed</a>
+			<div class="article-subtitle">Due end of November.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i135876/GT5-delay-due-to-PS3-crack/" class="article-title">GT5 delay due to PS3 crack?</a>
+			<div class="article-subtitle">Alleged insider blames recent jailbreak.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dark-tales-edgar-allan-poes-the-black-cat.php" class="article-title">Dark Tales: Edgar Allan Poe's The Black Cat</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/for-the-twin.php" class="article-title">For The Twin</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-186.php" class="article-title">Link Dump Friday №187</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

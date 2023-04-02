@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 22, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deus-ex-human-revolution-review/1900-6330175/" class="article-title">Deus Ex: Human Revolution Review</a>
+			<div class="article-subtitle">Deus Ex: Human Revolution is an engrossing and atmospheric adventure that keeps you guessing.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deus-ex-human-revolution-review/1900-6330172/" class="article-title">Deus Ex: Human Revolution Review</a>
+			<div class="article-subtitle">Deus Ex: Human Revolution is an engrossing and atmospheric adventure that keeps you guessing.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deus-ex-human-revolution-review/1900-6330180/" class="article-title">Deus Ex: Human Revolution Review</a>
+			<div class="article-subtitle">Deus Ex: Human Revolution is an engrossing and atmospheric adventure that keeps you guessing.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_top-android-games-august-19-2011_1100-6330100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-android-games-august-19-2011/1100-6330100/" class="article-title">Top Android games - August 19, 2011</a>
+			<div class="article-subtitle">Newfangled brick-breaking antics, hack-and-slash adventuring, and getting some sweet ink are all on the agenda in this week's top Android releases.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_nhl-12-preview-updated-hands-on_1100-6329925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nhl-12-preview-updated-hands-on/1100-6329925/" class="article-title">NHL 12 Preview - Updated Hands-On</a>
+			<div class="article-subtitle">We sit down with NHL 12 one last time before it hit stores this September</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_top-iphone-games-august-19-2011_1100-6330097_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-iphone-games-august-19-2011/1100-6330097/" class="article-title">Top iPhone Games - August 19, 2011</a>
+			<div class="article-subtitle">Mokis, zombies, and hack-and-slash adventures lead the charge in our pick of top iOS releases this week.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-dust-514-preview_1100-6330167_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-dust-514-preview/1100-6330167/" class="article-title">Gamescom 2011: Dust 514 Preview </a>
+			<div class="article-subtitle">We take a look at an extremely interesting shooter that shares the same overall battles and world as EVE Online.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-four-strategy-games-from-paradox-interactive_1100-6330170_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-four-strategy-games-from-paradox-interactive/1100-6330170/" class="article-title">Gamescom 2011: Four Strategy Games From Paradox Interactive</a>
+			<div class="article-subtitle">We take a look at Crusader Kings II, Naval War: Arctic Circle, Salem, and War of the Roses.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_binary-domain-hits-xbox-360-and-ps3-february-14_1100-6330168_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/binary-domain-hits-xbox-360-and-ps3-february-14/1100-6330168/" class="article-title">Binary Domain hits Xbox 360 and PS3 February 14</a>
+			<div class="article-subtitle">Yakuza creator's robotic rebellion kicks off on Valentine's Day in North America, February 17 in Europe.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-neverdead-impressions_1100-6330317_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-neverdead-impressions/1100-6330317/" class="article-title">Gamescom 2011: Neverdead Impressions </a>
+			<div class="article-subtitle">Konami's Neverdead stars a man who can dismember himself and use his own body parts to his strategic advantage. We went out on a limb to go check it out.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-formula-one-2011-impressions_1100-6330325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-formula-one-2011-impressions/1100-6330325/" class="article-title">Gamescom 2011: Formula One 2011 Impressions </a>
+			<div class="article-subtitle">Following a BAFTA award for last year's F1 debut, Codemasters is back with its second game based on the sport.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-joe-danger-the-movie-hands-on_1100-6330319_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-joe-danger-the-movie-hands-on/1100-6330319/" class="article-title">Gamescom 2011: Joe Danger: The Movie Hands-On </a>
+			<div class="article-subtitle">Joe Danger is back and in Hollywood in a sequel to last year's PlayStation 3 arcade stunt racer.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-two-worlds-2-pirates-of-the-flying-fortress-impressions_1100-6330340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-two-worlds-2-pirates-of-the-flying-fortress-impressions/1100-6330340/" class="article-title">Gamescom 2011: Two Worlds 2: Pirates of the Flying Fortress Impressions </a>
+			<div class="article-subtitle">Two Worlds 2 is getting pulled off the shelves to make way for a new version that also includes this add-on. We got to see it at this year's Gamescom.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-adrift-and-the-power-of-promise_1100-6330318_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-adrift-and-the-power-of-promise/1100-6330318/" class="article-title">Gamescom 2011: Adrift and the Power of Promise</a>
+			<div class="article-subtitle">From former Ubisoft Paris devs comes this surprisingly promising sci-fi game about what happens when memories become a commodity.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_shippin-out-august-21-27-deus-ex-human-revolution_1100-6330187_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-august-21-27-deus-ex-human-revolution/1100-6330187/" class="article-title">Shippin' Out August 21-27: Deus Ex: Human Revolution</a>
+			<div class="article-subtitle">Eidos revamp of cyberpunk franchise launches alongside Capcom's downloadable Street Fighter III, Activision's latest Call of Duty: Black Ops map pack, and Devil Survivor Overclocked for 3DS.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_asia-shippin-out-august-21-27-deus-ex-human-revolution_1100-6330350_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-august-21-27-deus-ex-human-revolution/1100-6330350/" class="article-title">Asia Shippin' Out August 21-27: Deus Ex: Human Revolution</a>
+			<div class="article-subtitle">This week, game store shelves will be filled with a dash of cyberpunk role playing, anime role-play gaming, and old-school street fighting.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_au-shippin-out-august-22-26-deus-ex-human-revolution_1100-6330349_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-august-22-26-deus-ex-human-revolution/1100-6330349/" class="article-title">AU Shippin' Out August 22-26: Deus Ex: Human Revolution</a>
+			<div class="article-subtitle">All conspiracies have to start somewhere, and this week Eidos takes players back to the start with Deus Ex: Human Revolution.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_metro-last-light-updated-preview_1100-6330348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metro-last-light-updated-preview/1100-6330348/" class="article-title">Metro: Last Light Updated Preview</a>
+			<div class="article-subtitle">We smash some lightbulbs, cut off heads, and add an extra dimension in our latest look at this future shooter.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_coin-oped-who-cares-about-pro-gaming_1100-6330191_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/coin-oped-who-cares-about-pro-gaming/1100-6330191/" class="article-title">Coin-OpEd: Who cares about pro gaming?</a>
+			<div class="article-subtitle">Major League Gaming's Sundance DiGiovanni clues me in on why it's worth tuning into e-sports or competitive gaming, or whatever you want to call it.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_blog-bunker-read-me-and-comment_1100-6329836_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blog-bunker-read-me-and-comment/1100-6329836/" class="article-title">Blog Bunker - Read Me and Comment </a>
+			<div class="article-subtitle">Check out what other GameSpot members have to say!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-anarchy-reigns-hands-on-preview_1100-6330358_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-anarchy-reigns-hands-on-preview/1100-6330358/" class="article-title">Gamescom 2011: Anarchy Reigns Hands-On Preview</a>
+			<div class="article-subtitle">Platinum's first online game contains lots of chaotic, score-chasing, multiplayer brawling.</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_sound-byte-meet-the-composer-of-deus-ex-human-revolution_1100-6330367_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-meet-the-composer-of-deus-ex-human-revolution/1100-6330367/" class="article-title">Sound Byte: Meet the Composer of Deus Ex: Human Revolution</a>
+			<div class="article-subtitle">Like what you heard from our last Deus Ex Sound Byte? Learn more about the man behind the music, Michael McCann.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_nintendo-australia-releases-new-eshop-card-system_1100-6330354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-australia-releases-new-eshop-card-system/1100-6330354/" class="article-title">Nintendo Australia releases new eShop card system</a>
+			<div class="article-subtitle">New eShop cards released to unify the currency and work across all Nintendo consoles.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-dragons-dogma-updated-impressions-preview-pawns_1100-6330381_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-dragons-dogma-updated-impressions-preview-pawns/1100-6330381/" class="article-title">Gamescom 2011: Dragon's Dogma Updated Impressions Preview - Pawns</a>
+			<div class="article-subtitle">Hiroyuke Kobayashi explains the party mechanics in Dragon's Dogma.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_ukrainian-team-wins-1-million-dota-2-tournament_1100-6330355_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ukrainian-team-wins-1-million-dota-2-tournament/1100-6330355/" class="article-title">Ukrainian team wins $1 million DOTA 2 tournament</a>
+			<div class="article-subtitle">Na'Vi walks away with upcoming title's first championship at Gamescom competition; Chinese team takes second, with Singapore crew in third.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_activision-should-be-nervous-about-call-of-duty-ea_1100-6330363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-should-be-nervous-about-call-of-duty-ea/1100-6330363/" class="article-title">Activision should be nervous about Call of Duty - EA</a>
+			<div class="article-subtitle">Battlefield 3 publisher's spokesman mocks call for civility from rival, suggests competing blockbuster shooter franchise could be gone in two or three years.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_gamescom-2011-draws-275000_1100-6330369_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamescom-2011-draws-275000/1100-6330369/" class="article-title">Gamescom 2011 draws 275,000</a>
+			<div class="article-subtitle">Exhibition organizers tout record attendance at last week's show in Cologne, Germany; next year's show scheduled for Aug. 15-19.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_ubisoft-commits-to-shoot-many-robots_1100-6330368_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-commits-to-shoot-many-robots/1100-6330368/" class="article-title">Ubisoft commits to Shoot Many Robots</a>
+			<div class="article-subtitle">Demiurge Studios' side-scrolling run-and-gun shooter picked up for downloadable release on Xbox 360, PS3, PC; launch now set for 2012.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_microsoft-rules-out-xbox-360-price-cut_1100-6330383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-rules-out-xbox-360-price-cut/1100-6330383/" class="article-title">Microsoft rules out Xbox 360 price cut</a>
+			<div class="article-subtitle">VP Chris Lewis says company isn't feeling pressure to respond to PS3's recent price cut thanks to XBL, Kinect, attach rates.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_whos-the-greatest-sidekick-of-all-time-of-all-time_1100-6330374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/whos-the-greatest-sidekick-of-all-time-of-all-time/1100-6330374/" class="article-title">Who's the Greatest Sidekick of All Time? Of All Time!</a>
+			<div class="article-subtitle">You've picked the mightiest game heroes and the most nefarious villains...but can you pick the greatest game sidekick ever?</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_deus-ex-gets-its-own-clothing-line_1100-6330407_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deus-ex-gets-its-own-clothing-line/1100-6330407/" class="article-title">Deus Ex gets its own clothing line</a>
+			<div class="article-subtitle">Square Enix teams with Musterbrand to create a licensed collection pulled from Eidos Montreal's new cyberpunk stealth shooter hybrid Human Revolution.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/08/22_daily-report-manic-monday_1100-6330395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-report-manic-monday/1100-6330395/" class="article-title">Daily Report: Manic Monday</a>
+			<div class="article-subtitle">Just another manic Monday.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_deus-ex-hr-clothing-line-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-hr-clothing-line-announced" class="article-title">Deus Ex: HR clothing line announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_ms-not-feeling-360-price-cut-pressure_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-not-feeling-360-price-cut-pressure" class="article-title">MS not feeling 360 price cut pressure</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_official-ferrari-racing-wheel-for-forza-4_thumbnail.png">
+			<a href="https://www.eurogamer.net/official-ferrari-racing-wheel-for-forza-4" class="article-title">Official Ferrari racing wheel for Forza 4</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_razer-takes-on-consoles-in-wsj-open-letter_thumbnail.png">
+			<a href="https://www.eurogamer.net/razer-takes-on-consoles-in-wsj-open-letter" class="article-title">Razer takes on consoles in WSJ open letter</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_square-picks-up-portal-co-creators-latest_thumbnail.png">
+			<a href="https://www.eurogamer.net/square-picks-up-portal-co-creators-latest" class="article-title">Square picks up Portal co-creator's latest</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_sega-sets-binary-domain-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-sets-binary-domain-release-date" class="article-title">Sega sets Binary Domain release date</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_d-and-d-daggerdale-dev-closes-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/d-and-d-daggerdale-dev-closes-report" class="article-title">D&D: Daggerdale dev closes - report</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_navi-wins-first-dota-2-tournament_thumbnail.png">
+			<a href="https://www.eurogamer.net/navi-wins-first-dota-2-tournament" class="article-title">Na'Vi wins first Dota 2 tournament</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_two-pes-2012-demos-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/two-pes-2012-demos-announced" class="article-title">Two PES 2012 demos announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_shoot-many-robots-for-xbla-psn-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/shoot-many-robots-for-xbla-psn-pc" class="article-title">Shoot Many Robots for XBLA, PSN, PC</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_when-sony-will-seriously-consider-ps4_thumbnail.png">
+			<a href="https://www.eurogamer.net/when-sony-will-seriously-consider-ps4" class="article-title">When Sony will "seriously consider" PS4</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_fable-4-release-date-2013_thumbnail.png">
+			<a href="https://www.eurogamer.net/fable-4-release-date-2013" class="article-title">Fable 4 release date 2013?</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_deus-ex-writer-on-cancelled-ninja-gold_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-writer-on-cancelled-ninja-gold" class="article-title">Deus Ex writer on cancelled Ninja Gold</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_deus-ex-looking-back-at-the-future-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/deus-ex-looking-back-at-the-future-interview" class="article-title">Deus Ex: Looking Back at the Future</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_dota-trademark-blizzard-valve-respond_thumbnail.png">
+			<a href="https://www.eurogamer.net/dota-trademark-blizzard-valve-respond" class="article-title">Dota trademark: Blizzard, Valve respond</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_mobile-games-roundup-review-5_thumbnail.png">
+			<a href="https://www.eurogamer.net/mobile-games-roundup-review-5" class="article-title">Mobile Games Roundup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_ea-physical-media-still-has-a-future_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-physical-media-still-has-a-future" class="article-title">EA: physical media still has a future</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_new-eurogamer-iphone-app_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-eurogamer-iphone-app" class="article-title">New Eurogamer iPhone app</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_nintendo-eshop-update-25-08-11_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-eshop-update-25-08-11" class="article-title">Nintendo eShop update - 25/08/11</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_uk-top-40-zumba-top-zelda-rises_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-top-40-zumba-top-zelda-rises" class="article-title">UK Top 40: Zumba top, Zelda rises</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_new-xbox-app-announcements-very-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-xbox-app-announcements-very-soon" class="article-title">Xbox app announcements "very soon"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_blizzard-dota-completely-rebooted_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-dota-completely-rebooted" class="article-title">Blizzard DOTA "completely rebooted"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_ea-hopes-youll-buy-fifa-and-fifa-street_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-hopes-youll-buy-fifa-and-fifa-street" class="article-title">EA hopes you'll buy FIFA and FIFA Street</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/08/22_rise-of-nightmares-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/rise-of-nightmares-preview" class="article-title">Rise of Nightmares</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137755/Orcon-launches-unmetered-Steam-downloads/" class="article-title">Orcon launches unmetered Steam downloads</a>
+			<div class="article-subtitle">Go forth.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137749/Minecraft-dev-weighs-in-on-always-on-DRM/" class="article-title">Minecraft dev weighs in on always-on DRM</a>
+			<div class="article-subtitle">It encourages piracy, says Notch.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/no-place-like-home.php" class="article-title">No Place Like Home</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/vision-by-proxy-second-edition.php" class="article-title">Vision By Proxy: Second Edition</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mega-mall-story.php" class="article-title">Mega Mall Story</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-134.php" class="article-title">Mobile Monday №133</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 15, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deathspank-review/1900-6269355/" class="article-title">DeathSpank Review</a>
+			<div class="article-subtitle">Goofy humor and a bevy of wacky objectives make it easy to lose yourself in this action role-playing game.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deathspank-review/1900-6269170/" class="article-title">DeathSpank Review</a>
+			<div class="article-subtitle">Goofy humor and a bevy of wacky objectives make it easy to lose yourself in this action role-playing game.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_arkham-asylum-art-director-talks-mistakes_1100-6269025_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arkham-asylum-art-director-talks-mistakes/1100-6269025/" class="article-title">Arkham Asylum art director talks mistakes</a>
+			<div class="article-subtitle">Develop 2010: Rocksteady's David Hego bemoans detective vision, discusses uncanny valley, gameplay decisions, and how its future game will use more of "augmented reality."</div>
+			<div class="article-author">Jane Douglas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_madden-nfl-11-demo-date-and-details_1100-6269145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-11-demo-date-and-details/1100-6269145/" class="article-title">Madden NFL 11: Demo Date and Details</a>
+			<div class="article-subtitle">The demo for EA Sports' new football game is coming July 27. Read on for all the details.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_pitbull-bites-back_1100-6269052_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pitbull-bites-back/1100-6269052/" class="article-title">Pitbull bites back</a>
+			<div class="article-subtitle">Pitbull Syndicate cofounder Robert Troughton resurrects defunct development house in the form of Pitbull Studios; currently developing unannounced project.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_official-aussie-starcraft-ii-launch-detailed_1100-6269140_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/official-aussie-starcraft-ii-launch-detailed/1100-6269140/" class="article-title">Official Aussie Starcraft II launch detailed</a>
+			<div class="article-subtitle">EB Games and Blizzard team up and designate their Albert Street store in Brisbane the official Australian launch site for the highly anticipated RTS.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_runescape-dev-announces-new-sci-fi-mmorpg_1100-6269141_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/runescape-dev-announces-new-sci-fi-mmorpg/1100-6269141/" class="article-title">Runescape dev announces new sci-fi MMORPG</a>
+			<div class="article-subtitle">Develop 2010: Jagex CEO Mark Gerhard talks about how his company makes free-to-play games; announces latest massively multiplayer online endeavour, Stellar Dawn.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_tim-schafer-confirms-brutal-legend-2-canceled-announces-four-games_1100-6269142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tim-schafer-confirms-brutal-legend-2-canceled-announces-four-games/1100-6269142/" class="article-title">Tim Schafer confirms Brutal Legend 2 canceled, announces four games</a>
+			<div class="article-subtitle">Develop 2010: Double Fine president and founder talks about stillborn heavy metal sequel, publisher relations, and the move to smaller games.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_assassins-creed-comics-due-this-fall_1100-6269149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-comics-due-this-fall/1100-6269149/" class="article-title">Assassin's Creed comics due this fall</a>
+			<div class="article-subtitle">Three-part miniseries chronicling Ubisoft's stealthy warriors getting full reveal at Comic-Con 2010; St. Petersburg locale teased.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_microsoft-pulls-plug-on-1-vs-100_1100-6269146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-pulls-plug-on-1-vs-100/1100-6269146/" class="article-title">Microsoft pulls plug on 1 vs. 100</a>
+			<div class="article-subtitle">Third season of trivia game show nixed; beta season attracted over 114,000 players, developers working on new projects to be unveiled in the future.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_maxis-hiring-for-pc-online-simulation-game_1100-6269152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/maxis-hiring-for-pc-online-simulation-game/1100-6269152/" class="article-title">Maxis hiring for PC online simulation game </a>
+			<div class="article-subtitle">Sims, Spore developer looking for development director for unannounced "next-generation online simulation game."</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_zombrex-dead-rising-sun-release-dates-revealed_1100-6269150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zombrex-dead-rising-sun-release-dates-revealed/1100-6269150/" class="article-title">Zombrex Dead Rising Sun release dates revealed</a>
+			<div class="article-subtitle">Capcom to premiere new episodes of game series' live-action adaptation throughout August; clips will be added to official site after one-week exclusivity on Xbox Live.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_dead-rising-2-zombrex-edition-lurching-to-retail_1100-6269161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-2-zombrex-edition-lurching-to-retail/1100-6269161/" class="article-title">Dead Rising 2 Zombrex edition lurching to retail</a>
+			<div class="article-subtitle">Capcom's $80 package includes syringe pen, "Making of" featurette; 360 gets live-action film, PS3 gains XMB theme, art book.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_spotlight-on-the-lord-of-the-rings-online-free-to-play_1100-6269147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spotlight-on-the-lord-of-the-rings-online-free-to-play/1100-6269147/" class="article-title">Spotlight On - The Lord of the Rings Online (Free-to-Play)</a>
+			<div class="article-subtitle">This Tolkien-themed massively multiplayer adventure will become a free-to-play online game later this year. We recently took a guided online tour.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/15_sony-online-entertainment-hit-with-layoffs_1100-6269171_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-online-entertainment-hit-with-layoffs/1100-6269171/" class="article-title">Sony Online Entertainment hit with layoffs</a>
+			<div class="article-subtitle">Everquest publisher cuts headcount by 35 following resource realignment; unclear which departments were hit.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_jagex-free-realms-is-insipid_thumbnail.png">
+			<a href="https://www.eurogamer.net/jagex-free-realms-is-insipid" class="article-title">Free Realms is "insipid" - Jagex</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_activision-announces-apache-air-assault_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-announces-apache-air-assault" class="article-title">Activision announces Apache: Air Assault</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_molyneux-fable-2-was-rushed_thumbnail.png">
+			<a href="https://www.eurogamer.net/molyneux-fable-2-was-rushed" class="article-title">Molyneux: Fable II was "rushed"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_double-fine-has-four-games-on-the-go_thumbnail.png">
+			<a href="https://www.eurogamer.net/double-fine-has-four-games-on-the-go" class="article-title">Double Fine has four games on the go</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_activision-reveals-dj-hero-2-artist-list_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-reveals-dj-hero-2-artist-list" class="article-title">Activision reveals DJ Hero 2 artist list</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_microsoft-cans-1-vs-100-on-xbox-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-cans-1-vs-100-on-xbox-live" class="article-title">Microsoft cans 1 vs. 100 on Xbox Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_bioware-boss-blown-away-by-nintendo-3ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-boss-blown-away-by-nintendo-3ds" class="article-title">BioWare boss "blown away" by 3DS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_greg-zeschuk-develop-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/greg-zeschuk-develop-interview" class="article-title">BioWare's Dr. Greg Zeschuk</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_tim-schafer-i-need-to-keep-my-mouth-shut_thumbnail.png">
+			<a href="https://www.eurogamer.net/tim-schafer-i-need-to-keep-my-mouth-shut" class="article-title">Schafer: "I need to keep my mouth shut"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_biowares-zeschuk-defends-paid-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/biowares-zeschuk-defends-paid-dlc" class="article-title">BioWare's Zeschuk defends paid DLC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_everybodys-tennis-psp-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/everybodys-tennis-psp-review" class="article-title">Everybody's Tennis</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_sniper-gw-patch-targets-review-criticisms_thumbnail.png">
+			<a href="https://www.eurogamer.net/sniper-gw-patch-targets-review-criticisms" class="article-title">Sniper GW patch targets review criticisms</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_avp-console-patches-scrapped_thumbnail.png">
+			<a href="https://www.eurogamer.net/avp-console-patches-scrapped" class="article-title">AVP console patches "scrapped"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_rockstar-lays-off-staff-at-red-dead-studio_thumbnail.png">
+			<a href="https://www.eurogamer.net/rockstar-lays-off-staff-at-red-dead-studio" class="article-title">Rockstar lays off staff at Red Dead studio</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_zombie-already-working-on-blacklight-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/zombie-already-working-on-blacklight-2" class="article-title">Zombie already working on Blacklight 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_ready-at-dawn-lays-off-13-staff_thumbnail.png">
+			<a href="https://www.eurogamer.net/ready-at-dawn-lays-off-13-staff" class="article-title">Ready At Dawn lays off 13 staff</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_zelda-skyward-sword-in-early-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-skyward-sword-in-early-2011" class="article-title">Zelda: Skyward Sword in "early 2011"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_batman-and-heavy-rain-win-develop-awards_thumbnail.png">
+			<a href="https://www.eurogamer.net/batman-and-heavy-rain-win-develop-awards" class="article-title">Batman, Heavy Rain win Develop Awards</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/15_activision-responds-to-tim-schafer_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-responds-to-tim-schafer" class="article-title">Activision responds to Tim Schafer</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135284/Snippets-PS-Home-a-platform-GoldenEye-on-Kinect-Acti-gets-a-new-CEO/" class="article-title">Snippets: PS Home a platform, GoldenEye on Kinect?, Acti gets a new CEO</a>
+			<div class="article-subtitle">Put your hands in the air?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135280/Schafer-Kotick-a-total-prick/" class="article-title">Schafer: Kotick "a total prick"</a>
+			<div class="article-subtitle">No mincing from DoubleFine's founder.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135279/BioWare-working-on-small-MMO/" class="article-title">BioWare working on small MMO</a>
+			<div class="article-subtitle">Zeschuk on cloud gaming.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/babylon-sticks-good-investment.php" class="article-title">Babylon Sticks: Good Investment</a>
+			<div class="article-author">James Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/imagia-1-the-tower.php" class="article-title">Imagia 1: The Tower</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/pond.php" class="article-title">pOnd</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/iq-ball.php" class="article-title">IQ Ball</a>
+			<div class="article-author">AdamC</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2010/07/15/mega-man-8-bit-deathmatch-demo/" class="article-title">Mega Man 8-Bit Deathmatch Demo</a>
+			<div class="article-author">ithamore</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

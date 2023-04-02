@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 28, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/catan-review/1900-6270605/" class="article-title">Catan Review</a>
+			<div class="article-subtitle">Catan is a successful re-creation of the classic board game but lacks any noteworthy additions.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/clash-of-the-titans-review/1900-6271295/" class="article-title">Clash of the Titans Review</a>
+			<div class="article-subtitle">Clash of the Titans is a predictable hack-and-slash adventure that is exactly the type of game that gives movie tie-ins a bad reputation.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/clash-of-the-titans-review/1900-6271497/" class="article-title">Clash of the Titans Review</a>
+			<div class="article-subtitle">Clash of the Titans is a predictable hack-and-slash adventure that is exactly the type of game that gives movie tie-ins a bad reputation.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/blazblue-continuum-shift-review/1900-6271393/" class="article-title">BlazBlue: Continuum Shift Review</a>
+			<div class="article-subtitle">New characters, modes, and gameplay refinements make Continuum Shift the best version of this great 2D fighting game.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_hydro-thunder-hurricane-splashes-onto-xbla-this-week_1100-6271275_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hydro-thunder-hurricane-splashes-onto-xbla-this-week/1100-6271275/" class="article-title">Hydro Thunder Hurricane splashes onto XBLA this week</a>
+			<div class="article-subtitle">Xbox Live Update: $15 water racer splashes down this week along with Alan Wake DLC; Games on Demand welcomes LOTR: Conquest, Smackdown vs. Raw 2008 & 2009; demo for Madden NFL 11 rounds out the week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_starcraft-ii-soundtrack-available-now-on-itunes_1100-6271293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starcraft-ii-soundtrack-available-now-on-itunes/1100-6271293/" class="article-title">Starcraft II soundtrack available now on iTunes</a>
+			<div class="article-subtitle">Official soundtrack debuts today on Apple's music distribution site alongside long-awaited sci-fi RTS.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_everquest-ii-goes-free-to-play_1100-6271286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/everquest-ii-goes-free-to-play/1100-6271286/" class="article-title">Everquest II goes free-to-play</a>
+			<div class="article-subtitle">Sony Online Entertainment offering a completely separate "Extended" free version of MMORPG; will operate parallel paid iteration; beta start date scheduled for around August 17.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_we-just-played-final-fantasy-xi-vision-of-abyssea_1100-6270466_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/we-just-played-final-fantasy-xi-vision-of-abyssea/1100-6270466/" class="article-title">We Just Played Final Fantasy XI: Vision of Abyssea</a>
+			<div class="article-subtitle">Better late than never. We take a quick look at some of latest content that was recently added to Final Fantasy XI.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_review-in-progress-starcraft-ii-wings-of-liberty_1100-6271370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/review-in-progress-starcraft-ii-wings-of-liberty/1100-6271370/" class="article-title">Review in Progress: Starcraft II: Wings of Liberty</a>
+			<div class="article-subtitle">We've started in on Starcraft II: Wings of Liberty's campaign and are here to offer a brief look.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_transformers-cyberton-dlc-unfolds-on-psn_1100-6271377_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/transformers-cyberton-dlc-unfolds-on-psn/1100-6271377/" class="article-title">Transformers: Cyberton DLC unfolds on PSN</a>
+			<div class="article-subtitle">PlayStation Store Update: $10 add-on for Activision's shooter touches down;  Piyotama puzzles PSP; four PlayStation classics hit PSN; PlayStation Plus gets free Critter Crunch, Syphon Filter, and Kahoots.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_google-pursuing-game-devs-for-social-network-report_1100-6271380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/google-pursuing-game-devs-for-social-network-report/1100-6271380/" class="article-title">Google pursuing game devs for social network - Report</a>
+			<div class="article-subtitle"><i>Wall Street Journal</i> says search giant is in talks with Playfish, Playdom, and Zynga to bring popular games to its own new service.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_analysts-bullish-on-starcraft-ii-sales_1100-6271382_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analysts-bullish-on-starcraft-ii-sales/1100-6271382/" class="article-title">Analysts bullish on Starcraft II sales</a>
+			<div class="article-subtitle">Signal Hill's Greenwald calls 5-6M sales estimates conservative, while Lazard Capital's Sebastian predicts 6.5M sales for Blizzard's latest through 2010.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_playlogic-files-for-bankruptcy-protection_1100-6271373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playlogic-files-for-bankruptcy-protection/1100-6271373/" class="article-title">Playlogic files for bankruptcy protection</a>
+			<div class="article-subtitle">Publisher of Infernal: Hell's Vengeance and Fairytale Fights has applied for Dutch equivalent of Chapter 11 for its two subsidiaries.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_guillermo-del-toro-collaborating-with-big-game-company-report_1100-6271379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guillermo-del-toro-collaborating-with-big-game-company-report/1100-6271379/" class="article-title">Guillermo del Toro collaborating with 'big' game company - Report</a>
+			<div class="article-subtitle"><i>Pan's Labyrinth</i> writer/director tells MTV News announcement is coming "soon enough;" likely not a <i>Hobbit</i> tie-in.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_nintendo-secures-uk-r4-ban_1100-6271374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-secures-uk-r4-ban/1100-6271374/" class="article-title">Nintendo secures UK R4 ban</a>
+			<div class="article-subtitle">A High Court ruling clarifies existing law, specifying any device that circumvents DS antipiracy measures is illegal whether or not it has non-infringing uses.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_weekly-report-and-you_1100-6268861_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-report-and-you/1100-6268861/" class="article-title">Weekly Report and YOU!</a>
+			<div class="article-subtitle">Figured I'd steal the slogan from the awesome System Wars Monthly and YOU video.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_weekly-report-geekvention_1100-6270409_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-report-geekvention/1100-6270409/" class="article-title">Weekly Report: Geekvention!</a>
+			<div class="article-subtitle">Our latest happenings are all geared to Comic-Con this week.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_call-of-duty-black-ops-operating-on-ds_1100-6271387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-black-ops-operating-on-ds/1100-6271387/" class="article-title">Call of Duty: Black Ops operating on DS</a>
+			<div class="article-subtitle">Activision confirms n-Space-developed portable version of Cold War-era shooter will ship alongside console, PC versions Nov. 9.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_comic-con-the-video-game-way_1100-6269393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/comic-con-the-video-game-way/1100-6269393/" class="article-title">Comic-Con: The Video Game Way</a>
+			<div class="article-subtitle">How video games teach us to tackle pop culture's biggest convention.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_dragon-age-unearthing-golems-of-amgarrak_1100-6271388_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-unearthing-golems-of-amgarrak/1100-6271388/" class="article-title">Dragon Age unearthing Golems of Amgarrak</a>
+			<div class="article-subtitle">$5 DLC will add underground adventure to PC, PS3, and 360 editions of BioWare's high-fantasy role-playing game.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_red-dead-redemption-lassoing-the-far-east-report_1100-6271389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-redemption-lassoing-the-far-east-report/1100-6271389/" class="article-title">Red Dead Redemption lassoing the Far East - Report</a>
+			<div class="article-subtitle">Rockstar Games' open-world action game debuting in Japan October 7.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_star-trek-online-season-two-kicks-off-with-price-cut_1100-6271397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-trek-online-season-two-kicks-off-with-price-cut/1100-6271397/" class="article-title">Star Trek Online Season Two kicks off with price cut</a>
+			<div class="article-subtitle">Atari ushers in first free expansion to sci-fi MMORPG by raising level cap, lowering retail price point to $20.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/07/28_thq-wrangling-up-new-wwe-franchise_1100-6271401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-wrangling-up-new-wwe-franchise/1100-6271401/" class="article-title">THQ wrangling up new WWE franchise</a>
+			<div class="article-subtitle">Publisher confirms "more friendly, easier, and less simmy" installment based on wrestling license will arrive in 2011.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_star-trek-online-moves-into-season-two_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-trek-online-moves-into-season-two" class="article-title">Star Trek Online moves into Season Two</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_ds-pirate-carts-now-illegal-in-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/ds-pirate-carts-now-illegal-in-uk" class="article-title">DS pirate carts now illegal in UK</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_konami-bringing-castlevania-to-eg-expo_thumbnail.png">
+			<a href="https://www.eurogamer.net/konami-bringing-castlevania-to-eg-expo" class="article-title">Konami bringing Castlevania to EG Expo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_privates-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/privates-hands-on" class="article-title">Privates</a>
+			<div class="article-author">Will Porter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_faery-rpg-to-immerse-pc-psn-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/faery-rpg-to-immerse-pc-psn-xbla" class="article-title">Faery RPG to "immerse" PC, PSN, XBLA</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_earthworm-jim-hd-out-today-on-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/earthworm-jim-hd-out-today-on-ps3" class="article-title">Earthworm Jim HD out today on PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_end-of-nations-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/end-of-nations-hands-on" class="article-title">End of Nations</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_thq-making-new-kind-of-wwe-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-making-new-kind-of-wwe-game" class="article-title">THQ making new kind of WWE game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_nintendo-explains-zeldas-new-art-style_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-explains-zeldas-new-art-style" class="article-title">Nintendo explains Zelda's new art style</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_wii-the-best-console-for-platformers_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-the-best-console-for-platformers" class="article-title">"Wii the best console for platformers"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_ubi-predicts-king-of-pop-will-do-the-business_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubi-predicts-king-of-pop-will-do-the-business" class="article-title">Ubi predicts King of Pop will do the biz</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_everquest-ii-going-free-to-play_thumbnail.png">
+			<a href="https://www.eurogamer.net/everquest-ii-going-free-to-play" class="article-title">EverQuest II going free-to-play</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_linkin-park-single-debuting-in-moh_thumbnail.png">
+			<a href="https://www.eurogamer.net/linkin-park-single-debuting-in-moh" class="article-title">Linkin Park single debuting in MOH</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_gamestop-buys-browser-gaming-hub_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamestop-buys-browser-gaming-hub" class="article-title">GameStop buys browser gaming hub</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_starcraft-iis-bugs-issues-listed_thumbnail.png">
+			<a href="https://www.eurogamer.net/starcraft-iis-bugs-issues-listed" class="article-title">StarCraft II's bugs, issues listed</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_jazz-leads-transformers-wfc-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/jazz-leads-transformers-wfc-dlc" class="article-title">Jazz leads Transformers WFC DLC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_disney-buys-playdom-for-usd563m_thumbnail.png">
+			<a href="https://www.eurogamer.net/disney-buys-playdom-for-usd563m" class="article-title">Disney buys Playdom for $563m</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_irrational-games-teaser-website-pops-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/irrational-games-teaser-website-pops-up" class="article-title">Irrational Games teaser website pops up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_mag-patch-coming_thumbnail.png">
+			<a href="https://www.eurogamer.net/mag-patch-coming" class="article-title">MAG patch coming</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/07/28_jackson-pulled-from-plants-vs-zombies_thumbnail.png">
+			<a href="https://www.eurogamer.net/jackson-pulled-from-plants-vs-zombies" class="article-title">Jackson pulled from Plants vs. Zombies</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i135361/First-Alan-Wake-DLC-episode-available/" class="article-title">First Alan Wake DLC episode available</a>
+			<div class="article-subtitle">The Signal.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135365/Snippets-Jagex-Blizzard-probably-very-arrogant-Dancing-Jackson-zombie-axed/" class="article-title">Snippets: Jagex: Blizzard “probably very arrogant”, Dancing Jackson zombie axed</a>
+			<div class="article-subtitle">Too soon?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i135362/EQII-to-introduce-free-to-play/" class="article-title">EQII to introduce free-to-play</a>
+			<div class="article-subtitle">"On or around August 17th."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/pipol-smasher.php" class="article-title">Pipol Smasher</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/pulsate.php" class="article-title">Pulsate</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dungeon-escape-complete.php" class="article-title">Dungeon Escape! (Complete)</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/escape-from-the-big-windows-room.php" class="article-title">Escape from the Big Windows Room</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

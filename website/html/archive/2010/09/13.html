@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 13, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/professor-layton-and-the-unwound-future-review/1900-6275590/" class="article-title">Professor Layton and the Unwound Future Review</a>
+			<div class="article-subtitle">Superbly integrated puzzles and a captivating tale make Professor Layton's latest assignment worthy of your affection.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ruse-review/1900-6275700/" class="article-title">R.U.S.E. Review</a>
+			<div class="article-subtitle">This intriguing real-time strategy game overcomes its feeble campaign by encouraging a different approach to battlefield tactics.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ruse-review/1900-6275703/" class="article-title">R.U.S.E. Review</a>
+			<div class="article-subtitle">This intriguing real-time strategy game overcomes its feeble campaign by encouraging a different approach to battlefield tactics.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ruse-review/1900-6275794/" class="article-title">R.U.S.E. Review</a>
+			<div class="article-subtitle">This intriguing real-time strategy game overcomes its feeble campaign by encouraging a different approach to battlefield tactics.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/plants-vs-zombies-review/1900-6275775/" class="article-title">Plants vs. Zombies Review</a>
+			<div class="article-subtitle">The Xbox 360 version of this great tower defense game is the best yet and is the first to feature both cooperative and competitive multiplayer.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/halo-reach-review/1900-6275772/" class="article-title">Halo: Reach Review</a>
+			<div class="article-subtitle">Halo: Reach is the culmination of the superlative combat, sensational multiplayer, and seamless online integration that are the hallmarks of this superb series.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_sony-loading-mag-2-retail-radar_1100-6275621_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-loading-mag-2-retail-radar/1100-6275621/" class="article-title">Sony loading MAG 2? - Retail Radar</a>
+			<div class="article-subtitle">[UPDATE] Wal-Mart.com site posts product page for sequel to 256-player military shooter; listed as releasing on January 25, 2011; Sony dismisses listing as "speculation."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_dragon-age-ii-coming-feb-1-2011_1100-6253427_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-ii-coming-feb-1-2011/1100-6253427/" class="article-title">Dragon Age II coming Feb. 1, 2011?</a>
+			<div class="article-subtitle">Retail box of Awakening expansion contains flyer with two-winged dragon and a date corresponding to previously announced release window of entry in series.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_mass-effect-2-coming-to-ps3-dragon-age-ii-dated_1100-6273642_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-2-coming-to-ps3-dragon-age-ii-dated/1100-6273642/" class="article-title">Mass Effect 2 coming to PS3, Dragon Age II dated</a>
+			<div class="article-subtitle">GamesCom 2010: Electronic Arts bringing acclaimed sci-fi action RPG to Sony's console in Q1 2011; BioWare's fantasy sequel arrives March 8; new Need for Speed detailed.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_dragon-age-ii-updated-hands-on_1100-6273910_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-ii-updated-hands-on/1100-6273910/" class="article-title">Dragon Age II Updated Hands-On</a>
+			<div class="article-subtitle">We learn that seeing isn't always believing when it comes to this sequel's clever storytelling.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_activision-fuels-blood-drive-this-november_1100-6275623_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-fuels-blood-drive-this-november/1100-6275623/" class="article-title">Activision fuels Blood Drive this November</a>
+			<div class="article-subtitle">Publisher set to hit the road on Xbox 360 and PlayStation 3 with zombie-infested vehicular combat game at a $50 price point.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_sid-meiers-civilization-v-updated-hands-on-exclusive-multiplayer-and-editing-tools-report_1100-6275474_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sid-meiers-civilization-v-updated-hands-on-exclusive-multiplayer-and-editing-tools-report/1100-6275474/" class="article-title">Sid Meier's Civilization V Updated Hands-On - Exclusive Multiplayer and Editing Tools Report</a>
+			<div class="article-subtitle">We get a close-up look at Civilization V's extensive editing tools, and then jump into multiplayer with the creators of the game itself and get horribly slaughtered.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_weekly-report-condensed-goods_1100-6275648_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-report-condensed-goods/1100-6275648/" class="article-title">Weekly Report: Condensed Goods!</a>
+			<div class="article-subtitle">Check out a quick rundown on the latest community happenings!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_we-just-played-end-of-nations-in-multiplayer_1100-6275622_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/we-just-played-end-of-nations-in-multiplayer/1100-6275622/" class="article-title">We Just Played End of Nations (in Multiplayer)</a>
+			<div class="article-subtitle">We get back into the commander's seat for a competitive multiplayer match in this massively multiplayer real-time strategy game.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_we-just-played-rift-planes-of-telara-as-the-guardians_1100-6275637_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/we-just-played-rift-planes-of-telara-as-the-guardians/1100-6275637/" class="article-title">We Just Played Rift: Planes of Telara (as the Guardians)</a>
+			<div class="article-subtitle">We gave this offbeat fantasy game another spin, this time playing as a character in the Guardians faction, and explored the new dungeon Darkening Deeps.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_au-shippin-out-september-13-17-halo-reach_1100-6275679_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-september-13-17-halo-reach/1100-6275679/" class="article-title">AU Shippin' Out September 13-17: Halo: Reach</a>
+			<div class="article-subtitle">Bungie's last game in one of gaming's most famous franchises to be released around Australia at midnight; Sony to release Move motion controller.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_bioware-working-on-unannounced-handheld-game_1100-6275685_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioware-working-on-unannounced-handheld-game/1100-6275685/" class="article-title">BioWare working on 'unannounced handheld game'</a>
+			<div class="article-subtitle">LinkedIn profile of QA lead at EA's flagship RPG studio says new portable title in the works; earlier reports point to Dragon Age II.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_dead-space-2-multiplayer-hands-on_1100-6275633_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-space-2-multiplayer-hands-on/1100-6275633/" class="article-title">Dead Space 2 Multiplayer Hands-On</a>
+			<div class="article-subtitle">Finally, those creepy necromorph babies are playable.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_resident-evil-afterlife-tops-us-box-office_1100-6275686_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-afterlife-tops-us-box-office/1100-6275686/" class="article-title">Resident Evil: Afterlife tops US box office</a>
+			<div class="article-subtitle">Fourth installment in Capcom-inspired film franchise takes in $27.7 million; best opening weekend for series to date.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_court-ruling-could-affect-pre-owned-game-sales_1100-6275683_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/court-ruling-could-affect-pre-owned-game-sales/1100-6275683/" class="article-title">Court ruling could affect pre-owned game sales</a>
+			<div class="article-subtitle">Ninth Circuit appeals court disallows resale of drafting software due to EULA terms; PC, console games come with similar restrictions.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_team-ico-ps3-collection-surfaces-at-wal-mart-retail-radar_1100-6275697_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-ico-ps3-collection-surfaces-at-wal-mart-retail-radar/1100-6275697/" class="article-title">Team Ico PS3 collection surfaces at Wal-Mart - Retail Radar</a>
+			<div class="article-subtitle">Department store chain offering preorders for budget-priced Shadow of the Colossus and Ico combo pack with April 2011 release date attached.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_castle-conqueror-breaches-dsi_1100-6275692_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castle-conqueror-breaches-dsi/1100-6275692/" class="article-title">Castle Conqueror breaches DSi</a>
+			<div class="article-subtitle">Nintendo Store Update: Just-discounted handheld receives headliner, Crazy Pinball, notebook sim, while WiiWare picks up hidden object game Adventure on Lost Island.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_nvidia-geforce-gts-450-hands-on-preview_1100-6275709_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-geforce-gts-450-hands-on-preview/1100-6275709/" class="article-title">Nvidia GeForce GTS 450 Hands-On Preview</a>
+			<div class="article-subtitle">Nvidia wanders into mainstream territory with the $130 GeForce GTS 450.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/09/13_double-dose-of-bond_1100-6275710_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/double-dose-of-bond/1100-6275710/" class="article-title">Double Dose of Bond </a>
+			<div class="article-subtitle">We check out some new levels in 007 Blood Stone as well as the GoldenEye remake for the Wii.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_busy-cryptic-wont-forget-sto-champions_thumbnail.png">
+			<a href="https://www.eurogamer.net/busy-cryptic-wont-forget-sto-champions" class="article-title">Busy Cryptic won't forget STO, Champions</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_heavy-rain-move-edition-dated-priced_thumbnail.png">
+			<a href="https://www.eurogamer.net/heavy-rain-move-edition-dated-priced" class="article-title">Heavy Rain Move Edition dated, priced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_naughty-dog-not-interested-in-ps3-wand-for-third-person-action-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/naughty-dog-not-interested-in-ps3-wand-for-third-person-action-games" class="article-title">Naughty Dog "not interested" in PS3 wand for third-person action games</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_the-ps3-wand-is-called-arc-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-ps3-wand-is-called-arc-report" class="article-title">The PS3 wand is called Arc - report</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_ms-no-game-is-bigger-than-halo_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-no-game-is-bigger-than-halo" class="article-title">MS: No game is bigger than Halo</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_halo-reach-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-reach-review" class="article-title">Halo: Reach</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_team-ico-collection-around-gbp24-99_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-ico-collection-around-gbp24-99" class="article-title">Team ICO Collection "around £25"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_play-your-cards-right-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/play-your-cards-right-article" class="article-title">Play Your Cards Right</a>
+			<div class="article-author">Steve Hill</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_mgs-rising-dev-fears-gta-style-reaction_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-rising-dev-fears-gta-style-reaction" class="article-title">MG: Rising dev fears GTA-style reaction</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_metal-gear-solid-rising-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-solid-rising-interview" class="article-title">Metal Gear Solid: Rising</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_no-campaign-co-op-for-cod-black-ops_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-campaign-co-op-for-cod-black-ops" class="article-title">No campaign co-op for COD: Black Ops</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_star-wars-kinect-alive-and-well_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-wars-kinect-alive-and-well" class="article-title">Star Wars Kinect alive and well</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_uk-chart-mafia-ii-untouchable-on-top_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-chart-mafia-ii-untouchable-on-top" class="article-title">UK chart: Mafia II untouchable on top</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_digitalfoundry-resi-3ds-tech-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-resi-3ds-tech-blog-entry" class="article-title">Capcom showcases Resi 3DS tech</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_mario-celebrates-25th-birthday_thumbnail.png">
+			<a href="https://www.eurogamer.net/mario-celebrates-25th-birthday" class="article-title">Super Mario celebrates 25th birthday</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_test-drive-unlimited-2-beta-begins_thumbnail.png">
+			<a href="https://www.eurogamer.net/test-drive-unlimited-2-beta-begins" class="article-title">Test Drive Unlimited 2 beta begins</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_hmv-doing-midnight-halo-reach-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/hmv-doing-midnight-halo-reach-launch" class="article-title">HMV doing midnight Halo: Reach launch</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_ffxiv-open-beta-ends-on-sunday_thumbnail.png">
+			<a href="https://www.eurogamer.net/ffxiv-open-beta-ends-on-sunday" class="article-title">FFXIV open beta ends on Sunday</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_halo-reach-credit-wipe-bans-begun_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-reach-credit-wipe-bans-begun" class="article-title">Halo: Reach credit wipe, bans begun</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_valkyria-chronicles-3-for-tgs-this-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/valkyria-chronicles-3-for-tgs-this-week" class="article-title">Valkyria Chronicles 3 for TGS this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_nintendo-registers-euro-3dsware-mark_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-registers-euro-3dsware-mark" class="article-title">Nintendo registers Euro 3DSWare mark</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_acti-officially-unveils-blood-drive_thumbnail.png">
+			<a href="https://www.eurogamer.net/acti-officially-unveils-blood-drive" class="article-title">Acti officially unveils Blood Drive</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/09/13_3ds-to-launch-in-japan-on-20th-nov_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-to-launch-in-japan-on-20th-nov" class="article-title">3DS to launch in Japan on 20th Nov?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135637/Snippets-Valve-s-Steam-Wallet-goes-beta-Ghost-of-Sparta-s-mini-sex-game-/" class="article-title">Snippets: Valve’s Steam Wallet goes beta, Ghost of Sparta’s ‘mini sex game’?</a>
+			<div class="article-subtitle">Analog stick.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i135630/Treyarch-Black-Ops-MP-always-free/" class="article-title">Treyarch: Black Ops MP "always free"</a>
+			<div class="article-subtitle">Will support "the hell out of it."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i135628/Valve-pans-XBL-updating/" class="article-title">Valve pans XBL updating</a>
+			<div class="article-subtitle">Calls the process 'a train wreck.'</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/zoo-director.php" class="article-title">ZOO Director</a>
+			<div class="article-author">Chiktionary</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flock-together.php" class="article-title">Flock Together</a>
+			<div class="article-author">Brad</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/fragger-lost-city.php" class="article-title">Fragger Lost City</a>
+			<div class="article-author">J-Witz</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-86.php" class="article-title">Mobile Monday №85</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

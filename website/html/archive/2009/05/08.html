@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 8, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_1-vs-100-hands-on_1100-6209228_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1-vs-100-hands-on/1100-6209228/" class="article-title">1 vs. 100 Hands-On</a>
+			<div class="article-subtitle">We play against contestants from all over the west coast in Microsoft's live-hosted pilot season of 1 vs. 100.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_win-an-ipod-touch-with-fighting-and-the-gsuk-podcast_1100-6237337_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/win-an-ipod-touch-with-fighting-and-the-gsuk-podcast/1100-6237337/" class="article-title">Win an iPod Touch with Fighting and the GSUK Podcast</a>
+			<div class="article-subtitle">As well as the latest gaming news, the most interesting and informed discussion around the games you already love and the ones you're going to love very soon, we've been trying hard to give you a wide range of competitions... and this week is no exception!Alongside a visit from Jasper Koning of...</div>
+			<div class="article-author">Seb Ford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_star-wars-the-old-republic-qanda-the-republic-trooper-character-class_1100-6209373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-old-republic-qanda-the-republic-trooper-character-class/1100-6209373/" class="article-title">Star Wars: The Old Republic Q&A - The Republic Trooper Character Class</a>
+			<div class="article-subtitle">LucasArts grants us some insight into the latest character class to be revealed for this highly anticipated online game: the Republic trooper.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_mysims-agents-first-look_1100-6209387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mysims-agents-first-look/1100-6209387/" class="article-title">MySims Agents First Look</a>
+			<div class="article-subtitle">As a special agent MySim, we attempt to unravel the mystery behind the nefarious Morcubus.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_tiger-woods-pga-tour-updated-impressions_1100-6209388_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tiger-woods-pga-tour-updated-impressions/1100-6209388/" class="article-title">Tiger Woods PGA Tour Updated Impressions</a>
+			<div class="article-subtitle">EA shows off the new online tournament feature in its upcoming golf game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_ashes-cricket-2009-first-impressions_1100-6209381_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ashes-cricket-2009-first-impressions/1100-6209381/" class="article-title">Ashes Cricket 2009 First Impressions</a>
+			<div class="article-subtitle">Codemasters and Transmission games have dusted off their cricket whites for Ashes Cricket 2009, and we got an exclusive first look at the new game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_nintendo-annual-revs-hit-185-billion-profits-up-85_1100-6209281_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-annual-revs-hit-185-billion-profits-up-85/1100-6209281/" class="article-title">Nintendo annual revs hit $18.5 billion, profits up 8.5%</a>
+			<div class="article-subtitle">Mario maker banks $2.83 billion in net income, $6 billion operating profit; 26 million Wiis, 31 million DSs, 16 million Wii Fits sold during last fiscal year.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_starcraft-ii-beta-sign-ups-begin-summer-date-set_1100-6209268_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starcraft-ii-beta-sign-ups-begin-summer-date-set/1100-6209268/" class="article-title">Starcraft II beta sign-ups begin, 'summer' date set</a>
+			<div class="article-subtitle">[UPDATE] Testing phase for Blizzard Entertainment's heavily anticipated PC RTS game just weeks away, "phase will signal the final stretch of development," says Mike Morhaime.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_spotlight-on-star-wars-the-old-republic_1100-6233861_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spotlight-on-star-wars-the-old-republic/1100-6233861/" class="article-title">Spotlight on - Star Wars: The Old Republic</a>
+			<div class="article-subtitle">If you missed it, we have a new interview posted about the Republic trooper class.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_the-conduit-multiplayer-hands-on_1100-6209383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-conduit-multiplayer-hands-on/1100-6209383/" class="article-title">The Conduit Multiplayer Hands-On</a>
+			<div class="article-subtitle">The Conduit is one of the Wii's few first-person shooters, and we managed to score some time on its 12-player multiplayer mode.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_marvel-vs-capcom-2-hands-on_1100-6209389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-vs-capcom-2-hands-on/1100-6209389/" class="article-title">Marvel vs. Capcom 2 Hands-On</a>
+			<div class="article-subtitle">We just received a near-complete version of Marvel vs. Capcom 2 and wasted no time donning a cape and leaping into the ring.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_boom-blox-bash-party-hands-on_1100-6209384_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/boom-blox-bash-party-hands-on/1100-6209384/" class="article-title">Boom Blox Bash Party Hands-On</a>
+			<div class="article-subtitle">We toss around bowling balls and explosive projectiles at everything in this sequel.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_champions-online-exclusive-hands-on-hero-powers-and-custom-archvillains_1100-6208494_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/champions-online-exclusive-hands-on-hero-powers-and-custom-archvillains/1100-6208494/" class="article-title">Champions Online Exclusive Hands-On - Hero Powers and Custom Archvillains</a>
+			<div class="article-subtitle">We get our hands on this upcoming cross-platform superhero online game from the creator of City of Heroes. Here's our exclusive report.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_fallout-3-broken-steel-impressions_1100-6208255_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-3-broken-steel-impressions/1100-6208255/" class="article-title">Fallout 3: Broken Steel Impressions</a>
+			<div class="article-subtitle">We got a sneak peek at the third set of DLC for the postapocalyptic role-playing game.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_virtua-tennis-2009-hands-on_1100-6209395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtua-tennis-2009-hands-on/1100-6209395/" class="article-title">Virtua Tennis 2009 Hands-On</a>
+			<div class="article-subtitle">Virtua Tennis makes its debut on the Wii just in time for the launch of Nintendo's new MotionPlus peripheral.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_g-force-hands-on_1100-6209280_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/g-force-hands-on/1100-6209280/" class="article-title">G-Force Hands-On</a>
+			<div class="article-subtitle">We go hands-on with Disney's upcoming action game in which you play as a guinea-pig action hero.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_guitar-hero-5-band-hero-dj-hero-confirmed-for-fall-09_1100-6209282_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-5-band-hero-dj-hero-confirmed-for-fall-09/1100-6209282/" class="article-title">Guitar Hero 5, Band Hero, DJ Hero confirmed for fall '09</a>
+			<div class="article-subtitle">Activision confirms previously rumoured Heroes arriving this autumn, alongside Van Halen; full Greatest Hits/Smash Hits setlist revealed; first shot of turntable controller inside.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_start-select-fallout-3-broken-steel-marvel-vs-capcom-2-fight-night-round-4_1100-6209444_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/start-select-fallout-3-broken-steel-marvel-vs-capcom-2-fight-night-round-4/1100-6209444/" class="article-title">Start/Select Fallout 3: Broken Steel, Marvel vs. Capcom 2, Fight Night Round 4</a>
+			<div class="article-subtitle">We talk to CNET UK's Nate Lanxon about Fallout 3: Broken Steel, goes hands-on with Marvel vs. Capcom 2, and heads into the ring with Fight Night Round 4.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_aussie-game-charts-april-27-may-3_1100-6209372_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-april-27-may-3/1100-6209372/" class="article-title">Aussie game charts: April 27-May 3</a>
+			<div class="article-subtitle">Wii Fit spends its fourth week in a row as the best-selling game down under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_lets-tap-hands-on_1100-6209392_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lets-tap-hands-on/1100-6209392/" class="article-title">Let's Tap Hands-On</a>
+			<div class="article-subtitle">We grabbed the closest box we could find and tapped away to our heart's content.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_grand-slam-tennis-updated-hands-on_1100-6209420_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-slam-tennis-updated-hands-on/1100-6209420/" class="article-title">Grand Slam Tennis Updated Hands-On</a>
+			<div class="article-subtitle">Witness John McEnroe's hair in its poofy '80s glory.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_beyond-good-and-evil-2-footage-leaked_1100-6209449_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beyond-good-and-evil-2-footage-leaked/1100-6209449/" class="article-title">Beyond Good and Evil 2 footage leaked?</a>
+			<div class="article-subtitle">Source: Google-owned video-sharing Web site YouTube.What we heard: About this time last year, Ubisoft revealed as part of its Ubidays press event that it was at work on a follow-up to Michel Ancel's celebrated 2003 action adventure Beyond Good & Evil. However, aside from a brief trailer (bottom)...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_codies-pads-up-for-ashes-clash-this-summer_1100-6209379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codies-pads-up-for-ashes-clash-this-summer/1100-6209379/" class="article-title">Codies pads up for Ashes clash this summer</a>
+			<div class="article-subtitle">Brian Lara and Ricky Ponting reborn as Ashes Cricket 2009; coming to Xbox 360, PS3, and PC this summer.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_zoo-captures-empires-catalogue_1100-6209385_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zoo-captures-empires-catalogue/1100-6209385/" class="article-title">Zoo captures Empire's catalogue</a>
+			<div class="article-subtitle">Publishing rights to past, present, and future games from the beleaguered publisher snapped up.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_big-in-japan-apr-27-may-3-persona-pumps-up-psp_1100-6209401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-apr-27-may-3-persona-pumps-up-psp/1100-6209401/" class="article-title">Big in Japan Apr. 27-May 3: Persona pumps up PSP</a>
+			<div class="article-subtitle">Atlus remake of classic PlayStation role-playing game rules the retail roost as Sony's handheld tops hardware charts for second straight week.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_the-sims-3-goes-gold_1100-6209413_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-3-goes-gold/1100-6209413/" class="article-title">The Sims 3 goes gold</a>
+			<div class="article-subtitle">Latest relaunch of EA's popular life sim series is finally finished; online and retail launch set for June 2.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/05/08_nvidia-q1-sales-sink-42-percent_1100-6209424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-q1-sales-sink-42-percent/1100-6209424/" class="article-title">Nvidia Q1 sales sink 42 percent</a>
+			<div class="article-subtitle">Graphics-chip designer sees revenues spiral down to $664 million as losses for the February-April quarter amount to $201 million.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_shake-rattle-roll-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/shake-rattle-roll-article" class="article-title">Shake, Rattle, Roll</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_charlie-brookers-gameswipe-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/charlie-brookers-gameswipe-confirmed" class="article-title">Charlie Brooker's Gameswipe confirmed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_bioshock-2-multiplayer-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-2-multiplayer-unveiled" class="article-title">BioShock 2 multiplayer unveiled</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_sakura-wars-for-ps2-wii-this-autumn_thumbnail.png">
+			<a href="https://www.eurogamer.net/sakura-wars-for-ps2-wii-this-autumn" class="article-title">Sakura Wars for PS2/Wii this autumn</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_velvet-assassin-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/velvet-assassin-review" class="article-title">Velvet Assassin</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_nis-reveals-last-rebellion-for-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/nis-reveals-last-rebellion-for-ps3" class="article-title">NIS reveals Last Rebellion for PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_worlds-best-dj-gets-own-wii-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/worlds-best-dj-gets-own-wii-game" class="article-title">World's Best DJ gets own Wii game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_huxley-beta-registration-open_thumbnail.png">
+			<a href="https://www.eurogamer.net/huxley-beta-registration-open" class="article-title">Huxley beta registration open</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_disgaea-2-enhanced-for-psp-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/disgaea-2-enhanced-for-psp-this-year" class="article-title">Disgaea 2 enhanced for PSP this year</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_new-pal-releases-roundup-08-05-09_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-pal-releases-roundup-08-05-09" class="article-title">New PAL Releases Roundup - 08/05/09</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_thq-reveals-marvel-super-squad_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-reveals-marvel-super-squad" class="article-title">THQ reveals Marvel Super Squad</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_gh-a-multi-billion-dollar-franchise-activision_thumbnail.png">
+			<a href="https://www.eurogamer.net/gh-a-multi-billion-dollar-franchise-activision" class="article-title">Activision: GH a multi-billion dollar series</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_second-life-claims-the-most-spare-time_thumbnail.png">
+			<a href="https://www.eurogamer.net/second-life-claims-the-most-spare-time" class="article-title">Second Life claims the most spare time</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_rainbow-islands-heads-nintendo-updates_thumbnail.png">
+			<a href="https://www.eurogamer.net/rainbow-islands-heads-nintendo-updates" class="article-title">Rainbow Islands heads Nintendo updates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_champions-online-to-have-item-sales_thumbnail.png">
+			<a href="https://www.eurogamer.net/champions-online-to-have-item-sales" class="article-title">Champions Online to have item sales?</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_guitar-hero-to-become-reality-tv-show_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-to-become-reality-tv-show" class="article-title">Guitar Hero to become reality TV show?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_broken-steel-pc-and-360-fixed_thumbnail.png">
+			<a href="https://www.eurogamer.net/broken-steel-pc-and-360-fixed" class="article-title">Broken Steel PC and 360 fixed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_public-starcraft-ii-beta-this-summer_thumbnail.png">
+			<a href="https://www.eurogamer.net/public-starcraft-ii-beta-this-summer" class="article-title">Public StarCraft II beta this "summer"</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_fallout-3-broken-steel-dlc-pc-problems_thumbnail.png">
+			<a href="https://www.eurogamer.net/fallout-3-broken-steel-dlc-pc-problems" class="article-title">Fallout 3: Broken Steel DLC PC problems</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_merry-go-round-frustrates-ghostbusters-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/merry-go-round-frustrates-ghostbusters-dev" class="article-title">Switcheroo frustrates Ghostbusters dev</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_fifth-yakuza-game-in-development_thumbnail.png">
+			<a href="https://www.eurogamer.net/fifth-yakuza-game-in-development" class="article-title">Fifth Yakuza game in development</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_bizarres-new-racer-blur-sighted_thumbnail.png">
+			<a href="https://www.eurogamer.net/bizarres-new-racer-blur-sighted" class="article-title">Bizarre's new racer Blur sighted</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_mattrick-buys-old-company-for-microsoft_thumbnail.png">
+			<a href="https://www.eurogamer.net/mattrick-buys-old-company-for-microsoft" class="article-title">Mattrick buys old company for Microsoft</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/05/08_zoo-picks-up-empire-publishing-rights-9_thumbnail.png">
+			<a href="https://www.eurogamer.net/zoo-picks-up-empire-publishing-rights-9" class="article-title">Zoo picks up Empire publishing rights</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i133148/Sony-scores-Ghostbusters-exclusivity/" class="article-title">Sony scores Ghostbusters exclusivity</a>
+			<div class="article-subtitle">Will launch on PlayStation first.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i133146/First-Red-Dead-Redemption-trailer-released/" class="article-title">First Red Dead Redemption trailer released</a>
+			<div class="article-subtitle">Rockstar's Wild West revealed.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-tales-of-bingwood-to-save-a-princess.php" class="article-title">The Tales of Bingwood: To Save a Princess</a>
+			<div class="article-author">Kate</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/free-games-from-big-fish.php" class="article-title">Free Games from Big Fish!</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/rockbandsim.php" class="article-title">Rock Band Sim</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-112.php" class="article-title">Link Dump Friday №113</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/05/08_2009_05_08_newgrounds-ad-revshare_thumbnail.png">
+			<a href="https://www.tigsource.com/2009/05/08/newgrounds-ad-revshare/" class="article-title">Newgrounds Ad RevShare</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

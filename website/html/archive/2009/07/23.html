@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 23, 2009</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/overlord-ii-review/1900-6213764/" class="article-title">Overlord II Review</a>
+			<div class="article-subtitle">You can do more fun things with your minions, but Overlord II hasn’t shaken some of the issues which held back the first game.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/unbound-saga-review/1900-6213969/" class="article-title">Unbound Saga Review</a>
+			<div class="article-subtitle">Unbound Saga is one brutally boring brawler.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_sonys-singstore-signs-universal_1100-6213912_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonys-singstore-signs-universal/1100-6213912/" class="article-title">Sony's Singstore signs Universal</a>
+			<div class="article-subtitle">Nothing's better at the end of a good night out then drunkenly coming home, loading up SingStar, and belting out a bit of Bonnie Tyler. Plus, with the recent addition of wireless mics to the game, there's no longer any risk of any cable-related injuries.They're coming to Singstar, it's not just an...</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_esa-sues-chicago-transit-authority-over-game-ads_1100-6213870_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esa-sues-chicago-transit-authority-over-game-ads/1100-6213870/" class="article-title">ESA sues Chicago Transit Authority over game ads</a>
+			<div class="article-subtitle">Gaming trade group claims policy to not allow AO-, M-rated games to be advertised on buses, trains an unconstitutional violation of free speech.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_castle-crashers-first-look_1100-6154472_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castle-crashers-first-look/1100-6154472/" class="article-title">Castle Crashers First Look</a>
+			<div class="article-subtitle">We check in on The Behemoth's second game as it punches and kicks its way onto the Xbox 360.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_the-king-of-fighters-xii-updated-hands-on-in-depth-with-the-console-versions_1100-6213572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-king-of-fighters-xii-updated-hands-on-in-depth-with-the-console-versions/1100-6213572/" class="article-title">The King of Fighters XII Updated Hands-On - In-Depth With the Console Versions</a>
+			<div class="article-subtitle">We spend some quality time with the home versions of this visually revamped fighting game sequel.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_left-4-dead-2-hands-on_1100-6213856_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/left-4-dead-2-hands-on/1100-6213856/" class="article-title">Left 4 Dead 2 Hands-On</a>
+			<div class="article-subtitle">We dive into the first two maps in the Swamp Fever scenario.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_hasbro-family-game-night-2-hands-on_1100-6213864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hasbro-family-game-night-2-hands-on/1100-6213864/" class="article-title">Hasbro Family Game Night 2 Hands-On</a>
+			<div class="article-subtitle">The latest collection of Hasbro games features Mr. Potato Head as a gameshow host. Do you need to know anything else?</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_madden-nfl-10-updated-hands-on_1100-6213865_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-10-updated-hands-on/1100-6213865/" class="article-title">Madden NFL 10 Updated Hands-On</a>
+			<div class="article-subtitle">We check out Huddle-Up mode and more in our latest look at EA Sports' football game on the Wii.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_littlest-pet-shop-online-first-impressions_1100-6213857_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/littlest-pet-shop-online-first-impressions/1100-6213857/" class="article-title">Littlest Pet Shop: Online First Impressions</a>
+			<div class="article-subtitle">These cute little critters go online in EA/Hasbro's upcoming free-to-play PC game.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_mysims-agents-updated-hands-on_1100-6213866_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mysims-agents-updated-hands-on/1100-6213866/" class="article-title">MySims Agents Updated Hands-On</a>
+			<div class="article-subtitle">The life of a superspy is never boring as we check out the Temple level of MySims Agents for the Wii.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_dragon-ball-raging-blast-hands-on-and-video-demo_1100-6213884_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-raging-blast-hands-on-and-video-demo/1100-6213884/" class="article-title">Dragon Ball: Raging Blast Hands-On and Video Demo</a>
+			<div class="article-subtitle">We float through the air with the greatest of ease and punch Goku through a wall of solid rock in this fierce new fighting game.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_sonics-sega-all-star-racing-impressions_1100-6213883_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonics-sega-all-star-racing-impressions/1100-6213883/" class="article-title">Sonic's Sega All-Star Racing Impressions</a>
+			<div class="article-subtitle">Sonic trades in his sneakers for a hot rod in Sega's speedy arcade racer.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_castle-crashers-first-look_1100-6213855_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castle-crashers-first-look/1100-6213855/" class="article-title">Castle Crashers First Look</a>
+			<div class="article-subtitle">We get an early look at what happens when The Behemoth brings its colorful medieval brawler to the PlayStation 3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_singularity-hands-on_1100-6213882_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singularity-hands-on/1100-6213882/" class="article-title">Singularity Hands-On</a>
+			<div class="article-subtitle">Time is both friend and foe in this sci-fi shooter from Raven and Activision. First hands-on details inside.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_behemoth-pegs-next-game-for-2010_1100-6206245_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/behemoth-pegs-next-game-for-2010/1100-6206245/" class="article-title">Behemoth pegs next game for 2010</a>
+			<div class="article-subtitle">Teaser trailer for upcoming platformer released a day ahead of schedule; system(s) yet to be determined.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_gi-joe-the-rise-of-cobra-updated-hands-on_1100-6213879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gi-joe-the-rise-of-cobra-updated-hands-on/1100-6213879/" class="article-title">G.I. Joe: The Rise of Cobra Updated Hands-On</a>
+			<div class="article-subtitle">Two Joes fight for freedom in co-op play.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_dragon-ball-revenge-of-king-piccolo-hands-on_1100-6213880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-revenge-of-king-piccolo-hands-on/1100-6213880/" class="article-title">Dragon Ball: Revenge of King Piccolo Hands-On</a>
+			<div class="article-subtitle">Goku is after those Dragon Balls again, but this time, it's on the Nintendo Wii.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_monster-hunter-freedom-unite-downloads_1100-6213906_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monster-hunter-freedom-unite-downloads/1100-6213906/" class="article-title">Monster Hunter Freedom Unite Downloads</a>
+			<div class="article-subtitle">Bring your PSPs because you'll be able to snag eight new quests at Comic-Con.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_bleach-the-3rd-phantom-first-impressions_1100-6213886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bleach-the-3rd-phantom-first-impressions/1100-6213886/" class="article-title">Bleach: The 3rd Phantom First Impressions</a>
+			<div class="article-subtitle">The Bleach series takes a tactical turn with party-based combat in this new action role-playing game for the Nintendo DS.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_band-hero-gets-ds-lite-gig_1100-6213902_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/band-hero-gets-ds-lite-gig/1100-6213902/" class="article-title">Band Hero gets DS Lite gig</a>
+			<div class="article-subtitle">New palm-sized edition of pop-oriented Guitar Hero spin-off will feature guitar, drums, vocals, and all-new drum grip.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_battlefield-1943-recruits-600000_1100-6213915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-1943-recruits-600000/1100-6213915/" class="article-title">Battlefield 1943 recruits 600,000</a>
+			<div class="article-subtitle">EA claims Dice's multiplayer-only WWII shooter secured day-one, week-one sales records worldwide on Xbox Live, North America on PSN.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_miles-edgeworth-becomes-ace-attorney-feb-16_1100-6213922_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/miles-edgeworth-becomes-ace-attorney-feb-16/1100-6213922/" class="article-title">Miles Edgeworth becomes Ace Attorney Feb. 16</a>
+			<div class="article-subtitle">Capcom's notorious prosecutor entering US courthouse next year with new emphasis on crime-scene investigations; Fate/unlimited codes plugs into September.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_castle-crashers-busting-onto-ps3_1100-6213930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castle-crashers-busting-onto-ps3/1100-6213930/" class="article-title">Castle Crashers busting onto PS3</a>
+			<div class="article-subtitle">The Behemoth confirms four-player beat-'em-up will make the leap to Sony's hardware; exclusive content yet to be determined.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_marvel-ultimate-alliance-2-hands-on_1100-6213936_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-ultimate-alliance-2-hands-on/1100-6213936/" class="article-title">Marvel Ultimate Alliance 2: Hands-On</a>
+			<div class="article-subtitle">We get our hands on Vicarious Visions' upcoming action RPG featuring the whole Marvel universe.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_need-for-speed-nitro-updated-hands-on_1100-6213869_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-nitro-updated-hands-on/1100-6213869/" class="article-title">Need for Speed: Nitro Updated Hands-On</a>
+			<div class="article-subtitle">Drag racing, drifting, and car customization are all in the mix in our latest look at this Wii-only Need for Speed game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_the-behemoth-presents-game-3-first-look_1100-6213850_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-behemoth-presents-game-3-first-look/1100-6213850/" class="article-title">The Behemoth Presents: Game 3 First Look</a>
+			<div class="article-subtitle">The developer behind Castle Crashers and Alien Hominid unveils its latest project: a competitive action-platformer that may happen to have a floating golden whale in it.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_the-warriors-street-brawl-impressions_1100-6213945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-warriors-street-brawl-impressions/1100-6213945/" class="article-title">The Warriors: Street Brawl Impressions</a>
+			<div class="article-subtitle">Characters from the movie come out to play one more time.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_dantes-inferno-panel-recap_1100-6213958_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dantes-inferno-panel-recap/1100-6213958/" class="article-title">Dante's Inferno Panel Recap</a>
+			<div class="article-subtitle">We run down what was said as game designers, comic artists, and writers took to the stage to talk Dante.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_wireway-hands-on_1100-6213949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wireway-hands-on/1100-6213949/" class="article-title">WireWay Hands-On</a>
+			<div class="article-subtitle">This extraterrestrial just wants to go home, so we lend him a helping hand by launching him off into space.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_endwar-to-rage-again_1100-6213942_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/endwar-to-rage-again/1100-6213942/" class="article-title">EndWar to rage again</a>
+			<div class="article-subtitle">Creative director Michael De Plater confirms "smaller team" at Ubisoft Shanghai focusing on single-player story, gameplay depth for RTS sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_army-of-two-sequel-signs-comic-artists_1100-6213970_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/army-of-two-sequel-signs-comic-artists/1100-6213970/" class="article-title">Army of Two sequel signs comic artists</a>
+			<div class="article-subtitle">2000 AD's Mark "Jock" Simpson and Captain America's Chris Bachalo to create cutscene illustrations for EA Montreal's forthcoming co-op-heavy shooter.</div>
+			<div class="article-author">Matthew Peters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_monkey-island-sails-to-iphone_1100-6213980_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monkey-island-sails-to-iphone/1100-6213980/" class="article-title">Monkey Island sails to iPhone</a>
+			<div class="article-subtitle">After lying dormant for years, LucasArts' lauded classic adventure game Monkey Island has reemerged with a vengeance in recent months. At E3 2009, LucasArts announced that it had teamed with Telltale on all-new episodic installments for release on the Wii and PC, beginning later this year. The...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_2k-talks-borderlands-launch-bioshock-2-delay_1100-6213752_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2k-talks-borderlands-launch-bioshock-2-delay/1100-6213752/" class="article-title">2K talks Borderlands launch, BioShock 2 delay</a>
+			<div class="article-subtitle">Publisher president Christoph Hartmann explains why he's not afraid to launch a new intellectual property in the thick of this year's fourth quarter; new trailer inside.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_xbox-division-limps-to-2nd-straight-profitable-year_1100-6213956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-division-limps-to-2nd-straight-profitable-year/1100-6213956/" class="article-title">Xbox division limps to 2nd straight profitable year</a>
+			<div class="article-subtitle">Microsoft's gaming business loses $130 million in fourth quarter on decreased system sales, but ends $169 million in the black for the 12-month stretch; 11.2 million 360s shipped for the fiscal year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_gtaiv-gay-tony-coming-out-oct-29_1100-6213867_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gtaiv-gay-tony-coming-out-oct-29/1100-6213867/" class="article-title">GTAIV: Gay Tony coming out Oct. 29</a>
+			<div class="article-subtitle">Second and final Xbox 360-exclusive expansion will arrive two days before end of Take-Two's fiscal year; Episodes From Liberty City double-expansion disc priced at $40.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_borderlands-lands-oct-20_1100-6213803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/borderlands-lands-oct-20/1100-6213803/" class="article-title">Borderlands lands Oct. 20</a>
+			<div class="article-subtitle">2K Games confirms hard launch date for Gearbox's cel-shaded "role-playing shooter" in North America; game will ship in UK, EU, and AU on October 23; new trailer inside.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_double-fine-countersues-activision-report_1100-6213814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/double-fine-countersues-activision-report/1100-6213814/" class="article-title">Double Fine countersues Activision - Report</a>
+			<div class="article-subtitle">Brutal Legend developer says publisher scuttled Jack Black-starring game after a failed attempt to turn it into a Guitar Hero sequel, studio's future depends on successful launch.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_ea-drafts-fans-for-madden-nfl-hall-of-fame-committee_1100-6213868_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-drafts-fans-for-madden-nfl-hall-of-fame-committee/1100-6213868/" class="article-title">EA drafts fans for Madden NFL Hall of Fame committee</a>
+			<div class="article-subtitle">Publisher to commemorate football-sim series' fans, players, playbooks, and glitches; will recruit diehard gamers to chair honorary body through YouTube submission competition.</div>
+			<div class="article-author">Matthew Peters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_dragon-age-origins-updated-impressions-living-your-origin-story_1100-6213878_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-origins-updated-impressions-living-your-origin-story/1100-6213878/" class="article-title">Dragon Age: Origins Updated Impressions - Living Your Origin Story</a>
+			<div class="article-subtitle">Whether you're a noble-born elf or a dwarf from the slums of Orzammar, you'll always remember your roots in Dragon Age: Origins.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_madden-10-for-wii-ncaa-patch-and-banff-for-tiger-10_1100-6233738_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-10-for-wii-ncaa-patch-and-banff-for-tiger-10/1100-6233738/" class="article-title">Madden 10 for Wii, NCAA Patch, and Banff for Tiger 10</a>
+			<div class="article-subtitle">I just got back in town after a whirlwind trip to San Diego for two days of Comic-Con madness (be sure and check out our continuing coverage  from the show, which will be running throughout the weekend). While there, I was surprised to see EA showing off Madden NFL 10 for Wii at their summer...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2009/07/23_the-saboteur-updated-impressions_1100-6213885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-saboteur-updated-impressions/1100-6213885/" class="article-title">The Saboteur Updated Impressions</a>
+			<div class="article-subtitle">We check out a new mission in a creepy cemetery and find out how the resistance can help you fight back against the Nazi oppression.</div>
+			<div class="article-author">Lark Anderson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_new-halo-destination-planned-for-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-halo-destination-planned-for-live" class="article-title">New Halo destination planned for Live</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_digitalfoundry-resi5-pc-benchmarking-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-resi5-pc-benchmarking-blog-entry" class="article-title">Benchmark Resi 5 on your PC now</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_dirt-2-to-feature-x-games-stages_thumbnail.png">
+			<a href="https://www.eurogamer.net/dirt-2-to-feature-x-games-stages" class="article-title">DiRT 2 to feature X Games stages</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_band-hero-coming-to-ds-too_thumbnail.png">
+			<a href="https://www.eurogamer.net/band-hero-coming-to-ds-too" class="article-title">Band Hero coming to DS too</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_saw-director-doing-castlevania-film_thumbnail.png">
+			<a href="https://www.eurogamer.net/saw-director-doing-castlevania-film" class="article-title">SAW director doing Castlevania film</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_disney-doing-alice-in-wonderland-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/disney-doing-alice-in-wonderland-games" class="article-title">Disney doing Alice in Wonderland games</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_endwar-sequel-in-development-says-ubi_thumbnail.png">
+			<a href="https://www.eurogamer.net/endwar-sequel-in-development-says-ubi" class="article-title">EndWar sequel in development, says Ubi</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_gtaiv-double-episode-disc-to-cost-gbp34-99_thumbnail.png">
+			<a href="https://www.eurogamer.net/gtaiv-double-episode-disc-to-cost-gbp34-99" class="article-title">GTAIV double-episode disc to cost £34.99</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_new-gtaiv-dlc-gets-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-gtaiv-dlc-gets-release-date" class="article-title">New GTAIV DLC gets release date</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_one-million-lbp-levels-now-uploaded_thumbnail.png">
+			<a href="https://www.eurogamer.net/one-million-lbp-levels-now-uploaded" class="article-title">One million LBP levels now uploaded</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_need-for-speed-nitro-here-in-november_thumbnail.png">
+			<a href="https://www.eurogamer.net/need-for-speed-nitro-here-in-november" class="article-title">Need for Speed Nitro here in November</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_pachter-activision-mw2-price-is-a-test_thumbnail.png">
+			<a href="https://www.eurogamer.net/pachter-activision-mw2-price-is-a-test" class="article-title">Pachter: Activision MW2 price "is a test"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_madballs-in-in-babo-invasion-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/madballs-in-in-babo-invasion-review" class="article-title">Madballs in Babo: Invasion</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_borderlands-release-date-locked-down_thumbnail.png">
+			<a href="https://www.eurogamer.net/borderlands-release-date-locked-down" class="article-title">Borderlands release date locked down</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2009/07/23_new-halo-anime-films-on-the-way_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-halo-anime-films-on-the-way" class="article-title">New Halo anime films on the way</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i133549/Gameplanet-wins-Best-Game-Site-award/" class="article-title">Gameplanet wins "Best Game Site" award</a>
+			<div class="article-subtitle">Weee are the chammmpions...</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i133548/Episodes-From-Liberty-City-dated/" class="article-title">Episodes From Liberty City dated</a>
+			<div class="article-subtitle">Standalone title due late October.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i133542/Stan-Lee-to-appear-in-Ultimate-Alliance-2/" class="article-title">Stan Lee to appear in Ultimate Alliance 2</a>
+			<div class="article-subtitle">Comic legend gets cameo.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/galactic-commandos.php" class="article-title">Galactic Commandos</a>
+			<div class="article-author">Kyle E. Moore</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/you-are-games-name-a-gameplay-theme.php" class="article-title">You Are Games: Name a Gameplay Theme</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2009/07/23/the-blackwell-convergence/" class="article-title">The Blackwell Convergence</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2009/07/23_2009_07_23_la-mulana-coming-to-wiiware_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2009/07/23/la-mulana-coming-to-wiiware/" class="article-title">La Mulana coming to WiiWare?</a>
+			<div class="article-author">Xander</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

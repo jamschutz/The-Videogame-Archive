@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 17, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/aliens-infestation-review/1900-6346310/" class="article-title">Aliens: Infestation Review</a>
+			<div class="article-subtitle">Aliens: Infestation is an unforgiving and exciting retro romp.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ncis-review/1900-6346297/" class="article-title">NCIS Review</a>
+			<div class="article-subtitle">Childish minigames and saw-it-coming plots make NCIS a mockery of its TV inspiration.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_dragon-nest-sea-subclasses-galore-hands-on-preview_1100-6345146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-nest-sea-subclasses-galore-hands-on-preview/1100-6345146/" class="article-title">Dragon Nest SEA: Subclasses Galore Hands-On Preview</a>
+			<div class="article-subtitle">We analyze the pros and cons of each subclass of the already-out massively multiplayer online game from Eyedentity and Shanda Games.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_will-wright-unveils-hivemind_1100-6346219_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/will-wright-unveils-hivemind/1100-6346219/" class="article-title">Will Wright unveils HiveMind</a>
+			<div class="article-subtitle">SimCity creator details his new game concept, presents an image of what games could be made with more personal information about players.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_ps3-saints-row-the-third-owners-get-saints-row-2-free_1100-6346220_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-saints-row-the-third-owners-get-saints-row-2-free/1100-6346220/" class="article-title">PS3 Saints Row: The Third owners get Saints Row 2 free</a>
+			<div class="article-subtitle">Sony, THQ offering downloadable copy of madcap action adventure's predecessor gratis to those who redeem online pass.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_final-fantasy-xiii-2-roundtable-art-and-music_1100-6345473_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiii-2-roundtable-art-and-music/1100-6345473/" class="article-title">Final Fantasy XIII-2 Roundtable: Art and Music</a>
+			<div class="article-subtitle">We picked the minds of the upcoming JRPG's composers and art director about their contributions and thought processes.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_call-of-duty-mw3-sales-top-775-million-in-five-days_1100-6346238_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-mw3-sales-top-775-million-in-five-days/1100-6346238/" class="article-title">Call of Duty: MW3 sales top $775 million in five days</a>
+			<div class="article-subtitle">Activision hails Modern Warfare 3 launch as the biggest opening "across all forms of entertainment," topping Black Ops' $650 million debut.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_gamestop-sales-tick-up-as-profits-slightly-sink_1100-6346241_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-sales-tick-up-as-profits-slightly-sink/1100-6346241/" class="article-title">GameStop sales tick up as profits slightly sink</a>
+			<div class="article-subtitle">Gears of War 3, Battlefield 3, Madden NFL 12, Batman: Arkham City, and Dead Island top retailer's best-sellers list as digital sales surge 59 percent.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_ultimate-marvel-vs-capcom-3-the-final-breakdown_1100-6346221_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-marvel-vs-capcom-3-the-final-breakdown/1100-6346221/" class="article-title">Ultimate Marvel vs. Capcom  3: The Final Breakdown</a>
+			<div class="article-subtitle">For our final entry in the series, we take a look at some wild DLC costumes and reveal release date information for each character pack.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_square-enix-returns-to-unreal-engine_1100-6346244_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-returns-to-unreal-engine/1100-6346244/" class="article-title">Square Enix returns to Unreal Engine</a>
+			<div class="article-subtitle">Multiple games on the way from Final Fantasy publisher using Epic Games' engine technology.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_big-in-japan-nov-7-13-hatsune-miku-project-diva-extend_1100-6346235_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-in-japan-nov-7-13-hatsune-miku-project-diva-extend/1100-6346235/" class="article-title">Big in Japan Nov. 7-13: Hatsune Miku: Project Diva Extend</a>
+			<div class="article-subtitle">New entry in Sega's rhythm game and Sengoku Basara offshoot occupy top spots of sales chart; 3DS again tops hardware sales with room to spare.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_dc-universe-onlines-next-dlc-features-the-flash_1100-6346263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dc-universe-onlines-next-dlc-features-the-flash/1100-6346263/" class="article-title">DC Universe Online's next DLC features The Flash</a>
+			<div class="article-subtitle">Sony Online Entertainment's massively multiplayer superhero game to receive new characters, power, gear, and more; $10 add-on free for monthly subscribers.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_the-hotspot-11-9-11-post-modern-warfare-3_1100-6344694_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-hotspot-11-9-11-post-modern-warfare-3/1100-6344694/" class="article-title">The HotSpot - 11/9/11 - Post-Modern Warfare 3</a>
+			<div class="article-subtitle">Activision delivers its latest high-octane shooter, and The HotSpot crew responds; plus, Mass Effect 3 beta leaks and, really, why was Dark Souls' ending so lame?</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_torchlight-ii-delayed-to-next-year_1100-6346264_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/torchlight-ii-delayed-to-next-year/1100-6346264/" class="article-title">Torchlight II delayed to next year</a>
+			<div class="article-subtitle">Sequel to 2009's well-received dungeon crawler pushed from 2011 release window as dev needs more time for polish.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_insane-still-up-to-3-years-away_1100-6346251_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/insane-still-up-to-3-years-away/1100-6346251/" class="article-title">InSane still up to 3 years away</a>
+			<div class="article-subtitle">Director Guillermo del Toro indicates first installment in THQ trilogy has been pushed to 2014; THQ says no release date to announce at this time.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/11/17_nba-2k12-legends-showcase-hands-on-jordan-is-better-than-lebron_1100-6345195_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-2k12-legends-showcase-hands-on-jordan-is-better-than-lebron/1100-6345195/" class="article-title">NBA 2K12 Legends Showcase Hands-On - Jordan Is Better Than LeBron</a>
+			<div class="article-subtitle">We finally settle which NBA player is the greatest. At least in the virtual world.</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_sega-buys-out-spiral-knights-doctor-who-developer_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-buys-out-spiral-knights-doctor-who-developer" class="article-title">Sega buys Spiral Knights/Doctor Who developer</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_soulcalibur-5-newcomer-xiba-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/soulcalibur-5-newcomer-xiba-unveiled" class="article-title">Soulcalibur 5 newcomer Xiba unveiled</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_ultimate-marvel-vs-capcom-3-dlc-schedule_thumbnail.png">
+			<a href="https://www.eurogamer.net/ultimate-marvel-vs-capcom-3-dlc-schedule" class="article-title">Ultimate Marvel vs Capcom 3 DLC schedule</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_3ds-kinect-dominate-kids-christmas-wishlist_thumbnail.png">
+			<a href="https://www.eurogamer.net/3ds-kinect-dominate-kids-christmas-wishlist" class="article-title">3DS, Kinect dominate kids' Christmas wishlist</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_del-toro-levine-speak-out-against-cutscenes_thumbnail.png">
+			<a href="https://www.eurogamer.net/del-toro-levine-speak-out-against-cutscenes" class="article-title">Del Toro, Levine speak out against cutscenes</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_torchlight-2-delayed-until-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/torchlight-2-delayed-until-2012" class="article-title">Torchlight 2 delayed until 2012</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_why-nintendo-isnt-interested-in-paid-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/why-nintendo-isnt-interested-in-paid-dlc" class="article-title">Why Nintendo isn't interested in paid DLC</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_dc-universe-dlc-expansion-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/dc-universe-dlc-expansion-announced" class="article-title">DC Universe DLC expansion announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_iron-brigade-release-date-announced-finally_thumbnail.png">
+			<a href="https://www.eurogamer.net/iron-brigade-release-date-announced-finally" class="article-title">Iron Brigade release date announced, finally</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_oddword-strangers-wrath-hd-ps3-complete_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/oddword-strangers-wrath-hd-ps3-complete" class="article-title">Oddworld: Stranger's Wrath HD PS3 complete</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_lawyers-hold-up-doom-3-source-code-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/lawyers-hold-up-doom-3-source-code-release" class="article-title">Lawyers hold up Doom 3 source code release</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_resident-evil-revelations-online-locked_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-revelations-online-locked" class="article-title">Resident Evil Revelations online initially locked</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_gog-com-to-take-on-steam-origin-with-addition-of-new-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gog-com-to-take-on-steam-origin-with-addition-of-new-games" class="article-title">GOG.com to take on Steam, Origin with addition of new games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_epic-uses-dlc-to-actively-fight-pre-owned-culture_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/epic-uses-dlc-to-actively-fight-pre-owned-culture" class="article-title">Epic uses DLC to "actively fight" pre-owned "culture"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_brink-dev-splash-damage-making-marvel-game-for-disney_thumbnail.png">
+			<a href="https://www.eurogamer.net/brink-dev-splash-damage-making-marvel-game-for-disney" class="article-title">Brink dev Splash Damage making Marvel game for Disney?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_square-enix-signs-unreal-engine-3-for-multiple-unannounced-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/square-enix-signs-unreal-engine-3-for-multiple-unannounced-games" class="article-title">Square Enix signs Unreal Engine 3 for "multiple" unannounced games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_swtor-upcoming-beta-weekend-dates-revealed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/swtor-upcoming-beta-weekend-dates-revealed" class="article-title">SWTOR upcoming beta weekend dates revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_activision-call-of-duty-elite-status-improving_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-call-of-duty-elite-status-improving" class="article-title">Activision: Call of Duty Elite status improving</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_medieval-moves-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/medieval-moves-review" class="article-title">Medieval Moves Review</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_call-of-duty-modern-warfare-3-sets-new-five-day-entertainment-record_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-modern-warfare-3-sets-new-five-day-entertainment-record" class="article-title">Call of Duty: Modern Warfare 3 sets new five-day entertainment record</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_del-toros-insane-really-really-nasty_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/del-toros-insane-really-really-nasty" class="article-title">Del Toro's Insane "really, really nasty"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_ea-promises-more-equitable-rules-on-player-bans_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-promises-more-equitable-rules-on-player-bans" class="article-title">EA promises "more equitable rules" on player bans</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_serious-sam-the-random-encounter-review-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/serious-sam-the-random-encounter-review-review" class="article-title">Serious Sam: The Random Encounter Review</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_will-wright-announces-hivemind_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/will-wright-announces-hivemind" class="article-title">Will Wright announces HiveMind</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_bethesdas-skyrim-challenge-accepted-parents-name-baby-dovahkiin_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bethesdas-skyrim-challenge-accepted-parents-name-baby-dovahkiin" class="article-title">Bethesda's Skyrim challenge accepted: parents name baby Dovahkiin</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_metal-gear-solid-rising-switches-producer_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-solid-rising-switches-producer" class="article-title">Metal Gear Solid Rising switches producer</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_peta-anti-mario-campaign-just-a-joke_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/peta-anti-mario-campaign-just-a-joke" class="article-title">PETA: anti-Mario campaign just a joke</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/11/17_kinect-disneyland-adventures-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/kinect-disneyland-adventures-review" class="article-title">Kinect: Disneyland Adventures Review</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138234/Kiwi-games-industry-booms/" class="article-title">Kiwi games industry booms</a>
+			<div class="article-subtitle">App, online and indie to thank.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138233/PETA-now-claims-Mario-campaign-was-tongue-in-cheek/" class="article-title">PETA now claims Mario campaign was "tongue-in-cheek"</a>
+			<div class="article-subtitle">Copyrights and parody clauses, we say.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/i138231/Saints-Row-The-Third-on-sale-today/" class="article-title">Saints Row: The Third on sale today</a>
+			<div class="article-subtitle">Release brought forward as outlets break embargo.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138230/Korean-MMO-accidentally-deleted-during-server-repairs/" class="article-title">Korean MMO accidentally deleted during server repairs</a>
+			<div class="article-subtitle">No back ups.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i138229/EVE-Online-Crucible-expansion-detailed/" class="article-title">EVE Online: Crucible expansion detailed</a>
+			<div class="article-subtitle">Initial response to tough year.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i138237/Activision-still-working-on-PC-COD-Elite/" class="article-title">Activision still working on PC COD: Elite</a>
+			<div class="article-subtitle">Acti: "stay tuned".</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138236/Avalanche-announces-Project-Mamba/" class="article-title">Avalanche announces Project Mamba</a>
+			<div class="article-subtitle">Just Cause dev back in the kitchen.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138235/City-Interactive-announces-ANZ-distribution/" class="article-title">City Interactive announces ANZ distribution</a>
+			<div class="article-subtitle">Poles positioned.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/blueprint-3d.php" class="article-title">Blueprint 3D</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mysterious-treasures.php" class="article-title">Mysterious Treasures</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/you-are-games-letters-in-boxes-22.php" class="article-title">You Are Games: Letters In Boxes #22</a>
+			<div class="article-author">Steve</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/11/17_2011_11_17_recent-good-knytt-stories-4_thumbnail.png">
+			<a href="https://www.tigsource.com/2011/11/17/recent-good-knytt-stories-4/" class="article-title">Recent Good Knytt Stories #4</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 28, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fifa-12-review/1900-6337114/" class="article-title">FIFA 12 Review</a>
+			<div class="article-subtitle">FIFA 12 is the definitive football game: challenging, addictive, and with more excellent features than ever before.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harvest-moon-the-tale-of-two-towns-review/1900-6337140/" class="article-title">Harvest Moon: The Tale of Two Towns Review</a>
+			<div class="article-subtitle">The Tale of Two Towns doesn't stray much from the Harvest Moon formula, but it hits most of the addictive sweet spots fans will care about.</div>
+			<div class="article-author">Britton Peele</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pro-evolution-soccer-2012-review/1900-6337142/" class="article-title">Pro Evolution Soccer 2012 Review</a>
+			<div class="article-subtitle">PES 12 may lack new modes, but substantial improvements to its AI, speed, and controls make it an exciting football game that's a lot of fun to play.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_gamespot-moderation-survey_1100-6336946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-moderation-survey/1100-6336946/" class="article-title">GameSpot Moderation Survey </a>
+			<div class="article-subtitle">GameSpot Community, Make Your Voices Heard!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_blog-bunker-pixel-flavored_1100-6336983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blog-bunker-pixel-flavored/1100-6336983/" class="article-title">Blog Bunker: Pixel Flavored </a>
+			<div class="article-subtitle">We have this week's blogs, breaking news about our Gears of War game night, and important information about our GameSpot survey.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_the-ico-and-shadow-of-the-colossus-collection-impressions_1100-6336943_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-ico-and-shadow-of-the-colossus-collection-impressions/1100-6336943/" class="article-title">The ICO & Shadow of the Colossus Collection Impressions</a>
+			<div class="article-subtitle">Two PlayStation 2 classics make their triumphant return complete with HD visuals, and they're just as incredible as they were the first time around.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_aussie-game-devs-look-towards-android_1100-6336867_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-devs-look-towards-android/1100-6336867/" class="article-title">Aussie game devs look towards Android</a>
+			<div class="article-subtitle">Aussie developer The Voxel Agents says existing research into the changing nature of mobile development suggests developers should focus more on Android.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_fighting-game-tournament-heads-to-melbourne_1100-6337077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fighting-game-tournament-heads-to-melbourne/1100-6337077/" class="article-title">Fighting game tournament heads to Melbourne</a>
+			<div class="article-subtitle">Battle Arena Melbourne (BAM) scheduled for this weekend; exclusive preview showcase games include Street Fighter x Tekken; Ultimate Marvel vs. Capcom 3, and SoulCalibur V.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_aussie-gamers-to-miss-out-on-star-wars-tor-at-launch_1100-6337084_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-gamers-to-miss-out-on-star-wars-tor-at-launch/1100-6337084/" class="article-title">Aussie gamers to miss out on Star Wars: TOR at launch</a>
+			<div class="article-subtitle">EA confirms Australia is not a launch territory for the game; does not comment on when TOR will launch Down Under.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_king-of-fighters-xiii-delayed-to-november-22_1100-6337073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/king-of-fighters-xiii-delayed-to-november-22/1100-6337073/" class="article-title">King of Fighters XIII delayed to November 22</a>
+			<div class="article-subtitle">Atlus-published Xbox 360 and PS3 sequel to latest SNK fighting game pushed back from previously scheduled October launch.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_la-noire-hits-pc-in-november_1100-6337093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/la-noire-hits-pc-in-november/1100-6337093/" class="article-title">L.A. Noire hits PC in November</a>
+			<div class="article-subtitle">LA Noire: The Complete Edition walks PC beat November 8 in North America, November 11 in Europe; game features all DLC from console editions, 3D support.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_batman-arkham-city-xbox-360-bundle-spotted_1100-6337106_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/batman-arkham-city-xbox-360-bundle-spotted/1100-6337106/" class="article-title">Batman: Arkham City Xbox 360 bundle spotted</a>
+			<div class="article-subtitle">Amazon's German arm outs special-edition console bundle with 250GB system, controller, and game for about $380.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_foo-fighters-headlining-blizzcon-2011_1100-6337103_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/foo-fighters-headlining-blizzcon-2011/1100-6337103/" class="article-title">Foo Fighters headlining BlizzCon 2011</a>
+			<div class="article-subtitle">Dave Grohl follows up last year's BlizzCon cameo with Tenacious D by bringing his full-time gig to Diablo III developer's annual shindig.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_gran-turismo-5-update-dlc-inbound_1100-6337110_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-5-update-dlc-inbound/1100-6337110/" class="article-title">Gran Turismo 5 update, DLC inbound</a>
+			<div class="article-subtitle">Polyphony Digital's Kazunori Yamauchi says "Spec 2.0" update arriving during the third week of October followed by DLC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_elder-scrolls-v-skyrim-voice-actors-revealed_1100-6337085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elder-scrolls-v-skyrim-voice-actors-revealed/1100-6337085/" class="article-title">Elder Scrolls V: Skyrim voice actors revealed</a>
+			<div class="article-subtitle">Bethesda reveals Christopher Plummer, Max Von Sydow, and Joan Allen will all lend their voices to upcoming open-world role-playing game.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_ea-teams-up-with-virgin-for-battlefield-3-comp_1100-6337086_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-teams-up-with-virgin-for-battlefield-3-comp/1100-6337086/" class="article-title">EA teams up with Virgin for Battlefield 3 comp</a>
+			<div class="article-subtitle">Worldwide Battlefield 3 tournament will see players compete online for the chance to win a portion of the US$1.6 million prize pool.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_playstation-phone-coming-in-march_1100-6298835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-phone-coming-in-march/1100-6298835/" class="article-title">PlayStation phone coming in March</a>
+			<div class="article-subtitle">Sony Ericsson formally announces release date for the Xperia Play; details software partners.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_xperia-play-youll-have-to-repurchase-playstation-network-content_1100-6298836_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xperia-play-youll-have-to-repurchase-playstation-network-content/1100-6298836/" class="article-title">Xperia Play: "You'll have to repurchase" PlayStation Network content</a>
+			<div class="article-subtitle">Sony Ericsson UK managing director confirms old PlayStation Store content will have to be re-bought when the new store launches on the Xperia Play later this year.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_playstation-phone-hits-us-on-may-26-for-200_1100-6314172_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-phone-hits-us-on-may-26-for-200/1100-6314172/" class="article-title">'PlayStation Phone' hits US on May 26 for $200</a>
+			<div class="article-subtitle">Sony Ericsson Xperia Play will arrive next Thursday preloaded with seven games, including Madden NFL 11 and The Sims 3.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_psp-phone-ad-surfaces_1100-6297480_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-phone-ad-surfaces/1100-6297480/" class="article-title">PSP phone ad surfaces</a>
+			<div class="article-subtitle">Norwegian Android blog acquires what appears to be first advertisement for Sony Ericsson's Xperia Play, expected to be announced later this month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-unveils-playstation-phone_1100-6297967_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-unveils-playstation-phone/1100-6297967/" class="article-title">Sony unveils PlayStation phone</a>
+			<div class="article-subtitle">Long-rumoured and oft-leaked Xperia Play handset finally officially confirmed; full details coming February 13 at Mobile World Congress.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-ericcson-xperia-play-what-we-know-so-far_1100-6300938_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-ericcson-xperia-play-what-we-know-so-far/1100-6300938/" class="article-title">Sony Ericcson Xperia Play: What We Know So Far</a>
+			<div class="article-subtitle">Sony Ericcson's Xperia Play brings buttons back to the phone.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_xperia-play-my-week-with-android_1100-6312522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xperia-play-my-week-with-android/1100-6312522/" class="article-title">Xperia Play: My week with Android</a>
+			<div class="article-subtitle">We put Sony Ericsson's Xperia Play head-to-head with the iPhone 4 for a week to find out who the real leader is in mobile gaming.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-xperia-play-on-sale-in-singapore-this-friday_1100-6309279_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-xperia-play-on-sale-in-singapore-this-friday/1100-6309279/" class="article-title">Sony Xperia Play on sale in Singapore this Friday</a>
+			<div class="article-subtitle">Gaming phone exclusive to SingTel customers.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_were-giving-away-an-xperia-play_1100-6303995_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/were-giving-away-an-xperia-play/1100-6303995/" class="article-title">We're giving away an Xperia Play</a>
+			<div class="article-subtitle">Next week, GameSpot UK is giving away one of the first Xperia Play handsets. Find out how it can be yours!</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-assembling-psp-phone-team-report_1100-6212711_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-assembling-psp-phone-team-report/1100-6212711/" class="article-title">Sony assembling PSP phone team - Report</a>
+			<div class="article-subtitle">Japanese daily Nikkei says product-development team from gaming, mobile phone arms of electronics firm may begin work on new device as early as July.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_psp-phone-new-sony-ipad-competitor-due-this-year-report_1100-6252928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-phone-new-sony-ipad-competitor-due-this-year-report/1100-6252928/" class="article-title">PSP phone, new Sony iPad competitor due this year - Report</a>
+			<div class="article-subtitle">Wall Street Journal says Japanese giant plans to launch mobile devices that play gaming handheld's wares, multifunctional tablet in 2010.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-executive-hints-at-gaming-phone_1100-6283343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-executive-hints-at-gaming-phone/1100-6283343/" class="article-title">Sony executive hints at gaming phone</a>
+			<div class="article-subtitle">Following purported PlayStation Phone leak, CFO Masaru Kato says a "new product" will address the mobile gaming market.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_sony-ericsson-exec-drops-more-playstation-phone-hints_1100-6284386_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-ericsson-exec-drops-more-playstation-phone-hints/1100-6284386/" class="article-title">Sony Ericsson exec drops more PlayStation Phone hints</a>
+			<div class="article-subtitle">CEO Bert Nordberg says "There's a lot of smoke, and I tell you there must be a fire somewhere."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_playstation-phone-caught-on-video_1100-6284844_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-phone-caught-on-video/1100-6284844/" class="article-title">PlayStation Phone caught on video</a>
+			<div class="article-subtitle">Tech blog Engadget posts video footage of the Sony Ericsson device, code-named Zeus; menu features option for PlayStation games.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_musou-orochi-2-breaks-out-in-december-for-ps3_1100-6337088_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/musou-orochi-2-breaks-out-in-december-for-ps3/1100-6337088/" class="article-title">Musou Orochi 2 breaks out in December for PS3</a>
+			<div class="article-subtitle">New action game combining Dynasty Warriors and Samurai Warriors characters to have user-generated content.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/28_nippon-ichi-announces-the-witch-and-the-hundred-cavalrymen_1100-6337083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nippon-ichi-announces-the-witch-and-the-hundred-cavalrymen/1100-6337083/" class="article-title">Nippon Ichi announces The Witch and the Hundred Cavalrymen</a>
+			<div class="article-subtitle">PS3 action game to be out in spring 2012 in Japan.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_duke-nukem-3d-remake-shelved_thumbnail.png">
+			<a href="https://www.eurogamer.net/duke-nukem-3d-remake-shelved" class="article-title">Duke Nukem 3D remake shelved</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_super-mario-land-3-coming-to-3ds-eshop_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-mario-land-3-coming-to-3ds-eshop" class="article-title">Super Mario Land 3 coming to 3DS eShop</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_new-humble-indie-bundle-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-humble-indie-bundle-announced" class="article-title">New Humble Indie Bundle announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_advance-wars-dev-readies-3ds-puzzler_thumbnail.png">
+			<a href="https://www.eurogamer.net/advance-wars-dev-readies-3ds-puzzler" class="article-title">Advance Wars dev readies 3DS puzzler</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_major-playstation-home-update-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/major-playstation-home-update-tomorrow" class="article-title">Major PlayStation Home update tomorrow</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_the-old-republic-early-access-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-old-republic-early-access-detailed" class="article-title">The Old Republic early access detailed</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_dark-souls-ico-hd-top-japan-chart_thumbnail.png">
+			<a href="https://www.eurogamer.net/dark-souls-ico-hd-top-japan-chart" class="article-title">Dark Souls, ICO HD top Japan chart</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_gt5-spec-2-0-update-to-launch-october-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gt5-spec-2-0-update-to-launch-october-article" class="article-title">GT5 Spec 2.0 update to launch October</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_pre-order-mw3-pc-get-cod4-mw-pc-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/pre-order-mw3-pc-get-cod4-mw-pc-free" class="article-title">Pre-order MW3 PC, get COD4: MW PC free</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_syndicate-release-date-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/syndicate-release-date-announced" class="article-title">Syndicate release date announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_eu-playstation-store-update-28th-sept-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/eu-playstation-store-update-28th-sept-article" class="article-title">EU PlayStation Store update 28th Sept</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_crafting-uncharted-3-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/crafting-uncharted-3-interview" class="article-title">Crafting Uncharted 3</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_naughty-dog-approves-of-uncharted-movie_thumbnail.png">
+			<a href="https://www.eurogamer.net/naughty-dog-approves-of-uncharted-movie" class="article-title">Naughty Dog approves of Uncharted film</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_unreal-engine-4-probably-around-2014_thumbnail.png">
+			<a href="https://www.eurogamer.net/unreal-engine-4-probably-around-2014" class="article-title">Unreal Engine 4 "probably around 2014"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_studiocanal-films-head-to-playstation-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/studiocanal-films-head-to-playstation-3" class="article-title">Studiocanal films head to PlayStation 3</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_guild-wars-2-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/guild-wars-2-preview" class="article-title">Guild Wars 2</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_yakuza-dead-souls-trademark-spotted_thumbnail.png">
+			<a href="https://www.eurogamer.net/yakuza-dead-souls-trademark-spotted" class="article-title">Yakuza: Dead Souls trademark spotted</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_king-of-fighters-13-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/king-of-fighters-13-delayed" class="article-title">King of Fighters 13 delayed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_kirbys-adventure-wii-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/kirbys-adventure-wii-release-date" class="article-title">Kirby's Adventure Wii release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_skullgirls-delayed-to-early-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/skullgirls-delayed-to-early-2012" class="article-title">Skullgirls delayed to early 2012</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_origin-wants-fair-and-open-marketplace_thumbnail.png">
+			<a href="https://www.eurogamer.net/origin-wants-fair-and-open-marketplace" class="article-title">Origin wants "fair and open marketplace"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/28_gears-of-war-3-dlc-expect-barrick_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-of-war-3-dlc-expect-barrick" class="article-title">Gears of War 3 DLC: expect Barrick</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137986/Scrolls-case-going-to-court-says-Mojang/" class="article-title">"Scrolls" case going to court says Mojang</a>
+			<div class="article-subtitle">Minecraft dev Doomed to Oblivion?</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137985/Dead-Island-movie-announced/" class="article-title">Dead Island movie announced</a>
+			<div class="article-subtitle">Award-winning trailer the inspiration.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/monster-corp.php" class="article-title">Monster Corp</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/raze-2.php" class="article-title">Raze 2</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/device.php" class="article-title">Device</a>
+			<div class="article-author">SonicLover</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/09/28_2011_09_28_the-binding-of-isaac_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2011/09/28/the-binding-of-isaac/" class="article-title">The Binding of Isaac</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 24, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kirbys-return-to-dreamland-review/1900-6341914/" class="article-title">Kirby's Return to Dreamland Review</a>
+			<div class="article-subtitle">Kirby revisits his roots in this fun, familiar platformer.</div>
+			<div class="article-author">Nathan Meunier</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/uncharted-3-drakes-deception-review/1900-6341906/" class="article-title">Uncharted 3: Drake's Deception Review</a>
+			<div class="article-subtitle">Uncharted 3: Drake's Deception continues where its predecessor left off, delivering a memorable adventure that pleases on all fronts.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_blizzcon-2011-photo-gallery_1100-6341338_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzcon-2011-photo-gallery/1100-6341338/" class="article-title">BlizzCon 2011 Photo Gallery</a>
+			<div class="article-subtitle">BlizzCon 2011 is here, and GameSpot is on the scene to bring you photos from the event.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_mists-of-pandaria-comic-novella-en-route_1100-6341774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mists-of-pandaria-comic-novella-en-route/1100-6341774/" class="article-title">Mists of Pandaria comic, novella en route</a>
+			<div class="article-subtitle">BlizzCon 2011: Blizzard Publishing division confirms World of Warcraft expansion-based stories are in development; Warcraft, Starcraft universe compendiums possible.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_world-of-warcraft-mists-of-pandaria-preview-panel-reveals-big-changes_1100-6341773_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-mists-of-pandaria-preview-panel-reveals-big-changes/1100-6341773/" class="article-title">World of Warcraft: Mists of Pandaria Preview Panel Reveals Big Changes</a>
+			<div class="article-subtitle">Mists of Pandaria will offer a new playable panda race, monks, a Pokemon-like pet battle system, and much, much more. Get the details in our BlizzCon 2011 panel report.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_gta-iii-10th-anniversary-celebration_1100-6341610_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-iii-10th-anniversary-celebration/1100-6341610/" class="article-title">GTA III 10th Anniversary Celebration</a>
+			<div class="article-subtitle">Rockstar's Dan Houser and members of the GameSpot staff recall memories of one of the most influential games of all time.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_starcraft-ii-developers-discuss-new-units_1100-6341782_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starcraft-ii-developers-discuss-new-units/1100-6341782/" class="article-title">Starcraft II developers discuss new units</a>
+			<div class="article-subtitle">BlizzCon 2011: Starcraft II's Dustin Browder and David Kim discuses new units and other tweaks coming in Starcraft II: Heart of the Swarm.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_blizzard-delves-into-diablo-lore_1100-6341794_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-delves-into-diablo-lore/1100-6341794/" class="article-title">Blizzard delves into Diablo lore</a>
+			<div class="article-subtitle">BlizzCon 2011: Studio offers its first panel aimed at illuminating the history of its action RPG franchise, detailing The Eternal Conflict, angels, and demons.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_world-of-warcraft-mists-of-pandaria-hands-on-preview-panda-monks_1100-6341788_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-mists-of-pandaria-hands-on-preview-panda-monks/1100-6341788/" class="article-title">World of Warcraft: Mists of Pandaria Hands-On Preview - Panda Monks</a>
+			<div class="article-subtitle">The upcoming Mists of Pandaria expansion for World of Warcraft will let you be a Pandaren monk. We took the new race and new class for a spin at BlizzCon.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_blizzard-dota-first-look-preview-playing-with-stitches_1100-6341792_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-dota-first-look-preview-playing-with-stitches/1100-6341792/" class="article-title">Blizzard DOTA First Look Preview - Playing With Stitches</a>
+			<div class="article-subtitle">Blizzard hopes to simplify the MOBA genre while staying true to its roots. We play a few rounds and see how much has changed.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_diablo-iii-pvp-hands-on-preview-level-60-wizard-in-pvp_1100-6341795_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-pvp-hands-on-preview-level-60-wizard-in-pvp/1100-6341795/" class="article-title">Diablo III PVP Hands-On Preview - Level 60 Wizard in PVP</a>
+			<div class="article-subtitle">We dive into Diablo III's head-to-head arena battles with a level 60 wizard at BlizzCon 2011.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_battlefield-3-aussie-midnight-launch-details_1100-6341852_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-3-aussie-midnight-launch-details/1100-6341852/" class="article-title">Battlefield 3 Aussie midnight launch details</a>
+			<div class="article-subtitle">Battlefield 3 is almost here, and both EB Games and GAME will be opening up at midnight for eager players.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_bioware-mythics-paul-barnett-to-deliver-gdc-china-2011-keynote-address_1100-6341849_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioware-mythics-paul-barnett-to-deliver-gdc-china-2011-keynote-address/1100-6341849/" class="article-title">BioWare Mythic's Paul Barnett to deliver GDC China 2011 keynote address</a>
+			<div class="article-subtitle">Senior creative director for Warhammer Online to talk about online game development.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_asia-shippin-out-october-23-29-battlefield-3_1100-6341850_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/asia-shippin-out-october-23-29-battlefield-3/1100-6341850/" class="article-title">Asia Shippin' Out October 23-29: Battlefield 3 </a>
+			<div class="article-subtitle">EA's contribution to digital modern warfare, a new portable Final Fantasy title, and a vampire add-on are highlights for the week.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_au-shippin-out-oct-24-28-battlefield-3_1100-6341848_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-oct-24-28-battlefield-3/1100-6341848/" class="article-title">AU Shippin' Out Oct 24-28: Battlefield 3</a>
+			<div class="article-subtitle">After countless trade shows and an extensive beta test, it's finally time for EA to release Battlefield 3.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_lenovo-powered-game-console-slated-for-december-release_1100-6341853_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lenovo-powered-game-console-slated-for-december-release/1100-6341853/" class="article-title">Lenovo-powered game console slated for December release</a>
+			<div class="article-subtitle">iSec game console to launch in China at end of 2011 for $470; full-scale release set for "early next year."</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_gamespots-best-of-2009-awards_1100-6241625_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespots-best-of-2009-awards/1100-6241625/" class="article-title">GameSpot's Best of 2009 Awards</a>
+			<div class="article-subtitle">Find out your picks for the best games of 2009 in our Readers Choice Awards!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_arkham-city-swoops-to-uk-number-one_1100-6341855_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arkham-city-swoops-to-uk-number-one/1100-6341855/" class="article-title">Arkham City swoops to UK number one</a>
+			<div class="article-subtitle">Fourth biggest launch of the year sees Batman: Arkham City top the UK Charts, Football Manager 2012 debuts in third; Dance Central 2 debuts at 40.</div>
+			<div class="article-author">Brett Phipps</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_shippin-out-october-23-29-battlefield-3_1100-6341354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-october-23-29-battlefield-3/1100-6341354/" class="article-title">Shippin' Out October 23-29: Battlefield 3</a>
+			<div class="article-subtitle">EA sends DICE shooter to the front lines as Dance Central 2, Kirby's Return to Dreamland, and Daytona USA also head to market.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_the-darkness-ii-hands-on-preview_1100-6341553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-darkness-ii-hands-on-preview/1100-6341553/" class="article-title">The Darkness II: Hands-On Preview</a>
+			<div class="article-subtitle">We dine on hearts and shoot out the lights in our first hands-on play with Jackie's new adventure.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/10/24_insomniac-files-for-beast-ly-new-trademarks_1100-6341875_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/insomniac-files-for-beast-ly-new-trademarks/1100-6341875/" class="article-title">Insomniac files for Beast-ly new trademarks</a>
+			<div class="article-subtitle">Ratchet & Clank developer applies for rights to use "Space Beasts" and "Galaxy Beasts" in online video games.</div>
+			<div class="article-author">Jonathan Downin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_psn-hack-woke-up-dormant-customers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/psn-hack-woke-up-dormant-customers" class="article-title">PSN hack "woke up dormant customers"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_minecraft-xbla-delayed-until-spring-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/minecraft-xbla-delayed-until-spring-2012" class="article-title">Minecraft XBLA delayed until Spring 2012</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_nvidia-launches-new-battlefield-3-pc-drivers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nvidia-launches-new-battlefield-3-pc-drivers" class="article-title">Nvidia launches new Battlefield 3 PC drivers</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_team-fortress-2-sees-5x-user-bump-post-f2p_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/team-fortress-2-sees-5x-user-bump-post-f2p" class="article-title">Team Fortress 2 sees 5x user bump post-F2P</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_microsoft-puts-all-dance-central-dlc-on-sale_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-puts-all-dance-central-dlc-on-sale" class="article-title">Microsoft puts all Dance Central DLC on sale</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_newell-stop-piracy-by-offering-superior-service_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/newell-stop-piracy-by-offering-superior-service" class="article-title">Newell: Stop piracy by offering superior service</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_modern-warfare-3-pc-questions-answered_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/modern-warfare-3-pc-questions-answered" class="article-title">Modern Warfare 3 PC questions answered</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_why-subs-based-mmos-have-a-future_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-subs-based-mmos-have-a-future" class="article-title">Why subs-based MMOs have a future</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_cryptics-neverwinter-becomes-f2p-mmo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cryptics-neverwinter-becomes-f2p-mmo" class="article-title">Cryptic's Neverwinter becomes F2P MMO</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_final-fantasy-xiv-gets-huge-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/final-fantasy-xiv-gets-huge-update" class="article-title">Final Fantasy XIV gets huge update</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_blizzard-sells-server-blades-for-charity_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-sells-server-blades-for-charity" class="article-title">Blizzard sells server blades for charity</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_swtor-euro-launch-brought-forward_thumbnail.png">
+			<a href="https://www.eurogamer.net/swtor-euro-launch-brought-forward" class="article-title">SWTOR Euro launch brought forward</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_eve-to-get-more-spaceships-less-incarna_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-to-get-more-spaceships-less-incarna" class="article-title">Eve to get more spaceships, less Incarna</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_world-of-warcraft-mists-of-pandaria-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/world-of-warcraft-mists-of-pandaria-announced" class="article-title">WOW: Mists of Pandaria announced</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_wows-pokemon-style-pet-battles_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wows-pokemon-style-pet-battles" class="article-title">WOW's Pokemon-style pet battles</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_notch-scrolls-is-as-expensive-as-you-want-it-to-be_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/notch-scrolls-is-as-expensive-as-you-want-it-to-be" class="article-title">Notch: Scrolls free to play after initial payment</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_orcs-must-die-dlc-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/orcs-must-die-dlc-announced" class="article-title">Orcs Must Die! DLC announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_halo-anniversary-returning-to-the-ring-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/halo-anniversary-returning-to-the-ring-article" class="article-title">Halo Anniversary: Returning to the Ring</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_343-defends-halos-kinect-features_thumbnail.png">
+			<a href="https://www.eurogamer.net/343-defends-halos-kinect-features" class="article-title">343 defends Halo's Kinect features</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_all-zombies-must-die-release-narrowed_thumbnail.png">
+			<a href="https://www.eurogamer.net/all-zombies-must-die-release-narrowed" class="article-title">All Zombies Must Die! release narrowed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_uk-top-40-arkham-city-soars-into-first-place_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/uk-top-40-arkham-city-soars-into-first-place" class="article-title">UK Top 40: Arkham City soars into first place</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_battlefield-3-dice-talks-next-xbox-playstation-4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-3-dice-talks-next-xbox-playstation-4" class="article-title">Battlefield 3: DICE talks next Xbox, PlayStation 4</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_battlefield-3-interview-rolling-the-dice-interview_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-3-interview-rolling-the-dice-interview" class="article-title">Battlefield 3 Interview: Rolling the DICE</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_first-joe-danger-spotted-for-xbox-live-arcade_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/first-joe-danger-spotted-for-xbox-live-arcade" class="article-title">First Joe Danger spotted for Xbox Live Arcade</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_blizzard-aims-for-more-accessible-dota_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/blizzard-aims-for-more-accessible-dota" class="article-title">Blizzard aims for more accessible DOTA</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_ea-there-is-scope-to-remake-syndicate_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-there-is-scope-to-remake-syndicate" class="article-title">EA: "there is scope" to remake Syndicate</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_netflix-to-launch-in-uk-and-ireland_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/netflix-to-launch-in-uk-and-ireland" class="article-title">Netflix to launch in UK and Ireland</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_ea-teases-medal-of-honor-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-teases-medal-of-honor-2" class="article-title">EA teases Medal of Honor 2</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/10/24_dance-central-2-review-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dance-central-2-review-review" class="article-title">Dance Central 2</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/two-princes.php" class="article-title">Two Princes</a>
+			<div class="article-author">Trinn</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/grinning-cobossus.php" class="article-title">Grinning Cobossus</a>
+			<div class="article-author">Kyh</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/classic-hashi-light-volume-2.php" class="article-title">Classic Hashi Light Vol. 2</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mage-gauntlet.php" class="article-title">Mage Gauntlet</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-143.php" class="article-title">Mobile Monday №142</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2011/10/24_2011_10_24_hanano-puzzle_thumbnail.png">
+			<a href="https://www.tigsource.com/2011/10/24/hanano-puzzle/" class="article-title">Hanano Puzzle</a>
+			<div class="article-author">ithamore</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

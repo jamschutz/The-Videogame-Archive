@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 23, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/f1-2011-review/1900-6336120/" class="article-title">F1 2011 Review</a>
+			<div class="article-subtitle">F1 2011 is a great sequel that faithfully represents the thrill and difficulty of driving the world's best racing cars.</div>
+			<div class="article-author">Joseph Barron</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rotastic-review/1900-6336384/" class="article-title">Rotastic Review</a>
+			<div class="article-subtitle">Rotastic features Vikings soaring through the air, but control and level-design problems quickly ground them.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_gamespot-uk-hosting-bafta-arkham-city-qanda_1100-6335614_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-uk-hosting-bafta-arkham-city-qanda/1100-6335614/" class="article-title">GameSpot UK hosting BAFTA Arkham City Q&A </a>
+			<div class="article-subtitle">See Batman: Arkham City, ask the developer questions, and win an Xbox 360 at BAFTA's GameSpot UK-hosted event.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_onlive-launches-in-uk-partners-with-gamespot-uk_1100-6336099_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/onlive-launches-in-uk-partners-with-gamespot-uk/1100-6336099/" class="article-title">OnLive launches in UK, partners with GameSpot UK</a>
+			<div class="article-subtitle">Cloud-based games platform OnLive made available to British gamers; the service's instant demos integrated into GameSpot UK.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_the-elder-scrolls-v-skyrim-video-blowout_1100-6333788_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-elder-scrolls-v-skyrim-video-blowout/1100-6333788/" class="article-title">The Elder Scrolls V: Skyrim Video Blowout</a>
+			<div class="article-subtitle">Who wants to watch some awesome new Skyrim videos?</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_star-wars-the-old-republic-updated-qanda-companions_1100-6336121_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-old-republic-updated-qanda-companions/1100-6336121/" class="article-title">Star Wars: The Old Republic Updated Q&A - Companions</a>
+			<div class="article-subtitle">Star Wars: The Old Republic will let you adventure with computer-controlled companion characters. Game director James Ohlen shares new details.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_how-forza-motorsport-4-offers-a-more-open-ended-career-mode_1100-6336315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-forza-motorsport-4-offers-a-more-open-ended-career-mode/1100-6336315/" class="article-title">How Forza Motorsport 4 Offers a More Open-Ended Career Mode</a>
+			<div class="article-subtitle">We spend a few hours with Turn 10's latest and put our own personal touch on the new World Tour mode.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_gaming-exhibition-hits-melbourne_1100-6336332_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-exhibition-hits-melbourne/1100-6336332/" class="article-title">Gaming exhibition hits Melbourne</a>
+			<div class="article-subtitle">Game/Play will feature a game jam, local art, board games, and playable locally developed titles during the month of October at the National Gallery of Victoria.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_grand-knights-history-charges-to-north-america-this-winter_1100-6336334_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-knights-history-charges-to-north-america-this-winter/1100-6336334/" class="article-title">Grand Knights History charges to North America this winter</a>
+			<div class="article-subtitle">VanillaWare role-playing game to be brought in by Xseed Games; Rising Star Games to publish European version.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_tales-of-xillia-updated-hands-on_1100-6336098_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tales-of-xillia-updated-hands-on/1100-6336098/" class="article-title">Tales of Xillia Updated Hands-On</a>
+			<div class="article-subtitle">We check out the first five hours of an import copy of Namco Bandai's latest role-playing game.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_aussie-bargains-sept-23_1100-6336330_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-bargains-sept-23/1100-6336330/" class="article-title">Aussie bargains Sept. 23</a>
+			<div class="article-subtitle">This week we look at how you can save money on Gears of War 3 and a few other recent releases.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_aussie-emulation-mash-up-sept-23_1100-6336336_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-emulation-mash-up-sept-23/1100-6336336/" class="article-title">Aussie emulation mash-up Sept. 23</a>
+			<div class="article-subtitle">After a three-year hiatus the Burnout franchise makes its speedy return.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_f2p-shooter-bootleggers-hitting-ps-home-report_1100-6336339_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/f2p-shooter-bootleggers-hitting-ps-home-report/1100-6336339/" class="article-title">F2P shooter Bootleggers hitting PS Home - Report</a>
+			<div class="article-subtitle">Sony adding new multiplayer title to online space with this fall's major revision; poker game also planned.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_check-out-cnet-uks-iphone-history-video_1100-6336337_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/check-out-cnet-uks-iphone-history-video/1100-6336337/" class="article-title">Check out CNET UK's iPhone History Video</a>
+			<div class="article-subtitle">GameSpot UK's sister site CNET UK has put together an animation showing the history of the iPhone ahead of the announcement of the iPhone 5.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_metal-gear-solid-gets-risk-board-game_1100-6336351_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-solid-gets-risk-board-game/1100-6336351/" class="article-title">Metal Gear Solid gets Risk board game</a>
+			<div class="article-subtitle">Limited-edition $50 offering combines 2008 version of Hasbro strategy game with gameplay variations inspired by Konami's stealth-action series.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_dota-2-release-pushed-up_1100-6336347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dota-2-release-pushed-up/1100-6336347/" class="article-title">Dota 2 release pushed up</a>
+			<div class="article-subtitle">Valve scraps "dumb" plan to leave game in beta for a year, now intends to release it as soon as possible.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_tickets-for-gdc-online-in-austin-texas_1100-6336223_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tickets-for-gdc-online-in-austin-texas/1100-6336223/" class="article-title">Tickets for GDC Online in Austin, Texas</a>
+			<div class="article-subtitle">If you're in the Austin area this October, grab a ticket to attend GDC Online!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_deus-ex-human-revolution-the-missing-link-preview-first-look_1100-6336130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deus-ex-human-revolution-the-missing-link-preview-first-look/1100-6336130/" class="article-title">Deus Ex: Human Revolution - The Missing Link Preview - First Look</a>
+			<div class="article-subtitle">Deus Ex: Human Revolution's story is about to get bigger with The Missing Link, a new downloadable content adventure. We take a look.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_all-time-greatest-sidekick-the-finals_1100-6330616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-time-greatest-sidekick-the-finals/1100-6330616/" class="article-title">All Time Greatest Sidekick: The Finals</a>
+			<div class="article-subtitle">Take 64 sidekicks. Make one a legend. Vote for your favorite characters now to decide who makes it into GameSpot's All-Time Greatest Game Sidekick!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_tonight-on-greatest-sidekick-theater-genius-versus-duck_1100-6336375_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tonight-on-greatest-sidekick-theater-genius-versus-duck/1100-6336375/" class="article-title">Tonight, On Greatest Sidekick Theater: Genius Versus Duck</a>
+			<div class="article-subtitle">What started with 80 iconic game sidekicks has come down to the final contest--a vote-off between the two finalists in All-Time Greatest Game Sidekick.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_uncharted-3-promotion-puts-early-copies-in-gamers-hands_1100-6336376_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncharted-3-promotion-puts-early-copies-in-gamers-hands/1100-6336376/" class="article-title">Uncharted 3 promotion puts early copies in gamers' hands</a>
+			<div class="article-subtitle">Movie theater chain AMC hosting events to try Naughty Dog's PS3 exclusive on the big screen, get the game via FedEx a week before the official launch.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_microsoft-admits-to-mistaken-xbl-bans_1100-6336377_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-admits-to-mistaken-xbl-bans/1100-6336377/" class="article-title">Microsoft admits to mistaken XBL bans</a>
+			<div class="article-subtitle">Head of policy and enforcement team apologizes, says "tiny set" of affected users will have access restored, receive free Gold subscription time and 1,600 MS points.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/09/23_counter-strike-global-offensive-gets-gun-game-style-mode_1100-6336343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/counter-strike-global-offensive-gets-gun-game-style-mode/1100-6336343/" class="article-title">Counter-Strike: Global Offensive Gets Gun Game-Style Mode</a>
+			<div class="article-subtitle">Valve's Chet Faliszek talks up CS:GO's new Arsenal modes.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_microsoft-reverses-erroneous-xbl-bans_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-reverses-erroneous-xbl-bans" class="article-title">Microsoft reverses erroneous XBL bans</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_28-percent-of-3ds-users-dont-like-3d-survey_thumbnail.png">
+			<a href="https://www.eurogamer.net/28-percent-of-3ds-users-dont-like-3d-survey" class="article-title">28% of 3DS users don't like 3D - survey</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_max-and-the-magic-marker-coming-to-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/max-and-the-magic-marker-coming-to-psn" class="article-title">Max & The Magic Marker coming to PSN</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_50-percent-off-resi-hd-remakes-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/50-percent-off-resi-hd-remakes-on-psn" class="article-title">50% off Resi HD remakes on PSN</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_lulzsec-anonymous-hackers-rounded-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/lulzsec-anonymous-hackers-rounded-up" class="article-title">LulzSec, Anonymous hackers rounded up</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_bethesda-denied-fallout-restraining-order_thumbnail.png">
+			<a href="https://www.eurogamer.net/bethesda-denied-fallout-restraining-order" class="article-title">Bethesda denied Fallout restraining order</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_bioshock-dev-shows-off-cancelled-rts_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-dev-shows-off-cancelled-rts" class="article-title">BioShock dev shows off cancelled RTS</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_la-noire-complete-edition-spotted_thumbnail.png">
+			<a href="https://www.eurogamer.net/la-noire-complete-edition-spotted" class="article-title">LA Noire Complete Edition spotted</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_worms-ultimate-mayhem-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/worms-ultimate-mayhem-release-date" class="article-title">Worms Ultimate Mayhem release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_under-the-hood-of-forza-4-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/under-the-hood-of-forza-4-interview" class="article-title">Under the Hood of Forza 4</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_why-you-cant-drive-forza-4s-warthog_thumbnail.png">
+			<a href="https://www.eurogamer.net/why-you-cant-drive-forza-4s-warthog" class="article-title">Why you can't drive Forza 4's Warthog</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_forza-4-demo-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/forza-4-demo-details" class="article-title">Forza 4 demo details</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_diablo-3-to-ship-early-2012_thumbnail.png">
+			<a href="https://www.eurogamer.net/diablo-3-to-ship-early-2012" class="article-title">Diablo 3 to ship early 2012</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_eve-developer-responds-to-outcry_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-developer-responds-to-outcry" class="article-title">Eve developer responds to outcry</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_sony-3d-visor-to-revolutionise-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-3d-visor-to-revolutionise-games" class="article-title">Sony: 3D visor to "revolutionise" games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_free-playstation-home-fps-bootlegger_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-playstation-home-fps-bootlegger" class="article-title">Free PlayStation Home FPS Bootlegger</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_team-ninja-blames-nintendo-for-metroid-story_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-ninja-blames-nintendo-for-metroid-story" class="article-title">Team Ninja: Nintendo did Metroid's story</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_rocketbirds-psn-out-by-the-end-of-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/rocketbirds-psn-out-by-the-end-of-2011" class="article-title">Rocketbirds PSN out by the end of 2011</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_katamari-amore-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/katamari-amore-release-date" class="article-title">Katamari Amore release date</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_nfs-shift-dev-reveals-new-game-c-a-r-s_thumbnail.png">
+			<a href="https://www.eurogamer.net/nfs-shift-dev-reveals-new-game-c-a-r-s" class="article-title">NFS Shift dev reveals new game C.A.R.S.</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_the-life-and-times-of-dylan-cuthbert-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-life-and-times-of-dylan-cuthbert-interview" class="article-title">The life and times of Dylan Cuthbert</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_metacritic-culls-review-bombing-users_thumbnail.png">
+			<a href="https://www.eurogamer.net/metacritic-culls-review-bombing-users" class="article-title">Metacritic culls review-bombing users</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_hector-episode-3-out-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/hector-episode-3-out-today" class="article-title">Hector Episode 3 out today</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_max-payne-3-remedy-was-consulted_thumbnail.png">
+			<a href="https://www.eurogamer.net/max-payne-3-remedy-was-consulted" class="article-title">Max Payne 3: Remedy was consulted</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_eve-online-dev-building-next-gen-tech_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-online-dev-building-next-gen-tech" class="article-title">Eve Online dev building next-gen tech</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_mercury-hg-psn-release-date-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/mercury-hg-psn-release-date-announced" class="article-title">Mercury Hg PSN release date announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_tropico-4-xbox-360-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/tropico-4-xbox-360-delayed" class="article-title">Tropico 4 Xbox 360 delayed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_valve-to-release-dota-2-as-fast-as-it-can_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-to-release-dota-2-as-fast-as-it-can" class="article-title">Valve to release Dota 2 as fast as it can</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/09/23_project-draco-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/project-draco-preview" class="article-title">Project Draco</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137961/Why-Battlefield-3-has-dropped-Commanders/" class="article-title">Why Battlefield 3 has dropped Commanders</a>
+			<div class="article-subtitle">Experience "a bit flawed".</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cursed-memories-the-secret-of-agony-creek.php" class="article-title">Cursed Memories: The Secret of Agony Creek</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/diamond-hollow-2.php" class="article-title">Diamond Hollow 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bowmaster-winter-storm.php" class="article-title">Bowmaster Winter Storm</a>
+			<div class="article-author">Kyh</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-233.php" class="article-title">Link Dump Friday №234</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

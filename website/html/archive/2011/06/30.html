@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 30, 2011</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/backbreaker-vengeance-review/1900-6321950/" class="article-title">Backbreaker: Vengeance Review</a>
+			<div class="article-subtitle">Realistic animations and a satisfying two-player mode make Backbreaker: Vengeance fun for a while, but that quickly fades away.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-malgrave-incident-review/1900-6321948/" class="article-title">The Malgrave Incident Review</a>
+			<div class="article-subtitle">Mystery Case Files: The Malgrave Incident is a captivating mystery hidden in a sometimes frustrating point-and-click adventure.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_call-of-juarez-the-cartel-multiplayer-preview_1100-6321483_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-juarez-the-cartel-multiplayer-preview/1100-6321483/" class="article-title">Call of Juarez: The Cartel Multiplayer Preview</a>
+			<div class="article-subtitle">The war on drugs knows no boundaries... including online multiplayer.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_dream-trigger-3d-preview_1100-6302292_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dream-trigger-3d-preview/1100-6302292/" class="article-title">Dream Trigger 3D Preview</a>
+			<div class="article-subtitle">Invisible enemies and rhythmic touch-screen inputs are the two big challenges in this tricky shoot-'em-up.</div>
+			<div class="article-author">Tyler Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_the-fancy-pants-adventure-preview_1100-6301596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-fancy-pants-adventure-preview/1100-6301596/" class="article-title">The Fancy Pants Adventure Preview</a>
+			<div class="article-subtitle">We slip and slide all over the place in this eccentric platformer.</div>
+			<div class="article-author">Wernher Goff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_dead-block-lands-on-xbla-july-6_1100-6321796_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-block-lands-on-xbla-july-6/1100-6321796/" class="article-title">Dead Block lands on XBLA July 6</a>
+			<div class="article-subtitle">Candygun Games' tactical zombie title arrives on Microsoft's online platform next week; scheduled to hit PlayStation Network on July 20.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_foxtel-unmetering-to-have-significant-impact-xbox-au-boss_1100-6321803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/foxtel-unmetering-to-have-significant-impact-xbox-au-boss/1100-6321803/" class="article-title">Foxtel unmetering to have significant impact: Xbox AU boss</a>
+			<div class="article-subtitle">Xbox Australia head says recent unmetering of Foxtel 360 service through Telstra will boost uptake; reiterates Microsoft has no plans for mobile handheld.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_us-game-sales-will-fall-to-216-billion-in-2011-study_1100-6321799_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-game-sales-will-fall-to-216-billion-in-2011-study/1100-6321799/" class="article-title">US game sales will fall to $21.6 billion in 2011 - Study</a>
+			<div class="article-subtitle">Market research firm Newzoo expects this year's total spend to continue declines, but 3% rebound possible for 2012.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_capcom-explains-resident-evil-mercenaries-3d-save-system-flap_1100-6321800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-explains-resident-evil-mercenaries-3d-save-system-flap/1100-6321800/" class="article-title">Capcom explains Resident Evil: Mercenaries 3D save system flap</a>
+			<div class="article-subtitle">Publisher insists inability to reset save data not intended as deterrent to used sales, was designed with arcade-style play in mind.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_bungie-aerospace-a-mobile-social-themed-partner-program_1100-6321809_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-aerospace-a-mobile-social-themed-partner-program/1100-6321809/" class="article-title">Bungie Aerospace a mobile, social-themed partner program</a>
+			<div class="article-subtitle">Original Halo studio says new label will help independents launch their games; Seattle-based Harebrained Schemes named as first partner.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_fifa-12-signs-ex-england-striker-alan-smith-as-new-commentator_1100-6321811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-12-signs-ex-england-striker-alan-smith-as-new-commentator/1100-6321811/" class="article-title">FIFA 12 signs ex-England striker Alan Smith as new commentator</a>
+			<div class="article-subtitle">Former England standout working alongside Martin Tyler in virtual broadcasting booth for this year's soccer sim; embattled Andy Gray not returning.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_call-of-duty-convention-deploys-sept-2-3_1100-6321810_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-convention-deploys-sept-2-3/1100-6321810/" class="article-title">Call of Duty convention deploys Sept. 2-3</a>
+			<div class="article-subtitle">Modern Warfare 3 multiplayer to get world premiere as 6,000 fans of blockbuster military shooter series expected to descend on Los Angeles for Call of Duty XP 2011.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_e3-2011-the-aftermath_1100-6320726_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2011-the-aftermath/1100-6320726/" class="article-title">E3 2011: The Aftermath</a>
+			<div class="article-subtitle">GameSpot's first in a series of short videos takes a look at the battle between Battlefield 3 and Modern Warfare 3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_nintendo-has-no-plans-to-localize-xenoblade_1100-6321830_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-has-no-plans-to-localize-xenoblade/1100-6321830/" class="article-title">Nintendo has 'no plans' to localize Xenoblade</a>
+			<div class="article-subtitle">Fan campaign to bring Japanese RPGs to North American Wiis suffers setback as Mario maker says nothing in the works right now.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_dead-rising-2-off-the-record-lurching-oct-11_1100-6321828_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-2-off-the-record-lurching-oct-11/1100-6321828/" class="article-title">Dead Rising 2: Off the Record lurching Oct. 11?</a>
+			<div class="article-subtitle">Capcom announces release date of upcoming Frank West-led budget spin-off, then removes mention.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_nintendo-store-update-final-fantasy-iii_1100-6321926_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-store-update-final-fantasy-iii/1100-6321926/" class="article-title">Nintendo Store Update: Final Fantasy III</a>
+			<div class="article-subtitle">Latest update headlined by Wii Virtual Console getting Super Nintendo version of Final Fantasy VI as 3DS retro shop welcomes Kirby's Dream Land.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_blizzards-new-mmog-to-be-casual-analyst_1100-6321832_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzards-new-mmog-to-be-casual-analyst/1100-6321832/" class="article-title">Blizzard's new MMOG to be 'casual' - Analyst</a>
+			<div class="article-subtitle">Sterne Agee industry watcher says World of Warcraft maker's next online game will "likely" be out in 12-24 months.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_red-fly-lays-off-30_1100-6321834_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-fly-lays-off-30/1100-6321834/" class="article-title">Red Fly lays off 30</a>
+			<div class="article-subtitle">Austin-based studio behind Mushroom Men, Wii versions of Thor, Ghostbusters cuts staff after cancellation of planned project.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2011/06/30_stronghold-3-updated-impression-preview-villagers-and-combat_1100-6321823_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stronghold-3-updated-impression-preview-villagers-and-combat/1100-6321823/" class="article-title">Stronghold 3 Updated Impression Preview - Villagers and Combat</a>
+			<div class="article-subtitle">Stronghold 3 designer Simon Bradbury stops by to give us a closer look at some of the additions to this strategy hybrid.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_dead-rising-2-otr-out-14th-october_thumbnail.png">
+			<a href="https://www.eurogamer.net/dead-rising-2-otr-out-14th-october" class="article-title">Dead Rising 2: OTR out 14th October?</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_puzzle-agent-2-on-pc-and-ios-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/puzzle-agent-2-on-pc-and-ios-today" class="article-title">Puzzle Agent 2 on PC and iOS today</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_lionhead-has-super-secret-second-project_thumbnail.png">
+			<a href="https://www.eurogamer.net/lionhead-has-super-secret-second-project" class="article-title">Lionhead has "super secret second project"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_total-war-dev-explains-mod-tools-delay_thumbnail.png">
+			<a href="https://www.eurogamer.net/total-war-dev-explains-mod-tools-delay" class="article-title">Total War dev explains mod tools delay</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_limbo-confirmed-for-psn-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/limbo-confirmed-for-psn-steam" class="article-title">Limbo confirmed for PSN, Steam</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_cancelled-square-enix-shooter-leaks_thumbnail.png">
+			<a href="https://www.eurogamer.net/cancelled-square-enix-shooter-leaks" class="article-title">Cancelled Square Enix shooter leaks</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_thq-publishing-witcher-2-on-xbox-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-publishing-witcher-2-on-xbox-360" class="article-title">THQ publishing Witcher 2 on Xbox 360</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_latest-minecraft-patch-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/latest-minecraft-patch-goes-live" class="article-title">Latest Minecraft patch goes live</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_nintendo-disappoints-us-fan-campaign_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-disappoints-us-fan-campaign" class="article-title">Nintendo disappoints US fan campaign</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_from-dust-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/from-dust-preview" class="article-title">From Dust</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_level-5-working-on-professor-layton-6_thumbnail.png">
+			<a href="https://www.eurogamer.net/level-5-working-on-professor-layton-6" class="article-title">Level-5 working on Professor Layton 6</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_professor-layton-ships-over-11-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/professor-layton-ships-over-11-million" class="article-title">Professor Layton ships over 11 million</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_professor-layton-film-coming-in-2010_thumbnail.png">
+			<a href="https://www.eurogamer.net/professor-layton-film-coming-in-2010" class="article-title">Professor Layton film coming in 2010</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_rise-of-nightmares-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/rise-of-nightmares-release-date" class="article-title">Rise of Nightmares release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_more-red-dead-redemption-dlc-coming_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-red-dead-redemption-dlc-coming" class="article-title">More Red Dead: Redemption DLC coming</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_what-bungie-aerospace-is_thumbnail.png">
+			<a href="https://www.eurogamer.net/what-bungie-aerospace-is" class="article-title">What Bungie Aerospace is</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_league-of-legends-carves-europe-in-half_thumbnail.png">
+			<a href="https://www.eurogamer.net/league-of-legends-carves-europe-in-half" class="article-title">League of Legends carves Europe in half</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_resident-evil-revelations-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/resident-evil-revelations-preview" class="article-title">Resident Evil: Revelations</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_splinter-cell-trilogy-hd-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/splinter-cell-trilogy-hd-release-date" class="article-title">Splinter Cell Trilogy HD release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_need-for-speed-the-run-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/need-for-speed-the-run-preview" class="article-title">Need for Speed The Run</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_board-game-blocks-eu-trenched-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/board-game-blocks-eu-trenched-release" class="article-title">Board game blocks Trenched EU release</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_fifa-12-has-4-commentators-but-no-gray_thumbnail.png">
+			<a href="https://www.eurogamer.net/fifa-12-has-4-commentators-but-no-gray" class="article-title">FIFA 12 has 4 commentators but no Gray</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_codcon-call-of-duty-xp-event-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/codcon-call-of-duty-xp-event-announced" class="article-title">CODCon: Call of Duty XP event announced</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2011/06/30_team-meat-starts-ambitious-new-project_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-meat-starts-ambitious-new-project" class="article-title">Team Meat starts "ambitious" project</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137400/Ratings-change-will-lead-to-fewer-games-in-NZ-warns-industry/" class="article-title">Ratings change will lead to fewer games in NZ warns industry</a>
+			<div class="article-subtitle">G, PG and M titles could be affected.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137398/Sony-appoints-new-games-boss/" class="article-title">Sony appoints new games boss</a>
+			<div class="article-subtitle">Andrew House replaces Kaz Hirai.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i137397/EA-SWTOR-has-200-hours-of-gameplay-per-class/" class="article-title">EA: SWTOR has 200 hours of gameplay per class</a>
+			<div class="article-subtitle">Excluding crafting, raiding, "multiplayer".</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i137396/Limbo-for-PS3-outed/" class="article-title">Limbo for PS3 outed</a>
+			<div class="article-subtitle">Courtesy of the Korean Rating Board.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i137401/Respawn-site-goes-live-teases-game/" class="article-title">Respawn site goes live, teases game</a>
+			<div class="article-subtitle">Ex-IW studio finally shows signs of life.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/you-are-games-letters-in-boxes-5.php" class="article-title">You Are Games: Letters In Boxes #5</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/racing-comrade.php" class="article-title">Racing Comrade</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/team-escaper-escape-castle.php" class="article-title">Team Escaper: Escape Castle</a>
+			<div class="article-author">elle</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

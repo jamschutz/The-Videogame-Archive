@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 13, 2010</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/maestro-jump-in-music-review/1900-6246271/" class="article-title">Maestro! Jump in Music Review</a>
+			<div class="article-subtitle">Maestro combines rhythm and platforming to make a charming little adventure that is enjoyable and rewarding, providing you like classical music.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/twin-sector-review/1900-6246334/" class="article-title">Twin Sector Review</a>
+			<div class="article-subtitle">This dull physics-based puzzle game is neither charming nor exciting, and most importantly, it isn't fun.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/0-day-attack-on-earth-review/1900-6246344/" class="article-title">0 Day Attack on Earth Review</a>
+			<div class="article-subtitle">Terrible AI and repetitive action makes 0 Day Attack on Earth a frustratingly difficult grind.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/army-of-two-the-40th-day-review/1900-6246380/" class="article-title">Army of Two: The 40th Day Review</a>
+			<div class="article-subtitle">The 40th Day has the same shallow appeal as a summer blockbuster. It provides brash, satisfying action when you're in the mood for something loud and fun.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/army-of-two-the-40th-day-review/1900-6246376/" class="article-title">Army of Two: The 40th Day Review</a>
+			<div class="article-subtitle">The 40th Day has the same shallow appeal as a summer blockbuster. It provides brash, satisfying action when you're in the mood for something loud and fun.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_singularity-delayed-again-retail-radar_1100-6246291_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singularity-delayed-again-retail-radar/1100-6246291/" class="article-title">Singularity delayed again? - Retail Radar</a>
+			<div class="article-subtitle">GameStop, Best Buy now expecting Raven Software's time-bending shooter in June; Amazon sticks to March window.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_splinter-cell-conviction-ruse-delayed_1100-6246314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/splinter-cell-conviction-ruse-delayed/1100-6246314/" class="article-title">Splinter Cell: Conviction, R.U.S.E. delayed</a>
+			<div class="article-subtitle">Ubisoft once again delays stealth actioner, this time to April; all-new WWII strategy title bumped to next fiscal year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_modern-warfare-2-sales-top-1-billion_1100-6246316_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modern-warfare-2-sales-top-1-billion/1100-6246316/" class="article-title">Modern Warfare 2 sales top $1 billion</a>
+			<div class="article-subtitle">Gamers answer the latest Call of Duty in droves, push first-person shooter's worldwide sales total to 10 digits in two months.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_netflix-wii-bound-this-spring_1100-6246308_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflix-wii-bound-this-spring/1100-6246308/" class="article-title">Netflix Wii-bound this spring</a>
+			<div class="article-subtitle">[UPDATE] US movie-rental house officially announces streaming support for last of the "Big Three" consoles will arrive soon at no additional cost to Netflix subscribers; analysts unimpressed.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_ncaa-football-10-what-would-you-change_1100-6246323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ncaa-football-10-what-would-you-change/1100-6246323/" class="article-title">NCAA Football 10: What Would You Change?</a>
+			<div class="article-subtitle">College football has wrapped, but work on NCAA Football 11 is going strong. What do you want to see out of NCAA 11's gameplay?</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_square-enixs-fantasy-earth-mmo-headed-to-us_1100-6246324_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enixs-fantasy-earth-mmo-headed-to-us/1100-6246324/" class="article-title">Square Enix's Fantasy Earth MMO headed to US</a>
+			<div class="article-subtitle">Final Fantasy publisher's free-to-play online title confirmed for North American launch later this year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_silent-hill-shattered-memories-hands-on_1100-6246328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/silent-hill-shattered-memories-hands-on/1100-6246328/" class="article-title">Silent Hill: Shattered Memories Hands-On</a>
+			<div class="article-subtitle">We take a trip through the PSP version of the latest Silent Hill game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_ubisoft-cuts-full-year-earnings-forecast_1100-6246325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-cuts-full-year-earnings-forecast/1100-6246325/" class="article-title">Ubisoft cuts full-year earnings forecast</a>
+			<div class="article-subtitle">Publisher shaves 12-month revenue to $1.25 billion; casual weakness leads to "refocus" on 360, PS3 development; new Driver, Raving Rabbids due by March 2011.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_glory-of-heracles-qanda_1100-6246339_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/glory-of-heracles-qanda/1100-6246339/" class="article-title">Glory of Heracles Q&A </a>
+			<div class="article-subtitle">Scenario writer Kazushige Nojima shares his thought process and inspiration for writing for video games.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_assassins-creed-ii-sells-6-million-mp-episode-incoming_1100-6246318_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-ii-sells-6-million-mp-episode-incoming/1100-6246318/" class="article-title">Assassin's Creed II sells 6 million, MP 'episode' incoming</a>
+			<div class="article-subtitle">[UPDATE] Ubisoft's stealth action adventure hits new multiplatinum milestone; new, standalone product introducing online multiplayer by March 2011.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_mass-effect-2-launch-center_1100-6246343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-2-launch-center/1100-6246343/" class="article-title">Mass Effect 2 Launch Center</a>
+			<div class="article-subtitle">In space, no one can...hear you smash a geth into the wall with biotics? Check our Mass Effect 2 launch center for all the latest news, previews, movies, and more!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_super-monkey-ball-step-and-roll-updated-hands-on-impressions_1100-6246297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-monkey-ball-step-and-roll-updated-hands-on-impressions/1100-6246297/" class="article-title">Super Monkey Ball: Step and Roll Updated Hands-On Impressions</a>
+			<div class="article-subtitle">We monkey around with the new control scheme and find out just how hard it really is to roll a ball in Super Monkey Ball: Step and Roll.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2010/01/13_lips-sings-party-classics-march-2_1100-6246357_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lips-sings-party-classics-march-2/1100-6246357/" class="article-title">Lips sings Party Classics March 2</a>
+			<div class="article-subtitle">Microsoft's Xbox 360-exclusive karaoke rhythm game brings 40 new on-dics tracks from Spice Girls, KISS, Village People, more; January DLC detailed.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_coming-attractions-2010-mmos-and-rpgs-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/coming-attractions-2010-mmos-and-rpgs-article" class="article-title">Coming Attractions: MMOs & RPGs</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_ms-launches-game-maker-kodu-on-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-launches-game-maker-kodu-on-pc" class="article-title">MS launches game-maker Kodu on PC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_only-bad-wii-games-sell-badly-bloober_thumbnail.png">
+			<a href="https://www.eurogamer.net/only-bad-wii-games-sell-badly-bloober" class="article-title">Only bad Wii games sell badly - Bloober</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_ten-best-selling-games-of-2009-led-by-modern-warfare-2-7_thumbnail.png">
+			<a href="https://www.eurogamer.net/ten-best-selling-games-of-2009-led-by-modern-warfare-2-7" class="article-title">Modern Warfare 2 wins 2009 in UK</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_coming-attractions-fighting-puzzle-and-arcade-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/coming-attractions-fighting-puzzle-and-arcade-article" class="article-title">Coming Attractions: Fighting, Puzzle & Arcade</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_wiis-metroid-m-arriving-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/wiis-metroid-m-arriving-this-year" class="article-title">Wii's Metroid M arriving this year</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_mag-clips-onto-solid-uk-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/mag-clips-onto-solid-uk-date" class="article-title">MAG clips onto solid UK date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_ms-announces-new-lips-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-announces-new-lips-game" class="article-title">MS announces new Lips game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_ffxiii-has-plenty-of-dlc-material-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/ffxiii-has-plenty-of-dlc-material-report" class="article-title">Loads of content cut from FFXIII - report</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_next-ds-wont-have-motion-sensor-after-all_thumbnail.png">
+			<a href="https://www.eurogamer.net/next-ds-wont-have-motion-sensor-after-all" class="article-title">Next DS won't have motion sensor after all</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_european-sto-open-beta-begins_thumbnail.png">
+			<a href="https://www.eurogamer.net/european-sto-open-beta-begins" class="article-title">Euro Star Trek Online open beta begins</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_bach-70-80-percent-of-pubs-doing-natal-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/bach-70-80-percent-of-pubs-doing-natal-games" class="article-title">Bach: 70-80% of pubs doing Natal games</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_gran-turismo-5-delayed-again_thumbnail.png">
+			<a href="https://www.eurogamer.net/gran-turismo-5-delayed-again" class="article-title">Gran Turismo 5 delayed again</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_sony-europe-comments-on-gt5-delay_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-europe-comments-on-gt5-delay" class="article-title">Sony Europe comments on GT5 delay</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_nintendo-trademarks-wii-relax-in-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-trademarks-wii-relax-in-us" class="article-title">Nintendo trademarks Wii Relax in US</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_tekken-6-patch-adds-campaign-co-op_thumbnail.png">
+			<a href="https://www.eurogamer.net/tekken-6-patch-adds-campaign-co-op" class="article-title">Tekken 6 patch adds campaign co-op</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_ea-polling-about-woods-controversy_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-polling-about-woods-controversy" class="article-title">EA polling about Woods "controversy"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_capcom-making-gamers-game-for-natal_thumbnail.png">
+			<a href="https://www.eurogamer.net/capcom-making-gamers-game-for-natal" class="article-title">Capcom making "gamer's game" for Natal</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_bioware-confirms-swtor-for-spring-2011_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioware-confirms-swtor-for-spring-2011" class="article-title">BioWare confirms SWTOR for spring 2011</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_3d-dot-game-heroes-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/3d-dot-game-heroes-review" class="article-title">3D Dot Game Heroes</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2010/01/13_iphone-random-roundup-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/iphone-random-roundup-review" class="article-title">iPhone Roundup</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134361/Snippets-RDR-in-trouble-GT5-demo-hits-1m-RROD-foils-thief-Cameron-Avatar-vs.-Halo/" class="article-title">Snippets: RDR in trouble?, GT5 demo hits 1m, RROD foils thief, Cameron: Avatar vs. Halo</a>
+			<div class="article-subtitle">Cameron teabags "fanboys".</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/i134358/Star-Wars-The-Old-Republic-dated/" class="article-title">Star Wars: The Old Republic dated</a>
+			<div class="article-subtitle">Yesterday’s rumours confirmed.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i134357/Rebellion-close-Derby-studio/" class="article-title">Rebellion close Derby studio</a>
+			<div class="article-subtitle">AVP dev shuts down one of its shops.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i134356/Halo-Reach-detailed/" class="article-title">Halo: Reach detailed</a>
+			<div class="article-subtitle">Motion capture introduced.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/ring-pass-not-2.php" class="article-title">Ring Pass Not 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cast-your-votes-for-the-best-of-casual-gameplay-2009.php" class="article-title">Cast your votes for the Best of Casual Gameplay 2009!</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/alice-is-dead-episode-two.php" class="article-title">Alice is Dead: Episode Two</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/escape-from-bed-room.php" class="article-title">Escape From Bed Room</a>
+			<div class="article-author">grinnyp</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
