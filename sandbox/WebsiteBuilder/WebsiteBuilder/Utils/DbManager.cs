@@ -99,6 +99,37 @@ namespace WebsiteBuilder
 
             return results;
         }
+
+
+        public List<string> GetAllPublicationNames()
+        {
+            var results = new List<string>();
+
+            string query = $@"
+                SELECT 
+                    Name
+                FROM 
+                    Website
+            ";
+            using (var connection = new SQLiteConnection($"Data Source={Config.DatabaseFile}"))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = query;
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string publication = reader.GetString(0);
+                        results.Add(publication);
+                    }
+                }
+            }
+
+            return results;
+        }
         
 
 

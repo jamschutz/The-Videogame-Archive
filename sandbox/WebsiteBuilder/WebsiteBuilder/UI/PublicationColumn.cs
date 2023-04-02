@@ -35,7 +35,7 @@ namespace WebsiteBuilder.UI
 
             // add articles
             if (articles.Length == 0) {
-                html.AppendLine($"{extraIndentation}< p class=\"no-article-msg\">No articles found for this date.</p>");
+                html.AppendLine($"{extraIndentation}<p class=\"no-article-msg\">No articles found for this date.</p>");
             }
             else {
                 string articleIndentation = $"{extraIndentation}\t";

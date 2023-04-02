@@ -19,6 +19,7 @@ namespace WebsiteBuilder
             int day = 13;
 
             DbManager dbManager = new DbManager();
+            List<string> publications = dbManager.GetAllPublicationNames();
 
             HtmlHead htmlHead = new HtmlHead();
             Calendar calendar = new Calendar(dbManager);
@@ -26,7 +27,7 @@ namespace WebsiteBuilder
             Console.WriteLine("fetching articles...");
             var articles = dbManager.GetArticlesPublishedOnDate(20031013);
             Console.WriteLine("building publication columns...");
-            var publicationColumns = GetPublicationColumns(articles);
+            var publicationColumns = GetPublicationColumns(articles, publications);
 
             StringBuilder publicationColumnsHtml = new StringBuilder(800 * articles.Length + 800 * publicationColumns.Count);
             foreach (var publicationColumn in publicationColumns) {
@@ -76,14 +77,14 @@ namespace WebsiteBuilder
         }
 
 
-        private static List<PublicationColumn> GetPublicationColumns(Article[] articles)
+        private static List<PublicationColumn> GetPublicationColumns(Article[] articles, List<string> publications)
         {
             Dictionary<string, List<Article>> publicationArticles = new Dictionary<string, List<Article>>();
-            foreach (var article in articles) {
-                if (!publicationArticles.ContainsKey(article.website)) {
-                    publicationArticles[article.website] = new List<Article>();
-                }
+            foreach (var publication in publications) {
+                publicationArticles[publication] = new List<Article>();
+            }
 
+            foreach (var article in articles) {
                 publicationArticles[article.website].Add(article);
             }
 
