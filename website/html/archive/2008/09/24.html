@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 24, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rhapsody-a-musical-adventure-review/1900-6198103/" class="article-title">Rhapsody: A Musical Adventure Review</a>
+			<div class="article-subtitle">Rhapsody: A Musical Adventure is a lovely remake of a niche PlayStation classic, but it still lacks broad appeal.</div>
+			<div class="article-author">Shiva Stella</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-09-review/1900-6197801/" class="article-title">NHL 09 Review</a>
+			<div class="article-subtitle">The latest entry in EA's venerable hockey franchise is the best yet.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rocketbowl-review/1900-6198158/" class="article-title">RocketBowl Review</a>
+			<div class="article-subtitle">RocketBowl reinvents bowling through the introduction of rockets and minigolf-style courses, but isn't nearly as much fun as it sounds.</div>
+			<div class="article-author">Anthony Perez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_gsuk-playtv-hands-on_1100-6197888_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gsuk-playtv-hands-on/1100-6197888/" class="article-title">GSUK: PlayTV Hands-On</a>
+			<div class="article-subtitle">PlayTV is Sony's latest attempt to turn the PlayStation 3 into an all-in-one home entertainment system.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_e3-2008-nintendo-scores-wii-music-gta-for-ds-wii-sports-resort_1100-6193856_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2008-nintendo-scores-wii-music-gta-for-ds-wii-sports-resort/1100-6193856/" class="article-title">E3 2008: Nintendo scores Wii Music, GTA for DS, Wii Sports Resort</a>
+			<div class="article-subtitle">Mario and Link were nowhere to be seen at press conference, but Miyamoto's outfit made waves with Animal Crossing: City Folk, the WiiSpeak peripheral, and more.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_community-game-night-street-fighter-ii-hf360_1100-6234365_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/community-game-night-street-fighter-ii-hf360/1100-6234365/" class="article-title">Community Game Night - Street Fighter II' HF(360)</a>
+			<div class="article-subtitle">Pre-registration is now closed for our live event. However, everyone can still participate next Tuesday night for the online portion of the event. Street Fighter II' Hyper Fighting (360) will be the game played next week. Note that this is not an online tournament. The big difference is being able...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_littlebigplanet-enters-retail-orbit-october-21_1100-6197927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/littlebigplanet-enters-retail-orbit-october-21/1100-6197927/" class="article-title">LittleBigPlanet enters retail orbit October 21</a>
+			<div class="article-subtitle">Media Molecule's PS3 exclusive has gone gold; early inhabitants to get free in-game SackBoy apparel.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_gametap-merging-with-european-counterpart_1100-6198139_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gametap-merging-with-european-counterpart/1100-6198139/" class="article-title">GameTap merging with European counterpart</a>
+			<div class="article-subtitle">Turner Broadcasting to transfer control of PC downloadable-game service to Paris-based Metaboli by early next year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_dark-athena-just-about-done_1100-6198151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-athena-just-about-done/1100-6198151/" class="article-title">Dark Athena 'just about done'</a>
+			<div class="article-subtitle">Swedish developer Starbreeze confirms its expanded Chronicles of Riddick remake is nearing completion; publisher still TBD.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_xbox-live-offline-next-monday_1100-6198112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-offline-next-monday/1100-6198112/" class="article-title">Xbox Live offline next Monday</a>
+			<div class="article-subtitle">Microsoft online-gaming service to be taken down for up to 24 hours to prepare for this fall's "New Xbox Experience" dashboard update.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_2015-spins-off-tornado-studios_1100-6198145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2015-spins-off-tornado-studios/1100-6198145/" class="article-title">2015 spins off Tornado Studios </a>
+			<div class="article-subtitle">Medal of Honor: Allied Assault developer's newly formed division to focus on casual and mass-market gaming.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_ultimate-band-updated-hands-on_1100-6198041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-band-updated-hands-on/1100-6198041/" class="article-title">Ultimate Band Updated Hands-On</a>
+			<div class="article-subtitle">We motion-control our way through a kid-friendly rhythm game that takes its story mode seriously.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_level-5-taps-studio-ghibli-for-ds-game_1100-6198160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/level-5-taps-studio-ghibli-for-ds-game/1100-6198160/" class="article-title">Level 5 taps Studio Ghibli for DS game</a>
+			<div class="article-subtitle">Animation house behind <i>Spirited Away</i> collaborates with Professor Leyton developer on upcoming project.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_spore-spawns-1-million-sales_1100-6198159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spore-spawns-1-million-sales/1100-6198159/" class="article-title">Spore spawns 1 million sales</a>
+			<div class="article-subtitle">Despite piracy, EA and Maxis' evolution sim goes platinum in one week; Sporepedia surpasses 25 million creations.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_caen-talks-fallout-mmorpg-as-interplays-finances-dwindle_1100-6101470_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/caen-talks-fallout-mmorpg-as-interplays-finances-dwindle/1100-6101470/" class="article-title">Caen talks Fallout MMORPG as Interplay's finances dwindle</a>
+			<div class="article-subtitle">CEO Herve Caen looks on the bright side as his company reports it will run out of money by the end of July.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_ensemble-dev-speaks-out-on-closure_1100-6198093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ensemble-dev-speaks-out-on-closure/1100-6198093/" class="article-title">Ensemble dev speaks out on closure</a>
+			<div class="article-subtitle">Age of Empires creator Bruce Shelley says team was shocked, disappointed; adds he won't be working at upstart offshoot.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_interplay-restarting-dev-studio_1100-6182846_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interplay-restarting-dev-studio/1100-6182846/" class="article-title">Interplay restarting dev studio</a>
+			<div class="article-subtitle">Company says it will make new installments of Earthworm Jim, Descent, MDK, Dark Alliance if it can get the money.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_interplay-planning-fallout-mmo-game_1100-6163235_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interplay-planning-fallout-mmo-game/1100-6163235/" class="article-title">Interplay planning Fallout MMO game</a>
+			<div class="article-subtitle">Long-dormant publisher files "confidential" information about proposed $75 million project with Securities and Exchange Commission.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_interplay-back-in-black-still-seeking-fallout-mmog-funding_1100-6176709_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interplay-back-in-black-still-seeking-fallout-mmog-funding/1100-6176709/" class="article-title">Interplay back in black, still seeking Fallout MMOG funding</a>
+			<div class="article-subtitle">Once-mighty publisher posts profit following July Fallout IP sale, says postnuclear massively multiplayer RPG remains "key" to future.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/09/24_might-and-magic-creator-nets-70m-in-vc_1100-6198165_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/might-and-magic-creator-nets-70m-in-vc/1100-6198165/" class="article-title">Might and Magic creator nets $70M in VC</a>
+			<div class="article-subtitle">Latest funding pushes Trion World Network's bankroll above $100 million; money split between two MMOG projects.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_peggle-xbla-to-feature-four-player-mode_thumbnail.png">
+			<a href="https://www.eurogamer.net/peggle-xbla-to-feature-four-player-mode" class="article-title">Peggle XBLA to feature four-player mode</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_buzz-ps3-special-edition-for-christmas_thumbnail.png">
+			<a href="https://www.eurogamer.net/buzz-ps3-special-edition-for-christmas" class="article-title">Buzz! PS3 special edition for Christmas</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_ea-threatens-to-cancel-spore-accounts_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-threatens-to-cancel-spore-accounts" class="article-title">EA threatens to cancel Spore accounts</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_mega-man-9-gets-a-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/mega-man-9-gets-a-release-date" class="article-title">Mega Man 9 gets a release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_no-team-fortress-2-updates-for-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-team-fortress-2-updates-for-ps3" class="article-title">No Team Fortress 2 updates for PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_drug-dealing-mini-game-for-gta-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/drug-dealing-mini-game-for-gta-ds" class="article-title">Drug-dealing mini-game for GTA DS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_xbox-live-users-back-barack_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-users-back-barack" class="article-title">Xbox Live users back Barack</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_level-5-doing-horror-rpg-for-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/level-5-doing-horror-rpg-for-psp" class="article-title">Level-5 doing horror RPG for PSP</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_downtime-planned-for-live-this-monday_thumbnail.png">
+			<a href="https://www.eurogamer.net/downtime-planned-for-live-this-monday" class="article-title">Downtime planned for Live this Monday</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_interplays-fallout-mmo-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/interplays-fallout-mmo-confirmed" class="article-title">Interplay's Fallout MMO confirmed</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_force-unleashed-sales-total-15-million_thumbnail.png">
+			<a href="https://www.eurogamer.net/force-unleashed-sales-total-15-million" class="article-title">Force Unleashed sales total 1.5 million</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/09/24_duke-nukem-3d-for-xbla-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/duke-nukem-3d-for-xbla-today" class="article-title">Duke Nukem 3D for XBLA today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132389/More-Far-Cry-2-trailers-released/" class="article-title">More Far Cry 2 trailers released</a>
+			<div class="article-subtitle">Environmental effects detailed.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132386/LEGO-Batman-launch-trailer-released/" class="article-title">LEGO Batman launch trailer released</a>
+			<div class="article-subtitle">Caped Crusader kicks bricks.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132385/Dragon-Age-Origins-screenshots/" class="article-title">Dragon Age: Origins screenshots</a>
+			<div class="article-subtitle">More from BioWare's RPG.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132390/Force-Unleashed-fastest-selling-Star-Wars-game/" class="article-title">Force Unleashed: fastest selling Star Wars game</a>
+			<div class="article-subtitle">1.5m sold in a week.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/lab-escape.php" class="article-title">Lab Escape</a>
+			<div class="article-author">Jess</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/retro-room.php" class="article-title">Retro Room</a>
+			<div class="article-author">Jess</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-escape-5.php" class="article-title">Weekday Escape</a>
+			<div class="article-author">Jess</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/09/24_2008_09_24_multiwinia-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/09/24/multiwinia-2/" class="article-title">Multiwinia</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

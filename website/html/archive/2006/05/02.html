@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 2, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_alone-in-the-dark-goes-episodic_1100-6148729_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alone-in-the-dark-goes-episodic/1100-6148729/" class="article-title">Alone in the Dark goes episodic</a>
+			<div class="article-subtitle">Atari announces a new structure for the next generation of its action survival game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_project-gotham-races-onto-mobiles_1100-6148730_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/project-gotham-races-onto-mobiles/1100-6148730/" class="article-title">Project Gotham races onto mobiles</a>
+			<div class="article-subtitle">Microsoft signs up Glu Mobile to produce a mobile version of Project Gotham Racing.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_xbox-live-closed-for-maintenance_1100-6148731_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-closed-for-maintenance/1100-6148731/" class="article-title">Xbox Live closed for maintenance</a>
+			<div class="article-subtitle">Microsoft has temporarily taken its Xbox.com and Xbox Live services offline.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_codemasters-signs-up-overlord-for-pc-x360_1100-6148732_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-signs-up-overlord-for-pc-x360/1100-6148732/" class="article-title">Codemasters signs up Overlord for PC, X360</a>
+			<div class="article-subtitle">Triumph Studios' dark fantasy game has been picked up by the UK publisher for a 2007 release.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_tournament-seeks-the-best-of-british-gamers_1100-6148735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tournament-seeks-the-best-of-british-gamers/1100-6148735/" class="article-title">Tournament seeks the best of British gamers</a>
+			<div class="article-subtitle">Winners will go through to the Electronic Sports World Cup UK Finals.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_snk-playmore-pledges-support-for-wii-ds_1100-6148756_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/snk-playmore-pledges-support-for-wii-ds/1100-6148756/" class="article-title">SNK Playmore pledges support for Wii, DS</a>
+			<div class="article-subtitle">Publisher to put out games for Nintendo's consoles, Wii to get Metal Slug Anthology, while SNK vs. Capcom Card Fighters DS is set for US release.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_half-life-2-episode-one-set-for-preload_1100-6148728_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/half-life-2-episode-one-set-for-preload/1100-6148728/" class="article-title">Half-Life 2: Episode One set for preload</a>
+			<div class="article-subtitle">Discount offered for preorders of the first episode.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_kingdom-hearts-ii-sells-1-million-in-north-america_1100-6148789_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kingdom-hearts-ii-sells-1-million-in-north-america/1100-6148789/" class="article-title">Kingdom Hearts II sells 1 million in North America</a>
+			<div class="article-subtitle">One million units of Square Enix's second Final Fantasy, Disney fusion sold in North America since its release in March.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_gdc-06-ps3-due-early-november-warhawk-playable-at-e3_1100-6146417_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gdc-06-ps3-due-early-november-warhawk-playable-at-e3/1100-6146417/" class="article-title">GDC 06: PS3 due "early" November, Warhawk playable at E3</a>
+			<div class="article-subtitle">Sony's keynote tweaks launch date, reveals attendees at May expo will be able to play the next-gen console.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_lara-gets-date-with-nintendo_1100-6148812_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lara-gets-date-with-nintendo/1100-6148812/" class="article-title">Lara gets date with Nintendo</a>
+			<div class="article-subtitle">Latest Tomb Raider game makes Legendary series debut on GameCube, DS this fall; Game Boy Advance version also shipping out later this year.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_midway-shoots-three-on-the-psp_1100-6125399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midway-shoots-three-on-the-psp/1100-6125399/" class="article-title">Midway shoots three on the PSP</a>
+			<div class="article-subtitle">Mortal Kombat, NBA Ballers, and Midway Arcade Treasures are coming to Sony's portable later this year.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_vu-games-posts-results-changes-name_1100-6148056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vu-games-posts-results-changes-name/1100-6148056/" class="article-title">VU Games posts results, changes name</a>
+			<div class="article-subtitle">Vivendi division posts another sales spike attributed to World of Warcraft, drops the "Universal" from its name.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_uk-game-charts-april-16-22_1100-6148456_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-april-16-22/1100-6148456/" class="article-title">UK Game Charts: April 16-22</a>
+			<div class="article-subtitle">Tomb Raider: Legend claims the top spot for the third week in a row, with Ice Age 2: The Meltdown another non-mover in second place.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/02_how-to-make-your-own-videos_1100-6148616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-to-make-your-own-videos/1100-6148616/" class="article-title">How to Make Your Own Videos</a>
+			<div class="article-subtitle">We put together this guide to show you what kind of equipment and software you need to get started on making videos for the Internet.</div>
+			<div class="article-author">Craig Beers</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506xble3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506xble3" class="article-title">MS details E3 demos, trailers to be offered through Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506assassinscreed_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506assassinscreed" class="article-title">Ubi's Assassin's Creed for PS3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_r-echonight-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-echonight-ps2" class="article-title">Echo Night: Beyond</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506overlord_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506overlord" class="article-title">Codies announces Overlord</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506armyoftwo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506armyoftwo" class="article-title">EA's first original next-gen title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506ghostrider_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506ghostrider" class="article-title">2K Games signs Ghost Rider</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506mgsmovie_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506mgsmovie" class="article-title">Kojima confirms MGS movie</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506koeie3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506koeie3" class="article-title">Koei talks E3 line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_i-richardgarriot-tabulapr_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-richardgarriot-tabulapr" class="article-title">Richard Garriott talks Tabula Rasa</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506reggieracer_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506reggieracer" class="article-title">Reggie hints at Wii racer</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_r-evolutiongt-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-evolutiongt-pc" class="article-title">Evolution GT</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506fullauto2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506fullauto2" class="article-title">Full Auto turns to PlayStation 3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506aitd_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506aitd" class="article-title">Alone in the Dark story details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506darkcrusade_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506darkcrusade" class="article-title">Relic talks up Dark Crusade</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506halo3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506halo3" class="article-title">Halo 3 at MS conference?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506enchantedarms_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506enchantedarms" class="article-title">Ubi to publish Enchanted Arms</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506gtr360_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506gtr360" class="article-title">THQ to bring GTR to Xbox 360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506bf2booster_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506bf2booster" class="article-title">BF2 Armored Fury details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506riseoflegends_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506riseoflegends" class="article-title">New Rise of Legends demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506xbl_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506xbl" class="article-title">Xbox Live down for maintenance</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news020506hl2preload_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020506hl2preload" class="article-title">HL2 Episode One pre-loading</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_r-iceage2-xb_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-iceage2-xb" class="article-title">Ice Age 2: The Meltdown</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_news270406nintendowii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270406nintendowii" class="article-title">Revolution's real name</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/02_r-2006fifaworldcup-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-2006fifaworldcup-x360" class="article-title">2006 FIFA World Cup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127341/140-Marvel-heroes-together-on-new-all-gen-title/" class="article-title">140 Marvel heroes together on new all-gen title</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127339/New-animation-system-to-be-used-in-Indiana-Jones/" class="article-title">New animation system to be used in Indiana Jones</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127340/New-technology-allows-ads-in-old-games/" class="article-title">New technology allows ads in old games</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/puzzled-sheep.php" class="article-title">Puzzled Sheep</a>
+			<div class="article-author">Noah</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

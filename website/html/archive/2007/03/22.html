@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 22, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bio-hazard-battle-review/1900-6167819/" class="article-title">Bio-Hazard Battle Review</a>
+			<div class="article-subtitle">Bio-Hazard Battle is a solid horizontal-scrolling shooter loaded with creepy-crawly enemies.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/castlevania-symphony-of-the-night-review/1900-6167833/" class="article-title">Castlevania: Symphony of the Night Review</a>
+			<div class="article-subtitle">Symphony of the Night was an amazing adventure back in 1997, and even after 10 years, it's still most definitely worth playing.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/after-burner-black-falcon-review/1900-6167936/" class="article-title">After Burner: Black Falcon Review</a>
+			<div class="article-subtitle">This straight-ahead arcade action game hits its mark with a good deal of enthusiasm.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/earth-defense-force-2017-review/1900-6167928/" class="article-title">Earth Defense Force 2017 Review</a>
+			<div class="article-subtitle">As archaic and clumsy as it can be, Earth Defense Force 2017 succeeds because of what a ridiculous bit of dumb fun it is.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_overlord-update-minions_1100-6167859_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overlord-update-minions/1100-6167859/" class="article-title">Overlord Update - Minions</a>
+			<div class="article-subtitle">Codemasters releases new information on the upcoming action adventure game in which you get to play as the bad guy.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_sins-of-a-solar-empire-beta-unveiled_1100-6167856_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sins-of-a-solar-empire-beta-unveiled/1100-6167856/" class="article-title">Sins of a Solar Empire beta unveiled</a>
+			<div class="article-subtitle">Preorders of first "RT4X" game from Stardock granted entrance to testing period; game combines tactical combat with "grand-scale space strategy."</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_lasky-leaves-ea-mobile_1100-6167858_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lasky-leaves-ea-mobile/1100-6167858/" class="article-title">Lasky leaves EA Mobile</a>
+			<div class="article-subtitle">Jamdat founder departs Electronic Arts to become general partner at high-tech venture capital firm.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_ps3-on-sale-early-in-italy_1100-6167863_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-on-sale-early-in-italy/1100-6167863/" class="article-title">PS3 on sale early in Italy</a>
+			<div class="article-subtitle">Sony slams the decision made by two retailers to break the street date.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_ps3-launches-in-australia_1100-6167862_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-launches-in-australia/1100-6167862/" class="article-title">PS3 launches in Australia</a>
+			<div class="article-subtitle">Sony's latest console goes on sale in Australia; hundreds of retail stores opened for midnight launches.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_sony-ffxiii-ps3-exclusivity-under-discussion_1100-6167864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-ffxiii-ps3-exclusivity-under-discussion/1100-6167864/" class="article-title">Sony: FFXIII PS3 exclusivity under discussion</a>
+			<div class="article-subtitle">Sony France executive says in interview that Square Enix's latest installment may not be exclusive to the console after all.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_poirot-investigates-again-on-pc_1100-6167865_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/poirot-investigates-again-on-pc/1100-6167865/" class="article-title">Poirot investigates again on PC</a>
+			<div class="article-subtitle">Third instalment in the Agatha Christie adventure series announced.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_aussie-ps3-launch-events-draw-modest-crowds_1100-6167868_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-ps3-launch-events-draw-modest-crowds/1100-6167868/" class="article-title">Aussie PS3 launch events draw modest crowds</a>
+			<div class="article-subtitle">Hundreds show up for midnight launches across Australia; retailers boasting record presales amounts.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_new-wii-browser-coming-in-april_1100-6167869_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-wii-browser-coming-in-april/1100-6167869/" class="article-title">New Wii browser coming in April</a>
+			<div class="article-subtitle">Final version of Opera-powered Web-surfing utility pushed back a few weeks to add more features.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_the-ps3-in-profile-an-aussie-guide_1100-6167779_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-ps3-in-profile-an-aussie-guide/1100-6167779/" class="article-title">The PS3 in Profile: An Aussie Guide</a>
+			<div class="article-subtitle">The months of waiting for Aussie PlayStation fans is finally over this week, with the PlayStation 3 hitting shops Down Under on March 23. So what can local gamers expect from Sony's latest console?</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_euro-ps3-games-get-downloadable-content_1100-6167883_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/euro-ps3-games-get-downloadable-content/1100-6167883/" class="article-title">Euro PS3 games get downloadable content</a>
+			<div class="article-subtitle">Ridge Racer 7 and Genji get add-ons starting tomorrow; Resistance and MotorStorm bonuses to follow in coming months.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_boogie-shuffles-onto-wii_1100-6167888_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/boogie-shuffles-onto-wii/1100-6167888/" class="article-title">Boogie shuffles onto Wii</a>
+			<div class="article-subtitle">New game from EA Montreal has cartoon characters dancing, singing in rhythm-based music game; Wii exclusive to launch worldwide in 2007.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_euro-psn-lineup-released_1100-6167886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/euro-psn-lineup-released/1100-6167886/" class="article-title">Euro PSN lineup released</a>
+			<div class="article-subtitle">Eight downloadable titles coming between now and the end of April, four available for launch day.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_sierra-exec-takes-over-high-moon-studios_1100-6167912_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sierra-exec-takes-over-high-moon-studios/1100-6167912/" class="article-title">Sierra exec takes over High Moon Studios</a>
+			<div class="article-subtitle">Darkwatch developer's founder moves into advisory role as parent company's worldwide studios COO takes president position.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_nascar-goes-for-another-lap_1100-6167906_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nascar-goes-for-another-lap/1100-6167906/" class="article-title">NASCAR goes for another lap</a>
+			<div class="article-subtitle">Car racing game heading to Xbox 360s and PlayStation 3s this summer; Tony Stewart takes checkered flag on cover athlete honors.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_ms-xbox-live-security-uncompromised_1100-6167900_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ms-xbox-live-security-uncompromised/1100-6167900/" class="article-title">MS: Xbox Live security uncompromised</a>
+			<div class="article-subtitle">Microsoft addresses recent reports of gamers' online accounts being hijacked and credit cards being charged for unwanted Microsoft points.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_boogie-first-look_1100-6167918_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/boogie-first-look/1100-6167918/" class="article-title">Boogie First Look</a>
+			<div class="article-subtitle">EA's Montreal studio will have Wii owners shaking their moneymakers later this year, and we found out how.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_mythos-detailed-will-be-free_1100-6167915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mythos-detailed-will-be-free/1100-6167915/" class="article-title">Mythos detailed, will be free</a>
+			<div class="article-subtitle">MMORPG from Flagship's Seattle studio will be free to download, free to play; engine based on technology powering Hellgate: London's multiplayer.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_daily-downloads-3-22-new-mp-missions-enlist-in-army_1100-6167933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-downloads-3-22-new-mp-missions-enlist-in-army/1100-6167933/" class="article-title">Daily Downloads 3/22: New MP missions enlist in Army</a>
+			<div class="article-subtitle">New America's Army patch, updates for Battlefield 2142 and Silent Hunter 4, and plenty of desktop wallpapers hit GameSpot Downloads.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/22_retail-radar-katamari-ps3-and-wii-project-silpheed-us-bound_1100-6167932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retail-radar-katamari-ps3-and-wii-project-silpheed-us-bound/1100-6167932/" class="article-title">Retail Radar: Katamari PS3 and Wii, Project Silpheed US bound?</a>
+			<div class="article-subtitle">Online storefronts suggest a multiplatform return for Namco's sticky ball, summer release for Square Enix Xbox 360 shooter at a budget price point.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_sonys-ps3-network-plans_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonys-ps3-network-plans" class="article-title">Sony's PS3 Network plans</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_flagships-casual-mmo-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/flagships-casual-mmo-details" class="article-title">Flagship's casual MMO details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_paddy-power-bets-on-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/paddy-power-bets-on-ps3" class="article-title">Paddy Power bets on PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_gamesindustrybiz-price-conscious-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamesindustrybiz-price-conscious-article" class="article-title">GamesIndustry.biz: Price Conscious</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_gamesindustrybiz-three-steps-back-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamesindustrybiz-three-steps-back-article" class="article-title">GamesIndustry.biz: Three Steps Back</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_castlevania-symphony-of-the-night-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/castlevania-symphony-of-the-night-review" class="article-title">Castlevania: Symphony of the Night</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_ps3-compatibility-site-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-compatibility-site-live" class="article-title">PS3 compatibility site live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_interlude-test-server-opens_thumbnail.png">
+			<a href="https://www.eurogamer.net/interlude-test-server-opens" class="article-title">Interlude test server opens</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_guild-wars-2-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/guild-wars-2-revealed" class="article-title">Guild Wars 2 revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_ea-reveals-boogie_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-reveals-boogie" class="article-title">EA reveals Boogie</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_group-asks-bono-to-halt-mercs-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/group-asks-bono-to-halt-mercs-2" class="article-title">Group asks Bono to halt Mercs 2</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_resistance-gets-new-mp-modes_thumbnail.png">
+			<a href="https://www.eurogamer.net/resistance-gets-new-mp-modes" class="article-title">Resistance gets new MP modes</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_wii-opera-browser-slips-to-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-opera-browser-slips-to-april" class="article-title">Wii Opera browser slips to April</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_burnout-dominator-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/burnout-dominator-review" class="article-title">Burnout: Dominator</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_friends-list-for-motorstorm_thumbnail.png">
+			<a href="https://www.eurogamer.net/friends-list-for-motorstorm" class="article-title">Friends list for MotorStorm</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_stalker-shadow-of-chernobyl-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/stalker-shadow-of-chernobyl-review" class="article-title">S.T.A.L.K.E.R.: Shadow Of Chernobyl</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_red-ocean-demo-surfaces_thumbnail.png">
+			<a href="https://www.eurogamer.net/red-ocean-demo-surfaces" class="article-title">Red Ocean demo surfaces</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_solid-corr-at-heart-of-dirt_thumbnail.png">
+			<a href="https://www.eurogamer.net/solid-corr-at-heart-of-dirt" class="article-title">Solid CORR at heart of DIRT</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_epic-wont-do-ps3-exclusive_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-wont-do-ps3-exclusive" class="article-title">Epic won't do PS3 exclusive</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_slow-start-for-official-ps3-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/slow-start-for-official-ps3-launch" class="article-title">Slow start for official PS3 launch</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_xbox-live-security-breach-denied_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-security-breach-denied" class="article-title">Xbox Live security breach denied</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/22_resistance-fall-of-man-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/resistance-fall-of-man-review" class="article-title">Resistance: Fall of Man</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128137/Americas-Cup-game-site-launched/" class="article-title">America's Cup game site launched</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128136/Colin-McRae-Dirt-adds-10-vehicle-C.O.R.R.-races/" class="article-title">Colin McRae: Dirt adds 10-vehicle C.O.R.R. races</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128135/Nyko-e-tail-site-launched/" class="article-title">Nyko e-tail site launched</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bubble-tanks.php" class="article-title">Bubble Tanks</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/boomshine.php" class="article-title">Boomshine</a>
+			<div class="article-author">Noah</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/03/22_2007_03_22_altered-tim-4_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/03/22/altered-tim-4/" class="article-title">Altered Tim #4</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/03/22_2007_03_22_scientology-pwned_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/03/22/scientology-pwned/" class="article-title">Scientology Pwned?</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/03/22_2007_03_22_februarys-news-today_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/03/22/februarys-news-today/" class="article-title">February’s News Today</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/03/22_2007_03_message-from-bizarre-creations.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/03/message-from-bizarre-creations.html" class="article-title">A Message from Bizarre Creations</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/03/22_2007_03_magi.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/03/magi.html" class="article-title">The MAGI</a>
+			<div class="article-author">miyamoto-SAN</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

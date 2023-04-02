@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 23, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/eragon-review/1900-6164532/" class="article-title">Eragon Review</a>
+			<div class="article-subtitle">Eragon doesn't do much to embellish its simplistic design, but it's a surprisingly satisfying role-playing game despite its shortcomings.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/micro-machines-v4-review/1900-6153590/" class="article-title">Micro Machines V4 Review</a>
+			<div class="article-subtitle">The novelty of racing teeny, tiny cars is more than a little bit stale, and so is Micro Machines v4.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ncaa-march-madness-07-review/1900-6164609/" class="article-title">NCAA March Madness 07 Review</a>
+			<div class="article-subtitle">This is a lot like last year's game, except now instead of 06, it says 07 on the box.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hotel-dusk-room-215-review/1900-6164619/" class="article-title">Hotel Dusk: Room 215 Review</a>
+			<div class="article-subtitle">Hotel Dusk weaves an absorbing noir-style mystery with traditional adventure game elements and stylish presentation and does it all with a deft touch.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/micro-machines-v4-review/1900-6164618/" class="article-title">Micro Machines V4 Review</a>
+			<div class="article-subtitle">The sheer number of cars and tracks in Micro Machines V4 doesn't make up for the underlying frustration of the racing.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_uk-game-charts-december-31-january-6_1100-6163923_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-december-31-january-6/1100-6163923/" class="article-title">UK game charts: December 31-January 6</a>
+			<div class="article-subtitle">FIFA 07 starts the new year on top as Electronic Arts offerings finish the week's sales race in first, second, and third.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_report-wii-outsells-ps3-in-japan_1100-6163964_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-wii-outsells-ps3-in-japan/1100-6163964/" class="article-title">Report: Wii outsells PS3 in Japan</a>
+			<div class="article-subtitle">Japanese magazine says Wii sold more than twice the number of PS3s in console's home country; Sony likely missed 2006 shipping target in Japan, worldwide.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_ps3-prices-slashed-across-japan_1100-6236062_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-prices-slashed-across-japan/1100-6236062/" class="article-title">PS3 prices slashed across Japan?</a>
+			<div class="article-subtitle">Source: The Tokyo-based Akiba Blog via the Tokyo-obsessed Kotaku.  What we heard: When the PlayStation 3 went on sale last fall in Japan, it was in even scanter supply than it was in the US. According to Japanese magazine publisher Enterbrain, just 466,716 PS3s were sold in the island nation in...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_crackdown-demo-out-now_1100-6164506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crackdown-demo-out-now/1100-6164506/" class="article-title">Crackdown demo out now</a>
+			<div class="article-subtitle">[UPDATE] Free sample of Xbox 360 shooter now on Xbox Live Marketplace; Gold Live members get week head start on partially timed demo.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_miyamoto-to-keynote-gdc_1100-6164489_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/miyamoto-to-keynote-gdc/1100-6164489/" class="article-title">Miyamoto to keynote GDC</a>
+			<div class="article-subtitle">Nintendo's star game designer will headline San Francisco's Game Developers Conference in March.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_pogo-island-hands-on_1100-6164554_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pogo-island-hands-on/1100-6164554/" class="article-title">Pogo Island Hands-On</a>
+			<div class="article-subtitle">EA is bringing its pogo.com casual-games line to the Nintendo DS with a tropical twist.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_uk-game-charts-january-14-20_1100-6164549_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-january-14-20/1100-6164549/" class="article-title">UK game charts: January 14-20</a>
+			<div class="article-subtitle">Burning Crusade scorches to the top of the UK game charts, knocking Lost Planet: Extreme Condition down to second place.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_final-fantasy-xi-goes-multi-lingual_1100-6164551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xi-goes-multi-lingual/1100-6164551/" class="article-title">Final Fantasy XI goes multi-lingual </a>
+			<div class="article-subtitle">Two new European-language versions of the Square-Enix MMORPG to be available in March.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_korean-mmorpg-heads-west_1100-6164550_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/korean-mmorpg-heads-west/1100-6164550/" class="article-title">Korean MMORPG heads West</a>
+			<div class="article-subtitle">Ragnarok Online creator Hakkyu Kim's latest project will arrive mid-2007 in the US and Europe.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_ps3-prices-slashed-across-japan_1100-6164563_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-prices-slashed-across-japan/1100-6164563/" class="article-title">PS3 prices slashed across Japan?</a>
+			<div class="article-subtitle">Rumors of mass discounting of Sony's new console may be premature--according to Sony.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_bungie-notifies-halo-3-beta-entrants_1100-6164577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-notifies-halo-3-beta-entrants/1100-6164577/" class="article-title">Bungie notifies Halo 3 beta entrants</a>
+			<div class="article-subtitle">"Phase one registration is now closed," says developer; e-mail acceptance letters being sent out over next few days.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_segas-crush-flattens-psps_1100-6164581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/segas-crush-flattens-psps/1100-6164581/" class="article-title">Sega's Crush flattens PSPs</a>
+			<div class="article-subtitle">Puzzler for PlayStation Portable switches between full 3D and 2D with the press of a button; Kuju-developed game coming this summer.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_haze-release-date-gets-fuzzy_1100-6164584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/haze-release-date-gets-fuzzy/1100-6164584/" class="article-title">Haze release date gets fuzzy</a>
+			<div class="article-subtitle">Ubisoft confirms that Free Radical's next first-person shooter has been pushed back past March.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_retail-radar-90-guitar-hero-ii-bundle-part-ii_1100-6164535_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retail-radar-90-guitar-hero-ii-bundle-part-ii/1100-6164535/" class="article-title">Retail Radar: $90 Guitar Hero II bundle, part II</a>
+			<div class="article-subtitle">Online stores are listing a steeper price for the Xbox 360 debut of Activision's top rocker, but where are the spare guitars?</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_ubisoft-q3-sales-up-24-percent_1100-6164578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-q3-sales-up-24-percent/1100-6164578/" class="article-title">Ubisoft Q3 sales up 24 percent</a>
+			<div class="article-subtitle">Xbox 360 and Wii sales account for almost half of French publisher's holiday revenues; Haze and PS3 GRAW 2 delayed, Blazing Angels Secret Missions confirmed.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_ps3-virtua-fighter-5-golden_1100-6164536_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-virtua-fighter-5-golden/1100-6164536/" class="article-title">PS3 Virtua Fighter 5 golden</a>
+			<div class="article-subtitle">Sega's first fighter for Sony's new console is now primed for its February 20 launch; Xbox 360 version due in fall.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_wii-360-get-looney-tuned_1100-6164591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-360-get-looney-tuned/1100-6164591/" class="article-title">Wii, 360 get Looney Tuned</a>
+			<div class="article-subtitle">Wise-cracking wabbit Bugs Bunny and company get their own adventure this fall; Acme Arsenal features mix of combat, puzzles, vehicle-based action.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_no-mp-for-bioshock_1100-6164592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-mp-for-bioshock/1100-6164592/" class="article-title">No MP for BioShock </a>
+			<div class="article-subtitle">Recently launched official site confirms the eagerly awaited 360/PC shooter will be single-player only when it arrives in June.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_brothers-in-arms-storming-ds_1100-6164590_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brothers-in-arms-storming-ds/1100-6164590/" class="article-title">Brothers in Arms storming DS? </a>
+			<div class="article-subtitle">ESRB Web site indicates a Mature-rated spin-off of Ubisoft's acclaimed WWII series is headed to Nintendo's handheld.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_nintendo-lays-out-q1-wii-slate_1100-6164589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-lays-out-q1-wii-slate/1100-6164589/" class="article-title">Nintendo lays out Q1 Wii slate</a>
+			<div class="article-subtitle">A dozen more games expected to arrive on store shelves through March; Mario Kart 64 powerslides onto VC next week.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_nasdaq-thq-in-the-clear_1100-6164606_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nasdaq-thq-in-the-clear/1100-6164606/" class="article-title">Nasdaq: THQ in the clear</a>
+			<div class="article-subtitle">Publisher says it received formal notification that it has regained compliance with stock market standards.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_shippin-out-january-22-26-more-zelda-for-vc_1100-6164605_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-january-22-26-more-zelda-for-vc/1100-6164605/" class="article-title">Shippin' Out January 22-26: More Zelda for VC</a>
+			<div class="article-subtitle">Dry week for new releases topped off with The Legend of Zelda: A Link to the Past's debut on the Wii's Virtual Console, trio of releases for the PSP.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_qanda-scoring-lost-planet_1100-6164586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-scoring-lost-planet/1100-6164586/" class="article-title">Q&A: Scoring Lost Planet</a>
+			<div class="article-subtitle">Lost Planet composer Jamie Christopherson talks to GameSpot about the writing process, breaking the language barrier, and the power of silence.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_fallout-3-360-bound_1100-6236061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-3-360-bound/1100-6236061/" class="article-title">Fallout 3 360-bound?</a>
+			<div class="article-subtitle">Source: The forthcoming issue of Official Xbox Magazine UK.  What we heard: When Bethesda Softworks announced it was taking over the Fallout license in 2004, role-playing fans rejoiced. The series, which had been dying a slow death alongside its flatlining publisher, Interplay, was suddenly in the...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_the-warriors-first-look_1100-6164603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-warriors-first-look/1100-6164603/" class="article-title">The Warriors First Look</a>
+			<div class="article-subtitle">We check out Rockstar's well-received console brawler on the PSP.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/23_world-of-warcraft-the-burning-crusade-final-hands-on-one-week-in_1100-6164600_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-the-burning-crusade-final-hands-on-one-week-in/1100-6164600/" class="article-title">World of Warcraft: The Burning Crusade Final Hands-On: One Week In</a>
+			<div class="article-subtitle">Ahead of our full review, we report on the state of Azeroth one week after the opening of the Dark Portal.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_virtual-console-sega-mega-drive-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/virtual-console-sega-mega-drive-review" class="article-title">Virtual Console: SEGA Mega Drive</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_bbc-plans-childrens-mmo_thumbnail.png">
+			<a href="https://www.eurogamer.net/bbc-plans-childrens-mmo" class="article-title">BBC plans children's MMO</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_itagaki-admits-ps3-indifference_thumbnail.png">
+			<a href="https://www.eurogamer.net/itagaki-admits-ps3-indifference" class="article-title">Itagaki admits PS3 indifference</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_kororinpa-wii-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/kororinpa-wii-dated" class="article-title">Kororinpa Wii dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_zelda-iii-joins-us-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/zelda-iii-joins-us-vc" class="article-title">Zelda III joins US VC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_ms-pac-man-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-pac-man-review" class="article-title">Ms. Pac-Man</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_its-crackdownload-time_thumbnail.png">
+			<a href="https://www.eurogamer.net/its-crackdownload-time" class="article-title">It's Crackdownload time</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_super-columbine-massacre-rpg-part-2-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-columbine-massacre-rpg-part-2-article" class="article-title">Super Columbine Massacre RPG - Part 2</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_halo-3-online-years-ahead-of-rivals-ex-bungie-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-online-years-ahead-of-rivals-ex-bungie-dev" class="article-title">Halo 3 online 'years ahead' of rivals - ex-Bungie dev</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_burning-crusade-sells-loads_thumbnail.png">
+			<a href="https://www.eurogamer.net/burning-crusade-sells-loads" class="article-title">Burning Crusade sells loads</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_ps3-gets-another-bc-boost_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-gets-another-bc-boost" class="article-title">PS3 gets another BC boost</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_harmonix-confirms-heros-exit_thumbnail.png">
+			<a href="https://www.eurogamer.net/harmonix-confirms-heros-exit" class="article-title">Harmonix confirms Hero's exit</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_gray-matter-spills-into-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/gray-matter-spills-into-2008" class="article-title">Gray Matter spills into 2008</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/23_mercury-meltdown-revolution-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/mercury-meltdown-revolution-first-impressions" class="article-title">Mercury Meltdown Revolution</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127993/Ubisoft-bringing-Driver-to-PSP/" class="article-title">Ubisoft bringing Driver to PSP</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127992/PS3-HD-capture-to-improve-screenshots-in-game-footage/" class="article-title">PS3 HD capture to improve screenshots, in-game footage</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127991/Games-in-China-to-exceed-2bn-in-2008/" class="article-title">Games in China to exceed $2bn in 2008</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/stick-remover.php" class="article-title">Stick Remover</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/01/23_2007_01_23_becherovka-game-2006-a-summary_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/01/23/becherovka-game-2006-a-summary/" class="article-title">Becherovka Game 2006 – A Summary</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/01/23_2007_01_23_pixels-upcoming-shooter_thumbnail.png">
+			<a href="https://www.tigsource.com/2007/01/23/pixels-upcoming-shooter/" class="article-title">Pixel’s Upcoming Shooter</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/01/23/bomberman-evolved/" class="article-title">Bomberman Evolved</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/01/23/mr-driller/" class="article-title">Mr. Driller</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/23_2007_01_excellent-bifurcation.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/01/excellent-bifurcation.html" class="article-title">Excellent Bifurcation</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/23_2007_01_doctor-who-and-daleks.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/01/doctor-who-and-daleks.html" class="article-title">Doctor Who and The Daleks</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

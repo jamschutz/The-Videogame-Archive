@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 15, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/myth-iii-the-wolf-age-review/1900-2823834/" class="article-title">Myth III: The Wolf Age Review</a>
+			<div class="article-subtitle">Even if the multiplayer isn't polished to match the expectations of a demanding online community, Myth III stands on its own as a great single-player game.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sonic-the-hedgehog-2-review/1900-6172587/" class="article-title">Sonic the Hedgehog 2 Review</a>
+			<div class="article-subtitle">Sonic the Hedgehog 2 is a classic run-and-jump platformer that's as much fun now as it was in 1992.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/golden-axe-ii-review/1900-6172586/" class="article-title">Golden Axe II Review</a>
+			<div class="article-subtitle">Golden Axe II is a carbon copy of the original Golden Axe--minus the charm.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_newsspots-sylpheed-go-puzzle-dandd-tactics-brothers-in-arms-fish-tycoon_1100-6172543_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/newsspots-sylpheed-go-puzzle-dandd-tactics-brothers-in-arms-fish-tycoon/1100-6172543/" class="article-title">NewsSpots: Sylpheed, Go! Puzzle, D&D: Tactics, Brothers in Arms, Fish Tycoon</a>
+			<div class="article-subtitle">Space shooter golden, demo'd; PlayStation Store updated; Kuju RPG gets promoted; WWII comic incoming; Fish sim swims to handheld.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_video-game-addiction-a-mental-disorder_1100-6235844_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/video-game-addiction-a-mental-disorder/1100-6235844/" class="article-title">Video game addiction a mental disorder?</a>
+			<div class="article-subtitle">The American Medical Association will be deciding this month whether or not to recommend that video game and Internet addiction should be included in the Diagnostic and Statistical Manual of Mental Disorders, reports the Wall Street Journal on its Health Blog.  The House of Delegates, the AMA's...</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_atari-losses-could-be-70-million_1100-6172547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/atari-losses-could-be-70-million/1100-6172547/" class="article-title">Atari: Losses could be $70 million</a>
+			<div class="article-subtitle">European publisher delays its annual financial report as it calculates the amount of a 'goodwill impairment charge.'</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_f-zero-x-races-onto-euro-vc_1100-6172546_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/f-zero-x-races-onto-euro-vc/1100-6172546/" class="article-title">F-Zero X races onto Euro VC</a>
+			<div class="article-subtitle">Two new titles this week bring the total available for download in the region to over 100.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_ceo-sony-refining-ps3-price_1100-6172545_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ceo-sony-refining-ps3-price/1100-6172545/" class="article-title">CEO: Sony 'refining' PS3 price</a>
+			<div class="article-subtitle">Sir Howard Stringer pondering just how much he can afford to knock off the PS3's price tag to boost sales.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_qanda-game-music-composer-jeremy-soule_1100-6172544_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-game-music-composer-jeremy-soule/1100-6172544/" class="article-title">Q&A: Game music composer Jeremy Soule</a>
+			<div class="article-subtitle">Music composer of Neverwinter Nights, KOTR, and Guild Wars on the challenges of creating great game music, expansion packs, Steve Jobs, and more.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_online-fighting-coming-to-tekken-5dr_1100-6172522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/online-fighting-coming-to-tekken-5dr/1100-6172522/" class="article-title">Online fighting coming to Tekken 5:DR</a>
+			<div class="article-subtitle">Online support and single-player modes being added to Namco Bandai's download-only PS3 brawler.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_chartspot-april-2007_1100-6171734_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chartspot-april-2007/1100-6171734/" class="article-title">ChartSpot: April 2007</a>
+			<div class="article-subtitle">Dual Pokémons double-team an aging non-PC chart in the US, while the Lord of the Rings Online rules over the PC realm.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_nintendo-facing-new-wii-patent-suit_1100-6172456_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-facing-new-wii-patent-suit/1100-6172456/" class="article-title">Nintendo facing new Wii patent suit </a>
+			<div class="article-subtitle">[UPDATE] Texas firm alleges that Nintendo's latest console infringes on its design for a space-saving semiconductor structure.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_sega-exec-concerned-wii-is-a-fad_1100-6172548_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-exec-concerned-wii-is-a-fad/1100-6172548/" class="article-title">Sega exec 'concerned' Wii is a fad</a>
+			<div class="article-subtitle">[UPDATE]  US marketing VP says he worried about the longevity of Nintendo's platform...but reassures public the company will "fully support" the platform.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_beautiful-katamari-rolling-exclusively-onto-xbox-360_1100-6235843_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beautiful-katamari-rolling-exclusively-onto-xbox-360/1100-6235843/" class="article-title">Beautiful Katamari rolling exclusively onto Xbox 360?</a>
+			<div class="article-subtitle">Source: Newsweek's video game blog Level Up.    What we heard: In March, by way of a surreptitiously captured cell-phone image, it was first revealed that the next iteration in the one-time PlayStation exclusive Katamari series would be making its way to at least the Xbox 360. Though reps from...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_nintendo-revolution-what-wii-know_1100-6146540_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-revolution-what-wii-know/1100-6146540/" class="article-title">Nintendo Revolution: What Wii Know</a>
+			<div class="article-subtitle">Find out all we know about the Nintendo Wii. We've gathered all the important information in one place and updated the story with new launch details.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_culdcept-saga-update_1100-6172608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/culdcept-saga-update/1100-6172608/" class="article-title">Culdcept Saga Update</a>
+			<div class="article-subtitle">We check in on Namco Bandai's upcoming card-battling board game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_digimon-world-data-squad-hands-on_1100-6172619_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/digimon-world-data-squad-hands-on/1100-6172619/" class="article-title">Digimon World: Data Squad Hands-On</a>
+			<div class="article-subtitle">Digital monsters continue the evolution on the PlayStation 2, and we've got a first look at the game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_video-game-addiction-a-mental-disorder_1100-6172582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/video-game-addiction-a-mental-disorder/1100-6172582/" class="article-title">Video game addiction a mental disorder?</a>
+			<div class="article-subtitle"><i>Wall Street Journal</i> reports the American Medical Association will decide this month whether to classify game addiction as a mental disorder.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_namco-museum-remix-hands-on_1100-6172621_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-museum-remix-hands-on/1100-6172621/" class="article-title">Namco Museum Remix Hands-On</a>
+			<div class="article-subtitle">Old school meets new school in Namco Museum Remix.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_digimon-world-dawn-hands-on_1100-6172616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/digimon-world-dawn-hands-on/1100-6172616/" class="article-title">Digimon World: Dawn Hands-On</a>
+			<div class="article-subtitle">A virus is out to destroy the Digimon in this Nintendo DS monster-collecting game, and we've got a first look.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_digimon-world-dusk-hands-on_1100-6172617_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/digimon-world-dusk-hands-on/1100-6172617/" class="article-title">Digimon World: Dusk Hands-On</a>
+			<div class="article-subtitle">A virus is out to destroy the Digimon in this Nintendo DS monster-collecting game, and we've got a first look.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_overlord-updated-hands-on-its-good-to-be-evil_1100-6172585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overlord-updated-hands-on-its-good-to-be-evil/1100-6172585/" class="article-title">Overlord Updated Hands-On - It's Good to be Evil</a>
+			<div class="article-subtitle">We take a whirl through a near-final version of Overlord for the PC.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_dynasty-warriors-gundam-hands-on_1100-6172627_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dynasty-warriors-gundam-hands-on/1100-6172627/" class="article-title">Dynasty Warriors: Gundam Hands-On</a>
+			<div class="article-subtitle">We check out the US version of Namco Bandai and Koei's merger of Dynasty Warriors gameplay and Gundams.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_beautiful-katamari-rolling-exclusively-onto-xbox-360_1100-6172611_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beautiful-katamari-rolling-exclusively-onto-xbox-360/1100-6172611/" class="article-title">Beautiful Katamari rolling exclusively onto Xbox 360?</a>
+			<div class="article-subtitle">Next installment in Namco Bandai's universe-gobbling series may be headed only to Microsoft's console.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_npd-may-game-sales-top-815-million_1100-6172584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/npd-may-game-sales-top-815-million/1100-6172584/" class="article-title">NPD: May game sales top $815 million</a>
+			<div class="article-subtitle">Industry-wide sales surge 49 percent; consoles up nearly 80 percent, software up 33 percent.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_madden-nfl-08-hands-on_1100-6172629_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-08-hands-on/1100-6172629/" class="article-title">Madden NFL 08 Hands-On</a>
+			<div class="article-subtitle">The venerable football series keeps chugging toward the end zone, and we've got an updated look at the game from EA Los Angeles.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_tony-hawks-proving-ground-first-impressions_1100-6172539_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawks-proving-ground-first-impressions/1100-6172539/" class="article-title">Tony Hawk's Proving Ground First Impressions</a>
+			<div class="article-subtitle">The ninth game in the famed skateboarding franchise is going to the East Coast.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/15_how-to-score-9000-points-in-48-hours-thats-3-points-a-minute_1100-6171203_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-to-score-9000-points-in-48-hours-thats-3-points-a-minute/1100-6171203/" class="article-title">How to Score 9,000 Points in 48 Hours (That's 3 Points a Minute!)</a>
+			<div class="article-subtitle">Rack up 9,000 Xbox Live achievement points in just 48 hours, and find out which Live Arcade games are good for quick points and which Xbox 360 games are tougher for getting points.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_motorstorm-update-released_thumbnail.png">
+			<a href="https://www.eurogamer.net/motorstorm-update-released" class="article-title">MotorStorm update released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_psone-games-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/psone-games-on-psn" class="article-title">PSOne games on PSN</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_dynasty-warriors-ds-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/dynasty-warriors-ds-details" class="article-title">Dynasty Warriors DS details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_nintendo-winning-in-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-winning-in-us" class="article-title">Nintendo winning in US</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_nintendo-dominates-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-dominates-japan" class="article-title">Nintendo dominates Japan</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_10-years-of-ccp-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/10-years-of-ccp-article" class="article-title">10 Years of CCP</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_armored-core-4-next-friday_thumbnail.png">
+			<a href="https://www.eurogamer.net/armored-core-4-next-friday" class="article-title">Armored Core 4 next Friday</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_new-director-for-castlevania-film_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-director-for-castlevania-film" class="article-title">New director for Castlevania film</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_vote-for-ultimate-gaming-song_thumbnail.png">
+			<a href="https://www.eurogamer.net/vote-for-ultimate-gaming-song" class="article-title">Vote for "ultimate" gaming song</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_vcroundup-150607_thumbnail.png">
+			<a href="https://www.eurogamer.net/vcroundup-150607" class="article-title">Virtual Console Roundup</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_r-sotctom-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-sotctom-ps2" class="article-title">Shadow of the Colossus</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_rock-band-details-emerge_thumbnail.png">
+			<a href="https://www.eurogamer.net/rock-band-details-emerge" class="article-title">Rock Band details emerge</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_ps3-not-hard-to-develop-for_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-not-hard-to-develop-for" class="article-title">PS3 "not hard" to develop for</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_project-sylpheed-demo-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/project-sylpheed-demo-on-live" class="article-title">Project Sylpheed demo on Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_sony-fixes-rgb-bug-in-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-fixes-rgb-bug-in-ps3" class="article-title">Sony fixes RGB bug in PS3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_whats-new-15th-june-2007-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/whats-new-15th-june-2007-article" class="article-title">What's New (15th June, 2007)</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_x360-gets-second-heatsink_thumbnail.png">
+			<a href="https://www.eurogamer.net/x360-gets-second-heatsink" class="article-title">X360 gets "second heatsink"?</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_sony-looking-to-refine-cost-of-ps3-says-stringer_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-looking-to-refine-cost-of-ps3-says-stringer" class="article-title">Sony looking to "refine" cost of PS3, says Stringer</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_fantastic-four-rise-of-the-silver-surfer-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/fantastic-four-rise-of-the-silver-surfer-review" class="article-title">Fantastic Four: Rise of the Silver Surfer</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/15_f-zero-x-marks-the-100th-pal-virtual-console-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/f-zero-x-marks-the-100th-pal-virtual-console-game" class="article-title">F-Zero X marks the 100th PAL Virtual Console game</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/blobular.php" class="article-title">Blobular</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-19.php" class="article-title">Link Dump Friday №20</a>
+			<div class="article-author">Harukio</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/06/15_2007_06_15_ratmaze-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/06/15/ratmaze-2/" class="article-title">Ratmaze 2</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/06/15/nori-kuro-cat/" class="article-title">Nori Kuro Cat</a>
+			<div class="article-author">ithamore</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

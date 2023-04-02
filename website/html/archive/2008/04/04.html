@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 4, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lost-in-blue-3-review/1900-6188803/" class="article-title">Lost in Blue 3 Review</a>
+			<div class="article-subtitle">Lost in Blue 3 recycles the series' gameplay mechanics, assets, and flaws.</div>
+			<div class="article-author">Shiva Stella</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/xiii-century-death-or-glory-review/1900-6188808/" class="article-title">XIII Century: Death or Glory Review</a>
+			<div class="article-subtitle">Attention to battlefield detail and smart AI make XIII Century a serious real-time tactical challenge.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warriors-orochi-review/1900-6188819/" class="article-title">Warriors Orochi Review</a>
+			<div class="article-subtitle">Three Kingdoms China meets Sengoku Japan in this fan-service-powered snooze fest.</div>
+			<div class="article-author">Lark Anderson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_buzz-quiz-tv-hands-on_1100-6188765_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/buzz-quiz-tv-hands-on/1100-6188765/" class="article-title">Buzz!: Quiz TV Hands-On</a>
+			<div class="article-subtitle">Sony's gameshow is making its first appearance on the PlayStation 3 this spring. We grabbed the new wireless controllers for a dress rehearsal.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_gtaiv-censored-for-australia_1100-6188764_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gtaiv-censored-for-australia/1100-6188764/" class="article-title">GTAIV censored for Australia?</a>
+			<div class="article-subtitle">Reports surface that version of Grand Theft Auto IV submitted to Australian censors was modified to comply with local laws.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_mercenaries-2-deploying-august-31_1100-6188760_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mercenaries-2-deploying-august-31/1100-6188760/" class="article-title">Mercenaries 2 deploying August 31</a>
+			<div class="article-subtitle">[UPDATE] Pandemic's long-in-development open-world military actioner finally gets a ship date for the PC, PS3, PS2, and 360; Europe gets game September 5.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_report-stormfront-hasnt-passed-yet_1100-6188770_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-stormfront-hasnt-passed-yet/1100-6188770/" class="article-title">Report: Stormfront hasn't passed yet</a>
+			<div class="article-subtitle">Studio president insists in interview that the company has just "suspended operations," and is in talks that might allow it to rehire workforce, keep the lights on.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_esrb-rates-r-types-for-ps3-psp_1100-6188778_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-rates-r-types-for-ps3-psp/1100-6188778/" class="article-title">ESRB rates R-Types for PS3, PSP</a>
+			<div class="article-subtitle">New listing suggests Irem shooter compilation headed for Sony's latest systems in downloadable form.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_pressspotting-the-2008-just-foolin-awards_1100-6235001_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pressspotting-the-2008-just-foolin-awards/1100-6235001/" class="article-title">PressSpotting: The 2008 Just Foolin' Awards</a>
+			<div class="article-subtitle">Game journalists could be forgiven for having a love/hate relationship with April Fools' Day. On the one hand, the day lets them get away from straight, factual reporting and stretch their creative muscles in crafting fictional stories. On the other hand, they have to be extremely careful all day...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_ea-explains-benching-of-madden-pc_1100-6188682_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-explains-benching-of-madden-pc/1100-6188682/" class="article-title">EA explains benching of Madden PC</a>
+			<div class="article-subtitle">Peter Moore says "serious business challenges" are preventing the publisher from releasing PC edition; other sports franchises to be similarly sidelined.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_dualshock-3-rocking-retail-this-week_1100-6188650_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dualshock-3-rocking-retail-this-week/1100-6188650/" class="article-title">DualShock 3 rocking retail this week</a>
+			<div class="article-subtitle">[UPDATE] Motion-sensing, force-feedback-enabled peripheral for Sony's PlayStation 3 landing on store shelves in the next few days; Sixaxis discontinued.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_the-force-to-be-unleashed-in-september_1100-6188698_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-force-to-be-unleashed-in-september/1100-6188698/" class="article-title">The Force to be Unleashed in September</a>
+			<div class="article-subtitle">LucasArts' latest chapter in the Star Wars saga coming to US September 16, Europe September 19.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_sonic-officially-unleashed_1100-6188710_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonic-officially-unleashed/1100-6188710/" class="article-title">Sonic officially Unleashed</a>
+			<div class="article-subtitle">Sega's overhauled iconic blue hedgehog warming up with new game engine, platforming, combat mechanics for holiday 2008 release on X360, PS3, PS2, and Wii.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_study-gamers-show-autistic-traits_1100-6235000_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/study-gamers-show-autistic-traits/1100-6235000/" class="article-title">Study: Gamers show autistic traits</a>
+			<div class="article-subtitle">It doesn't take a scientist to figure out that gamers whose habits border on the realm of addiction are likely to be a little neurotic, introverted, and socially disagreeable. However, it does take a scientist (a pair of them, actually) to survey hundreds of gamers, find the same traits, and then...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_pressspotting-the-2008-just-foolin-awards_1100-6188792_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pressspotting-the-2008-just-foolin-awards/1100-6188792/" class="article-title">PressSpotting: The 2008 "Just Foolin'" Awards</a>
+			<div class="article-subtitle">Our columnist takes a look at the years best (and worst) game-journalism-related jokes this past April 1.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_study-gamers-show-autistic-traits_1100-6188793_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/study-gamers-show-autistic-traits/1100-6188793/" class="article-title">Study: Gamers show autistic traits</a>
+			<div class="article-subtitle">Researchers find that game addicts display some negative personality traits commonly associated with Asperger syndrome.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_chris-odonnell-joins-max-payne-movie_1100-6234999_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chris-odonnell-joins-max-payne-movie/1100-6234999/" class="article-title">Chris O'Donnell joins Max Payne movie</a>
+			<div class="article-subtitle">The past decade is littered with lackluster game-to-film projects: Doom, Hitman,  Alone in the Dark,  Resident Evil: Apocalypse, and In the Name of the King: A Dungeon Siege Adventure to name a few. So it was with no small amount of trepidation that fans of Max Payne greeted news that Remedy's...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_rockstar-acquires-mad-doc_1100-6188809_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-acquires-mad-doc/1100-6188809/" class="article-title">Rockstar acquires Mad Doc</a>
+			<div class="article-subtitle">Grand Theft Auto studio cements ties to Massachusetts-based developer of Bully: Scholarship Edition, Empire Earth II.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_chris-odonnell-joins-max-payne-movie_1100-6188816_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chris-odonnell-joins-max-payne-movie/1100-6188816/" class="article-title">Chris O'Donnell joins Max Payne movie</a>
+			<div class="article-subtitle"><i>Entertainment Weekly</i> reports <i>Batman & Robin</i> star has resurfaced in forthcoming film adaption of classic shooter.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_nintendo-had-30-wii-wheel-prototypes_1100-6234998_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-had-30-wii-wheel-prototypes/1100-6234998/" class="article-title">Nintendo had 30 Wii Wheel prototypes</a>
+			<div class="article-subtitle">Get some plastic, shape it into a circle, cut out a slot for the Wii Remote, and bam, out comes a Wii Wheel. As it would turn out, Nintendo's driving peripheral that will be integral to Mario Kart Wii required a bit more thought to get just right. Actually, a lot more thought. In Nintendo's most...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_nintendo-had-30-wii-wheel-prototypes_1100-6188845_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-had-30-wii-wheel-prototypes/1100-6188845/" class="article-title">Nintendo had 30 Wii Wheel prototypes</a>
+			<div class="article-subtitle">Lead designer of Mario Kart steering wheel Kenichiro Ashida said peripheral for Nintendo's console underwent an extensive iterative process.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_locks-quest-first-look_1100-6188822_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/locks-quest-first-look/1100-6188822/" class="article-title">Lock's Quest First Look</a>
+			<div class="article-subtitle">We take a look at THQ's latest real-time strategy game, this one an arcadelike 2D adventure on the Nintendo DS.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_wall-e-hands-on_1100-6188811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wall-e-hands-on/1100-6188811/" class="article-title">Wall-E Hands-On</a>
+			<div class="article-subtitle">We check out THQ and Heavy Iron's platformer based on the upcoming Pixar film.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_wall-e-hands-on_1100-6188812_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wall-e-hands-on/1100-6188812/" class="article-title">Wall-E Hands-On</a>
+			<div class="article-subtitle">We check out THQ and Heavy Iron's platformer based on the upcoming Pixar film.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_baja-hands-on_1100-6188813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/baja-hands-on/1100-6188813/" class="article-title">Baja Hands-On</a>
+			<div class="article-subtitle">THQ's latest off-road racing game has us spitting dust and loving it.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_big-beach-sports-hands-on_1100-6188814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-beach-sports-hands-on/1100-6188814/" class="article-title">Big Beach Sports Hands On</a>
+			<div class="article-subtitle">Volleyball! Soccer! Football! Cricket? We hit the beach with our look at this upcoming summertime sports game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_deadly-creatures-hands-on_1100-6188815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deadly-creatures-hands-on/1100-6188815/" class="article-title">Deadly Creatures Hands-On</a>
+			<div class="article-subtitle"><em>National Geographic</em> meets <em>Pulp Fiction</em> in this action adventure game on the Wii.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_darksiders-wrath-of-war-impressions_1100-6188824_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/darksiders-wrath-of-war-impressions/1100-6188824/" class="article-title">Darksiders: Wrath of War Impressions</a>
+			<div class="article-subtitle">Stylish combat, classic adventuring, and an epic story make for one of the most promising games in THQ's stable of upcoming releases.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_qanda-thqs-sorensen-talks-acquisitions_1100-6188796_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-thqs-sorensen-talks-acquisitions/1100-6188796/" class="article-title">Q&A: THQ's Sorensen talks acquisitions</a>
+			<div class="article-subtitle">VP of product development opines on his company's growing pains, industry consolidation, and iPhone development.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_dragon-ball-z-burst-limit-first-look_1100-6188801_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-z-burst-limit-first-look/1100-6188801/" class="article-title">Dragon Ball Z Burst Limit First Look</a>
+			<div class="article-subtitle">Atari and Dimps get their fusion on, upgrading the popular 3D fighting series to the Xbox 360 and PS3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_de-blob-splatters-september_1100-6188776_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/de-blob-splatters-september/1100-6188776/" class="article-title">de Blob splatters September</a>
+			<div class="article-subtitle">THQ and Australia-based Blue Tongue's action-puzzle game smearing the Wii, DS later this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/04_the-huddle-madden-nfl-head-coach-09-bundle_1100-6234997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-huddle-madden-nfl-head-coach-09-bundle/1100-6234997/" class="article-title">The Huddle: Madden/NFL Head Coach 09 Bundle</a>
+			<div class="article-subtitle">Welcome to The Huddle, a periodic look at the latest news in the sports world where GameSpot and SportsGamer editors give their candid takes on a single topic from the worlds of sports and sports gaming. This week we tackle the news of EA Sports' NFL Head Coach being bundled as part of the 20th...</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_saints-row-2-gets-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/saints-row-2-gets-release-date" class="article-title">Saints Row 2 gets release date</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_new-sunshine-beachvolleyball-pics_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-sunshine-beachvolleyball-pics" class="article-title">New Sunshine Beachvolleyball pics</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_empire-of-sports_thumbnail.png">
+			<a href="https://www.eurogamer.net/empire-of-sports" class="article-title">Empire of Sports</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_dark-sector-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/dark-sector-review" class="article-title">Dark Sector</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_dyack-hits-out-at-so-called-trilogies_thumbnail.png">
+			<a href="https://www.eurogamer.net/dyack-hits-out-at-so-called-trilogies" class="article-title">Dyack hits out at so-called trilogies</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_criterion-to-transform-paradise_thumbnail.png">
+			<a href="https://www.eurogamer.net/criterion-to-transform-paradise" class="article-title">Criterion to "transform" Paradise</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_puzzle-quest-add-on-gets-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/puzzle-quest-add-on-gets-title" class="article-title">Puzzle Quest add-on gets title</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_in-game-ads-coming-to-city-of-heroes_thumbnail.png">
+			<a href="https://www.eurogamer.net/in-game-ads-coming-to-city-of-heroes" class="article-title">In-game ads coming to City of Heroes</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_activision-coy-on-geometry-wars-sequel_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-coy-on-geometry-wars-sequel" class="article-title">Activision coy on Geometry Wars sequel</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_ps-store-will-still-be-region-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps-store-will-still-be-region-free" class="article-title">PS Store will still be region-free</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_two-worlds-gets-second-batch-of-dlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/two-worlds-gets-second-batch-of-dlc" class="article-title">Two Worlds gets second batch of DLC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_gta-iv-gets-cut-for-australia_thumbnail.png">
+			<a href="https://www.eurogamer.net/gta-iv-gets-cut-for-australia" class="article-title">GTA IV gets cut for Australia</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_yamauchi-gt-psp-unlikely-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/yamauchi-gt-psp-unlikely-this-year" class="article-title">Yamauchi: GT PSP unlikely this year</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_ninja-gaiden-ds-here-in-june_thumbnail.png">
+			<a href="https://www.eurogamer.net/ninja-gaiden-ds-here-in-june" class="article-title">Ninja Gaiden DS here in June</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_star-wars-force-unleashed-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/star-wars-force-unleashed-dated" class="article-title">Star Wars: Force Unleashed dated</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_mercenaries-2-gets-fresh-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/mercenaries-2-gets-fresh-date" class="article-title">Mercenaries 2 gets fresh date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_just-one-for-virtual-console-this-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/just-one-for-virtual-console-this-week" class="article-title">Just one for Virtual Console this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_sam-and-max-confirmed-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/sam-and-max-confirmed-for-wii" class="article-title">Sam & Max confirmed for Wii</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/04_condemned-2-bloodshot-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/condemned-2-bloodshot-review" class="article-title">Condemned 2: Bloodshot</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131600/Project-Origin-video-and-screenshots/" class="article-title">Project Origin: video and screenshots</a>
+			<div class="article-subtitle">Scary new footage.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131603/Warhammer-40-000-Dawn-of-War-II-announced/" class="article-title">Warhammer 40,000: Dawn of War II announced</a>
+			<div class="article-subtitle">Sci-fi universe set to expand.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131602/Nokia-turns-on-gaming-service/" class="article-title">Nokia turns on gaming service</a>
+			<div class="article-subtitle">N-Gage is finally here.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131601/GTA-IV-edited-to-get-Australian-rating/" class="article-title">GTA IV edited to get Australian rating</a>
+			<div class="article-subtitle">Rockstar tight-lipped on modifications.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131599/New-Spore-trailer/" class="article-title">New Spore trailer</a>
+			<div class="article-subtitle">More footage from EA</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131598/Star-Wars-The-Force-Unleashed/" class="article-title">Star Wars: The Force Unleashed</a>
+			<div class="article-subtitle">NZ release date announced.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131597/Addicted-to-computer-games/" class="article-title">Addicted to computer games?</a>
+			<div class="article-subtitle">Condition like Aspergers, apparently.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-56.php" class="article-title">Link Dump Friday №56</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/04/04_2008_04_04_mekuri-master_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/04/04/mekuri-master/" class="article-title">Mekuri Master</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

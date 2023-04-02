@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 7, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cooking-mama-2-dinner-with-friends-review/1900-6183819/" class="article-title">Cooking Mama 2: Dinner With Friends Review</a>
+			<div class="article-subtitle">Dinner With Friends tastes like reheated leftovers.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bladestorm-the-hundred-years-war-review/1900-6183816/" class="article-title">Bladestorm: The Hundred Years' War Review</a>
+			<div class="article-subtitle">Fresh ideas can't save Bladestorm from mediocrity.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bladestorm-the-hundred-years-war-review/1900-6183814/" class="article-title">Bladestorm: The Hundred Years' War Review</a>
+			<div class="article-subtitle">Fresh ideas can't save Bladestorm from mediocrity.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/aliens-vs-predator-requiem-review/1900-6183818/" class="article-title">Aliens vs. Predator: Requiem Review</a>
+			<div class="article-subtitle">This battle between invading extraterrestrials is hardly a fair fight. It's also not a very interesting one.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_spot-on-gamespot-on-gerstmann_1100-6183666_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-gamespot-on-gerstmann/1100-6183666/" class="article-title">Spot On: GameSpot on Gerstmann</a>
+			<div class="article-subtitle">SPECIAL REPORT: Following days of controversy and the first post-Jeff podcast, GameSpot answers burning questions about the most controversial staff change in its history.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_nintendo-lays-out-slate-for-europe_1100-6183763_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-lays-out-slate-for-europe/1100-6183763/" class="article-title">Nintendo lays out slate for Europe</a>
+			<div class="article-subtitle">Publisher confirms Mario Kart Wii for Q2; Super Smash Bros. Brawl not yet dated.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_codemasters-ego-has-landed_1100-6183762_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-ego-has-landed/1100-6183762/" class="article-title">Codemasters' EGO has landed</a>
+			<div class="article-subtitle">Proprietary middleware behind Colin McRae: DiRT is renamed; set to power upcoming Race Driver title, GRID.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_ex-fasa-exec-founds-new-studio_1100-6183766_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ex-fasa-exec-founds-new-studio/1100-6183766/" class="article-title">Ex-FASA exec founds new studio</a>
+			<div class="article-subtitle">Jordan Weisman sets up Smith & Tinker in Seattle, grabs licences for former FASA games such as MechWarrior.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_nintendo-places-stay-on-wii-ads_1100-6183765_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-places-stay-on-wii-ads/1100-6183765/" class="article-title">Nintendo places stay on Wii ads</a>
+			<div class="article-subtitle">Publisher pulls marketing efforts in UK for popular console on fears of generating too much demand; replaces with DS adverts.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_dmc4-demo-due-on-psn-xbl-in-08_1100-6183772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dmc4-demo-due-on-psn-xbl-in-08/1100-6183772/" class="article-title">DMC4 demo due on PSN, XBL in '08</a>
+			<div class="article-subtitle">Capcom action game slated to get Xbox 360 and PlayStation 3 downloadable demos early next year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_bungie-still-circling-360_1100-6183773_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-still-circling-360/1100-6183773/" class="article-title">Bungie still circling 360</a>
+			<div class="article-subtitle">Lead writer Frank O'Connor says Halo studio currently has "no plans" to create games for platforms other than Microsoft's console.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_sega-making-dreamcast-2_1100-6235311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-making-dreamcast-2/1100-6235311/" class="article-title">Sega making Dreamcast 2?</a>
+			<div class="article-subtitle">Source: Trademark-trolling site Trademork reported this week that Sega had filed a new application to secure its rights to the Dreamcast name. The site speculated that the game maker might be preparing to reenter the hardware market with a Dreamcast 2. A slew of Web sites jumped on the speculation...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_frontlines-fuel-of-war-updated-hands-on_1100-6183761_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/frontlines-fuel-of-war-updated-hands-on/1100-6183761/" class="article-title">Frontlines: Fuel of War Updated Hands-On</a>
+			<div class="article-subtitle">We shine up our boots and fire off a few hot rounds in this latest hands-on with upcoming resource-themed shooter Frontlines: Fuel of War.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_sega-making-dreamcast-2_1100-6183780_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-making-dreamcast-2/1100-6183780/" class="article-title">Sega making Dreamcast 2?</a>
+			<div class="article-subtitle">Publisher refreshes trademark on console name, but is the company really getting back into the hardware game?</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_jesse-sutton-crowned-ceo-of-majesco_1100-6183779_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jesse-sutton-crowned-ceo-of-majesco/1100-6183779/" class="article-title">Jesse Sutton crowned CEO of Majesco</a>
+			<div class="article-subtitle">Publisher drops interim tag of chief exec; former Archie Comics, Hallmark exec Allan Grafman helms board of directors.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_mx-vs-atv-untamed-developer-diary-3-pocketbikes-and-customization_1100-6183798_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mx-vs-atv-untamed-developer-diary-3-pocketbikes-and-customization/1100-6183798/" class="article-title">MX vs. ATV: Untamed Developer Diary #3: Pocketbikes and Customization</a>
+			<div class="article-subtitle">Real men ride pocketbikes, as we find out in our latest developer diary for Untamed.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_wii-ghiii-getting-remastered_1100-6183815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-ghiii-getting-remastered/1100-6183815/" class="article-title">Wii GHIII getting remastered</a>
+			<div class="article-subtitle">Following widespread audio complaints, Activision will issue free, revamped replacements for rhythm rocker on Nintendo's console in early 2008.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/12/07_delaware-pols-launch-esrb-ad-campaign_1100-6183817_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/delaware-pols-launch-esrb-ad-campaign/1100-6183817/" class="article-title">Delaware pols launch ESRB ad campaign</a>
+			<div class="article-subtitle">Lt. Governor John Carney and Representative Helene Keeley announce new wave of game rating public service announcements.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_heavenly-sword-sequel-gossip_thumbnail.png">
+			<a href="https://www.eurogamer.net/heavenly-sword-sequel-gossip" class="article-title">Heavenly Sword sequel gossip</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_dmc4-demo-due-in-early-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/dmc4-demo-due-in-early-2008" class="article-title">DMC4 demo due in early 2008</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_win-heroes-of-mana-and-a-ds-pouch-survey_thumbnail.png">
+			<a href="https://www.eurogamer.net/win-heroes-of-mana-and-a-ds-pouch-survey" class="article-title">Win Heroes of Mana and a DS Pouch!</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_chat-guns-and-both-on-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/chat-guns-and-both-on-vc" class="article-title">Chat, guns and both on VC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_join-pirates-of-burning-sea-beta_thumbnail.png">
+			<a href="https://www.eurogamer.net/join-pirates-of-burning-sea-beta" class="article-title">Join Pirates of Burning sea beta!</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_swap-stars-for-wii-points-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/swap-stars-for-wii-points-now" class="article-title">Swap Stars for Wii Points now!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_eve-kills-windows-dead_thumbnail.png">
+			<a href="https://www.eurogamer.net/eve-kills-windows-dead" class="article-title">EVE kills Windows dead</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_gh3-wii-replacements-in-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/gh3-wii-replacements-in-2008" class="article-title">GH3 Wii replacements in 2008</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_nintendo-clarifies-q2-dates_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-clarifies-q2-dates" class="article-title">Nintendo clarifies Q2 dates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_mario-kart-wii-in-q2-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/mario-kart-wii-in-q2-2008" class="article-title">Mario Kart Wii in Q2 2008</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_cod4-patch-hugs-snipers_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod4-patch-hugs-snipers" class="article-title">COD4 patch hugs snipers</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_bay-says-he-knows-best_thumbnail.png">
+			<a href="https://www.eurogamer.net/bay-says-he-knows-best" class="article-title">Bay says he knows best</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_new-grand-theft-auto-iv-trailer_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-grand-theft-auto-iv-trailer" class="article-title">New Grand Theft Auto IV trailer</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_stranglehold-map-pack-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/stranglehold-map-pack-soon" class="article-title">Stranglehold map pack soon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_uncharted-likely-to-continue_thumbnail.png">
+			<a href="https://www.eurogamer.net/uncharted-likely-to-continue" class="article-title">Uncharted likely to continue</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_kane-and-lynch-demo-on-pal-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/kane-and-lynch-demo-on-pal-psn" class="article-title">Kane & Lynch demo on PAL PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_folklore-dlc-this-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/folklore-dlc-this-month" class="article-title">Folklore DLC this month</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_bowling-beats-on-us-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/bowling-beats-on-us-psn" class="article-title">Bowling, Beats on US PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_texas-sues-future-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/texas-sues-future-us" class="article-title">Texas sues Future US</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/12/07_whats-new-7th-dec-2007-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/whats-new-7th-dec-2007-article" class="article-title">What's New? (7th Dec, 2007)</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128779/Codies-names-in-house-middlewear-Ego/" class="article-title">Codies names in-house middlewear 'Ego'</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-39.php" class="article-title">Link Dump Friday №39</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/12/07/goo-the-road-to-igf-a-montage/" class="article-title">Goo!: The Road to IGF (A Montage)</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

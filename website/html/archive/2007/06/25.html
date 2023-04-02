@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 25, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/chaos-field-review/1900-6141897/" class="article-title">Chaos Field Review</a>
+			<div class="article-subtitle">This shoot-'em-up tries to follow in the footsteps of games like Ikaruga and Raiden, putting its own interesting-but-flawed spin on some aspects of the formula.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/prince-of-persia-the-two-thrones-review/1900-6142243/" class="article-title">Prince of Persia: The Two Thrones Review</a>
+			<div class="article-subtitle">This side-scrolling action game lets you play as both an acrobatic prince as well as his darker side through a short series of entertaining and varied levels.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/brady-bunch-kung-fu-review/1900-6142864/" class="article-title">Brady Bunch Kung Fu Review</a>
+			<div class="article-subtitle">The cheesy charm of <i>The Brady Bunch</i> mixes well with outrageous fighting game aesthetics, which almost compensates for the shallow gameplay.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dominions-3-the-awakening-review/1900-6163352/" class="article-title">Dominions 3: The Awakening Review</a>
+			<div class="article-subtitle">Dominions 3 is a complex, deep, and incredibly rich strategy game that will reward those willing to invest in it with an almost unlimited variety of play.</div>
+			<div class="article-author">Jeff Lackey</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mx-vs-atv-unleashed-review/1900-6121353/" class="article-title">MX vs. ATV Unleashed Review</a>
+			<div class="article-subtitle">MX vs. ATV Unleashed is a fast-paced and fun-filled arcade racing game, loaded with enough variety of content to keep you engaged for quite a while.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mx-vs-atv-unleashed-review/1900-6121349/" class="article-title">MX vs. ATV Unleashed Review</a>
+			<div class="article-subtitle">MX vs. ATV Unleashed is a fast-paced and fun-filled arcade racing game, loaded with enough variety of content to keep you engaged for quite a while.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mx-vs-atv-unleashed-review/1900-6143656/" class="article-title">MX vs. ATV Unleashed Review</a>
+			<div class="article-subtitle">MX vs. ATV Unleashed is a fast-paced and fun-filled arcade racing game, loaded with enough variety of content to keep you engaged for quite a while.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/resident-evil-deadly-silence-review/1900-6143721/" class="article-title">Resident Evil: Deadly Silence Review</a>
+			<div class="article-subtitle">The PlayStation survival horror classic makes an unlikely appearance on the DS, complete with some surprising new twists and all of the original's memorable scares.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/elebits-review/1900-6163310/" class="article-title">Elebits Review</a>
+			<div class="article-subtitle">This hybrid of a shooter and hide-and-go-seek works best as a demonstration for what the Wii's motion sensing technology--though it's not a half bad game, either.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-swing-golf-review/1900-6163236/" class="article-title">Super Swing Golf Review</a>
+			<div class="article-subtitle">Super Swing offers a quirky experience that may strike a chord with some players, but will probably turn off anyone looking for a traditional round of golf.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/land-of-the-dead-road-to-fiddlers-green-review/1900-6144105/" class="article-title">Land of the Dead: Road to Fiddler's Green Review</a>
+			<div class="article-subtitle">This game fails to deliver even the most garden-variety zombie-killing thrills, due to its inept combat, bad visuals, and cripplingly stupid artificial intelligence.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/singstar-rocks-review/1900-6163171/" class="article-title">SingStar Rocks! Review</a>
+			<div class="article-subtitle">SingStar's American debut presents a decent song list and sparse but functional game modes that amount to a reasonably entertaining karaoke package.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/age-of-empires-the-age-of-kings-review/1900-6144202/" class="article-title">Age of Empires: The Age of Kings Review</a>
+			<div class="article-subtitle">The hit PC real-time strategy series goes turn-based in this well-designed translation, which packs a surprising amount of historic battles into a small package.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tomb-raider-legend-review/1900-6163094/" class="article-title">Tomb Raider: Legend Review</a>
+			<div class="article-subtitle">Tomb Raider: Legend delivers a solid platforming experience that manages to mix in a healthy dose of the gunplay and puzzles that the console versions contained.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/eureka-seven-vol-1-the-new-wave-review/1900-6162812/" class="article-title">Eureka Seven - Vol. 1: The New Wave Review</a>
+			<div class="article-subtitle">Eureka Seven is so wildly uneven and devoid of decent gameplay that only the most forgiving fans will be able to tolerate it.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6162772/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">Avatar had the potential to be an enjoyable game, but extremely repetitive and tedious gameplay mean that most of that potential went untapped.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6162771/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">Avatar had the potential to be an enjoyable game, but extremely repetitive and tedious gameplay mean that most of that potential went untapped.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6162767/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">Avatar had the potential to be an enjoyable game, but extremely repetitive and tedious gameplay mean that most of that potential went untapped.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/state-of-emergency-2-review/1900-6144812/" class="article-title">State of Emergency 2 Review</a>
+			<div class="article-subtitle">State of Emergency 2 replaces the first game's ultraviolent and fancy-free nature with a cavalcade of lame trial-and-error missions, and a lousy plot.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/castlevania-portrait-of-ruin-review/1900-6162744/" class="article-title">Castlevania: Portrait of Ruin Review</a>
+			<div class="article-subtitle">Portrait of Ruin is a great game because it stays true to the familiar Castlevania design and delivers a fun, lengthy adventure.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cars-review/1900-6162768/" class="article-title">Cars Review</a>
+			<div class="article-subtitle">Steering Cars with the Wii Remote works pretty nicely, but some of the minigame control schemes and a few bugs conspire to drag down this film-licensed racer.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-carbon-review/1900-6162626/" class="article-title">Need for Speed Carbon Review</a>
+			<div class="article-subtitle">Need for Speed Carbon contains some unique driving control options, but none of them can escape the sensation that this game simply wasn't built for motion control.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6162623/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Take the complicated controls of this popular series and make them even more finicky, then lose the online versus mode, and you get Double Agent for the Wii.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rush-review/1900-6162557/" class="article-title">Rush Review</a>
+			<div class="article-subtitle">Rush is a middling street racing game that really wasn't worth your time when it was released on consoles last year, and certainly isn't worth your time now.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tamagotchi-connection-corner-shop-2-review/1900-6162414/" class="article-title">Tamagotchi Connection: Corner Shop 2 Review</a>
+			<div class="article-subtitle">Corner Shop 2 has an appealing look and minigames that are fun at first, but the gameplay quickly wears thin because there's nothing to keep you playing.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bomberman-93-review/1900-6162553/" class="article-title">Bomberman '93 Review</a>
+			<div class="article-subtitle">Bomberman '93 is a perfect fit for the Wii's party-game mentality, and has the multiplayer support it needs to get you hooked all over again.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mortal-kombat-unchained-review/1900-6162397/" class="article-title">Mortal Kombat: Unchained Review</a>
+			<div class="article-subtitle">Based on Mortal Kombat: Deception, this version gains some extra characters but little else to make it worthwhile for fans of Midway's gory fighting-game series.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/burnout-revenge-review/1900-6145478/" class="article-title">Burnout Revenge Review</a>
+			<div class="article-subtitle">The racing in Burnout Revenge is more intense than ever on the Xbox 360, but there's probably not enough new to get you hooked if you've played it elsewhere.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-sims-2-open-for-business-review/1900-6145636/" class="article-title">The Sims 2: Open for Business Review</a>
+			<div class="article-subtitle">By introducing new job-related skills, the ability to hire and fire, and a healthy number of new items, Open for Business makes it fun to put your sims to work.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/superman-returns-the-videogame-review/1900-6162295/" class="article-title">Superman Returns: The Videogame Review</a>
+			<div class="article-subtitle">After the thrill of flying around Metropolis wears off, Superman Returns is nothing more than a below-average, repetitive movie tie-in.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/superman-returns-the-videogame-review/1900-6162293/" class="article-title">Superman Returns: The Videogame Review</a>
+			<div class="article-subtitle">After the thrill of flying around Metropolis wears off, Superman Returns is nothing more than a below-average, repetitive movie tie-in.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cricket-07-review/1900-6162251/" class="article-title">Cricket 07 Review</a>
+			<div class="article-subtitle">EA's Cricket 07 plays a generally good game of cricket but is hamstrung by some finicky bowling controls.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/college-hoops-2k6-review/1900-6145705/" class="article-title">College Hoops 2K6 Review</a>
+			<div class="article-subtitle">College Hoops 2K6 for the Xbox 360 maintains the great gameplay from previous versions, but doesn't have enough new content to justify the price of admission.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/marvel-ultimate-alliance-review/1900-6160732/" class="article-title">Marvel: Ultimate Alliance Review</a>
+			<div class="article-subtitle">Raven improves upon the great work it did with the X-Men Legends games, with a lengthy adventure that touches upon nearly every last corner of the Marvel Universe.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/marvel-ultimate-alliance-review/1900-6162204/" class="article-title">Marvel: Ultimate Alliance Review</a>
+			<div class="article-subtitle">Raven improves upon the great work it did with the X-Men Legends games, with a lengthy adventure that touches upon nearly every last corner of the Marvel Universe.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/marvel-ultimate-alliance-review/1900-6160735/" class="article-title">Marvel: Ultimate Alliance Review</a>
+			<div class="article-subtitle">Raven improves upon the great work it did with the X-Men Legends games, with a lengthy adventure that touches upon nearly every last corner of the Marvel Universe.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/blitz-the-league-review/1900-6162189/" class="article-title">Blitz: The League Review</a>
+			<div class="article-subtitle">Blitz on the Xbox 360 is the same addictive, violent game of football that it was last year. But after a year's time, you'd hope for a bit more than a port.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/generation-of-chaos-review/1900-6145855/" class="article-title">Generation of Chaos Review</a>
+			<div class="article-subtitle">Generation of Chaos is a unique strategy game that manages to be somewhat enjoyable despite its technical issues and exceedingly steep learning curve.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6162122/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Even those who only own a GameCube should probably avoid this version of Double Agent, which has fewer features and worse graphics than on other platforms.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/metal-gear-solid-3-subsistence-review/1900-6145929/" class="article-title">Metal Gear Solid 3: Subsistence Review</a>
+			<div class="article-subtitle">Metal Gear Solid 3 returns with a vengeance in this special edition, which markedly improves an already great game while adding a new online mode and great extras.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6162118/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Agent Sam Fisher's latest assignment is a fairly routine stealth action operation, but changes to Splinter Cell's innovative multiplayer mode help make up for this.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/syphon-filter-dark-mirror-review/1900-6145961/" class="article-title">Syphon Filter: Dark Mirror Review</a>
+			<div class="article-subtitle">The first portable Syphon Filter is of a rare breed for the PSP--a shooter that offers not only intense stealth and action sequences, but also controls that work.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gunpey-review/1900-6162115/" class="article-title">Gunpey Review</a>
+			<div class="article-subtitle">Gunpey's pulsing music and visuals may remind you of Lumines, but don't let it fool you: This addictive game is unique and bizarre enough to stand on its own merits.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/final-fantasy-anniversary-edition-review/1900-6173084/" class="article-title">Final Fantasy Anniversary Edition Review</a>
+			<div class="article-subtitle">The umpteenth remake of Final Fantasy I is pretty to look at, but the gameplay is showing its age.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/madden-nfl-07-review/1900-6162055/" class="article-title">Madden NFL 07 Review</a>
+			<div class="article-subtitle">Madden NFL 07 for the Wii isn't just a quick-and-dirty port. It's an excellent use of the Wii's motion-sensing capabilities that revitalizes Madden in many ways.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/altered-beast-review/1900-6162039/" class="article-title">Altered Beast Review</a>
+			<div class="article-subtitle">In its day, the Genesis version of Altered Beast was a middling translation of a great arcade game. Now it scrapes by on decent action and some nostalgic value.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/red-steel-review/1900-6162018/" class="article-title">Red Steel Review</a>
+			<div class="article-subtitle">Red Steel introduces a promising control scheme for shooting thugs and for slashing them with samurai swords, but wraps it in a buggy, thoroughly unimpressive game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rampage-total-destruction-review/1900-6161992/" class="article-title">Rampage: Total Destruction Review</a>
+			<div class="article-subtitle">Shoehorning in the most basic of Wii motion-sensing controls doesn't make a clunky, repetitive game like Rampage fun--if anything, it just makes it more annoying.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tiger-woods-pga-tour-07-review/1900-6161934/" class="article-title">Tiger Woods PGA Tour 07 Review</a>
+			<div class="article-subtitle">An improved aiming system, awesome create-a-character options, and top-notch gameplay help the Tiger Woods series get off to a great start on the PlayStation 3.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warhammer-mark-of-chaos-review/1900-6161929/" class="article-title">Warhammer: Mark of Chaos Review</a>
+			<div class="article-subtitle">Mark of Chaos captures the fantasy combat of the Warhammer franchise in a beautiful way, but it's marred by some technical issues and a basic strategic campaign.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dungeons-and-dragons-online-stormreach-review/1900-6146099/" class="article-title">Dungeons & Dragons Online: Stormreach Review</a>
+			<div class="article-subtitle">This online RPG lives up to its namesake as far as the quality of its action-packed quests is concerned, but it doesn't have all the features you'd probably want.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-ghost-recon-advanced-warfighter-review/1900-6146108/" class="article-title">Tom Clancy's Ghost Recon Advanced Warfighter Review</a>
+			<div class="article-subtitle">It may share the same name as the excellent Xbox 360 shooter, but the quality of the experience has been severely compromised in translation to the Xbox.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-07-review/1900-6161685/" class="article-title">NBA 07 Review</a>
+			<div class="article-subtitle">NBA 07 on the PlayStation 3 doesn't have the fun story mode that the PlayStation 2 version has, but it does have most of that version's flaws, and some new ones.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/socom-us-navy-seals-fireteam-bravo-2-review/1900-6161432/" class="article-title">SOCOM: U.S. Navy SEALs Fireteam Bravo 2 Review</a>
+			<div class="article-subtitle">Fireteam Bravo 2 delivers a solid single-player campaign backed up by a fully-featured online multiplayer game, making it one of the best shooters on the PSP.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/space-hack-review/1900-6142173/" class="article-title">Space Hack Review</a>
+			<div class="article-subtitle">Space Hack mimics the hack-and-slash formula common to all action RPGs, but its budget price and sheer length don't make up for its dull pace and bland combat.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/guild-wars-nightfall-review/1900-6161433/" class="article-title">Guild Wars Nightfall Review</a>
+			<div class="article-subtitle">Unmistakably similar to the previous two games in the innovative Guild Wars series, Nightfall features an impressive new Egyptian-themed continent to explore.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ufo-aftershock-review/1900-6142007/" class="article-title">UFO: Aftershock Review</a>
+			<div class="article-subtitle">UFO: Aftershock improves on its predecessor in some ways, but there's just far too much wrong with this copy of the classic X-COM series to recommend it.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/genji-days-of-the-blade-review/1900-6161332/" class="article-title">Genji: Days of the Blade Review</a>
+			<div class="article-subtitle">While this action adventure game flexes a bit of the PlayStation 3's graphical muscle, its rather shallow, derivative gameplay makes it difficult to recommend.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/marvel-ultimate-alliance-review/1900-6161152/" class="article-title">Marvel Ultimate Alliance Review</a>
+			<div class="article-subtitle">Raven improves upon the great work it did with the X-Men Legends games, with a lengthy adventure that touches upon nearly every last corner of the Marvel Universe.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/midnight-club-3-dub-edition-remix-review/1900-6146441/" class="article-title">Midnight Club 3: DUB Edition Remix Review</a>
+			<div class="article-subtitle">New content and a cheaper price make Remix the definitive version of Midnight Club 3, but there's not enough new for who already took the plunge last year.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/midnight-club-3-dub-edition-remix-review/1900-6146442/" class="article-title">Midnight Club 3: DUB Edition Remix Review</a>
+			<div class="article-subtitle">New content and a cheaper price make Remix the definitive version of Midnight Club 3, but there's not enough new for who already took the plunge last year.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-5-empires-review/1900-6146757/" class="article-title">Dynasty Warriors 5 Empires Review</a>
+			<div class="article-subtitle">Thanks to some solid strategy, the Empires expansion to Dynasty Warriors 5 turns out to be the bright spot amid the doldrums of endless button-mashing.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-5-empires-review/1900-6146756/" class="article-title">Dynasty Warriors 5 Empires Review</a>
+			<div class="article-subtitle">Thanks to some solid strategy, the Empires expansion to Dynasty Warriors 5 turns out to be the bright spot amid the doldrums of endless button-mashing.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/justice-league-heroes-review/1900-6160794/" class="article-title">Justice League Heroes Review</a>
+			<div class="article-subtitle">Justice League Heroes is a halfhearted beat-'em-up game that does very little to make you feel as if you're controlling your favorite comic book characters.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-ghost-recon-advanced-warfighter-review/1900-6146949/" class="article-title">Tom Clancy's Ghost Recon Advanced Warfighter Review</a>
+			<div class="article-subtitle">It may share the same name as the excellent Xbox 360 shooter, but the quality of the experience has been severely compromised in translation to the PS2.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/work-time-fun-review/1900-6160711/" class="article-title">Work Time Fun Review</a>
+			<div class="article-subtitle">WTF is ridiculous and there's nothing else quite like it. It's not for everyone, but if you're looking for something insane and Japanese, you'll probably love it.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6160637/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Though different from the Xbox 360, this version features its own exciting stealth-action campaign, plus a solid new multiplayer mode and great cooperative missions.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6160642/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Though different from the Xbox 360, this version features its own exciting stealth-action campaign, plus a solid new multiplayer mode and great cooperative missions.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ace-combat-x-skies-of-deception-review/1900-6160375/" class="article-title">Ace Combat X: Skies of Deception Review</a>
+			<div class="article-subtitle">One of the best names in flight combat delivers another standout installment in Ace Combat X for the PSP, which has its own story and well-designed gameplay twists.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nicktoons-unite-review/1900-6142912/" class="article-title">Nicktoons Unite! Review</a>
+			<div class="article-subtitle">Nicktoons Unite! is too content to be another generic platformer that leans exclusively on its license.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shin-megami-tensei-devil-summoner-raidou-kuzunoha-/1900-6160516/" class="article-title">Shin Megami Tensei: Devil Summoner - Raidou Kuzunoha vs. the Soulless Army Review</a>
+			<div class="article-subtitle">The newest installment in the Shin Megami Tensei series has repetitive battles and a slow-rolling narrative, but its fascinating premise makes it worth a look.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dynasty-warriors-vol-2-review/1900-6160282/" class="article-title">Dynasty Warriors Vol. 2 Review</a>
+			<div class="article-subtitle">Dynasty Warriors Vol. 2 might as well be Vol. 1.5, with its few minor upgrades, less-than-enjoyable multiplayer mode, and done-to-death hack-and-slash gameplay.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sam-and-max-episode-1-culture-shock-review/1900-6159963/" class="article-title">Sam & Max Episode 1: Culture Shock Review</a>
+			<div class="article-subtitle">Sam and Max return to the PC scene with the same great sense of humor and solid production values, but some may be turned off by the game's episodic nature.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/battlefield-2142-review/1900-6159893/" class="article-title">Battlefield 2142 Review</a>
+			<div class="article-subtitle">Battlefield 2142's new Titan mode is an exciting addition to the Battlefield series, though for the most part 2142 offers up minor improvements over its predecessor.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/age-of-pirates-caribbean-tales-review/1900-6159850/" class="article-title">Age of Pirates: Caribbean Tales Review</a>
+			<div class="article-subtitle">A countless number of rough edges and some major bugs sap just about all the potential for entertainment from this overambitious, underdeveloped game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tom-clancys-splinter-cell-double-agent-review/1900-6159920/" class="article-title">Tom Clancy's Splinter Cell Double Agent Review</a>
+			<div class="article-subtitle">Agent Sam Fisher's latest assignment turns out to be a fairly routine stealth action operation, but improvements to its multiplayer mode more than make up for this.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-championship-poker-featuring-howard-lederer-/1900-6159841/" class="article-title">World Championship Poker: Featuring Howard Lederer - All In Review</a>
+			<div class="article-subtitle">The few changes made to Crave's latest poker title don't do anything to bring the series up to the standard set by recent, better poker games.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-championship-poker-featuring-howard-lederer-/1900-6159843/" class="article-title">World Championship Poker: Featuring Howard Lederer - All In Review</a>
+			<div class="article-subtitle">The few changes made to Crave's latest poker title don't do anything to bring the series up to the standard set by recent, better poker games.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dig-dug-review/1900-6159707/" class="article-title">Dig Dug Review</a>
+			<div class="article-subtitle">It's an arcade-perfect port of Dig Dug, an experience that still stands up well enough, but easy achievements and a lack of additional features keep it from lasting.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warhammer-40000-dawn-of-war-dark-crusade-review/1900-6159609/" class="article-title">Warhammer 40,000: Dawn of War - Dark Crusade Review</a>
+			<div class="article-subtitle">This terrific update to one of the best sci-fi real-time strategy games in years packs in a great strategic campaign and a grand total of seven different armies.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_qanda-codemasters-jamie-firth-on-v8-supercars-3-create-and-race_1100-6172969_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-codemasters-jamie-firth-on-v8-supercars-3-create-and-race/1100-6172969/" class="article-title">Q&A: Codemasters' Jamie Firth on V8 Supercars 3: Create and Race</a>
+			<div class="article-subtitle">Codemasters' lead producer Jamie Firth talks about V8 Supercars 3: Create and Race, getting touchy with the Nintendo DS control system, Mario Kart, and hiding code in race tracks.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_wow-fansite-sells-for-reported-1-million_1100-6235831_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wow-fansite-sells-for-reported-1-million/1100-6235831/" class="article-title">WOW fansite sells for reported $1 million</a>
+			<div class="article-subtitle">World of Warcraft database site Wowhead.com has been sold to the ZAM Network.The owners of the popular World of Warcraft fan site Wowhead.com--which provides info about the game's monsters, items, spells and more--have sold it off because they want to spend more time "developing the site and...</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_newsspots-rainbow-six-vegas-madden-world-in-conflict-xbox-live_1100-6173027_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/newsspots-rainbow-six-vegas-madden-world-in-conflict-xbox-live/1100-6173027/" class="article-title">NewsSpots: Rainbow Six Vegas, Madden, World in Conflict, Xbox Live</a>
+			<div class="article-subtitle">Long-delayed Ubisoft shooter storms PS3; Madden-maker offers free football; Sierra offers piece of history; <i>Austin Powers</i> on XBL.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_au-shippin-out-june-25-29-dirt-darkness-and-dragon-balls_1100-6173038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-june-25-29-dirt-darkness-and-dragon-balls/1100-6173038/" class="article-title">AU Shippin' Out June 25-29: DiRT, Darkness, and Dragon Balls</a>
+			<div class="article-subtitle">Darkness descends on Australia this week; DiRT racing to 360 and PC.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_kuju-feels-the-chemistry_1100-6173039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kuju-feels-the-chemistry/1100-6173039/" class="article-title">Kuju feels the Chemistry</a>
+			<div class="article-subtitle">Second Kuju studio in the UK gets the rebranding treatment, becomes Chemistry.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_nintendo-tops-sonys-market-value_1100-6173041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-tops-sonys-market-value/1100-6173041/" class="article-title">Nintendo tops Sony's market value</a>
+			<div class="article-subtitle">The Mario factory's shares hit a record high and briefly overtakes the PlayStation 3 maker on the Japanese stock market.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_indievelopment-black-powder_1100-6166639_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/indievelopment-black-powder/1100-6166639/" class="article-title">Indievelopment: Black Powder</a>
+			<div class="article-subtitle">Ever wonder what it's really like to develop a video game? In this new series, GameSpot does just that; a look into the trials and tribulations of a brand new independent development studio working against the clock to try get their idea to market.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_nicole-kidman-promoting-more-brain-training_1100-6173040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nicole-kidman-promoting-more-brain-training/1100-6173040/" class="article-title">Nicole Kidman promoting More Brain Training </a>
+			<div class="article-subtitle"><i>The Hours</i> star is the new face of Nintendo's brain training sensation in Europe.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_carcassonne-builds-out-xbla_1100-6173055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carcassonne-builds-out-xbla/1100-6173055/" class="article-title">Carcassonne builds out XBLA</a>
+			<div class="article-subtitle">Sierra Online brings tile-based board game to Xbox 360 this Wednesday; expansion set included in download.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_f-zero-x-leads-pack-onto-vc_1100-6173054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/f-zero-x-leads-pack-onto-vc/1100-6173054/" class="article-title">F-Zero X leads pack onto VC</a>
+			<div class="article-subtitle">Nintendo's hallmark 64-bit racer cruises to Wii's downloadable-game service with SNES fighter SFII Turbo: Hyper Fighting and TG-16 beat-'em-up China Warrior.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_us-doctors-shelve-game-addiction-resolution_1100-6173073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-doctors-shelve-game-addiction-resolution/1100-6173073/" class="article-title">US doctors shelve game-addiction resolution</a>
+			<div class="article-subtitle">Following contentious debate, medical body calls for further study of compulsive gaming habits; issue to be reconsidered in 2012.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_bizspots-namco-bandai-fonix-xfire-iga_1100-6173077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bizspots-namco-bandai-fonix-xfire-iga/1100-6173077/" class="article-title">BizSpots: Namco Bandai, Fonix, Xfire, IGA</a>
+			<div class="article-subtitle">Namco Bandai debuts new VP; voice-recognition tech heads to Wii; European gaming league gets Xfire-d; IGA expands network.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_shippin-out-june-25-29-transformers-harry-potter-ratatouille_1100-6173078_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-june-25-29-transformers-harry-potter-ratatouille/1100-6173078/" class="article-title">Shippin' Out June 25-29: Transformers, Harry Potter, Ratatouille </a>
+			<div class="article-subtitle">Movie-based games headline a heavy week of releases alongside Pokemon's Wii debut and 2K Games' The Darkness for PS3, Xbox 360.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_insomniac-makes-list-of-best-employers-again_1100-6173093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/insomniac-makes-list-of-best-employers-again/1100-6173093/" class="article-title">Insomniac makes list of best employers again</a>
+			<div class="article-subtitle">Ratchet & Clank developer touts third-straight top 10 appearance in human resources organization's top 50 best small- and medium-sized US employers.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_killzone-2-confirmed-for-e3_1100-6235830_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/killzone-2-confirmed-for-e3/1100-6235830/" class="article-title">Killzone 2 confirmed for E3?</a>
+			<div class="article-subtitle">Source: An anonymous invite for a Sony event at next month's E3 Media & Business Summit.    What we heard: After months of uncertainty, plans for the forthcoming E3 are finally gelling. Hard evidence of that fact has been emerging in the form of invitations to after-hours events being held in...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_the-history-channel-great-battles-of-rome-first-impressions_1100-6173080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-history-channel-great-battles-of-rome-first-impressions/1100-6173080/" class="article-title">The History Channel: Great Battles of Rome First Impressions</a>
+			<div class="article-subtitle">This tactical battle game will let you wage more than 100 Roman battles with armies that you can train and customize.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_tarr-chronicles-first-impressions_1100-6173082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tarr-chronicles-first-impressions/1100-6173082/" class="article-title">Tarr Chronicles First Impressions</a>
+			<div class="article-subtitle">This Russian-developed space sim will feature advanced graphics along with plenty of dogfighting action.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_tgs-06-monster-kingdom-unknown-realms-hands-on_1100-6158159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-monster-kingdom-unknown-realms-hands-on/1100-6158159/" class="article-title">TGS 06: Monster Kingdom: Unknown Realms Hands-On</a>
+			<div class="article-subtitle">We get our hands on "the next generation of monster fantasy" at Sony's Tokyo Game Show booth.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_congress-to-decide-on-taxing-virtual-items_1100-6173095_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/congress-to-decide-on-taxing-virtual-items/1100-6173095/" class="article-title">Congress to decide on taxing virtual items</a>
+			<div class="article-subtitle">Legislators expected to take position next month on whether or not gamers owe the IRS a cut from sales of in-game items, property.</div>
+			<div class="article-author">Daniel Terdiman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_hitman-trailer-to-die-hard-now-online_1100-6235829_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hitman-trailer-to-die-hard-now-online/1100-6235829/" class="article-title">Hitman trailer to Die Hard, now online</a>
+			<div class="article-subtitle">In the Hitman games, protagonist Agent 47 specializes in stealth kills. And for a year and a half after it was first announced, 20th Century Fox's movie adaptation of Eidos' series also kept a low profile. That changed once filming got underway earlier this year, with Deadwood star Timothy...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_esrb-launching-new-game-trailer-clampdown_1100-6235828_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-launching-new-game-trailer-clampdown/1100-6235828/" class="article-title">ESRB launching new game-trailer clampdown?</a>
+			<div class="article-subtitle">Source: See below.  What we heard: Without question, the big gaming news of last week was the hubub around Manhunt 2. After being banned outright in England and Ireland, Rockstar Games' controversy-courting title was given the dreaded AO for Adults Only rating by the Entertainment Software Ratings...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_take-two-shelves-manhunt-2_1100-6172931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-shelves-manhunt-2/1100-6172931/" class="article-title">Take-Two shelves Manhunt 2</a>
+			<div class="article-subtitle">Plans to release game "temporarily suspended" while publisher continues exploring options.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/06/25_new-york-pols-agree-on-game-bill_1100-6172987_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-york-pols-agree-on-game-bill/1100-6172987/" class="article-title">New York pols agree on game bill</a>
+			<div class="article-subtitle">Author of legislation hopes to see it passed when lawmakers reconvene next month; proposed law would make it illegal to sell or rent overly violent games to minors.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_the-darkness-ps3-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-darkness-ps3-delayed" class="article-title">The Darkness PS3 delayed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_telltale-loves-unrelenting-demands-of-episodic-sam-and-max_thumbnail.png">
+			<a href="https://www.eurogamer.net/telltale-loves-unrelenting-demands-of-episodic-sam-and-max" class="article-title">Telltale loves "unrelenting" demands of episodic Sam & Max</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_rising-star-signs-hudson-deal_thumbnail.png">
+			<a href="https://www.eurogamer.net/rising-star-signs-hudson-deal" class="article-title">Rising Star signs Hudson deal</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_n-dev-disses-eurogamer_thumbnail.png">
+			<a href="https://www.eurogamer.net/n-dev-disses-eurogamer" class="article-title">N+ dev disses Eurogamer!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_syphon-filter-dark-mirror-heading-to-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/syphon-filter-dark-mirror-heading-to-ps2" class="article-title">Syphon Filter: Dark Mirror heading to PS2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_xider-enters-ds-market_thumbnail.png">
+			<a href="https://www.eurogamer.net/xider-enters-ds-market" class="article-title">Xider enters DS market</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_free-lump-of-berlin-wall-with-world-in-conflict_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-lump-of-berlin-wall-with-world-in-conflict" class="article-title">Free lump of Berlin Wall with World in Conflict</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_hail-to-the-chimp-for-ps3-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/hail-to-the-chimp-for-ps3-x360" class="article-title">Hail to the Chimp for PS3/X360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_q-and-a-gamecocks-mike-wilson_thumbnail.png">
+			<a href="https://www.eurogamer.net/q-and-a-gamecocks-mike-wilson" class="article-title">Q&A: Gamecock's Mike Wilson</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_gamecocks-line-up-in-detail_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamecocks-line-up-in-detail" class="article-title">Gamecock's line-up in detail</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_god-execs-launch-gamecock_thumbnail.png">
+			<a href="https://www.eurogamer.net/god-execs-launch-gamecock" class="article-title">GOD execs launch Gamecock</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_news250607psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/news250607psp" class="article-title">PSP CPU power unlocked</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/06/25_r-psp-roundup-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-psp-roundup-psp" class="article-title">PSP  Roundup</a>
+			<div class="article-author">Dave McCarthy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bloxorz.php" class="article-title">Bloxorz</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/06/25/igs-2007-small-arms-postmortem/" class="article-title">IGS 2007: Small Arms Postmortem</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/06/25_2007_06_25_castlevania-chorus-of-mysteries_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/06/25/castlevania-chorus-of-mysteries/" class="article-title">Castlevania: Chorus of Mysteries</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/06/25_2007_06_news_25.html_thumbnail.gif">
+			<a href="http://indygamer.blogspot.com/2007/06/news_25.html" class="article-title">News</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/06/25_2007_06_bloxorz.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/06/bloxorz.html" class="article-title">Bloxorz</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

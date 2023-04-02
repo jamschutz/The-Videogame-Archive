@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 2, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/overclocked-a-history-of-violence-review/1900-6190278/" class="article-title">Overclocked: A History of Violence Review</a>
+			<div class="article-subtitle">Overclocked may be awfully grim, but a deep story and smart, subtle puzzles make it captivating in spite of its macabre tone.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warhammer-40000-dawn-of-war-soulstorm-review/1900-6190290/" class="article-title">Warhammer 40,000: Dawn of War: Soulstorm Review</a>
+			<div class="article-subtitle">Soulstorm caps off the long-running Warhammer 40,000: Dawn of War series with recycled gameplay.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_gamespot-au-sierra-spring-event-2008_1100-6234907_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-au-sierra-spring-event-2008/1100-6234907/" class="article-title">GameSpot AU @ Sierra Spring Event 2008</a>
+			<div class="article-subtitle">Sierra Spring Event 2008     A few weeks ago, Sierra Entertainment held an event in downtown San Francisco, USA, with the purpose of giving local and international games media a chance to see how some of their biggest titles of 2008 are shaping up. GameSpot AU flew halfway around the world to get...</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_analyst-nintendo-to-conquer-europe_1100-6190237_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-nintendo-to-conquer-europe/1100-6190237/" class="article-title">Analyst: Nintendo to conquer Europe</a>
+			<div class="article-subtitle">DFC Intelligence predicts Sony's hardware dominance will end, pinpointing Phil Harrison's departure as key.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_pure-updated-impressions_1100-6190313_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pure-updated-impressions/1100-6190313/" class="article-title">Pure Updated Impressions</a>
+			<div class="article-subtitle">We leap huge gorges in a single bound in our latest look at this gorgeous offroad racing game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_aussie-game-charts-april-21-27_1100-6190303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-april-21-27/1100-6190303/" class="article-title">Aussie game charts: April 21-27</a>
+			<div class="article-subtitle">Mario Kart powerslides into number one.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_pressspotting-grand-theft-coverage_1100-6190297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pressspotting-grand-theft-coverage/1100-6190297/" class="article-title">PressSpotting: Grand Theft Coverage</a>
+			<div class="article-subtitle">The week saw game journalists engaged in a global free-for-all to review, cover, and not criticize the year's biggest game.</div>
+			<div class="article-author">Kyle Orland</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_sony-reports-238k-ps3-install-base-down-under_1100-6190304_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-reports-238k-ps3-install-base-down-under/1100-6190304/" class="article-title">Sony reports 238K PS3 install base down under</a>
+			<div class="article-subtitle">PlayStation 3 first-year sales outpace PlayStation 2's debut year in Australia; PlayTV slated for Q3 2008 release.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_qanda-blind-guardian-on-music-in-games_1100-6190306_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-blind-guardian-on-music-in-games/1100-6190306/" class="article-title">Q&A: Blind Guardian on music in games</a>
+			<div class="article-subtitle">German band Blind Guardian talk to GameSpot about their appearance in the upcoming Sacred 2, and what it's like to be a guitarist playing Guitar Hero.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_report-sony-profits-will-be-up-game-unit-losses-down_1100-6190311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-sony-profits-will-be-up-game-unit-losses-down/1100-6190311/" class="article-title">Report: Sony profits will be up, game-unit losses down</a>
+			<div class="article-subtitle">Enterbrain reports that the PSP outsold the DS 2-to-1 in Japan in April; Nikkei expects Sony's full-year profit to increase by a factor of five.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_busting-your-brains-on-tournament-tv_1100-6234904_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/busting-your-brains-on-tournament-tv/1100-6234904/" class="article-title">Busting Your Brains on Tournament TV!</a>
+			<div class="article-subtitle">Today's Tournament TV will be about the GTA series. The two trivia finalists have flown out to the GameSpot Studio in San Francisco to participate in the live broadcast. UrFaceIzDum and mgoalie01 will face-off through a variety of game rounds to determine who will take the $1,000 Best Buy gift...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_qanda-dissecting-dark-sector_1100-6190298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-dissecting-dark-sector/1100-6190298/" class="article-title">Q&A: Dissecting Dark Sector</a>
+			<div class="article-subtitle">Director of Digital Extremes' latest action game talks to GameSpot about what worked, what didn't, and what he wanted to do differently.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_guitar-hero-iii-finds-muse-dlc-next-week_1100-6190334_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-iii-finds-muse-dlc-next-week/1100-6190334/" class="article-title">Guitar Hero III finds Muse DLC next week</a>
+			<div class="article-subtitle">Brit trio gets three-song pack on Thursday; more Fall Out Boy and Yeah Yeah Yeahs set for Rock Band.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_newest-moderators-ahoy_1100-6234903_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/newest-moderators-ahoy/1100-6234903/" class="article-title">Newest Moderators Ahoy!</a>
+			<div class="article-subtitle">When browsing the fabulous GameSpot community, the first line of defense between your tender eyes and the foul criminals of the internets are your friends, your peers, your tireless servants of the Terms of Use--the volunteer mod squad. Some new faces have come on board, so feel free to...</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/02_rocketmen-expansion-came-from-uranus_1100-6234901_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocketmen-expansion-came-from-uranus/1100-6234901/" class="article-title">Rocketmen expansion Came From Uranus</a>
+			<div class="article-subtitle">Rocket science is widely accepted to be not easy, and Capcom seems to have hit upon that fact with Rocketmen: Axis of Evil. Though A.C.R.O.N.Y.M.'s downloadable title was initially slated to arrive during the latter part of 2007, it didn't in fact blast off on Xbox Live or the PlayStation Network...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_bank-holiday-update-plans-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/bank-holiday-update-plans-blog-entry" class="article-title">Bank Holiday update plans</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_two-psn-updates-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/two-psn-updates-next-week" class="article-title">Two PSN updates next week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_muse-songs-for-guitar-hero-iii_thumbnail.png">
+			<a href="https://www.eurogamer.net/muse-songs-for-guitar-hero-iii" class="article-title">Muse songs for Guitar Hero III</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_f-casual-gaming-says-rockstar-boss_thumbnail.png">
+			<a href="https://www.eurogamer.net/f-casual-gaming-says-rockstar-boss" class="article-title">'F*** casual gaming,' says Rockstar boss</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_ea-talks-about-tiger-woods-09_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-talks-about-tiger-woods-09" class="article-title">EA talks about Tiger Woods '09</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_gta2-site-not-counting-to-re-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/gta2-site-not-counting-to-re-release" class="article-title">GTA2 site not counting to re-release</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_miyamoto-wins-times-top-100-poll_thumbnail.png">
+			<a href="https://www.eurogamer.net/miyamoto-wins-times-top-100-poll" class="article-title">Miyamoto wins Time's Top 100 poll</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_psp-still-top-of-the-pops-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-still-top-of-the-pops-in-japan" class="article-title">PSP still top of the pops in Japan</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_the-end-of-first-impressions-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-end-of-first-impressions-blog-entry" class="article-title">The end of "First Impressions"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_sierra-spring-break-roundup-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/sierra-spring-break-roundup-hands-on" class="article-title">Sierra Spring Break Roundup</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_sony-quiet-on-lbp-beta-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-quiet-on-lbp-beta-date" class="article-title">Sony quiet on LBP beta date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_new-pal-releases-roundup-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-pal-releases-roundup-2" class="article-title">New PAL Releases Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_state-of-mmos-bleak-say-developers_thumbnail.png">
+			<a href="https://www.eurogamer.net/state-of-mmos-bleak-say-developers" class="article-title">State of MMOs "bleak", say developers</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_virtual-console-gets-interesting_thumbnail.png">
+			<a href="https://www.eurogamer.net/virtual-console-gets-interesting" class="article-title">Virtual Console gets interesting</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_playstation-day-livetext-plans-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/playstation-day-livetext-plans-blog-entry" class="article-title">PlayStation Day LiveText plans</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_virtual-console-roundup-0_thumbnail.png">
+			<a href="https://www.eurogamer.net/virtual-console-roundup-0" class="article-title">Virtual Console Roundup</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_haze-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/haze-hands-on" class="article-title">Haze</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_metal-gear-online-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-online-hands-on" class="article-title">Metal Gear Online</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_ea-casual-roundup-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-casual-roundup-hands-on" class="article-title">EA Casual Roundup</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_grand-theft-auto-iv-multiplayer-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/grand-theft-auto-iv-multiplayer-hands-on" class="article-title">Grand Theft Auto IV Multiplayer</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_metal-gear-solid-4-guns-of-the-patriots-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-gear-solid-4-guns-of-the-patriots-hands-on" class="article-title">Metal Gear Solid 4: Guns of the Patriots</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_clover-removed-from-okami-wii-credits_thumbnail.png">
+			<a href="https://www.eurogamer.net/clover-removed-from-okami-wii-credits" class="article-title">Clover removed from Okami Wii credits</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_no-show-for-activision-at-this-years-e3_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-show-for-activision-at-this-years-e3" class="article-title">No-show for Activision at this year's E3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_bay-denies-agreeing-to-box-boll_thumbnail.png">
+			<a href="https://www.eurogamer.net/bay-denies-agreeing-to-box-boll" class="article-title">Bay denies agreeing to box Boll</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_nasa-banking-on-mmo-longevity_thumbnail.png">
+			<a href="https://www.eurogamer.net/nasa-banking-on-mmo-longevity" class="article-title">NASA banking on MMO longevity</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_mario-kart-wii-tournaments-begin_thumbnail.png">
+			<a href="https://www.eurogamer.net/mario-kart-wii-tournaments-begin" class="article-title">Mario Kart Wii tournaments begin</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_obama-speaks-out-on-gta-iv_thumbnail.png">
+			<a href="https://www.eurogamer.net/obama-speaks-out-on-gta-iv" class="article-title">Obama speaks out on GTA IV</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_gta-2-available-for-download-this-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/gta-2-available-for-download-this-month" class="article-title">GTA 2 available for download this month?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_valve-releases-steamworks-sdk-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-releases-steamworks-sdk-3" class="article-title">Valve releases Steamworks SDK</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_gta-iv-boosts-ps3-sales-in-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/gta-iv-boosts-ps3-sales-in-us" class="article-title">GTA IV boosts PS3 sales in US</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/02_psn-psone-roundup-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/psn-psone-roundup-review" class="article-title">PSN PSone Roundup</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131680/Gameplanet-speaks-to-Radio-Live/" class="article-title">Gameplanet speaks to Radio Live</a>
+			<div class="article-subtitle">Seems GTA IV is rather popular?</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131678/Infogrames-Atari-merge/" class="article-title">Infogrames, Atari merge</a>
+			<div class="article-subtitle">Former buys latter.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/gazillionaire-3.php" class="article-title">Gazillionaire III</a>
+			<div class="article-author">Ms .45</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/twizzle.php" class="article-title">Twizzle</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-59.php" class="article-title">Link Dump Friday №60</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2008/05/02/brain-damaged-toon-underworld-teaser-2/" class="article-title">Brain-Damaged Toon Underworld Teaser #2</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/05/02_2008_05_02_the-sewer-goblet-the-wu-tang-clan-and-the-wu-tang-baby_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/05/02/the-sewer-goblet-the-wu-tang-clan-and-the-wu-tang-baby/" class="article-title">The Sewer Goblet: The Wu-Tang Clan and the Wu-Tang Baby</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

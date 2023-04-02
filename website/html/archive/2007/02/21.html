@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 21, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ratchet-and-clank-size-matters-review/1900-6166204/" class="article-title">Ratchet & Clank: Size Matters Review</a>
+			<div class="article-subtitle">Ratchet & Clank's signature gameplay travels to the PSP almost completely intact in Size Matters, which packs in a good-size single-player adventure.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/streets-of-rage-review/1900-6166213/" class="article-title">Streets of Rage Review</a>
+			<div class="article-subtitle">The soundtrack still pops, though it's hard to stay excited about the simple beat-'em-up action in Streets of Rage for very long.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_europeans-can-soon-check-into-hotel-dusk_1100-6166181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/europeans-can-soon-check-into-hotel-dusk/1100-6166181/" class="article-title">Europeans can soon check into Hotel Dusk</a>
+			<div class="article-subtitle">Nintendo DS film noir-style detective game coming to PAL territories on April 13.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_medal-of-honor-vanguard-hands-on_1100-6166170_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-vanguard-hands-on/1100-6166170/" class="article-title">Medal of Honor: Vanguard Hands-On</a>
+			<div class="article-subtitle">We arm ourselves with a Wii Remote to see how EA's upcoming first-person shooter handles on Nintendo's new console.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_unreal-tournament-3-trailer-on-xbl_1100-6166190_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-tournament-3-trailer-on-xbl/1100-6166190/" class="article-title">Unreal Tournament 3 trailer on XBL</a>
+			<div class="article-subtitle">Follow-up from Gears of War studio hits Xbox Live in preview form; minute-long trailer available in high definition.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_qanda-auran-ceo-tony-hilliam_1100-6166100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-auran-ceo-tony-hilliam/1100-6166100/" class="article-title">Q&A: Auran CEO Tony Hilliam</a>
+			<div class="article-subtitle">Australian developer speaks about working with independent publisher Gamecock, creating Battlestar Galactica for Xbox Live Arcade, and more.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_esrb-hiring-full-time-raters_1100-6166197_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-hiring-full-time-raters/1100-6166197/" class="article-title">ESRB hiring full-time raters</a>
+			<div class="article-subtitle">In wake of renewed legislative pressure, organization decides that the task of assigning ratings to games requires more than a part-time commitment.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_fear-walkthrough_1100-6136085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-walkthrough/1100-6136085/" class="article-title">F.E.A.R. Walkthrough</a>
+			<div class="article-subtitle">It's your first day on the job as an elite operative of the First Encounter Assault Recon team, and things are about to go very, very bad. Luckily, GameSpot's Walkthrough is here to help!</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_halo-3-beta-detailedsort-of_1100-6166049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-beta-detailedsort-of/1100-6166049/" class="article-title">Halo 3 beta detailed...sort of</a>
+			<div class="article-subtitle">Bungie posts FAQ regarding test of anticipated game, but still doesn't unveil date; Microsoft head reveals to MTV that beta will be a "robust experience."</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_lost-planet-gets-mapped_1100-6166053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-planet-gets-mapped/1100-6166053/" class="article-title">Lost Planet gets mapped</a>
+			<div class="article-subtitle">Capcom cartographers prepping six new multiplayer maps for Xbox 360 action game, free download of collector's edition map.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_tmnt-demo-slicing-up-pcs_1100-6166201_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tmnt-demo-slicing-up-pcs/1100-6166201/" class="article-title">TMNT demo slicing up PCs</a>
+			<div class="article-subtitle">Ubisoft releases time-limited PC sample of game starring the Teenage Mutant Ninja Turtles; 253MB file now available from GameSpot.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_marc-ecko-conjoins-with-human-head_1100-6166202_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marc-ecko-conjoins-with-human-head/1100-6166202/" class="article-title">Marc Ecko conjoins with Human Head</a>
+			<div class="article-subtitle">Hip-hop clothier teams up with Prey developer for all-new action game on next-generation systems.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_left-behind-sales-lagging_1100-6166206_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/left-behind-sales-lagging/1100-6166206/" class="article-title">Left Behind sales lagging</a>
+			<div class="article-subtitle">Publisher's first quarter with revenue to report yields more than $2 million in sales, $4 million in losses.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_kondo-joins-gdc-video-games-live_1100-6166211_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kondo-joins-gdc-video-games-live/1100-6166211/" class="article-title">Kondo joins GDC Video Games Live</a>
+			<div class="article-subtitle">Composer of classic Nintendo game themes such as Super Mario Bros. and Legend of Zelda to perform at live game-music concert March 9 in San Francisco.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/21_help-lotr-online-deal-with-stress_1100-6166216_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/help-lotr-online-deal-with-stress/1100-6166216/" class="article-title">Help LOTR Online deal with stress</a>
+			<div class="article-subtitle">Turbine is looking for gamers to help test Lord of the Rings Online, and GameSpot has the beta keys; stress test begins Friday, ends Monday.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_ecko-grabs-human-head_thumbnail.png">
+			<a href="https://www.eurogamer.net/ecko-grabs-human-head" class="article-title">Ecko grabs Human Head</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_lineage-ii-gets-new-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/lineage-ii-gets-new-update" class="article-title">Lineage II gets new update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_fm-2007-patch-out-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/fm-2007-patch-out-now" class="article-title">FM 2007 patch out now</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_dungeon-siege-throne-of-agony-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/dungeon-siege-throne-of-agony-review" class="article-title">Dungeon Siege: Throne of Agony</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_turok-multiplayer-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/turok-multiplayer-details" class="article-title">Turok multiplayer details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_news270505turok_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270505turok" class="article-title">Turok no longer extinct</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_heavy-discounting-on-x360-core_thumbnail.png">
+			<a href="https://www.eurogamer.net/heavy-discounting-on-x360-core" class="article-title">Heavy discounting on X360 Core</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_team-17-boss-explains-worms-xbla-delay_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-17-boss-explains-worms-xbla-delay" class="article-title">Team 17 boss explains Worms XBLA delay</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_driver-wii-controls-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/driver-wii-controls-detailed" class="article-title">Driver Wii controls detailed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_nvidia-vista-drivers-updated_thumbnail.png">
+			<a href="https://www.eurogamer.net/nvidia-vista-drivers-updated" class="article-title">NVIDIA Vista drivers updated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_shivering-isles-360-gets-new-achievements_thumbnail.png">
+			<a href="https://www.eurogamer.net/shivering-isles-360-gets-new-achievements" class="article-title">Shivering Isles 360 gets new achievements</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_shin-megami-tensei-digital-devil-saga-2-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/shin-megami-tensei-digital-devil-saga-2-review" class="article-title">Shin Megami Tensei: Digital Devil Saga 2</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_oblivion-designer-on-new-rpg_thumbnail.png">
+			<a href="https://www.eurogamer.net/oblivion-designer-on-new-rpg" class="article-title">Oblivion designer on new RPG</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_superbikes-hit-360-in-october_thumbnail.png">
+			<a href="https://www.eurogamer.net/superbikes-hit-360-in-october" class="article-title">Superbikes hit 360 in October</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_hotel-dusk-due-in-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/hotel-dusk-due-in-april" class="article-title">Hotel Dusk due in April</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_no-sign-of-tetris-360-in-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-sign-of-tetris-360-in-uk" class="article-title">No sign of Tetris 360 in UK</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_ps3-demand-high-and-sustained-uk-retailers_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-demand-high-and-sustained-uk-retailers" class="article-title">PS3 demand "high and sustained" - UK retailers</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_fear-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/fear-first-impressions" class="article-title">F.E.A.R.</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/21_tesco-stops-doling-out-free-360s_thumbnail.png">
+			<a href="https://www.eurogamer.net/tesco-stops-doling-out-free-360s" class="article-title">Tesco stops doling out free 360s</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128063/Lineage-II-The-Chaotic-Throne-Interlude-online-from-April/" class="article-title">Lineage II: The Chaotic Throne – Interlude online from April</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128062/International-Mobile-Gaming-Awards-results/" class="article-title">International Mobile Gaming Awards results</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128061/Latest-Unreal-Engine-3-features-at-GDC/" class="article-title">Latest Unreal Engine 3 features at GDC</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128060/Vivendi-acquires-Assault-Heroes-developer/" class="article-title">Vivendi acquires Assault Heroes developer</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/grow-nano-vol-2.php" class="article-title">Grow Nano Vol. 2</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/21_2007_02_21_psg-platform-thing_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/02/21/psg-platform-thing/" class="article-title">PSG Platform thing</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/21_2007_02_21_barkley-shut-up-and-jam-gaiden-chapter-1_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/02/21/barkley-shut-up-and-jam-gaiden-chapter-1/" class="article-title">Barkley, Shut up and Jam: Gaiden, Chapter 1</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/21_2007_02_21_introversion-hitting-the-consoles_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/02/21/introversion-hitting-the-consoles/" class="article-title">Introversion Hitting the Consoles</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/02/21_2007_02_news_20.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/02/news_20.html" class="article-title">News</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/02/21_2007_02_interview-jonathan-blow.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/02/interview-jonathan-blow.html" class="article-title">Interview:  Jonathan Blow</a>
+			<div class="article-author">Jason Rohrer (jcr13)</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

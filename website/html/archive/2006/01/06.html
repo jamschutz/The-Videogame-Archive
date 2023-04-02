@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 6, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_wild-arms-4-hands-on_1100-6141956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wild-arms-4-hands-on/1100-6141956/" class="article-title">Wild Arms 4 Hands-On</a>
+			<div class="article-subtitle">We return to the ruined lands of Filgaia for Wild Arms 4.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_tom-clancys-rainbow-six-lockdown-hands-on-rainbow-returns-to-the-pc_1100-6141888_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancys-rainbow-six-lockdown-hands-on-rainbow-returns-to-the-pc/1100-6141888/" class="article-title">Tom Clancy's Rainbow Six: Lockdown Hands-On - Rainbow Returns to the PC</a>
+			<div class="article-subtitle">Forget about last year's console versions; Rainbow Six: Lockdown for the PC appears to be a completely different game, indeed.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_bubble-bobble-blows-onto-psps_1100-6141955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bubble-bobble-blows-onto-psps/1100-6141955/" class="article-title">Bubble Bobble blows onto PSPs</a>
+			<div class="article-subtitle">Rising Star brings bubble-popping dinosaurs to Sony's handheld with new gameplay elements.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_xbox-360-final-fantasy-xi-begins-beta_1100-6141962_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-final-fantasy-xi-begins-beta/1100-6141962/" class="article-title">Xbox 360 Final Fantasy XI begins beta</a>
+			<div class="article-subtitle">Testing period for first 360 MMORPG begins, spots available to purchasers of <i>Official Xbox Magazine</i>.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-burnout-revenge-xbox-360-hands-on_1100-6141931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-burnout-revenge-xbox-360-hands-on/1100-6141931/" class="article-title">CES 2006: Burnout Revenge Xbox 360 Hands-On</a>
+			<div class="article-subtitle">Revenge is a dish best served on the Xbox 360. We get our hands on the first playable demo of the next-gen crash fest.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ds-sells-well-sells-out_1100-6141960_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ds-sells-well-sells-out/1100-6141960/" class="article-title">DS sells well, sells out?</a>
+			<div class="article-subtitle">Sales exceed 13 million worldwide; Nintendo may be struggling to keep enough units in Japanese channel.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_capcom-hypes-sfii-for-xbox-360_1100-6142004_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-hypes-sfii-for-xbox-360/1100-6142004/" class="article-title">Capcom hypes SFII for Xbox 360</a>
+			<div class="article-subtitle">Capcom ports Turbo Hyper Fighting edition of arcade classic, attempts to duplicate arcade experience with new online mode.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_college-hoops-hits-a-roadblock_1100-6236586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/college-hoops-hits-a-roadblock/1100-6236586/" class="article-title">College Hoops Hits a Roadblock</a>
+			<div class="article-subtitle">The new year is getting off to a rough start for 2K Sports, which announced yesterday that two of its upcoming Xbox 360 games--College Hoops 2K6 and Top Spin 2--have been delayed. While it's curious to see Top Spin 2 hit a roadblock (it seems like the game's been in development for a long time),...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_rumor-elevation-to-add-lionhead-to-trophy-case_1100-6139704_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-elevation-to-add-lionhead-to-trophy-case/1100-6139704/" class="article-title">Rumor: Elevation to add Lionhead to trophy case</a>
+			<div class="article-subtitle">Financial backer of recent Pandemic-BioWare alliance reportedly looking to acquire Peter Molyneux's development house.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_rumor-circuit-city-selling-360s-this-weekend_1100-6139779_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-circuit-city-selling-360s-this-weekend/1100-6139779/" class="article-title">Rumor: Circuit City selling 360s this weekend</a>
+			<div class="article-subtitle">Retailer's Web site says it'll have the next-gen console on sale this Friday at 2:00 p.m., several days before the system is supposed to launch.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_rumor-revolution-to-be-less-than-300_1100-6141816_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-revolution-to-be-less-than-300/1100-6141816/" class="article-title">Rumor: Revolution to be less than $300?</a>
+			<div class="article-subtitle">Reports surface that Satoru Iwata has announced that Nintendo's next console will be cheapest next-gen console on market.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_rumor-new-zelda-to-have-revolutionary-features_1100-6141738_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-new-zelda-to-have-revolutionary-features/1100-6141738/" class="article-title">Rumor: New Zelda to have Revolutionary features?</a>
+			<div class="article-subtitle">A UK-based magazine says that Twilight Princess will be compatible with the Revolution's gyroscopic controller.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_no-ps3-surprises-at-ces-keynote-address_1100-6141877_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-ps3-surprises-at-ces-keynote-address/1100-6141877/" class="article-title">No PS3 surprises at CES keynote address</a>
+			<div class="article-subtitle">Sony CEO Howard Stringer touts Sony's overall digital vision as Kaz Hirai rehashes E3 footage, talks PSP and PS2.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_fight-night-3-hits-v-day_1100-6142023_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fight-night-3-hits-v-day/1100-6142023/" class="article-title">Fight Night 3 hits V-day</a>
+			<div class="article-subtitle">Romance out, fighting in. EA's next boxing game to connect with retail on February 14 for the PS2, PSP, Xbox, and Xbox 360.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_timeshift-beta-sign-ups-under-way_1100-6142029_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/timeshift-beta-sign-ups-under-way/1100-6142029/" class="article-title">TimeShift beta sign-ups under way</a>
+			<div class="article-subtitle">Select PC gamers will start fooling with the fabric of the universe later this month.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_final-fantasy-xii-ps2-bundle-coming-to-japan_1100-6142032_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xii-ps2-bundle-coming-to-japan/1100-6142032/" class="article-title">Final Fantasy XII PS2 bundle coming to Japan</a>
+			<div class="article-subtitle">PlayStation 2 emblazoned with art from Square Enix's upcoming RPG will go on sale in mid-March.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_sony-taking-up-new-wild-arms_1100-6142033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-taking-up-new-wild-arms/1100-6142033/" class="article-title">Sony taking up new Wild Arms</a>
+			<div class="article-subtitle">Wild Arms: The Vth Vanguard for the PlayStation 2 in development; teaser trailer up on official Web site.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_phantasy-star-universe-delayed-in-japan_1100-6142040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phantasy-star-universe-delayed-in-japan/1100-6142040/" class="article-title">Phantasy Star Universe delayed in Japan</a>
+			<div class="article-subtitle">Next installment in Sega's long-running RPG series pushed back a month across the Pacific.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_revos-controller-inspires-copycats_1100-6142045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/revos-controller-inspires-copycats/1100-6142045/" class="article-title">Revo's controller inspires copycats</a>
+			<div class="article-subtitle">PlayStation 2 controller from SplitFish GameWare mimics Miyamoto's nunchaku joystick.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_titan-quest-designer-diary-3-music-and-sound-of-an-ancient-world_1100-6142039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/titan-quest-designer-diary-3-music-and-sound-of-an-ancient-world/1100-6142039/" class="article-title">Titan Quest Designer Diary #3 - Music and Sound of an Ancient World</a>
+			<div class="article-subtitle">The composer and sound designer of Titan Quest explains how they went about creating the music and sound effects for mythical monsters and ancient lands.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_the-godfather-qanda_1100-6142026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-godfather-qanda/1100-6142026/" class="article-title">The Godfather Q&A</a>
+			<div class="article-subtitle">We talk to David DeMartini, executive producer of The Godfather, about the current status of the game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-mlb-06-the-show-hands-on_1100-6141949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-mlb-06-the-show-hands-on/1100-6141949/" class="article-title">CES 2006: MLB '06: The Show Hands-On</a>
+			<div class="article-subtitle">We've got spring training in our pocket as we check out the handheld version of Sony's upcoming baseball game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-the-elder-scrolls-iv-oblivion-hands-on_1100-6141972_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-the-elder-scrolls-iv-oblivion-hands-on/1100-6141972/" class="article-title">CES 2006: The Elder Scrolls IV: Oblivion Hands-On</a>
+			<div class="article-subtitle">We traipsed through a lush forested area in Bethesda's striking RPG before landing in a rather unpleasant dungeon.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-field-commander-impressions_1100-6141961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-field-commander-impressions/1100-6141961/" class="article-title">CES 2006: Field Commander Impressions</a>
+			<div class="article-subtitle">Sony Online's handheld game of tactical warfare is on display in Las Vegas, and we donned our helmets to check out the latest version.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-syphon-filter-dark-mirror-hands-on_1100-6141969_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-syphon-filter-dark-mirror-hands-on/1100-6141969/" class="article-title">CES 2006: Syphon Filter: Dark Mirror Hands-On</a>
+			<div class="article-subtitle">Saving the world, one bullet at a time. We take on the first PSP entry in the Syphon Filter series.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ubisoft-releases-chaos-theory-maps_1100-6142047_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-releases-chaos-theory-maps/1100-6142047/" class="article-title">Ubisoft releases Chaos Theory maps</a>
+			<div class="article-subtitle">Extra levels for the latest Splinter Cell resurface on Xbox Live four months after botched original release; Xbox 360 owners report compatibility problems.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_shadow-hearts-from-the-new-world-hands-on_1100-6142024_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadow-hearts-from-the-new-world-hands-on/1100-6142024/" class="article-title">Shadow Hearts: From the New World Hands-On</a>
+			<div class="article-subtitle">We check out a near-finished North American version of the third entry in the Shadow Hearts series of role-playing games.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_mx-vs-atv-unleashed-hands-on_1100-6142048_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mx-vs-atv-unleashed-hands-on/1100-6142048/" class="article-title">MX vs. ATV Unleashed Hands-On</a>
+			<div class="article-subtitle">This arcade-style dirt racing game is racing to the PC this month, and we discover that it's got dirt bikes, all-terrain vehicles, golf carts, helicopters, and more.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-untold-legends-the-warriors-code-impressions_1100-6141978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-untold-legends-the-warriors-code-impressions/1100-6141978/" class="article-title">CES 2006: Untold Legends: The Warrior's Code Impressions</a>
+			<div class="article-subtitle">SOE leads us through a land of peril in a nearly finished version of its new PSP dungeon crawler.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-pursuit-force-hands-on_1100-6141991_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-pursuit-force-hands-on/1100-6141991/" class="article-title">CES 2006: Pursuit Force Hands-On</a>
+			<div class="article-subtitle">We take a quick three-level demo of Sony's slick PSP action game for a spin.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-everquest-ii-kingdom-of-sky-impressions_1100-6141986_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-everquest-ii-kingdom-of-sky-impressions/1100-6141986/" class="article-title">CES 2006: EverQuest II: Kingdom of Sky Impressions</a>
+			<div class="article-subtitle">The latest expansion to the world of Norrath will send you high above the clouds. We glean new details.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/01/06_ces-2006-daxter-hands-on_1100-6141990_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-2006-daxter-hands-on/1100-6141990/" class="article-title">CES 2006: Daxter Hands-On</a>
+			<div class="article-subtitle">We check out a two-level demo of the PSP platformer starring the world's most famous (and only) ottsel.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/peter-jacksons-king-kong-the-official-game-of-the-/1900-6142049/" class="article-title">Peter Jackson's King Kong: The Official Game of the Movie Review</a>
+			<div class="article-subtitle">It is most definitely King Kong in the palm of your hand, but the sacrifices and compromises made to get it there ultimately suck away much of its appeal.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ultimate-block-party-review/1900-6142055/" class="article-title">Ultimate Block Party Review</a>
+			<div class="article-subtitle">Ultimate Block Party is easy to pick up and play, and once you do, the quick, chaotic puzzle battles will have you hooked.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/electroplankton-review/1900-6142051/" class="article-title">Electroplankton Review</a>
+			<div class="article-subtitle">Electroplankton is an interesting experiment in both music and game design, but its reliance on the novelty of something different limits its lasting value.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/real-time-conflict-shogun-empires-review/1900-6142041/" class="article-title">Real Time Conflict: Shogun Empires Review</a>
+			<div class="article-subtitle">You'd think that a real-time strategy game would be a great fit for the Nintendo DS, but stay away from this one and its busted artificial intelligence and half-baked minigames.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106vug_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106vug" class="article-title">VU Games acquires High Moon</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106pspplans_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106pspplans" class="article-title">Sony's future plans for PSP</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106miyamoto_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106miyamoto" class="article-title">Miyamoto talks Odama</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106x360demos_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106x360demos" class="article-title">Access foreign X360 demos</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106streetfighter360_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106streetfighter360" class="article-title">Street Fighter 360 details</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_r-projectzero3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-projectzero3-ps2" class="article-title">Project Zero 3: The Tormented</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news180305fatalframe_thumbnail.png">
+			<a href="https://www.eurogamer.net/news180305fatalframe" class="article-title">Tecmo back in the Fatal Frame</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news280705projectzero3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news280705projectzero3" class="article-title">Project Zero producer speaks</a>
+			<div class="article-author">Corey Brotherson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news121205projectzero3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121205projectzero3" class="article-title">Project Zero 3 dated for Europe</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106xboxlivemolester_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106xboxlivemolester" class="article-title">Xbox Live user faces charges</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106nintendodoc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106nintendodoc" class="article-title">Watch Nintendo documentary</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news050106sims2biz_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050106sims2biz" class="article-title">Sims 2 biz expansion</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106rumoursrubbished_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106rumoursrubbished" class="article-title">Nintendo dismisses rumour that new Zelda will use Rev controller</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106ballmer360_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106ballmer360" class="article-title">Ballmer kids update: 360-get</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106x360hddvd_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106x360hddvd" class="article-title">No Xbox 360 hardware revision to incorporate HD-DVD - Moore</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_news060106gta_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060106gta" class="article-title">GTA Liberty City Stories heading to PS2, new PSP GTA in offing</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_r-lunardragonsong-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-lunardragonsong-ds" class="article-title">Lunar: Dragon Song</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/01/06_i-outrun2006-pcps2xpsp_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-outrun2006-pcps2xpsp" class="article-title">Sumo Digital on OutRun 2006</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127070/De-La-Hoya-on-cover-for-Fight-Night-3/" class="article-title">De La Hoya on cover for Fight Night 3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127069/Nintendo-celebrates-record-DS-sales/" class="article-title">Nintendo celebrates record DS sales</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127068/N-Gage-tournament-challenges-by-text-message/" class="article-title">N-Gage tournament challenges by text message</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-tulse-luper-journey.php" class="article-title">The Tulse Luper Journey</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/01/06_2006_01_ele-paper-action.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/01/ele-paper-action.html" class="article-title">Ele Paper Action</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

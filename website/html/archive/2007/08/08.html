@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 8, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/riviera-the-promised-land-review/1900-6176382/" class="article-title">Riviera: The Promised Land Review</a>
+			<div class="article-subtitle">A great story and likable characters make it easier to overlook Riviera's limited combat and exploration.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/track-and-field-review/1900-6176391/" class="article-title">Track & Field Review</a>
+			<div class="article-subtitle">Track & Field holds up fairly well and makes for some good, albeit short-term, fun.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/balloon-fight-review/1900-6176373/" class="article-title">Balloon Fight Review</a>
+			<div class="article-subtitle">Balloon Fight is good for short bouts of balloon popping fun.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_sacred-2-fallen-angel-hands-on-preview_1100-6176303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sacred-2-fallen-angel-hands-on-preview/1100-6176303/" class="article-title">Sacred 2: Fallen Angel Hands-On Preview</a>
+			<div class="article-subtitle">Ascaron's hugely ambitious role-playing game is in its final stages of development. We flew to Germany for a hands-on play of the PC and Xbox 360 versions.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_eternal-sonata-director-qanda_1100-6176358_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eternal-sonata-director-qanda/1100-6176358/" class="article-title">Eternal Sonata Director Q&A</a>
+			<div class="article-subtitle">Tri-Crescendo's Hiroya Hatsushiba talks to us about his inspirations and plans for Eternal Sonata.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_nintendo-patents-new-handheld-tech_1100-6176307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-patents-new-handheld-tech/1100-6176307/" class="article-title">Nintendo patents new handheld tech</a>
+			<div class="article-subtitle">The Mario Factory files a patent in the US for a portable gaming system that is controlled by tilt and movement.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_fury-gets-european-distributor_1100-6176362_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fury-gets-european-distributor/1100-6176362/" class="article-title">Fury gets European distributor</a>
+			<div class="article-subtitle">UK developer and publisher Codemasters signs deal with Australia's Auran Games to bring Fury to Europe this year.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_aussie-game-charts-july-30-august-5_1100-6176363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-july-30-august-5/1100-6176363/" class="article-title">Aussie game charts: July 30-August 5</a>
+			<div class="article-subtitle">Mario continues his reign over the charts down under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_speed-racer-returns-to-gaming_1100-6176370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/speed-racer-returns-to-gaming/1100-6176370/" class="article-title">Speed Racer returns to gaming</a>
+			<div class="article-subtitle">Warner Bros. and Sidhe Interactive prepping Wii, DS, and PS2 adaptations of Wachowski brothers' upcoming film; game to be part of company's plans to drastically increase development.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_chibi-robo-ds-scrapped_1100-6235746_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chibi-robo-ds-scrapped/1100-6235746/" class="article-title">Chibi-Robo DS scrapped?</a>
+			<div class="article-subtitle">Source: Last week, GameStop called up customers who had preordered Chibi-Robo: Park Patrol for the DS and told them the game was canceled, according to a poster on the NeoGAF message boards.  What we heard: When Chibi-Robo: Park Patrol for the DS was announced at E3 2006, it looked as if Nintendo...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_ds-slide-sensor-add-on-revealed_1100-6176371_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ds-slide-sensor-add-on-revealed/1100-6176371/" class="article-title">DS slide-sensor add-on revealed</a>
+			<div class="article-subtitle">Official online video from Nintendo Japan reveals 5,800-yen mouselike peripheral for ever-popular handheld, bundled with new game.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_quakecon-07-new-tremors-rock-ids-keynote_1100-6176202_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quakecon-07-new-tremors-rock-ids-keynote/1100-6176202/" class="article-title">QuakeCon 07: New tremors rock id's keynote</a>
+			<div class="article-subtitle">[UPDATE] CEO Todd Hollenshead uses big address to announce Quake Wars: Enemy Territory release date in US and Europe, Quake Arena for XBLA, ad-supported Web game Quake Zero, and new Quake game built on id Tech 5.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_quakecon-07-ids-catalog-full-steam-ahead_1100-6176191_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quakecon-07-ids-catalog-full-steam-ahead/1100-6176191/" class="article-title">QuakeCon 07: id's catalog full Steam ahead</a>
+			<div class="article-subtitle">Publisher reveals during QuakeCon keynote that entire library up through Doom 3: Resurrection of Evil is available on Valve's downloadable game service.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_quakecon-07-id-rage-ing-on-pc-mac-360-ps3_1100-6176188_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quakecon-07-id-rage-ing-on-pc-mac-360-ps3/1100-6176188/" class="article-title">QuakeCon 07: id Rage-ing on PC, Mac, 360, PS3</a>
+			<div class="article-subtitle">Doom-maker crafting all-new driving-shooting actioner set in open-world, postapocalyptic wasteland.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_ea-stake-in-ubisoft-increases_1100-6176393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-stake-in-ubisoft-increases/1100-6176393/" class="article-title">EA stake in Ubisoft increases</a>
+			<div class="article-subtitle">Madden publisher now holds nearly 25 percent of the voting shares in French rival, more than the company's own founding family.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_fifa-08-nba-08-covered_1100-6176399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-08-nba-08-covered/1100-6176399/" class="article-title">FIFA 08, NBA 08 covered</a>
+			<div class="article-subtitle">Altidore, Ochoa named to grace North American boxes of EA's soccer sim; Amare Stoudemire to front Sony's PlayStation b-baller for a second time.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_singstar-80s-amped-update_1100-6176221_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singstar-80s-amped-update/1100-6176221/" class="article-title">SingStar 80's/Amped Update</a>
+			<div class="article-subtitle">We've got complete song lists for both SingStar 80's and SingStar Amped.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_singstar-hands-on_1100-6176220_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singstar-hands-on/1100-6176220/" class="article-title">SingStar Hands-On</a>
+			<div class="article-subtitle">Sony shows off the latest build of its PS3 karaoke game at a party in Chicago.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_chibi-robo-ds-scrapped_1100-6176374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chibi-robo-ds-scrapped/1100-6176374/" class="article-title">Chibi-Robo DS scrapped?</a>
+			<div class="article-subtitle">Park Patrol preorders at GameStop are history, but Nintendo hasn't necessarily canned the metallic hero.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_tony-hawks-proving-ground-updated-hands-on_1100-6176383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawks-proving-ground-updated-hands-on/1100-6176383/" class="article-title">Tony Hawk's Proving Ground Updated Hands-On</a>
+			<div class="article-subtitle">What kind of skater are you? We investigate in our hands-on look at the latest Tony Hawk game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_tony-hawks-proving-ground-updated-hands-on_1100-6176384_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawks-proving-ground-updated-hands-on/1100-6176384/" class="article-title">Tony Hawk's Proving Ground Updated Hands-On</a>
+			<div class="article-subtitle">What kind of skater are you? We investigate in our hands-on look at the latest Tony Hawk game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_evite-touting-wiivites_1100-6235745_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/evite-touting-wiivites/1100-6235745/" class="article-title">Evite touting Wiivites</a>
+			<div class="article-subtitle">Need further proof that the Wii craze is permeating virtually every nook and cranny of the Western culture? Then head on over to the ubiquitous social invitation service Evite, which has launched a Web page exclusively for those planning Wii parties or Wii-themed family reunions.  Besides such...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/08_pro-360s-hdmid_1100-6176397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pro-360s-hdmid/1100-6176397/" class="article-title">Pro 360s HDMI'd</a>
+			<div class="article-subtitle">Microsoft confirms Elite feature's arrival on $349 model; retailers "gradually introducing" new form factor into stores.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_stranglehold-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/stranglehold-first-impressions" class="article-title">Stranglehold</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_egtv-exclusive-blast-factor_thumbnail.png">
+			<a href="https://www.eurogamer.net/egtv-exclusive-blast-factor" class="article-title">EGTV: Exclusive Blast Factor</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_blast-factor-follow-up-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/blast-factor-follow-up-details" class="article-title">Blast Factor follow-up details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_p-stranglehold-all_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-stranglehold-all" class="article-title">Stranglehold</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_grimgrimoire-in-september_thumbnail.png">
+			<a href="https://www.eurogamer.net/grimgrimoire-in-september" class="article-title">GrimGrimoire in September</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_mark-of-chaos-for-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/mark-of-chaos-for-360" class="article-title">Mark of Chaos for 360</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_creating-unreality-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/creating-unreality-interview" class="article-title">Creating Unreality</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_stranglehold-demo-available_thumbnail.png">
+			<a href="https://www.eurogamer.net/stranglehold-demo-available" class="article-title">Stranglehold demo available</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_wii-update-breaks-freeloader_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-update-breaks-freeloader" class="article-title">Wii update breaks Freeloader</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_game-lands-oj-in-court_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-lands-oj-in-court" class="article-title">Game lands OJ in court</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_new-imacs-can-do-dx10_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-imacs-can-do-dx10" class="article-title">New iMacs can do DX10</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_lionheads-best-is-yet-to-come-molyneux_thumbnail.png">
+			<a href="https://www.eurogamer.net/lionheads-best-is-yet-to-come-molyneux" class="article-title">Lionhead's best is yet to come - Molyneux</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_kojima-demoing-mgs4-at-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/kojima-demoing-mgs4-at-gc" class="article-title">Kojima demoing MGS4 at GC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/08_surfs-up-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/surfs-up-review" class="article-title">Surf's Up</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128489/EAs-Boogie-for-Wii-this-Spring/" class="article-title">EA's Boogie for Wii this Spring</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128488/Three-versions-of-Mega-Man-Star-Force-for-DS/" class="article-title">Three versions of Mega Man Star Force for DS</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128486/Track-Field-for-Xbox-Arcade-tonight/" class="article-title">Track & Field for Xbox Arcade tonight</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/toxic.php" class="article-title">Toxic</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/08_2007_08_08_a-guide-to-independent-games-parts-1-and-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/08/a-guide-to-independent-games-parts-1-and-2/" class="article-title">A Guide to Independent Games: Parts 1 and 2</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

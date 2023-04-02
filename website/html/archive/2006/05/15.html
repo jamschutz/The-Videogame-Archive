@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 15, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-resistance-fall-of-man-update_1100-6151255_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-resistance-fall-of-man-update/1100-6151255/" class="article-title">E3 06: Resistance: Fall of Man Update</a>
+			<div class="article-subtitle">We tried our hand at another level from this dark PlayStation 3 shooter and got additional details from Insomniac's big cheese, Ted Price.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-pirates-of-the-caribbean-dead-mans-chest-impressions_1100-6151256_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-pirates-of-the-caribbean-dead-mans-chest-impressions/1100-6151256/" class="article-title">E3 06: Pirates of the Caribbean: Dead Man's Chest Impressions</a>
+			<div class="article-subtitle">Buena Vista Games gives Jack Sparrow and friends the handheld treatment, complete with multiplayer versions and unlockables.</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-nra-gun-club-hands-on_1100-6151257_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-nra-gun-club-hands-on/1100-6151257/" class="article-title">E3 06: NRA Gun Club Hands-On</a>
+			<div class="article-subtitle">The National Rifle Association is putting its name on this nonviolent first-person target shooting game called Gun Club.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-atari-cuts-prices_1100-6151259_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-atari-cuts-prices/1100-6151259/" class="article-title">E3 06: Atari cuts prices</a>
+			<div class="article-subtitle">Indigo Prophecy, Marc Ecko's Getting Up, rest of publisher's current-gen catalog to sell for $19.99 effective June 1.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-alliance-the-secret-war-impressions_1100-6151263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-alliance-the-secret-war-impressions/1100-6151263/" class="article-title">E3 06: Alliance: The Secret War Impressions</a>
+			<div class="article-subtitle">What would happen if a squad of Navy SEALS took on a platoon of World War I soldiers? The developers of Alliance: The Secret Wars hope to help us find out.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-silverfall-impressions_1100-6151265_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-silverfall-impressions/1100-6151265/" class="article-title">E3 06: Silverfall Impressions</a>
+			<div class="article-subtitle">Deep Silver sets out its Diablo-beating ambitions with this lovely looking RPG hack-and-slash.</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-disciples-iii-renaissance-trailer-impressions_1100-6151270_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-disciples-iii-renaissance-trailer-impressions/1100-6151270/" class="article-title">E3 06: Disciples III: Renaissance Trailer Impressions</a>
+			<div class="article-subtitle">Strategy First's excellent turn-based strategy series is coming back in a fully 3D sequel in development at Moscow-based Akella and partner studio .dat. Read our first impressions based on the E3 trailer.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-swashbucklers-blue-vs-grey-impressions_1100-6151271_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-swashbucklers-blue-vs-grey-impressions/1100-6151271/" class="article-title">E3 06: Swashbucklers: Blue vs. Grey Impressions</a>
+			<div class="article-subtitle">It's like a grittier, more action-packed version of Sid Meier's Pirates!, set during the US Civil War.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_scalextric-goes-mobile_1100-6151264_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/scalextric-goes-mobile/1100-6151264/" class="article-title">Scalextric goes mobile</a>
+			<div class="article-subtitle">The classic electric racing game will be published for mobile phones on all major UK networks.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-chrome-2-preshow-report_1100-6149854_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-chrome-2-preshow-report/1100-6149854/" class="article-title">E3 06: Chrome 2 Preshow Report</a>
+			<div class="article-subtitle">You are dead. No, seriously. If you want details, check out our Chrome 2 E3 2006 preshow report.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-activisions-booth-is-all-in_1100-6150723_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-activisions-booth-is-all-in/1100-6150723/" class="article-title">E3 06: Activision's booth is all in</a>
+			<div class="article-subtitle">Tony Hawk, James Bond, Quake Wars, Transformers, Call of Duty 2 all make appearances at the number-two publisher's exhibition--next to a massive poker table.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-heavy-duty-impressions_1100-6151273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-heavy-duty-impressions/1100-6151273/" class="article-title">E3 06: Heavy Duty Impressions</a>
+			<div class="article-subtitle">This tactical real-time strategy game spans a whole futuristic war-torn globe, as you command human freedom fighters to thwart an alien invasion.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/05/15_e3-06-inhabited-island-battlefield-impressions_1100-6151274_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-06-inhabited-island-battlefield-impressions/1100-6151274/" class="article-title">E3 06: Inhabited Island: Battlefield Impressions</a>
+			<div class="article-subtitle">From the makers of Massive Assault comes what's intended to be nothing less than a perfect turn-based strategy game, incorporating everything that's great about the genre.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506ps3gamestation_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506ps3gamestation" class="article-title">Confusion reigns over PS3</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506wiiaccessories_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506wiiaccessories" class="article-title">New pics of Wii accessories</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506indiananextgen_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506indiananextgen" class="article-title">Indiana Jones goes next-gen</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506dsroundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506dsroundup" class="article-title">E3 DS game roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_n-tetsuyamiz-150506_thumbnail.png">
+			<a href="https://www.eurogamer.net/n-tetsuyamiz-150506" class="article-title">Mizuguchi 'seriously considering' doing Rez sequel</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506mgs4extended_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506mgs4extended" class="article-title">Extended MGS4 trailer on EGTV</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506xboxgta3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506xboxgta3" class="article-title">Microsoft turned down GTA III</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506forcesofcorruption_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506forcesofcorruption" class="article-title">Empire At War expansion</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506animalcrossing_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506animalcrossing" class="article-title">Animal Crossing movie coming</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506eyetoy360_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506eyetoy360" class="article-title">EyeToy coming to X360</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506titanquest_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506titanquest" class="article-title">Titan Quest demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news150506eveonline_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150506eveonline" class="article-title">CCP talks EVE Online Kali</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506marchtoglory_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506marchtoglory" class="article-title">Eidos handling March to Glory</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_fi-twilightprincess-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-twilightprincess-wii" class="article-title">The Legend of Zelda: Twilight Princess</a>
+			<div class="article-author">Mathew Kumar</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506bongoandbaten_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506bongoandbaten" class="article-title">Bongo Blast, Baten Kaitos details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506lslbloke_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506lslbloke" class="article-title">Leisure Suit Larry bloke returns</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506tokobotps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506tokobotps2" class="article-title">Tokobot Plus coming to PS2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506thrillville_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506thrillville" class="article-title">Frontier invites you to Thrillville</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506bia_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506bia" class="article-title">Hell's Highway turns to 2007</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506aitdps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506aitdps3" class="article-title">Alone in the Dark on PS3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506autoassault_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506autoassault" class="article-title">Auto Assault 14-day trial</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506newbuzzgames_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506newbuzzgames" class="article-title">Two new Buzz games due</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506elitebeatagents_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506elitebeatagents" class="article-title">Ouendan coming to the West</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news140506lonelyplanetpsp_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140506lonelyplanetpsp" class="article-title">Lonely Planet guides for PSP</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news120506lswii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news120506lswii" class="article-title">Lego Star Wars II updates</a>
+			<div class="article-author">Paul Loughrey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/05/15_news201005tenchuds_thumbnail.png">
+			<a href="https://www.eurogamer.net/news201005tenchuds" class="article-title">New Tenchu DS details</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/gwigle.php" class="article-title">Gwigle</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/05/15_2006_05_galcon-2006_15.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/05/galcon-2006_15.html" class="article-title">GalCon 2006</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

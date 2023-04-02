@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 29, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/open-season-review/1900-6159072/" class="article-title">Open Season Review</a>
+			<div class="article-subtitle">Teamwork and puzzles distinguish this side-scroller from other movie-based games.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rengoku-ii-the-stairway-to-heaven/1900-6159125/" class="article-title">Rengoku II: The Stairway to H.E.A.V.E.N. Review</a>
+			<div class="article-subtitle">The game ultimately runs out of steam before it's over, but along the way, Rengoku II creates a more streamlined and interesting experience than its predecessor.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dance-dance-revolution-supernova-review/1900-6159126/" class="article-title">Dance Dance Revolution SuperNOVA Review</a>
+			<div class="article-subtitle">SuperNOVA is mostly more of the same, but a decent array of modes and a list of new songs help keep the experience feeling reasonably fresh.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-live-07-review/1900-6159118/" class="article-title">NBA Live 07 Review</a>
+			<div class="article-subtitle">Few changes have been made to NBA Live formula since last year, but it's still an enjoyable game with a good amount to offer.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-live-07-review/1900-6159121/" class="article-title">NBA Live 07 Review</a>
+			<div class="article-subtitle">Despite the addition of several previously missing modes, NBA Live 07's many gameplay flaws and uneven visuals relegate the series to the bench for yet another year.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-live-07-review/1900-6159120/" class="article-title">NBA Live 07 Review</a>
+			<div class="article-subtitle">Few changes have been made to NBA Live formula since last year, but it's still an enjoyable game with a good amount to offer.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/valkyrie-profile-2-silmeria-review/1900-6159103/" class="article-title">Valkyrie Profile 2: Silmeria Review</a>
+			<div class="article-subtitle">A storyline based on Norse mythology isn't the only thing that's unusual and original about this tough, complex, and action-packed Japanese role-playing game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_fifa-07-final-hands-on_1100-6158951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-07-final-hands-on/1100-6158951/" class="article-title">FIFA 07 Final Hands-On</a>
+			<div class="article-subtitle">We polish our boots and take a look at the finished version of EA's 2007 football game.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_oblivion-confirmed-for-ps3-psp_1100-6158895_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oblivion-confirmed-for-ps3-psp/1100-6158895/" class="article-title">Oblivion confirmed for PS3, PSP</a>
+			<div class="article-subtitle">[UPDATE] Bethesda says Oblivion will be ready for the PlayStation 3 launch; PSP edition to follow in the spring.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_guild-wars-nightfall-updated-impressions-heroes-quests-and-setting_1100-6159003_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guild-wars-nightfall-updated-impressions-heroes-quests-and-setting/1100-6159003/" class="article-title">Guild Wars Nightfall Updated Impressions - Heroes, Quests, and Setting</a>
+			<div class="article-subtitle">We talked with ArenaNet co-founder Jeff Strain to get the lowdown on the upcoming chapter of Guild Wars.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_hp-casting-spell-over-voodoo-pc_1100-6159039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hp-casting-spell-over-voodoo-pc/1100-6159039/" class="article-title">HP casting spell over Voodoo PC</a>
+			<div class="article-subtitle">Hot on the heels of Dell's Alienware acquisition, another Silicon Valley giant scoops up a PC-gaming-rig manufacturer.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_x06-gears-of-war-co-op-hands-on_1100-6159044_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x06-gears-of-war-co-op-hands-on/1100-6159044/" class="article-title">X06: Gears of War Co-Op Hands-On</a>
+			<div class="article-subtitle">We play through 20 minutes of Gears of War's campaign alongside another X06 attendee.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_x06-defender-hands-on_1100-6159045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x06-defender-hands-on/1100-6159045/" class="article-title">X06: Defender Hands-On</a>
+			<div class="article-subtitle">We try to save some humans from the alien invasion but end up shooting them instead in our first hands-on demo of Defender for Xbox Live Arcade.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_reggie-to-sell-first-us-wii_1100-6159042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/reggie-to-sell-first-us-wii/1100-6159042/" class="article-title">Reggie to sell first US Wii</a>
+			<div class="article-subtitle">Nintendo of America's chatty president tells ABC News that he'll be handing out Wiis on launch day in New York.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_x06-alan-wake-updated-impressions_1100-6159046_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x06-alan-wake-updated-impressions/1100-6159046/" class="article-title">X06: Alan Wake Updated Impressions</a>
+			<div class="article-subtitle">We check in with Remedy for an update on the upcoming Xbox 360 title from X06.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_zune-to-use-microsoft-points_1100-6159047_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zune-to-use-microsoft-points/1100-6159047/" class="article-title">Zune to use Microsoft Points</a>
+			<div class="article-subtitle">Xbox Live Marketplace currency will be applicable to the Software giant's online music store; songs to cost 79 points ($0.99) a pop.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_gta-blamed-in-court-caseagain_1100-6158619_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-blamed-in-court-caseagain/1100-6158619/" class="article-title">GTA blamed in court case...again</a>
+			<div class="article-subtitle">Lawyers claim Grand Theft Auto led Cody Posey to kill his father, stepmother, stepsister in 2004; Sony, Take-Two, Rockstar named in suit.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_kutaragi-on-360-wii-we-dont-care_1100-6159054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kutaragi-on-360-wii-we-dont-care/1100-6159054/" class="article-title">Kutaragi on 360, Wii: "We don't care"</a>
+			<div class="article-subtitle">Despite admitting PS3 production problems, Sony Computer Entertainment president says he's not concerned about the next-gen competition.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_feds-target-gaming-again_1100-6159055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/feds-target-gaming-again/1100-6159055/" class="article-title">Feds target gaming (again)</a>
+			<div class="article-subtitle">Video Game Decency Act of 2006 becomes the second House bill to target ESRB game ratings.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_bringing-it-home-ends-with-trailers_1100-6159064_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bringing-it-home-ends-with-trailers/1100-6159064/" class="article-title">Bringing it Home ends with trailers</a>
+			<div class="article-subtitle">No demos on the final day of Microsoft's TGS/X06 promo; Lego Star War II character pack, five trailers bring event to close.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_ati-speeds-to-the-front-lines-of-health_1100-6159067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ati-speeds-to-the-front-lines-of-health/1100-6159067/" class="article-title">ATI speeds to the front lines of health</a>
+			<div class="article-subtitle">Fight Alzheimer's disease with your GPU as Radeon boards take on more than gaming.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_gears-of-war-gets-a-match-made-in-hell_1100-6159068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gears-of-war-gets-a-match-made-in-hell/1100-6159068/" class="article-title">Gears of War gets a Match Made in Hell</a>
+			<div class="article-subtitle">Microsoft promotion will give gamers in four cities a chance to see an early screening of new <i>Texas Chainsaw Massacre</i> prequel and play Epic's latest shooter on the big screen.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_warhammer-40000-dawn-of-war-dark-crusade-profile-preview-the-eldar-and-the-orks_1100-6159071_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-40000-dawn-of-war-dark-crusade-profile-preview-the-eldar-and-the-orks/1100-6159071/" class="article-title">Warhammer 40,000: Dawn of War: Dark Crusade Profile Preview - The Eldar and the Orks</a>
+			<div class="article-subtitle">Find out why the eldar and the orks are battling to the death on the planet Kronus in this upcoming stand-alone expansion for 2004's popular real-time strategy game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_japan-game-charts-september-18-24_1100-6159105_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/japan-game-charts-september-18-24/1100-6159105/" class="article-title">Japan game charts: September 18-24</a>
+			<div class="article-subtitle">Minna no Tennis aces the charts while a resurgence of Tingle popularity proves you can't keep a good wannabe-fairy down.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_the-last-word-september-25-29_1100-6159104_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-last-word-september-25-29/1100-6159104/" class="article-title">The Last Word: September 25-29</a>
+			<div class="article-subtitle">Microsoft drops a slew of announcements at X06 conference; acquisitions abound as the third quarter of the year comes to a close.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_crayon-shin-chan-drawn-up-as-japanese-wii-launch-title_1100-6159114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crayon-shin-chan-drawn-up-as-japanese-wii-launch-title/1100-6159114/" class="article-title">Crayon Shin-Chan drawn up as Japanese Wii launch title</a>
+			<div class="article-subtitle">The mischievous munchkin of anime and manga fame will try his hand at wooing (and mooning) Wii fans.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_guitar-hero-ii-360-wired-for-2007_1100-6159122_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-ii-360-wired-for-2007/1100-6159122/" class="article-title">Guitar Hero II 360 wired for 2007</a>
+			<div class="article-subtitle">RedOctane confirms first non-PS2 iteration of popular rhythm game series won't arrive until the new year, will include a tethered controller.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_armored-core-4-stomps-japanese-ps3s-in-december_1100-6159123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/armored-core-4-stomps-japanese-ps3s-in-december/1100-6159123/" class="article-title">Armored Core 4 stomps Japanese PS3s in December</a>
+			<div class="article-subtitle">From Software's mech shooter slated for release in Japan on December 14.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/29_winning-eleven-dated-in-europe_1100-6159128_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/winning-eleven-dated-in-europe/1100-6159128/" class="article-title">Winning Eleven dated in Europe</a>
+			<div class="article-subtitle">Pro Evolution Soccer 6 for PS2, Xbox 360, PC kicks into stores October 27; US release still listed as "winter 2007."</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906halowars_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906halowars" class="article-title">'Halo Wars is for Germans' - Microsoft exec</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_a-giweeklydigest-290906_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-giweeklydigest-290906" class="article-title">GamesIndustry.biz: X06 Pitch Perfect</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_lt-microsoftx06_thumbnail.png">
+			<a href="https://www.eurogamer.net/lt-microsoftx06" class="article-title">Microsoft's X06 press conference</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_i-petermoreatx06_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-petermoreatx06" class="article-title">Spanish Inquisition</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906pes6_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906pes6" class="article-title">Pro Evo 6 dated for 360/PC/PS2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906talesabyss_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906talesabyss" class="article-title">Tales of the Abyss dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906wiiwavebirds_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906wiiwavebirds" class="article-title">Wii compatible with WaveBirds?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_fi-fm2007-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-fm2007-pc" class="article-title">Football Manager 2007</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news-290906-rominspacedemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-290906-rominspacedemo" class="article-title">Romanians in Space demo</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906oblivionps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906oblivionps3" class="article-title">Oblivion set for PS3 launch</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906saintsrowdlc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906saintsrowdlc" class="article-title">Saints Row DLC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906tombraiderps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906tombraiderps3" class="article-title">Tomb Raider on PS3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906speedball_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906speedball" class="article-title">Speedball, Chaos Engine return</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/29_news290906ubiboss_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290906ubiboss" class="article-title">Ubi boss on Splinter Cell exclusive</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127728/Rendez-Vous-and-Spark-to-be-integrated-with-Unreal-Engine-3/" class="article-title">Rendez-Vous and Spark! to be integrated with Unreal Engine 3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127726/International-CES-40th-anniversary-next-year/" class="article-title">International CES 40th anniversary next year</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127721/Oblivion-for-PS3-launch/" class="article-title">Oblivion for PS3 launch</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127722/BioShock-only-for-360-and-PC/" class="article-title">BioShock only for 360 and PC</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/liquid-colors.php" class="article-title">Liquid Colors</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/run-n-roll.php" class="article-title">Run n' Roll</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/09/29_2006_09_29_custom-wars_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/09/29/custom-wars/" class="article-title">Custom Wars</a>
+			<div class="article-author">Albert Lai</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 15, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/1701-ad-gold-edition-review/1900-6195973/" class="article-title">1701 A.D. Gold Edition Review</a>
+			<div class="article-subtitle">This bigger, better take on 1701 A.D. is most noteworthy for including the Sunken Dragon expansion.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/international-cricket-captain-2008-review/1900-6196036/" class="article-title">International Cricket Captain 2008 Review</a>
+			<div class="article-subtitle">The 2008 edition of ICC breaks little new ground, but if you simply must have the latest season's statistics and rosters, there's still a competent sim management game for devoted cricket fans.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/grid-review/1900-6196052/" class="article-title">Grid Review</a>
+			<div class="article-subtitle">Grid offers a great balance of arcade and simulation racing with enough extras to keep you entertained for hours.</div>
+			<div class="article-author">Austin Light</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bionic-commando-rearmed-review/1900-6196055/" class="article-title">Bionic Commando Rearmed Review</a>
+			<div class="article-subtitle">The updated graphics and new modes in Bionic Commando Rearmed are enough to make this classic still fun today, despite some control issues.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bionic-commando-rearmed-review/1900-6196060/" class="article-title">Bionic Commando Rearmed Review</a>
+			<div class="article-subtitle">The updated graphics and new modes in Bionic Commando Rearmed aren't quite enough to distract from the cumbersome controls.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_aussie-emulation-mash-up-august-11-15_1100-6234504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-emulation-mash-up-august-11-15/1100-6234504/" class="article-title">Aussie emulation mash-up: August 11-15</a>
+			<div class="article-subtitle">The hotly anticipated Bionic Commando Rearmed has arrived on Xbox Live Arcade this week. While Rearmed is based around the original '80s NES game, it's been built from the ground up for the next-gen systems, including new graphics, arenas, and online leader boards. If that wasn't enough, Fable II...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_konami-uncovers-global-metal-gear-online-tournament_1100-6196010_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-uncovers-global-metal-gear-online-tournament/1100-6196010/" class="article-title">Konami uncovers global Metal Gear Online tournament</a>
+			<div class="article-subtitle">Konami has announced a pan-European Metal Gear Online competition for PlayStation 3 owners. In addition to competing for bragging rights among the burgeoning Metal Gear fanbase, entrants will also be vying for the chance to win an all-expenses-paid trip to the global MGO finals at the Tokyo Game...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_go-view-football-on-your-psp_1100-6196019_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/go-view-football-on-your-psp/1100-6196019/" class="article-title">Go view football on your PSP</a>
+			<div class="article-subtitle">The new season of Premier League is almost here, and unless you're disconnected from all forms of technology and media it seems hard to ignore the buildup. If catching your favourite team on TV at your local pub isn't enough for you, you'll soon have another way of getting a dose of football...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_need-for-speed-undercover-information-blowout_1100-6234503_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-undercover-information-blowout/1100-6234503/" class="article-title">Need for Speed Undercover Information BLOWOUT</a>
+			<div class="article-subtitle">Okay, I'll admit the title of this blog entry is slightly misleading. Thanks to EA's multiple-embargo situation coming out of last night's unveiling of their latest action-racing game, Need for Speed Undercover, there's only so much I can tell you about the game right now. That said, I've got...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_the-sims-2-apartment-pets-updated-impressions-keeping-your-pets-happy_1100-6195981_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-2-apartment-pets-updated-impressions-keeping-your-pets-happy/1100-6195981/" class="article-title">The Sims 2 Apartment Pets Updated Impressions - Keeping Your Pets Happy</a>
+			<div class="article-subtitle">Your dog is smelly and has fleas. Luckily, you have a Nintendo DS stylus.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_mercenaries-2-co-op-hands-on_1100-6196012_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mercenaries-2-co-op-hands-on/1100-6196012/" class="article-title">Mercenaries 2 Co-Op Hands-On</a>
+			<div class="article-subtitle">We get our first look at what destroying Venezuela is like in a multiplayer setting.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_nerf-n-strike-hands-on_1100-6195988_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nerf-n-strike-hands-on/1100-6195988/" class="article-title">Nerf N-Strike Hands-On </a>
+			<div class="article-subtitle">The foam flies in this upcoming light gun game for the Wii.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_simcity-creator-hands-on_1100-6195994_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/simcity-creator-hands-on/1100-6195994/" class="article-title">SimCity Creator Hands-On</a>
+			<div class="article-subtitle">Finally, a game that lets you create cities entirely out of cake.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/henry-hatsworth-in-the-puzzling-adventure-hands-on/1100-6195999/" class="article-title">Henry Hatsworth in the Puzzling Adventure Hands-On</a>
+			<div class="article-subtitle">An monocled archaeologist plumbs the depths of the puzzle world in this fascinating DS title.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_monopoly-hands-on_1100-6196000_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monopoly-hands-on/1100-6196000/" class="article-title">Monopoly Hands-On</a>
+			<div class="article-subtitle">The venerable board game comes to consoles with classic capitalist action and a new family-friendly mode, and we take our top hat out for a spin.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_80gb-ps3-confirmed-for-august-28-in-australia_1100-6196007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/80gb-ps3-confirmed-for-august-28-in-australia/1100-6196007/" class="article-title">80GB PS3 confirmed for August 28 in Australia</a>
+			<div class="article-subtitle">New PS3 model to ship with one DualShock 3 controller.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_burnout-download-revs-up-analysts_1100-6196030_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/burnout-download-revs-up-analysts/1100-6196030/" class="article-title">Burnout download revs up analysts </a>
+			<div class="article-subtitle">Industry prognosticators assess the likelihood that EA's announcement will cause brick-and-mortar retailers to crash and burn.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_qanda-pandemic-on-mercenaries-2-world-in-flames_1100-6196003_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-pandemic-on-mercenaries-2-world-in-flames/1100-6196003/" class="article-title">Q&A: Pandemic on Mercenaries 2: World in Flames</a>
+			<div class="article-subtitle">We catch up with Pandemic director Cameron Brown to chat about blowing things up on next-gen hardware, how big the Mercs 2 world is, and upsetting an entire national government.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_ea-kicks-off-fifa-09-tracklist_1100-6196016_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-kicks-off-fifa-09-tracklist/1100-6196016/" class="article-title">EA kicks off FIFA 09 tracklist </a>
+			<div class="article-subtitle">Duffy, Hot Chip, CSS, The Ting Tings, Kasabian, The Kooks, and The Fratellis in the latest soundtrack; Junkie XL back for another season.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/08/15_need-for-speed-goes-undercover-november-18_1100-6196024_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-goes-undercover-november-18/1100-6196024/" class="article-title">Need for Speed goes Undercover November 18</a>
+			<div class="article-subtitle">Maggie Q to star in live-action sequences in EA's next installment of underground street racer for 360, PS3, PS2, PSP, Wii, DS, and PC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_bc-rearmed-live-on-pal-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/bc-rearmed-live-on-pal-psn" class="article-title">BC Rearmed live on PAL PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_no-spore-demo-but-expansions-planned_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-spore-demo-but-expansions-planned" class="article-title">No Spore demo, but expansions planned</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_premiership-football-headed-to-go-view_thumbnail.png">
+			<a href="https://www.eurogamer.net/premiership-football-headed-to-go-view" class="article-title">Premiership football headed to Go!View</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_the-godfather-ii-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-godfather-ii-preview" class="article-title">The Godfather II</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_dreamlords-the-reawakening-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/dreamlords-the-reawakening-review" class="article-title">Dreamlords: The Reawakening</a>
+			<div class="article-author">Dan Griliopoulos</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_viva-pinata-ds-sprouting-in-september_thumbnail.png">
+			<a href="https://www.eurogamer.net/viva-pinata-ds-sprouting-in-september" class="article-title">Viva Pinata DS sprouting in September</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_monster-madness-ps3-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/monster-madness-ps3-dated" class="article-title">Monster Madness PS3 dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_warner-music-videos-for-xbox-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/warner-music-videos-for-xbox-live" class="article-title">Warner Music videos for Xbox Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_lineage-ii-gets-levelling-speed-boost_thumbnail.png">
+			<a href="https://www.eurogamer.net/lineage-ii-gets-levelling-speed-boost" class="article-title">Lineage II gets levelling speed boost</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_brash-doing-prison-break-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/brash-doing-prison-break-game" class="article-title">Brash doing Prison Break game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_nintendo-leads-as-us-console-sales-slump_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-leads-as-us-console-sales-slump" class="article-title">Nintendo leads as US console sales slump</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_burnout-paradise-to-be-sold-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/burnout-paradise-to-be-sold-on-psn" class="article-title">Burnout Paradise to be sold on PSN</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_castle-crashers-set-at-1200-ms-points_thumbnail.png">
+			<a href="https://www.eurogamer.net/castle-crashers-set-at-1200-ms-points" class="article-title">Castle Crashers set at 1200 MS Points</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_tiger-09-and-sbk-08-demos-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/tiger-09-and-sbk-08-demos-on-live" class="article-title">Tiger 09 and SBK-08 demos on Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_lucy-bradshaw-live-interview-today-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/lucy-bradshaw-live-interview-today-blog-entry" class="article-title">Lucy Bradshaw live interview today!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_people-can-fly-doing-new-game-with-ea_thumbnail.png">
+			<a href="https://www.eurogamer.net/people-can-fly-doing-new-game-with-ea" class="article-title">People Can Fly doing new game with EA</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_ea-publishing-grasshopper-horror-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-publishing-grasshopper-horror-title" class="article-title">EA publishing Grasshopper horror title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_no-bc-rearmed-on-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-bc-rearmed-on-steam" class="article-title">No BC Rearmed on Steam</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_strong-bad-and-fish-on-wii-shop_thumbnail.png">
+			<a href="https://www.eurogamer.net/strong-bad-and-fish-on-wii-shop" class="article-title">Strong Bad and fish on Wii Shop</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/08/15_hellboy-the-science-of-evil-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/hellboy-the-science-of-evil-review" class="article-title">Hellboy: The Science of Evil</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132212/PSP-3000-test-report-leaked/" class="article-title">PSP-3000 test report leaked</a>
+			<div class="article-subtitle">Seems to be real?</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132211/X-Blades-gets-cross-platform-launch/" class="article-title">X-Blades gets cross-platform launch</a>
+			<div class="article-subtitle">Plus three new screenshots.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132214/Lian-Li-introduces-Xbox-360-chassis/" class="article-title">Lian Li introduces Xbox 360 chassis</a>
+			<div class="article-subtitle">Better cooling, more style, less warranty.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132213/New-Empire-Total-War-video-released/" class="article-title">New Empire: Total War video released</a>
+			<div class="article-subtitle">First naval combat in series revealed.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/floating-islands-game.php" class="article-title">Floating Islands Game</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-74.php" class="article-title">Link Dump Friday №75</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/08/15_2008_08_15_arrrrrrrrrrrr_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/08/15/arrrrrrrrrrrr/" class="article-title">Arrrrrrrrrrrr?</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/08/15_2008_08_15_coign-of-vantage_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/08/15/coign-of-vantage/" class="article-title">coign of vantage</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

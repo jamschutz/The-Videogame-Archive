@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 11, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ufo-extraterrestrials-review/1900-6170517/" class="article-title">UFO: Extraterrestrials Review</a>
+			<div class="article-subtitle">An X-COM clone that falls short of its inspiration, UFO: Extraterrestrials is only for desperate diehards.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/spider-man-3-review/1900-6170599/" class="article-title">Spider-Man 3 Review</a>
+			<div class="article-subtitle">Spider-Man 3 is a slick beat-'em-up that uses the touch screen in ways that actually enhance the experience of playing the game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/spider-man-3-review/1900-6170602/" class="article-title">Spider-Man 3 Review</a>
+			<div class="article-subtitle">Spider-Man 3 isn't anything special, but it's a solid 2D action game that lets you cut loose with Spidey's abilities.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rampart-review/1900-6170623/" class="article-title">Rampart Review</a>
+			<div class="article-subtitle">Rampart is a classic arcade game, but severe control issues prevent it from translating well to the PlayStation 3.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_project-rygar-first-impressions_1100-6170557_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/project-rygar-first-impressions/1100-6170557/" class="article-title">Project Rygar First Impressions</a>
+			<div class="article-subtitle">Move over Rygar, there's a new shield wielder in town. We've got a first look at Tecmo's newly announced action game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_monster-rancher-ds-first-look_1100-6170553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monster-rancher-ds-first-look/1100-6170553/" class="article-title">Monster Rancher DS First Look</a>
+			<div class="article-subtitle">Now drawing and speaking will unleash the monsters. We get a first glimpse at this monster-breeding sim from Tecmo.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_newsspots-calling-all-cars-area-51-forza-2-halo-2_1100-6170544_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/newsspots-calling-all-cars-area-51-forza-2-halo-2/1100-6170544/" class="article-title">NewsSpots: Calling All Cars!, Area 51, Forza 2, Halo 2</a>
+			<div class="article-subtitle">David Jaffe's first downloadable effort arrives, Midway offers an alien shooter demo, Xbox 360 racer goes gold, Monster Madness is delayed, and Bungie's shooter hits a milestone.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_halo-3-tops-4-million-preorders-at-gamestop_1100-6170547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-tops-4-million-preorders-at-gamestop/1100-6170547/" class="article-title">Halo 3 tops 4 million preorders at GameStop?</a>
+			<div class="article-subtitle">Unconfirmed reports have Bungie's next project breaking sales records months before it goes on sale--at just one retailer.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_final-fantasy-xii-revenant-wings-hands-on_1100-6170536_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xii-revenant-wings-hands-on/1100-6170536/" class="article-title">Final Fantasy XII: Revenant Wings Hands-On</a>
+			<div class="article-subtitle">We check out the Japanese version of this real-time strategy game set in Ivalice.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_bizspots-mi6-awards-psp-movie-pack-deadline-games-a-kynogon-er_1100-6170548_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bizspots-mi6-awards-psp-movie-pack-deadline-games-a-kynogon-er/1100-6170548/" class="article-title">BizSpots: MI6 Awards, PSP movie pack, Deadline Games a Kynogon-er</a>
+			<div class="article-subtitle">SF game-marketing expo honors its own, Sony releases new 2GB Memory Stick-film bundle, Florida slaps restrictions on used-game sales, and a Danish developer chooses next-gen middleware.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_empire-earth-iii-exclusive-multiplayer-hands-on_1100-6170473_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/empire-earth-iii-exclusive-multiplayer-hands-on/1100-6170473/" class="article-title">Empire Earth III Exclusive Multiplayer Hands-On</a>
+			<div class="article-subtitle">We've got some of the very first details on how this real-time strategy sequel is shaping up.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_ive-got-a-date-with-the-chief-though-i-rather-it-were-cortana_1100-6235898_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ive-got-a-date-with-the-chief-though-i-rather-it-were-cortana/1100-6235898/" class="article-title">I've Got a Date with the Chief! (Though I Rather It Were Cortana)</a>
+			<div class="article-subtitle">I&#39;m a huge Halo fan. I think Halo 1 was perfect. I think Halo 2&#39;s multiplayer was amazing. And this is a huge PC games fan saying this. I cut my teeth on the PC. My favorite games all run on DOS! I just built a monster Vista machine. But I gotta give props to Halo. The series has a...</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_qanda-afl-premiership-2007-senior-producer-justin-halliday_1100-6170552_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-afl-premiership-2007-senior-producer-justin-halliday/1100-6170552/" class="article-title">Q&A: AFL Premiership 2007 senior producer Justin Halliday</a>
+			<div class="article-subtitle">We talk with IR Gurus senior producer Justin Halliday about what's new in AFL Premiership 2007 for the PS2, how user comments have affected the game, and more.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_ncaa-football-08-campus-legend-hands-on_1100-6170543_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ncaa-football-08-campus-legend-hands-on/1100-6170543/" class="article-title">NCAA Football 08 Campus Legend Hands-On</a>
+			<div class="article-subtitle">We go from being a star player in high school to a backup college player in our latest hands-on with NCAA Football 08's campus legend mode.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_guitar-hero-will-officially-rock-the-80s_1100-6170407_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-will-officially-rock-the-80s/1100-6170407/" class="article-title">Guitar Hero will (officially) Rock the 80s</a>
+			<div class="article-subtitle">Activision to bring a dose of nostalgia to the popular game series, with 30 tracks from the era including originals from Flock of Seagulls, Twisted Sister.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_soulcalibur-legends-to-be-told-on-wii_1100-6170592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soulcalibur-legends-to-be-told-on-wii/1100-6170592/" class="article-title">Soulcalibur Legends to be told on Wii</a>
+			<div class="article-subtitle">Next installment of Namco Bandai fighting franchise coming exclusively to Nintendo's console.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_halo-3-beta-gameplay-marathon_1100-6235897_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-beta-gameplay-marathon/1100-6235897/" class="article-title">Halo 3 Beta Gameplay Marathon!</a>
+			<div class="article-subtitle">We currently have a live gameplay marathon happening for your Halo 3 beta pleasure. This afternoon&#39;s gameplay is a prelude to coverage of tonight&#39;s Microsoft event in San Francisco. We recently released our preview for the multiplayer beta. Check back often for more coverage centered around...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_rock-band-to-jam-on-wii_1100-6235896_thumbnail.gif">
+			<a href="https://www.gamespot.com/articles/rock-band-to-jam-on-wii/1100-6235896/" class="article-title">Rock Band to jam on Wii?</a>
+			<div class="article-subtitle">Source: A reader reporting on a recent focus group surrounding Rock Band packaging and pricing.     What we heard: A GameSpot reader tipped us off this week to a focus group held for Harmonix and MTV&#39;s upcoming Rock Band, and the tip contained a number of interesting scraps for those...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_rock-band-to-jam-on-wii_1100-6170619_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-to-jam-on-wii/1100-6170619/" class="article-title">Rock Band to jam on Wii?</a>
+			<div class="article-subtitle">A member of a focus group about the ambitious MTV Games/Harmonix project says that it is headed to Nintendo's console; $150-$200 price tag being considered.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_hot-shots-golf-5-import-hands-on_1100-6170601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hot-shots-golf-5-import-hands-on/1100-6170601/" class="article-title">Hot Shots Golf 5 Import Hands-On</a>
+			<div class="article-subtitle">We spent some time with the Japanese demo of Hot Shots Golf 5 and dug up a bit more information about what to expect from the series' PlayStation 3 debut.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_medal-of-honor-airborne-designer-diary-1-the-freedom-of-starting-anywhere_1100-6170580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-airborne-designer-diary-1-the-freedom-of-starting-anywhere/1100-6170580/" class="article-title">Medal of Honor: Airborne Designer Diary #1 - The Freedom of Starting Anywhere</a>
+			<div class="article-subtitle">Producer Chris Busse explains how Medal of Honor: Airborne's "start anywhere" functionality lets you choose the course of each battle.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_soe-strips-hustles-and-everquests_1100-6170549_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soe-strips-hustles-and-everquests/1100-6170549/" class="article-title">SOE Strips, Hustles, and… EverQuests?</a>
+			<div class="article-subtitle">Sony Online Entertainment announces High Stakes on the Vegas Strip PS3 poker game, <i>Kung Fu Hustle</i> online fighting game, EverQuest II: Rise of Kunark expansion.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_qanda-paul-wedgwood-on-quake-wars_1100-6165848_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-paul-wedgwood-on-quake-wars/1100-6165848/" class="article-title">Q&A: Paul Wedgwood on Quake Wars </a>
+			<div class="article-subtitle">Splash Damage's creative director talks about his forthcoming game, its longevity, and its recently announced 360 and PS3 ports.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_halo-3-beta-surfaces_1100-6170614_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-beta-surfaces/1100-6170614/" class="article-title">Halo 3 beta surfaces</a>
+			<div class="article-subtitle">[UPDATE] GameSpot gets its hands on Bungie's long-awaited shooter and takes it for a test drive; first footage inside.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/05/11_square-enix-prepping-new-psp-final-fantasy_1100-6170256_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-prepping-new-psp-final-fantasy/1100-6170256/" class="article-title">Square Enix prepping new PSP Final Fantasy</a>
+			<div class="article-subtitle">Publisher opens a teaser Web site for Dissidia, promises more information at this weekend's Square Enix Party in Japan.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_n-weeklyroundup-110507_thumbnail.png">
+			<a href="https://www.eurogamer.net/n-weeklyroundup-110507" class="article-title">This week's game announcements</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_card-fighters-ds-fixed_thumbnail.png">
+			<a href="https://www.eurogamer.net/card-fighters-ds-fixed" class="article-title">Card Fighters DS fixed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_lost-planet-pc-demo-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/lost-planet-pc-demo-dated" class="article-title">Lost Planet PC demo dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_new-battlefront-is-psp-exclusive_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-battlefront-is-psp-exclusive" class="article-title">New Battlefront is PSP-exclusive</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_three-new-games-from-soe_thumbnail.png">
+			<a href="https://www.eurogamer.net/three-new-games-from-soe" class="article-title">Three new games from SOE</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_gamesindustrybiz-the-art-of-diversity-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamesindustrybiz-the-art-of-diversity-article" class="article-title">GamesIndustry.biz: The Art of Diversity</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_wii-game-roundup-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-game-roundup-review" class="article-title">Wii Game Roundup</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_crackdown-dlc-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/crackdown-dlc-live" class="article-title">Crackdown DLC live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_autumn-bound-pgr4-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/autumn-bound-pgr4-details" class="article-title">Autumn-bound PGR4 details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_blacksite-area-51-demo-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/blacksite-area-51-demo-on-live" class="article-title">Blacksite: Area 51 demo on Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_alone-in-the-dark-writer-named_thumbnail.png">
+			<a href="https://www.eurogamer.net/alone-in-the-dark-writer-named" class="article-title">Alone in the Dark writer named</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_mercury-wii-gets-solid-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/mercury-wii-gets-solid-date" class="article-title">Mercury Wii gets solid date</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_sega-doing-happy-tree-friends_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-doing-happy-tree-friends" class="article-title">SEGA doing Happy Tree Friends</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_ghost-squad-heading-to-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/ghost-squad-heading-to-wii" class="article-title">Ghost Squad heading to Wii</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_sega-partners-with-gas-powered-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-partners-with-gas-powered-games" class="article-title">SEGA partners with Gas Powered Games</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_petroglyph-targets-x360-with-universe-at-war_thumbnail.png">
+			<a href="https://www.eurogamer.net/petroglyph-targets-x360-with-universe-at-war" class="article-title">Petroglyph targets X360 with Universe at War</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_sega-quiet-on-condemned-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-quiet-on-condemned-2" class="article-title">SEGA quiet on Condemned 2</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_condemned-2-for-ps3-xbox-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/condemned-2-for-ps3-xbox-360" class="article-title">Condemned 2 for PS3, Xbox 360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_funcoms-secret-world_thumbnail.png">
+			<a href="https://www.eurogamer.net/funcoms-secret-world" class="article-title">Funcom's Secret World</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_ron-gilbert-working-on-penny-arcade-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ron-gilbert-working-on-penny-arcade-game" class="article-title">Ron Gilbert working on Penny Arcade game</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/05/11_hellgate-london-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/hellgate-london-interview" class="article-title">Hellgate: London</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128267/NetGuide-Web-Awards-double-for-Gameplanet/" class="article-title">NetGuide Web Awards double for Gameplanet</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128266/Best-selling-author-writing-Alone-in-the-Dark-in-season-format/" class="article-title">Best-selling author writing Alone in the Dark in "season" format</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128265/Guitar-Heroes-goes-80s/" class="article-title">Guitar Heroes goes 80s</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128264/1st-June-for-first-cross-platform-multiplayer-game-for-360/" class="article-title">1st June for first cross-platform multiplayer game for 360</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128263/Online-purchases-discussion-at-OGDC/" class="article-title">Online purchases discussion at OGDC</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128262/Pet-sim-for-download/" class="article-title">Pet sim for download</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-15.php" class="article-title">Link Dump Friday №16</a>
+			<div class="article-author">Harukio</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/05/11_2007_05_11_akatsuki-blitzkampf_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/05/11/akatsuki-blitzkampf/" class="article-title">Akatsuki Blitzkampf</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/05/11/gdc-everyday-shooter/" class="article-title">GDC: Everyday Shooter</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

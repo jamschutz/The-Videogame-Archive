@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 20, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/madden-nfl-08-review/1900-6176962/" class="article-title">Madden NFL 08 Review</a>
+			<div class="article-subtitle">The older console versions of Madden 08 offer a few control upgrades and a couple of bizarre new modes, but otherwise, this might as well be last year's game.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/madden-nfl-08-review/1900-6176958/" class="article-title">Madden NFL 08 Review</a>
+			<div class="article-subtitle">The older console versions of Madden 08 offer a few control upgrades and a couple of bizarre new modes, but otherwise, this might as well be last year's game.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jeanne-darc-review/1900-6176961/" class="article-title">Jeanne D'Arc Review</a>
+			<div class="article-subtitle">History is turned on its head with a great story and compelling gameplay that keeps the tempo moving.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ecco-the-dolphin-review/1900-6176938/" class="article-title">Ecco the Dolphin Review</a>
+			<div class="article-subtitle">If you haven't played Ecco the Dolphin before, you stand the best chance of enjoying this rendition of it.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/madden-nfl-08-review/1900-6176960/" class="article-title">Madden NFL 08 Review</a>
+			<div class="article-subtitle">The older console versions of Madden 08 offer a few control upgrades and a couple of bizarre new modes, but otherwise, this might as well be last year's game.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bioshock-review/1900-6176947/" class="article-title">BioShock Review</a>
+			<div class="article-subtitle">BioShock creates an amazing world that you'll want to explore from top to bottom and a compelling mystery that slowly comes together as you play.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_xbox-360-elite-pricing-set-for-uk_1100-6235709_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-elite-pricing-set-for-uk/1100-6235709/" class="article-title">Xbox 360 Elite pricing set for UK</a>
+			<div class="article-subtitle">Microsoft today announced a price drop for the Pro and Core Xbox 360 systems  and set the UK pricing for the Elite edition at £299.99 (it&#39;ll be 449.99 euros in Europe, apparently). They also held briefings for journalists in London to explain the price changes, run through the Elite edition and...</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_analysts-predict-bounce-in-july-npd-figures_1100-6176893_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analysts-predict-bounce-in-july-npd-figures/1100-6176893/" class="article-title">Analysts predict bounce in July NPD figures</a>
+			<div class="article-subtitle">PlayStation 3 price drop expected to put Sony's console over Xbox 360 sales for first time in the US.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_aussie-a-league-featured-in-fifa-08_1100-6176900_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-a-league-featured-in-fifa-08/1100-6176900/" class="article-title">Aussie A-League featured in FIFA 08</a>
+			<div class="article-subtitle">Next EA Sports football title to include Australia's A-League; Melbourne Victory's Archie Thompson named local "ambassador."</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_dark-sector-maker-casts-shadow-over-unreal-tech_1100-6235708_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-sector-maker-casts-shadow-over-unreal-tech/1100-6235708/" class="article-title">Dark Sector maker casts shadow over Unreal tech</a>
+			<div class="article-subtitle">Ordinarily when Unreal Engine 3 makes headlines, it's because the tool's creator, Epic Games, has announced yet another licensee. The list for the development suite is currently extensive, and includes Capcom, Square Enix, Electronic Arts, THQ, BioWare, Ubisoft, LucasArts, and Sony Computer...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_mtv-devotes-500-million-to-games_1100-6176762_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mtv-devotes-500-million-to-games/1100-6176762/" class="article-title">MTV devotes $500 million to games</a>
+			<div class="article-subtitle">Music network and Rock Band publisher cranking up gaming budget over next two years.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_dark-sector-maker-casts-shadow-over-unreal-tech_1100-6176916_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-sector-maker-casts-shadow-over-unreal-tech/1100-6176916/" class="article-title">Dark Sector maker casts shadow over Unreal tech </a>
+			<div class="article-subtitle">Digital Extremes developer explains decision not to use Unreal Engine 3 in upcoming sci-fi first-person shooter.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_blizzard-rules-out-ps3-360-wowagain_1100-6176771_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-rules-out-ps3-360-wowagain/1100-6176771/" class="article-title">Blizzard rules out PS3, 360 WOW...again</a>
+			<div class="article-subtitle">Speculation that the megapopular MMOG will expand beyond PCs and Macs is shot down yet again.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_mexican-officials-raid-game-counterfeiters_1100-6176895_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mexican-officials-raid-game-counterfeiters/1100-6176895/" class="article-title">Mexican officials raid game counterfeiters</a>
+			<div class="article-subtitle">Nintendo touts authorities' efforts in confiscating goods from a dozen pirated game distributors at Guadalajaran market.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_mafia-2-set-for-leipzig-unveiling_1100-6176833_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mafia-2-set-for-leipzig-unveiling/1100-6176833/" class="article-title">Mafia 2 set for Leipzig unveiling?</a>
+			<div class="article-subtitle">German ratings board reveals a Games Convention trailer for sequel to 2002 PC game.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_graw-2-finds-gold-on-ps3-psp_1100-6176849_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/graw-2-finds-gold-on-ps3-psp/1100-6176849/" class="article-title">GRAW 2 finds gold on PS3, PSP</a>
+			<div class="article-subtitle">Ubisoft's modern-day tactical shooter locked in for August 21 release on Sony's systems.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_paramount-goes-hd-dvd-exclusive_1100-6176936_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/paramount-goes-hd-dvd-exclusive/1100-6176936/" class="article-title">Paramount goes HD DVD-exclusive</a>
+			<div class="article-subtitle"><i>Transformers</i> studio and fellow Viacom brands drop most support for Blu-ray format; only Spielberg-directed films remain platform agnostic.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_fuzzyeyes-squints-at-edge-of-twilight_1100-6176946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fuzzyeyes-squints-at-edge-of-twilight/1100-6176946/" class="article-title">Fuzzyeyes squints at Edge of Twilight</a>
+			<div class="article-subtitle">Australian developer bringing cross-dimensional third-person action adventure to Xbox 360 and PC.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_crytek-powered-mmog-coming_1100-6176956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crytek-powered-mmog-coming/1100-6176956/" class="article-title">Crytek-powered MMOG coming</a>
+			<div class="article-subtitle">Lineage creator's Korea-based shop licenses Crysis engine for all-new massively multiplayer title.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_consoles-to-dominate-digital-living-rooms_1100-6176963_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/consoles-to-dominate-digital-living-rooms/1100-6176963/" class="article-title">Consoles to dominate digital living rooms</a>
+			<div class="article-subtitle">Analysts with ABI Research expect 184 million digital media adapters in homes by 2012, with 85 percent of them included in game systems.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_nba-08-updated-hands-on_1100-6176822_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-08-updated-hands-on/1100-6176822/" class="article-title">NBA 08 Updated Hands-On</a>
+			<div class="article-subtitle">Sony's NBA series is set to return with some improved play-calling controls, and we've got an updated look.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_spider-man-friend-or-foe-exclusive-hands-on-arcade-brawling-with-movie-characters_1100-6176966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-friend-or-foe-exclusive-hands-on-arcade-brawling-with-movie-characters/1100-6176966/" class="article-title">Spider-Man: Friend or Foe Exclusive Hands-On - Arcade Brawling with Movie Characters</a>
+			<div class="article-subtitle">We take an exclusive trip around the globe with Spidey and friends as they stomp out evil in Activision's upcoming brawler.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_need-for-speed-prostreet-updated-hands-on_1100-6176851_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-prostreet-updated-hands-on/1100-6176851/" class="article-title">Need for Speed ProStreet Updated Hands-On</a>
+			<div class="article-subtitle">EA's Need for Speed series is taking a turn towards realism and we've got an updated look.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_bizspots-square-enix-playlogic-data-design_1100-6176967_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bizspots-square-enix-playlogic-data-design/1100-6176967/" class="article-title">BizSpots: Square Enix, Playlogic, Data Design</a>
+			<div class="article-subtitle">Japanese publisher offers wares on Web, Dutch publisher posts big profits, Popcorn Arcade aims at alternate gamers.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_war-is-coming-down-under_1100-6235707_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/war-is-coming-down-under/1100-6235707/" class="article-title">War is coming down under!</a>
+			<div class="article-subtitle">We received an interesting promo poster from Vivendi Games for their upcoming title World in Conflict (WiC) today. For those who don't know, WiC is a real-time strategy game set in the 1980s which places you in control of US forces as they defend the homeland against Soviet invaders. Red Dawn...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_singstar-rock-ballads-tracklist-announced_1100-6235706_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/singstar-rock-ballads-tracklist-announced/1100-6235706/" class="article-title">SingStar Rock Ballads tracklist announced</a>
+			<div class="article-subtitle">Less than two weeks since SingStar '90s went on sale down under on the 9th of this month, Sony Computer Entertainment Australia has announced yet another addition to the already extended SingStar family for the PlayStation 2.     SingStar Rock Ballads marks the tenth release in the series, and...</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/20_qanda-next-level-games-on-spider-man-friend-or-foe_1100-6176971_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-next-level-games-on-spider-man-friend-or-foe/1100-6176971/" class="article-title">Q&A: Next Level Games on Spider-Man: Friend or Foe</a>
+			<div class="article-subtitle">Next Level Games talks co-op gameplay, how many Marvel characters will make it into Friend or Foe, and differences between the various console versions.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_plenty-of-life-in-mmos_thumbnail.png">
+			<a href="https://www.eurogamer.net/plenty-of-life-in-mmos" class="article-title">Plenty of life in MMOs</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_too-human-demo-soon-dyack_thumbnail.png">
+			<a href="https://www.eurogamer.net/too-human-demo-soon-dyack" class="article-title">Too Human demo soon - Dyack</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_more-on-crysis-multiplayer_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-on-crysis-multiplayer" class="article-title">More on Crysis multiplayer</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_space-giraffe-imminent_thumbnail.png">
+			<a href="https://www.eurogamer.net/space-giraffe-imminent" class="article-title">Space Giraffe imminent</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_ratings-board-doesnt-take-games-seriously-eggebrecht_thumbnail.png">
+			<a href="https://www.eurogamer.net/ratings-board-doesnt-take-games-seriously-eggebrecht" class="article-title">Ratings board doesn't take games seriously - Eggebrecht</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_stormfront-boss-defends-wiis-right-to-be-called-next-gen_thumbnail.png">
+			<a href="https://www.eurogamer.net/stormfront-boss-defends-wiis-right-to-be-called-next-gen" class="article-title">Stormfront boss defends Wii's right to be called next-gen</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_bioshock-pc-demo-tonight_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-pc-demo-tonight" class="article-title">BioShock PC demo tonight</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_doodle-hex-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/doodle-hex-revealed" class="article-title">Doodle Hex revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_esrb-leaks-two-more_thumbnail.png">
+			<a href="https://www.eurogamer.net/esrb-leaks-two-more" class="article-title">ESRB leaks two more</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_woo-film-becoming-an-mmo_thumbnail.png">
+			<a href="https://www.eurogamer.net/woo-film-becoming-an-mmo" class="article-title">Woo film becoming an MMO</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_scene-it-lights-camera-action-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/scene-it-lights-camera-action-first-impressions" class="article-title">Scene It? Lights, Camera, Action</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_ds-dominates-spain-germany_thumbnail.png">
+			<a href="https://www.eurogamer.net/ds-dominates-spain-germany" class="article-title">DS dominates Spain, Germany</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_r-gearsofwar-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-gearsofwar-x360" class="article-title">Gears of War</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_home-abusers-will-be-banned_thumbnail.png">
+			<a href="https://www.eurogamer.net/home-abusers-will-be-banned" class="article-title">Home abusers will be banned</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_ms-quiet-on-katamari-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-quiet-on-katamari-demo" class="article-title">MS quiet on Katamari demo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_ms-cuts-360-price-in-oz_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-cuts-360-price-in-oz" class="article-title">MS cuts 360 price in Oz</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_mark-rein-backs-blu-ray_thumbnail.png">
+			<a href="https://www.eurogamer.net/mark-rein-backs-blu-ray" class="article-title">Mark Rein backs Blu-ray</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_gearbox-unveils-borderlands_thumbnail.png">
+			<a href="https://www.eurogamer.net/gearbox-unveils-borderlands" class="article-title">Gearbox unveils Borderlands</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_live-arcade-for-windows_thumbnail.png">
+			<a href="https://www.eurogamer.net/live-arcade-for-windows" class="article-title">Live Arcade for Windows</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_age-of-conan-delay-explained_thumbnail.png">
+			<a href="https://www.eurogamer.net/age-of-conan-delay-explained" class="article-title">Age of Conan delay explained</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_wii-nearly-uks-best-seller_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-nearly-uks-best-seller" class="article-title">Wii nearly UK's best seller</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_turok-in-february_thumbnail.png">
+			<a href="https://www.eurogamer.net/turok-in-february" class="article-title">Turok in February</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_new-dungeon-runner-content_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-dungeon-runner-content" class="article-title">New Dungeon Runner content</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_were-multi-platform-rein_thumbnail.png">
+			<a href="https://www.eurogamer.net/were-multi-platform-rein" class="article-title">"We're multi-platform" - Rein</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_codemasters-leipzig-line-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/codemasters-leipzig-line-up" class="article-title">Codemasters' Leipzig line-up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_ecco-the-dolphin-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/ecco-the-dolphin-review" class="article-title">Ecco The Dolphin</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_elite-dated-priced-in-oz_thumbnail.png">
+			<a href="https://www.eurogamer.net/elite-dated-priced-in-oz" class="article-title">Elite dated, priced in Oz</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/20_borderlands-details-crop-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/borderlands-details-crop-up" class="article-title">Borderlands details crop up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128517/Halo-3-edition-360-20-September/" class="article-title">Halo 3 edition 360 20 September</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-update-1.php" class="article-title">CGDC4 update №2</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/20_2007_08_20_least-best-room-v0-1_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/20/least-best-room-v0-1/" class="article-title">Least Best Room v0.1</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/08/20/yajbi-yet-another-j-blow-interview/" class="article-title">YAJBI: Yet Another J. Blow Interview</a>
+			<div class="article-author">ARelativelyHotGirl</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/20_2007_08_20_raptor-2-doo-doo-push-pineapple-shake-the-tree_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/20/raptor-2-doo-doo-push-pineapple-shake-the-tree/" class="article-title">Raptor 2 (doo-doo, push pineapple, shake the tree)</a>
+			<div class="article-author">Graham Goring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/20_2007_08_20_castlevaniarl_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/20/castlevaniarl/" class="article-title">CastlevaniaRL</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

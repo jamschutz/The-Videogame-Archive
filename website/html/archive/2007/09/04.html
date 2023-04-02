@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 4, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-ultimate-ninja-heroes-review/1900-6178084/" class="article-title">Naruto: Ultimate Ninja Heroes Review</a>
+			<div class="article-subtitle">Heroes succeeds in bringing the anime-style action of the Naruto: Ultimate Ninja games to the PSP.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/motogp-07-review/1900-6178096/" class="article-title">MotoGP 07 Review</a>
+			<div class="article-subtitle">Improved online play and a couple tweaks make MotoGP 07 a fun, but not groundbreaking, two-wheel racer.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/adventure-island-review/1900-6178091/" class="article-title">Adventure Island Review</a>
+			<div class="article-subtitle">Adventure Island is a fast-paced, challenging platformer.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kirbys-dream-course-review/1900-6178085/" class="article-title">Kirby's Dream Course Review</a>
+			<div class="article-subtitle">Kirby's Dream Course is a solid minigolf game with a challenging solo mode and a raucous two-player mode.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/drop-off-review/1900-6178082/" class="article-title">Drop Off Review</a>
+			<div class="article-subtitle">Drop Off is a challenging Breakout knockoff that's ruined by a slow-moving paddle.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/medal-of-honor-airborne-review/1900-6178112/" class="article-title">Medal of Honor: Airborne Review</a>
+			<div class="article-subtitle">The single-player campaign doesn't get cooking until the last two levels, but those two levels combined with solid multiplayer make it worth enlisting in Airborne.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/medal-of-honor-airborne-review/1900-6178113/" class="article-title">Medal of Honor: Airborne Review</a>
+			<div class="article-subtitle">The single-player campaign doesn't get cooking until the last two levels, but those two levels combined with solid multiplayer make it worth enlisting in Airborne.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/stranglehold-review/1900-6178115/" class="article-title">Stranglehold Review</a>
+			<div class="article-subtitle">For as long as it lasts, Stranglehold delivers a satisfying, if somewhat derivative action game experience.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_a-million-wiis-in-the-uk_1100-6177889_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-million-wiis-in-the-uk/1100-6177889/" class="article-title">A million Wiis in the UK</a>
+			<div class="article-subtitle">Nintendo's latest console becomes the fastest-selling games machine in UK history.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_retail-radar-madden-se-habla-espayol_1100-6177880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retail-radar-madden-se-habla-espayol/1100-6177880/" class="article-title">Retail Radar: Madden se habla español</a>
+			<div class="article-subtitle">GameStop lists Spanish-language versions of Electronic Arts' latest gridiron game for PlayStation 2 and Xbox 360.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_au-shippin-out-september-3-september-7-blazing-angels-valkyrie-profile-and-medieval-ii_1100-6178029_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-september-3-september-7-blazing-angels-valkyrie-profile-and-medieval-ii/1100-6178029/" class="article-title">AU Shippin' Out September 3-September 7: Blazing Angels, Valkyrie Profile, and Medieval II</a>
+			<div class="article-subtitle">Medieval II expansion pack hits Australian shores.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_vivendi-earnings-up-919-percent_1100-6178030_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vivendi-earnings-up-919-percent/1100-6178030/" class="article-title">Vivendi earnings up 91.9 percent</a>
+			<div class="article-subtitle">World of Warcraft expansion pack leads games division to continued success; popular online role-playing game now has more than 9 million active subscribers.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_sci-in-takeover-talks_1100-6178035_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-in-takeover-talks/1100-6178035/" class="article-title">SCi in takeover talks</a>
+			<div class="article-subtitle">Eidos parent announces it is in "extremely preliminary" discussions toward an offer, does not name interested party.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_tarr-chronicles-hands-on_1100-6178026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tarr-chronicles-hands-on/1100-6178026/" class="article-title">Tarr Chronicles Hands-On</a>
+			<div class="article-subtitle">This space action game will offer plenty of dogfights amid a dying galaxy.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_double-fusion-to-follow-tv-ad-model_1100-6178036_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/double-fusion-to-follow-tv-ad-model/1100-6178036/" class="article-title">Double Fusion to follow TV ad model</a>
+			<div class="article-subtitle">In-game ad company used by Eidos, THQ, and Midway will separate ads from the game dev process, allowing for up-to-date ads to be placed.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_sony-readying-ps3-psp-video-download-service_1100-6235653_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-readying-ps3-psp-video-download-service/1100-6235653/" class="article-title">Sony readying PS3, PSP video download service?</a>
+			<div class="article-subtitle">Source: A little paper called the The Wall Street Journal.   What we heard: In January 2006, Sony announced that it was revamping its Connect download service to digitally distribute movies and television shows to PlayStation Portables. That didn't happen.  The proposed March launch date slid by,...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_report-sony-prepares-for-3-billion-ipo_1100-6178038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-sony-prepares-for-3-billion-ipo/1100-6178038/" class="article-title">Report: Sony prepares for $3 billion IPO</a>
+			<div class="article-subtitle">PlayStation 3 maker to float shares in its insurance division, raising cash for ailing games arm.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_the-ship-2-to-set-sail_1100-6178037_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-ship-2-to-set-sail/1100-6178037/" class="article-title">The Ship 2 to set sail</a>
+			<div class="article-subtitle">Quirky online game's Web site carries statement that work has started on a sequel.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_sony-readying-ps3-psp-video-download-service_1100-6178040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-readying-ps3-psp-video-download-service/1100-6178040/" class="article-title">Sony readying PS3, PSP video download service?</a>
+			<div class="article-subtitle">Citing unnamed sources, the <i>Wall Street Journal</i> reports that a massive, iTunes-esque download service is coming to Sony's console and handheld.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_master-p-seth-green-developing-hip-hop-rpg_1100-6178055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/master-p-seth-green-developing-hip-hop-rpg/1100-6178055/" class="article-title">Master P, Seth Green developing hip-hop RPG</a>
+			<div class="article-subtitle">Curious pairing of rapper-turned-real estate mogul and <i>Robot Chicken</i> star are aiming to release a music-industry-themed game in 2009.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_report-sony-out-of-stock-on-us-60gb-ps3_1100-6177923_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-sony-out-of-stock-on-us-60gb-ps3/1100-6177923/" class="article-title">Report: Sony out of stock on US 60GB PS3 </a>
+			<div class="article-subtitle">Dave Karraker reveals that inventory stores have dried up for $499 console; retailers have received their last shipments.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_september-mod-of-the-month-extravaganza_1100-6235652_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/september-mod-of-the-month-extravaganza/1100-6235652/" class="article-title">September Mod of the Month Extravaganza!</a>
+			<div class="article-subtitle">Please congratulate JustPlainLucas and his partner in rhyme JordanElek, who are the recipients of this month's Moderator of the Month award! Their efforts in the community help keep GameSpot a happy place to frolic for gamers everywhere, and we're delighted that we can reward them for their hard...</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_ferrari-challenge-playstation-3-hands-on_1100-6178059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ferrari-challenge-playstation-3-hands-on/1100-6178059/" class="article-title">Ferrari Challenge PlayStation 3 Hands-On</a>
+			<div class="article-subtitle">We went to Italy for a spin with System 3's homage to the Italian sports car giant.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_ferrari-challenge-nintendo-ds-hands-on_1100-6178065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ferrari-challenge-nintendo-ds-hands-on/1100-6178065/" class="article-title">Ferrari Challenge Nintendo DS Hands-On</a>
+			<div class="article-subtitle">We went to Ferrari's Mugello test circuit for a test-drive of System 3's new racer.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_mercenaries-2-reporting-for-duty-in-08_1100-6235651_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mercenaries-2-reporting-for-duty-in-08/1100-6235651/" class="article-title">Mercenaries 2 reporting for duty in '08?</a>
+			<div class="article-subtitle">Source: Brit outlet Computer & Video Games.      What we heard: Ever since it was first announced, Mercenaries 2: World in Flames has been the subject of many gamers' interest. The attention increased after Electronic Arts agreed to publish the title, which sees a trio of guns-for-hire renting...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_analyst-499-80gb-ps3-by-years-end_1100-6178052_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-499-80gb-ps3-by-years-end/1100-6178052/" class="article-title">Analyst: $499 80GB PS3 by year's end</a>
+			<div class="article-subtitle">Wedbush Morgan Securities predicts Sony will lop $100 off its new console to spur holiday sales, says further cuts possible alongside GTAIV and MGS4.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_shippin-out-september-3-7-stranglehold-moh-airborne_1100-6178042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-september-3-7-stranglehold-moh-airborne/1100-6178042/" class="article-title">Shippin' Out September 3-7: Stranglehold, MOH: Airborne</a>
+			<div class="article-subtitle">John Woo's gangster epic locks and loads; EA's WWII shooter takes the plunge; spate of downloadable classics invade the Wii and Xbox 360.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_report-gamers-dont-mind-advertising_1100-6178031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-gamers-dont-mind-advertising/1100-6178031/" class="article-title">Report: Gamers don't mind advertising</a>
+			<div class="article-subtitle">GameSpot UK survey finds that most gamers are happy to see adverts in-game, provided that they are "contextual and realistic."</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_mercenaries-2-reporting-for-duty-in-08_1100-6178109_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mercenaries-2-reporting-for-duty-in-08/1100-6178109/" class="article-title">Mercenaries 2 reporting for duty in '08? </a>
+			<div class="article-subtitle">Word out of Europe is Pandemic is pushing back its PS2, PS3, PC, and 360 free-roaming shooter to next year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_command-and-conquer-now-a-free-download_1100-6178034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/command-and-conquer-now-a-free-download/1100-6178034/" class="article-title">Command & Conquer now a free download</a>
+			<div class="article-subtitle">Original Command & Conquer game up for grabs to celebrate 12th annual anniversary.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_medal-of-honor-airborne-exclusive-multiplayer-hands-on_1100-6175943_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-airborne-exclusive-multiplayer-hands-on/1100-6175943/" class="article-title">Medal of Honor: Airborne Exclusive Multiplayer Hands-On</a>
+			<div class="article-subtitle">Prepare to parachute into multiplayer battle in EA's upcoming World War II shooter.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_harvey-birdman-hatching-november-13_1100-6178114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harvey-birdman-hatching-november-13/1100-6178114/" class="article-title">Harvey Birdman hatching November 13</a>
+			<div class="article-subtitle">Capcom confirms Wii version of avian attorney's gaming debut set to arrive alongside PS2 and PSP games at height of holiday release schedule.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_age-of-empires-iii-the-asian-dynasties-hands-on-wonders-export-and-deeper-strategic-decisions_1100-6178080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/age-of-empires-iii-the-asian-dynasties-hands-on-wonders-export-and-deeper-strategic-decisions/1100-6178080/" class="article-title">Age of Empires III: The Asian Dynasties Hands-On - Wonders, Export, and Deeper Strategic Decisions</a>
+			<div class="article-subtitle">The second expansion pack for Age of Empires III adds three new civilizations and new layers of decision making.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_microsoft-flight-simulator-x-acceleration-hands-on_1100-6178050_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-flight-simulator-x-acceleration-hands-on/1100-6178050/" class="article-title">Microsoft Flight Simulator X: Acceleration Hands-On</a>
+			<div class="article-subtitle">This expansion to Flight Simulator X adds three new aircraft, dozens of new missions, and a load of new detail.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_aerosmith-headlining-guitar-hero-iv_1100-6235650_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aerosmith-headlining-guitar-hero-iv/1100-6235650/" class="article-title">Aerosmith headlining Guitar Hero IV?</a>
+			<div class="article-subtitle">Source: An article on Aerosmith's next album on Billboard.com states that Guitar Hero IV will be "dedicated" to the Boston band's music.  What we heard: Since its inception, the Guitar Hero series has followed a trend of increasing diversity. Guitar Hero II provided more songs from more bands than...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_morello-a-villain-in-guitar-hero-iii_1100-6178075_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/morello-a-villain-in-guitar-hero-iii/1100-6178075/" class="article-title">Morello a villain in Guitar Hero III</a>
+			<div class="article-subtitle">Rage Against the Machine axe man tells <i>Rolling Stone</i> he will be a boss in the forthcoming rhythm game; preorder bundle revealed.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_fifa-soccer-08-hands-on-be-a-pro-mode_1100-6178123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-soccer-08-hands-on-be-a-pro-mode/1100-6178123/" class="article-title">FIFA Soccer 08 Hands-On: Be A Pro mode</a>
+			<div class="article-subtitle">We strap on the shin guards and take to the field with FIFA Soccer 08's Be A Pro mode.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_eas-aussie-launch-of-fifa-soccer-08_1100-6235649_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eas-aussie-launch-of-fifa-soccer-08/1100-6235649/" class="article-title">EA's Aussie launch of FIFA Soccer 08</a>
+			<div class="article-subtitle">EA Australia took some lucky journos out to North Sydney Oval yesterday for the official launch of FIFA Soccer 08 . The company used the event to showcase some of the game's new features--such as the very cool Be A Pro mode --as well as to hype the fact that the A-League will be included as one of...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/04_skates-john-rattray_1100-6235648_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skates-john-rattray/1100-6235648/" class="article-title">Skate's John Rattray</a>
+			<div class="article-subtitle">The skateboarding game scene is about to change with the launch of EA's Skate. We caught up with John Rattray, pro skater and now game character to discuss his involvement with the project, some of his skate injuries, and the new Flickit control system.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_sonys-tgs-line-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonys-tgs-line-up" class="article-title">Sony's TGS line-up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_hd-dvd-gets-euro-price-cut_thumbnail.png">
+			<a href="https://www.eurogamer.net/hd-dvd-gets-euro-price-cut" class="article-title">HD-DVD gets Euro price cut</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_sidhe-working-with-wachowskis_thumbnail.png">
+			<a href="https://www.eurogamer.net/sidhe-working-with-wachowskis" class="article-title">Sidhe working with Wachowskis</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_petroglyph-wants-mmo-men_thumbnail.png">
+			<a href="https://www.eurogamer.net/petroglyph-wants-mmo-men" class="article-title">Petroglyph wants MMO men</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_bioshock-tops-german-charts_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-tops-german-charts" class="article-title">BioShock tops German charts</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_medal-of-honor-airborne-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/medal-of-honor-airborne-first-impressions" class="article-title">Medal of Honor Airborne</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_bioshock-still-top-in-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/bioshock-still-top-in-uk" class="article-title">BioShock still top in UK</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_four-line-up-for-us-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/four-line-up-for-us-vc" class="article-title">Four line up for US VC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_squenix-confirms-tgs-titles_thumbnail.png">
+			<a href="https://www.eurogamer.net/squenix-confirms-tgs-titles" class="article-title">Squenix confirms TGS titles</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_worms-open-warfare-2-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/worms-open-warfare-2-review" class="article-title">Worms Open Warfare 2</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_ps3-firmware-updated_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-firmware-updated" class="article-title">PS3 firmware updated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_stranglehold-slips-a-bit_thumbnail.png">
+			<a href="https://www.eurogamer.net/stranglehold-slips-a-bit" class="article-title">Stranglehold slips a bit</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_tony-hawks-proving-ground-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/tony-hawks-proving-ground-first-impressions" class="article-title">Tony Hawk's Proving Ground</a>
+			<div class="article-author">John Walker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_motorstorm-dlc-dates-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/motorstorm-dlc-dates-confirmed" class="article-title">MotorStorm DLC dates confirmed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/04_madden-nfl-08-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/madden-nfl-08-review" class="article-title">Madden NFL 08</a>
+			<div class="article-author">Evan Lahti</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128556/TimeShift-demo-now-on-Live/" class="article-title">TimeShift demo now on Live</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128554/Freeware-10tacle-title-for-M3-Coupe-launch/" class="article-title">Freeware 10tacle title for M3 Coupe launch</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/avalanche.php" class="article-title">Avalanche</a>
+			<div class="article-author">Steve</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/09/04_2007_09_04_bloxorz_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/09/04/bloxorz/" class="article-title">Bloxorz</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/09/04_2007_09_04_blogs-of-fury_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/09/04/blogs-of-fury/" class="article-title">Blogs of Fury</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

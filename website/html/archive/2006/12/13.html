@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 13, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mercury-meltdown-remix-review/1900-6163164/" class="article-title">Mercury Meltdown Remix Review</a>
+			<div class="article-subtitle">Mercury Meltdown Remix is a handheld puzzler that feels ill suited for the PS2, but because the underlying puzzle designs are so good, the game still mostly works.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/eragon-review/1900-6163170/" class="article-title">Eragon Review</a>
+			<div class="article-subtitle">Eragon is short and the touch-screen controls don't work very well, but it's still a fairly decent action adventure game.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/assault-heroes-review/1900-6163179/" class="article-title">Assault Heroes Review</a>
+			<div class="article-subtitle">Assault Heroes takes several cues from the great arcade shooters of the '80s and '90s but manages to spin all of these influences into a unique-feeling product.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pocket-racers-review/1900-6163180/" class="article-title">Pocket Racers Review</a>
+			<div class="article-subtitle">Fans of sluggish frame rates and clichéd combat racers pay attention: Pocket Racers is the game for you.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warhammer-battle-for-atluma-review/1900-6163177/" class="article-title">Warhammer: Battle for Atluma Review</a>
+			<div class="article-subtitle">Battle of Atluma gets the WarCry card-game mechanics down cold. Unfortunately, the chill permeates every aspect of the presentation.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/guitar-hero-ii-review/1900-6161281/" class="article-title">Guitar Hero II Review</a>
+			<div class="article-subtitle">It might not make quite the same impact that its predecessor did, but Guitar Hero II brings the rock heavier and faster than ever before.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_german-govt-considers-jail-time-for-gamers_1100-6163059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/german-govt-considers-jail-time-for-gamers/1100-6163059/" class="article-title">German gov't considers jail time for gamers</a>
+			<div class="article-subtitle">Proposed legislation targets pixelated mayhem and virtual violence; legislators consider acts of cruelty against "human-looking characters" as reason enough to fine, imprison.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_nintendo-dates-aussie-game-releases-for-2007_1100-6163105_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-dates-aussie-game-releases-for-2007/1100-6163105/" class="article-title">Nintendo dates Aussie game releases for 2007</a>
+			<div class="article-subtitle">WarioWare: Smooth Moves, Excite Truck, Phoenix Wright: Ace Attorney dated; DS browser only coming for Lite.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_sega-sets-virtual-console-release-dates_1100-6163112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-sets-virtual-console-release-dates/1100-6163112/" class="article-title">Sega sets Virtual Console release dates</a>
+			<div class="article-subtitle">Wii port of Space Harrier II set for release next Monday, with ToeJam and Earl arriving on Christmas Day.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_npd-november-game-sales-up-15-percent_1100-6162870_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/npd-november-game-sales-up-15-percent/1100-6162870/" class="article-title">NPD: November game sales up 15 percent</a>
+			<div class="article-subtitle">Industry tracking group shows an expected rebound after October's sales figures were surprisingly flat; 197,000 PS3s, 476,000 Wiis sold in US.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_dragon-quest-ix-exclusive-to-ds_1100-6163073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-quest-ix-exclusive-to-ds/1100-6163073/" class="article-title">Dragon Quest IX exclusive to DS</a>
+			<div class="article-subtitle">[UPDATE] Square Enix announces next installment of series will be strictly portable on Nintendo's handheld; game is subtitled Guard of the Starry Night.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_aussie-game-charts-december-4-10_1100-6163119_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-december-4-10/1100-6163119/" class="article-title">Aussie game charts: December 4-10</a>
+			<div class="article-subtitle">Two Wii titles bookend top 10 game sales charts; Twilight Princess takes No. 1 spot.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_microsoft-acknowledges-issues-with-wireless-360-headset_1100-6163141_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-acknowledges-issues-with-wireless-360-headset/1100-6163141/" class="article-title">Microsoft acknowledges issues with wireless 360 headset</a>
+			<div class="article-subtitle">Company addressing problems, asks those affected to call support; repairs or replacements may be coming.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_rocky-takes-swings-at-psp_1100-6163150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocky-takes-swings-at-psp/1100-6163150/" class="article-title">Rocky takes swings at PSP</a>
+			<div class="article-subtitle">Prehistoric pugilist comes back for "one last fight" on Sony's handheld; Ubisoft game to tie-in with film's late-December release.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_another-clarification-regarding-nos-in-road-rage_1100-6236097_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/another-clarification-regarding-nos-in-road-rage/1100-6236097/" class="article-title">Another clarification regarding NOS in Road Rage</a>
+			<div class="article-subtitle">Hi all! I am full of clarifications, but I wanted to add one more regarding NOS in the tournament. The intention in Road Rage is to not allow drivers to use NOS, but for some reason, Electronic Arts deemed it fit to allow some vehicles to use NOS, even un multiplayer races that have the option...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_psp-hype-site-draws-backlash_1100-6163151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-hype-site-draws-backlash/1100-6163151/" class="article-title">PSP hype site draws backlash</a>
+			<div class="article-subtitle">Surreptitious marketing campaign draws ire of gaming community, site updates with admission of shenanigans.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_pc-game-charts-november-26-december-2_1100-6163176_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-game-charts-november-26-december-2/1100-6163176/" class="article-title">PC game charts: November 26-December 2</a>
+			<div class="article-subtitle">The Sims 2: Pets continues to be a PC game retailer's best friend as EA's virtual life franchise claims four of the top 10 slots for the week.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_xbox-360-sales-surge-in-au_1100-6163157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-sales-surge-in-au/1100-6163157/" class="article-title">Xbox 360 sales surge in AU</a>
+			<div class="article-subtitle">Xbox 360 sells AU$5.8 million ($4.5 million) worth of hardware and software in Australia last week despite Wii launch.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_guild-wars-hits-3-million-mark_1100-6163168_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guild-wars-hits-3-million-mark/1100-6163168/" class="article-title">Guild Wars hits 3 million mark</a>
+			<div class="article-subtitle">ArenaNet touts its subscription-free MMORPG's latest worldwide sales milestone two months after Nightfall expansion's debut.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_warhammer-online-age-of-reckoning-updated-qanda-unveiling-scenarios-the-knight-of-the-blazing-sun-and-the-witch-hunter_1100-6163174_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-online-age-of-reckoning-updated-qanda-unveiling-scenarios-the-knight-of-the-blazing-sun-and-the-witch-hunter/1100-6163174/" class="article-title">Warhammer Online: Age of Reckoning Updated Q&A - Unveiling Scenarios, the Knight of the Blazing Sun, and the Witch Hunte</a>
+			<div class="article-subtitle">Learn about scenarios and get the first details on two new professions in this highly anticipated massively multiplayer game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_best-buy-not-selling-wiis-until-december-17_1100-6236096_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-buy-not-selling-wiis-until-december-17/1100-6236096/" class="article-title">Best Buy not selling Wiis until December 17?</a>
+			<div class="article-subtitle">Source: A scan of an internal Best Buy newsletter acquired by GoNintendo.  The official story: Best Buy and Nintendo could not be reached for comment as of press time. What we heard: For people trying to hunt down a hard-to-find Wii, there are few things more frustrating than other Wii owners...</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_pc-deal-made-for-deal-or-no-deal_1100-6158001_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-deal-made-for-deal-or-no-deal/1100-6158001/" class="article-title">PC deal made for Deal or no Deal</a>
+			<div class="article-subtitle">Game show phenomenon heads to PCs courtesy of Global Star; instead of mountains of cash, home game prizes such as chores can be dealt.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/13_psychonauts-headlines-next-360-bc-update_1100-6236095_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psychonauts-headlines-next-360-bc-update/1100-6236095/" class="article-title">Psychonauts headlines next 360 BC update?</a>
+			<div class="article-subtitle">Source: A list spotted on Microsoft's official UK Xbox 360 backward compatibility site, and later pulled. The official story: A Microsoft representative was cagey about the issue, but said there hadn't been an official update to the list.  What we heard: In June, Double Fine Productions' Tim...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_r-castlevaniapor-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-castlevaniapor-ds" class="article-title">Castlevania: Portrait of Ruin</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206ps3delay_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206ps3delay" class="article-title">Sony boss Reeves dismisses talk of PS3 delay</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206wiieurope_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206wiieurope" class="article-title">325k Wiis sold in two days</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206xnayoutube_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206xnayoutube" class="article-title">XNA to be YouTube for games</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206xbox360bc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206xbox360bc" class="article-title">X360 BC update due soon?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206motorstormdev_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206motorstormdev" class="article-title">Sequels are 'high risk rather than low risk' - Evolution boss</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206assaultheroes_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206assaultheroes" class="article-title">Assault Heroes goes Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206untoldlegends_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206untoldlegends" class="article-title">EA to publish Untold Legends</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206dsgrans_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206dsgrans" class="article-title">Grans want DS - Nintendo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_r-hommvfate-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-hommvfate-pc" class="article-title">Heroes of Might & Magic  V: Hammers of Fate</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206ageofconan_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206ageofconan" class="article-title">360 gets Age of Conan</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206telltalecsi_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206telltalecsi" class="article-title">New CSI game in spring</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_news131206fallout_thumbnail.png">
+			<a href="https://www.eurogamer.net/news131206fallout" class="article-title">Fallout to become MMO?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/13_p-pokemondiamondpearl-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-pokemondiamondpearl-ds" class="article-title">Pokémon Diamond/Pearl</a>
+			<div class="article-author">Luke Albiges</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127912/Myst-Online-Uru-Live-podcast/" class="article-title">Myst Online: Uru Live podcast</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127909/Assault-Heroes-now-on-Xbox-Live-Arcade/" class="article-title">Assault Heroes now on Xbox Live Arcade</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/facade.php" class="article-title">Façade</a>
+			<div class="article-author">Patrick</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/12/13_2006_12_13_koku-drumroll_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/12/13/koku-drumroll/" class="article-title">Koku Drumroll</a>
+			<div class="article-author">Albert Lai</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/12/13_2006_12_13_the-robots-seek-to-destroy-us_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/12/13/the-robots-seek-to-destroy-us/" class="article-title">The robots seek to destroy us</a>
+			<div class="article-author">Lorne Whiting</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/12/13_2006_12_13_twinsen-demo_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/12/13/twinsen-demo/" class="article-title">Twinsen Pilot Episode Demo</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

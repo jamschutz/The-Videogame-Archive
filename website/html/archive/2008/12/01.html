@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 1, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/little-red-riding-hoods-zombie-bbq-review/1900-6201798/" class="article-title">Little Red Riding Hood's Zombie BBQ Review</a>
+			<div class="article-subtitle">Pesky controls and irritating slowdown curtail the fun you'll have in this zombie shooter.</div>
+			<div class="article-author">Shiva Stella</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/culdcept-saga-review/1900-6201783/" class="article-title">Culdcept Saga Review</a>
+			<div class="article-subtitle">Culdcept Saga is easy for beginners to learn, difficult for experts to master, and fun no matter who you are.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/disaster-day-of-crisis-review/1900-6201790/" class="article-title">Disaster: Day of Crisis Review</a>
+			<div class="article-subtitle">Wielding more Wii Remote-waggling moves than you can shake a quake at, Disaster's lack of clear gameplay focus has resulted in a game that is competent at best and never compelling.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-street-fighter-ii-turbo-hd-remix/1900-6201796/" class="article-title">Super Street Fighter II Turbo HD Remix Review</a>
+			<div class="article-subtitle">Overhauled visuals and overloaded features makes this redux a top-tier Street Fighter game.</div>
+			<div class="article-author">Mitch Dyer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-street-fighter-ii-turbo-hd-remix/1900-6201797/" class="article-title">Super Street Fighter II Turbo HD Remix Review</a>
+			<div class="article-subtitle">Overhauled visuals and overloaded features makes this redux a top-tier Street Fighter game.</div>
+			<div class="article-author">Mitch Dyer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/neverwinter-nights-2-storm-of-zehir-review/1900-6201808/" class="article-title">Neverwinter Nights 2: Storm of Zehir Review</a>
+			<div class="article-subtitle">Storm of Zehir tries to be the square peg in Neverwinter Nights 2's round hole, with predictably lackluster results.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_au-shippin-out-december-1-5-grand-theft-auto-iv-pc_1100-6201743_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/au-shippin-out-december-1-5-grand-theft-auto-iv-pc/1100-6201743/" class="article-title">AU Shippin' Out December 1-5: Grand Theft Auto IV PC</a>
+			<div class="article-subtitle">Get ready to break the law on the mean streets of Liberty City, solve puzzles to save the world, and reunite with some old animal friends with this week's Aussie game releases.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_uncut-gtaiv-pc-coming-to-australia_1100-6201744_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncut-gtaiv-pc-coming-to-australia/1100-6201744/" class="article-title">Uncut GTAIV PC coming to Australia</a>
+			<div class="article-subtitle">Uncensored version of Grand Theft Auto IV PC to go on sale down under.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_aussie-game-charts-november-17-23_1100-6201740_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-november-17-23/1100-6201740/" class="article-title">Aussie game charts: November 17-23</a>
+			<div class="article-subtitle">Sony making the <i>Money, Money, Money</i> thanks to SingStar ABBA's chart-topping performance.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_gamestop-publishers-fight-piracy-not-secondhand-sales_1100-6201764_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-publishers-fight-piracy-not-secondhand-sales/1100-6201764/" class="article-title">GameStop: Publishers fight piracy, not secondhand sales </a>
+			<div class="article-subtitle">In part two of a GameSpot interview, GameStop VP Tony Bartel discusses free DLC, the Wii Speak Channel, and pesky preorder pitches.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_the-witcher-hexing-ps3-360_1100-6234223_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-witcher-hexing-ps3-360/1100-6234223/" class="article-title">The Witcher hexing PS3, 360?</a>
+			<div class="article-subtitle">Source: A user video posted to GameTrailers.  What we heard: That CD Projekt Red would like to do a console edition of The Witcher isn't what's at question. As recently as last month, the publisher-developer of Polish writer Andrzej Sapkowski's dark fantasy game adaptation has teased that a...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_criterion-unveils-burnout-extension_1100-6201753_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/criterion-unveils-burnout-extension/1100-6201753/" class="article-title">Criterion unveils Burnout extension</a>
+			<div class="article-subtitle">British developer shows first series of images of Big Surf Island, confirms racers will have to pay to play.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_halo-3-leads-xbox-live-holiday-deals_1100-6201799_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-leads-xbox-live-holiday-deals/1100-6201799/" class="article-title">Halo 3 leads Xbox Live holiday deals</a>
+			<div class="article-subtitle">For gamers outside the US, a sale honoring the Thanksgiving weekend in November probably wouldn't have made much sense. The December holidays tend to be a bit more universal, though, so for its next wave of discounts to Xbox Live fare, Microsoft is opening up to gamers of all regions.  The Xbox 360...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_349-wii-tops-ebay-black-friday-searches_1100-6201800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/349-wii-tops-ebay-black-friday-searches/1100-6201800/" class="article-title">$349 Wii tops eBay Black Friday searches</a>
+			<div class="article-subtitle">When both the Xbox 360 and PlayStation 3 launched, both consoles were scooped up en masse. One of the biggest factors behind the frenzied--and occasionally violent--demand was the consoles' resale value on eBay. The auction site helped enrich many amateur entrepreneurs, who hocked both Microsoft's...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_thanksgiving-contest-voting-is-now-open_1100-6234221_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thanksgiving-contest-voting-is-now-open/1100-6234221/" class="article-title">Thanksgiving Contest Voting Is Now Open!</a>
+			<div class="article-subtitle">The holiday is over and the turkey is but a soupy memory, but our contest entries live on. Please review the entries in this thread  and follow the instructions to submit your vote. It's like a free emblem!Deadline for voting is December 4th at 11:59pm. Vote early and they will be easier to tally...</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_nominate-your-favourite-aussie-developer_1100-6234220_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nominate-your-favourite-aussie-developer/1100-6234220/" class="article-title">Nominate your favourite Aussie developer</a>
+			<div class="article-subtitle">Australian gamers have been called upon to nominate their favourite local developers for a new permanent exhibition at the Australian Centre for the Moving Image (ACMI) in Melbourne.The new gallery space at ACMI--set to open in 2009--will chart the history and future of the moving image in...</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_assassins-creed-2-set-during-french-revolution_1100-6201737_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-2-set-during-french-revolution/1100-6201737/" class="article-title">Assassin's Creed 2 set during French Revolution?</a>
+			<div class="article-subtitle">Analyst Michael Pachter tells a former GameSpotter that Ubisoft's recently revealed sequel might be set during the bloody 1789 revolt in Paris.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_qanda-gamestop-illuminates-black-friday-strategy_1100-6201736_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-gamestop-illuminates-black-friday-strategy/1100-6201736/" class="article-title">Q&A: GameStop illuminates Black Friday strategy</a>
+			<div class="article-subtitle">VP Tony Bartel explains gaming chain's take on year's busiest shopping day, retailer-exclusive content, and the threat (or lack thereof) of digital distribution.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_the-witcher-hexing-ps3-360_1100-6201774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-witcher-hexing-ps3-360/1100-6201774/" class="article-title">The Witcher hexing PS3, 360?</a>
+			<div class="article-subtitle">Official-looking promotional video for console adaptation of CD Projekt Red's acclaimed dark-fantasy action RPG apparently unofficially announces Rise of the Wolf.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_house-of-the-dead-overkill-updated-hands-on-impressions_1100-6201742_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/house-of-the-dead-overkill-updated-hands-on-impressions/1100-6201742/" class="article-title">House of the Dead: Overkill Updated Hands-On Impressions </a>
+			<div class="article-subtitle">We crank the funk to 10, pick up our trusty shotgun, and wade into the Bayou City hospital in search of zombies in this updated hands-on.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_prince-of-persia-gameplay-marathon_1100-6201596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-gameplay-marathon/1100-6201596/" class="article-title">Prince of Persia Gameplay Marathon</a>
+			<div class="article-subtitle">Prince of Persia is back with an all-new adventure, and we showed it off for the world to see. Check out the replay!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_skate-2-rolls-out-jan-21_1100-6201657_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skate-2-rolls-out-jan-21/1100-6201657/" class="article-title">Skate 2 rolls out Jan. 21</a>
+			<div class="article-subtitle">Sequel to EA Black Box's acclaimed open-world street-skateboarding hit will arrive on US PS3s, 360s early next year; rest of planet gets it January 23.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_fear-2-banned-in-australia_1100-6201707_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-2-banned-in-australia/1100-6201707/" class="article-title">F.E.A.R. 2 banned in Australia</a>
+			<div class="article-subtitle">UPDATE: Project Origin fails to make it past Aussie censors due to high-impact violence; Warner Bros. Interactive to appeal decision.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_wii-hits-7-million-in-japan_1100-6201735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-hits-7-million-in-japan/1100-6201735/" class="article-title">Wii hits 7 million in Japan</a>
+			<div class="article-subtitle"><i>Famitsu</i> reports Nintendo's console has outsold the PS3 by nearly three times in its home country.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_thq-destroying-no-humans-on-ps3_1100-6201734_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-destroying-no-humans-on-ps3/1100-6201734/" class="article-title">THQ Destroying no Humans on PS3</a>
+			<div class="article-subtitle">Publisher pulls the plug on Sony version of Sandblast Games' anti-homo sapiens shooter Path of the Furon; 360 edition still on for December 1.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/12/01_empire-total-war-exclusive-preview-the-road-to-independence-multiplayer-and-hands-on-naval-combat_1100-6201807_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/empire-total-war-exclusive-preview-the-road-to-independence-multiplayer-and-hands-on-naval-combat/1100-6201807/" class="article-title">Empire: Total War Exclusive Preview: The Road to Independence, Multiplayer, and Hands-on Naval Combat</a>
+			<div class="article-subtitle">We explore every facet of the largest Total War game to date.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_online-ps3-discounts-not-sonys-work_thumbnail.png">
+			<a href="https://www.eurogamer.net/online-ps3-discounts-not-sonys-work" class="article-title">Online PS3 discounts not Sony's work</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_lego-batman-bags-kids-bafta_thumbnail.png">
+			<a href="https://www.eurogamer.net/lego-batman-bags-kids-bafta" class="article-title">LEGO Batman bags kids' BAFTA</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_gran-turismo-for-christmas-2009_thumbnail.png">
+			<a href="https://www.eurogamer.net/gran-turismo-for-christmas-2009" class="article-title">Gran Turismo for Christmas 2009?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_midway-games-sold-for-usd-100-000_thumbnail.png">
+			<a href="https://www.eurogamer.net/midway-games-sold-for-usd-100-000" class="article-title">Midway Games sold for USD 100,000</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_jowood-sorry-for-gothic-3-expansion_thumbnail.png">
+			<a href="https://www.eurogamer.net/jowood-sorry-for-gothic-3-expansion" class="article-title">JoWooD sorry for Gothic 3 expansion</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_elasto-mania-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/elasto-mania-hands-on" class="article-title">Elasto Mania</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_first-burnout-paradise-island-will-now-cost_thumbnail.png">
+			<a href="https://www.eurogamer.net/first-burnout-paradise-island-will-now-cost" class="article-title">First Burnout Paradise island will now cost</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_crash-bandicoot-mind-over-mutant-9-7_thumbnail.png">
+			<a href="https://www.eurogamer.net/crash-bandicoot-mind-over-mutant-9-7" class="article-title">Crash Bandicoot: Mind over Mutant</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_grand-theft-auto-iv-1-8_thumbnail.png">
+			<a href="https://www.eurogamer.net/grand-theft-auto-iv-1-8" class="article-title">Grand Theft Auto IV</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_play-squashes-gta-iv-wii-fit-prices_thumbnail.png">
+			<a href="https://www.eurogamer.net/play-squashes-gta-iv-wii-fit-prices" class="article-title">Play squashes GTA IV, Wii Fit prices</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_project-zero-4-for-february_thumbnail.png">
+			<a href="https://www.eurogamer.net/project-zero-4-for-february" class="article-title">Project Zero 4 for February?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_new-battlefield-2-patch-test-by-christmas_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-battlefield-2-patch-test-by-christmas" class="article-title">New Battlefield 2 patch test by Christmas</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_ds-book-collection-on-boxing-day_thumbnail.png">
+			<a href="https://www.eurogamer.net/ds-book-collection-on-boxing-day" class="article-title">DS Book Collection on Boxing Day</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_street-fighter-sackboys-imminent_thumbnail.png">
+			<a href="https://www.eurogamer.net/street-fighter-sackboys-imminent" class="article-title">Street Fighter Sackboys imminent?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/12/01_sacred-2-receives-monster-patch_thumbnail.png">
+			<a href="https://www.eurogamer.net/sacred-2-receives-monster-patch" class="article-title">Sacred 2 receives monster patch</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132691/Online-music-experience-revealed/" class="article-title">Online music experience revealed</a>
+			<div class="article-subtitle">Acclaim rock you for free.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132690/Sony-reveal-Christmas-line-up/" class="article-title">Sony reveal Christmas line-up</a>
+			<div class="article-subtitle">Something for everyone.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-several-journeys-of-reemus-chapter-2.php" class="article-title">The Several Journeys of Reemus: Chapter 2</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/trapped-part-3-the-labyrinth.php" class="article-title">Trapped Part 3: The Labyrinth</a>
+			<div class="article-author">SonicLover</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/12/01_2008_12_01_night-of-the-cephalopods_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/12/01/night-of-the-cephalopods/" class="article-title">Night of the Cephalopods</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/12/01_2008_12_01_10800-zombies_thumbnail.png">
+			<a href="https://www.tigsource.com/2008/12/01/10800-zombies/" class="article-title">10800 zombies</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

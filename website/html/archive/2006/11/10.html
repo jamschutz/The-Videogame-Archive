@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 10, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-carbon-own-the-city-review/1900-6161483/" class="article-title">Need for Speed Carbon: Own the City Review</a>
+			<div class="article-subtitle">Carbon on the GBA is a decent racer in its own right, but it doesn't provide the amount of excitement or attitude that the other versions of the game do.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-carbon-own-the-city-review/1900-6161502/" class="article-title">Need for Speed Carbon: Own the City Review</a>
+			<div class="article-subtitle">Own the City is a very different game from the console versions of Need for Speed Carbon, but it's still an exciting racer in its own right.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jaws-unleashed-review/1900-6161493/" class="article-title">Jaws Unleashed Review</a>
+			<div class="article-subtitle">Jaws Unleashed was a truly awful game on consoles, and it's no better six months later on the PC.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-trek-tactical-assault/1900-6161489/" class="article-title">Star Trek: Tactical Assault Review</a>
+			<div class="article-subtitle">Star Trek: Tactical Assault is a neat idea but doesn't offer much strategy--or much Star Trek, for that matter.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/stronghold-legends-review/1900-6161495/" class="article-title">Stronghold Legends Review</a>
+			<div class="article-subtitle">Say good-bye to the historical authenticity of Strongholds past and hello to one generic, seriously flawed fantasy RTS.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-trek-encounters-review/1900-6161503/" class="article-title">Star Trek: Encounters Review</a>
+			<div class="article-subtitle">Not even William Shatner and a budget price can rescue this licensed disaster.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/contra-review/1900-6161499/" class="article-title">Contra Review</a>
+			<div class="article-subtitle">This is an accurate emulation of the arcade version of Contra. Unfortunately, you're probably not looking for the arcade version of Contra.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-carbon-review/1900-6161494/" class="article-title">Need for Speed Carbon Review</a>
+			<div class="article-subtitle">Need for Speed Carbon is an enjoyable and stylish street racer that offers plenty of customization options and a few sweet gamebreaker features.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_new-lost-planet-demo-on-thanksgiving_1100-6161444_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-lost-planet-demo-on-thanksgiving/1100-6161444/" class="article-title">New Lost Planet demo on Thanksgiving</a>
+			<div class="article-subtitle">Forget the family and spend November 23 blasting friends on Xbox Live with multiplayer sample of Capcom's arctic sci-fi shooter.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_ps3-countdown-in-japan-the-calm-before-the-storm_1100-6161455_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-countdown-in-japan-the-calm-before-the-storm/1100-6161455/" class="article-title">PS3 countdown in Japan: The calm before the storm?</a>
+			<div class="article-subtitle">Retailers discourage lines in Japan, but on the eve of the launch, curious consumers begin to congregate.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_madden-nfl-07-multiplayer-madness_1100-6161460_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-07-multiplayer-madness/1100-6161460/" class="article-title">Madden NFL 07: Multiplayer Madness</a>
+			<div class="article-subtitle">We check out the incredibly fun multiplayer minigames in Madden NFL 07 for the Wii.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_ipopular-science-i-honours-wii_1100-6161459_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ipopular-science-i-honours-wii/1100-6161459/" class="article-title"><i>Popular Science</i> honours Wii</a>
+			<div class="article-subtitle">Prestigious magazine adds Nintendo's next-gen console to its 'best of what's new' in 2006 list.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_full-auto-2-crashes-psp_1100-6161477_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/full-auto-2-crashes-psp/1100-6161477/" class="article-title">Full Auto 2 crashes PSP</a>
+			<div class="article-subtitle">Sega's combat racer gets shrunk down for Sony's handheld; Deep Fried behind the wheel of game's development.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_nyko-accessorizes-ps3_1100-6161480_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nyko-accessorizes-ps3/1100-6161480/" class="article-title">Nyko accessorizes PS3</a>
+			<div class="article-subtitle">Cables, chargers from peripheral maker due in stores for PlayStation 3's launch day.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_penny-arcades-childs-play-returns_1100-6161482_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/penny-arcades-childs-play-returns/1100-6161482/" class="article-title">Penny Arcade's Child's Play returns</a>
+			<div class="article-subtitle">Fourth annual holiday toy drive for sick kids kicks off with dozens of participating hospitals around the world.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_waiting-out-the-ps3_1100-6161464_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/waiting-out-the-ps3/1100-6161464/" class="article-title">Waiting out the PS3</a>
+			<div class="article-subtitle">Lines form outside retail establishments in Tokyo as gamers gird for the PlayStation 3 launch.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_harrison-wont-confirm-ps3-europe-date_1100-6161456_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harrison-wont-confirm-ps3-europe-date/1100-6161456/" class="article-title">Harrison won't confirm PS3 Europe date</a>
+			<div class="article-subtitle">Sony Worldwide Studios head steers clear of any guarantees for the previously announced March 2007 launch.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_viva-piyata-stuffed-with-dlc_1100-6161488_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/viva-piyata-stuffed-with-dlc/1100-6161488/" class="article-title">Viva Piñata stuffed with DLC</a>
+			<div class="article-subtitle">Gamers can now crack open the first accessory pack for Rare's new Xbox 360 game; Vela Wig, Juno Helmet available for 90 Marketplace points ($1.12).</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_us-pc-game-charts-october-22-28_1100-6161500_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-pc-game-charts-october-22-28/1100-6161500/" class="article-title">US PC game charts: October 22-28</a>
+			<div class="article-subtitle">The Sims 2: Pets expansion takes the top spot on a list dominated by recent releases.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_half-life-2-ep-2-delayed-til-summer-07_1100-6236136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/half-life-2-ep-2-delayed-til-summer-07/1100-6236136/" class="article-title">Half-Life 2: Ep. 2 delayed 'til summer '07?</a>
+			<div class="article-subtitle">Source: UK game-news Web site Computer & Video Games.  What we heard: Back in July, Valve Software CEO Gabe Newell made a surprise appearance at Electronic Arts' Summer Showcase. He was there to help unveil several new games that EA would distribute: the dimension-hopping shooter Portal, the...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_bestbuycom-best-sellers-october-29-november-4_1100-6161504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bestbuycom-best-sellers-october-29-november-4/1100-6161504/" class="article-title">Bestbuy.com best-sellers: October 29-November 4</a>
+			<div class="article-subtitle">Madden tops online retailer's top sellers once again, fends off Final Fantasy XII; GTA: Vice City Stories debuts strong.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_brief-outage-this-sunday_1100-6236135_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brief-outage-this-sunday/1100-6236135/" class="article-title">Brief Outage This Sunday</a>
+			<div class="article-subtitle">On Sunday - November 12th there will be a brief maintenance outagescheduled to take place around 10:30 pm PT. This outage willtemporarily affect blogs and forums on GameSpot.com, TV.com and MP3.comfor about 30 minutes as we perform improvements to the site. We aresorry for any inconvenience this...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_gothic-3-demo-out-now_1100-6161510_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gothic-3-demo-out-now/1100-6161510/" class="article-title">Gothic 3 demo out now</a>
+			<div class="article-subtitle">Sample of JoWood's role-playing game now available for download; demo includes beginning area of game sans restrictions.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/10_midnight-ps3-madness-in-japan_1100-6161490_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midnight-ps3-madness-in-japan/1100-6161490/" class="article-title">Midnight PS3 madness in Japan</a>
+			<div class="article-subtitle">Thousands gather outside various Tokyo retailers for the chance to obtain one of Sony's scarce next-gen consoles.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106moore_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106moore" class="article-title">Forza 2 and others by end of June 07 - Moore</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106x360ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106x360ps3" class="article-title">We want to go head to head with PS3 - Microsoft</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106gothic3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106gothic3" class="article-title">Gothic 3 demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106millionaire_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106millionaire" class="article-title">Still want to be a millionaire?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_a-buyingaps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-buyingaps3" class="article-title">Should you buy a PlayStation 3?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_fi-nwn2toolset-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-nwn2toolset-pc" class="article-title">Neverwinter Nights 2 toolset</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106trekshatner_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106trekshatner" class="article-title">Shatner only did Trek game because he was begged</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106ps3manual_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106ps3manual" class="article-title">Sony PS3 manual online</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_eg-gi-ps3launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/eg-gi-ps3launch" class="article-title">GamesIndustry.biz: Permission to Launch</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_0-0_thumbnail.png">
+			<a href="https://www.eurogamer.net/0-0" class="article-title">Frozen Codebase thaws out 360</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news-innovationingames-101106_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-innovationingames-101106" class="article-title">MS backs GameShadow awards</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_egtv2_thumbnail.png">
+			<a href="https://www.eurogamer.net/egtv2" class="article-title">Eurogamer TV Show episode 2</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_gibizeditorial-031106_thumbnail.png">
+			<a href="https://www.eurogamer.net/gibizeditorial-031106" class="article-title">GamesIndustry.biz: PS3 online concerns</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106gearsregion_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106gearsregion" class="article-title">Gears of War is region free</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106lostplanet_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106lostplanet" class="article-title">Lost Planet MP demo dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106doubleagent_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106doubleagent" class="article-title">Double Agent PC demos</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news101106heroesgsc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101106heroesgsc" class="article-title">GSC Heroes under Steam banner</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news1011006oblivion_thumbnail.png">
+			<a href="https://www.eurogamer.net/news1011006oblivion" class="article-title">Oblivion PS3 delayed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_r-lemmings-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-lemmings-ps2" class="article-title">Lemmings</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news-101106-gowreveiw_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-101106-gowreveiw" class="article-title">Gears of War has 'zero innovation', says EA exec</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_news-091106-harrisonp3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-091106-harrisonp3" class="article-title">Harrison declines to confirm March launch date for PS3</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/10_rev-fg-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/rev-fg-ps2" class="article-title">Family Guy</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127825/FIFA-Interactive-World-Cup-qualifiers-on-Xbox-Live-next-week/" class="article-title">FIFA Interactive World Cup qualifiers on Xbox Live next week</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127824/Burning-Crusade-releasing-January/" class="article-title">Burning Crusade releasing January</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127823/40m-PAL-PS2s-shipped/" class="article-title">40m PAL PS2s shipped</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/houses.php" class="article-title">Houses</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/11/10_2006_11_crossword.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/11/crossword.html" class="article-title">Crossword</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/11/10_2006_11_flipull-advantage.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/11/flipull-advantage.html" class="article-title">Flipull Advantage</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/11/10_2006_11_glasses.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/11/glasses.html" class="article-title">Glasses</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/11/10_2006_11_sat-elite-2.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/11/sat-elite-2.html" class="article-title">Sat-Elite 2</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

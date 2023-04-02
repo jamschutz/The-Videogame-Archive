@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 8, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/barnyard-review/1900-6155434/" class="article-title">Barnyard Review</a>
+			<div class="article-subtitle">Some of the minigames are fun, and the story is charming, but it's tough to recommend a game that's absolutely done in less than three hours.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/barnyard-review/1900-6155432/" class="article-title">Barnyard Review</a>
+			<div class="article-subtitle">The open-ended design is a breath of fresh air, while the overall presentation lives up to the movie's skewed style and humor.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/barnyard-review/1900-6155429/" class="article-title">Barnyard Review</a>
+			<div class="article-subtitle">The open-ended design is a breath of fresh air, while the overall presentation lives up to the movie's skewed style and humor.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/barnyard-review/1900-6155428/" class="article-title">Barnyard Review</a>
+			<div class="article-subtitle">The open-ended design is a breath of fresh air, while the overall presentation lives up to the movie's skewed style and humor.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-monkey-ball-adventure-review/1900-6155468/" class="article-title">Super Monkey Ball Adventure Review</a>
+			<div class="article-subtitle">Traveller's Tales has perverted Sega's previously charming action puzzle series into a clumsy, frustrating action adventure game.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-monkey-ball-adventure-review/1900-6155467/" class="article-title">Super Monkey Ball Adventure Review</a>
+			<div class="article-subtitle">Traveller's Tales has perverted Sega's previously charming action puzzle series into a clumsy, frustrating action adventure game.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_tournament-coming-soon_1100-6236274_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tournament-coming-soon/1100-6236274/" class="article-title">Tournament Coming Soon!</a>
+			<div class="article-subtitle">In the next week we’ll be hosting an Xbox360 tournament called Dogs of War for the Chromehounds game. Dogs of Wars is a team-based single elimination online tournament where 20 teams consisting of 5 players each will compete in Team Deathmatch mode. If you're wondering how GameSpot team-based...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_microsoft-demos-xbox-360-hd-dvd-drive_1100-6155407_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-demos-xbox-360-hd-dvd-drive/1100-6155407/" class="article-title">Microsoft demos Xbox 360 HD-DVD drive</a>
+			<div class="article-subtitle">Software giant shows off latest hardware add-on for its next-gen console in Los Angeles.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_star-fox-command-import-hands-on_1100-6155363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-fox-command-import-hands-on/1100-6155363/" class="article-title">Star Fox Command Import Hands-On</a>
+			<div class="article-subtitle">Fox McCloud and friends have hit the DS in Japan with an unusual new mission. We grab a copy to see how the team's first portable game has turned out.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_poll-psp-users-want-tv_1100-6155412_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/poll-psp-users-want-tv/1100-6155412/" class="article-title">Poll: PSP users want TV</a>
+			<div class="article-subtitle">A recent poll shows that support for 1seg broadcasts tops Japanese gamers' wish list for new features.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_microsoft-360-hd-dvd-drive-will-be-cheapest_1100-6155413_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-360-hd-dvd-drive-will-be-cheapest/1100-6155413/" class="article-title">Microsoft: 360 HD-DVD drive will be cheapest</a>
+			<div class="article-subtitle">Major Nelson's podcast reveals that the next-gen console's external high-def DVD player will be the least pricey model on market.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_ubisoft-breeds-more-petz_1100-6155399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-breeds-more-petz/1100-6155399/" class="article-title">Ubisoft breeds more Petz</a>
+			<div class="article-subtitle">It's raining cats, dogs, and more as Ubisoft adds more games to its Petz strategy franchise, steps out from the PC-only platform.</div>
+			<div class="article-author">Patrick Caldwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_bethesda-quietly-unveils-encounters_1100-6155402_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bethesda-quietly-unveils-encounters/1100-6155402/" class="article-title">Bethesda quietly unveils Encounters</a>
+			<div class="article-subtitle"><i>Star Trek</i> fans may get a third helping of the series later this year; screenshots and minor details disclosed on official Web site.</div>
+			<div class="article-author">Patrick Caldwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_xbox-modder-gets-home-detention_1100-6155403_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-modder-gets-home-detention/1100-6155403/" class="article-title">Xbox modder gets home detention</a>
+			<div class="article-subtitle">Los Angeles store owner that peddled illegally modified Xboxes sentenced to six months of home detention, ankle bracelet and all.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_survey-japanese-gaming-less-often_1100-6155424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/survey-japanese-gaming-less-often/1100-6155424/" class="article-title">Survey: Japanese gaming less often</a>
+			<div class="article-subtitle">Over 40 percent of polled consumers say they are playing fewer games than the year before, thanks to increased Internet and mobile phone use.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_tank-beat-taking-aim-at-ds_1100-6155422_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tank-beat-taking-aim-at-ds/1100-6155422/" class="article-title">Tank Beat taking aim at DS</a>
+			<div class="article-subtitle">Quirky tank-centric action game for the DS will feature a plethora of real tanks; will roll out in Japan in November.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_fear-single-player-hands-on_1100-6155362_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-single-player-hands-on/1100-6155362/" class="article-title">F.E.A.R. Single-Player Hands-On</a>
+			<div class="article-subtitle">Monolith's creepy first-person shooter will hit the Xbox 360 with all the PC version's content and then some. We get a look at the single-player mode in its current state.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_sierra-combats-fear_1100-6155427_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sierra-combats-fear/1100-6155427/" class="article-title">Sierra Combats F.E.A.R.</a>
+			<div class="article-subtitle">Multiplayer portion of well-reviewed PC shooter to be made free for download in mid-August; Combat includes latest updates, maps, multiplayer game modes.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_sec-looks-into-thqs-stock-options_1100-6155437_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sec-looks-into-thqs-stock-options/1100-6155437/" class="article-title">SEC looks into THQ's stock options</a>
+			<div class="article-subtitle">Publisher added to list of companies turning information over to commission, says it was conducting its own investigation anyway.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_nba-street-crosses-over-to-ps3-360_1100-6155425_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-street-crosses-over-to-ps3-360/1100-6155425/" class="article-title">NBA Street crosses over to PS3, 360</a>
+			<div class="article-subtitle">Gravity-defying streetball game hits new courts in spring 2007; game headed to PS3 and Xbox 360 only, no current-gen versions planned.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_sony-confirms-ps3-can-use-old-game-saves_1100-6155290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-confirms-ps3-can-use-old-game-saves/1100-6155290/" class="article-title">Sony confirms PS3 can use old game saves</a>
+			<div class="article-subtitle">PS2 and PS saves can be moved over to next-gen console, provided you have an adapter.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_hudson-outgrows-old-offices_1100-6155445_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hudson-outgrows-old-offices/1100-6155445/" class="article-title">Hudson outgrows old offices</a>
+			<div class="article-subtitle">Bomberman publisher moves to new 15,000-square-foot office in Redwood Shores; can now call Electronic Arts "neighbor."</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_dark-messiah-demo-now-available_1100-6155458_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-messiah-demo-now-available/1100-6155458/" class="article-title">Dark Messiah demo now available</a>
+			<div class="article-subtitle">PC sampling of Arkane Studios' first-person fantasy game hits the Web; 1.45GB demo now available for download from GameSpot.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_gundam-to-storm-ps3-this-year_1100-6155442_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gundam-to-storm-ps3-this-year/1100-6155442/" class="article-title">Gundam to storm PS3 this year</a>
+			<div class="article-subtitle">Namco Bandai's giant mech series gets a 2006 debut date on Sony's next-gen console, still needs a final name.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_wii-prince-of-persia-confirmed_1100-6155462_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-prince-of-persia-confirmed/1100-6155462/" class="article-title">Wii Prince of Persia confirmed</a>
+			<div class="article-subtitle">It's official: Ubisoft is bringing its popular franchise to Nintendo's next-gen console; release date still unknown.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_fifa-07-first-impressions_1100-6155430_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-07-first-impressions/1100-6155430/" class="article-title">FIFA 07 First Impressions</a>
+			<div class="article-subtitle">We score our first look at the upcoming 2007 installment of EA Sports' long-running soccer series.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_fifa-07-first-impressions_1100-6155431_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-07-first-impressions/1100-6155431/" class="article-title">FIFA 07 First Impressions</a>
+			<div class="article-subtitle">We score our first look at the upcoming 2007 installment of EA Sports' long-running soccer series.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/08/08_tournament-changes_1100-6236273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tournament-changes/1100-6236273/" class="article-title">Tournament Changes</a>
+			<div class="article-subtitle">Please read below for two important tournament updates.1) Due to the number of disqualifications during Elimination  1 round of Mission I, we have made an important change to the Tournament Rules for the rest of the tournament and for Mission II and Mission III. Teams will now be allowed to play...</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_r-civ4warlords-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-civ4warlords-pc" class="article-title">Sid Meier's Civilization IV Warlords</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news070206tonyhawk_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070206tonyhawk" class="article-title">Tony Hawk goes Downhill</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_gibizeditorial-040806_thumbnail.png">
+			<a href="https://www.eurogamer.net/gibizeditorial-040806" class="article-title">GamesIndustry.biz: Don't write off Sony</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806xboxmodder_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806xboxmodder" class="article-title">Xbox modder on lockdown</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806harrison_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806harrison" class="article-title">PS4 won't have a disc drive</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806mylo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806mylo" class="article-title">Sony announces mylo</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806hddvddrive_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806hddvddrive" class="article-title">Xbox 360 HD-DVD drive demoed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806doax2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806doax2" class="article-title">DOA Xtreme 2 update</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806xblareleases_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806xblareleases" class="article-title">More XBLA release dates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806squenixhw_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806squenixhw" class="article-title">Squenix hints at hardware plan</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806spaceworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806spaceworld" class="article-title">No Space World this year</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806legostarwars2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806legostarwars2" class="article-title">LEGO Star Wars II demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news080806doubleagent_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806doubleagent" class="article-title">Double Agent dated, demo plans</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_news070806kameo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070806kameo" class="article-title">Kameo Power Pack coming soon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/08/08_r-passporttolondon-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-passporttolondon-psp" class="article-title">Passport to London</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127593/55DSL-fashions-on-Need-for-Speed-Carbon-characters/" class="article-title">55DSL fashions on Need for Speed: Carbon characters</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127591/Nintendo-DS-Web-browser-memory-expansion-hits-Europe-6th-October/" class="article-title">Nintendo DS Web browser, memory expansion hits Europe 6th October</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127592/Ubisoft-to-breed-all-new-pack-of-Petz/" class="article-title">Ubisoft to breed all-new pack of Petz</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/goggles-flight-sim.php" class="article-title">Goggles Flight Sim</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/lucky-eights.php" class="article-title">Lucky Eights</a>
+			<div class="article-author">Noah</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/08/08_2006_08_08_ac-dbomb_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/08/08/ac-dbomb/" class="article-title">Ac!dbomb</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/08/08_2006_08_08_shoot-the-evil_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/08/08/shoot-the-evil/" class="article-title">Shoot the Evil</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/08/08_2006_08_08_guardian-of-paradise-again_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/08/08/guardian-of-paradise-again/" class="article-title">Guardian of Paradise Translated</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

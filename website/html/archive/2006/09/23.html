@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 23, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tales-of-polyphony-digital_1100-6236199_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tales-of-polyphony-digital/1100-6236199/" class="article-title">Tales of Polyphony (Digital)</a>
+			<div class="article-subtitle">"Jukyu? Jukyu?"That's what the taxi cab driver is yelling at us. Well, yelling only in the technical sense. He's a very friendly guy and he's only yelling, I think, to emphasize his question to us: Are you sure you're looking for building jukyu (nineteen) in Edogawa? Yes, friendly yelling cab man,...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_polyphony-digital-behind-the-doors-of-gt_1100-6236198_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/polyphony-digital-behind-the-doors-of-gt/1100-6236198/" class="article-title">Polyphony Digital: Behind the Doors of GT</a>
+			<div class="article-subtitle">The one appointment I was looking most forward to while here in Tokyo for the Tokyo Game Show has come and gone and boy was it a doozy. Check out my blow-by-blow report of our visit to the Polyphony Digital studios today in our TGS blog. I hope you like reading it as much as I did writing it.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_another-day-another-dollar_1100-6236197_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/another-day-another-dollar/1100-6236197/" class="article-title">Another Day, Another Dollar</a>
+			<div class="article-subtitle">So today was Saturday here in Japan, and this was the first day that TGS was open to the public. And the public showed up...all of it, I think. I knew it was going to be busy today, so I sprinted from our morning meeting to pick up my badge and hopefully get to the show floor in time to beat the...</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-viva-piyata-impressions_1100-6158469_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-viva-piyata-impressions/1100-6158469/" class="article-title">TGS 06: Viva Piñata Impressions</a>
+			<div class="article-subtitle">We meet with Microsoft and Rare in Tokyo for an update on this colorful life simulation game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-boxers-road-2-the-real-hands-on_1100-6158444_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-boxers-road-2-the-real-hands-on/1100-6158444/" class="article-title">TGS 06: Boxer's Road 2: The Real Hands-On</a>
+			<div class="article-subtitle">We go a few rounds with this PSP boxing game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-earth-defense-forces-3-hands-on_1100-6158445_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-earth-defense-forces-3-hands-on/1100-6158445/" class="article-title">TGS 06: Earth Defense Forces 3 Hands-On</a>
+			<div class="article-subtitle">The bugs are (still) coming. We stomp a few hundred of them in this thoroughly Japanese Xbox 360 game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-smackdown-vs-raw-2007-updated-hands-on_1100-6158446_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-smackdown-vs-raw-2007-updated-hands-on/1100-6158446/" class="article-title">TGS 06: SmackDown! vs. Raw 2007 Updated Hands-On</a>
+			<div class="article-subtitle">We get our hands on this Xbox 360 grappler from the TGS floor.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-the-taxi-2-hands-on_1100-6158474_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-the-taxi-2-hands-on/1100-6158474/" class="article-title">TGS 06: The Taxi 2 Hands-On</a>
+			<div class="article-subtitle">We check out D3's upcoming taxi simulator sequel for the PlayStation 2.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-gears-of-war-single-player-impressions_1100-6158448_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-gears-of-war-single-player-impressions/1100-6158448/" class="article-title">TGS 06: Gears of War Single-Player Impressions</a>
+			<div class="article-subtitle">We meet with Microsoft and Epic Games to take a look at the latest version of this much-anticipated shooter.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-its-a-wonderful-world-impressions_1100-6158475_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-its-a-wonderful-world-impressions/1100-6158475/" class="article-title">TGS 06: It's a Wonderful World Impressions</a>
+			<div class="article-subtitle">Square unleashes a new 2D combat game for the Nintendo DS.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-eternal-sonata-hands-on_1100-6158476_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-eternal-sonata-hands-on/1100-6158476/" class="article-title">TGS 06: Eternal Sonata Hands-On</a>
+			<div class="article-subtitle">We get our hands on yet another Japanese RPG for the Xbox 360.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-rogue-galaxy-qanda_1100-6158478_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-rogue-galaxy-qanda/1100-6158478/" class="article-title">TGS 06: Rogue Galaxy Q&A</a>
+			<div class="article-subtitle">We chat with the American producer of Rogue Galaxy and come away with plenty of details on the forthcoming localization.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-lost-odyssey-hands-on_1100-6158477_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-lost-odyssey-hands-on/1100-6158477/" class="article-title">TGS 06: Lost Odyssey Hands-On</a>
+			<div class="article-subtitle">The second major Xbox 360 RPG from Mistwalker is at TGS, and we've played the demo.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-metal-slug-6-hands-on_1100-6158479_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-metal-slug-6-hands-on/1100-6158479/" class="article-title">TGS 06: Metal Slug 6 Hands-On</a>
+			<div class="article-subtitle">Metal Slug's Atomiswave debut translates well to the PlayStation 2.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-final-fantasy-xii-qanda_1100-6158485_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-final-fantasy-xii-qanda/1100-6158485/" class="article-title">TGS 06: Final Fantasy XII Q&A</a>
+			<div class="article-subtitle">We sit down with the developers of Final Fantasy XII for a look at the next title in the long-running series of RPGs.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-lunar-knights-qanda_1100-6158486_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-lunar-knights-qanda/1100-6158486/" class="article-title">TGS 06: Lunar Knights Q&A</a>
+			<div class="article-subtitle">We sit down with the producer of Lunar Knights for a fun interview about the upcoming vampire-hunting game.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-metal-slug-complete-hands-on_1100-6158487_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-metal-slug-complete-hands-on/1100-6158487/" class="article-title">TGS 06: Metal Slug Complete Hands-On</a>
+			<div class="article-subtitle">Let's get one thing straight: You can't possibly handle this much Metal Slug, but SNK is giving it all to you on one PSP disc anyway.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-the-tousou-highway-2-road-warrior-2050-hands-on_1100-6158488_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-the-tousou-highway-2-road-warrior-2050-hands-on/1100-6158488/" class="article-title">TGS 06: The Tousou Highway 2: Road Warrior 2050 Hands-On</a>
+			<div class="article-subtitle">We go Mad Max at D3's Tokyo Game Show booth, as we check out this upcoming vehicular combat game for the PS2.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-k-1-world-gp-2006-hands-on_1100-6158490_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-k-1-world-gp-2006-hands-on/1100-6158490/" class="article-title">TGS 06: K-1 World GP 2006 Hands-On</a>
+			<div class="article-subtitle">We climb into the squared circle with a work-in-progress version of D3's upcoming PS2 fighter.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_metal-slug-6-anthologized_1100-6158367_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-slug-6-anthologized/1100-6158367/" class="article-title">Metal Slug 6 Anthologized</a>
+			<div class="article-subtitle">SNK Playmore confirms that latest arcade game will be added to PSP, Wii compilation; every installment of arcade series now included in package.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_us-pc-game-charts-august-27-september-2_1100-6157723_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-pc-game-charts-august-27-september-2/1100-6157723/" class="article-title">US PC game charts: August 27- September 2</a>
+			<div class="article-subtitle">Most recent weekly top 10 from NPD yields a Sims 2 four-way, a dethroned World of Warcraft, and a resurgent Starcraft: Battle Chest.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-crisis-core-final-fantasy-vii-trailer-impressions_1100-6158497_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-crisis-core-final-fantasy-vii-trailer-impressions/1100-6158497/" class="article-title">TGS 06: Crisis Core: Final Fantasy VII Trailer Impressions</a>
+			<div class="article-subtitle">Square Enix teases PSP owners with another new trailer of Crisis Core. Read our impressions.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-qanda-with-hiroshi-kamide_1100-6158127_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-qanda-with-hiroshi-kamide/1100-6158127/" class="article-title">TGS 06: Q&A with Hiroshi Kamide</a>
+			<div class="article-subtitle">Industry analyst wags his finger at Microsoft, opines on Western publishers who think what sells in Orlando can just as easily sell on Osaka, and explains why a Microsoft handheld in Japan might not be such a dumb idea after all.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-snk-vs-capcom-card-fighters-ds-hands-on_1100-6158508_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-snk-vs-capcom-card-fighters-ds-hands-on/1100-6158508/" class="article-title">TGS 06: SNK vs. Capcom: Card Fighters DS Hands-On</a>
+			<div class="article-subtitle">We try out SNK's DS update of one of its handheld gems.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-project-sylpheed-hands-on_1100-6158512_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-project-sylpheed-hands-on/1100-6158512/" class="article-title">TGS 06: Project Sylpheed Hands-On</a>
+			<div class="article-subtitle">We tear through the cosmos in Square Enix's Xbox 360 space shooter that's based on an old shoot-'em-up franchise.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-shining-force-exa-hands-on_1100-6158513_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-shining-force-exa-hands-on/1100-6158513/" class="article-title">TGS 06: Shining Force Exa Hands-On</a>
+			<div class="article-subtitle">We try Sega's latest attempt to reinvigorate its classic RPG franchise with this 3D PS2 adventure.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-lost-planet-extreme-condition-update_1100-6158514_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-lost-planet-extreme-condition-update/1100-6158514/" class="article-title">TGS 06: Lost Planet: Extreme Condition Update</a>
+			<div class="article-subtitle">Although Capcom doesn't show off anything new, producer Keiji Inafune drops some very good news for those anticipating the Xbox 360 game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-shining-wind-hands-on_1100-6158515_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-shining-wind-hands-on/1100-6158515/" class="article-title">TGS 06: Shining Wind Hands-On</a>
+			<div class="article-subtitle">We try Sega's latest action-packed addition to the Shining Force franchise straight from the Tokyo Game Show.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-gunpey-r-hands-on_1100-6158520_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-gunpey-r-hands-on/1100-6158520/" class="article-title">TGS 06: Gunpey-R Hands-On</a>
+			<div class="article-subtitle">We check out Q Entertainment's upcoming PSP game that marries an old-school puzzler with a funky new style.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tom-clancys-splinter-cell-double-agent-updated-hands-on_1100-6158405_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancys-splinter-cell-double-agent-updated-hands-on/1100-6158405/" class="article-title">Tom Clancy's Splinter Cell Double Agent Updated Hands-On</a>
+			<div class="article-subtitle">We drop back into the sweltering heat of Kinshasa, Africa, to survey the latest version of the popular stealth action series. New video and screens inside.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-20gb-ps3-to-have-hdmi-cost-49980-yen_1100-6158155_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-20gb-ps3-to-have-hdmi-cost-49980-yen/1100-6158155/" class="article-title">TGS 06: 20GB PS3 to have HDMI, cost 49,980 yen </a>
+			<div class="article-subtitle">[UPDATE] Following his 2006 Tokyo Game Show keynote address, Ken Kutaragi reveals the low-end PlayStation 3 will now have a high-end A/V output--and go for around $429.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-getting-down-to-business_1100-6158344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-getting-down-to-business/1100-6158344/" class="article-title">TGS 06: Getting down to business</a>
+			<div class="article-subtitle">True to its name, Business Day delivered up heaping servings of biz-oriented events and presentations. And young women holding Wii controllers.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-xbla-getting-metal-slugged_1100-6158496_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-xbla-getting-metal-slugged/1100-6158496/" class="article-title">TGS 06: XBLA getting Metal Slugged</a>
+			<div class="article-subtitle">SNK Playmore's classic side-scroller is headed to Microsoft's online Marketplace in Japan sometime soon; no word yet on a US release.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-kojima-investing-in-stock-market-game_1100-6158498_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-kojima-investing-in-stock-market-game/1100-6158498/" class="article-title">TGS 06: Kojima investing in stock-market game</a>
+			<div class="article-subtitle">Nintendo DS owners will be taking on a force that's bigger and nastier than soldiers or monsters: the Japanese economy.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-no-us-ps3-price-drop_1100-6158499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-no-us-ps3-price-drop/1100-6158499/" class="article-title">TGS 06: No US PS3 price drop</a>
+			<div class="article-subtitle">SCEA president Kaz Hirai says that Sony has "no plans" to lower the current $499/$599 American PS3 price points; 20GB PS3s will have HDMI worldwide.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_tgs-06-gba-kingdom-hearts-heading-to-ps2_1100-6158500_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-gba-kingdom-hearts-heading-to-ps2/1100-6158500/" class="article-title">TGS 06: GBA Kingdom Hearts heading to PS2</a>
+			<div class="article-subtitle">Kingdom Hearts II director's edition to come in two-DVD set; second disk will feature a PS2 remake of Chain of Memories.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/23_us-pc-game-charts-september-3-9_1100-6158509_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-pc-game-charts-september-3-9/1100-6158509/" class="article-title">US PC Game Charts: September 3-9</a>
+			<div class="article-subtitle">Top three spots remain unchanged from last week; remainder of list sees big turnover as older games return to chart.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/23_news230906fm2007_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230906fm2007" class="article-title">Football Manager demo plan</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/23_lt-ps3kenkut-tgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/lt-ps3kenkut-tgs" class="article-title">Ken Kutaragi's PS3 keynote</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127707/Dolby-Digital-5.1-and-Dolby-TrueHD-for-PlayStation-3/" class="article-title">Dolby Digital 5.1 and Dolby TrueHD for PlayStation 3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127705/HDMI-standard-on-PS3/" class="article-title">HDMI standard on PS3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127706/Far-Cry-named-for-Wii/" class="article-title">Far Cry named for Wii</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127708/Shining-Force-EXA-exclusive-to-PS2/" class="article-title">Shining Force EXA exclusive to PS2</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/line-rider.php" class="article-title">Line Rider</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2006/09/23/shubun-no-hi-feature/" class="article-title">Shubun no hi Feature!</a>
+			<div class="article-author">Eos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2006/09/23/acter-world/" class="article-title">Acter World</a>
+			<div class="article-author">Shabadage</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/09/23_2006_09_23_game-tunnel-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/09/23/game-tunnel-2/" class="article-title">Game Tunnel</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

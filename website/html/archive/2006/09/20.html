@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 20, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragon-quest-heroes-rocket-slime-review/1900-6157915/" class="article-title">Dragon Quest Heroes: Rocket Slime Review</a>
+			<div class="article-subtitle">Rocket Slime is a simple adventure packed with personality, puns, and an oddly endearing hero.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pokymon-mystery-dungeon-blue-rescue-team-review/1900-6158004/" class="article-title">Pokémon Mystery Dungeon: Blue Rescue Team Review</a>
+			<div class="article-subtitle">The injection of Pokémon characters and aspects hasn't done anything to improve ChunSoft's oft-copied dungeon hack.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pokymon-mystery-dungeon-red-rescue-team-review/1900-6158005/" class="article-title">Pokémon Mystery Dungeon: Red Rescue Team Review</a>
+			<div class="article-subtitle">The injection of Pokémon characters and aspects hasn't done anything to improve ChunSoft's oft-copied dungeon hack.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/samurai-warriors-2-review/1900-6158016/" class="article-title">Samurai Warriors 2 Review</a>
+			<div class="article-subtitle">Like just about every other sequel in Koei's Warriors franchises, Samurai Warriors 2 offers an overly familiar and ultimately mundane hack-and-slash experience.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/samurai-warriors-2-review/1900-6158014/" class="article-title">Samurai Warriors 2 Review</a>
+			<div class="article-subtitle">Like just about every other sequel in Koei's Warriors franchises, Samurai Warriors 2 offers an overly familiar and ultimately mundane hack-and-slash experience.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_justins-journal-entry-1_1100-6236208_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/justins-journal-entry-1/1100-6236208/" class="article-title">Justin's Journal, Entry #1</a>
+			<div class="article-subtitle">It's Wednesday morning here in Tokyo now, I think, and I've woken up a little after 7am, which is way better than the 2am I managed yesterday. This is my sixth visit to Tokyo for TGS, but yesterday was actually the first time that I've ever had anything resembling a "free" day that I could spend...</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_stranger-in-a-strange-land_1100-6236207_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stranger-in-a-strange-land/1100-6236207/" class="article-title">Stranger In A Strange Land</a>
+			<div class="article-subtitle">It's my first time in Japan, unlike a lot of the other guys here. Heck, it's been around ten years since the last time I went out of the country. I just saw Meg Ryan on television selling Nescafe Excella, some kind of coffee brand. We're watching what appears to be the Japanese version of American...</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_170-360-hd-dvd-drive-coming-to-japan-november-22_1100-6157919_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/170-360-hd-dvd-drive-coming-to-japan-november-22/1100-6157919/" class="article-title">$170 360 HD-DVD drive coming to Japan November 22? </a>
+			<div class="article-subtitle">Kotaku claims its Japanese sources are saying Microsoft's next-gen media add-on won't cost a pretty penny.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_xbox-live-vision-released-xbl-parlor-games-patched_1100-6157922_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-vision-released-xbl-parlor-games-patched/1100-6157922/" class="article-title">Xbox Live Vision released, XBL parlor games patched</a>
+			<div class="article-subtitle">Microsoft's new camera peripheral for the Xbox 360 is now available at retail for about $40. Four Xbox Live Arcade titles also gain camera support for online play.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_retail-radar-us-getting-slim-silver-ps2_1100-6157929_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retail-radar-us-getting-slim-silver-ps2/1100-6157929/" class="article-title">Retail Radar: US getting slim, silver PS2?</a>
+			<div class="article-subtitle">GameStop lists shiny new color for the slimmed-down PlayStation 2; current-gen console priced identically to black model at $129.99, dated for late October.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_bush-targeted-in-jihadist-fps_1100-6157912_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bush-targeted-in-jihadist-fps/1100-6157912/" class="article-title">Bush targeted in jihadist FPS</a>
+			<div class="article-subtitle">Reports say Night of Bush Capturing aimed at "terrorist children" features six levels of President Bush hunting.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_three-lane-track-revved-for-nfs-carbon_1100-6157931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/three-lane-track-revved-for-nfs-carbon/1100-6157931/" class="article-title">Three-lane 'track revved for NFS: Carbon</a>
+			<div class="article-subtitle">Electronic Arts grabs songs from a trio of genres for its trio of auto classes--exotics, muscles, tuners; artists include Wolfmother, Ladytron, Pharrell.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_360-games-hit-platinum_1100-6157946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/360-games-hit-platinum/1100-6157946/" class="article-title">360 games hit Platinum</a>
+			<div class="article-subtitle">Four games for Microsoft's next-gen system going on the cheap; Kameo, Perfect Dark Zero, PGR3, Need for Speed Most Wanted all to be $30 each.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_microsoft-confirms-1080p-support-for-360_1100-6157933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-confirms-1080p-support-for-360/1100-6157933/" class="article-title">Microsoft confirms 1080p support for 360</a>
+			<div class="article-subtitle">Next-gen console to receive ability to output games and movies in better resolution with upcoming system-software update.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_welcome-to-the-soapbox_1100-6236206_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/welcome-to-the-soapbox/1100-6236206/" class="article-title">Welcome to the Soapbox</a>
+			<div class="article-subtitle">Welcome to the GameSpot Soapbox, in which you can always find the latest rants, diatribes, well-reasoned arguments, and baseless speculation about gaming both from the GameSpot editors and GameSpot users. Want to be spotlighted? We'll consider every GameSpot blog post marked with the category...</div>
+			<div class="article-author">Mike Tougeron</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_xbox-360-in-japan-second-life_1100-6157934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-in-japan-second-life/1100-6157934/" class="article-title">Xbox 360 in Japan: second life?</a>
+			<div class="article-subtitle">Takashi Sensui says the best is yet to come for the Xbox 360 in Japan; cast of heavyweights promos console, game lineup in TGS opener.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_xbl-gets-tgsd_1100-6157981_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbl-gets-tgsd/1100-6157981/" class="article-title">XBL gets TGS'd</a>
+			<div class="article-subtitle">Microsoft releases BFMEII map pack, Tenchu Senran and Half-Life 2 trailers as part of its 2006 Tokyo Game Show promotion.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_nba-2k7-slams-factory_1100-6157989_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-2k7-slams-factory/1100-6157989/" class="article-title">NBA 2K7 slams factory</a>
+			<div class="article-subtitle">Xbox 360, Xbox, PS2 versions of 2K Sports' pro-ball simulation finish development, head to stores early next week.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_pokymon-mystery-dungeon-blue-rescue-team-hands-on_1100-6156920_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokymon-mystery-dungeon-blue-rescue-team-hands-on/1100-6156920/" class="article-title">Pokémon Mystery Dungeon: Blue Rescue Team Hands-On</a>
+			<div class="article-subtitle">We spend some quality time with a near-finished version of Nintendo's upcoming Pokémon RPG for the DS.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_new-call-of-duty-guitar-hero-and-007-coming-in-2007-8_1100-6155242_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-call-of-duty-guitar-hero-and-007-coming-in-2007-8/1100-6155242/" class="article-title">New Call of Duty, Guitar Hero, and 007 coming in 2007-8</a>
+			<div class="article-subtitle">Activision promises new installments in hit franchises during its next fiscal year; new Marvel and Tony Hawk titles planned, as well.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_qanda-360-degrees-with-peter-moore_1100-6157966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-360-degrees-with-peter-moore/1100-6157966/" class="article-title">Q&A: 360 degrees with Peter Moore </a>
+			<div class="article-subtitle">Microsoft's guru of Xbox 360 marketing talks about Wii60, the PS3 and 360 being "on a par," and just a smidgin' of Halo 3 (hint: he likes it).</div>
+			<div class="article-author">Daniel Terdiman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_championship-manager-2007-first-impressions_1100-6157944_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/championship-manager-2007-first-impressions/1100-6157944/" class="article-title">Championship Manager 2007 First Impressions</a>
+			<div class="article-subtitle">New leagues, tactical options, and a full-on match-analysis module headline a plethora of other improvements for the new version of this football management game.</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_guitar-hero-going-multiplatform_1100-6157997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-going-multiplatform/1100-6157997/" class="article-title">Guitar Hero going multiplatform</a>
+			<div class="article-subtitle">Activision CEO tells investors to expect RedOctane's hit headbanging series "on every significant new format" starting next year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_redoctane-sues-guitar-manufacturer_1100-6157917_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/redoctane-sues-guitar-manufacturer/1100-6157917/" class="article-title">RedOctane sues guitar manufacturer</a>
+			<div class="article-subtitle">Guitar Hero publisher and parent company Activision bring legal action to bear against the maker of an unlicensed line of controllers for the popular game.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_activision-bets-on-gambling_1100-6158002_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-bets-on-gambling/1100-6158002/" class="article-title">Activision bets on gambling?</a>
+			<div class="article-subtitle">Activision CEO Robert Kotick calls wagering in games the "Holy Grail" of the business, says "it will happen eventually" but not anytime soon.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_gta-to-whack-wii_1100-6236205_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-to-whack-wii/1100-6236205/" class="article-title">GTA to whack Wii?</a>
+			<div class="article-subtitle">Source: A lengthy article on MTV News.  What we heard: At its pre-Electronic Entertainment Expo press conference in May, Microsoft stunned attendees by announcing that Grand Theft Auto IV would be released on the Xbox 360 the same day and date it arrives on the PlayStation 3. Though Sony reps would...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_enter-tokyo-stage-left_1100-6236204_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enter-tokyo-stage-left/1100-6236204/" class="article-title">Enter Tokyo: stage left</a>
+			<div class="article-subtitle">I landed in Tokyo yesterday (Tuesday), but after a 22-hour journey, didn't feel up to much, so I hung out in the hotel and got a decent night's sleep. Here's a view from the hotel window at night:But today was a different matter, and I joined some of the other guys for a trip out and about in...</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_gta-to-whack-wii_1100-6158007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-to-whack-wii/1100-6158007/" class="article-title">GTA to whack Wii? </a>
+			<div class="article-subtitle">NOA president and COO Reggie Fils-Aime tells MTV News that Nintendo is talking with Take-Two Interactive--and wants to have a wide selection of M-rated Wii games.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_thq-faces-smackdown-music-suit_1100-6158009_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-faces-smackdown-music-suit/1100-6158009/" class="article-title">THQ faces SmackDown music suit</a>
+			<div class="article-subtitle">New York musician claims publisher used one of his songs in last year's WWE grappling game without permission; demands at least $12 million in damages.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_1701-ad-hands-on_1100-6158006_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1701-ad-hands-on/1100-6158006/" class="article-title">1701 A.D. Hands-On</a>
+			<div class="article-subtitle">This colorful take on the age of colonization will let you try to establish a trading empire in a beautiful 3D world.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/20_gun-showdown-updated-hands-on_1100-6158010_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gun-showdown-updated-hands-on/1100-6158010/" class="article-title">Gun Showdown Updated Hands-On</a>
+			<div class="article-subtitle">We sling lead at everything from bandits to bears in Gun Showdown, the handheld version of Activision's Wild West action adventure game.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906guitarhero_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906guitarhero" class="article-title">Guitar Hero goes multiformat</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news230806-harvestmoontgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230806-harvestmoontgs" class="article-title">Harvest Moon at TGS</a>
+			<div class="article-author">Paul Loughrey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news-310806-riiidgeracerrrr_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-310806-riiidgeracerrrr" class="article-title">Ridge Racer PS3 details emerge</a>
+			<div class="article-author">Matt Martin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news040906squenixtgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040906squenixtgs" class="article-title">FFXIII video to show at TGS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news080906livefree_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080906livefree" class="article-title">Try Xbox Live free for a week</a>
+			<div class="article-author">Paul Devlin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news110906koeitgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110906koeitgs" class="article-title">Koei's TGS line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news180906lostodyssey_thumbnail.png">
+			<a href="https://www.eurogamer.net/news180906lostodyssey" class="article-title">Lost Odyssey demo at TGS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news190906xbltgsx06_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190906xbltgsx06" class="article-title">Demos, videos and new Live Arcade game during TGS, X06</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906tgsmsconf_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906tgsmsconf" class="article-title">Xbox 360 HD-DVD dated, 1080p promised</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906marketplacegoodies_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906marketplacegoodies" class="article-title">Trailers, map packs on XBL</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_fi-mariogalaxy-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-mariogalaxy-wii" class="article-title">Super Mario Galaxy</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906biowarehandheld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906biowarehandheld" class="article-title">Bioware forms handheld division</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906tigerwoods_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906tigerwoods" class="article-title">Drive against Tiger Woods</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906circleofdoom_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906circleofdoom" class="article-title">Circle of Doom 360 dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906x360classics_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906x360classics" class="article-title">Xbox 360 Classics range</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/20_news200906eveonline_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200906eveonline" class="article-title">Eve Online to evolve for 'years'</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/flash-forward-austin-2006.php" class="article-title">Flash Forward Austin report</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/09/20_2006_09_20_the-arcade-wire-airport-security_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/09/20/the-arcade-wire-airport-security/" class="article-title">The Arcade Wire: Airport Security</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

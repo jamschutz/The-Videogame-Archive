@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 27, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-fast-and-the-furious-review/1900-6169860/" class="article-title">The Fast and the Furious Review</a>
+			<div class="article-subtitle">Aside from the name, this street racer has little to distinguish itself from an already crowded field.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rayman-raving-rabbids-review/1900-6169851/" class="article-title">Rayman Raving Rabbids Review</a>
+			<div class="article-subtitle">Rayman Raving Rabbids is a fairly simple collection of minigames that manages to win you over largely on the merit of its personality.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/aedis-eclipse-generation-of-chaos-review/1900-6169856/" class="article-title">Aedis Eclipse: Generation of Chaos Review</a>
+			<div class="article-subtitle">The sequel to Generation of Chaos provides more of the same strategic gameplay without doing anything to correct the problems with the original.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/calling-all-cars-review/1900-6169859/" class="article-title">Calling All Cars! Review</a>
+			<div class="article-subtitle">Calling All Cars! is a frantic good time that's cut short by a serious lack of content.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_ncaa-football-08-hands-on_1100-6169805_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ncaa-football-08-hands-on/1100-6169805/" class="article-title">NCAA Football 08 Hands-On</a>
+			<div class="article-subtitle">We go first and 10 in the Big Apple with EA's upcoming college football game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_aussie-game-charts-april-16-april-22_1100-6169803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-april-16-april-22/1100-6169803/" class="article-title">Aussie game charts: April 16-April 22</a>
+			<div class="article-subtitle">Diddy Kong Racing makes a comeback after almost a decade away.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_nintendo-buys-monolith-soft_1100-6169813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-buys-monolith-soft/1100-6169813/" class="article-title">Nintendo buys Monolith Soft</a>
+			<div class="article-subtitle">Wii maker acquires majority interest in developer of Xenosaga, Baten Kaitos series from Namco Bandai Games.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_bioshock-le-innards-dissected_1100-6169650_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-le-innards-dissected/1100-6169650/" class="article-title">BioShock LE innards dissected</a>
+			<div class="article-subtitle">Limited Edition of Irrational's PC, 360 game to feature Big Daddy figurine, "Making of" DVD, and soundtrack for $10 more.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_ps3-users-boost-foldinghome-project_1100-6169662_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-users-boost-foldinghome-project/1100-6169662/" class="article-title">PS3 users boost Folding@home project</a>
+			<div class="article-subtitle">Computing capacity more than doubled by the participation of console owners, update coming tomorrow.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_god-of-war-heads-to-psp-olympus_1100-6169676_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/god-of-war-heads-to-psp-olympus/1100-6169676/" class="article-title">God of War heads to PSP, Olympus</a>
+			<div class="article-subtitle">Sony unshackles God of War: Chains of Olympus for PlayStation Portable; Web site offers free UMD demo of game by mail.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_call-of-duty-4-waging-modern-warfare_1100-6169663_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-4-waging-modern-warfare/1100-6169663/" class="article-title">Call of Duty 4 waging Modern Warfare</a>
+			<div class="article-subtitle">After a year-plus of rumors, Activision confirms the next installment in its first-person shooter series will leave WWII behind; game to be officially unveiled this Saturday during NFL Draft.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_report-gears-of-war-screenplay-emerges_1100-6235919_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-gears-of-war-screenplay-emerges/1100-6235919/" class="article-title">Report: Gears of War screenplay emerges</a>
+			<div class="article-subtitle">In November 2005, Latinoreview.com announced it had acquired quite the scoop. That&#39;s when the popular film-script site posted a detailed breakdown of the original version of the Halo movie script, penned by novelist and 28 Days Later writer Alex Garland. Latinoreview.com editor El Mayimbe...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_lord-of-the-rings-online-marathon_1100-6235918_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lord-of-the-rings-online-marathon/1100-6235918/" class="article-title">Lord of the Rings Online Marathon</a>
+			<div class="article-subtitle">Stop by on Saturday, April 28th at 12pm PT for The Lord of the Rings Online: Shadows of Angmar video marathon. Kevin VanOrd plans to explore the rich, hobbit-filled world of Middle-earth!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_report-gears-of-war-screenplay-emerges_1100-6169842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-gears-of-war-screenplay-emerges/1100-6169842/" class="article-title">Report: Gears of War screenplay emerges</a>
+			<div class="article-subtitle">Latinoreview.com claims to have obtained the treatment for the upcoming New Line Cinema adaptation of the Epic Games shooter.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_warhammer-online-offline-til-08_1100-6169847_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-online-offline-til-08/1100-6169847/" class="article-title">Warhammer Online offline 'til '08</a>
+			<div class="article-subtitle">Via newsletter, Mythic announces that EA's fantasy MMORPG has been delayed until next year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_ninja-spirit-blazing-lazers-confirmed-for-wii-vc_1100-6169843_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ninja-spirit-blazing-lazers-confirmed-for-wii-vc/1100-6169843/" class="article-title">Ninja Spirit, Blazing Lazers confirmed for Wii VC</a>
+			<div class="article-subtitle">Shinobi-style action game and vertically scrolling shoot-'em-up set to arrive next month, along with fellow TurboGrafx-16 games Ordyne and World Sports Competition.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_calling-all-cars-ready-for-booking_1100-6169858_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/calling-all-cars-ready-for-booking/1100-6169858/" class="article-title">Calling All Cars! ready for booking</a>
+			<div class="article-subtitle">David Jaffe says his first downloadable PlayStation 3 title is "gold," tells gamers to be on the lookout for it next Thursday.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_ema-award-nominees-announced_1100-6169841_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ema-award-nominees-announced/1100-6169841/" class="article-title">EMA award nominees announced</a>
+			<div class="article-subtitle">Expanded awards from Entertainment Merchants Association give nods to Gears of War, God of War 2, Guitar Hero II, WOW.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_blizzard-prepping-next-gen-mmo-starcraft-2_1100-6235917_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-prepping-next-gen-mmo-starcraft-2/1100-6235917/" class="article-title">Blizzard prepping 'next-gen MMO,' Starcraft 2?</a>
+			<div class="article-subtitle">Source: Several job listings on the official Blizzard Web site and a forum thread on Starcraft-centric Teamliquid.net.     What we heard: Barely a month goes by without some sort of speculation--and the  occasional prank--raising the prospect of Blizzard Entertainment&#39;s next project. One of...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_the-lord-of-the-rings-online-shadows-of-angmar-final-hands-on-the-first-week_1100-6169812_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-lord-of-the-rings-online-shadows-of-angmar-final-hands-on-the-first-week/1100-6169812/" class="article-title">The Lord of the Rings Online: Shadows of Angmar Final Hands-On: The First Week</a>
+			<div class="article-subtitle">Ahead of our full review, we've got initial impressions of the recently launched massively multiplayer role-playing game set in Middle-earth.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_harry-potter-and-the-order-of-the-phoenix-qanda_1100-6169823_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harry-potter-and-the-order-of-the-phoenix-qanda/1100-6169823/" class="article-title">Harry Potter and the Order of the Phoenix Q&A</a>
+			<div class="article-subtitle">The latest action game in EA's series based on J. K. Rowling's runaway kids' book success may be the most ambitious one yet. We went to executive producer Harvey Elliott to find out.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_blizzard-prepping-next-gen-mmoand-starcraft-2_1100-6169864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-prepping-next-gen-mmoand-starcraft-2/1100-6169864/" class="article-title">Blizzard prepping 'next-gen MMO'...and Starcraft 2?</a>
+			<div class="article-subtitle">A job posting and Korean newsletter raise the prospects of a console MMORPG and RTS comeback from the WOW developer.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_motorstorm-tune-up-in-may_1100-6169865_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorstorm-tune-up-in-may/1100-6169865/" class="article-title">MotorStorm tune-up in May</a>
+			<div class="article-subtitle">Sony going under the hood of PlayStation 3 demolition racer in "the next couple of weeks"; update to address boost exploit, stability.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_harry-potter-and-the-order-of-the-phoenix-qanda_1100-6169825_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harry-potter-and-the-order-of-the-phoenix-qanda/1100-6169825/" class="article-title">Harry Potter and the Order of the Phoenix Q&A</a>
+			<div class="article-subtitle">The latest action game in EA's series based on J. K. Rowling's runaway kids' book success may be the most ambitious one yet. We went to executive producer Harvey Elliott to find out.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/27_tetris-bioshock-get-xbl-dlc_1100-6169868_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tetris-bioshock-get-xbl-dlc/1100-6169868/" class="article-title">Tetris, BioShock get XBL DLC</a>
+			<div class="article-subtitle">THQ puzzler gets new backgrounds and skins, while Irrational shooter receives picture packs and a theme.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_motorstorm-update-in-may_thumbnail.png">
+			<a href="https://www.eurogamer.net/motorstorm-update-in-may" class="article-title">MotorStorm update in May</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_crimson-skies-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/crimson-skies-2" class="article-title">Crimson Skies 2</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_3d-ultra-minigolf-adventures-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/3d-ultra-minigolf-adventures-review" class="article-title">3D Ultra Minigolf Adventures</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_socom-us-navy-seals-combined-assault-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/socom-us-navy-seals-combined-assault-review" class="article-title">SOCOM U.S. Navy Seals Combined Assault</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_singstar-pop-hits-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/singstar-pop-hits-review" class="article-title">SingStar Pop Hits</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_zendoku-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/zendoku-review" class="article-title">Zendoku</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_game-refuses-oblivion-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-refuses-oblivion-ps3" class="article-title">GAME refuses Oblivion PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_more-dlc-for-alien-hominid_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-dlc-for-alien-hominid" class="article-title">More DLC for Alien Hominid</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_virgins-dead-n-furious_thumbnail.png">
+			<a href="https://www.eurogamer.net/virgins-dead-n-furious" class="article-title">Virgin's Dead 'n' Furious</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_speedball-2-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/speedball-2-preview" class="article-title">Speedball 2</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_ms-games-division-reports-21-percent-drop-in-sales_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-games-division-reports-21-percent-drop-in-sales" class="article-title">MS games division reports 21 percent drop in sales</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_warhammer-online-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/warhammer-online-delayed" class="article-title">Warhammer Online delayed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news060506timeshift_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060506timeshift" class="article-title">VU confirms TimeShift snatch</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news190406timeshift_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190406timeshift" class="article-title">Vivendi nabs TimeShift</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news010206timeshiftpc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010206timeshiftpc" class="article-title">TimeShift demo released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news090106timeshift_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090106timeshift" class="article-title">TimeShift multiplayer beta</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news161105timeshiftvideo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161105timeshiftvideo" class="article-title">TimeShift video now available</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_timeshift-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/timeshift-preview" class="article-title">TimeShift</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_shivering-isles-patch-on-monday_thumbnail.png">
+			<a href="https://www.eurogamer.net/shivering-isles-patch-on-monday" class="article-title">Shivering Isles patch on Monday</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_whats-new-20th-april-2007-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/whats-new-20th-april-2007-article" class="article-title">What's New? (20th April, 2007)</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_phantasy-star-expands_thumbnail.png">
+			<a href="https://www.eurogamer.net/phantasy-star-expands" class="article-title">Phantasy Star expands</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_news270407wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270407wii" class="article-title">Nintendo to ramp up Wii production</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_dyack-talks-up-too-human_thumbnail.png">
+			<a href="https://www.eurogamer.net/dyack-talks-up-too-human" class="article-title">Dyack talks up Too Human</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_final-fight-on-virtual-console_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fight-on-virtual-console" class="article-title">Final Fight on Virtual Console</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_microsoft-explains-elite-migration-process_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-explains-elite-migration-process" class="article-title">Microsoft explains Elite migration process</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/27_ninja-gaiden-on-us-ps3-store_thumbnail.png">
+			<a href="https://www.eurogamer.net/ninja-gaiden-on-us-ps3-store" class="article-title">Ninja Gaiden on US PS3 Store</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128232/PlayStation-Eye-camera-brings-next-gen-comms-to-PS3/" class="article-title">PlayStation Eye camera brings next-gen comms to PS3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128231/Tiberium-Wars-novel-this-Winter/" class="article-title">Tiberium Wars novel this Winter</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/04/27_2007_04_27_datas-getting-married_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/04/27/datas-getting-married/" class="article-title">Data’s Getting Married!</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/27_2007_04_news_27.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/04/news_27.html" class="article-title">News</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/27_2007_04_big-bang-beat-preview.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/04/big-bang-beat-preview.html" class="article-title">Big Bang Beat Preview</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/27_2007_04_sydney-2-preview.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/04/sydney-2-preview.html" class="article-title">Sydney 2 Preview</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/27_2007_04_shellblast-preview.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/04/shellblast-preview.html" class="article-title">Shellblast Preview</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 31, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-rise-of-a-ninja-review/1900-6182023/" class="article-title">Naruto: Rise of a Ninja Review</a>
+			<div class="article-subtitle">Despite certain underdeveloped elements, this is the most ambitious and accessible Naruto game yet.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/manhunt-2-review/1900-6181982/" class="article-title">Manhunt 2 Review</a>
+			<div class="article-subtitle">It's not as shocking as you'd expect, but Manhunt 2 still satisfies your primal instincts.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/manhunt-2-review/1900-6182071/" class="article-title">Manhunt 2 Review</a>
+			<div class="article-subtitle">It's not as shocking as you'd expect, but Manhunt 2 still satisfies your primal instincts.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ninja-gaiden-ii-the-dark-sword-of-chaos-review/1900-6182042/" class="article-title">Ninja Gaiden II: The Dark Sword of Chaos Review</a>
+			<div class="article-subtitle">As long as you're up for more pain, Ninja Gaiden II offers a challenging thrill ride that's as intense and fun as the original.</div>
+			<div class="article-author">Austin Shau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_xfx-geforce-8800-gt-hands-on-preview_1100-6181908_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xfx-geforce-8800-gt-hands-on-preview/1100-6181908/" class="article-title">XFX GeForce 8800 GT Hands-On Preview</a>
+			<div class="article-subtitle">Find out why the GeForce 8800 GT is the video card to get for the 2007 holiday season.</div>
+			<div class="article-author">James Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_nintendo-giving-away-free-pokymon-character-to-aussies_1100-6182027_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-giving-away-free-pokymon-character-to-aussies/1100-6182027/" class="article-title">Nintendo giving away free Pokémon character to Aussies</a>
+			<div class="article-subtitle">Aussie gamers to receive rare Manaphy Pok&#233;mon for free via Wi-Fi download at JB Hi-Fi stores.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_state-of-the-forums_1100-6235397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/state-of-the-forums/1100-6235397/" class="article-title">State of the Forums</a>
+			<div class="article-subtitle">We restarted our forum servers yesterday afternoon to correct a number of issues that included bugged post editing and bugged private messages. These restarts seem to have rectified the problems, but we're going to be monitoring the community closely to squash any future glitchy uprisings...</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_beowulf-hands-on_1100-6181995_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beowulf-hands-on/1100-6181995/" class="article-title">Beowulf Hands-On</a>
+			<div class="article-subtitle">We play through a four-level demo of Ubisoft's movie-inspired action adventure game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_ps3-drives-foldinghome-to-world-record_1100-6235396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-drives-foldinghome-to-world-record/1100-6235396/" class="article-title">PS3 drives Folding@home to world record</a>
+			<div class="article-subtitle">Since being integrated into Stanford University's disease-researching Folding@home Project in March, Sony claims that more than 670,000 PS3 users have added their consoles' brunt to the altruistic cause. With that many high-tech Cell processors working toward a common effort, it comes as no...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_ps3-drives-foldinghome-to-world-record_1100-6182065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-drives-foldinghome-to-world-record/1100-6182065/" class="article-title">PS3 drives Folding@home to world record</a>
+			<div class="article-subtitle">Guinness to recognize Stanford University-led disease research project as largest distributed computing network in the world.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_intel-core-2-qx9650-extreme-processor-hands-on-preview_1100-6181797_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/intel-core-2-qx9650-extreme-processor-hands-on-preview/1100-6181797/" class="article-title">Intel Core 2 QX9650 Extreme Processor Hands-On Preview</a>
+			<div class="article-subtitle">Intel's quad-core QX9650 has arrived. Find out how the newest Intel Core 2 Extreme Processor performs.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_haze-pc-and-360-drop-off-the-map_1100-6177964_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/haze-pc-and-360-drop-off-the-map/1100-6177964/" class="article-title">Haze PC and 360 drop off the map</a>
+			<div class="article-subtitle">Ubisoft confirms that only the PS3 version of futuristic FPS is currently in development, no plans to bring it to any other platforms.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_aussie-game-charts-october-22-october-28_1100-6182031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-october-22-october-28/1100-6182031/" class="article-title">Aussie game charts: October 22-October 28</a>
+			<div class="article-subtitle">Master Chief continues his reign over Aussie gamers; The Orange Box debuts strongly.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_pc-utiii-golden-dated_1100-6182037_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-utiii-golden-dated/1100-6182037/" class="article-title">PC UTIII golden, dated</a>
+			<div class="article-subtitle">Epic Games' far-future battle royal shipped to manufacturers for release on PCs November 19; PS3 version to "follow soon."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_warcraft-graphic-novel-as-sat-study-aid_1100-6235395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warcraft-graphic-novel-as-sat-study-aid/1100-6235395/" class="article-title">Warcraft graphic novel as SAT study aid?</a>
+			<div class="article-subtitle">Last night on The Daily Show, youth correspondent Demetri Martin poked fun with great alacrity at a series of new study aids for the SAT. Apparently test-prep powerhouse Kaplan has cosponsored a series of graphic novels that have the dialogue rewritten to include words featured on the verbal...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_playlogic-pieces-together-ps3-project_1100-6182084_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playlogic-pieces-together-ps3-project/1100-6182084/" class="article-title">Playlogic pieces together PS3 project</a>
+			<div class="article-subtitle">Dutch publisher/developer to create in-house PS3 property in conjunction with SCEE London for 2008 release; Project Delta still MIA.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_report-40gb-ps3-more-energy-efficient_1100-6181964_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-40gb-ps3-more-energy-efficient/1100-6181964/" class="article-title">Report: 40GB PS3 more energy-efficient</a>
+			<div class="article-subtitle">German tech site Computer Base states Sony's newest SKU will feature the 65nm Cell processor.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_resident-evil-4-wows-1m-on-wii_1100-6181989_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-4-wows-1m-on-wii/1100-6181989/" class="article-title">Resident Evil 4 wows 1M on Wii</a>
+			<div class="article-subtitle">Capcom touts worldwide shipment milestone for fourth version of its survival horror hit.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_uncharted-drakes-fortune-updated-hands-on-the-first-level_1100-6182029_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncharted-drakes-fortune-updated-hands-on-the-first-level/1100-6182029/" class="article-title">Uncharted: Drake's Fortune Updated Hands-On -- The First Level</a>
+			<div class="article-subtitle">We play the opening level of Naughty Dog's upcoming PS3 exclusive to see how Nathan Drake's adventures begin.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_ea-sports-cooking-up-formula-one-racer_1100-6235394_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-cooking-up-formula-one-racer/1100-6235394/" class="article-title">EA Sports cooking up Formula One racer?</a>
+			<div class="article-subtitle">Source: Notorious British tabloid The Sun. What we heard: At a recent event in San Francisco, newly installed EA Sports president Peter Moore fielded questions from the crowd. One reporter asked if, as part of its efforts to become a more international brand, the Electronic Arts division would make...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_ea-sports-cooking-up-formula-one-racer_1100-6182108_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-cooking-up-formula-one-racer/1100-6182108/" class="article-title">EA Sports cooking up Formula One racer?</a>
+			<div class="article-subtitle">British tabloid <i>The Sun</i> reports EA has paid F1 racing rookie Lewis Hamilton to "star on Xbox and PlayStations around the world next year."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_analysts-predict-hardware-shortages-more-price-cuts_1100-6182093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analysts-predict-hardware-shortages-more-price-cuts/1100-6182093/" class="article-title">Analysts predict hardware shortages, more price cuts</a>
+			<div class="article-subtitle">Industry watchers suggest portables and consoles will be a tough find this holiday season, with early '08 discounts for PS2, PS3, and Wii.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_teenage-zombies-invasion-of-the-alien-brain-thingys-first-look_1100-6182110_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/teenage-zombies-invasion-of-the-alien-brain-thingys-first-look/1100-6182110/" class="article-title">Teenage Zombies: Invasion of the Alien Brain Thingys First Look</a>
+			<div class="article-subtitle">Ignition Entertainment shows off an early work-in-progress version of its B movie-style adventure game for the DS.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_tabula-rasa-updated-qanda-final-thoughts-and-post-launch-content_1100-6182064_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tabula-rasa-updated-qanda-final-thoughts-and-post-launch-content/1100-6182064/" class="article-title">Tabula Rasa Updated Q&A - Final Thoughts and Post-Launch Content</a>
+			<div class="article-subtitle">Tabula Rasa launches this week, and we caught up with producer Starr Long to find out what the plans are for this science fiction-themed massively multiplayer online role-playing game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_renegade-kid-lassos-project-m_1100-6182115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/renegade-kid-lassos-project-m/1100-6182115/" class="article-title">Renegade Kid lassos Project M</a>
+			<div class="article-subtitle">Dementium: The Ward creator signs with Mastiff for second game on the Nintendo DS.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_tekken-film-approaching-release_1100-6235393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tekken-film-approaching-release/1100-6235393/" class="article-title">Tekken film approaching release?</a>
+			<div class="article-subtitle">The Tekken film adaptation has been in the works for some time. Word of the project first arrived in February of 2002, when production company Crystal Sky Pictures reportedly secured the rights for $60 million. Two years later the project came up again, this time with Miramax subsidiary Dimension...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_tekken-film-approaching-release_1100-6182121_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tekken-film-approaching-release/1100-6182121/" class="article-title">Tekken film approaching release?</a>
+			<div class="article-subtitle">ComingSoon.net runs first pic of teaser poster for Screen Gems' long-in-the-works adaptation of 3D fighting franchise, dates filming start for Onimusha movie.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/31_obscure-the-aftermath-impressions_1100-6182123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/obscure-the-aftermath-impressions/1100-6182123/" class="article-title">Obscure: The Aftermath Impressions</a>
+			<div class="article-subtitle">Strange things are afoot as we're given a tour of Fallcreek University in Hydravision's upcoming survival horror sequel.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_win-a-new-xbox-360-arcade-console-survey_thumbnail.png">
+			<a href="https://www.eurogamer.net/win-a-new-xbox-360-arcade-console-survey" class="article-title">Win a new Xbox 360 Arcade console!</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_pac-man-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/pac-man-review" class="article-title">Pac-Man</a>
+			<div class="article-author">Chris Pickering</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_championship-manager-2008-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/championship-manager-2008-preview" class="article-title">Championship Manager 2008</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_halo-3-gives-halloween-treats_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-gives-halloween-treats" class="article-title">Halo 3 gives Halloween treats</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_ut3-gets-us-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/ut3-gets-us-date" class="article-title">UT3 gets US date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_new-monster-hunter-for-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-monster-hunter-for-psp" class="article-title">New Monster Hunter for PSP</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_ea-grabs-stars-for-kanes-wrath_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-grabs-stars-for-kanes-wrath" class="article-title">EA grabs stars for Kane's Wrath</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_carmacks-spaceship-blows-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/carmacks-spaceship-blows-up" class="article-title">Carmack's spaceship blows up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_age-of-empires-iii-the-asian-dynasties-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/age-of-empires-iii-the-asian-dynasties-review" class="article-title">Age of Empires III: The Asian Dynasties</a>
+			<div class="article-author">Alec Meer</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_resi-wii-reaches-1-million-mark_thumbnail.png">
+			<a href="https://www.eurogamer.net/resi-wii-reaches-1-million-mark" class="article-title">Resi Wii reaches 1 million mark</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_the-simpsons-game-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-simpsons-game-review" class="article-title">The Simpsons Game</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_harmonix-making-new-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/harmonix-making-new-game" class="article-title">Harmonix making new game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_mutant-storm-empire-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/mutant-storm-empire-review" class="article-title">Mutant Storm Empire</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_sharers-risk-losing-live-account_thumbnail.png">
+			<a href="https://www.eurogamer.net/sharers-risk-losing-live-account" class="article-title">Sharers risk losing Live account</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_mgs4-delayed-until-q2-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs4-delayed-until-q2-2008" class="article-title">MGS4 delayed until Q2 2008</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_party-animals-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/party-animals-dated" class="article-title">Party Animals dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/31_iwata-talks-ds-tools-for-08_thumbnail.png">
+			<a href="https://www.eurogamer.net/iwata-talks-ds-tools-for-08" class="article-title">Iwata talks DS tools for 08</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128689/65pc-more-gaming-at-CES-2008/" class="article-title">65pc more gaming at CES 2008</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128688/Ring-of-Fates-most-accessible-Final-Fantasy-ever/" class="article-title">Ring of Fates "most accessible Final Fantasy ever"</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128687/RE4-breaks-1-mil-on-Wii/" class="article-title">RE4 breaks 1 mil on Wii</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/circle-chain.php" class="article-title">Circle Chain</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/31_2007_10_31_dark-cut_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/31/dark-cut/" class="article-title">Dark Cut²</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/31_2007_10_31_outbreak_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/31/outbreak/" class="article-title">Outbreak</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/31_2007_10_31_mutant-storm-empire-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/31/mutant-storm-empire-2/" class="article-title">Mutant Storm Empire</a>
+			<div class="article-author">Xander</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/10/31_2007_10_patrol-falcon.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/10/patrol-falcon.html" class="article-title">Patrol Falcon</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/10/31_2007_10_pixel-art.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/10/pixel-art.html" class="article-title">Pixel Art</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/10/31_2007_10_instantaction-preview.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/10/instantaction-preview.html" class="article-title">InstantAction Preview</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/10/31_2007_10_independent-games-summit-portal.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/10/independent-games-summit-portal.html" class="article-title">Independent Games Summit - Portal</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/10/31_2007_10_starstrike-3d-preview.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/10/starstrike-3d-preview.html" class="article-title">Starstrike 3D Preview</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

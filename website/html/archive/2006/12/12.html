@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 12, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tomb-raider-legend-review/1900-6163088/" class="article-title">Tomb Raider: Legend Review</a>
+			<div class="article-subtitle">Tomb Raider: Legend offers a good mix of gunplay and puzzles; it also shows off the system's 3D capabilities.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/teen-titans-review/1900-6163097/" class="article-title">Teen Titans Review</a>
+			<div class="article-subtitle">Teen Titans the game makes good use of the license to spice up what is otherwise a very average beat-'em-up.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ea-replay-review/1900-6163100/" class="article-title">EA Replay Review</a>
+			<div class="article-subtitle">EA Replay contains a few genuine classics, but most of these 16-bit games haven't aged well, which makes them hard to come back to.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_microsoft-releases-xna-studio-express_1100-6163042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-releases-xna-studio-express/1100-6163042/" class="article-title">Microsoft releases XNA Studio Express</a>
+			<div class="article-subtitle">Toolkit for regular Joes to make Xbox 360 games debuts today; XNA Creators Club offers assets, information, samples for aspiring game developers.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_age-of-conan-dawning-on-360_1100-6163064_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/age-of-conan-dawning-on-360/1100-6163064/" class="article-title">Age of Conan dawning on 360</a>
+			<div class="article-subtitle">Funcom to bring sword-and-sorcery PC MMORPG to Microsoft's console next year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_uk-game-charts-december-3-9_1100-6163057_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-december-3-9/1100-6163057/" class="article-title">UK Game Charts: December 3-9</a>
+			<div class="article-subtitle">FIFA 07 scores a hat trick of number ones; The Legend of Zelda: Twilight Princess debuts at number five.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_mlb-the-show-gets-extra-innings-on-ps3_1100-6163066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-the-show-gets-extra-innings-on-ps3/1100-6163066/" class="article-title">MLB: The Show gets extra innings on PS3</a>
+			<div class="article-subtitle">Next edition of Sony's baseball game announced for the PS3, PS2, PSP; online league play among the key new features.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_attention-all-road-rage-participants-re-bonus-cars_1100-6236100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/attention-all-road-rage-participants-re-bonus-cars/1100-6236100/" class="article-title">Attention all Road Rage participants, re: bonus cars</a>
+			<div class="article-subtitle">Attention all Road Rage participants, re: bonus carsHello all angry drivers! I need to make a slight change to our rules in order to accommodate a design feature in Need for Speed: Carbon. As some of you are aware, even if the online match is set to NOS: off, NOS is still on in bonus cars.As a...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_the-sims-are-in-season_1100-6163061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-are-in-season/1100-6163061/" class="article-title">The Sims are in Season</a>
+			<div class="article-subtitle">Latest expansion pack adds six new careers, new clothes, and severe weather conditions including thunderstorms, lightning, and deadly hail.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_oblivion-nabs-spike-tv-top-honors_1100-6162929_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oblivion-nabs-spike-tv-top-honors/1100-6162929/" class="article-title">Oblivion nabs Spike TV top honors</a>
+			<div class="article-subtitle">Cliffy B, Gears also snare awards, but crowd reacts in disbelief as run-and-gun title for the 360 misses top prize.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_earth-defense-force-x-hands-on_1100-6162882_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/earth-defense-force-x-hands-on/1100-6162882/" class="article-title">Earth Defense Force X Hands-On</a>
+			<div class="article-subtitle">D3 gives us an updated look at its combination world-saving/bug-extermination sim on the 360.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_take-two-feels-heat-in-scandal_1100-6163038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-feels-heat-in-scandal/1100-6163038/" class="article-title">Take-Two feels heat in $$ scandal</a>
+			<div class="article-subtitle">Special committee looking into back-dating of stock options discovers "improprieties" and "incorrect measurement dates;" company will restate earnings for past 10 years.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_socom-hell-week-casting-call_1100-6236099_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/socom-hell-week-casting-call/1100-6236099/" class="article-title">SOCOM Hell Week Casting Call</a>
+			<div class="article-subtitle">Do you have what it takes to make it through authentic Navy SEAL training? Last year, 16 SOCOM gamers tried, but only four survived. Now it's your chance to pit yourself against the toughest, most intense military training on earth, in SOCOM Hell Week Season 2.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_report-microsoft-to-buy-massive_1100-6148363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-microsoft-to-buy-massive/1100-6148363/" class="article-title">Report: Microsoft to buy Massive</a>
+			<div class="article-subtitle"><i>Wall Street Journal</i> says software giant picking up major player in emerging in-game advertising market.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_mlb-07-the-show-first-look_1100-6163077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-07-the-show-first-look/1100-6163077/" class="article-title">MLB 07: The Show First Look</a>
+			<div class="article-subtitle">Sony's MLB 07 isn't taking the success of last year's game lying down. We get our first look at this anticipated hardball game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_mlb-07-the-show-first-look_1100-6163085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-07-the-show-first-look/1100-6163085/" class="article-title">MLB 07: The Show First Look</a>
+			<div class="article-subtitle">Sony's MLB 07 isn't taking the success of last year's game lying down. We get our first look at this anticipated hardball game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_alien-syndrome-announcement-qanda_1100-6163098_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alien-syndrome-announcement-qanda/1100-6163098/" class="article-title">Alien Syndrome Announcement Q&A</a>
+			<div class="article-subtitle">We check in with Totally Games president Larry Holland to hear about its new take on the Sega classic.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_cop-inot-i-charged-in-ps3-shooting_1100-6163060_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cop-inot-i-charged-in-ps3-shooting/1100-6163060/" class="article-title">Cop <i>not</i> charged in PS3 shooting</a>
+			<div class="article-subtitle">[UPDATE] Charges dropped in case involving police officer fatally shooting teen suspected of stealing PS3s; jury foreman says he "checked the wrong box."</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_mlb-07-keeping-up-the-pace_1100-6236098_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-07-keeping-up-the-pace/1100-6236098/" class="article-title">MLB 07: Keeping Up the Pace</a>
+			<div class="article-subtitle">ESPN college football historian Beano Cook and I have at least one thing in common. We both kind of dislike baseball. Well, to be fair, Beano despises America's pastime--he thinks of the coming of spring training and the long, endless summers leading up to the beginning of college football as one...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_retail-radar-gamestop-offering-imports_1100-6163074_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retail-radar-gamestop-offering-imports/1100-6163074/" class="article-title">Retail Radar: GameStop offering imports</a>
+			<div class="article-subtitle">Specialty chain offering manga-based DS crossover fighter Jump Superstars, latest Naruto DS fighter, to US gamers.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_study-lefties-better-at-gaming_1100-6163058_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/study-lefties-better-at-gaming/1100-6163058/" class="article-title">Study: Lefties better at gaming</a>
+			<div class="article-subtitle">Aussie prof finds that left-handed people are better at managing information during certain complex tasks, including video game playing.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_seniors-women-getting-into-gaming_1100-6162960_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seniors-women-getting-into-gaming/1100-6162960/" class="article-title">Seniors, Women getting into gaming</a>
+			<div class="article-subtitle">Research by UK analyst TNS Worldpanel Entertainment finds that women and over-45s are the fastest-growing gaming groups.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/12_gurumin-a-monstrous-adventure-hands-on_1100-6163108_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gurumin-a-monstrous-adventure-hands-on/1100-6163108/" class="article-title">Gurumin: A Monstrous Adventure Hands-On</a>
+			<div class="article-subtitle">Monkey hats, magical drills, and friendly monsters; we check them all out in our look at this kid-friendly adventure game for the PSP.</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206aliensyndrome_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206aliensyndrome" class="article-title">Alien Syndrome revealed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_r-fordracing-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-fordracing-ps2" class="article-title">Ford Street Racing</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_r-redsteel-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-redsteel-wii" class="article-title">Red Steel</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_r-thrillville-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-thrillville-ps2" class="article-title">Thrillville</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206motorstorm_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206motorstorm" class="article-title">MotorStorm dev looking to PS4</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206assaultheroes_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206assaultheroes" class="article-title">This week's XBLA release</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206zeldads_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206zeldads" class="article-title">Zelda DS next October?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206wiistraps_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206wiistraps" class="article-title">Wii straps quietly fixed?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206charts_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206charts" class="article-title">FIFA tops UK Charts</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206xna_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206xna" class="article-title">XNA launches fully</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206virtualconsole_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206virtualconsole" class="article-title">Virtual Console UK dates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_r-doax2-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-doax2-x360" class="article-title">Dead or Alive Xtreme 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206wiisales_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206wiisales" class="article-title">Wii is fastest-selling ever in UK</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206dragonquest_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206dragonquest" class="article-title">Dragon Quest IX on DS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_news121206steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121206steam" class="article-title">Send Steam games to friends</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/12_r-zootycoon2ze-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-zootycoon2ze-pc" class="article-title">Zoo Tycoon 2: Zookeeper Edition</a>
+			<div class="article-author">Oliver Clare</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127908/Xbox-Live-Arcade-Challenge-entries-now-open/" class="article-title">Xbox Live Arcade Challenge entries now open</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127907/Dutchman-wins-FIFA-Interactive-World-Cup/" class="article-title">Dutchman wins FIFA Interactive World Cup</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127906/Halo-2-machinima-series-online/" class="article-title">Halo 2 machinima series online</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127905/Razer-now-best-value-peripherals/" class="article-title">Razer now 'best value' peripherals</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bowmaster-prelude.php" class="article-title">BowMaster Prelude</a>
+			<div class="article-author">Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/extra-toxic.php" class="article-title">Developer interview: extra toxic</a>
+			<div class="article-author">Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/verbotomy.php" class="article-title">Verbotomy</a>
+			<div class="article-author">dancemonkey</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/12/12_2006_12_asougi.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/12/asougi.html" class="article-title">Asougi</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/12/12_2006_12_riah.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/12/riah.html" class="article-title">RIAH</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/12/12_2006_12_something-amiss.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/12/something-amiss.html" class="article-title">Something Amiss</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

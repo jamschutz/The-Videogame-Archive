@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 28, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/labyrinth-review/1900-6177785/" class="article-title">Labyrinth Review</a>
+			<div class="article-subtitle">Due to shoddy collision detection and a dearth of content, this Labyrinth just isn't worth solving.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/stuntman-ignition-review/1900-6177811/" class="article-title">Stuntman Ignition Review</a>
+			<div class="article-subtitle">If the heavy focus on trial and error doesn't rattle you, Stuntman: Ignition can be some explosive fun.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/stuntman-ignition-review/1900-6177810/" class="article-title">Stuntman Ignition Review</a>
+			<div class="article-subtitle">If the heavy focus on trial and error doesn't rattle you, Stuntman: Ignition can be some explosive fun.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/stuntman-ignition-review/1900-6177812/" class="article-title">Stuntman Ignition Review</a>
+			<div class="article-subtitle">If the heavy focus on trial and error doesn't rattle you, Stuntman: Ignition can be some explosive fun.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_heavenly-sword-updated-hands-on_1100-6177731_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heavenly-sword-updated-hands-on/1100-6177731/" class="article-title">Heavenly Sword Updated Hands-On</a>
+			<div class="article-subtitle">We got our hands on a near-final build of Heavenly Sword to see how the anticipated action game is turning out.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_when-tony-met-aaron_1100-6235674_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/when-tony-met-aaron/1100-6235674/" class="article-title">When Tony Met Aaron</a>
+			<div class="article-subtitle">It's not every day that you get to meet someone famous, but sometimes fate smiles upon you and you get the opportunity to meet someone who is known to people all over the globe. Thursday, August 23rd was one of those rare days when fate intervened and allowed a skateboarder named Tony Hawk to meet...</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_qanda-levine-surfs-bioshocks-wake_1100-6177728_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-levine-surfs-bioshocks-wake/1100-6177728/" class="article-title">Q&A: Levine surfs BioShock's wake</a>
+			<div class="article-subtitle">2K Boston head talks about launch woes of first-person shooter, delicately handling the game's ethical choices, and concerns (or lack thereof) with landing an "M" rating.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_daily-downloads-blue-dragon-mass-effect_1100-6177729_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-downloads-blue-dragon-mass-effect/1100-6177729/" class="article-title">Daily Downloads: Blue Dragon, Mass Effect</a>
+			<div class="article-subtitle">New fan kits for Mistwalker and Mass Effect's upcoming RPGs joined by Ragnarok Arena Half-Life mod and Jazz: Hired Guns demo.</div>
+			<div class="article-author">Lark Anderson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_stork-dropping-in-new-shrek-game_1100-6177741_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stork-dropping-in-new-shrek-game/1100-6177741/" class="article-title">Stork dropping in new Shrek game</a>
+			<div class="article-subtitle">Activision bringing latest gaming instalment of Shrek, titled Ogres and Dronkeys, to the DS this fall.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_red-mile-buys-ir-gurus_1100-6177730_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-mile-buys-ir-gurus/1100-6177730/" class="article-title">Red Mile buys IR Gurus</a>
+			<div class="article-subtitle">Aussie studio IR Gurus becomes subsidiary of US-based Red Mile Entertainment.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_uk-newsspots-lgf-video-games-live-david-cameron_1100-6177742_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-newsspots-lgf-video-games-live-david-cameron/1100-6177742/" class="article-title">UK NewsSpots: LGF, Video Games Live, David Cameron</a>
+			<div class="article-subtitle">More events announced for October's London Games Festival; Video Games Live concert coming to London; David Cameron blames video games.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_report-casual-games-help-families-bond_1100-6177743_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-casual-games-help-families-bond/1100-6177743/" class="article-title">Report: Casual games help families bond</a>
+			<div class="article-subtitle">Survey respondents say that playing casual games with their children or grandchildren helps them relate.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_tony-hawks-proving-ground-soundtrack-revealed_1100-6177733_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawks-proving-ground-soundtrack-revealed/1100-6177733/" class="article-title">Tony Hawk's Proving Ground soundtrack revealed</a>
+			<div class="article-subtitle">Tony Hawk's Proving Ground songlist to include brand-new Foo Fighters tune in 50-song soundtrack; Beastie Boys' MCA to feature as a playable character.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_shippin-out-august-27-31-metroid-3-warhawk-tiger-woods-blue-dragon-stuntman_1100-6177716_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-august-27-31-metroid-3-warhawk-tiger-woods-blue-dragon-stuntman/1100-6177716/" class="article-title">Shippin' Out August 27-31: Metroid 3, Warhawk, Tiger Woods, Blue Dragon, Stuntman</a>
+			<div class="article-subtitle">Quintet of heavy hitters join Dynasty Warriors: Gundam and downloadables such as Super Puzzle Fighter II and Ghouls 'n Ghosts; Guild Wars and Medieval II expansions also due.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_ultimas-kingdom-is-reborn_1100-6177764_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimas-kingdom-is-reborn/1100-6177764/" class="article-title">Ultima's Kingdom is Reborn</a>
+			<div class="article-subtitle">EA releases graphical overhaul on eve of venerable MMOG's 10th anniversary.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_warhawk-game-sharing-grounded_1100-6177766_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhawk-game-sharing-grounded/1100-6177766/" class="article-title">Warhawk game-sharing grounded</a>
+			<div class="article-subtitle">Downloadable version of Incognito's PS3-exclusive multiplayer shooter comes with new strings attached; Sony tells GameSpot why.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_crysis-demo-fires-off-september-25_1100-6177772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crysis-demo-fires-off-september-25/1100-6177772/" class="article-title">Crysis demo fires off September 25</a>
+			<div class="article-subtitle">Crytek instigates skirmish by releasing sampler of highly anticipated first-person shooter on the same day as Halo 3's launch.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_some-leipzig-images-part-i_1100-6235673_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/some-leipzig-images-part-i/1100-6235673/" class="article-title">Some Leipzig Images, Part I</a>
+			<div class="article-subtitle">It was pretty crazy in Leipzig and didn't have much time to sort through the hundreds of photos I took and then upload some interesting ones to the site. Still, as the Germans might say, besser spate als nie.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_esrb-defends-manhunt-rerating_1100-6177779_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-defends-manhunt-rerating/1100-6177779/" class="article-title">ESRB defends Manhunt rerating</a>
+			<div class="article-subtitle">Ratings board rebuffs California lawmaker's calls for transparency, concedes content was edited; Yee says organization can't be trusted.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_perpetual-clarifies-layoff-details_1100-6163342_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/perpetual-clarifies-layoff-details/1100-6163342/" class="article-title">Perpetual clarifies layoff details</a>
+			<div class="article-subtitle">Company confirms headcount reductions, disputes unconfirmed numbers reported earlier.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_gc-07-is-gc-the-new-e3_1100-6177661_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gc-07-is-gc-the-new-e3/1100-6177661/" class="article-title">GC '07: Is GC the new E3?</a>
+			<div class="article-subtitle">Supersized European trade show gets record 185,000 attendees, exhibitors, and journos, but people are unsure whether it will fill the gap left by the old extravaganza.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_pax-07-penny-arcade-adventures-on-the-rain-slick-precipice-of-darkness-first-look_1100-6177616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pax-07-penny-arcade-adventures-on-the-rain-slick-precipice-of-darkness-first-look/1100-6177616/" class="article-title">PAX '07: Penny Arcade Adventures: On the Rain-Slick Precipice of Darkness First Look</a>
+			<div class="article-subtitle">[UPDATE] We're there as Canadian developer Hothead Games takes the wraps off of its upcoming Penny Arcade game during a late-night panel; series to appear on Xbox Live Arcade.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_newsspots-graw2-bomberman-live-tiger-woods-08-penny-arcade-the-tuttles_1100-6177800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/newsspots-graw2-bomberman-live-tiger-woods-08-penny-arcade-the-tuttles/1100-6177800/" class="article-title">NewsSpots: GRAW2, Bomberman Live, Tiger Woods 08, Penny Arcade, The Tuttles</a>
+			<div class="article-subtitle">Map pack hits XBL, Hudson's bandolier restocked, golf sim sample Xbox'd, Web site based on game based on webcomic goes live, and charity game in development</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_tournament-announced_1100-6235672_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tournament-announced/1100-6235672/" class="article-title">Tournament Announced!</a>
+			<div class="article-subtitle">In the next week we'll be hosting our second installment of Capital Punishment, a team-based single elimination online tournament for Gears of War. The tournament will consist of 32 teams, each with 3 players. The gametype for the tournament will be Execution.Now is the best time to let your...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_flock-out-guthrie-and-curran-up-at-thq_1100-6177802_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/flock-out-guthrie-and-curran-up-at-thq/1100-6177802/" class="article-title">Flock out, Guthrie and Curran up at THQ</a>
+			<div class="article-subtitle">Smackdown maker's management sees shake-up, saying good-bye to an industry veteran as it promotes two other executives.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_spot-on-pax-2007_1100-6177719_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-pax-2007/1100-6177719/" class="article-title">Spot On: PAX 2007 </a>
+			<div class="article-subtitle">Penny Arcade Expo brings entertainment in spades as average-Joe attendees dig into playable previews, Q&A-style developer panels, and nerdcore musicfest.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/08/28_oflc-watch-august-29-2007_1100-6235671_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oflc-watch-august-29-2007/1100-6235671/" class="article-title">OFLC Watch August 29, 2007</a>
+			<div class="article-subtitle">Another week, another gander at what Australia&#39;s peak games classification body--the Office of Film and Literature Classification--has been up to.   Call of Duty 4  leads the list of games given their official classification this week, with Activision&#39;s upcoming shooter getting slapped with...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_game-music-at-london-festival_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-music-at-london-festival" class="article-title">Game music at London Festival</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_r-vcroundup-240807-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-vcroundup-240807-wii" class="article-title">Virtual Console Roundup</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_metal-slug-3-for-live-arcade_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-slug-3-for-live-arcade" class="article-title">Metal Slug 3 for Live Arcade</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_tiger-woods-08-demo-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/tiger-woods-08-demo-live" class="article-title">Tiger Woods 08 demo Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_steelseries-reveals-new-mice_thumbnail.png">
+			<a href="https://www.eurogamer.net/steelseries-reveals-new-mice" class="article-title">SteelSeries reveals new mice</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_crysis-demo-on-25th-sept_thumbnail.png">
+			<a href="https://www.eurogamer.net/crysis-demo-on-25th-sept" class="article-title">Crysis demo on 25th Sept</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_ubis-new-wii-party-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubis-new-wii-party-game" class="article-title">Ubi's new Wii party game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_no-ps3-ut-demo-pre-release_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-ps3-ut-demo-pre-release" class="article-title">No PS3 UT demo pre-release</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_settlers-6-demo-too_thumbnail.png">
+			<a href="https://www.eurogamer.net/settlers-6-demo-too" class="article-title">Settlers 6 demo, too</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_try-two-worlds-on-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/try-two-worlds-on-pc" class="article-title">Try Two Worlds on PC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_world-in-conflict-pc-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-in-conflict-pc-demo" class="article-title">World in Conflict PC demo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_heroes-of-mana-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/heroes-of-mana-dated" class="article-title">Heroes of Mana dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_gc-over-185-000-visit-leipzig_thumbnail.png">
+			<a href="https://www.eurogamer.net/gc-over-185-000-visit-leipzig" class="article-title">GC: Over 185,000 visit Leipzig</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_gc-best-of-winners-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/gc-best-of-winners-revealed" class="article-title">GC: Best Of winners revealed</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_psn-warhawk-on-thursday_thumbnail.png">
+			<a href="https://www.eurogamer.net/psn-warhawk-on-thursday" class="article-title">PSN WarHawk on Thursday</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_double-fines-new-game-in-08_thumbnail.png">
+			<a href="https://www.eurogamer.net/double-fines-new-game-in-08" class="article-title">Double Fine's new game in 08</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_levine-on-bioshock-pc-issues_thumbnail.png">
+			<a href="https://www.eurogamer.net/levine-on-bioshock-pc-issues" class="article-title">Levine on BioShock PC issues</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_penny-arcade-game-doing-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/penny-arcade-game-doing-xbla" class="article-title">Penny Arcade game doing XBLA</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_moh-airborne-pc-360-demos_thumbnail.png">
+			<a href="https://www.eurogamer.net/moh-airborne-pc-360-demos" class="article-title">MOH Airborne PC/360 demos</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_pes-heading-to-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/pes-heading-to-wii" class="article-title">PES heading to Wii</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_360-racing-wheel-malfunctions_thumbnail.png">
+			<a href="https://www.eurogamer.net/360-racing-wheel-malfunctions" class="article-title">360 Racing Wheel malfunctions</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_fatal-inertia-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/fatal-inertia-preview" class="article-title">Fatal Inertia</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/08/28_metroid-prime-3-in-october_thumbnail.png">
+			<a href="https://www.eurogamer.net/metroid-prime-3-in-october" class="article-title">Metroid Prime 3 in October</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128539/Tony-Hawks-Proving-Ground-soundtrack-list/" class="article-title">Tony Hawk's Proving Ground soundtrack list</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128540/CoD4-beta-launched/" class="article-title">CoD4 beta launched</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128538/3D-monitors-at-CPL-Champs/" class="article-title">3D monitors at CPL Champs</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128537/Free-update-for-Ultima-Online/" class="article-title">Free update for Ultima Online</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tower-bloxx.php" class="article-title">Tower Bloxx</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/knytt-stories.php" class="article-title">Knytt Stories</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/28_2007_08_28_space-giraffe-and-the-new-if-somewhat-late-editor_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/28/space-giraffe-and-the-new-if-somewhat-late-editor/" class="article-title">Space Giraffe! (and the new if somewhat late editor…)</a>
+			<div class="article-author">Xander</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/28_2007_08_28_knytt-stories-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/28/knytt-stories-2/" class="article-title">Knytt Stories</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/08/28_2007_08_28_black-shades_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/08/28/black-shades/" class="article-title">Black Shades</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/08/28_2007_08_rgcd-issue-3.html_thumbnail.gif">
+			<a href="http://indygamer.blogspot.com/2007/08/rgcd-issue-3.html" class="article-title">RGCD Issue #3</a>
+			<div class="article-author">Anonymous</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/08/28_2007_08_knytt-stories-released-early.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/08/knytt-stories-released-early.html" class="article-title">Knytt Stories released early</a>
+			<div class="article-author">haowan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/08/28_2007_08_lonely-house-moving.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/08/lonely-house-moving.html" class="article-title">Lonely House-Moving</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/08/28_2007_08_guardian-popon.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/08/guardian-popon.html" class="article-title">Guardian Popon</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

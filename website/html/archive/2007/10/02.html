@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 2, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kirbys-avalanche-review/1900-6180248/" class="article-title">Kirby's Avalanche Review</a>
+			<div class="article-subtitle">Kirby's Avalanche is a fun little puzzle game that's worth getting if you can find someone else to play with.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-2k8-review/1900-6180262/" class="article-title">NBA 2K8 Review</a>
+			<div class="article-subtitle">Despite a few nagging issues, NBA 2K8 is a fantastic basketball game packed to the brim with features and game modes.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-2k8-review/1900-6180268/" class="article-title">NBA 2K8 Review</a>
+			<div class="article-subtitle">Despite a few nagging issues, NBA 2K8 is a fantastic basketball game packed to the brim with features and game modes.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_realplay-puzzlesphere-hands-on_1100-6180149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/realplay-puzzlesphere-hands-on/1100-6180149/" class="article-title">RealPlay Puzzlesphere Hands On</a>
+			<div class="article-subtitle">We get briefly to grips with In2Games' ball-wielding puzzler.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_tgs-07-uncharted-drakes-fortune-hands-on_1100-6179124_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-07-uncharted-drakes-fortune-hands-on/1100-6179124/" class="article-title">TGS '07: Uncharted: Drake's Fortune Hands-On</a>
+			<div class="article-subtitle">We get some hands-on time with Naughty Dog's first PlayStation 3 offering.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_tabula-rasa-hands-on-12-hours-in_1100-6176825_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tabula-rasa-hands-on-12-hours-in/1100-6176825/" class="article-title">Tabula Rasa: Hands-On, 12 Hours In</a>
+			<div class="article-subtitle">We've been playing the closed beta of Tabula Rasa for a while, and having reached the 12-hours-played mark, it's time to report back.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_sony-ipo-to-raise-3-billion_1100-6180199_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-ipo-to-raise-3-billion/1100-6180199/" class="article-title">Sony IPO to raise $3 billion</a>
+			<div class="article-subtitle">PlayStation 3 maker sets high listing price for its financial division sell-off.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_bungie-jumping-microsofts-ship_1100-6180203_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-jumping-microsofts-ship/1100-6180203/" class="article-title">Bungie jumping Microsoft's ship?</a>
+			<div class="article-subtitle">A wholly unsubstantiated but widely circulated blog post claims that the Halo 3 developer is parting ways with its corporate master.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_qanda-krome-studios-on-the-legend-of-spyro-the-eternal-night_1100-6180205_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-krome-studios-on-the-legend-of-spyro-the-eternal-night/1100-6180205/" class="article-title">Q&A: Krome Studios on The Legend of Spyro: The Eternal Night </a>
+			<div class="article-subtitle">Aussie studio Krome talks about its latest Spyro effort, new moves, and Wii controls.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_london-imax-showcases-halo-3s-uk-launch_1100-6179863_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/london-imax-showcases-halo-3s-uk-launch/1100-6179863/" class="article-title">London IMAX showcases Halo 3's UK launch</a>
+			<div class="article-subtitle">Rap star Pharrell Williams takes on Carmen Electra and LL Cool J over Xbox Live as Microsoft celebrates the launch of Halo 3 in the UK.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_sony-invests-in-new-chip-maker_1100-6180225_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-invests-in-new-chip-maker/1100-6180225/" class="article-title">Sony invests in new chip maker</a>
+			<div class="article-subtitle">PS3 maker teams up with Qimonda in new company to cut costs, design custom DRAM for consumer electronics.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_ace-combat-katamari-360-debuts-locked-down_1100-6180224_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ace-combat-katamari-360-debuts-locked-down/1100-6180224/" class="article-title">Ace Combat, Katamari 360 debuts locked down</a>
+			<div class="article-subtitle">Namco Bandai's once-Sony-exclusive arcade air fighter and universe-consuming puzzler on target for October 16, 23 launch on Microsoft's console.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_panasonic-blu-ray-will-win-by-new-years-day_1100-6180227_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/panasonic-blu-ray-will-win-by-new-years-day/1100-6180227/" class="article-title">Panasonic: Blu-ray will win by New Year's Day</a>
+			<div class="article-subtitle">Exec predicts PS3's hi-def format will defeat Microsoft-backed HD DVD in next-gen disc format war.</div>
+			<div class="article-author">Michael Kanellos</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_40-blu-ray-warhawk-swooping-into-retail_1100-6180230_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/40-blu-ray-warhawk-swooping-into-retail/1100-6180230/" class="article-title">$40 Blu-ray Warhawk swooping into retail</a>
+			<div class="article-subtitle">Sony confirms boxed, headset-less edition of its well-reviewed action game will touch down on retail shelves this month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_the-simpsons-game-executive-producer-qanda_1100-6180098_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-simpsons-game-executive-producer-qanda/1100-6180098/" class="article-title">The Simpsons Game Executive Producer Q&A</a>
+			<div class="article-subtitle">Electronic Arts' Scot Amos talks to GameSpot about The Simpsons Game and his future plans for the franchise.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_tabula-rasa-launch-postponed_1100-6180258_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tabula-rasa-launch-postponed/1100-6180258/" class="article-title">Tabula Rasa launch postponed</a>
+			<div class="article-subtitle">NCsoft's sci-fi MMOG from famed designer Richard Garriott delayed two weeks to November 2.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_cooking-mama-2-serves-north-america_1100-6180261_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cooking-mama-2-serves-north-america/1100-6180261/" class="article-title">Cooking Mama 2 serves North America</a>
+			<div class="article-subtitle">Majesco dishing out seconds of Office Create's kitchen minigame compilation on November 13 for the Nintendo DS.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_gdc-07-portal-hands-on_1100-6166975_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gdc-07-portal-hands-on/1100-6166975/" class="article-title">GDC 07: Portal Hands-On</a>
+			<div class="article-subtitle">Valve's quirky student-inspired first-person puzzle game was playable for the first time at a GDC event, and we were first in line to try it.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_half-life-2-episode-two-qanda-story-setting-and-technology_1100-6169501_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/half-life-2-episode-two-qanda-story-setting-and-technology/1100-6169501/" class="article-title">Half-Life 2: Episode Two Q&A - Story, Setting, and Technology</a>
+			<div class="article-subtitle">Valve's Erik Johnson fills us in on the highly awaited next installment in the Half-Life 2 saga.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_nexon-opens-na-kartrider-beta_1100-6235506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nexon-opens-na-kartrider-beta/1100-6235506/" class="article-title">Nexon opens NA KartRider beta</a>
+			<div class="article-subtitle">With its free-to-play, microtransaction-supported business model, South Korea-based Nexon excels at attracting massive numbers of players to its online games. Since releasing the online multiplayer racing game KartRider in its home country in 2004, the publisher claims the game has been played by...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/02_xbox-360-arcade-system-confirmed_1100-6235505_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-arcade-system-confirmed/1100-6235505/" class="article-title">Xbox 360 Arcade system confirmed?</a>
+			<div class="article-subtitle">Source: See below.     What we heard: In August, rumors ran amok that Microsoft would be discontinuing its hard-drive-less Core Xbox 360. According to unconfirmed screens unearthed by  Kotaku, the baseline model would be replaced by the Xbox 360 Arcade System before the year's end. For the same...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_ps3-ut3-officially-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-ut3-officially-delayed" class="article-title">PS3 UT3 officially delayed</a>
+			<div class="article-author">Mark Androvich</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_crysis-beta-opens-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/crysis-beta-opens-up" class="article-title">Crysis beta opens up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_cgs-names-uk-winners_thumbnail.png">
+			<a href="https://www.eurogamer.net/cgs-names-uk-winners" class="article-title">CGS names UK winners</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_turok-gets-hollywood-talent_thumbnail.png">
+			<a href="https://www.eurogamer.net/turok-gets-hollywood-talent" class="article-title">Turok gets Hollywood talent</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_mistwalker-making-two-for-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/mistwalker-making-two-for-ds" class="article-title">Mistwalker making two for DS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_falcon-chips-already-in-360s_thumbnail.png">
+			<a href="https://www.eurogamer.net/falcon-chips-already-in-360s" class="article-title">Falcon chips already in 360s?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_eternal-sonata-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/eternal-sonata-review" class="article-title">Eternal Sonata</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_sonys-psp-theme-creator_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonys-psp-theme-creator" class="article-title">Sony's PSP theme creator</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_wii-remote-jacket-available-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-remote-jacket-available-now" class="article-title">Wii Remote Jacket available now</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_bladestorm-demos-this-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/bladestorm-demos-this-week" class="article-title">Bladestorm demos this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_halo-3-most-popular-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-most-popular-on-live" class="article-title">Halo 3 most popular on Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_tetris-splash-on-xbla-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/tetris-splash-on-xbla-tomorrow" class="article-title">Tetris Splash on XBLA tomorrow</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_grimgrimoire-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/grimgrimoire-review" class="article-title">GrimGrimoire</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_wii-trouncing-ps3-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-trouncing-ps3-in-japan" class="article-title">Wii trouncing PS3 in Japan</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_ms-responds-to-bungie-break-up-rumours_thumbnail.png">
+			<a href="https://www.eurogamer.net/ms-responds-to-bungie-break-up-rumours" class="article-title">MS responds to Bungie break-up rumours</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_world-in-conflict-360-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-in-conflict-360-delayed" class="article-title">World in Conflict 360 delayed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_hayter-voicing-snake-in-smash-bros_thumbnail.png">
+			<a href="https://www.eurogamer.net/hayter-voicing-snake-in-smash-bros" class="article-title">Hayter voicing Snake in Smash Bros.</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_universe-at-war-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/universe-at-war-delayed" class="article-title">Universe at War delayed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_future-to-publish-official-us-playstation-mag_thumbnail.png">
+			<a href="https://www.eurogamer.net/future-to-publish-official-us-playstation-mag" class="article-title">Future to publish official US PlayStation mag</a>
+			<div class="article-author">Mark Androvich</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_conan-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/conan-review" class="article-title">Conan</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/02_new-warhawk-sku-in-us_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-warhawk-sku-in-us" class="article-title">New Warhawk SKU in US</a>
+			<div class="article-author">Mark Androvich</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128618/Bladestorm-demos-Thursday/" class="article-title">Bladestorm demos Thursday</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128617/Square-clarifies-overseas-bus-dev-position/" class="article-title">Square clarifies overseas bus dev position</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128616/CDV-stock-sold-to-investment-company/" class="article-title">CDV stock sold to investment company</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-the-tall-stump.php" class="article-title">CGDC4: The Tall Stump</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-roll.php" class="article-title">CGDC4: Roll</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-factory-balls.php" class="article-title">CGDC4: Factory Balls</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-event-horizon.php" class="article-title">CGDC4: Event Horizon</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc-rules.php" class="article-title">CGDC Rules</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/02_2007_10_02_knytt-stories-third-party-level-dont-eat-the-mushroom_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/02/knytt-stories-third-party-level-dont-eat-the-mushroom/" class="article-title">Knytt Stories Third Party Level: “Don’t Eat The Mushroom”</a>
+			<div class="article-author">Terry</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/02_2007_10_02_viva-caligula_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/02/viva-caligula/" class="article-title">Viva Caligula</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/02_2007_10_02_tigs-on-facebook_thumbnail.gif">
+			<a href="https://www.tigsource.com/2007/10/02/tigs-on-facebook/" class="article-title">TIGS On Facebook</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

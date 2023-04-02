@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 30, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/galactic-civilizations-ii-twilight-of-the-arnor-re/1900-6191779/" class="article-title">Galactic Civilizations II: Twilight of the Arnor Review</a>
+			<div class="article-subtitle">Galactic Civilizations II goes out with a bang thanks to the superb Twilight of the Arnor expansion.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mass-effect-review/1900-6191875/" class="article-title">Mass Effect Review</a>
+			<div class="article-subtitle">Streamlined combat and numerous minor improvements make this great game even better.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/enemy-territory-quake-wars-review/1900-6191877/" class="article-title">Enemy Territory: Quake Wars Review</a>
+			<div class="article-subtitle">Although the objective-based action is still feverish in this console port of Quake Wars, the lack of any upgrades makes this multiplayer-only shooter feel slim and dated.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/enemy-territory-quake-wars-review/1900-6191874/" class="article-title">Enemy Territory: Quake Wars Review</a>
+			<div class="article-subtitle">Although the objective-based action is still feverish in this console port of Quake Wars, the lack of any upgrades makes this multiplayer-only shooter feel slim and dated.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_brothers-in-arms-hells-highway-updated-hands-on_1100-6191749_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brothers-in-arms-hells-highway-updated-hands-on/1100-6191749/" class="article-title">Brothers in Arms: Hell's Highway Updated Hands-On</a>
+			<div class="article-subtitle">Gearbox showed off a new level from its World War II shooter at Ubidays in Paris.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_race-driver-grid-launch-day-underway_1100-6234814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/race-driver-grid-launch-day-underway/1100-6234814/" class="article-title">Race Driver Grid Launch Day underway</a>
+			<div class="article-subtitle">Codemasters is holding a launch-day event on Oxford street today to celebrate Race Driver: Grid's arrival. As well as some early morning silliness, a bunch of gamers are competing for a BMW M3 (having taken part in a pan-European fastest-lap challenge), and there are a number of booths set up for...</div>
+			<div class="article-author">Seb Ford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_rock-band-moving-motley-crue-single_1100-6191805_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-moving-motley-crue-single/1100-6191805/" class="article-title">Rock Band moving Motley Crue single</a>
+			<div class="article-subtitle">Glam rockers' "Saints of Los Angeles" sells nearly five times as many downloads through Harmonix's rhythm game than online stores such as iTunes and Amazon.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_baja-updated-hands-on_1100-6191815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/baja-updated-hands-on/1100-6191815/" class="article-title">Baja Updated Hands-On</a>
+			<div class="article-subtitle">THQ and 2XL Games stop by the GameSpot office with a near-finished version of this promising off-road racer.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_red-ant-distributing-capcom-games-in-au-nz_1100-6191739_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-ant-distributing-capcom-games-in-au-nz/1100-6191739/" class="article-title">Red Ant distributing Capcom games in AU, NZ</a>
+			<div class="article-subtitle">Aussie distributor Red Ant now responsible for selling Street Fighter IV and Resident Evil 5 down under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_new-ds-colours-and-pokemon-adventures-coming-to-australia_1100-6191816_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ds-colours-and-pokemon-adventures-coming-to-australia/1100-6191816/" class="article-title">New DS colours and Pokemon adventures coming to Australia</a>
+			<div class="article-subtitle">Nintendo announces two new DS colour combos and new Pokemon games for Australia this June.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_aussie-emulation-mash-up-may-26-30_1100-6191817_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-emulation-mash-up-may-26-30/1100-6191817/" class="article-title">Aussie emulation mash-up: May 26-30</a>
+			<div class="article-subtitle">Super Puzzle Fighter II Turbo HD Remix debuts on the PSN for a pretty penny.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_hirai-exclusives-hard-to-find_1100-6191819_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hirai-exclusives-hard-to-find/1100-6191819/" class="article-title">Hirai: Exclusives hard to find</a>
+			<div class="article-subtitle">The president of Sony Computer Entertainment admits that it often makes sense for publishers to go for a multiplatform rollout.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_nintendo-channelling-europe_1100-6191818_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-channelling-europe/1100-6191818/" class="article-title">Nintendo Channelling Europe</a>
+			<div class="article-subtitle">Latest arm of the Wii Shop Channel will deal out information on games, along with demos for upcoming DS games.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_guitar-hero-aerosmith-hands-on_1100-6191842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-aerosmith-hands-on/1100-6191842/" class="article-title">Guitar Hero: Aerosmith Hands-On</a>
+			<div class="article-subtitle">We get in touch with our inner Joe Perry by playing a few songs' worth of Guitar Hero: Aerosmith.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_fracture-cracking-in-october_1100-6191844_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fracture-cracking-in-october/1100-6191844/" class="article-title">Fracture cracking in October</a>
+			<div class="article-subtitle">LucasArts and Day 1 Studios' terraforming shooter busts onto the Xbox 360 and PlayStation 3 this fall.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_fracture-updated-impressions_1100-6191820_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fracture-updated-impressions/1100-6191820/" class="article-title">Fracture Updated Impressions</a>
+			<div class="article-subtitle">We head to a climate-changed vision of the future torn apart by civil war to check out a few new terraforming guns.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_report-valve-billows-steam-cloud_1100-6191861_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-valve-billows-steam-cloud/1100-6191861/" class="article-title">Report: Valve billows Steam Cloud</a>
+			<div class="article-subtitle">"Near future" update to developer's digital distribution service allows server-side storage of game-generated data; auto driver updates, system-req checks on horizon.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_guitar-hero-on-tour-hands-on_1100-6191866_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-on-tour-hands-on/1100-6191866/" class="article-title">Guitar Hero: On Tour Hands-On</a>
+			<div class="article-subtitle">We see how well strumming with a stylus pick on the DS touch screen really works.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_al-qaeda-web-site-swipes-fallout-3-pic_1100-6234813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/al-qaeda-web-site-swipes-fallout-3-pic/1100-6234813/" class="article-title">Al-Qaeda Web site swipes Fallout 3 pic</a>
+			<div class="article-subtitle">After acquiring the Fallout 3 license in 2004, Bethesda Softworks initially played coy about the game's setting. Three years later, though, the Maryland-based publisher-developer released concept art revealing that the much-anticipated role-playing game would be set in a postapocalyptic...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_clone-wars-reproducing-on-wii-ds_1100-6191862_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/clone-wars-reproducing-on-wii-ds/1100-6191862/" class="article-title">Clone Wars reproducing on Wii, DS</a>
+			<div class="article-subtitle">Lego Indiana Jones booklet reveals unannounced Nintendo tie-ins to LucasFilm's upcoming computer-animated TV-film crossover.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_al-qaeda-web-site-swipes-fallout-3-pic_1100-6191870_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/al-qaeda-web-site-swipes-fallout-3-pic/1100-6191870/" class="article-title">Al-Qaeda Web site swipes Fallout 3 pic</a>
+			<div class="article-subtitle">Bethesda, Maryland-based private intelligence service claims terrorist-linked site stole postapocalyptic concept art from Bethesda Softworks' forthcoming game.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_pressspotting-the-may-round-up_1100-6191814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pressspotting-the-may-round-up/1100-6191814/" class="article-title">PressSpotting: The May Round-Up</a>
+			<div class="article-subtitle">Our columnist looks at game-news headlines this month, including Headline News' Glenn Beck, Donna Mei-Ling Park, and the mysterious Surfer Girl.</div>
+			<div class="article-author">Kyle Orland</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_ubisoft-lighting-up-ds-antismoking-game_1100-6234812_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-lighting-up-ds-antismoking-game/1100-6234812/" class="article-title">Ubisoft lighting up DS antismoking game</a>
+			<div class="article-subtitle">For some, the addictive powers of Nintendo's Pokemon are enough to quit smoking. Others looking to cease spewing a miasma of sweet, sweet nicotine through gaming, however, may require a more on-point approach. Enter Allen Carr's Easyway to Stop Smoking, scheduled for release on the Nintendo DS this...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_ubisoft-lighting-up-ds-antismoking-game_1100-6191872_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-lighting-up-ds-antismoking-game/1100-6191872/" class="article-title">Ubisoft lighting up DS antismoking game</a>
+			<div class="article-subtitle">Publisher teams with Allen Carr empire to bring Easyway to Stop Smoking technique to Nintendo's portable this November.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_ps3-trophies-in-game-xmb-just-weeks-away_1100-6234811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-trophies-in-game-xmb-just-weeks-away/1100-6234811/" class="article-title">PS3 trophies, in-game XMB just weeks away?</a>
+			<div class="article-subtitle">Source: A short but media-rich piece on MaxConsole.com.   What we heard: When the PlayStation 3 was launched, it was criticized for a number of reasons. One particular bone of contention was the fact that players had to quit a game to access the PS3's cross-media bar, commonly abbreviated as XMB...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_prince-of-persia-spinning-off-onto-wii_1100-6234810_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-spinning-off-onto-wii/1100-6234810/" class="article-title">Prince of Persia spinning off onto Wii?</a>
+			<div class="article-subtitle">Source: French gaming blog LiveWii. What we heard: So, thought all those rumors surrounding the next installment in Ubisoft's famed Prince of Persia franchise would be settled after the game's official announcement and subsequent media briefings? Think again.  According to Ubisoft's announcement in...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_netflix-eyeing-xbox-live_1100-6188365_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflix-eyeing-xbox-live/1100-6188365/" class="article-title">Netflix eyeing Xbox Live?</a>
+			<div class="article-subtitle">Movie-rental service reportedly surveys customers about streaming films over Microsoft's console service, keeps mum about possibility of a partnership.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_beyond-good-and-evil-returns_1100-6191556_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beyond-good-and-evil-returns/1100-6191556/" class="article-title">Beyond Good & Evil returns</a>
+			<div class="article-subtitle">Ubisoft teases long-rumored sequel to Michel Ancel's action adventure game at Ubidays press event.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_bioshock-zaps-ps3-in-october_1100-6191647_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-zaps-ps3-in-october/1100-6191647/" class="article-title">BioShock zaps PS3 in October</a>
+			<div class="article-subtitle">Take-Two's acclaimed first-person shooter making waves on Sony's platform later this year with "new features and content."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/05/30_jimmy-buffett-disturbed-by-rock-band_1100-6234809_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jimmy-buffett-disturbed-by-rock-band/1100-6234809/" class="article-title">Jimmy Buffett Disturbed by Rock Band</a>
+			<div class="article-subtitle">While MTV Games and Harmonix's Rock Band cover a wide range of music, this week's batch of downloadable content offers songs from the two extreme ends of the musical spectrum. For the week of June 3, Rock Band will receive a six-pack of songs, three of which come from margarita-quaffing escapist...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_worlds-of-possibilities-for-wii-board_thumbnail.png">
+			<a href="https://www.eurogamer.net/worlds-of-possibilities-for-wii-board" class="article-title">"Worlds of possibilities" for Wii board</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_puzzle-fighter-leads-pal-psn-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/puzzle-fighter-leads-pal-psn-update" class="article-title">Puzzle Fighter leads PAL PSN update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_sony-doing-psn-gardening-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-doing-psn-gardening-game" class="article-title">Sony doing PSN gardening game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_sony-quiet-on-in-game-xmb-talk_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-quiet-on-in-game-xmb-talk" class="article-title">Sony quiet on in-game XMB talk</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_buku-sudoku-and-warlords-on-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/buku-sudoku-and-warlords-on-xbla" class="article-title">Buku Sudoku and Warlords on XBLA</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_prince-of-persia-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/prince-of-persia-interview" class="article-title">Prince of Persia</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_more-content-confirmed-for-sfiv-console_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-content-confirmed-for-sfiv-console" class="article-title">More content confirmed for SFIV console</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_hawx-squads-to-be-voice-controllable_thumbnail.png">
+			<a href="https://www.eurogamer.net/hawx-squads-to-be-voice-controllable" class="article-title">HAWX squads to be voice controllable</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_apologies-and-self-promotion-developer-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/apologies-and-self-promotion-developer-blog-entry" class="article-title">Apologies and self-promotion</a>
+			<div class="article-author">Craig Munro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_bg-and-e-sequel-to-be-more-accessible_thumbnail.png">
+			<a href="https://www.eurogamer.net/bg-and-e-sequel-to-be-more-accessible" class="article-title">BG&E sequel to be "more accessible"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_mgs-will-always-be-around-kojima_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-will-always-be-around-kojima" class="article-title">"MGS will always be around" - Kojima</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_three-new-titles-for-virtual-console_thumbnail.png">
+			<a href="https://www.eurogamer.net/three-new-titles-for-virtual-console" class="article-title">Three new titles for Virtual Console</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_brothers-in-arms-movie-in-talks_thumbnail.png">
+			<a href="https://www.eurogamer.net/brothers-in-arms-movie-in-talks" class="article-title">Brothers In Arms movie in "talks"</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_psp-still-winning-hardware-race-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-still-winning-hardware-race-in-japan" class="article-title">PSP still winning hardware race in Japan</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_wii-roundup-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-roundup-3" class="article-title">Wii Roundup</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_valve-we-dont-worry-about-piracy_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-we-dont-worry-about-piracy" class="article-title">Valve: we don't worry about piracy</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_digital-overtaking-retail-for-valve_thumbnail.png">
+			<a href="https://www.eurogamer.net/digital-overtaking-retail-for-valve" class="article-title">Digital overtaking retail for Valve</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/05/30_valve-announces-steam-cloud_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-announces-steam-cloud" class="article-title">Valve announces Steam Cloud</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131802/2K-reveals-Don-King-soundtrack/" class="article-title">2K reveals Don King soundtrack</a>
+			<div class="article-subtitle">Eye of the Tiger? check.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131800/Sega-shows-Space-Siege/" class="article-title">Sega shows Space Siege</a>
+			<div class="article-subtitle">Trailer includes gameplay footage.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/womens-murder-club-death-in-scarlet.php" class="article-title">Women's Murder Club: Death in Scarlet</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/applicate-vol-0.php" class="article-title">Applicate Vol. 0</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-63.php" class="article-title">Link Dump Friday №64</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/05/30_2008_05_30_updates_thumbnail.png">
+			<a href="https://www.tigsource.com/2008/05/30/updates/" class="article-title">Updates!</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

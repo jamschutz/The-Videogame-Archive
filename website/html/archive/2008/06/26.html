@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 26, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/europa-universalis-iii-in-nomine-review/1900-6193073/" class="article-title">Europa Universalis III: In Nomine Review</a>
+			<div class="article-subtitle">Just about every aspect of Europa Universalis III is improved in the In Nomine expansion pack.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alone-in-the-dark-review/1900-6193075/" class="article-title">Alone in the Dark Review</a>
+			<div class="article-subtitle">If you can endure some vexing technical flaws, Alone in the Dark can be a clever, satisfying adventure.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_aussie-game-charts-june-16-22_1100-6193031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-june-16-22/1100-6193031/" class="article-title">Aussie game charts: June 16-22</a>
+			<div class="article-subtitle">Konami's hit PS3 game remains king of the charts down under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_uk-news-reader-stars-in-game_1100-6193033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-news-reader-stars-in-game/1100-6193033/" class="article-title">UK news reader stars in game</a>
+			<div class="article-subtitle">The virtual likeness of the famous Channel 4 journalist Jon Snow features in a game highlighting violence and knife crime.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_ps3-xmb-trophy-update-a-go-for-e3_1100-6192985_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-xmb-trophy-update-a-go-for-e3/1100-6192985/" class="article-title">PS3 XMB, trophy update a go for E3?</a>
+			<div class="article-subtitle">Much-anticipated version 2.40 update for Sony's console rumored to be three weeks away; background music, trophies supposedly detailed.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_leipzig-2009-still-going-ahead_1100-6193034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/leipzig-2009-still-going-ahead/1100-6193034/" class="article-title">Leipzig 2009 'still going ahead'</a>
+			<div class="article-subtitle">Despite the relocation of the official German Federal Association for Entertainment Software games convention to Cologne, Leipziger Messe boss vows its event will continue.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_us-ps3-video-rentals-due-in-summer-life-with-playstation-revealed_1100-6193035_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-ps3-video-rentals-due-in-summer-life-with-playstation-revealed/1100-6193035/" class="article-title">US PS3 video rentals due in 'summer,' Life with PlayStation revealed</a>
+			<div class="article-subtitle">Sony announces long-awaited video-download service, will reveal Wii News-like global-news browser at E3; game division still on course to profitability.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_cdv-picks-up-fallen-angel-for-ps3_1100-6193039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cdv-picks-up-fallen-angel-for-ps3/1100-6193039/" class="article-title">CDV picks up Fallen Angel for PS3</a>
+			<div class="article-subtitle">Ascaron Entertainment's Sacred sequel for Xbox 360 and PC branches out to another platform, set to arrive this fall.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_blizzard-acquires-diablo3com_1100-6190238_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-acquires-diablo3com/1100-6190238/" class="article-title">Blizzard acquires Diablo3.com</a>
+			<div class="article-subtitle">The Warcraft publisher recently paid off a fansite, ahead of a possible announcement in Paris next month.</div>
+			<div class="article-author">Alex Sassoon coby</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_eyes-in-blizzard-teaser-confirm-diablo-3_1100-6234672_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eyes-in-blizzard-teaser-confirm-diablo-3/1100-6234672/" class="article-title">'Eyes' in Blizzard teaser confirm Diablo 3?</a>
+			<div class="article-subtitle">Source: See below.  What we heard: After drawing out last year's reveal of StarCraft II via a long series of cryptic teasers, Blizzard appears to be at it again. Once more, the Irvine, California-based developer is preceding one of its Worldwide Invitational events with a week of mysterious...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_left-4-dead-arises-november-4_1100-6192872_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/left-4-dead-arises-november-4/1100-6192872/" class="article-title">Left 4 Dead arises November 4</a>
+			<div class="article-subtitle">Valve-owned Turtle Rock Studios set to loose its horde of infected on the Xbox 360 and PC later this year.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_eyes-in-blizzard-teaser-confirm-diablo-3_1100-6193053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eyes-in-blizzard-teaser-confirm-diablo-3/1100-6193053/" class="article-title">'Eyes' in Blizzard teaser confirm Diablo 3?</a>
+			<div class="article-subtitle">Image comparison by WOW insider appears to match latest Blizzard.com image to glowing eye sockets of iconic RPG's titular villain.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_guitar-heroes-immortalized-in-plastic_1100-6234671_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-heroes-immortalized-in-plastic/1100-6234671/" class="article-title">Guitar Heroes immortalized in plastic</a>
+			<div class="article-subtitle">Three years ago, Guitar Hero turned the gaming industry on its ear by proving that a market existed for playing with tiny plastic rock instruments. Later this year, McFarlane Toys would no doubt love to find a similarly lucrative market for playing with tiny plastic rock stars, as the company...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_prince-of-persia-vaults-back-onto-ds_1100-6193054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-vaults-back-onto-ds/1100-6193054/" class="article-title">Prince of Persia vaults back onto DS</a>
+			<div class="article-subtitle">The Fallen King adapts acrobatic action series to stylus controls; publisher's Casablanca studio set to have game finished for the holidays.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_guitar-heroes-immortalized-in-plastic_1100-6193062_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-heroes-immortalized-in-plastic/1100-6193062/" class="article-title">Guitar Heroes immortalized in plastic</a>
+			<div class="article-subtitle">McFarlane Toys signs up to create line of action figures based on the stars of Activision's rhythm rock game.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_microsoft-rolls-out-xbla-drm-fix_1100-6193066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-rolls-out-xbla-drm-fix/1100-6193066/" class="article-title">Microsoft rolls out XBLA DRM fix</a>
+			<div class="article-subtitle">Xbox 360 owners granted ability to transfer Live Arcade game licenses from old system to new.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_gears-of-war-2-impressions-first-look-delta-squad-and-dueling-chainsaws_1100-6190892_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gears-of-war-2-impressions-first-look-delta-squad-and-dueling-chainsaws/1100-6190892/" class="article-title">Gears of War 2 Impressions - First Look, Delta Squad, and Dueling Chainsaws</a>
+			<div class="article-subtitle">Epic Games' Cliff "Cliffy B" Bleszinski takes us through the second level of Epic's upcoming squad-based action game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_fable-2-updated-impressions-characters-and-environments_1100-6190908_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fable-2-updated-impressions-characters-and-environments/1100-6190908/" class="article-title">Fable 2 Updated Impressions - Characters and Environments</a>
+			<div class="article-subtitle">Designer Peter Molyneux guides us on yet another journey through the world of Fable 2, focusing on character and environmental customization.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_too-human-updated-hands-on-two-player-cooperative-mayhem_1100-6190886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/too-human-updated-hands-on-two-player-cooperative-mayhem/1100-6190886/" class="article-title">Too Human Updated Hands-On - Two-Player Cooperative Mayhem</a>
+			<div class="article-subtitle">We recently got our hands on this upcoming co-op action extravaganza and didn't want to let go.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_silent-hill-homecoming-hands-on_1100-6191021_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/silent-hill-homecoming-hands-on/1100-6191021/" class="article-title">Silent Hill: Homecoming Hands-On</a>
+			<div class="article-subtitle">We finally got our hands around the neck of this terrifying new entry in the legendary horror series, Silent Hill.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_banjo-kazooie-nuts-and-bolts-hands-on_1100-6190499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/banjo-kazooie-nuts-and-bolts-hands-on/1100-6190499/" class="article-title">Banjo-Kazooie: Nuts & Bolts Hands-On</a>
+			<div class="article-subtitle">After a long hiatus, Rare is bringing back Banjo and Kazooie for their first appearance on a console since the days of the Nintendo 64.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_rock-revolution-hands-on_1100-6191024_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-revolution-hands-on/1100-6191024/" class="article-title">Rock Revolution Hands-On</a>
+			<div class="article-subtitle">We pound out some Twisted Sister in Konami's new multi-instrument rhythm game.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_sonic-unleashed-first-look_1100-6191119_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonic-unleashed-first-look/1100-6191119/" class="article-title">Sonic Unleashed First Look</a>
+			<div class="article-subtitle">We get our first look at this speedy platform game starring Sega's mascot.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_samba-de-amigo-update_1100-6191100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/samba-de-amigo-update/1100-6191100/" class="article-title">Samba de Amigo Update</a>
+			<div class="article-subtitle">Sega shows off more of the Wii Remote revival of its classic rhythm game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_soul-calibur-iv-hands-on_1100-6191743_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soul-calibur-iv-hands-on/1100-6191743/" class="article-title">Soul Calibur IV Hands-On</a>
+			<div class="article-subtitle">We went hands-on with both Yoda and Darth Vader in the latest playable builds of Soul Calibur IV.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_prince-of-persia-first-impressions_1100-6191629_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-first-impressions/1100-6191629/" class="article-title">Prince of Persia First Impressions</a>
+			<div class="article-subtitle">Ubisoft Montreal has taken a classic franchise from the shelf and dusted it down and is preparing it for its next-gen debut.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_far-cry-2-console-hands-on_1100-6191746_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/far-cry-2-console-hands-on/1100-6191746/" class="article-title">Far Cry 2 Console Hands-On</a>
+			<div class="article-subtitle">One of the biggest Ubidays announcements was a simultaneous release date for Far Cry 2 on PC, PS3, and Xbox 360. We celebrated the occasion with our first console hands-on with the game.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_street-fighter-iv-updated-hands-on_1100-6191980_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-fighter-iv-updated-hands-on/1100-6191980/" class="article-title">Street Fighter IV Updated Hands-On</a>
+			<div class="article-subtitle">We get our mitts on the near-final arcade version of Capcom's most anticipated fighter in ages and get the latest on the console conversions.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_resident-evil-5-updated-impressions_1100-6191983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-5-updated-impressions/1100-6191983/" class="article-title">Resident Evil 5 Updated Impressions</a>
+			<div class="article-subtitle">Capcom teases us with another glimpse of its highly anticipated entry in the survival horror franchise.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_bionic-commando-updated-hands-on_1100-6191984_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bionic-commando-updated-hands-on/1100-6191984/" class="article-title">Bionic Commando Updated Hands-on</a>
+			<div class="article-subtitle">We swing around town in the latest version of Capcom's classic NES game of the same name and chat with the developer.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_xbox-360-getting-another-price-cut_1100-6234670_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-getting-another-price-cut/1100-6234670/" class="article-title">Xbox 360 getting another price cut?</a>
+			<div class="article-subtitle">Source: Pictures purportedly from an upcoming K-Mart newspaper flyer originally posted on the High-Def Digest forums.  What we heard: Last August, Microsoft's plans to drop the price of the Xbox 360 in all of its configurations were leaked four separate times. The Hollywood Reporter ran the news...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_damnation-first-look_1100-6193068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/damnation-first-look/1100-6193068/" class="article-title">Damnation First Look</a>
+			<div class="article-subtitle">We jump, flip, and shoot our way through an alternate history of the United States.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/06/26_xbox-360-getting-another-price-cut_1100-6193072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-getting-another-price-cut/1100-6193072/" class="article-title">Xbox 360 getting another price cut?</a>
+			<div class="article-subtitle">As-yet-unpublished retailer ad lists 20GB model of Microsoft system with "new low price" of $299.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_top-spin-3-demo-available-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/top-spin-3-demo-available-now" class="article-title">Top Spin 3 demo available now</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_kaz-hirai-demos-life-with-playstation_thumbnail.png">
+			<a href="https://www.eurogamer.net/kaz-hirai-demos-life-with-playstation" class="article-title">Kaz Hirai demos 'Life with PlayStation'</a>
+			<div class="article-author">Dan Pearson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_white-knight-story-out-by-april_thumbnail.png">
+			<a href="https://www.eurogamer.net/white-knight-story-out-by-april" class="article-title">White Knight Story out by April</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_conan-is-steak-to-wows-mcdonalds_thumbnail.png">
+			<a href="https://www.eurogamer.net/conan-is-steak-to-wows-mcdonalds" class="article-title">Conan is "steak" to WOW's "McDonald's"</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_guitar-hero-on-tour-european-track-list_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-on-tour-european-track-list" class="article-title">Guitar Hero: On Tour European track list</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_more-than-50m-ps3s-and-psps-now-sold_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-than-50m-ps3s-and-psps-now-sold" class="article-title">More than 50m PS3s and PSPs now sold</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_funcoms-gaute-godager-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/funcoms-gaute-godager-interview" class="article-title">Funcom's Gaute Godager</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_mgs4-database-commando-demo-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs4-database-commando-demo-on-psn" class="article-title">MGS4 Database/Commando demo on PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_echochrome-out-in-europe-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/echochrome-out-in-europe-next-week" class="article-title">echochrome out in Europe next week</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_jumpgate-beta-sign-ups-begin_thumbnail.png">
+			<a href="https://www.eurogamer.net/jumpgate-beta-sign-ups-begin" class="article-title">Jumpgate beta sign-ups begin</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_siren-blood-curse-6-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/siren-blood-curse-6-2" class="article-title">Siren: Blood Curse</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_ps3-movie-download-service-to-begin-in-us-this-summer_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-movie-download-service-to-begin-in-us-this-summer" class="article-title">PS3 movie download service to begin in US this summer</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_microsoft-hosts-pc-gaming-event_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-hosts-pc-gaming-event" class="article-title">Microsoft hosts PC gaming event</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_super-robot-wars-tops-japanese-chart_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-robot-wars-tops-japanese-chart" class="article-title">Super Robot Wars tops Japanese chart</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_wiiware-block-breaker-deluxe-and-cocoto-fishing-master-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/wiiware-block-breaker-deluxe-and-cocoto-fishing-master-review" class="article-title">WiiWare: Block Breaker Deluxe and Cocoto Fishing Master</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_no-patch-planned-for-sfii-beta_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-patch-planned-for-sfii-beta" class="article-title">No patch planned for SFII beta</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_dyack-defends-too-human-on-forum_thumbnail.png">
+			<a href="https://www.eurogamer.net/dyack-defends-too-human-on-forum" class="article-title">Dyack defends Too Human on forum</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_realtime-worlds-donates-to-apb-site_thumbnail.png">
+			<a href="https://www.eurogamer.net/realtime-worlds-donates-to-apb-site" class="article-title">Realtime Worlds donates to APB site</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_wow-song-coming-to-ghiii_thumbnail.png">
+			<a href="https://www.eurogamer.net/wow-song-coming-to-ghiii" class="article-title">WOW song coming to GHIII</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_final-fantasy-tactics-a2-grimoire-of-the-rift-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/final-fantasy-tactics-a2-grimoire-of-the-rift-review" class="article-title">Final Fantasy Tactics A2: Grimoire of the Rift</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_new-songs-appear-in-singstore_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-songs-appear-in-singstore" class="article-title">New songs appear in SingStore</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_commando-3-on-euro-psn-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/commando-3-on-euro-psn-next-week" class="article-title">Commando 3 on Euro PSN next week</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_gears-2-multiplayer-details-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-2-multiplayer-details-revealed" class="article-title">Gears 2 multiplayer details revealed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_new-pal-releases-roundup-5_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-pal-releases-roundup-5" class="article-title">New PAL Releases Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_new-ratings-system-could-delay-releases_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-ratings-system-could-delay-releases" class="article-title">New ratings system could delay releases</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_over-1-million-spore-creatures-created_thumbnail.png">
+			<a href="https://www.eurogamer.net/over-1-million-spore-creatures-created" class="article-title">Over 1 million Spore creatures created</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/06/26_super-smash-bros-brawl-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-smash-bros-brawl-review" class="article-title">Super Smash Bros. Brawl</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131926/Gameplanets-SPEED-RACER-competition-closes/" class="article-title">Gameplanet's SPEED RACER competition closes</a>
+			<div class="article-subtitle">Winners drawn and notified.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131921/First-Gears-of-War-2-multiplay-video/" class="article-title">First Gears of War 2 multiplay video</a>
+			<div class="article-subtitle">Leaked footage shows sequel.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131920/Diablo-III-confirmed/" class="article-title">Diablo III "confirmed"</a>
+			<div class="article-subtitle">Long-running fan site claims inside info.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131919/Red-Alert-3-new-screenshots/" class="article-title">Red Alert 3: new screenshots</a>
+			<div class="article-subtitle">No release date though.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/hedgehog-launch.php" class="article-title">Hedgehog Launch</a>
+			<div class="article-author">zxo</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/jig-on-aots.php" class="article-title">JIG on AOTS!</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/06/26_2008_06_26_super-secret-ninja_thumbnail.png">
+			<a href="https://www.tigsource.com/2008/06/26/super-secret-ninja/" class="article-title">Super Secret Ninja</a>
+			<div class="article-author">Jared</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/06/26_2008_06_26_procedural-generation-competition-results_thumbnail.png">
+			<a href="https://www.tigsource.com/2008/06/26/procedural-generation-competition-results/" class="article-title">Procedural Generation Competition: Results!</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

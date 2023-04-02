@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 13, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_super-street-fighter-ii-turbo-hd-remix-hands-on_1100-6187663_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-street-fighter-ii-turbo-hd-remix-hands-on/1100-6187663/" class="article-title">Super Street Fighter II Turbo HD Remix Hands-On</a>
+			<div class="article-subtitle">Hyper Fighting begone! We check out the latest downloadable Street Fighter game from Capcom.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_1942-joint-strike-first-hands-on_1100-6187671_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1942-joint-strike-first-hands-on/1100-6187671/" class="article-title">1942: Joint Strike First Hands-On</a>
+			<div class="article-subtitle">The classic vertical shooter is heading to Xbox Live Arcade and PlayStation Network with 3D graphics while paying homage to other games in the series.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_lego-indiana-jones-the-original-adventures-preview_1100-6187691_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-indiana-jones-the-original-adventures-preview/1100-6187691/" class="article-title">Lego Indiana Jones: The Original Adventures Preview</a>
+			<div class="article-subtitle">We ran from giant blocky boulders in our latest look at this swinging action game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_lost-planet-extreme-condition-colonies-edition-first-hands-on_1100-6187716_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-planet-extreme-condition-colonies-edition-first-hands-on/1100-6187716/" class="article-title">Lost Planet: Extreme Condition Colonies Edition First Hands-On</a>
+			<div class="article-subtitle">The greatest-hits version of Capcom’s frozen shooter debuts with a variety of new features.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_plunder-first-hands-on_1100-6187672_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/plunder-first-hands-on/1100-6187672/" class="article-title">Plunder First Hands-On</a>
+			<div class="article-subtitle">Set sail for pirate-themed mayhem with this upcoming casual strategy game from Capcom.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_mega-man-star-force-2-hands-on_1100-6187719_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mega-man-star-force-2-hands-on/1100-6187719/" class="article-title">Mega Man Star Force 2 Hands-On</a>
+			<div class="article-subtitle">We team up with Mega Man to try and save the day yet again.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_instantaction-opens-for-beta_1100-6187682_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/instantaction-opens-for-beta/1100-6187682/" class="article-title">InstantAction opens for beta</a>
+			<div class="article-subtitle">Public testing for GarageGames' browser-based online gaming portal available this week, with MarbleBlast Online, Think Tanks, Screwjumper, and Cyclomite part of initial lineup.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_microsoft-blu-ray-360-not-being-discussed_1100-6187714_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-blu-ray-360-not-being-discussed/1100-6187714/" class="article-title">Microsoft: Blu-ray 360 not being discussed</a>
+			<div class="article-subtitle">Xbox 360 group product manager ends speculation about talks with Sony; talks up Xbox Live Marketplace.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_alpha-protocols-cover-officially-blown_1100-6187720_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alpha-protocols-cover-officially-blown/1100-6187720/" class="article-title">Alpha Protocol's cover officially blown</a>
+			<div class="article-subtitle">Sega and Obsidian open up files on their forthcoming <i>Bourne Identity</i>-esque RPG, due in Q1 2009 on the PS3, 360, and PC.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_lost-planet-establishes-colonies-on-360-pc_1100-6187725_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-planet-establishes-colonies-on-360-pc/1100-6187725/" class="article-title">Lost Planet establishes Colonies on 360, PC</a>
+			<div class="article-subtitle">Enhanced version of Capcom's shooter adds range of new single-player, multiplayer modes, in-game items, cross-platform play; available May 27 for $29.99.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_pro-race-driver-going-live_1100-6073703_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pro-race-driver-going-live/1100-6073703/" class="article-title">Pro Race Driver going Live</a>
+			<div class="article-subtitle">Codemasters announces plans to rerelease the Xbox version of Pro Race Driver with full Xbox Live support. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_barlog-working-on-mad-max-game_1100-6187715_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/barlog-working-on-mad-max-game/1100-6187715/" class="article-title">Barlog working on Mad Max game</a>
+			<div class="article-subtitle">God of War II director officially confirms his next project will be based on the franchise in a partnership with writer-director George Miller.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_atari-steams-it-up_1100-6187713_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/atari-steams-it-up/1100-6187713/" class="article-title">Atari Steams it up</a>
+			<div class="article-subtitle">Publisher announces it is to start piping titles through Valve's digital-distribution service.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_qanda-gamecocks-harry-miller-crows_1100-6165777_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-gamecocks-harry-miller-crows/1100-6165777/" class="article-title">Q&A: Gamecock's Harry Miller crows</a>
+			<div class="article-subtitle">Gathering of Developers' cofounder talks about getting the band back together and providing indie studios with a new way to get their original titles made.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_super-street-fighter-ii-turbo-hd-remix-beta-going-commando-on-xbla_1100-6187583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-street-fighter-ii-turbo-hd-remix-beta-going-commando-on-xbla/1100-6187583/" class="article-title">Super Street Fighter II Turbo HD Remix beta going Commando on XBLA</a>
+			<div class="article-subtitle">Eight-week sampler for Backbone's reimagining of Capcom's classic fighter will come packed in with Commando 3 this spring.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_pc-orange-box-busted-open-at-retail_1100-6187761_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-orange-box-busted-open-at-retail/1100-6187761/" class="article-title">PC Orange Box busted open at retail</a>
+			<div class="article-subtitle">Unbundled versions of Valve's award-winning Portal, Team Fortress 2, and Episode Pack for PC available April 9 in NA, April 11 globally for $19.99, $29.99, respectively.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_factor-5-feeling-brash-in-2010_1100-6187774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/factor-5-feeling-brash-in-2010/1100-6187774/" class="article-title">Factor 5 feeling Brash in 2010</a>
+			<div class="article-subtitle">Lair developer partners with Hollywood import specialists for unnamed film tie-in due on unannounced platforms in two years.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_motorstorm-2-revs-up-this-fall_1100-6187667_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorstorm-2-revs-up-this-fall/1100-6187667/" class="article-title">MotorStorm 2 revs up this fall</a>
+			<div class="article-subtitle">Sony confirms sequel to Evolution Studios popular PS3-exclusive will arrive in 2008; promises 16 new tracks, 16-player online, four-player split-screen, monster trucks.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_announced_1100-6235068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/announced/1100-6235068/" class="article-title">Announced</a>
+			<div class="article-subtitle">In the next week we'll be hosting a single elimination online tournament for Call of Duty 4 (360). The tournament will consist of 64 teams, each with 6 players. Now is the best time to let your friends know about the tournament! To be prepared when registration opens, it is best to talk to your...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_registration-is-open_1100-6235067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/registration-is-open/1100-6235067/" class="article-title">Registration is open</a>
+			<div class="article-subtitle">Registration has opened! Pay careful attention to your timeslot and make sure you have 6 players on your roster and at least 3 waitlisted players signed up before registration closes on Tuesday, March 18 at 11:00 AM PT.Note: Once you have secured all 6 players during the registration phase, this is...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_capcom-plunder-ing-1942-on-xbla-psn_1100-6187775_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-plunder-ing-1942-on-xbla-psn/1100-6187775/" class="article-title">Capcom Plunder-ing 1942 on XBLA, PSN</a>
+			<div class="article-subtitle">Backbone remaking Japanese publisher's arcade classic for next-gen consoles; new pirate-themed casual RTS from Certain Affinity in download dry dock.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/03/13_mario-kart-wii-controls-breakdown_1100-6235066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mario-kart-wii-controls-breakdown/1100-6235066/" class="article-title">Mario Kart Wii controls breakdown</a>
+			<div class="article-subtitle">When Mario Kart Wii ships globally in April this year (April 24 in Australia to be precise), it&#39;ll come packed with almost as many control schemes as it does playable characters. Well, that maybe a slight exaggeration, but with a total of five (count &#39;em, five) control schemes to choose...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_rainbow-six-vegas-2-thermal-scan-trailer_thumbnail.png">
+			<a href="https://www.eurogamer.net/rainbow-six-vegas-2-thermal-scan-trailer" class="article-title">Rainbow Six Vegas 2 thermal scan trailer</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_fresh-two-worlds-content-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/fresh-two-worlds-content-on-live" class="article-title">Fresh Two Worlds content on Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_guitar-hero-iii-songs-lead-psn-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-iii-songs-lead-psn-update" class="article-title">Guitar Hero III songs lead PSN update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_dont-sell-take-two-tells-shareholders_thumbnail.png">
+			<a href="https://www.eurogamer.net/dont-sell-take-two-tells-shareholders" class="article-title">Don't sell, Take-Two tells shareholders</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_gt5-tournament-starts-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/gt5-tournament-starts-next-week" class="article-title">GT5 tournament starts next week</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_news130308whatsnew_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130308whatsnew" class="article-title">Weekly PAL Releases Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_new-soul-calibur-iv-character-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-soul-calibur-iv-character-revealed" class="article-title">New Soul Calibur IV character revealed</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_we-have-the-best-games-says-microsoft_thumbnail.png">
+			<a href="https://www.eurogamer.net/we-have-the-best-games-says-microsoft" class="article-title">We have the best games, says Microsoft</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_fatal-inertia-ps3-rated-by-esrb_thumbnail.png">
+			<a href="https://www.eurogamer.net/fatal-inertia-ps3-rated-by-esrb" class="article-title">Fatal Inertia PS3 rated by ESRB</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_news-130308-wiiwarebomberman_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-130308-wiiwarebomberman" class="article-title">Bomberman WiiWare title on the way</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_gh3-dropkick-murphys-pack-on-xbl_thumbnail.png">
+			<a href="https://www.eurogamer.net/gh3-dropkick-murphys-pack-on-xbl" class="article-title">GH3 Dropkick Murphys pack on XBL</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_sam-and-max-204-chariots-of-the-dogs-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/sam-and-max-204-chariots-of-the-dogs-review" class="article-title">Sam & Max 204: Chariots of the Dogs</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_region-locking-specific-to-army-of-two_thumbnail.png">
+			<a href="https://www.eurogamer.net/region-locking-specific-to-army-of-two" class="article-title">Region-locking specific to Army of Two</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_1942-joint-strike-for-xbla-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/1942-joint-strike-for-xbla-psn" class="article-title">1942: Joint Strike for XBLA, PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_god-of-war-man-doing-mad-max-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/god-of-war-man-doing-mad-max-game" class="article-title">God of War man doing Mad Max game</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_houser-talks-up-gta-iv-episodes_thumbnail.png">
+			<a href="https://www.eurogamer.net/houser-talks-up-gta-iv-episodes" class="article-title">Houser talks up GTA IV episodes</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_were-not-speaking-to-sony-says-ms_thumbnail.png">
+			<a href="https://www.eurogamer.net/were-not-speaking-to-sony-says-ms" class="article-title">We're not speaking to Sony, says MS</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_ssfii-turbo-hd-remix-360-beta-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/ssfii-turbo-hd-remix-360-beta-soon" class="article-title">SSFII Turbo HD Remix 360 beta soon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_assault-heroes-sequel-coming-to-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/assault-heroes-sequel-coming-to-live" class="article-title">Assault Heroes sequel coming to Live</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_dont-underestimate-wipeout-hd-sony_thumbnail.png">
+			<a href="https://www.eurogamer.net/dont-underestimate-wipeout-hd-sony" class="article-title">Don't underestimate WipEout HD - Sony</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_new-wacky-races-game-for-wii-and-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-wacky-races-game-for-wii-and-ds" class="article-title">New Wacky Races game for Wii and DS</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_gibson-launches-guitar-hero-lawsuit_thumbnail.png">
+			<a href="https://www.eurogamer.net/gibson-launches-guitar-hero-lawsuit" class="article-title">Gibson launches Guitar Hero lawsuit</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_sony-unveils-motorstorm-2_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-unveils-motorstorm-2" class="article-title">Sony unveils MotorStorm 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_ps3-firmware-updated-to-217_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-firmware-updated-to-217" class="article-title">PS3 firmware updated to 2.17</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/03/13_gary-gygax-1938-2008-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gary-gygax-1938-2008-article" class="article-title">Gary Gygax: 1938-2008</a>
+			<div class="article-author">Dave McCarthy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131512/Gran-Turismo-5-Prologue-more-new-screenshots/" class="article-title">Gran Turismo 5: Prologue: more new screenshots</a>
+			<div class="article-subtitle">Racing to PS3 screens at end of month.</div>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131511/Atari-joins-Steam/" class="article-title">Atari joins Steam</a>
+			<div class="article-subtitle">Valve: bent on global domination?</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131510/New-Starcraft-II-Zerg-trailer/" class="article-title">New Starcraft II Zerg trailer</a>
+			<div class="article-subtitle">Blizzard tempt us once more!</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131509/Gibson-strings-up-Activision-over-patent/" class="article-title">Gibson strings up Activision over patent</a>
+			<div class="article-subtitle">Guitar Hero technology in a jam.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131508/WorldShift-open-beta-revealed/" class="article-title">WorldShift open beta revealed</a>
+			<div class="article-subtitle">But you have to be a fileplanet member.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131507/Codemasters-and-Facebook-team-up/" class="article-title">Codemasters and Facebook team up</a>
+			<div class="article-subtitle">Unusual Turning Point promotion revealed.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131506/GTA-IV---downloadable-content-confirmed/" class="article-title">GTA IV - downloadable content confirmed</a>
+			<div class="article-subtitle">Well, we did kind of figure.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/contour-update.php" class="article-title">Contour update</a>
+			<div class="article-author">AdamC</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/amateur-surgeon-and-bow-street-runner-updates.php" class="article-title">Amateur Surgeon and Bow Street Runner updates</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/canyon-tower-defense.php" class="article-title">Canyon Defense</a>
+			<div class="article-author">Patrick</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/03/13_2008_03_13_preview-project-rhapsody_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/03/13/preview-project-rhapsody/" class="article-title">Preview: Project Rhapsody</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/03/13_2008_03_13_gun-mute_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/03/13/gun-mute/" class="article-title">Gun Mute</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

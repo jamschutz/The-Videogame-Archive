@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 26, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lma-manager-2007-review/1900-6158354/" class="article-title">LMA Manager 2007 Review</a>
+			<div class="article-subtitle">LMA Manager 2007 is a welcoming introduction to the football management genre, with concessions for novice players and a handsome 3D match engine.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bejeweled-deluxe-review/1900-6158709/" class="article-title">Bejeweled Deluxe Review</a>
+			<div class="article-subtitle">Bejeweled Deluxe is an incredible puzzle game. It's easy to pick up and hard to put down.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/atlantis-review/1900-6158704/" class="article-title">Atlantis Review</a>
+			<div class="article-subtitle">Atlantis is fast-paced and easy to pick up and play, making it a good game for novice and veteran players alike.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ballistik-review/1900-6158706/" class="article-title">Ballistik Review</a>
+			<div class="article-subtitle">3D Breakout, you say? Sold!</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/astropop-review/1900-6158703/" class="article-title">AstroPop Review</a>
+			<div class="article-subtitle">If you want to invest $20 in a block-matching game, AstroPop is a strong choice</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/betrapped-review/1900-6158710/" class="article-title">BeTrapped! Review</a>
+			<div class="article-subtitle">BeTrapped adds a plot to Minesweeper, which should prove interesting to puzzle game fans.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bettys-beer-bar-review/1900-6158712/" class="article-title">Betty's Beer Bar Review</a>
+			<div class="article-subtitle">To this fast-paced suds slinger, we say "keep 'em comin'."</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bookworm-deluxe-review/1900-6158713/" class="article-title">Bookworm Deluxe Review</a>
+			<div class="article-subtitle">Whether you're a vocab virtuoso or a remedial reader, you'll find a suitable challenge in Bookworm Deluxe.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/breakquest-review/1900-6158715/" class="article-title">BreakQuest Review</a>
+			<div class="article-subtitle">BreakQuest takes the classic brick-breaking formula and packs it with enough manic effects and crazy power-ups to satisfy even the most discerning twitch gamers.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bricks-of-egypt-review/1900-6158716/" class="article-title">Bricks of Egypt Review</a>
+			<div class="article-subtitle">If you've ever played games like Arkanoid or Breakout, you know exactly what to expect from Bricks of Egypt.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/atomaders-review/1900-6158717/" class="article-title">Atomaders Review</a>
+			<div class="article-subtitle">For better or for worse, Atomaders is a slightly updated take on Space Invaders.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bankshot-billiards-review/1900-6158718/" class="article-title">Bankshot Billiards Review</a>
+			<div class="article-subtitle">No matter what type of pool you like to shoot, Bankshot Billiards has something for everyone.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/big-kahuna-reef-review/1900-6158719/" class="article-title">Big Kahuna Reef Review</a>
+			<div class="article-subtitle">Bejeweled meets an aquarium simulation in this highly enjoyable puzzle game.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gold-fever-review/1900-6158720/" class="article-title">Gold Fever Review</a>
+			<div class="article-subtitle">Though it offers some level of charm, Gold Fever just isn't as compelling as many other puzzle games.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gutterball-2-review/1900-6158721/" class="article-title">Gutterball 2 Review</a>
+			<div class="article-subtitle">Gutterball 2 is a fairly by-the-numbers arcade bowling game that's quick and easy to play, but isn't likely to hold your interest for long.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hamsterball-review/1900-6158723/" class="article-title">Hamsterball Review</a>
+			<div class="article-subtitle">Hamsterball successfully combines the charm of Super Monkey Ball with Marble Madness-like gameplay for a fun and easy-to-play puzzle game.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hardwood-solitaire-deluxe-review/1900-6158724/" class="article-title">Hardwood Solitaire Deluxe Review</a>
+			<div class="article-subtitle">It's every solitaire game you could ever think of in an attractive and flexible package.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/magic-ball-2-review/1900-6158725/" class="article-title">Magic Ball 2 Review</a>
+			<div class="article-subtitle">If you like breaking stuff, Magic Ball 2 might be right up your alley.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rocketbowl-review/1900-6158726/" class="article-title">Rocketbowl Review</a>
+			<div class="article-subtitle">It's not the same as your Tuesday-night beer league, but Rocketbowl is still worth a try.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tiks-texas-hold-em-review/1900-6158727/" class="article-title">Tik's Texas Hold 'Em Review</a>
+			<div class="article-subtitle">If you're looking for a single-player hold 'em game with tons of options, Tik's Texas Hold 'Em should suit your needs.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/two-feet-texas-hold-em-review/1900-6158728/" class="article-title">Two Feet Texas Hold 'Em Review</a>
+			<div class="article-subtitle">Two Feet Texas Hold 'Em plays a competent game of poker, but its primitive production values make it difficult to recommend.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alien-sky-review/1900-6158729/" class="article-title">Alien Sky Review</a>
+			<div class="article-subtitle">Alien Sky is an unpretentious Galaga knockoff in which your little spaceship must relentlessly dodge from side to side while shooting at endless fleets of alien fighters.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/catan-review/1900-6158730/" class="article-title">Catan Review</a>
+			<div class="article-subtitle">This super-deep strategy game would have benefited from online multiplayer.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bespelled-review/1900-6158732/" class="article-title">Bespelled Review</a>
+			<div class="article-subtitle">Bespelled is certainly entertaining and addictive, but there's no significant addition that makes getting this deluxe version necessary.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/chicken-invaders-the-next-wave-review/1900-6158734/" class="article-title">Chicken Invaders: The Next Wave Review</a>
+			<div class="article-subtitle">Because the first Chicken Invaders was so great, it needed a sequel, right? Right? Hello?</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/chuzzle-review/1900-6158736/" class="article-title">Chuzzle Review</a>
+			<div class="article-subtitle">Chuzzle is an adorable match-three game with a great variety of options.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cosmic-bugs-review/1900-6158737/" class="article-title">Cosmic Bugs Review</a>
+			<div class="article-subtitle">Cosmic Bugs might play like an old arcade classic with a twist, but it doesn't quite click.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/chainz-review/1900-6158731/" class="article-title">Chainz Review</a>
+			<div class="article-subtitle">A solid variation on Bejeweled's pattern-matching formula, Chainz invites you to clear the playing field of a never-ending supply of color-coded puzzle pieces by rotating them into proper position.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/combo-chaos-review/1900-6158738/" class="article-title">Combo Chaos Review</a>
+			<div class="article-subtitle">Take the classic game of memory, give it a frenetic pace, and you've got Combo Chaos.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cubis-gold-2-review/1900-6158740/" class="article-title">Cubis Gold 2 Review</a>
+			<div class="article-subtitle">Match multicolored gelatin-like cubes in rows or columns of three from an unconventional isometric perspective.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/diner-dash/1900-6158741/" class="article-title">Diner Dash Review</a>
+			<div class="article-subtitle">Diner Dash is one of the best casual games we've played yet.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/infinite-crosswords-review/1900-6158742/" class="article-title">Infinite Crosswords Review</a>
+			<div class="article-subtitle">Infinite Crosswords provides a lot of crosswords and a lot of options, but none of them are necessarily better than the ones in your local paper.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mega-flexicon-review/1900-6158743/" class="article-title">Mega Flexicon Review</a>
+			<div class="article-subtitle">It's a race against the clock to solve multiple interconnected crossword puzzles in Mega Flexicon, a fun and challenging take on the classic crossword design.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mortimer-and-the-enchanted-castle-review/1900-6158744/" class="article-title">Mortimer and the Enchanted Castle Review</a>
+			<div class="article-subtitle">Mortimer needs you to guide him through an ominous castle in this often-tough puzzle game, in which you must strategically place special tiles to ensure Mortimer's safe passage.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/oasis-review/1900-6158745/" class="article-title">Oasis Review</a>
+			<div class="article-subtitle">Defeat the barbarian hordes threatening ancient Egypt in this excellent turn-based strategy game, which has plenty of depth despite how easy it is to start playing.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pixelus-review/1900-6158746/" class="article-title">Pixelus Review</a>
+			<div class="article-subtitle">Pixelus has some things going for it, but it still doesn't shape up to be any more than a fairly decent puzzle game.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pizza-frenzy-review/1900-6158748/" class="article-title">Pizza Frenzy Review</a>
+			<div class="article-subtitle">While Pizza Frenzy isn't much of a frenzy, it's still a unique and entertaining game.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/charm-tale-review/1900-6158735/" class="article-title">Charm Tale Review</a>
+			<div class="article-subtitle">This enjoyable fairy-tale-inspired puzzle game tests your pattern recognition by having you quickly match crystalline shapes on a playing field to uncover colorful images.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dino-and-aliens-review/1900-6158751/" class="article-title">Dino and Aliens Review</a>
+			<div class="article-subtitle">Simple action-puzzle mechanics, cutesy visuals, and a jaunty soundtrack make Dino and Aliens a good fit for the kids.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fate-the-carnivale-game-review/1900-6158752/" class="article-title">Fate: The Carnivale Game Review</a>
+			<div class="article-subtitle">Fate: The Carnivale Game is a simple but fairly addictive card game.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/feeding-frenzy-review/1900-6158753/" class="article-title">Feeding Frenzy Review</a>
+			<div class="article-subtitle">Eat your heart out in this undersea action game, in which you guide a fish around as it swallows up anything smaller. Fun, simple gameplay makes this one a fine if brief diversion.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fiber-twig-review/1900-6158759/" class="article-title">Fiber Twig Review</a>
+			<div class="article-subtitle">It might have a funny name, but the challenge of Fiber Twig is anything but.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/flip-words-review/1900-6158761/" class="article-title">Flip Words Review</a>
+			<div class="article-subtitle">If Boggle and <i>Wheel of Fortune</i> had a child, its name would be Flip Words.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gold-miner-joe-review/1900-6158763/" class="article-title">Gold Miner Joe Review</a>
+			<div class="article-subtitle">There's absolutely nothing to distinguish Gold Miner Joe from all the other 2D platformers, so your enjoyment of this game depends entirely on your affinity for the genre.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/heavy-weapon-deluxe-review/1900-6158764/" class="article-title">Heavy Weapon Deluxe Review</a>
+			<div class="article-subtitle">Heavy Weapon Deluxe has great weapon effects and a generally solid look, but the gameplay and control options make the game a little too shallow to recommend.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hexic-deluxe-review/1900-6158765/" class="article-title">Hexic Deluxe Review</a>
+			<div class="article-subtitle">If you're in the market for a Bejeweled knock-off, you could do a whole lot worse.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/insaniquarium-deluxe-review/1900-6158766/" class="article-title">Insaniquarium Deluxe Review</a>
+			<div class="article-subtitle">Insaniquarium Deluxe is an addictive game... But the "deluxe" part of the package isn't worth $20.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/inspector-parker-review/1900-6158767/" class="article-title">Inspector Parker Review</a>
+			<div class="article-subtitle">Inspector Parker's logic puzzle will have you stuck in front of your computer for hours at a time.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jeopardy-deluxe-review/1900-6158768/" class="article-title">Jeopardy! Deluxe Review</a>
+			<div class="article-subtitle">Jeopardy! Deluxe brings the familiar answer-and-question formula of the popular game show to your PC.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jewel-quest-review/1900-6158769/" class="article-title">Jewel Quest Review</a>
+			<div class="article-subtitle">Jewel Quest is a strong puzzle game, but that doesn't mean you can't get by playing the online version.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jigsw-puzzle-platinum-edition-review/1900-6158770/" class="article-title">Jigs@w Puzzle Platinum Edition Review</a>
+			<div class="article-subtitle">It's functional but unremarkable jigsaw puzzling for serious enthusiasts only.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jigsaw-365-review/1900-6158772/" class="article-title">Jigsaw 365 Review</a>
+			<div class="article-subtitle">A puzzle a day makes for little more than artificial value.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/saints-and-sinners-bingo-review/1900-6158771/" class="article-title">Saints and Sinners Bingo Review</a>
+			<div class="article-subtitle">Saints and Sinners Bingo reinvents one of the oldest games in the book with charm and strategy.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scrabble-blast-deluxe-review/1900-6158774/" class="article-title">Scrabble Blast Deluxe Review</a>
+			<div class="article-subtitle">Quite simply, for this type of gameplay, which is not pure Scrabble, there are better alternatives out there.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/links-course-challenge-chateau-whistler-review/1900-6158773/" class="article-title">Links Course Challenge: Chateau Whistler Review</a>
+			<div class="article-subtitle">A dense interface and unforgiving controls will keep this pint-sized golf simulator from appealing to anyone but the most devout duffers.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scrabble-deluxe-review/1900-6158775/" class="article-title">Scrabble Deluxe Review</a>
+			<div class="article-subtitle">Scrabble Deluxe offers a solid digital version of familiar Scrabble gameplay.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scrabble-rack-attack-deluxe-review/1900-6158776/" class="article-title">Scrabble Rack Attack Deluxe Review</a>
+			<div class="article-subtitle">Scrabble Rack Attack Deluxe isn't that interesting, and the useless Scrabble license tacked on seems to make it that much more lacking.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/slingo-review/1900-6158777/" class="article-title">Slingo Review</a>
+			<div class="article-subtitle">Slingo doesn't even capture the formula well enough, let alone improve upon it.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/spin-and-win-review/1900-6158778/" class="article-title">Spin & Win Review</a>
+			<div class="article-subtitle">Spin & Win has one thing going for it--novelty--but even that won't make it worth playing.</div>
+			<div class="article-author">Carrie Gouskos</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/luxor-review/1900-6158779/" class="article-title">Luxor Review</a>
+			<div class="article-subtitle">This is a good Zuma clone, but most players will probably prefer the original.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tradewinds-2-review/1900-6158780/" class="article-title">Tradewinds 2 Review</a>
+			<div class="article-subtitle">Sail the Caribbean in search of wealth and high adventure in this breezy, simple, and entertaining game of trade and ship combat.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mah-jong-medley-review/1900-6158781/" class="article-title">Mah Jong Medley Review</a>
+			<div class="article-subtitle">It's got variety, but it lacks longevity.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mah-jong-quest-review/1900-6158783/" class="article-title">Mah Jong Quest Review</a>
+			<div class="article-subtitle">Mah Jong Quest takes the age-old tile-matching game Shanghai and throws a few unique twists into the mix.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-clash-of-ninja-2-review/1900-6158747/" class="article-title">Naruto: Clash of Ninja 2 Review</a>
+			<div class="article-subtitle">Clash of Ninja 2 seems more like an upgraded game than a true sequel, and it ultimately does little to improve upon the original.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-2k7-review/1900-6158733/" class="article-title">NBA 2K7 Review</a>
+			<div class="article-subtitle">NBA 2K7 is a very good game, but it's largely unchanged from NBA 2K6.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-2k7-review/1900-6158739/" class="article-title">NBA 2K7 Review</a>
+			<div class="article-subtitle">NBA 2K7 is a very good game, but it's largely unchanged from NBA 2K6.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_tgs-06-kojima-on-metal-gear_1100-6158568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-kojima-on-metal-gear/1100-6158568/" class="article-title">TGS 06: Kojima on Metal Gear</a>
+			<div class="article-subtitle">A hyped-up Hideo Kojima takes Konami's event stage and talks nonstop about upcoming Metal Gear Solid products. New details on Metal Gear Solid 4 revealed.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_tgs-06-final-fantasies-in-tokyo_1100-6158569_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-final-fantasies-in-tokyo/1100-6158569/" class="article-title">TGS 06: Final fantasies in Tokyo</a>
+			<div class="article-subtitle">As the last day of the Tokyo Game Show winds down, GameSpot takes a whirlwind tour of the biggest booths on the show floor.</div>
+			<div class="article-author">Walt Wyman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_wow-designer-kicks-off-austin-conference_1100-6157161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wow-designer-kicks-off-austin-conference/1100-6157161/" class="article-title">WOW designer kicks off Austin conference</a>
+			<div class="article-subtitle">Rob Pardo demystifies the Blizzard polish, addresses how a counterintuitive approach to game design is sometimes the best, and explains the secret of a "healthy donut."</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_square-enix-wants-a-three-way-race_1100-6158660_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-wants-a-three-way-race/1100-6158660/" class="article-title">Square Enix wants a three-way race</a>
+			<div class="article-subtitle">Publisher explains support for all next-gen consoles, saying it doesn't want Sony to be overwhelming winner or loser; no platform determined yet for next Kingdom Hearts.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_analyst-industry-to-hit-44-billion-by-2011_1100-6158664_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-industry-to-hit-44-billion-by-2011/1100-6158664/" class="article-title">Analyst: Industry to hit $44 billion by 2011</a>
+			<div class="article-subtitle">DFC Intelligence predicts gaming biz will increase $15 billion from $29 billion in 2005 over the next half-decade.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_thrillville-updated-impressions-roller-coasters-and-minigames_1100-6158625_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thrillville-updated-impressions-roller-coasters-and-minigames/1100-6158625/" class="article-title">Thrillville Updated Impressions - Roller Coasters and Minigames</a>
+			<div class="article-subtitle">LucasArts shows off some of the latest new features in this upcoming theme park and party game.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_sam-and-max-defcon-gold_1100-6158679_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sam-and-max-defcon-gold/1100-6158679/" class="article-title">Sam & Max, DEFCON gold</a>
+			<div class="article-subtitle">Mirth, mayhem, and thermonuclear war imminent as a pair of anticipated games are getting ready to digitally drop on PCs.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_lego-sw-demo-leads-xbl-content_1100-6158680_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-sw-demo-leads-xbl-content/1100-6158680/" class="article-title">Lego SW demo leads XBL content </a>
+			<div class="article-subtitle">Day seven of Microsoft's Bringing It Home promo sees demo of LucasArts' top seller, trailers for Forza 2, Sonic, Shrek 3.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_no-ps3-price-drop-down-under_1100-6158677_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-ps3-price-drop-down-under/1100-6158677/" class="article-title">No PS3 price drop Down Under</a>
+			<div class="article-subtitle">SCE Australia says local PS3 price will not drop in line with Japanese market.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_tgs-06-pachipara-13-impressions_1100-6158665_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-06-pachipara-13-impressions/1100-6158665/" class="article-title">TGS 06: PachiPara 13 Impressions</a>
+			<div class="article-subtitle">Irem shows off a trailer for its upcoming dating sim/slot-machine game.</div>
+			<div class="article-author">Matthew Rorie</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_bungie-launches-podcast_1100-6158622_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-launches-podcast/1100-6158622/" class="article-title">Bungie launches podcast</a>
+			<div class="article-subtitle">Among the topics discussed by Bungie's "Frankie" and "Sketch" are Halo 3, Halo 2 achievements and a mysterious X06 announcement.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_uk-game-charts-september-17-23_1100-6158637_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-september-17-23/1100-6158637/" class="article-title">UK game charts: September 17-23</a>
+			<div class="article-subtitle">Lego Star Wars II stays at the top for a second week, but it's all change elsewhere in the top 10.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_shining-force-exa-dated-for-us_1100-6158695_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shining-force-exa-dated-for-us/1100-6158695/" class="article-title">Shining Force EXA dated for US</a>
+			<div class="article-subtitle">Sega's action RPG makes the trip across the Pacific to US PlayStation 2s in March 2007.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_wii-browser-free-for-now_1100-6158705_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-browser-free-for-now/1100-6158705/" class="article-title">Wii browser free for now</a>
+			<div class="article-subtitle">Opera says its Web-surfing program will be free for owners of Nintendo's next-gen system until June 2007; sold on the Wii Shop Channel after that.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_xbox-live-madden-360-tourney-coming_1100-6158714_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-madden-360-tourney-coming/1100-6158714/" class="article-title">Xbox Live Madden 360 tourney coming</a>
+			<div class="article-subtitle">Online branch of Madden Challenge announced; winners flown to Hawaii for finals against regional offline champs, top eight get Visa cash cards.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/09/26_dark-messiah-of-might-and-magic-profile-preview-the-archer-and-the-mage_1100-6158678_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-messiah-of-might-and-magic-profile-preview-the-archer-and-the-mage/1100-6158678/" class="article-title">Dark Messiah of Might and Magic Profile Preview - The Archer and the Mage</a>
+			<div class="article-subtitle">Learn more about the archer and mage classes in Dark Messiah, and study up on the skills you can unlock over the course of a campaign.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_fi-rr7-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-rr7-ps3" class="article-title">Ridge Racer 7</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906gthd_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906gthd" class="article-title">More on Gran Turismo HD</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906lma2007_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906lma2007" class="article-title">LMA Manager 2007 update</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906castlevania_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906castlevania" class="article-title">2D Castlevania for next-gen?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_fi-dmc4-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-dmc4-ps3" class="article-title">Devil May Cry 4</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_a-ukcharts260906_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-ukcharts260906" class="article-title">UK Charts: Return of the Jedi</a>
+			<div class="article-author">Matt Martin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906trailers_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906trailers" class="article-title">X360 RPG trailers tomorrow</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906lgcf_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906lgcf" class="article-title">Speakers announced for London Game Career Fair</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_news260906resi5_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260906resi5" class="article-title">No denial from Xbox Japan boss stokes Resi 5 exclusivity chatter</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_fi-sonic-ps3x360-tgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-sonic-ps3x360-tgs" class="article-title">Sonic The Hedgehog</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_fi-heavenlysword-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-heavenlysword-ps3" class="article-title">Heavenly Sword</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/09/26_r-rhythmtengoku-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-rhythmtengoku-gba" class="article-title">Rhythm Tengoku - Rhythm Heaven</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127714/F.E.A.R.-demo-now-on-Xbox-Live/" class="article-title">F.E.A.R. demo now on Xbox Live</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127712/NHL-Eastside-Hockey-Manager-2007-online-distribution-now-open/" class="article-title">NHL Eastside Hockey Manager 2007 online distribution now open</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/wone-and-two.php" class="article-title">wOne and two</a>
+			<div class="article-author">Andrew`Wyrm</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

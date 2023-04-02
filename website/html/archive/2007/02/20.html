@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 20, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/maelstrom-review/1900-6166139/" class="article-title">Maelstrom Review</a>
+			<div class="article-subtitle">Maelstrom can't even get the basics right, and the few features that sound interesting on paper end up being completely useless.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/supreme-commander-review/1900-6166152/" class="article-title">Supreme Commander Review</a>
+			<div class="article-subtitle">Supreme Commander delivers a deep and impressive strategy-gaming experience.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sonic-and-the-secret-rings-review/1900-6166173/" class="article-title">Sonic and the Secret Rings Review</a>
+			<div class="article-subtitle">Sonic and the Secret Rings delivers an excellent sense of speed and plenty of depth, and what's just as impressive is that it makes Sonic fun again.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-street-homecourt-review/1900-6166176/" class="article-title">NBA Street Homecourt Review</a>
+			<div class="article-subtitle">Deep on gameplay but light on content, NBA Street Homecourt's Xbox 360 debut is ultimately a great one.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/virtua-fighter-5-review/1900-6166151/" class="article-title">Virtua Fighter 5 Review</a>
+			<div class="article-subtitle">Virtua Fighter 5 builds upon VF4 with new moves and characters, making for a great sequel.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_tmnt-hands-on_1100-6166068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tmnt-hands-on/1100-6166068/" class="article-title">TMNT Hands-On</a>
+			<div class="article-subtitle">We come out of our shells to check out a work-in-progress version of Ubisoft Montreal's upcoming movie-inspired action game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_green-monster-games-announces-chief_1100-6166072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/green-monster-games-announces-chief/1100-6166072/" class="article-title">Green Monster Games announces chief</a>
+			<div class="article-subtitle">Curt Schilling's gaming company names Brett Close president; Mary Kirchoff hired as senior vice president.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_nasdaq-wags-finger-at-activision_1100-6166079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nasdaq-wags-finger-at-activision/1100-6166079/" class="article-title">Nasdaq wags finger at Activision</a>
+			<div class="article-subtitle">Spider-Man 3 publisher fails to report quarterly earnings in time in wake of stock backdating scandal, could face delisting.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_report-google-adscape-deal-wraps_1100-6166080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-google-adscape-deal-wraps/1100-6166080/" class="article-title">Report: Google, Adscape deal wraps</a>
+			<div class="article-subtitle">Sources go unnamed, but one tech site calls the deal complete; pegs upside for Adscape at $23 million.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-last-word-february-12-16_1100-6166093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-last-word-february-12-16/1100-6166093/" class="article-title">The Last Word: February 12-16</a>
+			<div class="article-subtitle">Clover vets sow their Seeds, presidential candidates propose potentially MMORPG-banning legislation, and Bungie announces plans to silence #$%&ing trash-talkers in Halo 3.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_uk-game-chart-february-11-17_1100-6166105_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-chart-february-11-17/1100-6166105/" class="article-title">UK game chart: February 11-17 </a>
+			<div class="article-subtitle">Battlestations: Midway plummets as the franchises take control once more; Supreme Commander debuts well.</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_donkey-kong-country-goes-ape-on-wii-vc_1100-6166112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/donkey-kong-country-goes-ape-on-wii-vc/1100-6166112/" class="article-title">Donkey Kong Country goes ape on Wii VC</a>
+			<div class="article-subtitle">Streets of Rage, Legend of Kage, New Adventure Island join the king of swing as new releases on Nintendo's downloadable retro game service.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_report-activision-summons-demonware_1100-6166123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-activision-summons-demonware/1100-6166123/" class="article-title">Report: Activision summons DemonWare</a>
+			<div class="article-subtitle">Irish newspaper claims Call of Duty 3 publisher has purchased middleware developer that specializes in online gaming.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_union-endorsements-ahoy_1100-6236027_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/union-endorsements-ahoy/1100-6236027/" class="article-title">Union Endorsements Ahoy!</a>
+			<div class="article-subtitle">Not as tasty as Chips Ahoy! But still satifying to the sweet tooth.Indeed, we have chosen four new unions for GameSpot endorsement that represent four very different game franchises. Whether your into free-form action games, sci-fi first-person shooters, massive open-ended RPGs, or platformers with...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_independent-games-festival-2007_1100-6166129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/independent-games-festival-2007/1100-6166129/" class="article-title">Independent Games Festival 2007</a>
+			<div class="article-subtitle">The annual Independent Games Festival (IGF) celebrates the achievements of independent game developers and serves as a showcase for quality games that are created without the financial backing of a major publisher.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ffs-chocobo-tales-to-be-told-in-us_1100-6166132_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ffs-chocobo-tales-to-be-told-in-us/1100-6166132/" class="article-title">FF's Chocobo Tales to be told in US</a>
+			<div class="article-subtitle">DS spin-off of Final Fantasy confirmed for US release; Final Fantasy Fables: Chocobo Tales ships to stores on April 3.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_vivendi-games-buys-assault-heroes-dev_1100-6166134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vivendi-games-buys-assault-heroes-dev/1100-6166134/" class="article-title">Vivendi Games buys Assault Heroes dev</a>
+			<div class="article-subtitle">Chilean studio Wanako Games becomes latest addition to publisher's Sierra Online division.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_big-huge-games-grabs-big-huge-game-designer_1100-6166140_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-huge-games-grabs-big-huge-game-designer/1100-6166140/" class="article-title">Big Huge Games grabs big huge game designer</a>
+			<div class="article-subtitle">Ken Rolston, lead designer on Elder Scrolls IV: Oblivion, skips retirement to work on new console RPG from Rise of Legends developer.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_indiana-game-bill-moves-forward_1100-6166144_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/indiana-game-bill-moves-forward/1100-6166144/" class="article-title">Indiana game bill moves forward</a>
+			<div class="article-subtitle">Subcommittee approves proposed law that would ban sales of games rated M or AO to minors.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_chili-con-carnage-hands-on_1100-6166158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chili-con-carnage-hands-on/1100-6166158/" class="article-title">Chili Con Carnage Hands-On</a>
+			<div class="article-subtitle">A Mexican revenge film in handheld form? We check out this entertaining action game for PSP.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ps3-coming-to-europe-oz-march-23_1100-6164689_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-coming-to-europe-oz-march-23/1100-6164689/" class="article-title">PS3 coming to Europe, Oz March 23</a>
+			<div class="article-subtitle">Sony sets date, price for console's European, Australasian debut; console will retail for 599 euros, AUD999.95, and have 30 games for "launch period."</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_where-have-you-gone-quincy-carter_1100-6236026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/where-have-you-gone-quincy-carter/1100-6236026/" class="article-title">Where Have You Gone Quincy Carter?</a>
+			<div class="article-subtitle">Like most of you, I've been asking myself one question every day since mid-2004: "Whatever happened to former Dallas Cowboys quarterback Quincy Carter?"Now that Alex has begun reviewing Arena Football: Road to Glory, I have my answer: playing football in the Arena Football League 2 for the...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_qanda-xbox-au-boss-david-mclean_1100-6165512_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-xbox-au-boss-david-mclean/1100-6165512/" class="article-title">Q&A: Xbox AU boss David McLean</a>
+			<div class="article-subtitle">Microsoft's David McLean compares the Xbox 360 to the PS2, comments on the Australian Wii launch, and talks about the future of HD.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_aussie-ps3-launch-lineup-firms_1100-6164485_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-ps3-launch-lineup-firms/1100-6164485/" class="article-title">Aussie PS3 launch lineup firms</a>
+			<div class="article-subtitle">More than 15 titles expected for PS3's March launch down under.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_qanda-sony-australia-boss-michael-ephraim_1100-6164711_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-sony-australia-boss-michael-ephraim/1100-6164711/" class="article-title">Q&A: Sony Australia boss Michael Ephraim</a>
+			<div class="article-subtitle">Sony Computer Entertainment Australia and New Zealand managing director Michael Ephraim talks about the PS3's March 23 launch.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_activision-waging-quake-wars-on-360-ps3_1100-6165837_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-waging-quake-wars-on-360-ps3/1100-6165837/" class="article-title">Activision waging Quake Wars on 360, PS3</a>
+			<div class="article-subtitle">Id-inspired team-based shooter now coming to next-gen consoles; Nerve Software, Z-Axis taking on porting duties.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_dice-07-super-rub-a-dub-first-look_1100-6165719_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dice-07-super-rub-a-dub-first-look/1100-6165719/" class="article-title">D.I.C.E 07: Super Rub-A-Dub First Look</a>
+			<div class="article-subtitle">What happens when ducks and the Sixaxis meet?</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_college-hoops-2k7-first-look_1100-6165627_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/college-hoops-2k7-first-look/1100-6165627/" class="article-title">College Hoops 2K7 First Look</a>
+			<div class="article-subtitle">With March Madness just around the corner, we get our hands on the PS3 version of 2K Sports' college basketball game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_sony-pictures-making-metal-gear-movie_1100-6165595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-pictures-making-metal-gear-movie/1100-6165595/" class="article-title">Sony Pictures making Metal Gear movie</a>
+			<div class="article-subtitle">[UPDATE] Executive confirms his movie studio is working on the live-action adaptation of the seminal stealth action series; Sony also pondering EverQuest film.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_fear-single-player-hands-on_1100-6165185_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-single-player-hands-on/1100-6165185/" class="article-title">F.E.A.R. Single-Player Hands-On</a>
+			<div class="article-subtitle">The hit action horror shooter is coming to the PlayStation 3, and we took a preview version out for a spin to battle clones and a scary little girl.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_mlb-2k7-hands-on-sixaxis-batting-spotlight_1100-6165496_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-2k7-hands-on-sixaxis-batting-spotlight/1100-6165496/" class="article-title">MLB 2K7 Hands-On: Sixaxis Batting Spotlight</a>
+			<div class="article-subtitle">We check out the new batting system in 2K Sports' upcoming hardball game for the PlayStation 3.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-darkness-hands-on_1100-6165105_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-darkness-hands-on/1100-6165105/" class="article-title">The Darkness Hands-On</a>
+			<div class="article-subtitle">We take time out with the latest version of Starbreeze's first-person shooter to see both the World War levels and the multiplayer features for the first time.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_spider-man-3-first-look_1100-6166026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-3-first-look/1100-6166026/" class="article-title">Spider-Man 3 First Look</a>
+			<div class="article-subtitle">We get an exclusive first look at Activision and Treyarch's upcoming movie game starring the amazing Spider-Man.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_virtua-tennis-3-hands-on_1100-6165776_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtua-tennis-3-hands-on/1100-6165776/" class="article-title">Virtua Tennis 3 Hands-On</a>
+			<div class="article-subtitle">Federer, check. Nadal, check. Roddick, check. Now where's that Sharapova? We take them all down in our look at Virtua Tennis 3.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_nba-street-homecourt-qanda_1100-6165541_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-street-homecourt-qanda/1100-6165541/" class="article-title">NBA Street Homecourt Q&A</a>
+			<div class="article-subtitle">We chat with NBA Street Homecourt producer Todd Batty about the development of the upcoming arcade hoops game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_all-pro-football-2k8-qanda-the-road-to-rebirth_1100-6165016_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-pro-football-2k8-qanda-the-road-to-rebirth/1100-6165016/" class="article-title">All-Pro Football 2K8 Q&A: The Road to Rebirth</a>
+			<div class="article-subtitle">We chat with 2K Sports' Greg Thomas about the long-awaited resurrection of the popular football franchise.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_formula-one-championship-edition-online-hands-on_1100-6165428_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/formula-one-championship-edition-online-hands-on/1100-6165428/" class="article-title">Formula One Championship Edition Online Hands-On</a>
+			<div class="article-subtitle">We take to the world's biggest motorsports stage in our look at the online racing features in F1 CE.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-elder-scrolls-iv-oblivion-ps3-impressions_1100-6165505_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-elder-scrolls-iv-oblivion-ps3-impressions/1100-6165505/" class="article-title">The Elder Scrolls IV: Oblivion PS3 Impressions</a>
+			<div class="article-subtitle">The Xbox 360's best role-playing game will finally hit the PlayStation 3 in March with a few technical enhancements to make up for its tardiness.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_unreal-tournament-iii-hands-on-a-name-change-new-platform-and-multiplayer-carnage_1100-6164873_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-tournament-iii-hands-on-a-name-change-new-platform-and-multiplayer-carnage/1100-6164873/" class="article-title">Unreal Tournament III Hands-On - A Name Change, New Platform, and Multiplayer Carnage</a>
+			<div class="article-subtitle">Epic Games and Midway reveal some major developments in the next Unreal Tournament, then let us control some awesome new vehicles in combat.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_tna-impact-impressions_1100-6164848_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tna-impact-impressions/1100-6164848/" class="article-title">TNA Impact! Impressions</a>
+			<div class="article-subtitle">Midway's reentry into the wrestling game business isn't going to happen until next year, but the company does have a few things to say about it.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-darkness-qanda_1100-6164945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-darkness-qanda/1100-6164945/" class="article-title">The Darkness Q&A</a>
+			<div class="article-subtitle">We talk to Denby Grace, producer for 2K Games, to see how The Darkness is shaping up for its second-quarter release.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_mortal-kombat-ii-update_1100-6164860_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-ii-update/1100-6164860/" class="article-title">Mortal Kombat II Update</a>
+			<div class="article-subtitle">We clock in some time with an updated version of Midway's retro title for the PlayStation 3 and find out how much the trip down memory lane will cost us.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_stranglehold-hands-on-a-night-at-the-museum_1100-6164855_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stranglehold-hands-on-a-night-at-the-museum/1100-6164855/" class="article-title">Stranglehold Hands-On - A Night at the Museum</a>
+			<div class="article-subtitle">We throw down in an updated version of Midway's upcoming John Woo-inspired action game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-wheelman-impressions_1100-6164852_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-wheelman-impressions/1100-6164852/" class="article-title">The Wheelman Impressions</a>
+			<div class="article-subtitle">Can Vin Diesel and Midway make video game magic? We get another glimpse of The Wheelman.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_blacksite-area-51-hands-on_1100-6164849_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blacksite-area-51-hands-on/1100-6164849/" class="article-title">BlackSite: Area 51 Hands-On</a>
+			<div class="article-subtitle">Forget the little green men. BlackSite: Area 51 is much more serious than all that.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_virtua-fighter-5-exclusive-hands-on_1100-6164378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtua-fighter-5-exclusive-hands-on/1100-6164378/" class="article-title">Virtua Fighter 5 Exclusive Hands-On</a>
+			<div class="article-subtitle">We throw down with a near-final version of Sega's premiere fighter on the PlayStation 3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_stranglehold-qanda-lighting-the-fuse-on-the-tequila-bomb_1100-6164457_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stranglehold-qanda-lighting-the-fuse-on-the-tequila-bomb/1100-6164457/" class="article-title">Stranglehold Q&A: Lighting the Fuse on the Tequila Bomb</a>
+			<div class="article-subtitle">We chat with Stranglehold director Brian Eddy about this John Woo-inspired action adventure game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_nba-street-homecourt-first-look_1100-6164290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-street-homecourt-first-look/1100-6164290/" class="article-title">NBA Street Homecourt First Look</a>
+			<div class="article-subtitle">Rim-rocking double dunks and break dancing on the asphalt--we check out the over-the-top antics of the next-gen debut for the NBA Street series.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_the-godfather-dons-edition-hands-on_1100-6164383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-godfather-dons-edition-hands-on/1100-6164383/" class="article-title">The Godfather: Don's Edition Hands-On</a>
+			<div class="article-subtitle">We muscle our way to the head of the Corleone family with the new controls and added features of The Godfather: Don's Edition for the PlayStation 3.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ces-07-joust-hands-on_1100-6163916_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-07-joust-hands-on/1100-6163916/" class="article-title">CES 07: Joust Hands-On</a>
+			<div class="article-subtitle">Just how do flying ostriches look and feel on the PlayStation 3? Sony and Digital Eclipse show us.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ces-07-rampart-hands-on_1100-6163918_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-07-rampart-hands-on/1100-6163918/" class="article-title">CES 07: Rampart Hands-On</a>
+			<div class="article-subtitle">We play forts on the PlayStation 3 in SOE's conversion of the Midway classic.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ces-07-championship-sprint-hands-on_1100-6163919_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-07-championship-sprint-hands-on/1100-6163919/" class="article-title">CES 07: Championship Sprint Hands-On</a>
+			<div class="article-subtitle">We crash and burn in SOE's conversion of Midway's arcade racer.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_tekken-5-dark-resurrection-hands-on_1100-6163680_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tekken-5-dark-resurrection-hands-on/1100-6163680/" class="article-title">Tekken 5: Dark Resurrection Hands-On</a>
+			<div class="article-subtitle">The PlayStation 3's download service just got heavy with the release of the latest game in the Tekken series.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_def-jam-icon-first-look_1100-6163868_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/def-jam-icon-first-look/1100-6163868/" class="article-title">Def Jam: Icon First Look</a>
+			<div class="article-subtitle">The gloves are off in our first up-close glimpse of with the Xbox 360 version of EA's funky new fighter.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ces-07-mortal-kombat-ii-hands-on_1100-6163911_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-07-mortal-kombat-ii-hands-on/1100-6163911/" class="article-title">CES 07: Mortal Kombat II Hands-On</a>
+			<div class="article-subtitle">We get our hands on SOE's conversion of the Midway classic for the PS3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ces-07-gauntlet-ii-hands-on_1100-6163915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-07-gauntlet-ii-hands-on/1100-6163915/" class="article-title">CES 07: Gauntlet II Hands-On</a>
+			<div class="article-subtitle">We check out an early version of the arcade classic on the PlayStation 3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_formula-one-championship-edition-updated-hands-on_1100-6163167_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/formula-one-championship-edition-updated-hands-on/1100-6163167/" class="article-title">Formula One Championship Edition Updated Hands-On</a>
+			<div class="article-subtitle">We check out the career mode in our latest look at this PS3 racing game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_armored-core-4-update_1100-6163587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/armored-core-4-update/1100-6163587/" class="article-title">Armored Core 4 Update</a>
+			<div class="article-subtitle">Sega shows off an updated version of its upcoming mech combat game on the PlayStation 3.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_mlb-2k7-first-look_1100-6163669_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-2k7-first-look/1100-6163669/" class="article-title">MLB 2K7 First Look</a>
+			<div class="article-subtitle">We get in some early scouting on 2K Sports' upcoming hardball game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_star-wars-unleashed-on-ps3-360_1100-6165881_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-unleashed-on-ps3-360/1100-6165881/" class="article-title">Star Wars Unleashed on PS3, 360</a>
+			<div class="article-subtitle">Latest <i>Game Informer</i> reveals title, plot details of forthcoming LucasArts project, which has players serving the Dark Side of the Force.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_full-auto-2-demo-slams-into-ps3_1100-6165950_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/full-auto-2-demo-slams-into-ps3/1100-6165950/" class="article-title">Full Auto 2 demo slams into PS3</a>
+			<div class="article-subtitle">Two helpings of fender-bending games coming to PS Store; Full Auto 2: Battlelines, Destruction Derby for PSP due out today.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_madden-nfl-07-walkthrough_1100-6159565_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-07-walkthrough/1100-6159565/" class="article-title">Madden NFL 07 Walkthrough</a>
+			<div class="article-subtitle">It's time for another entry in the longrunning Madden series! GameSpot's Walkthrough will get you up to speed on the game’s many features.</div>
+			<div class="article-author">Doug Radcliffe</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_saints-row-coming-to-ps3_1100-6165027_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/saints-row-coming-to-ps3/1100-6165027/" class="article-title">Saints Row coming to PS3</a>
+			<div class="article-subtitle">THQ confirms that the previously Xbox 360-exclusive gangsta game will be coming to Sony's next-gen platform; bangin' begins this spring.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_sony-confirms-wipeout-for-ps3_1100-6165370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-confirms-wipeout-for-ps3/1100-6165370/" class="article-title">Sony confirms Wipeout for PS3</a>
+			<div class="article-subtitle">Futuristic racing sim series will be headed to the PlayStation 3, but no title or date yet.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_activision-raises-guidance-on-ps3-hopes_1100-6165582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-raises-guidance-on-ps3-hopes/1100-6165582/" class="article-title">Activision raises guidance on PS3 hopes</a>
+			<div class="article-subtitle">Following a gangbusters holiday, publisher raises revenue predictions by $30M after reexamining the console's European launch; PS2 Downhill Jam, DS and Wii Guitar Hero announced.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_gripshift-jumping-flash-now-on-ps3-store_1100-6163818_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gripshift-jumping-flash-now-on-ps3-store/1100-6163818/" class="article-title">GripShift, Jumping Flash! now on PS3 store</a>
+			<div class="article-subtitle">Home version of PSP racer and PSP version of PS platformer now available for download.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_soe-prepping-six-for-ps3-store_1100-6163840_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soe-prepping-six-for-ps3-store/1100-6163840/" class="article-title">SOE prepping six for PS3 store</a>
+			<div class="article-subtitle">Mortal Kombat II, Gauntlet II headline list of multiplayer retro titles to be digitally distributed starting soon.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_koei-delays-xbox-360-ps3-games_1100-6164326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/koei-delays-xbox-360-ps3-games/1100-6164326/" class="article-title">Koei delays Xbox 360, PS3 games</a>
+			<div class="article-subtitle">[UPDATE] Two titles no longer in the launch window for Sony's European console release, Xbox 360 counterparts also delayed; duo also slips in US release calendar.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/02/20_ps3-wii-sales-slow-in-japan_1100-6164439_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-wii-sales-slow-in-japan/1100-6164439/" class="article-title">PS3, Wii sales slow in Japan</a>
+			<div class="article-subtitle">Latest Media-Create figures show retail volume of new consoles is dwindling across the Pacific; Xbox 360 runs a distant third.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_superbikes-heading-to-pc-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/superbikes-heading-to-pc-360" class="article-title">Superbikes heading to PC, 360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_vivendi-buys-assault-heroes-dev_thumbnail.png">
+			<a href="https://www.eurogamer.net/vivendi-buys-assault-heroes-dev" class="article-title">Vivendi buys Assault Heroes dev</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_bsg-game-for-live-arcade_thumbnail.png">
+			<a href="https://www.eurogamer.net/bsg-game-for-live-arcade" class="article-title">BSG game for Live Arcade</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_battlestar-galactica-mmo_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlestar-galactica-mmo" class="article-title">Battlestar Galactica MMO</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_pro-evolution-soccer-6-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/pro-evolution-soccer-6-review" class="article-title">Pro Evolution Soccer 6</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_news200207circlestudios_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200207circlestudios" class="article-title">CiRCLE Studio to close doors?</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_blizzard-sues-glider-creator_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-sues-glider-creator" class="article-title">Blizzard sues Glider creator</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_ea-talks-gdc-game-line-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-talks-gdc-game-line-up" class="article-title">EA talks GDC game line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_gbp-200-for-xbox-360-premium_thumbnail.png">
+			<a href="https://www.eurogamer.net/gbp-200-for-xbox-360-premium" class="article-title">GBP 200 for Xbox 360 premium?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_episodic-gaming-doesnt-appeal-to-id-software-yet_thumbnail.png">
+			<a href="https://www.eurogamer.net/episodic-gaming-doesnt-appeal-to-id-software-yet" class="article-title">Episodic gaming doesn't appeal to id Software yet</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_halo-4-rumours-a-joke_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-4-rumours-a-joke" class="article-title">Halo 4 rumours a joke</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_games-help-surgeons-perform_thumbnail.png">
+			<a href="https://www.eurogamer.net/games-help-surgeons-perform" class="article-title">Games help surgeons perform</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_epic-games-wants-to-shoot-you_thumbnail.png">
+			<a href="https://www.eurogamer.net/epic-games-wants-to-shoot-you" class="article-title">Epic Games wants to shoot you</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_dreamlords-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/dreamlords-preview" class="article-title">Dreamlords</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_bethesda-cant-see-past-rpgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/bethesda-cant-see-past-rpgs" class="article-title">Bethesda can't see past RPGs</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_no-live-arcade-game-tomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-live-arcade-game-tomorrow" class="article-title">No Live Arcade game tomorrow</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_singstar-pops-off-again_thumbnail.png">
+			<a href="https://www.eurogamer.net/singstar-pops-off-again" class="article-title">SingStar pops off again</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_fifa-blah-blah-charts-etc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fifa-blah-blah-charts-etc" class="article-title">FIFA blah blah Charts etc.</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_clover-vets-helping-on-resi-5-and-inafune-wii-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/clover-vets-helping-on-resi-5-and-inafune-wii-title" class="article-title">Clover vets helping on Resi 5 and Inafune Wii title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_when-the-music-stops-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/when-the-music-stops-article" class="article-title">When The Music Stops</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_metal-slug-anthology-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/metal-slug-anthology-review" class="article-title">Metal Slug Anthology</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_more-agents-for-crackdown_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-agents-for-crackdown" class="article-title">More agents for Crackdown</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/02/20_xbox-live-nips-out-for-a-bit_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-nips-out-for-a-bit" class="article-title">Xbox Live nips out for a bit</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128059/NBA-going-back-to-Europe-with-EA/" class="article-title">NBA going back to Europe with EA</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128058/Late-April-for-Armored-Core-4/" class="article-title">Late April for Armored Core 4</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/spamalot.php" class="article-title">SPAMalot</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/exmortis-3-voice-actor-selected.php" class="article-title">Exmortis 3: voice actor selected!</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-gaffer.php" class="article-title">The Gaffer</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/20_2007_02_20_ravuya-games-exists_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/02/20/ravuya-games-exists/" class="article-title">Ravuya Games Exists</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2007/02/20/tims-top-20-of-2006/" class="article-title">Tim’s Top 10’s and 20’s of 2006</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/20_2007_02_20_the-jeluvian-project_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/02/20/the-jeluvian-project/" class="article-title">The Jeluvian Project</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/02/20_2007_02_20_aetherzap_thumbnail.png">
+			<a href="https://www.tigsource.com/2007/02/20/aetherzap/" class="article-title">Aetherzap</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/02/20_2007_02_top-10-freeware-puzzlers-2006.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/02/top-10-freeware-puzzlers-2006.html" class="article-title">Top 10 Freeware Puzzlers 2006</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 10, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lifesigns-surgical-unit-review/1900-6184453/" class="article-title">LifeSigns: Surgical Unit Review</a>
+			<div class="article-subtitle">A mostly successful operation with a couple of unsightly scars.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/breath-of-fire-ii-review/1900-6184578/" class="article-title">Breath of Fire II Review</a>
+			<div class="article-subtitle">Breath of Fire II has some admirable traits, though you'll need to dig through some very rough edges to appreciate them.</div>
+			<div class="article-author">Austin Shau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_ferrari-challenge-updated-hands-on_1100-6184540_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ferrari-challenge-updated-hands-on/1100-6184540/" class="article-title">Ferrari Challenge Updated Hands-On</a>
+			<div class="article-subtitle">System 3's officially licensed racer is shaping up to be roadworthy soon. We took a short spin in nearly finished code.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_my-ak-47_1100-6235240_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/my-ak-47/1100-6235240/" class="article-title">My AK-47</a>
+			<div class="article-subtitle">I recently travelled to Canada to see Rainbow Six: Vegas 2 (impressions of which should be posted soon). While there, I couldn&#39;t help but use Ubisoft&#39;s AK-47 for a video piece, the results of which should also be available soon. I&#39;m not sure, does it suit me?</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_ces-08-yoda-vader-warring-in-soulcalibur-iv_1100-6184530_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-08-yoda-vader-warring-in-soulcalibur-iv/1100-6184530/" class="article-title">CES '08: Yoda, Vader warring in Soulcalibur IV</a>
+			<div class="article-subtitle">Namco Bandai and LucasArts team to add Jedi Master to pacify Xbox 360 version, Sith Lord to rage on PS3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_ces-qanda-albert-penello-spins-the-360_1100-6184535_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ces-qanda-albert-penello-spins-the-360/1100-6184535/" class="article-title">CES Q&A: Albert Penello spins the 360</a>
+			<div class="article-subtitle">Microsoft's director of global marketing talks about ramping up sales, winding down backward compatibility, and Xbox Live's holiday woes.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_sony-discontinuing-20gb-and-60gb-ps3-in-japan_1100-6184539_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-discontinuing-20gb-and-60gb-ps3-in-japan/1100-6184539/" class="article-title">Sony discontinuing 20GB and 60GB PS3 in Japan</a>
+			<div class="article-subtitle">The PlayStation maker has axed the two more expensive models of its flagship console in the region.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_beautiful-katamari-rolling-to-europe_1100-6184542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/beautiful-katamari-rolling-to-europe/1100-6184542/" class="article-title">Beautiful Katamari rolling to Europe</a>
+			<div class="article-subtitle">Xbox 360 iteration of the quirky universe-in-a-ball game coming to PAL regions in Q1.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_gamestop-holiday-sales-up-nearly-35-percent_1100-6184546_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-holiday-sales-up-nearly-35-percent/1100-6184546/" class="article-title">GameStop holiday sales up nearly 35 percent</a>
+			<div class="article-subtitle">Specialty retailer's revenues top $2.3 billion for final nine weeks of 2007; DS and PSP sellouts boost strong hardware figures.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_unreal-tournament-3-hardware-performance-guide_1100-6183499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-tournament-3-hardware-performance-guide/1100-6183499/" class="article-title">Unreal Tournament 3 Hardware Performance Guide</a>
+			<div class="article-subtitle">Fast-action first-person shooters like Unreal Tournament 3 require brute speed. Find out what you need to do to run Unreal at a blazing pace.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_pc-hardware-resource-center_1100-6183595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-hardware-resource-center/1100-6183595/" class="article-title">PC Hardware Resource Center</a>
+			<div class="article-subtitle">Find out everything you need to know about the PC and its accessories in our hardware resource center.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_gamers-diy-nuclear-reactor-nixed-by-feds_1100-6235239_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamers-diy-nuclear-reactor-nixed-by-feds/1100-6235239/" class="article-title">Gamer's DIY nuclear reactor nixed by feds</a>
+			<div class="article-subtitle">An idle mind is the devil's workshop, or so the old saying goes. That seems to go doubly so for an unemployed software engineer and hobbyist gamemaker who attempted to build a pint-size nuclear reactor in his home, reports NBC News' Rockwall, Texas, affiliate.    Federal investigators were alerted...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_gamers-diy-nuclear-reactor-nixed-by-feds_1100-6184557_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamers-diy-nuclear-reactor-nixed-by-feds/1100-6184557/" class="article-title">Gamer's DIY nuclear reactor nixed by feds</a>
+			<div class="article-subtitle">Authorities remove supplies, but press no charges, against unemployed software engineer, game modder who tinkers with radioactive experiment in spare time.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_conflict-denied-ops-updated-hands-on_1100-6184534_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/conflict-denied-ops-updated-hands-on/1100-6184534/" class="article-title">Conflict: Denied Ops Updated Hands-On</a>
+			<div class="article-subtitle">We get some more hands-on time with the upcoming military-themed switch shooter Conflict: Denied Ops for the Xbox 360, PlayStation 3, and PC.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_08-cool-things-about-ces-08_1100-6235238_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/08-cool-things-about-ces-08/1100-6235238/" class="article-title">08 Cool Things about CES 08</a>
+			<div class="article-subtitle">Just returned in from CES 08 last night. This year's show was light on games but that doesn't mean there wasn't plenty of cool stuff to see. Here's a glimpse: 01. The Dual View System from DLP Technologies. Back when I was a kid, Texas Instruments was known for cruddy calculators and a huge...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_sega-warms-up-for-beijing-2008_1100-6184560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-warms-up-for-beijing-2008/1100-6184560/" class="article-title">Sega warms up for Beijing 2008</a>
+			<div class="article-subtitle">Publisher returns to Olympic competition sans Sonic and Mario; Eurocom set to develop for Xbox 360, PS3, and PC.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/01/10_report-universal-opts-out-of-hd-dvd-exclusivity_1100-6184567_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-universal-opts-out-of-hd-dvd-exclusivity/1100-6184567/" class="article-title">Report: Universal opts out of HD DVD exclusivity</a>
+			<div class="article-subtitle"><i>Variety</i> says major Toshiba high-def video player supporter will not renew its sole support of the format when it expires in May.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_contra-4-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/contra-4-review" class="article-title">Contra 4</a>
+			<div class="article-author">Mathew Kumar</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_ubisoft-to-distribute-soul-caliburs_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubisoft-to-distribute-soul-caliburs" class="article-title">Ubisoft to distribute Soul Caliburs</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_xbox-360-set-top-box-wont-record-tv_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-360-set-top-box-wont-record-tv" class="article-title">Xbox 360 set-top box won't record TV</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_valve-gobbles-up-turtle-rock-studios_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-gobbles-up-turtle-rock-studios" class="article-title">Valve gobbles up Turtle Rock Studios</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_gates-praises-xbox-360-reliability_thumbnail.png">
+			<a href="https://www.eurogamer.net/gates-praises-xbox-360-reliability" class="article-title">Gates praises Xbox 360 reliability</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_rare-ignores-goldeneye-xbla-rumblings_thumbnail.png">
+			<a href="https://www.eurogamer.net/rare-ignores-goldeneye-xbla-rumblings" class="article-title">Rare ignores GoldenEye XBLA rumblings</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_pain-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/pain-review" class="article-title">PAIN</a>
+			<div class="article-author">Mark Androvich</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_sega-doing-official-olympics-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/sega-doing-official-olympics-game" class="article-title">SEGA doing official Olympics game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_pc-gaming-should-be-like-punk-rock_thumbnail.png">
+			<a href="https://www.eurogamer.net/pc-gaming-should-be-like-punk-rock" class="article-title">PC gaming "should be like Punk Rock"</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_news100108tgsoctober_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100108tgsoctober" class="article-title">TGS 2008 moves to October</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_more-cake-mania-baked-for-ds-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-cake-mania-baked-for-ds-wii" class="article-title">More Cake Mania baked for DS, Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_dragon-quest-monsters-joker-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/dragon-quest-monsters-joker-dated" class="article-title">Dragon Quest Monsters Joker dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_february-for-beautiful-katamari_thumbnail.png">
+			<a href="https://www.eurogamer.net/february-for-beautiful-katamari" class="article-title">February for Beautiful Katamari</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_gilbert-finally-gets-deathspank-publisher_thumbnail.png">
+			<a href="https://www.eurogamer.net/gilbert-finally-gets-deathspank-publisher" class="article-title">Gilbert finally gets DeathSpank publisher</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_march-launch-for-wii-software-service_thumbnail.png">
+			<a href="https://www.eurogamer.net/march-launch-for-wii-software-service" class="article-title">March launch for Wii Software service?</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_that-may-be-it-for-360-bc-updates_thumbnail.png">
+			<a href="https://www.eurogamer.net/that-may-be-it-for-360-bc-updates" class="article-title">That may be it for 360 BC updates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_portal-first-slice-for-nvidia-users_thumbnail.png">
+			<a href="https://www.eurogamer.net/portal-first-slice-for-nvidia-users" class="article-title">Portal: First Slice for NVIDIA users</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_xbox-originals-burnout-3-on-monday_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-originals-burnout-3-on-monday" class="article-title">Xbox Originals Burnout 3 on Monday</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/01/10_sony-japan-scrapping-20gb-and-60gb-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-japan-scrapping-20gb-and-60gb-ps3" class="article-title">Sony Japan scrapping 20GB and 60GB PS3</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128832/Cyberathlete-Professional-League-world-tour-grand-finals/" class="article-title">Cyberathlete Professional League world tour grand finals</a>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128831/Congo-Jones-Faces-The-Loggers-Of-Doom-In-African-Rainforests/" class="article-title">Congo Jones Faces The Loggers Of Doom In African Rainforests</a>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128830/Imperium-Romanum-Trailer-published/" class="article-title">Imperium Romanum: Trailer published</a>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tarnation.php" class="article-title">Tarnation</a>
+			<div class="article-author">Patrick</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/bisection-dominion.php" class="article-title">Bisection Dominion</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/01/10_2008_01_10_psychosomnium_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/01/10/psychosomnium/" class="article-title">Psychosomnium</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

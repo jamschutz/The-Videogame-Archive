@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 19, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/silent-heroes-review/1900-6163419/" class="article-title">Silent Heroes Review</a>
+			<div class="article-subtitle">Brutal difficulty makes Silent Heroes suitable solely for the squad-based real-time strategy experts.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/luxor-the-wrath-of-set-review/1900-6163412/" class="article-title">Luxor: The Wrath of Set Review</a>
+			<div class="article-subtitle">Luxor: The Wrath of Set's uninteresting gameplay and lackluster presentation don't do anything to set it apart from other, better puzzle games available for the PSP.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tennis-review/1900-6163443/" class="article-title">Tennis Review</a>
+			<div class="article-subtitle">Tennis can be entertaining for a little while, but it's difficult to recommend when there's a much better option available in Wii Sports' tennis game.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bomberman-land-touch-review/1900-6163416/" class="article-title">Bomberman Land Touch! Review</a>
+			<div class="article-subtitle">The highlight of Bomberman Land Touch! is the excellent battle mode that supports as many as four players online and as many as eight offline.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-trek-legacy-review/1900-6163442/" class="article-title">Star Trek: Legacy Review</a>
+			<div class="article-subtitle">Star Trek Legacy for the Xbox 360 captures the grandeur and feel of the epic starship battles in the famous television series.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_best-and-worst-of-2006_1100-6163270_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-and-worst-of-2006/1100-6163270/" class="article-title">Best and Worst of 2006</a>
+			<div class="article-subtitle">As the dust begins to settle on what's surely been an amazing, even historic 12 months in gaming, what games stand out as the greatest of the year? Read on to find out!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_crave-adds-up-another-sudoku-game_1100-6163374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crave-adds-up-another-sudoku-game/1100-6163374/" class="article-title">Crave adds up another Sudoku game</a>
+			<div class="article-subtitle">Sudoku/Kakuro hybrid coming to DS courtesy of Crave; endless supply of puzzles thanks to automatically generated Sudoku puzzles.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_wii-web-browser-friday-weather-channel-today_1100-6163396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-web-browser-friday-weather-channel-today/1100-6163396/" class="article-title">Wii Web browser Friday, weather channel today</a>
+			<div class="article-subtitle">Beta version of Opera Web browser at end of week, Forecast channel now live; News Channel coming January 27.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_wii-ps2-awarded-new-medal-of-honor_1100-6163402_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-ps2-awarded-new-medal-of-honor/1100-6163402/" class="article-title">Wii, PS2 awarded new Medal of Honor</a>
+			<div class="article-subtitle">MOH: Vanguard does battle on Nintendo's next-gen system, Sony's current-gen console; WWII shooter drops in March.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_uk-game-charts-december-10-16_1100-6163393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-game-charts-december-10-16/1100-6163393/" class="article-title">UK game charts: December 10-16</a>
+			<div class="article-subtitle">Electronic Arts looks to enjoy happy holidays as FIFA 07 takes the festive number-one slot.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_long-in-the-tooth_1100-6236091_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/long-in-the-tooth/1100-6236091/" class="article-title">Long In The Tooth</a>
+			<div class="article-subtitle">Ever wanted a way to relive GameSpot history? Hungry for past content? Bored out of your skull? Check out this cool page, for a list of what happened on this day in GameSpot history. What you see may very well surprise you!</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_novadrome-drives-onto-xbl-this-week_1100-6163410_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/novadrome-drives-onto-xbl-this-week/1100-6163410/" class="article-title">Novadrome drives onto XBL this week</a>
+			<div class="article-subtitle">Eight cars enter, one car leaves in Stainless Software's Xbox Live Arcade vehicular combat title; game costs 800 Marketplace points ($10).</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_rafa-nadal-tennis-serves-up-next-week_1100-6163413_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rafa-nadal-tennis-serves-up-next-week/1100-6163413/" class="article-title">Rafa Nadal Tennis serves up next week</a>
+			<div class="article-subtitle">Codemasters' tennis game featuring ATP pro smashes DSes December 27.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_gripshift-gets-remixed-for-ps3_1100-6163415_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gripshift-gets-remixed-for-ps3/1100-6163415/" class="article-title">GripShift gets remixed for PS3</a>
+			<div class="article-subtitle">Sony Online Entertainment to bring remixed, high-def version of PSP racing hybrid to the next-gen console for $9.99.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_illinois-to-pay-game-lawsuit-fees_1100-6163436_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/illinois-to-pay-game-lawsuit-fees/1100-6163436/" class="article-title">Illinois to pay game lawsuit fees</a>
+			<div class="article-subtitle">After much delay (and a little judicial pressure), governor Blagojevich outlines plan to pay $520,000 in fees from lost game-restriction suit.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_star-trek-legacy-themes-pics-on-xbl_1100-6163440_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-trek-legacy-themes-pics-on-xbl/1100-6163440/" class="article-title">Star Trek Legacy themes, pics on XBL</a>
+			<div class="article-subtitle">Romulans, Klingons, Borg, and more go warp speed to Xbox 360 dashboards; seven sets go for 100, 150 points ($1.25-$1.87) each.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_aias-honors-ex-nintendo-execs_1100-6163445_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aias-honors-ex-nintendo-execs/1100-6163445/" class="article-title">AIAS honors ex-Nintendo execs</a>
+			<div class="article-subtitle">Howard Lincoln and Minoru Arakawa to receive organization's first lifetime achievement awards for establishing Japanese gaming giant's foothold in America.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_esa-boss-confirms-departure_1100-6163395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esa-boss-confirms-departure/1100-6163395/" class="article-title">ESA boss confirms departure</a>
+			<div class="article-subtitle">Doug Lowenstein's mass e-mail to industry contacts and colleagues details departure; calls leaving "difficult and sad."</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_medal-of-honor-vanguard-qanda_1100-6163414_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-vanguard-qanda/1100-6163414/" class="article-title">Medal of Honor Vanguard Q&A</a>
+			<div class="article-subtitle">We talk with EALA senior producer Matt Sentell about the recently announced Medal of Honor game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/19_tortuga-two-treasures-hands-on-impressions-naval-battles-swordfights-and-early-missions_1100-6163394_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tortuga-two-treasures-hands-on-impressions-naval-battles-swordfights-and-early-missions/1100-6163394/" class="article-title">Tortuga - Two Treasures Hands-On Impressions - Naval Battles, Swordfights, and Early Missions</a>
+			<div class="article-subtitle">We play the opening missions of this upcoming pirate-themed action adventure game.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_free-opera-browser-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-opera-browser-for-wii" class="article-title">Free Opera browser for Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_virtua-fighter-5-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/virtua-fighter-5-dated" class="article-title">Virtua Fighter 5 dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_moh-vanguard-for-ps2-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/moh-vanguard-for-ps2-wii" class="article-title">MOH Vanguard for PS2, Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_flow-delayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/flow-delayed" class="article-title">flOw delayed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_cpl-announces-severity_thumbnail.png">
+			<a href="https://www.eurogamer.net/cpl-announces-severity" class="article-title">CPL announces Severity</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_wii-forecasts-go-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-forecasts-go-live" class="article-title">Wii forecasts go live</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_railroads-holiday-download_thumbnail.png">
+			<a href="https://www.eurogamer.net/railroads-holiday-download" class="article-title">Railroads! holiday download</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_saints-row-festive-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/saints-row-festive-update" class="article-title">Saints Row festive update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_monster-4x4-world-circuit-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/monster-4x4-world-circuit-review" class="article-title">Monster 4x4: World Circuit</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_sonys-shower-of-piss-advert_thumbnail.png">
+			<a href="https://www.eurogamer.net/sonys-shower-of-piss-advert" class="article-title">Sony's shower of piss advert</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_locoroco-to-return-harrison_thumbnail.png">
+			<a href="https://www.eurogamer.net/locoroco-to-return-harrison" class="article-title">LocoRoco to return - Harrison</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_virtual-console-us-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/virtual-console-us-update" class="article-title">Virtual Console US update</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_pop-wii-detailed-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/pop-wii-detailed-dated" class="article-title">POP Wii detailed, dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_news040806ubisoftwii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040806ubisoftwii" class="article-title">Ubi targets seven for Wii launch</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_news080806popwii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080806popwii" class="article-title">Prince of Persia Wii confirmed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_christmas-number-one_thumbnail.png">
+			<a href="https://www.eurogamer.net/christmas-number-one" class="article-title">Christmas number one!</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_the-eurogamer-tv-show-episode-5_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-eurogamer-tv-show-episode-5" class="article-title">The Eurogamer TV Show - Episode 5</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_euro-ps3-network-signups_thumbnail.png">
+			<a href="https://www.eurogamer.net/euro-ps3-network-signups" class="article-title">Euro PS3 network signups</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_resistance-patch-details_thumbnail.png">
+			<a href="https://www.eurogamer.net/resistance-patch-details" class="article-title">Resistance patch details</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/19_contact-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/contact-review" class="article-title">Contact</a>
+			<div class="article-author">Dave McCarthy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127928/Nintendo-unveils-Q1-Wii-lineup/" class="article-title">Nintendo unveils Q1 Wii lineup</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127927/66-games-on-DS-Q1-release-list/" class="article-title">66 games on DS Q1 release list</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127926/Million-demos-of-Lost-Planet-downloaded-limited-edition-to-provide-early-map-access/" class="article-title">Million demos of Lost Planet downloaded, limited edition to provide early map access</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127925/Latest-Wii-Channel-retro-games/" class="article-title">Latest Wii Channel retro games</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/line-rider-beta-2.php" class="article-title">Line Rider beta 2</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/12/19_2006_12_cubis.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/12/cubis.html" class="article-title">Cubis</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2006/12/19_2006_12_goop.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2006/12/goop.html" class="article-title">Goop</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

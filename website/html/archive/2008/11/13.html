@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 13, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-wars-the-clone-wars-lightsaber-duels-review/1900-6200976/" class="article-title">Star Wars The Clone Wars: Lightsaber Duels Review</a>
+			<div class="article-subtitle">Wield--or at least waggle--the power of the Force in this cinematic but repetitive fighter.</div>
+			<div class="article-author">Jonathan Miller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/command-and-conquer-red-alert-3-review/1900-6201068/" class="article-title">Command & Conquer: Red Alert 3 Review</a>
+			<div class="article-subtitle">The Xbox 360 version of this humorous strategy game can be fun, but it falls short in a few key areas.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_lich-king-terrorises-oxford-street_1100-6201040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lich-king-terrorises-oxford-street/1100-6201040/" class="article-title">Lich King terrorises Oxford Street</a>
+			<div class="article-subtitle">Thousands of people of all ages queuing in the freezing cold for hours on end can only mean one thing: It's time for another World of Warcraft expansion. Last night saw the release of World of Warcraft: The Wrath of the Lich King, and there were 16,000 midnight launches of one sort or another...</div>
+			<div class="article-author">Seb Ford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_hundreds-line-up-for-lich-king-launches-down-under_1100-6234248_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hundreds-line-up-for-lich-king-launches-down-under/1100-6234248/" class="article-title">Hundreds line up for Lich King launches down under</a>
+			<div class="article-subtitle">It was four years ago in November 2004 that the gaming phenomenon known as World of Warcraft was first released. Now, 11 million subscribers  and one expansion pack later, the latest addition to the Warcraft universe has finally been released, with midnight launches around Australia drawing in...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_microsoft-mulls-full-pc-game-downloads_1100-6200994_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-mulls-full-pc-game-downloads/1100-6200994/" class="article-title">Microsoft mulls full PC game downloads</a>
+			<div class="article-subtitle">GFW - Live interface update lands tomorrow, desktop Marketplace slated for December; Fallout 3 DLC first in the hopper.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_aussie-game-charts-november-3-9_1100-6201036_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-november-3-9/1100-6201036/" class="article-title">Aussie game charts: November 3-9</a>
+			<div class="article-subtitle">Delta Squad claim the top spot down under.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_madden-suit-sacks-players-union_1100-6200902_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-suit-sacks-players-union/1100-6200902/" class="article-title">Madden suit sacks players union</a>
+			<div class="article-subtitle">Jury determines pro-footballer organization wasn't acting in members' best interests when licensing game liknesses, awards plaintiffs $28.1 million.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_esrb-gets-descriptive_1100-6200958_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-gets-descriptive/1100-6200958/" class="article-title">ESRB gets descriptive</a>
+			<div class="article-subtitle">Ratings board now including paragraph write-ups detailing possible objectionable content, including some spoilers.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_gears-2-opens-to-double-platinum-sales_1100-6200949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gears-2-opens-to-double-platinum-sales/1100-6200949/" class="article-title">Gears 2 opens to double platinum sales</a>
+			<div class="article-subtitle">Epic's Xbox 360-exclusive shooter shifts 2 million copies on its launch weekend; sets new record for concurrent XBL players.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_hundreds-line-up-for-lich-king-launches-down-under_1100-6201041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hundreds-line-up-for-lich-king-launches-down-under/1100-6201041/" class="article-title">Hundreds line up for Lich King launches down under</a>
+			<div class="article-subtitle">People flock to Sydney streets.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_chinatown-wars-gets-temporary-cease-fire_1100-6201044_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chinatown-wars-gets-temporary-cease-fire/1100-6201044/" class="article-title">Chinatown Wars gets temporary cease-fire</a>
+			<div class="article-subtitle">Grand Theft Auto series' DS debut pushed to February-April launch window; GTAIV DLC tentatively planned to be out by end of January.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_thq-halving-core-game-slate_1100-6201052_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-halving-core-game-slate/1100-6201052/" class="article-title">THQ halving core game slate</a>
+			<div class="article-subtitle">Publisher details quality-over-quantity approach, plans to produce just one or two titles for the hardcore market each year.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_11-13-community-happenings_1100-6234247_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/11-13-community-happenings/1100-6234247/" class="article-title">11/13 Community Happenings</a>
+			<div class="article-subtitle">The community has had tons of activity lately; wider forums, new emblems, contests and video blogs! Read all about the happenings in our latest post in the community news blog entitled Spam Filter.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_game-collector-big-game-hunters_1100-6201002_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-collector-big-game-hunters/1100-6201002/" class="article-title">Game Collector: Big Game Hunters</a>
+			<div class="article-subtitle">The Game Collector looks at the best games...that the least amount of money can buy.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_blood-of-bahamut-spills-on-ds_1100-6201056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blood-of-bahamut-spills-on-ds/1100-6201056/" class="article-title">Blood of Bahamut spills on DS</a>
+			<div class="article-subtitle">Square Enix's latest handheld RPG sees cities come alive, literally; local four-player co-op.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_prince-of-persia-updated-impressions-new-environment-and-boss_1100-6201029_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-updated-impressions-new-environment-and-boss/1100-6201029/" class="article-title">Prince of Persia Updated Impressions - New Environment and Boss</a>
+			<div class="article-subtitle">We check out a new boss called the Alchemist as he seeks to protect a region called the Vale.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_wish-list-course-creator-in-tiger-2010_1100-6234246_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wish-list-course-creator-in-tiger-2010/1100-6234246/" class="article-title">Wish List: Course Creator in Tiger 2010</a>
+			<div class="article-subtitle">Yesterday, we taped our season-ending episode of our sports gaming show, The Lineup. The show included our 2009 Sports Gaming Wish List, where Shanker, Aaron and myself each made a wish for a feature for sports games next year. I'll leave our picks a surprise for the show (which is set to air in...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_report-wii-speak-channel-limited-to-new-purchases_1100-6201069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-wii-speak-channel-limited-to-new-purchases/1100-6201069/" class="article-title">Report: Wii Speak Channel limited to new purchases</a>
+			<div class="article-subtitle">Nintendo will reportedly not allow secondhand purchasers of upcoming communication peripheral to download program.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_blue-dragon-plus-hands-on_1100-6201067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blue-dragon-plus-hands-on/1100-6201067/" class="article-title">Blue Dragon Plus Hands-On</a>
+			<div class="article-subtitle">Shu and the gang return with their shadows to fight evil once again.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_aussie-lich-king-launch-photos_1100-6234245_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-lich-king-launch-photos/1100-6234245/" class="article-title">Aussie Lich King launch photos</a>
+			<div class="article-subtitle">Last night, hundreds of dedicated World of Warcraft fans lined up outside game stores across Australia to grab their copies of the latest expansion, Wrath of the Lich King. GameSpot AU was at EB Games' new George St store in Sydney last night to check out the action--click here for our news...</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_ultimate-street-fighter-showdown_1100-6200327_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-street-fighter-showdown/1100-6200327/" class="article-title">Ultimate Street Fighter Showdown</a>
+			<div class="article-subtitle">When the world warriors assemble to determine who among them is the best there is, hadoukens will fly, tigers will be uppercut, and fools will be spinning pile-drivered!</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/11/13_aussie-emulation-mash-up-14-11-08_1100-6234244_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-emulation-mash-up-14-11-08/1100-6234244/" class="article-title">Aussie Emulation Mash-up 14/11/08</a>
+			<div class="article-subtitle">With such a huge lineup of full size games coming out this week in Australia, it's almost a relief to see that it's a quiet week for bite-sized games on Xbox Live Arcade, PlayStation Network, and Wiiware/Virtual Console.Instead of new releases on XBLA this week, Microsoft has slashed the prices...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_halo-3-recon-only-3-5-hours-long_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-recon-only-3-5-hours-long" class="article-title">Halo 3 Recon only 3-5 hours long</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_killzone-2-multiplayer-beta-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/killzone-2-multiplayer-beta-hands-on" class="article-title">Killzone 2 Multiplayer Beta</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_call-of-duty-world-at-war-4-8_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-world-at-war-4-8" class="article-title">Call of Duty: World at War</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_call-of-duty-world-at-war-8-1_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-world-at-war-8-1" class="article-title">Call of Duty: World at War</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_everquest-ii-the-shadow-odyssey-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/everquest-ii-the-shadow-odyssey-hands-on" class="article-title">EverQuest II: The Shadow Odyssey</a>
+			<div class="article-author">Jon Blyth</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_lich-king-launch-event-photo-roundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/lich-king-launch-event-photo-roundup" class="article-title">Lich King launch event photo roundup</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_new-details-of-cube-remakes-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-details-of-cube-remakes-for-wii" class="article-title">New details of Cube remakes for Wii</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_oddworlds-citizen-siege-still-on-track_thumbnail.png">
+			<a href="https://www.eurogamer.net/oddworlds-citizen-siege-still-on-track" class="article-title">Oddworld's Citizen Siege still on track</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_locoroco-2-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/locoroco-2-review" class="article-title">LocoRoco 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_oddworld-will-return-confirms-lanning_thumbnail.png">
+			<a href="https://www.eurogamer.net/oddworld-will-return-confirms-lanning" class="article-title">Oddworld will return, confirms Lanning</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_new-oddworld-game-on-the-way_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-oddworld-game-on-the-way" class="article-title">New Oddworld game on the way</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_news301006oddworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news301006oddworld" class="article-title">New Oddworld game, CG film</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_news180405oddworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news180405oddworld" class="article-title">Oddworld bails out of gaming</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_hendrix-ghwt-song-pack-on-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/hendrix-ghwt-song-pack-on-live" class="article-title">Hendrix GHWT song pack on Live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_wow-paid-customisation-explained_thumbnail.png">
+			<a href="https://www.eurogamer.net/wow-paid-customisation-explained" class="article-title">WOW paid customisation explained</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_nintendo-trademarks-heaps-of-ds-ideas_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-trademarks-heaps-of-ds-ideas" class="article-title">Nintendo trademarks heaps of DS ideas</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_ea-unveils-new-keep-fit-game-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-unveils-new-keep-fit-game-for-wii" class="article-title">EA unveils new keep fit game for Wii</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_resi-5-demo-announcement-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/resi-5-demo-announcement-soon" class="article-title">Resi 5 demo announcement soon?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_fans-rage-against-anti-madworld-campaign_thumbnail.png">
+			<a href="https://www.eurogamer.net/fans-rage-against-anti-madworld-campaign" class="article-title">Fans rage at anti-MadWorld campaign</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_lich-king-launch-event-was-uks-biggest_thumbnail.png">
+			<a href="https://www.eurogamer.net/lich-king-launch-event-was-uks-biggest" class="article-title">Lich King launch event was UK's biggest</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/11/13_resident-evil-5-0-7_thumbnail.png">
+			<a href="https://www.eurogamer.net/resident-evil-5-0-7" class="article-title">Resident Evil 5</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132619/MotoGP-08-demo-released/" class="article-title">MotoGP 08 demo released</a>
+			<div class="article-subtitle">Mirrored at GP Downloads.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i132620/Call-of-Duty-World-at-War-ships/" class="article-title">Call of Duty: World at War ships</a>
+			<div class="article-subtitle">Available at retail tomorrow.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/oiligarchy.php" class="article-title">Oiligarchy</a>
+			<div class="article-author">Patrick</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/retardo-and-the-iron-golem.php" class="article-title">Retardo and the Iron Golem</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/11/13_2008_11_13_mageguild-1-0_thumbnail.png">
+			<a href="https://www.tigsource.com/2008/11/13/mageguild-1-0/" class="article-title">MageGuild 1.0</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

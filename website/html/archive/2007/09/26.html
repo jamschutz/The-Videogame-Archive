@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 26, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/juiced-2-hot-import-nights-review/1900-6179867/" class="article-title">Juiced 2: Hot Import Nights Review</a>
+			<div class="article-subtitle">Interesting online modes salvage this derivative street racer from total mediocrity.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/legend-of-hero-tonma-review/1900-6179921/" class="article-title">Legend of Hero Tonma Review</a>
+			<div class="article-subtitle">Irem's knockoff of Ghosts 'N Goblins doesn't take long to master, but it's a thrill while it lasts.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/company-of-heroes-opposing-fronts-review/1900-6179920/" class="article-title">Company of Heroes: Opposing Fronts Review</a>
+			<div class="article-subtitle">Opposing Fronts is a satisfying follow-up to last year's thrilling Company of Heroes, packing more of the intense World War II real-time strategy action.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/coded-arms-contagion-review/1900-6179917/" class="article-title">Coded Arms: Contagion Review</a>
+			<div class="article-subtitle">Coded Arms: Contagion is a by-the-numbers first-person shooter that does nothing poorly, but nothing particularly well, either.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/locoroco-cocoreccho-review/1900-6179869/" class="article-title">LocoRoco Cocoreccho Review</a>
+			<div class="article-subtitle">The pure charisma of LocoRoco Cocoreccho will win you over, though the game itself is over before you know it.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_halo-3s-australian-midnight-launch_1100-6235530_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3s-australian-midnight-launch/1100-6235530/" class="article-title">Halo 3's Australian midnight launch</a>
+			<div class="article-subtitle">Looks like plenty of hardcore Halo fans opted to stay home and pick their copies up on launch day this time around with small crowds at the major Sydney stores. We staked out EB Bondi Junction and attacked people waiting in line with our video camera to find out what made them come out and pick up...</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_aussie-game-charts-september-17-23_1100-6179882_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-september-17-23/1100-6179882/" class="article-title">Aussie game charts: September 17-23</a>
+			<div class="article-subtitle">Super Paper Mario folds its way to number one.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_security-fears-cool-london-halo-3-launch-fever_1100-6179879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/security-fears-cool-london-halo-3-launch-fever/1100-6179879/" class="article-title">Security fears cool London Halo 3 launch fever</a>
+			<div class="article-subtitle">Westminster Council advises retailers against midnight openings in the capital, but stores outside the city still open their doors.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_thq-and-relic-to-unleash-soulstorm_1100-6179875_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-and-relic-to-unleash-soulstorm/1100-6179875/" class="article-title">THQ and Relic to unleash Soulstorm</a>
+			<div class="article-subtitle">Sci-fi strategy game Warhammer 40,000: Dawn of War set to grow ever larger with third standalone expansion pack.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_air-force-using-halo-3-as-recruiting-tool_1100-6235529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/air-force-using-halo-3-as-recruiting-tool/1100-6235529/" class="article-title">Air Force using Halo 3 as recruiting tool</a>
+			<div class="article-subtitle">Halo 3 for the Xbox 360 finally arrived in stores yesterday, giving gamers everywhere a chance to "finish the fight." And just in case their taste for combat isn't quite sated, the US Air Force wants to offer them another fight. With the Halo 3 launch hype in full swing yesterday, The New Hampshire...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_air-force-using-halo-3-as-recruiting-tool_1100-6179896_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/air-force-using-halo-3-as-recruiting-tool/1100-6179896/" class="article-title">Air Force using Halo 3 as recruiting tool</a>
+			<div class="article-subtitle">When GameStop turns away minors from a tournament to promote the M-rated game, Uncle Sam steps in with pizza, soda, and plasma grenades.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_analyst-42m-halo-3s-already-at-retail_1100-6179772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-42m-halo-3s-already-at-retail/1100-6179772/" class="article-title">Analyst: 4.2M Halo 3s already at retail</a>
+			<div class="article-subtitle">Goldman Sachs analysts project a massive launch for Bungie Studios' first-person shooter that should push Microsoft's Xbox division into "slight profitability."</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_report-square-enix-seeking-us-publishing-partner_1100-6179818_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-square-enix-seeking-us-publishing-partner/1100-6179818/" class="article-title">Report: Square Enix seeking US publishing partner</a>
+			<div class="article-subtitle">"Worried" by lagging PS3 sales, the Final Fantasy publisher looking for help to raise non-Japanese revenues by 50 percent, says the <i>Financial Times</i>.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_microsoft-covers-scratched-halo-3-discs_1100-6179832_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-covers-scratched-halo-3-discs/1100-6179832/" class="article-title">Microsoft covers scratched Halo 3 discs</a>
+			<div class="article-subtitle">[UPDATE] Publisher waives normal replacement fee to address issues with Limited Edition package of blockbuster shooter.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_bafta-announces-video-games-awards-nominations_1100-6179820_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bafta-announces-video-games-awards-nominations/1100-6179820/" class="article-title">BAFTA announces Video Games Awards nominations</a>
+			<div class="article-subtitle">UK's most prestigious gaming awards to be given out on October 23; BioShock, Wii Sports both in the running for Best Game.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_new-psps-250k-japanese-debut_1100-6179900_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-psps-250k-japanese-debut/1100-6179900/" class="article-title">New PSP's 250K Japanese debut</a>
+			<div class="article-subtitle">First-week sales of Sony's redesigned portable tally a quarter of a million in Land of the Rising Sun.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_jericho-verboten-in-germany_1100-6235528_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jericho-verboten-in-germany/1100-6235528/" class="article-title">Jericho verboten in Germany</a>
+			<div class="article-subtitle">Just under a year after it refused to rate Gears of War--effectively banning it from sale in Germany--the Unterhaltungssoftware Selbstkontrolle (USK) has struck again. Deutschland's answer to the Entertainment Software Ratings Board has refused to issue a rating for Clive Barker's Jericho, the...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_lost-planet-directx-10-vs-directx-9_1100-6171326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-planet-directx-10-vs-directx-9/1100-6171326/" class="article-title">Lost Planet: DirectX 10 vs. DirectX 9</a>
+			<div class="article-subtitle">Lost Planet marks gaming world’s first foray into DirectX 10. Check out how it compares to DirectX 9.</div>
+			<div class="article-author">Sarju Shah</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_activision-makes-bizarre-acquisition_1100-6179885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-makes-bizarre-acquisition/1100-6179885/" class="article-title">Activision makes Bizarre acquisition</a>
+			<div class="article-subtitle">Santa Monica-based publisher acquires Project Gotham Racing indie developer as part of "ongoing strategy to enter new genres."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_tomb-raider-anniversary-hands-on_1100-6179923_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tomb-raider-anniversary-hands-on/1100-6179923/" class="article-title">Tomb Raider: Anniversary Hands-On</a>
+			<div class="article-subtitle">We play through the first few levels of Crystal Dynamics' Tomb Raider remake on the Wii.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_analyst-activision-purchase-not-so-bizarre_1100-6179922_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-activision-purchase-not-so-bizarre/1100-6179922/" class="article-title">Analyst: Activision purchase not so Bizarre</a>
+			<div class="article-subtitle">Goldman Sachs' Mark Wienkes believes publisher's acquisition of Project Gotham Racing developer signals green lights for online revenue.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_ea-celebrates-10-years-of-ultima-online_1100-6235527_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-celebrates-10-years-of-ultima-online/1100-6235527/" class="article-title">EA celebrates 10 years of Ultima Online</a>
+			<div class="article-subtitle">Ten years ago this week, Richard Garriott's buggy, near-unplayable mess of a game Ultima Online debuted, and subsequently transformed the massively multiplayer online gaming space. In the years since, Ultima Online has been updated countless times, and has garnered seven full expansions. Its latest...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_universe-at-war-earth-assault-updated-hands-on-multiplayer_1100-6179894_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/universe-at-war-earth-assault-updated-hands-on-multiplayer/1100-6179894/" class="article-title">Universe at War: Earth Assault Updated Hands-On - Multiplayer</a>
+			<div class="article-subtitle">This real-time strategy game will let you lead three entirely distinct alien factions in battle.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_tournament-announced_1100-6235526_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tournament-announced/1100-6235526/" class="article-title">Tournament Announced</a>
+			<div class="article-subtitle">In the next week we'll be hosting Halo 3 Crush the Covenant, a team-based single elimination online tournament for the newly released game, Halo 3. The tournament will consist of 32 teams, each with 5 players. The gametype for the tournament will be Team Slayer (aka Team Deathmatch).Now is the best...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/26_halo-3-tournament-registration-is-open_1100-6235525_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-tournament-registration-is-open/1100-6235525/" class="article-title">Halo 3 tournament registration is OPEN!</a>
+			<div class="article-subtitle">We're excited to announce Crush the Convenant, a Halo 3 tournament for the Xbox 360! Here's your chance to show off your supreme console shooter skills. Registration opened on September 27th at 5pm PT and closes on October 1st at noon PT. Tell your friends all about it and sign up as a team!...</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_return-to-ultima-online-for-free_thumbnail.png">
+			<a href="https://www.eurogamer.net/return-to-ultima-online-for-free" class="article-title">Return to Ultima Online for free</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_gametribe-offers-uk-free-mmos_thumbnail.png">
+			<a href="https://www.eurogamer.net/gametribe-offers-uk-free-mmos" class="article-title">GameTribe offers UK free MMOs</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_halo-3-breaking-sales-records_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-breaking-sales-records" class="article-title">Halo 3 breaking sales records</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_no-cross-platform-ut3-at-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-cross-platform-ut3-at-launch" class="article-title">No cross-platform UT3 at launch</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_no-jericho-edit-for-germany_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-jericho-edit-for-germany" class="article-title">No Jericho edit for Germany</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_r-dsroundup-2609_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-dsroundup-2609" class="article-title">DS Roundup</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_halo-charity-auction-loot_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-charity-auction-loot" class="article-title">Halo charity auction loot</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_halo-3-launch-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-launch-article" class="article-title">Halo 3 launch</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_uk-pro-gaming-final-on-friday_thumbnail.png">
+			<a href="https://www.eurogamer.net/uk-pro-gaming-final-on-friday" class="article-title">UK pro gaming final on Friday</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_psp-slim-sells-300k-in-japan_thumbnail.png">
+			<a href="https://www.eurogamer.net/psp-slim-sells-300k-in-japan" class="article-title">PSP Slim sells 300k in Japan</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_football-manager-demo-sunday_thumbnail.png">
+			<a href="https://www.eurogamer.net/football-manager-demo-sunday" class="article-title">Football Manager demo Sunday</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_news210807biawii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news210807biawii" class="article-title">Brothers In Arms Wii slips</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_brothers-in-arms-wii-slips_thumbnail.png">
+			<a href="https://www.eurogamer.net/brothers-in-arms-wii-slips" class="article-title">Brothers In Arms Wii slips</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_brothers-in-arms-hit-wii-ds_thumbnail.png">
+			<a href="https://www.eurogamer.net/brothers-in-arms-hit-wii-ds" class="article-title">Brothers In Arms hit Wii, DS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_news010506tabularasavideo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010506tabularasavideo" class="article-title">Tabula Rasa unleashed on EG TV</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_xbox-live-up-and-running_thumbnail.png">
+			<a href="https://www.eurogamer.net/xbox-live-up-and-running" class="article-title">Xbox Live "up and running"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_guitar-hero-iii-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/guitar-hero-iii-first-impressions" class="article-title">Guitar Hero III</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_microsoft-praises-ds-success_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-praises-ds-success" class="article-title">Microsoft praises DS success</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_tom-clancys-air-combat_thumbnail.png">
+			<a href="https://www.eurogamer.net/tom-clancys-air-combat" class="article-title">Tom Clancy's Air Combat</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_pes-2008-pc-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/pes-2008-pc-demo" class="article-title">PES 2008 PC demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_macgyver-launches-halo-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/macgyver-launches-halo-3" class="article-title">MacGyver launches Halo 3</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/26_halo-3-launches-in-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-launches-in-uk" class="article-title">Halo 3 launches in UK</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128606/Saints-Row-2-for-2008/" class="article-title">Saints Row 2 for 2008</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128607/Wii-tops-BAFTA-nominations/" class="article-title">Wii tops BAFTA nominations</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128605/NBA-2K8-soundtrack/" class="article-title">NBA 2K8 soundtrack</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128603/Project-Torque-enters-open-beta-stage/" class="article-title">Project Torque enters open beta stage</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/parley.php" class="article-title">Parley</a>
+			<div class="article-author">zxo</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/trapped-part-1-the-white-rabbit.php" class="article-title">Trapped Part 1: The White Rabbit</a>
+			<div class="article-author">Jonah</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/09/26_2007_09_26_feudalism_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/09/26/feudalism/" class="article-title">Feudalism</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/09/26_2007_09_26_manifold_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/09/26/manifold/" class="article-title">Manifold</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/26_2007_09_zero-punctuation-peggle.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/09/zero-punctuation-peggle.html" class="article-title">Zero Punctuation: Peggle</a>
+			<div class="article-author">Anonymous</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/26_2007_09_bear-go-home.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/09/bear-go-home.html" class="article-title">Bear Go Home</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/26_2007_09_manifold.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/09/manifold.html" class="article-title">Manifold</a>
+			<div class="article-author">Anonymous</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 2, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/war-front-turning-point-review/1900-6166752/" class="article-title">War Front: Turning Point Review</a>
+			<div class="article-subtitle">War Front: Turning Point is a decidedly different take on the WWII real-time strategy game, complete with jetpack Nazis and freeze rays.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mach-modified-air-combat-heroes-review/1900-6166759/" class="article-title">M.A.C.H. Modified Air Combat Heroes Review</a>
+			<div class="article-subtitle">M.A.C.H. is a solid flight game that offers plenty of speed and high-flying antics, but it's grounded by a limited selection of stages and activities.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/trioncube-review/1900-6166751/" class="article-title">Trioncube Review</a>
+			<div class="article-subtitle">A cute story mode isn't enough to compensate for Trioncube's unoriginal and incredibly easy take on the Tetris formula.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/military-madness-review/1900-6166755/" class="article-title">Military Madness Review</a>
+			<div class="article-subtitle">Military Madness is an intricate, engaging turn-based strategy game along the same lines as Advance Wars.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/major-league-baseball-2k7-review/1900-6166771/" class="article-title">Major League Baseball 2K7 Review</a>
+			<div class="article-subtitle">A handful of quirks keep it from being great, but MLB 2K7 is still a very solid baseball game.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_conan-qanda-barbarian-influences_1100-6166569_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/conan-qanda-barbarian-influences/1100-6166569/" class="article-title">Conan Q&A: Barbarian Influences</a>
+			<div class="article-subtitle">The Cimmerian barbarian is invading consoles early next year, and we prepare for the attack in our Q&A with project director Robert Huebner.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_call-of-juarez-exclusive-qanda-introducing-the-xbox-360-version-and-details-on-vista-support_1100-6166601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-juarez-exclusive-qanda-introducing-the-xbox-360-version-and-details-on-vista-support/1100-6166601/" class="article-title">Call of Juarez Exclusive Q&A - Introducing the Xbox 360 Version and Details on Vista Support</a>
+			<div class="article-subtitle">This Old West first-person shooter is headed to the Xbox 360, but PC fans don't fret, because we have news regarding Windows Vista support.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_shining-force-exa-updated-hands-on_1100-6166609_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shining-force-exa-updated-hands-on/1100-6166609/" class="article-title">Shining Force Exa Updated Hands-On</a>
+			<div class="article-subtitle">We find out what it's like to own our own geo-fortress in an extensive hands-on preview of Shining Force Exa.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_armored-core-4-preview_1100-6166648_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/armored-core-4-preview/1100-6166648/" class="article-title">Armored Core 4 Preview</a>
+			<div class="article-subtitle">From Software's other big-robot franchise is headed to the new consoles in a matter of weeks, and we tried out the latest PlayStation 3 build.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_test-drive-unlimited-hands-on-racing-around-a-virtual-hawaii_1100-6166603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/test-drive-unlimited-hands-on-racing-around-a-virtual-hawaii/1100-6166603/" class="article-title">Test Drive Unlimited Hands-On - Racing Around a Virtual Hawaii</a>
+			<div class="article-subtitle">Not since Thomas Magnum cruised around Oahu in his Ferrari has driving around Hawaii seemed so cool.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_prince-of-persia-rival-swords-hands-on_1100-6166668_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prince-of-persia-rival-swords-hands-on/1100-6166668/" class="article-title">Prince of Persia Rival Swords Hands-On</a>
+			<div class="article-subtitle">We spend some time with the renamed Wii version of Prince of Persia: The Two Thrones.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_mastertronic-bites-into-redback_1100-6166714_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mastertronic-bites-into-redback/1100-6166714/" class="article-title">Mastertronic bites into Redback</a>
+			<div class="article-subtitle">Budget publisher acquires specialist sales agency in overseas expansion drive.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_anaconda-goes-like-so-blonde_1100-6166713_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/anaconda-goes-like-so-blonde/1100-6166713/" class="article-title">Anaconda goes, like, So Blonde</a>
+			<div class="article-subtitle">German company announces new adventure written by Broken Sword author Steve Ince.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_titan-quest-immortal-throne-final-hands-on_1100-6166685_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/titan-quest-immortal-throne-final-hands-on/1100-6166685/" class="article-title">Titan Quest: Immortal Throne Final Hands-On</a>
+			<div class="article-subtitle">We pull up a chair and sit down with Titan Quest: Immortal Throne to see what's in store for the first expansion to THQ's mythology-themed dungeon crawler.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_four-more-for-euro-vc_1100-6166711_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/four-more-for-euro-vc/1100-6166711/" class="article-title">Four more for Euro VC</a>
+			<div class="article-subtitle">This week sees the release of Streets of Rage for the Nintendo Wii's download centre.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_stalker-shadow-of-chernobyl-updated-hands-on-its-finally-done_1100-6166688_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stalker-shadow-of-chernobyl-updated-hands-on-its-finally-done/1100-6166688/" class="article-title">S.T.A.L.K.E.R.: Shadow of Chernobyl Updated Hands-On - It's Finally Done</a>
+			<div class="article-subtitle">THQ and GSC Game World announce that their ambitious and long-delayed first-person survival action game is finally complete.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_command-and-conquer-3-tiberium-wars-feature-preview-campaign-structure_1100-6166645_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/command-and-conquer-3-tiberium-wars-feature-preview-campaign-structure/1100-6166645/" class="article-title">Command & Conquer 3 Tiberium Wars Feature Preview - Campaign Structure</a>
+			<div class="article-subtitle">The 38 missions in Tiberium Wars span the globe, but now you can find out which theaters of war you'll fight in when the game ships next month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_simcity-ds-building-in-us_1100-6166532_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/simcity-ds-building-in-us/1100-6166532/" class="article-title">SimCity DS building in US</a>
+			<div class="article-subtitle">Maxis' groundbreaking simulation series adding US DSs to its platform population; mayors can cut the ribbon this summer.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_ratatouille-first-look_1100-6166715_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ratatouille-first-look/1100-6166715/" class="article-title">Ratatouille First Look</a>
+			<div class="article-subtitle">We check out THQ and Heavy Iron's upcoming game based on the Disney/Pixar CG film.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_frontlines-fuel-of-war-hands-on-first-look_1100-6166687_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/frontlines-fuel-of-war-hands-on-first-look/1100-6166687/" class="article-title">Frontlines: Fuel of War Hands-On First Look</a>
+			<div class="article-subtitle">Kaos Studios' near-future squad-based shooter will incorporate popular multiplayer elements into its single-player campaign, and we tried it out.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_motogp-07-first-look_1100-6166690_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motogp-07-first-look/1100-6166690/" class="article-title">MotoGP 07 First Look</a>
+			<div class="article-subtitle">We saddle up in our look at the 2007 entry in the fast and furious motorcycle racing series.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_aussie-game-charts-february-19-25_1100-6166667_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aussie-game-charts-february-19-25/1100-6166667/" class="article-title">Aussie game charts: February 19-25</a>
+			<div class="article-subtitle">Final Fantasy XII douses The Burning Crusade; Crackdown, Supreme Commander have solid debuts.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_the-witcher-hands-on-story-character-interaction-and-boss-battles_1100-6166712_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-witcher-hands-on-story-character-interaction-and-boss-battles/1100-6166712/" class="article-title">The Witcher Hands-On - Story, Character Interaction, and Boss Battles</a>
+			<div class="article-subtitle">CD Projekt's dark and dangerous RPG is nearing completion, and we went to Poland to get an updated look at the game.</div>
+			<div class="article-author">Phil Elliott</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_juiced-2-hot-import-nights-first-look_1100-6166691_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/juiced-2-hot-import-nights-first-look/1100-6166691/" class="article-title">Juiced 2: Hot Import Nights First Look</a>
+			<div class="article-subtitle">We go for a ride with an early version of Juiced 2: Hot Import Nights</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_skate-hands-on_1100-6166669_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skate-hands-on/1100-6166669/" class="article-title">Skate Hands-On</a>
+			<div class="article-subtitle">EA dares to tread where Tony Hawk has dominated for years. We take a first look at EA's next-generation skating game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_boise-state-qb-nabs-ncaa-cover_1100-6166726_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/boise-state-qb-nabs-ncaa-cover/1100-6166726/" class="article-title">Boise State QB nabs NCAA cover</a>
+			<div class="article-subtitle">After magical performance, Fiesta Bowl MVP Jared Zabransky named cover athlete for 2008 edition of EA's collegiate football game.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_worms-burrowing-into-xbl_1100-6166730_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/worms-burrowing-into-xbl/1100-6166730/" class="article-title">Worms burrowing into XBL</a>
+			<div class="article-subtitle">Team 17's wriggly critters infesting Xbox Live Arcade next Wednesday; strategy/action blend to cost $10.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_namco-serves-up-psp-tennis_1100-6166735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-serves-up-psp-tennis/1100-6166735/" class="article-title">Namco serves up PSP tennis</a>
+			<div class="article-subtitle">Smash Court Tennis 3 lobbing onto Sony's portable this summer; Federer, Nadal, Henin included as playable pros.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_study-driving-games-lead-to-real-life-speeding_1100-6166741_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/study-driving-games-lead-to-real-life-speeding/1100-6166741/" class="article-title">Study: Driving games lead to real-life speeding</a>
+			<div class="article-subtitle">British driving institution finds that a third of young drivers are likely to rev it up more after playing racing games.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_command-and-conquer-3-tiberium-wars-feature-preview-campaign-structure_1100-6166643_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/command-and-conquer-3-tiberium-wars-feature-preview-campaign-structure/1100-6166643/" class="article-title">Command & Conquer 3 Tiberium Wars Feature Preview - Campaign Structure</a>
+			<div class="article-subtitle">The 38 missions in Tiberium Wars span the globe, but now you can find out which theaters of war you'll fight in when the game ships next month.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_10tacle-gets-ready-2-rumble_1100-6166749_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/10tacle-gets-ready-2-rumble/1100-6166749/" class="article-title">10tacle gets Ready 2 Rumble</a>
+			<div class="article-subtitle">Multinational publisher picks up comical boxing license; fighting specialists AKI developing first R2R game for "various videogame platforms."</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_top-spin-2-hands-on_1100-6166756_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-spin-2-hands-on/1100-6166756/" class="article-title">Top Spin 2 Hands-On</a>
+			<div class="article-subtitle">Tennis, anyone? 2K Sports and Aspyr are bringing last year's great Xbox 360 tennis game to the PC.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_earth-defense-force-2017-english-hands-on_1100-6166745_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/earth-defense-force-2017-english-hands-on/1100-6166745/" class="article-title">Earth Defense Force 2017 English Hands-On</a>
+			<div class="article-subtitle">The North American release of this giant-bug blastathon may be even campier than its Japanese counterpart. We took the localized version for a spin.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_uefa-champions-league-20062007-updated-handson_1100-6166765_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uefa-champions-league-20062007-updated-handson/1100-6166765/" class="article-title">UEFA Champions League 2006-2007 Updated Hands-On</a>
+			<div class="article-subtitle">Trade you a Beckham for your Ronaldinho. We check out the collectible card modes in this upcoming soccer game from EA.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/03/02_graw2-spotlight-part-3-environments_1100-6166777_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/graw2-spotlight-part-3-environments/1100-6166777/" class="article-title">GRAW2 Spotlight Part 3 - Environments</a>
+			<div class="article-subtitle">Ghost Recon Advanced Warfighter 2 is almost upon us, and we take one final look at the game's environments before it ships.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_scarface-heads-to-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/scarface-heads-to-wii" class="article-title">Scarface heads to Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_fleeting-fantasies-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/fleeting-fantasies-interview" class="article-title">Fleeting Fantasies</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_battlestations-midway-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlestations-midway-review" class="article-title">Battlestations Midway</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_gdc-2007-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/gdc-2007-next-week" class="article-title">GDC 2007 next week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_gta-iv-trailer-this-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/gta-iv-trailer-this-month" class="article-title">GTA IV trailer this month</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_ps3-firmware-updated-to-154_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-firmware-updated-to-154" class="article-title">PS3 firmware updated to 1.54</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_worms-xbla-next-week_thumbnail.png">
+			<a href="https://www.eurogamer.net/worms-xbla-next-week" class="article-title">Worms XBLA next week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_wii-to-outsell-rivals-in-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-to-outsell-rivals-in-2008" class="article-title">Wii to outsell rivals in 2008</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_rumble-planned-for-sixaxis_thumbnail.png">
+			<a href="https://www.eurogamer.net/rumble-planned-for-sixaxis" class="article-title">Rumble planned for SIXAXIS</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/03/02_streets-of-rage-joins-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/streets-of-rage-joins-vc" class="article-title">Streets of Rage joins VC</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128090/Smash-Court-Tennis-3-coming-to-PSP/" class="article-title">Smash Court Tennis 3 coming to PSP</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128089/Blow-out-fires-in-SimCity-DS/" class="article-title">Blow out fires in SimCity DS</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128088/Yu-Gi-Oh-World-Championship-2007-launches-in-April/" class="article-title">Yu-Gi-Oh! World Championship 2007 launches in April</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-8.php" class="article-title">Link Dump Friday №8</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/growbal-warming.php" class="article-title">Growbal Warming</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc2-jelly-fusion.php" class="article-title">CGDC2: Jelly Fusion</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc2-chicken-grow.php" class="article-title">CGDC2: Chicken Grow</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc2-enqbate.php" class="article-title">CGDC2: enQbate</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/03/02_2007_03_02_altered-tim-1_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/03/02/altered-tim-1/" class="article-title">Altered Tim #1</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

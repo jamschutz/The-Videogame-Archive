@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 1, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sneak-king-review/1900-6162590/" class="article-title">Sneak King Review</a>
+			<div class="article-subtitle">Sneak King isn't a good game, but it's so crazy and so cheap that it still manages to be weirdly compelling.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harley-davidson-motorcycles-race-to-the-rally-revi/1900-6162612/" class="article-title">Harley-Davidson Motorcycles: Race to the Rally Review</a>
+			<div class="article-subtitle">An insult to Harley fans and racing-game aficionados, this game should be avoided at all costs.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scurge-hive-review/1900-6162621/" class="article-title">Scurge: Hive Review</a>
+			<div class="article-subtitle">Scurge: Hive is a solid action adventure with a slick presentation that should appeal to anyone who enjoys the Metroid style of play.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scurge-hive-review/1900-6162624/" class="article-title">Scurge: Hive Review</a>
+			<div class="article-subtitle">Scurge: Hive is a solid action adventure with a slick presentation that should appeal to anyone who enjoys the Metroid style of play.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/college-hoops-2k7-review/1900-6162614/" class="article-title">College Hoops 2K7 Review</a>
+			<div class="article-subtitle">College Hoops 2K7 is a good college basketball game, but it's nearly identical to College Hoops 2K6.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/college-hoops-2k7-review/1900-6162605/" class="article-title">College Hoops 2K7 Review</a>
+			<div class="article-subtitle">College Hoops 2K7 is a very good college basketball game, but its value is somewhat lessened by the fact that it follows College Hoops 2K6 by just eight months.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/wwe-smackdown-vs-raw-2007-review/1900-6162625/" class="article-title">WWE SmackDown! vs. RAW 2007 Review</a>
+			<div class="article-subtitle">What SmackDown! vs. RAW 2007 improves isn't necessarily what the series actually needed to improve, but on its own merits, it's still a very good wrestling game.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_idg-gen-con-in-talks-to-merge-events_1100-6162559_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/idg-gen-con-in-talks-to-merge-events/1100-6162559/" class="article-title">IDG, Gen Con in talks to merge events</a>
+			<div class="article-subtitle">Ongoing disruption in trade show biz adds group behind sci-fi/fantasy convention into the mix; talks of a joint show continue.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_big-huge-games-resurrecting-left-behind_1100-6162556_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-huge-games-resurrecting-left-behind/1100-6162556/" class="article-title">Big Huge Games resurrecting Left Behind</a>
+			<div class="article-subtitle">Rise of Nations developer licenses technology to developer of religious real-time strategy game for a sequel.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_semifinals_1100-6236116_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/semifinals/1100-6236116/" class="article-title">Semifinals</a>
+			<div class="article-subtitle">How to put the Massacre in the Medieval!It gets even better in the semifinals. I pulled some of the most action-packed moments from yesterday's matches to give you an idea of the awesomeness you should expect to see in today's Tournament TV. Enjoy!</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_sony-hits-brakes-on-gran-turismo-hd_1100-6162566_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-hits-brakes-on-gran-turismo-hd/1100-6162566/" class="article-title">Sony hits brakes on Gran Turismo HD</a>
+			<div class="article-subtitle">Polyphony Digital's PlayStation 3 driving sim will only be released in free downloadable demo form in Japan; no word on game's US fate.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_elebits-hands-on-powering-up-the-house_1100-6162540_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elebits-hands-on-powering-up-the-house/1100-6162540/" class="article-title">Elebits Hands-On - Powering up the House</a>
+			<div class="article-subtitle">The furniture is flying in our hands-on look at Konami's quirky Wii action game, just days before its mid-December release date.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_medieval-massacre-tournament-tv-and-you_1100-6236115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medieval-massacre-tournament-tv-and-you/1100-6236115/" class="article-title">Medieval Massacre, Tournament TV, and YOU!</a>
+			<div class="article-subtitle">We can't do it without you! Make sure to tune in today at 4PM PST to watch our two pro teams duke it out for superiority in Medieval Massacre, our Dark Messiah of Might & Magic tournament. The crusade has begun--are you ready to fight for your cause?</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_decembers-uk-game-on-events-announced_1100-6162561_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/decembers-uk-game-on-events-announced/1100-6162561/" class="article-title">December's UK Game On events announced</a>
+			<div class="article-subtitle">Discussions on virtual worlds, educational benefits of games to be held as part of the London Science Museum's Game On exhibition.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_full-auto-2-pulls-into-factory_1100-6162577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/full-auto-2-pulls-into-factory/1100-6162577/" class="article-title">Full Auto 2 pulls into factory</a>
+			<div class="article-subtitle">PlayStation 3-exclusive demolition derby goes gold; combat car racer on course to arrive in stores on December 7.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_seven-lights-illuminates-chicago_1100-6162582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seven-lights-illuminates-chicago/1100-6162582/" class="article-title">Seven Lights illuminates Chicago</a>
+			<div class="article-subtitle">[UPDATE] New Midwest game developer and publisher announced; first game, The Continuum, to be released in early 2007.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_michigan-ordered-to-pay-legal-fees-in-game-law-case_1100-6162585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/michigan-ordered-to-pay-legal-fees-in-game-law-case/1100-6162585/" class="article-title">Michigan ordered to pay legal fees in game law case</a>
+			<div class="article-subtitle">Judge tells the state it must give more than $180,000 to a trio of industry trade groups to reimburse them for the cost of having a contested law overturned.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_lost-planet-hype-amps-up_1100-6162586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-planet-hype-amps-up/1100-6162586/" class="article-title">Lost Planet hype amps up</a>
+			<div class="article-subtitle">Capcom promotes sci-fi shooter with free figure for preorders, minute-long trailer for the game running all month long on NBC's giant-screen TV in Times Square.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_napster-founder-targets-wow-for-next-project_1100-6162588_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/napster-founder-targets-wow-for-next-project/1100-6162588/" class="article-title">Napster founder targets WOW for next project</a>
+			<div class="article-subtitle">Shawn Fanning to build virtual online community for online gamers; Blizzard's World of Warcraft to be first featured game.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_japan-counts-down-to-wii-launch_1100-6162591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/japan-counts-down-to-wii-launch/1100-6162591/" class="article-title">Japan counts down to Wii launch</a>
+			<div class="article-subtitle">GameSpot scours the streets of downtown Tokyo to see how gamers are preparing for the trans-Pacific launch of Nintendo's new console.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_cnet-editor-goes-missing_1100-6162608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cnet-editor-goes-missing/1100-6162608/" class="article-title">CNET editor goes missing</a>
+			<div class="article-subtitle">James Kim and his family last seen last Saturday on Oregon's Highway 38 and Interstate 5.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_second-sam-and-max-episode-on-the-way_1100-6162615_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/second-sam-and-max-episode-on-the-way/1100-6162615/" class="article-title">Second Sam & Max episode on the way</a>
+			<div class="article-subtitle">Ongoing misadventures of anthropomorphic crime-fighting duo to continue in Situation: Comedy, debuting on GameTap later this month.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_rogue-galaxy-english-hands-on_1100-6162622_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rogue-galaxy-english-hands-on/1100-6162622/" class="article-title">Rogue Galaxy English Hands-On</a>
+			<div class="article-subtitle">Level 5 will provide a sprawling RPG space opera to PS2 owners early next year, and we got our hands on an early localized version of the game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_the-buttons-they-mash_1100-6236113_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-buttons-they-mash/1100-6236113/" class="article-title">The buttons, they mash</a>
+			<div class="article-subtitle">Brown paper packages tied up with string, and Button Mashing: these are a few of our favorite things! Extra points if you get the reference.Anyway, we've got the cure for the Monday doldrums: Button Mashing! C'mon, you know you want to chant it. You know it.Button!Mashing!There: don't you feel...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/12/01_crysis-developer-mulling-move_1100-6162532_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crysis-developer-mulling-move/1100-6162532/" class="article-title">Crysis developer mulling move</a>
+			<div class="article-subtitle">Looming German ban on violent games could prompt shop behind EA's high-profile shooter to pull up stakes.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206pachter_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206pachter" class="article-title">Sony reshuffle says 'nothing' about PS4 plans - Pachter</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206sonypspcheap_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206sonypspcheap" class="article-title">EA calls for cheaper PSP</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_c-r6v-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/c-r6v-x360" class="article-title">Compo: Xbox 360 and Rainbow Six Vegas!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_eg-rev-kc-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/eg-rev-kc-ps2" class="article-title">EyeToy: Kinetic Combat</a>
+			<div class="article-author">James Lyon</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206gthddemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206gthddemo" class="article-title">GT HD repackaged as demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206x360patch_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206x360patch" class="article-title">MS releases 360 1080p fix</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206ps4woot_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206ps4woot" class="article-title">Sony reckons it'll do a PS4</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206headgate_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206headgate" class="article-title">EA acquires Headgate Studios</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_news011206halo3beta_thumbnail.png">
+			<a href="https://www.eurogamer.net/news011206halo3beta" class="article-title">Halo 3 beta sign-up details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_r-wiisports-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-wiisports-wii" class="article-title">Wii Sports</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/12/01_eg-sl-rev-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/eg-sl-rev-pc" class="article-title">Strongholds: Legends</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127882/Xbox-demo-stands-on-Trade-Me-for-childrens-hospital/" class="article-title">Xbox demo stands on Trade Me for children's hospital</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127881/World-Series-of-Poker-on-consoles-PC/" class="article-title">World Series of Poker on consoles, PC</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/kdice.php" class="article-title">kdice (multiplayer Dice Wars)</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/gift-wrapped.php" class="article-title">Gift Wrapped</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

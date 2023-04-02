@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 17, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/guild-wars-factions-review/1900-6149248/" class="article-title">Guild Wars Factions Review</a>
+			<div class="article-subtitle">The follow-up to the innovative Guild Wars features a large new fantasy world to explore and enough competitive and cooperative role-playing action to easily keep you busy for weeks.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6164294/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">The Avatar's DS debut serves up an engaging story and some slick 3D visuals, but it's otherwise just another mediocre brawler.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6164292/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">Although it doesn't break any new ground, the Avatar's foray on the GBA is a lively action adventure that offers a solid mix of combat and puzzles.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/avatar-the-last-airbender-review/1900-6164296/" class="article-title">Avatar: The Last Airbender Review</a>
+			<div class="article-subtitle">Avatar on the PSP is a solid hack-and-slash that will likely appeal to fans of the show as well as anyone that has enjoyed similar games in the past.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/xiaolin-showdown-review/1900-6164298/" class="article-title">Xiaolin Showdown Review</a>
+			<div class="article-subtitle">This simplistic brawler's condescending attitude and one-note gameplay make it worth dodging.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/xiaolin-showdown-review/1900-6164301/" class="article-title">Xiaolin Showdown Review</a>
+			<div class="article-subtitle">This simplistic brawler's condescending attitude and one-note gameplay make it worth dodging.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/heavy-weapon-atomic-tank-review/1900-6164307/" class="article-title">Heavy Weapon: Atomic Tank Review</a>
+			<div class="article-subtitle">Heavy Weapon's arcade-style shooting is incredibly appealing, especially when you get into the ridiculous action in the multiplayer modes.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_shippin-out-january-15-19-buurnnning-cruuusade_1100-6164254_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-january-15-19-buurnnning-cruuusade/1100-6164254/" class="article-title">Shippin' Out January 15-19: Buurnnning Cruuusade!</a>
+			<div class="article-subtitle">WOW expansion hits shelves, social lives hit skids; also out this week: wacky Wii WarioWare, another case for Phoenix Wright, March Madness in January.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_battlestations-midway-demo-touches-down-thursday_1100-6164257_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlestations-midway-demo-touches-down-thursday/1100-6164257/" class="article-title">Battlestations: Midway demo touches down Thursday</a>
+			<div class="article-subtitle">Sample of Eidos' WWII game hits XBL this week; sneak peek available during GameSpot's live developer interview tomorrow.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_wii-contest-radio-station-fires-10-staff_1100-6164262_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-contest-radio-station-fires-10-staff/1100-6164262/" class="article-title">Wii-contest radio station fires 10 staff</a>
+			<div class="article-subtitle">KDND 107.9's <i>Morning Rave</i> off air indefinitely after the death of a woman in a water-drinking competition.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_ea-arrives-on-live-arcade_1100-6164258_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-arrives-on-live-arcade/1100-6164258/" class="article-title">EA arrives on Live Arcade</a>
+			<div class="article-subtitle">Publisher taps Bizarre Creations to develop its debut XBLA game, Boom Boom Rocket; online marketing VP Chip Lange explains what took so long.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_pursuit-force-sequel-announced_1100-6164263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pursuit-force-sequel-announced/1100-6164263/" class="article-title">Pursuit Force sequel announced</a>
+			<div class="article-subtitle">Extreme Justice heads to both the PSP and PS2 platforms; Sony adds a host of new features.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_chartspot-december-2006_1100-6164249_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chartspot-december-2006/1100-6164249/" class="article-title">ChartSpot: December 2006</a>
+			<div class="article-subtitle">Gears of War takes first prize, followed by Guitar Hero II, Madden, and Zelda; no PS3 games make the console top 20, while the Sims and WOW rule the PC charts...again.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_sony-europe-ps3-still-set-for-march_1100-6164264_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-europe-ps3-still-set-for-march/1100-6164264/" class="article-title">Sony: Europe PS3 still set for March</a>
+			<div class="article-subtitle">Spokesperson confirms the console's still good to go in Europe as planned, despite Stringer's claims of a push back to April.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_buried-sea-expands-everquest_1100-6164269_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/buried-sea-expands-everquest/1100-6164269/" class="article-title">Buried Sea expands EverQuest</a>
+			<div class="article-subtitle">Sony Online Entertainment reveals new expansion for long-running MMORPG; The Buried Sea flows in February 13.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_warhawk-down_1100-6236071_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhawk-down/1100-6236071/" class="article-title">Warhawk down?</a>
+			<div class="article-subtitle">Source: News from the oddly familiar-looking Rumor Reporter, which subsequently blew up on several other game sites.  The official story: See below. What we heard: Yesterday, RumorReporter.com posted an article titled "High Profile PS3 Title in Trouble." The site claimed an inside source working on...</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_battlestations-midway-event_1100-6236070_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlestations-midway-event/1100-6236070/" class="article-title">Battlestations: Midway Event</a>
+			<div class="article-subtitle">Stop back later today at 4pm PT to see a live, exclusive interview with the makers of Battlestations: Midway game, including Head of Studio from Eidos Hungary Klaude Thomas, Product Manager David Bamberger, and Product Specialists, Katie Bieringer and Stephen Cavoretto of Eidos Interactive.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_snake-wars_1100-6236069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/snake-wars/1100-6236069/" class="article-title">Snake Wars</a>
+			<div class="article-subtitle">I am going to try and resist filling this announcement with references to venom and hissing, although I may fail in this quest. Suffice it to say that we are proud to announce Snake Wars, GameSpot's very first handheld tournament! 48 players will compete in Metal Gear Solid: Portable Ops mode for...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_sony-nintendo-tout-aussie-success-in-2006_1100-6164261_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-nintendo-tout-aussie-success-in-2006/1100-6164261/" class="article-title">Sony, Nintendo tout Aussie success in 2006</a>
+			<div class="article-subtitle">More than 2.2 million PS2s now sold in Australia; Nintendo says DS highest-selling games console down under for 2006.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_canada-posts-record-year-for-gaming_1100-6164288_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/canada-posts-record-year-for-gaming/1100-6164288/" class="article-title">Canada posts record year for gaming</a>
+			<div class="article-subtitle">Great White North's C$933 million industry-wide sales jump 22 percent over the previous year; NHL 07 tops sales charts.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_europa-universalis-iii-demo-out-now_1100-6164297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/europa-universalis-iii-demo-out-now/1100-6164297/" class="article-title">Europa Universalis III demo out now</a>
+			<div class="article-subtitle">Single-player sample of empire-building game from Paradox now on GameSpot; select tutorials included in 130MB file.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_crackdown-hands-on_1100-6164291_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crackdown-hands-on/1100-6164291/" class="article-title">Crackdown Hands-On</a>
+			<div class="article-subtitle">Realtime Worlds is putting the finishing touches to its free-roaming action game, and we play the latest build for a final hands-on preview.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_highlights_1100-6236068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/highlights/1100-6236068/" class="article-title">Highlights</a>
+			<div class="article-subtitle">The action has been hot and heavy in the Aces Wild tournament. Need an example? Teams 3 and 4 in the Quarterfinal round had two draws and went into the final round tied at 3 apiece. So in honor of the virtual heart attack they gave to all of the GameSpot staff huddled around the PC's, I give you...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_warhawk-down_1100-6164286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhawk-down/1100-6164286/" class="article-title">Warhawk down?</a>
+			<div class="article-subtitle">Mystery game said to be in trouble pegged as Incognito's air combat game for PS3; David Jaffe joins Internet chatter, Sony responds to GameSpot.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_activision-calls-dibs-on-guitar-villain-drum-villain_1100-6164293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-calls-dibs-on-guitar-villain-drum-villain/1100-6164293/" class="article-title">Activision calls dibs on Guitar Villain, Drum Villain</a>
+			<div class="article-subtitle">Trademark applications filed late last year suggest a pair of Guitar Hero spin-offs in the publisher's future.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_rockstar-vienna-vets-make-games-that-matter_1100-6164279_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-vienna-vets-make-games-that-matter/1100-6164279/" class="article-title">Rockstar Vienna vets make Games That Matter</a>
+			<div class="article-subtitle">Placeholder Web site for new studio promises a "visionary" business model to be unveiled next week.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_qanda-sonys-sir-howard-stringer_1100-6164270_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-sonys-sir-howard-stringer/1100-6164270/" class="article-title">Q&A: Sony's Sir Howard Stringer </a>
+			<div class="article-subtitle">Electronics giant's CEO drops the gloves in this CES chat; calls coverage of PS3 shipping shortfall "thoughtful, elegant, unkind."</div>
+			<div class="article-author">Michael Kanellos</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_neversoft-rocking-guitar-hero_1100-6164302_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/neversoft-rocking-guitar-hero/1100-6164302/" class="article-title">Neversoft rocking Guitar Hero</a>
+			<div class="article-subtitle">Tony Hawk developer's site proclaims it is hiring staffers for the best-selling rhythm series. RedOctane confirms studio's involvement.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_titan-quest-immortal-throne-designer-diary-2-the-dream-mastery_1100-6164241_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/titan-quest-immortal-throne-designer-diary-2-the-dream-mastery/1100-6164241/" class="article-title">Titan Quest: Immortal Throne Designer Diary #2 - The Dream Mastery</a>
+			<div class="article-subtitle">Designer Ian Frazier tells us how you'll bend the fabric of reality using the new dream mastery in Titan Quest: Immortal Throne.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_qanda-genji-2s-yoshiki-okamoto_1100-6164197_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-genji-2s-yoshiki-okamoto/1100-6164197/" class="article-title">Q&A: Genji 2's Yoshiki Okamoto</a>
+			<div class="article-subtitle">The developer of Genji: Days of the Blade talks about creating a launch title and PlayStation 3 exclusive.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_shadowrun-exclusive-hands-on_1100-6164278_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadowrun-exclusive-hands-on/1100-6164278/" class="article-title">Shadowrun Exclusive Hands-On </a>
+			<div class="article-subtitle">We get an updated look at this upcoming multiplayer action game that combines magic with technology to wild effect.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_qanda-bill-roper-opens-up-about-hellgate-london_1100-6164306_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-bill-roper-opens-up-about-hellgate-london/1100-6164306/" class="article-title">Q&A: Bill Roper opens up about Hellgate: London </a>
+			<div class="article-subtitle">Following multiplayer subscription brouhaha, the Flagship Studios founder and CEO says that his forthcoming game will contain "significant free online play."</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_koeis-latest-romance-is-golden_1100-6164308_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/koeis-latest-romance-is-golden/1100-6164308/" class="article-title">Koei's latest Romance is golden</a>
+			<div class="article-subtitle">Development on Romance of the Three Kingdoms XI complete; PlayStation 2 game ships to stores February 6.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_australian-gaming-rises-in-2006_1100-6164305_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/australian-gaming-rises-in-2006/1100-6164305/" class="article-title">Australian gaming rises in 2006</a>
+			<div class="article-subtitle">Oz game sales top A$925 million ($727.8 million) last year; hardware sales rise 18 percent, software numbers slightly down.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_genesis-rising-the-universal-crusade-hands-on-starship-combat-mutations-and-conversation_1100-6164300_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/genesis-rising-the-universal-crusade-hands-on-starship-combat-mutations-and-conversation/1100-6164300/" class="article-title">Genesis Rising: The Universal Crusade Hands-On - Starship Combat, Mutations, and Conversation</a>
+			<div class="article-subtitle">This real-time space strategy game features organic starships, mutating weapons, and an interesting take on interstellar warfare.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/01/17_wriggle-into-snake-wars_1100-6236067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wriggle-into-snake-wars/1100-6236067/" class="article-title">Wriggle Into Snake Wars</a>
+			<div class="article-subtitle">I am going to try and resist filling this announcement with references to venom and hissing, although I may fail in this quest. Suffice it to say that we are proud to announce Snake Wars, GameSpot's very first handheld tournament! 48 players will compete in Metal Gear Solid: Portable Ops for $1000...</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_ps3-price-points-for-uk-and-ireland-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-price-points-for-uk-and-ireland-revealed" class="article-title">PS3 price points for UK and Ireland revealed</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_scee-dismisses-april-ps3-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/scee-dismisses-april-ps3-launch" class="article-title">SCEE dismisses April PS3 launch</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_battlestations-midway-demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/battlestations-midway-demo" class="article-title">Battlestations: Midway demo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_eas-first-xbla-title_thumbnail.png">
+			<a href="https://www.eurogamer.net/eas-first-xbla-title" class="article-title">EA's first XBLA title</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_free-race-weekend-on-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-race-weekend-on-steam" class="article-title">Free RACE weekend on Steam</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_tamagotchi-wii-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/tamagotchi-wii-game" class="article-title">Tamagotchi Wii game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_neversoft-doing-guitar-hero_thumbnail.png">
+			<a href="https://www.eurogamer.net/neversoft-doing-guitar-hero" class="article-title">Neversoft doing Guitar Hero?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_ps3-price-appears-on-sony-site_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-price-appears-on-sony-site" class="article-title">PS3 price appears on Sony site</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_gdc-promises-fable-2-reveal_thumbnail.png">
+			<a href="https://www.eurogamer.net/gdc-promises-fable-2-reveal" class="article-title">GDC promises Fable 2 reveal</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_wii-death-radio-station-fires-10_thumbnail.png">
+			<a href="https://www.eurogamer.net/wii-death-radio-station-fires-10" class="article-title">'Wii death' radio station fires 10</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_crysis-360-denied_thumbnail.png">
+			<a href="https://www.eurogamer.net/crysis-360-denied" class="article-title">Crysis 360 denied</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/01/17_stalker-release-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/stalker-release-date" class="article-title">S.T.A.L.K.E.R. release date</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127977/Fatal-Inertia-Bladestorm-shifted-to-Winter-for-PS3/" class="article-title">Fatal Inertia, Bladestorm shifted to Winter for PS3</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127976/New-Laptop-friendly-Sims-games/" class="article-title">New 'Laptop-friendly' Sims games</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127975/Canadian-game-development-competition-top-ten-announced/" class="article-title">Canadian game development competition top ten announced</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/valo.php" class="article-title">Valo</a>
+			<div class="article-author">Noah</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/17_2007_01_flash-game-reviews.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/01/flash-game-reviews.html" class="article-title">Flash Game Reviews</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/17_2007_01_cultivation.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/01/cultivation.html" class="article-title">Cultivation</a>
+			<div class="article-author">Jason Rohrer (jcr13)</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/17_2007_01_cereus-peashy.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/01/cereus-peashy.html" class="article-title">Cereus Peashy</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/01/17_2007_01_lunaria.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/01/lunaria.html" class="article-title">Lunaria</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

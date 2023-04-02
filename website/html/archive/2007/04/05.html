@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 5, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/singstar-pop/1900-6168613/" class="article-title">SingStar Pop Review</a>
+			<div class="article-subtitle">Sony has delivered a second functional karaoke platform, this time with a more stylistically cohesive list of songs.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rocky-balboa-review/1900-6168663/" class="article-title">Rocky Balboa Review</a>
+			<div class="article-subtitle">Rocky Balboa has plenty of heart, but it's counted out by a poor fighting system and frustrating controls.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/prostroke-golf-world-tour-2007-review/1900-6168678/" class="article-title">ProStroke Golf - World Tour 2007 Review</a>
+			<div class="article-subtitle">ProStroke Golf - World Tour 2007 is a passable effort, but one that fails to bring anything new to the world of golf games.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/teenage-mutant-ninja-turtles-review/1900-6168657/" class="article-title">Teenage Mutant Ninja Turtles Review</a>
+			<div class="article-subtitle">Teenage Mutant Ninja Turtles for the Nintendo Entertainment System is sadistically difficult, unpolished, and generally just isn't fun.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/metal-slug-anthology-review/1900-6168664/" class="article-title">Metal Slug Anthology Review</a>
+			<div class="article-subtitle">The breakneck action of SNK's playfully over-the-top arcade shooter series still shines on the PS2, and it makes for a value-packed compilation.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_daily-downloads-4-4-supcom-updated_1100-6168616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-downloads-4-4-supcom-updated/1100-6168616/" class="article-title">Daily Downloads 4/4: SupCom Updated</a>
+			<div class="article-subtitle">Supreme Commander patched to v3223, joined by Quake 4 beta patch and Enemy Territory: Quake Wars fan material.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_bruno-bonnell-leaves-infogrames-atari_1100-6168631_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bruno-bonnell-leaves-infogrames-atari/1100-6168631/" class="article-title">Bruno Bonnell leaves Infogrames, Atari</a>
+			<div class="article-subtitle">Top executive leaves game publisher and well-known subsidiary after debt restructuring program finishes.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_company-of-heroes-takes-on-opposing-fronts_1100-6168644_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/company-of-heroes-takes-on-opposing-fronts/1100-6168644/" class="article-title">Company of Heroes takes on Opposing Fronts</a>
+			<div class="article-subtitle">Next chapter of Relic's real-time strategy series features two new playable factions, will ship this fall.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_hp-has-gaming-handheld-tech-in-the-works_1100-6168649_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hp-has-gaming-handheld-tech-in-the-works/1100-6168649/" class="article-title">HP has gaming handheld tech in the works</a>
+			<div class="article-subtitle">"Mscape" could turn handheld units in to gaming devices; games using the technology can use GPS, motion sensitivity to "get gamers off the couch."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_take-two-confirms-formal-sec-investigation_1100-6168651_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-confirms-formal-sec-investigation/1100-6168651/" class="article-title">Take-Two confirms formal SEC investigation</a>
+			<div class="article-subtitle">New management inherits continuing stock option scandal as old CEO leaves with more than $2.4 million in severance pay.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_ps-store-adds-demo-update_1100-6168653_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps-store-adds-demo-update/1100-6168653/" class="article-title">PS Store adds demo, update</a>
+			<div class="article-subtitle">Gran Turismo HD Concept updated to add worldwide ranking leaders; demo for Armored Core, trailer for GTAIV now available.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_nights-flies-again-on-wii_1100-6168429_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nights-flies-again-on-wii/1100-6168429/" class="article-title">NiGHTS flies again on Wii</a>
+			<div class="article-subtitle">Sega confirms Journey of Dreams, first sequel to the critically acclaimed Saturn game set for Nintendo's new console.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_shadowrun-updated-qanda-final-thoughts_1100-6168642_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadowrun-updated-qanda-final-thoughts/1100-6168642/" class="article-title">Shadowrun Updated Q&A - Final Thoughts</a>
+			<div class="article-subtitle">FASA studio manager Mitch Gitelman looks back at the Shadowrun project and talks about the challenges encountered along the way.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_marvel-ultimate-alliance-download-packs-first-look_1100-6168655_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-ultimate-alliance-download-packs-first-look/1100-6168655/" class="article-title">Marvel: Ultimate Alliance Download Packs First Look</a>
+			<div class="article-subtitle">Eight new Marvel icons make their way into the ultimate alliance. We check out the downloadable content for the popular comics beat-'em-up.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_spider-man-3-hands-on_1100-6168696_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-3-hands-on/1100-6168696/" class="article-title">Spider-Man 3 Hands-On</a>
+			<div class="article-subtitle">How does Activision and Treyarch's movie-based game swing on the PlayStation 3 and Xbox 360?</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/05_spider-man-3-hands-on_1100-6168697_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-3-hands-on/1100-6168697/" class="article-title">Spider-Man 3 Hands-On</a>
+			<div class="article-subtitle">How does Activision and Treyarch's movie-based game swing on the PlayStation 3 and Xbox 360?</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_no-lylatwars-for-euro-vc-yet_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-lylatwars-for-euro-vc-yet" class="article-title">No Lylatwars for Euro VC yet</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_earth-defence-force-2017-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/earth-defence-force-2017-review" class="article-title">Earth Defence Force 2017</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_the-elder-scrolls-iv-shivering-isles-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-elder-scrolls-iv-shivering-isles-review" class="article-title">The Elder Scrolls IV: Shivering Isles</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_ea-quiet-on-rock-band-pricing_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-quiet-on-rock-band-pricing" class="article-title">EA quiet on Rock Band pricing</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_motorstorm-completes-hat-trick_thumbnail.png">
+			<a href="https://www.eurogamer.net/motorstorm-completes-hat-trick" class="article-title">MotorStorm completes hat-trick</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_senko-no-ronde-dated_thumbnail.png">
+			<a href="https://www.eurogamer.net/senko-no-ronde-dated" class="article-title">Senko no Ronde dated</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_news170804silenthill5_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170804silenthill5" class="article-title">Silent Hill 5 coming to next gen</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_a-gicomment-010906_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-gicomment-010906" class="article-title">GamesIndustry.biz: Weapon of Revolution</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_whats-new-5th-april-2007-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/whats-new-5th-april-2007-article" class="article-title">What's New? (5th April, 2007)</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_gamesindustrybiz-defining-features-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamesindustrybiz-defining-features-article" class="article-title">GamesIndustry.biz: Defining Features</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_ps3-breaks-records-in-aus_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-breaks-records-in-aus" class="article-title">PS3 breaks records in Aus</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_celebrity-guitar-hero-controllers_thumbnail.png">
+			<a href="https://www.eurogamer.net/celebrity-guitar-hero-controllers" class="article-title">Celebrity Guitar Hero controllers</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_bruno-bonnell-leaves-atari_thumbnail.png">
+			<a href="https://www.eurogamer.net/bruno-bonnell-leaves-atari" class="article-title">Bruno Bonnell leaves Atari</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_molyneux-knighted-in-france_thumbnail.png">
+			<a href="https://www.eurogamer.net/molyneux-knighted-in-france" class="article-title">Molyneux knighted in France</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_jetpac-dash-theme-bug-fixed_thumbnail.png">
+			<a href="https://www.eurogamer.net/jetpac-dash-theme-bug-fixed" class="article-title">Jetpac dash theme bug fixed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_minter-keen-to-do-more-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/minter-keen-to-do-more-xbla" class="article-title">Minter keen to do more XBLA</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_next-gen-must-deliver-qualitative-difference-blade_thumbnail.png">
+			<a href="https://www.eurogamer.net/next-gen-must-deliver-qualitative-difference-blade" class="article-title">Next-gen must deliver "qualitative difference" - Blade</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_hydrophobia-revealed_thumbnail.png">
+			<a href="https://www.eurogamer.net/hydrophobia-revealed" class="article-title">Hydrophobia revealed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_heatseeker-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/heatseeker-review" class="article-title">Heatseeker</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/05_gears-annex-mode-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-annex-mode-detailed" class="article-title">Gears' Annex mode detailed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128174/Sensible-World-of-Soccer-top-10-most-influential-games/" class="article-title">Sensible World of Soccer top 10 most influential games</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128175/Knighthood-for-Molyneux/" class="article-title">Knighthood for Molyneux</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128173/Buzz-developer-named-worlds-second-best-indie-studio/" class="article-title">Buzz! developer named world's second best indie studio</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128172/Global-Gears-of-War-tourney-registrations-open/" class="article-title">Global Gears of War tourney registrations open</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128171/Nintendo-announces-Q2-games-lineup/" class="article-title">Nintendo announces Q2 games lineup</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/vision-museum.php" class="article-title">Vision Museum</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/04/05_2007_04_05_inyou-douji-monogatari_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/04/05/inyou-douji-monogatari/" class="article-title">Inyou Douji Monogatari</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/04/05_2007_04_05_interview-rod-humble_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/04/05/interview-rod-humble/" class="article-title">Interview: Rod Humble</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

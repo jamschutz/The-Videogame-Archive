@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 24, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crazymouse-review/1900-6199866/" class="article-title">CrazyMouse Review</a>
+			<div class="article-subtitle">CrazyMouse should have stayed in its hole.</div>
+			<div class="article-author">Don Francis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/game-party-2/1900-6200025/" class="article-title">Game Party 2 Review</a>
+			<div class="article-subtitle">Game Party 2 is a completely unoriginal minigame collection just waiting to take advantage of uninformed casual gamers.</div>
+			<div class="article-author">Austin Light</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tiger-woods-pga-tour-09-all-play/1900-6200019/" class="article-title">Tiger Woods PGA Tour 09 All-Play Review</a>
+			<div class="article-subtitle">Realistic golf-swing controls and a host of exclusive party games make Tiger Woods 09 on the Wii a great golfing experience.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/spider-man-web-of-shadows-review/1900-6200030/" class="article-title">Spider-Man: Web of Shadows Review</a>
+			<div class="article-subtitle">Web of Shadows is a fast-paced, soaring superhero adventure that delivers just about everything a Spider-Man game should.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-immortals-of-terra-a-perry-rhodan-adventure-re/1900-6200022/" class="article-title">The Immortals of Terra: A Perry Rhodan Adventure Review</a>
+			<div class="article-subtitle">Even an innovative sci-fi setting can't save the illogical and boring Immortals of Terra.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/golden-axe-beast-rider-review/1900-6200050/" class="article-title">Golden Axe: Beast Rider Review</a>
+			<div class="article-subtitle">This half-hearted revival attempt leaves Golden Axe lifeless and dull.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/golden-axe-beast-rider-review/1900-6200051/" class="article-title">Golden Axe: Beast Rider Review</a>
+			<div class="article-subtitle">This halfhearted revival attempt leaves Golden Axe lifeless and dull.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_army-of-two-marches-on-hollywood_1100-6199979_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/army-of-two-marches-on-hollywood/1100-6199979/" class="article-title">Army of Two marches on Hollywood</a>
+			<div class="article-subtitle">Big-screen rights for Electronic Arts' buddy-based shooter sold to Universal Pictures, <i>Bourne Ultimatum</i> cowriter tapped for screenplay.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_eternal-poison-hands-on_1100-6199981_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eternal-poison-hands-on/1100-6199981/" class="article-title">Eternal Poison Hands-On</a>
+			<div class="article-subtitle">Collect demons and summon them to do your bidding as you hunt for the Eternal Poison in Atlus' upcoming SRPG.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_e3-2008-chrono-trigger-ds-hands-on_1100-6194298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2008-chrono-trigger-ds-hands-on/1100-6194298/" class="article-title">E3 2008: Chrono Trigger DS Hands-On</a>
+			<div class="article-subtitle">We take a closer look to see what has changed--or hasn't changed--in this classic role-playing game.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_fallout-4-due-by-2011_1100-6234287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-4-due-by-2011/1100-6234287/" class="article-title">Fallout 4 due by 2011?</a>
+			<div class="article-subtitle">Source: Reuters.  What we heard: It's been all of 10 years since Interplay and Black Isle Studio's Fallout 2 arrived to rapt critical reception for the PC. And if executive producer Todd Howard has his way, fans of the franchise shouldn't have to wait another decade after Fallout 3 for another...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_fallout-4-due-by-2011_1100-6199982_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-4-due-by-2011/1100-6199982/" class="article-title">Fallout 4 due by 2011?</a>
+			<div class="article-subtitle">Bethesda executive producer says a decade is too long between franchise installments, leading to speculation a postapocalyptic sequel is just three years away.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_spore-infomercial-spawns-mad-scientists_1100-6199984_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spore-infomercial-spawns-mad-scientists/1100-6199984/" class="article-title">Spore infomercial spawns mad scientists</a>
+			<div class="article-subtitle">EA has heavily touted Will Wright's latest game, Spore, as a game about science and evolution, so much so that the game's limited edition included a 50-minute National Geographic documentary about it. However, as reported in the latest issue of the journal Science, some of those interviewed for the...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_upcoming-halloween-scavenger-hunt_1100-6234286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/upcoming-halloween-scavenger-hunt/1100-6234286/" class="article-title">Upcoming Halloween Scavenger Hunt</a>
+			<div class="article-subtitle">We plan to have a Halloween Scavenger Hunt next week. Keep an eye out for an announcement on Monday morning. New Top 5 moduleWe have replaced the 'Word on the Street' with the Top Downloadable Games. This module can be found on Xbox 360, PlayStation 3 and Nintendo Wii pages, and will display the...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_350-xbox-360-sams-club-bundle-packs-three-games_1100-6200023_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/350-xbox-360-sams-club-bundle-packs-three-games/1100-6200023/" class="article-title">$350 Xbox 360 Sam's Club bundle packs three games</a>
+			<div class="article-subtitle">Microsoft's most recent round of price cuts for the Xbox 360 yielded results for the gamemaker. Following on from the cross-SKU cuts that saw the Arcade model drop to $199, the 60GB Pro to $299, and the 120GB Elite to $399, the console sold like gangbusters compared to a month prior, with...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_legendary-pictures-planning-epic-acquisition_1100-6234285_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/legendary-pictures-planning-epic-acquisition/1100-6234285/" class="article-title">Legendary Pictures planning Epic acquisition?</a>
+			<div class="article-subtitle">Source: Variety, the publication of record for the movie industry.       What we heard: For anyone who has been locked in a sensory deprovation tank this year, here's some news. The Dark Knight is the second-highest-grossing film in US history, having taken in over $520 million domestically since...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_shred-250-on-logitechs-guitar-hero-axe_1100-6200045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shred-250-on-logitechs-guitar-hero-axe/1100-6200045/" class="article-title">Shred $250 on Logitech's Guitar Hero axe</a>
+			<div class="article-subtitle">The Guitar Hero has always offered players a chance to simulate their rock-and-roll fantasies of performing on stage for rabid fans. Now they're getting a chance to simulate the vainglorious excess of the rock-and-roll lifestyle, as Logitech today unveiled a $250 Guitar Hero World Tour controller...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_namco-museum-virtual-arcade-hands-on_1100-6200038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-museum-virtual-arcade-hands-on/1100-6200038/" class="article-title">Namco Museum Virtual Arcade Hands-On</a>
+			<div class="article-subtitle">Here's another Namco collection of oldies but goodies.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_legendary-pictures-planning-epic-acquisition_1100-6200031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/legendary-pictures-planning-epic-acquisition/1100-6200031/" class="article-title">Legendary Pictures planning Epic acquisition?</a>
+			<div class="article-subtitle">Variety reports that the cash-flush Dark Knight studio is on the verge of buying up the Gears of War-maker. Epic VP Mark Rein tells a different story...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_ps3-gtaiv-snatching-trophies-oct-27_1100-6200049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-gtaiv-snatching-trophies-oct-27/1100-6200049/" class="article-title">PS3 GTAIV snatching trophies Oct. 27</a>
+			<div class="article-subtitle">Thanks to Sony's firmware update 2.41, PlayStation 3 gamers can now be awarded persistent online trophies for accomplishing tasks within games. However, unlike Microsoft's gamerscore-point system, Sony doesn't mandate that developers must implement the trophy feature.     Thus far, the result of...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_garriott-concludes-space-adventure_1100-6200055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/garriott-concludes-space-adventure/1100-6200055/" class="article-title">Garriott concludes space adventure</a>
+			<div class="article-subtitle">While most of the world was living out the banality of their everyday lives last week, Richard Garriott was in outer space. Now, Garriott can once again be considered a terrestrial being, as he and two cosmonaut comrades safely returned to Earth aboard the TMA-12 spacecraft yesterday after spending...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/10/24_rihanna-duran-duran-kissing-lips-mid-november-for-70_1100-6199816_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rihanna-duran-duran-kissing-lips-mid-november-for-70/1100-6199816/" class="article-title">Rihanna, Duran Duran kissing Lips mid-November for $70</a>
+			<div class="article-subtitle">Twenty-first-century songstress and '80s pop phenom top 40-song tracklist; Microsoft's Chris Esaki explains karaoke game's modes and DRM-free music importing.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_quran-references-force-worldwide-littlebigplanet-recall_thumbnail.png">
+			<a href="https://www.eurogamer.net/quran-references-force-worldwide-littlebigplanet-recall" class="article-title">Qur'an references force worldwide LittleBigPlanet recall</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_ea-unveils-army-of-two-film_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-unveils-army-of-two-film" class="article-title">EA unveils Army of Two film</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_woman-kills-virtual-husband_thumbnail.png">
+			<a href="https://www.eurogamer.net/woman-kills-virtual-husband" class="article-title">Woman "kills" virtual husband</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_combat-arms-beta-keys-available-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/combat-arms-beta-keys-available-now" class="article-title">Combat Arms beta keys available now</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_conan-pvp-consequences-very-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/conan-pvp-consequences-very-soon" class="article-title">Conan PVP consequences "very soon"</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_funcoms-craig-morrison-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/funcoms-craig-morrison-interview" class="article-title">Funcom's Craig Morrison</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_microsofts-john-schappert-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsofts-john-schappert-interview" class="article-title">Microsoft's John Schappert</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_trio-of-contenders-for-wiiware-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/trio-of-contenders-for-wiiware-today" class="article-title">Trio of contenders for WiiWare today</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_invaluable-career-advice-at-eg-expo-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/invaluable-career-advice-at-eg-expo-blog-entry" class="article-title">Invaluable career advice at EG Expo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_e-for-all-consumer-show-scrapped_thumbnail.png">
+			<a href="https://www.eurogamer.net/e-for-all-consumer-show-scrapped" class="article-title">E for All consumer show scrapped</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_ubisoft-delays-anno-and-secret-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubisoft-delays-anno-and-secret-game" class="article-title">Ubisoft delays Anno and secret game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_muramasa-the-demon-blade-hands-on_thumbnail.png">
+			<a href="https://www.eurogamer.net/muramasa-the-demon-blade-hands-on" class="article-title">Muramasa: The Demon Blade</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_the-old-republic-is-gunning-for-wow_thumbnail.png">
+			<a href="https://www.eurogamer.net/the-old-republic-is-gunning-for-wow" class="article-title">The Old Republic is gunning for WOW</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_logitech-unveils-ridiculous-ghwt-guitar_thumbnail.png">
+			<a href="https://www.eurogamer.net/logitech-unveils-ridiculous-ghwt-guitar" class="article-title">Logitech unveils ridiculous GHWT guitar</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_gogcom-opens-to-the-public_thumbnail.png">
+			<a href="https://www.eurogamer.net/gogcom-opens-to-the-public" class="article-title">GOG.com opens to the public</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_ask-eurogamer-panel-at-eg-expo-blog-entry_thumbnail.png">
+			<a href="https://www.eurogamer.net/ask-eurogamer-panel-at-eg-expo-blog-entry" class="article-title">Ask Eurogamer panel at EG Expo</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_ea-hints-at-dead-space-2-and-others_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-hints-at-dead-space-2-and-others" class="article-title">EA hints at Dead Space 2 and others</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_22-million-360s-sold-in-last-quarter_thumbnail.png">
+			<a href="https://www.eurogamer.net/22-million-360s-sold-in-last-quarter" class="article-title">2.2 million 360s sold in last quarter</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_pop-classic-and-novastrike-on-psn_thumbnail.png">
+			<a href="https://www.eurogamer.net/pop-classic-and-novastrike-on-psn" class="article-title">POP Classic and Novastrike on PSN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_first-guitar-hero-world-tour-songs-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/first-guitar-hero-world-tour-songs-live" class="article-title">First Guitar Hero World Tour songs Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/10/24_valkyria-chronicles-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/valkyria-chronicles-review" class="article-title">Valkyria Chronicles</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/iji.php" class="article-title">Iji</a>
+			<div class="article-author">FunnyMan</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tashas-game.php" class="article-title">Tasha's Game</a>
+			<div class="article-author">Psychotronic</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-84.php" class="article-title">Link Dump Friday №85</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2008/10/24/wanderinghamster/" class="article-title">Wandering Hamster</a>
+			<div class="article-author">Paul Eres</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

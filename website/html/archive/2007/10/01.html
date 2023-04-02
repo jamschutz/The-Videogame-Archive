@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 1, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/blazing-angels-2-secret-weapons-of-wwii-review/1900-6180162/" class="article-title">Blazing Angels 2: Secret Weapons of WWII Review</a>
+			<div class="article-subtitle">Blazing Angels 2 is a clear improvement over the previous game, though history buffs will probably hate the game's fictional missions.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/project-gotham-racing-4-review/1900-6180179/" class="article-title">Project Gotham Racing 4 Review</a>
+			<div class="article-subtitle">Gentlemen, prepare your calluses. Project Gotham 4 plays to the series' strengths and adds new twists along the way.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jackass-the-game-review/1900-6180198/" class="article-title">Jackass: The Game Review</a>
+			<div class="article-subtitle">Despite feeling a little irrelevant in 2007, Jackass: The Game does a decent job of capturing the feel of the show.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-legend-of-zelda-phantom-hourglass-review/1900-6180182/" class="article-title">The Legend of Zelda: Phantom Hourglass Review</a>
+			<div class="article-subtitle">Phantom Hourglass wraps the standard Zelda formula in an innovative and fun control scheme that gives new life to several of the series' age-old concepts.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_football-manager-demo-kicks-off_1100-6235510_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/football-manager-demo-kicks-off/1100-6235510/" class="article-title">Football Manager demo kicks off</a>
+			<div class="article-subtitle">Jose Mourinho may have already become the highest-profile managerial casualty of the real-life football season, but wannabe managers are still lining up to see if they can do better in the virtual world.     To help them out, Sega has today announced that Football Manager 2008, due for release in...</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_2-million-fury-tourney-begins_1100-6180108_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2-million-fury-tourney-begins/1100-6180108/" class="article-title">$2 million Fury tourney begins</a>
+			<div class="article-subtitle">Dell XPS computers, Nvidia graphics cards among prizes for Australian studio's PVP-focused MMOG; game now launching October 16.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_nintendo-offers-virtual-console-imports_1100-6180142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-offers-virtual-console-imports/1100-6180142/" class="article-title">Nintendo offers Virtual Console imports</a>
+			<div class="article-subtitle">Mario's Lost Levels and Treasure's Sin & Punishment surface on downloadable game service.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_registration-closed_1100-6235509_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/registration-closed/1100-6235509/" class="article-title">Registration Closed</a>
+			<div class="article-subtitle">Registration is closed for this tournament. Team 29 blew us away by having 10 waitlist player join their team. Talk about an organized bunch of players! Participating teams - be sure to check your emails often in case we have any important notices to announce. Thanks!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_award-nominations-update_1100-6235508_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/award-nominations-update/1100-6235508/" class="article-title">Award Nominations Update</a>
+			<div class="article-subtitle">Thanks for participating in the Nomination round for the Union Awards '07. Voting will begin very soon! Check out the thread to view what others had to say during the nomination phase.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_wii-continues-japanese-dominance_1100-6180159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-continues-japanese-dominance/1100-6180159/" class="article-title">Wii continues Japanese dominance</a>
+			<div class="article-subtitle">Enterbrain figures for past six months say Nintendo sold about 1.6 million systems in Japan, with Sony coming up short of 400,000.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_wii-outselling-ps3-in-japan-5-to-1_1100-6171932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-outselling-ps3-in-japan-5-to-1/1100-6171932/" class="article-title">Wii outselling PS3 in Japan 5-to-1</a>
+			<div class="article-subtitle">The latest figures from the Land of the Rising Sun show Nintendo steaming ahead of Sony in console units shifted.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_naruto-rise-of-a-ninja-exclusive-a-konoha-vacation_1100-6180033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/naruto-rise-of-a-ninja-exclusive-a-konoha-vacation/1100-6180033/" class="article-title">Naruto: Rise of a Ninja Exclusive: A Konoha Vacation</a>
+			<div class="article-subtitle">We took a hands-on look at the most complete version yet of Naruto's hometown in Ubisoft Montreal's ambitious action game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_360-world-in-conflict-cools-until-08_1100-6180157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/360-world-in-conflict-cools-until-08/1100-6180157/" class="article-title">360 World in Conflict cools until '08</a>
+			<div class="article-subtitle">Console owners will have to wait until next year to fight Sierra's alternate-history WWIII RTS.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_shippin-out-october-1-5-phantom-hourglass-pgr4-nba-quake-wars_1100-6180139_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-october-1-5-phantom-hourglass-pgr4-nba-quake-wars/1100-6180139/" class="article-title">Shippin' Out October 1-5: Phantom Hourglass, PGR4, NBA, Quake Wars</a>
+			<div class="article-subtitle">Headliners joined by Spider-Man: Friend or Foe, FlatOut 2, Crash of the Titans, and Chibi-Robo on retail shelves this week.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_europa-universalis-rome-qanda-first-details_1100-6180148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/europa-universalis-rome-qanda-first-details/1100-6180148/" class="article-title">Europa Universalis: Rome Q&A - First Details</a>
+			<div class="article-subtitle">Get the first details on the next Europa Universalis grand strategy game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_halo-3-launch-breaks-australian-sales-records_1100-6180014_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-launch-breaks-australian-sales-records/1100-6180014/" class="article-title">Halo 3 launch breaks Australian sales records</a>
+			<div class="article-subtitle">Halo 3 claims the largest entertainment launch in Australian retail history. One in four Xbox 360 owners down under buy the final instalment in the Halo trilogy in the first 24 hours of sale.</div>
+			<div class="article-author">Dan Chiappini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_sci-reveals-lower-revs-new-hitman-tomb-raider_1100-6179961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-reveals-lower-revs-new-hitman-tomb-raider/1100-6179961/" class="article-title">SCi reveals lower revs, new Hitman, Tomb Raider</a>
+			<div class="article-subtitle">Eidos parent SCi touts sequels during downbeat earnings report, says PS3 price cut needed.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_ratchet-and-clank-delayed-demoed_1100-6179997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ratchet-and-clank-delayed-demoed/1100-6179997/" class="article-title">Ratchet and Clank delayed, demoed</a>
+			<div class="article-subtitle">Insomniac's popular platformer pushed a week to October 30; PSN sampler coming October 11.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_conflict-denied-ops-first-look_1100-6180185_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/conflict-denied-ops-first-look/1100-6180185/" class="article-title">Conflict: Denied Ops First Look</a>
+			<div class="article-subtitle">Eidos shows off an early work-in-progress version of its upcoming Pivotal-developed shooter.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/10/01_bungie-jumping-microsofts-ship_1100-6235507_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-jumping-microsofts-ship/1100-6235507/" class="article-title">Bungie jumping Microsoft's ship?</a>
+			<div class="article-subtitle">Source: See below. What we heard: This week, a huge amount of attention was directed to a blog post titled "Bungie Leaving Microsoft!! You heard it here first folks." The post could seem legitimate to the casual observer glancing at it for a few seconds, given that it is on the Web site for the...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_fm-2008-demo-out-now_thumbnail.png">
+			<a href="https://www.eurogamer.net/fm-2008-demo-out-now" class="article-title">FM 2008 demo out now</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_conan-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/conan-preview" class="article-title">Conan</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_biowares-greg-zeschuk-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/biowares-greg-zeschuk-interview" class="article-title">BioWare's Greg Zeschuk</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_neo-geo-confirmed-for-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/neo-geo-confirmed-for-vc" class="article-title">Neo Geo confirmed for VC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_new-songs-for-guitar-hero-ii_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-songs-for-guitar-hero-ii" class="article-title">New songs for Guitar Hero II</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_juiced-2-hot-import-nights-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/juiced-2-hot-import-nights-review" class="article-title">Juiced 2: Hot Import Nights</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_blue-dragon-gets-an-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/blue-dragon-gets-an-update" class="article-title">Blue Dragon gets an update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_bungie-explains-halo-resolution_thumbnail.png">
+			<a href="https://www.eurogamer.net/bungie-explains-halo-resolution" class="article-title">Bungie explains Halo resolution</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_ninty-wont-meet-xmas-demand_thumbnail.png">
+			<a href="https://www.eurogamer.net/ninty-wont-meet-xmas-demand" class="article-title">Ninty won't meet Xmas demand</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/10/01_rock-band-gets-us-price-date_thumbnail.png">
+			<a href="https://www.eurogamer.net/rock-band-gets-us-price-date" class="article-title">Rock Band gets US price, date</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/cgdc4-update-6.php" class="article-title">CGDC4 update №7</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/micro-art.php" class="article-title">Micro Art</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/10/01_2007_10_01_prototype-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/10/01/prototype-2/" class="article-title">Prototype 2</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 10, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/etrom-the-astral-essence-review/1900-6168832/" class="article-title">Etrom: The Astral Essence Review</a>
+			<div class="article-subtitle">Etrom: The Astral Essence is an unplayable, buggy mess.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dungeon-explorer-review/1900-6168850/" class="article-title">Dungeon Explorer Review</a>
+			<div class="article-subtitle">Dungeon Explorer's rudimentary design and unforgiving difficulty make it a tedious and often  frustrating game.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/luxor-2-review/1900-6168840/" class="article-title">Luxor 2 Review</a>
+			<div class="article-subtitle">The Egyptian palette swap and minuscule formula changes aren't enough to prevent Luxor 2 from feeling like the inferior Zuma rip-off that it is.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/brave-the-search-for-spirit-dancer-review/1900-6168827/" class="article-title">Brave: The Search for Spirit Dancer Review</a>
+			<div class="article-subtitle">Brave finds some decent variety with its standard action adventure format, but it's neither a particularly challenging nor ambitious game.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_guitar-hero-iii-platforms-confirmed_1100-6168831_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guitar-hero-iii-platforms-confirmed/1100-6168831/" class="article-title">Guitar Hero III platforms confirmed?</a>
+			<div class="article-subtitle">RedOctane site lists Wii, PS3, Xbox 360, PS2 editions of next installment as fall releases before info is pulled.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_shrek-demo-now-on-xbl_1100-6168829_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shrek-demo-now-on-xbl/1100-6168829/" class="article-title">Shrek demo now on XBL</a>
+			<div class="article-subtitle">Sample of smelly ogre's latest game now on Marketplace from Activision; 760MB demo features Shrek, Puss in Boots as playable.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_halo-3-beta-in-may-new-video-now_1100-6168806_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-beta-in-may-new-video-now/1100-6168806/" class="article-title">Halo 3 beta in May, new video now</a>
+			<div class="article-subtitle">[UPDATE] Bungie's shooter open for testing worldwide on May 16; new "Vidoc" shows off never-before-seen features including instant replay, shield grenades, man cannon.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_namco-opening-museum-on-ds_1100-6168844_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-opening-museum-on-ds/1100-6168844/" class="article-title">Namco opening Museum on DS</a>
+			<div class="article-subtitle">Collection of ported classics coming to Nintendo's dual-screened handheld; Namco Museum DS includes Pac-Man vs., Galaga, Xevious, more.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_analyst-expects-flattish-march-npd-numbers_1100-6168847_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-expects-flattish-march-npd-numbers/1100-6168847/" class="article-title">Analyst expects "flattish" March NPD numbers</a>
+			<div class="article-subtitle">Lazard Capital Markets' Colin Sebastian says declining last-gen sales, Wii and DS shortages combined to mute last month's retail take.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_mkii-beats-down-ps3s-this-week_1100-6168859_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mkii-beats-down-ps3s-this-week/1100-6168859/" class="article-title">MKII beats down PS3s this week</a>
+			<div class="article-subtitle">Midway's infamous bloody brawler dated for download on PlayStation Network on April 12 for $4.99.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_kentucky-library-checking-out-games_1100-6235941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kentucky-library-checking-out-games/1100-6235941/" class="article-title">Kentucky library checking out games</a>
+			<div class="article-subtitle">Libraries are taking the first step to becoming cool. A three-branch public library in Kentucky will add games to its stacks of books and microfiches this month, reports Kentucky&#39;s Community Recorder. Each of the Campbell County Public Library&#39;s three branches will carry games for different...</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/04/10_new-take-two-execs-take-questions_1100-6168861_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-take-two-execs-take-questions/1100-6168861/" class="article-title">New Take-Two execs take questions</a>
+			<div class="article-subtitle">Freshly installed management team lays out five issues to address in first 100 days, aims for more exclusive sports licenses.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_redoctane-reveals-guitar-hero-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/redoctane-reveals-guitar-hero-3" class="article-title">RedOctane reveals Guitar Hero 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_sony-quiet-on-locoroco-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-quiet-on-locoroco-ps3" class="article-title">Sony quiet on LocoRoco PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_n-threespeechdates-100407_thumbnail.png">
+			<a href="https://www.eurogamer.net/n-threespeechdates-100407" class="article-title">Sony clarifies PS3 game dates</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_virgin-spotted-on-wii-ps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/virgin-spotted-on-wii-ps3" class="article-title">Virgin spotted on Wii, PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_ubi-shy-on-new-clancy-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubi-shy-on-new-clancy-game" class="article-title">Ubi shy on new Clancy game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_n-gi20gbps3-100407_thumbnail.png">
+			<a href="https://www.eurogamer.net/n-gi20gbps3-100407" class="article-title">US retailers drop 20GB PS3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_tom-clancys-splinter-cell-double-agent-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/tom-clancys-splinter-cell-double-agent-review" class="article-title">Tom Clancy's Splinter Cell: Double Agent</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_shivering-isles-bug-breaks-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/shivering-isles-bug-breaks-game" class="article-title">Shivering Isles bug breaks game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_free-running-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/free-running-review" class="article-title">Free Running</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_heroes-v-gets-new-expansion_thumbnail.png">
+			<a href="https://www.eurogamer.net/heroes-v-gets-new-expansion" class="article-title">Heroes V gets new expansion</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_activision-quiet-x360-quake-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/activision-quiet-x360-quake-3" class="article-title">Activision quiet X360 Quake 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_halo-3-beta-on-16th-may_thumbnail.png">
+			<a href="https://www.eurogamer.net/halo-3-beta-on-16th-may" class="article-title">Halo 3 beta on 16th May</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_news140906resievilwii_thumbnail.png">
+			<a href="https://www.eurogamer.net/news140906resievilwii" class="article-title">Resi Evil Wii named</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_consoles-are-doomed-romero_thumbnail.png">
+			<a href="https://www.eurogamer.net/consoles-are-doomed-romero" class="article-title">Consoles are doomed - Romero</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_super-rub-a-dub-on-ps3-store_thumbnail.png">
+			<a href="https://www.eurogamer.net/super-rub-a-dub-on-ps3-store" class="article-title">Super Rub A Dub on PS3 Store</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_company-of-heroes-follow-up-confirmed_thumbnail.png">
+			<a href="https://www.eurogamer.net/company-of-heroes-follow-up-confirmed" class="article-title">Company of Heroes follow-up confirmed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_another-three-for-us-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/another-three-for-us-vc" class="article-title">Another three for US VC</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_gears-maps-to-cost-in-future_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-maps-to-cost-in-future" class="article-title">Gears maps to cost in future</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_gears-annex-mode-goes-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/gears-annex-mode-goes-live" class="article-title">Gears Annex mode goes Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_live-messenger-for-xbox-360_thumbnail.png">
+			<a href="https://www.eurogamer.net/live-messenger-for-xbox-360" class="article-title">Live Messenger for Xbox 360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_resident-evil-4-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/resident-evil-4-for-wii" class="article-title">Resident Evil 4 for Wii</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/04/10_world-in-conflict-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-in-conflict-preview" class="article-title">World in Conflict</a>
+			<div class="article-author">Dave McCarthy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128181/Live-Messenger-coming-7-May/" class="article-title">Live Messenger coming 7 May</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128180/T2-CFO-resigns/" class="article-title">T2 CFO resigns</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128179/Standalone-Heroes-of-Might-Magic-V-Tribes-of-the-East-for-Spring/" class="article-title">Standalone Heroes of Might & Magic V: Tribes of the East for Spring</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/04/10_2007_04_10_bernard-and-hank-2_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/04/10/bernard-and-hank-2/" class="article-title">Bernard and Hank 2</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/04/10_2007_04_10_preview-notknytt-working-title_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/04/10/preview-notknytt-working-title/" class="article-title">Preview: Notknytt (Working Title)</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/10_2007_04_copic-fighter-demo.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/04/copic-fighter-demo.html" class="article-title">Copic Fighter Demo</a>
+			<div class="article-author">Michal</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/10_2007_04_homeland.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/04/homeland.html" class="article-title">Homeland</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/04/10_2007_04_news_12.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/04/news_12.html" class="article-title">News</a>
+			<div class="article-author">Michal</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

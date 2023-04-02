@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 23, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/teenage-zombies-invasion-of-the-alien-brain-thingy/1900-6189706/" class="article-title">Teenage Zombies: Invasion of the Alien Brain Thingys Review</a>
+			<div class="article-subtitle">Like a bacon-wrapped cerebellum, Teenage Zombies is a tasty appetizer that doesn't quite satisfy.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-ballers-chosen-one-review/1900-6189764/" class="article-title">NBA Ballers: Chosen One Review</a>
+			<div class="article-subtitle">Chosen One isn't what Skee-Lo had in mind when he wished to be a baller.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shin-megami-tensei-persona-3-fes-review/1900-6189760/" class="article-title">Shin Megami Tensei: Persona 3 FES Review</a>
+			<div class="article-subtitle">This is the definitive version of 2007's best role-playing game.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-ballers-chosen-one-review/1900-6189765/" class="article-title">NBA Ballers: Chosen One Review</a>
+			<div class="article-subtitle">Chosen One isn't what Skee-Lo had in mind when he wished to be a baller.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/octomania-review/1900-6189774/" class="article-title">Octomania Review</a>
+			<div class="article-subtitle">Octomania is a cute puzzle game, but that won't keep you coming back for more.</div>
+			<div class="article-author">Shiva Stella</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/qanda-behind-the-new-playstation-store-front/1100-6189699/" class="article-title">Q&A: Behind the new PlayStation Store-front</a>
+			<div class="article-subtitle">SCEA's PlayStation Network head Susan Panico talks about the PS3's newly revamped shopping experience and its launch hiccups, video downloads independent of Home, coming "this year."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_command-and-conquer-3-kanes-wrath-qanda-consoles-vs-pc_1100-6189632_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/command-and-conquer-3-kanes-wrath-qanda-consoles-vs-pc/1100-6189632/" class="article-title">Command & Conquer 3: Kane's Wrath Q&A - Consoles vs. PC</a>
+			<div class="article-subtitle">EALA's Louis Castle discusses the strengths and weaknesses of console real-time strategy games and how they apply to the upcoming Xbox 360 version of Command & Conquer 3: Kane's Wrath.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_stray-bullet-mmog-striking-wii_1100-6189707_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stray-bullet-mmog-striking-wii/1100-6189707/" class="article-title">Stray Bullet MMOG striking Wii?</a>
+			<div class="article-subtitle">Job requisition reveals that online multiplayer-focused developer is targeting Nintendo's console for an upcoming project.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_ncaa-09-online-dynasty-dozen_1100-6234932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ncaa-09-online-dynasty-dozen/1100-6234932/" class="article-title">NCAA 09: Online Dynasty Dozen</a>
+			<div class="article-subtitle">The news for NCAA Football 09 continues to trickle out. I've been keeping tabs on the cover athlete announcements--which has already seen Darren McFadden and Michigan State's Sparty take the honor for the Xbox 360 and Wii versions, respectively. And today, EA announced that former Boston College...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_head-coach-going-solo-ryan-covering-ps3-ncaa_1100-6189726_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/head-coach-going-solo-ryan-covering-ps3-ncaa/1100-6189726/" class="article-title">Head Coach going solo, Ryan covering PS3 NCAA</a>
+			<div class="article-subtitle">Following "surprising" amount of feedback, EA Sports will offer NFL coaching sim stand-alone for 360, PS3 on Sept. 2; BC QB covering Sony console edition of college pigskin.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_ps3-gtaiv-presales-outpace-360-version-down-under_1100-6189713_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-gtaiv-presales-outpace-360-version-down-under/1100-6189713/" class="article-title">PS3 GTAIV presales outpace 360 version down under</a>
+			<div class="article-subtitle">PS3 version of Grand Theft Auto IV leading presale numbers in Australia; PS3 GTAIV bundle also confirmed.</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_bbfc-classifies-metal-gear-solid-4-for-uk_1100-6189717_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bbfc-classifies-metal-gear-solid-4-for-uk/1100-6189717/" class="article-title">BBFC classifies Metal Gear Solid 4 for UK</a>
+			<div class="article-subtitle">Snake's last hurrah gets rated 15 in Britain; ratings board lets slip minor plot spoilers.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_order-up-first-look_1100-6189743_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/order-up-first-look/1100-6189743/" class="article-title">Order Up! First Look</a>
+			<div class="article-subtitle">It's life "on the line" as we check out this Wii cooking game for the very first time.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_motorcycles-wheelie-onto-burnout-paradise_1100-6234931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorcycles-wheelie-onto-burnout-paradise/1100-6234931/" class="article-title">Motorcycles wheelie onto Burnout Paradise</a>
+			<div class="article-subtitle">Last year, Bizarre Creations significantly tinkered with the formula for its fourth installment in the Microsoft-exclusive racer Project Gotham Racing. Dynamic weather effects aside, Bizarre added a hefty helping of zip to the high-octane street racer, adding in a variety of motorcycles both...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_motorcycles-wheelie-onto-burnout-paradise_1100-6189753_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorcycles-wheelie-onto-burnout-paradise/1100-6189753/" class="article-title">Motorcycles wheelie onto Burnout Paradise</a>
+			<div class="article-subtitle">Criterion Games' metal-mashing street racer getting bikes and nighttime driving as part of August software update for 360 and PS3.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_sci-rebuffs-mystery-suitor_1100-6189754_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-rebuffs-mystery-suitor/1100-6189754/" class="article-title">SCi rebuffs mystery suitor</a>
+			<div class="article-subtitle">Eidos parent refuses offer from unnamed third party, saying it undervalued the company and wouldn't fix finances.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_ea-banks-monopoly_1100-6189763_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-banks-monopoly/1100-6189763/" class="article-title">EA banks Monopoly</a>
+			<div class="article-subtitle">Publisher flexes Hasbro license with family-focused business-tycoon game on 360, Wii, PS2, mobile, and online portal Pogo this fall.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_from-the-bleachers-04-23-08_1100-6234930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/from-the-bleachers-04-23-08/1100-6234930/" class="article-title">From the Bleachers: 04/23/08</a>
+			<div class="article-subtitle">As if you don't get enough poorly considered sports opinions in your every day life... welcome to the THIRD episode of From the Bleachers! In this jam-packed show we...... talk about playing NFL Head Coach 09 for the first time... chat about two upcoming Midway sports games: Blitz The League II and...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/04/23_club-nintendo-coming-down-under_1100-6234929_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/club-nintendo-coming-down-under/1100-6234929/" class="article-title">Club Nintendo coming down under</a>
+			<div class="article-subtitle">For a while now, Aussie Nintendo fans have pleaded for Nintendo to bring Club Nintendo to Australia. Up until now, the request seemed to have fallen on deaf ears. This morning, Nintendo Australia announced that they would be bringing Club Nintendo down under, with the first game to support it,...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_ubisoft-looking-into-vegas-2-pc-error_thumbnail.png">
+			<a href="https://www.eurogamer.net/ubisoft-looking-into-vegas-2-pc-error" class="article-title">Ubisoft looking into Vegas 2 PC error</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_bikes-and-planes-for-burnout-paradise_thumbnail.png">
+			<a href="https://www.eurogamer.net/bikes-and-planes-for-burnout-paradise" class="article-title">Bikes and planes for Burnout Paradise</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_burnout-paradise-bogart-patch-recalled_thumbnail.png">
+			<a href="https://www.eurogamer.net/burnout-paradise-bogart-patch-recalled" class="article-title">Burnout Paradise Bogart patch recalled</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_name-the-sequel-to-fear_thumbnail.png">
+			<a href="https://www.eurogamer.net/name-the-sequel-to-fear" class="article-title">Name the sequel to F.E.A.R.</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_fear-sequel-named_thumbnail.png">
+			<a href="https://www.eurogamer.net/fear-sequel-named" class="article-title">F.E.A.R. sequel named</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_soulcalibur-iv-stimulated-by-competition_thumbnail.png">
+			<a href="https://www.eurogamer.net/soulcalibur-iv-stimulated-by-competition" class="article-title">Soulcalibur IV stimulated by competition</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_alone-in-the-dark-gets-flashy-edition_thumbnail.png">
+			<a href="https://www.eurogamer.net/alone-in-the-dark-gets-flashy-edition" class="article-title">Alone in the Dark gets flashy edition</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_quakecon-2008-registration-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/quakecon-2008-registration-soon" class="article-title">QuakeCon 2008 registration soon</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_atari-picks-up-smash-court-tennis-3_thumbnail.png">
+			<a href="https://www.eurogamer.net/atari-picks-up-smash-court-tennis-3" class="article-title">Atari picks up Smash Court Tennis 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_sony-unveils-gta-iv-ps3-bundle_thumbnail.png">
+			<a href="https://www.eurogamer.net/sony-unveils-gta-iv-ps3-bundle" class="article-title">Sony unveils GTA IV PS3 bundle</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_lost-cities-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/lost-cities-review" class="article-title">Lost Cities</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_original-xbox-live-show-after-actors_thumbnail.png">
+			<a href="https://www.eurogamer.net/original-xbox-live-show-after-actors" class="article-title">Original Xbox Live show after actors</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31073_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31073" class="article-title">End of road for Interplay?</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-45440_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45440" class="article-title">Interplay sinks to new low</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news070604interplay_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070604interplay" class="article-title">Californian authorities shut Interplay offices</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_interplay-readying-fresh-website_thumbnail.png">
+			<a href="https://www.eurogamer.net/interplay-readying-fresh-website" class="article-title">Interplay readying fresh website</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31049_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31049" class="article-title">Titus take over at Interplay</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31658_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31658" class="article-title">Fargo quits Interplay</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news150404interplay_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150404interplay" class="article-title">Interplay announces Kingpin, Fallout, Airborne and Exalted sequels</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-30722_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-30722" class="article-title">Interplay up for sale?</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_interplay-re-opens-dev-studio_thumbnail.png">
+			<a href="https://www.eurogamer.net/interplay-re-opens-dev-studio" class="article-title">Interplay re-opens dev studio</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31482_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31482" class="article-title">BioWare ditches Interplay</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news061103vugamesinterplay_thumbnail.png">
+			<a href="https://www.eurogamer.net/news061103vugamesinterplay" class="article-title">VU Games and Interplay resolve dispute</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-30597_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-30597" class="article-title">Interplay shatters Trek license</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_interplay-plans-fallout-mmo_thumbnail.png">
+			<a href="https://www.eurogamer.net/interplay-plans-fallout-mmo" class="article-title">Interplay plans Fallout MMO</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31146_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31146" class="article-title">Shake-up at Interplay</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news290903interplayvug_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290903interplayvug" class="article-title">Vivendi dumped by Interplay</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-30108_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-30108" class="article-title">Interplay taps into the Matrix</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news070105titus_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070105titus" class="article-title">Interplay position unclear as Titus declared bankrupt</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31096_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31096" class="article-title">Interplay Strikes Back</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news090503exalted_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090503exalted" class="article-title">Interplay buys rights to Exalted</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-28859_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-28859" class="article-title">Interplay Financial Report</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news280604falloutmmorpg_thumbnail.png">
+			<a href="https://www.eurogamer.net/news280604falloutmmorpg" class="article-title">Interplay plans Fallout MMORPG amongst others</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-31089_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31089" class="article-title">Vivendi to distribute Interplay titles</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-45966_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45966" class="article-title">Interplay posts profit [sic]</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_article-25901_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-25901" class="article-title">Black Isle / Interplay Licenses LithTech!</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_news100604interplaytitus_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100604interplaytitus" class="article-title">Titus into receivership, Interplay back to work</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_earthworm-jim-wriggles-back-to-life_thumbnail.png">
+			<a href="https://www.eurogamer.net/earthworm-jim-wriggles-back-to-life" class="article-title">Earthworm Jim wriggles back to life</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_eidos-explains-accessing-conan-early_thumbnail.png">
+			<a href="https://www.eurogamer.net/eidos-explains-accessing-conan-early" class="article-title">Eidos explains accessing Conan early</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_mgs-4-features-implied-child-rape_thumbnail.png">
+			<a href="https://www.eurogamer.net/mgs-4-features-implied-child-rape" class="article-title">MGS 4 features "implied child rape"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/04/23_harry-potter-back-again-in-late-2008_thumbnail.png">
+			<a href="https://www.eurogamer.net/harry-potter-back-again-in-late-2008" class="article-title">Harry Potter back again in late 2008</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131652/Gameplanet-Rugby-08-competition/" class="article-title">Gameplanet Rugby 08 competition</a>
+			<div class="article-subtitle">Winner announced!</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131651/Age-of-Conan-goes-gold/" class="article-title">Age of Conan goes gold</a>
+			<div class="article-subtitle">Brutal MMO set for release soon.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/adventures-of-alex.php" class="article-title">Adventures of Alex</a>
+			<div class="article-author">AdamB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-fog-fall.php" class="article-title">The Fog Fall</a>
+			<div class="article-author">Jess</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2008/04/23/out-of-the-mouths-of-babes-the-tim-interviews/" class="article-title">Out of the Mouths of Babes: The Tim Interviews</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 16, 2006</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/trauma-center-second-opinion-review/1900-6161923/" class="article-title">Trauma Center: Second Opinion Review</a>
+			<div class="article-subtitle">You don't need a surgeon's patience or precision to appreciate this quirky, inventive, very likable remake of a remarkable Nintendo DS game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-2k7-review/1900-6161931/" class="article-title">NHL 2K7 Review</a>
+			<div class="article-subtitle">NHL 2K7 might be your only choice for a hockey game to go with your new PlayStation 3, but it's still a great one.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/super-monkey-ball-banana-blitz-review/1900-6161924/" class="article-title">Super Monkey Ball: Banana Blitz Review</a>
+			<div class="article-subtitle">Banana Blitz stands as one of the first, best proofs of what the Wii is capable of.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_vanguard-saga-of-heroes-profile-preview-the-druid-monk-necromancer-paladin-psionicist-ranger-rogue-shaman-sorcerer-and-warrior-classes_1100-6161763_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vanguard-saga-of-heroes-profile-preview-the-druid-monk-necromancer-paladin-psionicist-ranger-rogue-shaman-sorcerer-and-warrior-classes/1100-6161763/" class="article-title">Vanguard: Saga of Heroes Profile Preview - The Druid, Monk, Necromancer, Paladin, Psionicist, Ranger, Rogue, Shaman, Sor</a>
+			<div class="article-subtitle">Learn about 10 of the character classes that you can play as in this upcoming massively multiplayer fantasy role-playing game by the creators of EverQuest.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_warhammer-mark-of-chaos-designer-diary-7-final-thoughts_1100-6161826_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-mark-of-chaos-designer-diary-7-final-thoughts/1100-6161826/" class="article-title">Warhammer: Mark of Chaos Designer Diary #7 - Final Thoughts</a>
+			<div class="article-subtitle">The developers of this epic real-time strategy game share their final thoughts on the project.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_nyc-loves-ps3_1100-6161833_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nyc-loves-ps3/1100-6161833/" class="article-title">NYC loves PS3</a>
+			<div class="article-subtitle">Hundreds line up in front of the SonyStyle store in midtown Manhattan; spirits are high with less than 24 hours before the system's launch.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_vivendi-games-earnings-up-190-percent_1100-6161839_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vivendi-games-earnings-up-190-percent/1100-6161839/" class="article-title">Vivendi Games earnings up 190 percent</a>
+			<div class="article-subtitle">World of Warcraft publisher reports massive spike in profits and a "great" economic performance.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_activision-faces-delisting_1100-6161835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-faces-delisting/1100-6161835/" class="article-title">Activision faces delisting</a>
+			<div class="article-subtitle">Company receives notice of noncompliance with Nasdaq standards; lack of filing prompts move.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_ebay-bans-ps3-imports-to-europe_1100-6161842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ebay-bans-ps3-imports-to-europe/1100-6161842/" class="article-title">eBay bans PS3 imports to Europe</a>
+			<div class="article-subtitle">Following in the footsteps of Play-Asia, eBay UK bans "grey importing" of Sony's new console.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_neon-engine-to-drive-mcraes-dirt_1100-6161841_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/neon-engine-to-drive-mcraes-dirt/1100-6161841/" class="article-title">Neon engine to drive McRae's DIRT</a>
+			<div class="article-subtitle">Code built from the bottom up will power next-gen rally game from Codemasters.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_candc3-360-bound_1100-6161888_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/candc3-360-bound/1100-6161888/" class="article-title">C&C3 360 bound</a>
+			<div class="article-subtitle">EA announces another of its top real-time strategy games is headed for Microsoft's console.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_us-ps3-store-already-online_1100-6161834_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/us-ps3-store-already-online/1100-6161834/" class="article-title">US PS3 Store already online</a>
+			<div class="article-subtitle">The day before the console's North American debut, the PS3's answer to Xbox Live Marketplace is up and running; demos for Resistance, Motorstorm downloadable.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_sony-fans-play-the-waiting-game_1100-6161825_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-fans-play-the-waiting-game/1100-6161825/" class="article-title">Sony fans play the waiting game</a>
+			<div class="article-subtitle">Dozens of would-be PS3 owners have begun camping out at Sony's official PlayStation store in San Francisco in the hopes of being among the first to buy the new system.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_halo-3-mp-public-beta-due-spring-2007_1100-6161732_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-mp-public-beta-due-spring-2007/1100-6161732/" class="article-title">Halo 3 MP public beta due spring 2007</a>
+			<div class="article-subtitle">Public beta test of anticipated shooter's online multiplayer to launch next year; new Halo 2 maps, new TV spot also en route.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_utah-pushing-new-violent-game-bill_1100-6161893_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/utah-pushing-new-violent-game-bill/1100-6161893/" class="article-title">Utah pushing new violent game bill</a>
+			<div class="article-subtitle">Judiciary Interim Committee reportedly approves measure to keep violent games out of kids' hands despite state AG's warning over constitutionality.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_ps3-line-in-nyc-a-video-view_1100-6161901_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-line-in-nyc-a-video-view/1100-6161901/" class="article-title">PS3 line in NYC: A video view</a>
+			<div class="article-subtitle">GameSpot News reporter Tim Surette provides a video perspective of the PlayStation 3 line in Manhattan.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_tempers-flare-in-nyc-as-ps3-nears_1100-6161889_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tempers-flare-in-nyc-as-ps3-nears/1100-6161889/" class="article-title">Tempers flare in NYC as PS3 nears</a>
+			<div class="article-subtitle">Line-cutters spark controversy in New York as those who waited for days are pushed back further into the queue.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_amazon-to-sell-wii-on-sunday_1100-6161879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazon-to-sell-wii-on-sunday/1100-6161879/" class="article-title">Amazon to sell Wii on Sunday</a>
+			<div class="article-subtitle">[UPDATE] Online retailer expects quick sellout of unbundled consoles, says it has no PlayStation 3 systems to offer at launch.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_some-wii-channels-tuned-out_1100-6161926_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/some-wii-channels-tuned-out/1100-6161926/" class="article-title">Some Wii channels tuned out</a>
+			<div class="article-subtitle">Weather and news channels, Web browser won't arrive until after Nintendo console's launch; at least 12 virtual console games online on day one.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_trackmania-united-qanda-new-features-and-an-enhanced-online-community_1100-6161927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/trackmania-united-qanda-new-features-and-an-enhanced-online-community/1100-6161927/" class="article-title">TrackMania United Q&A - New Features and an Enhanced Online Community</a>
+			<div class="article-subtitle">Director Florent Castelnerac tells us what's new in the latest version of TrackMania, one of the most popular multiplayer racing games in the world.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_saving-sony-one-console-at-a-time_1100-6161887_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/saving-sony-one-console-at-a-time/1100-6161887/" class="article-title">Saving Sony, one console at a time</a>
+			<div class="article-subtitle">For a company with almost $64 billion in annual sales, Sony Corp. has an awful lot at stake with the launch of its latest game console.</div>
+			<div class="article-author">Daniel Terdiman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2006/11/16_ps3-line-hit-by-drive-by-bb-shooting_1100-6161886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps3-line-hit-by-drive-by-bb-shooting/1100-6161886/" class="article-title">PS3 line hit by drive-by BB shooting</a>
+			<div class="article-subtitle">Kentucky TV station says four people hit by pellets; no serious injures reported.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-buffy-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-buffy-x" class="article-title">Buffy the Vampire Slayer</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-46456_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46456" class="article-title">Enclave coming to PC, PS2, Cube</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47146_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47146" class="article-title">Starbreeze dumbs down Cube Enclave</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-26585_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26585" class="article-title">Enclave announced</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news310304metalarmssequel_thumbnail.png">
+			<a href="https://www.eurogamer.net/news310304metalarmssequel" class="article-title">Vivendi snubs Metal Arms sequel</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-metalarms-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-metalarms-x" class="article-title">Metal Arms: Glitch In The System</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47831_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47831" class="article-title">Vivendi has Metal Arms</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-freedomfighters-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-freedomfighters-ps2" class="article-title">Freedom Fighters</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fi-freedomfighters_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-freedomfighters" class="article-title">Freedom Fighters</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fi-gbtgsept-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-gbtgsept-x" class="article-title">Grabbed By The Ghoulies</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47790_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47790" class="article-title">Crimson Skies: High Road to Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news181203cskies_thumbnail.png">
+			<a href="https://www.eurogamer.net/news181203cskies" class="article-title">New Crimson Skies content available</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-45663_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45663" class="article-title">Crimson Skies turn green</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news010604crimsonskies_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010604crimsonskies" class="article-title">More free content for Crimson Skies</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news-170604-eaoddworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-170604-eaoddworld" class="article-title">Oddworld Inhabitants signs 'Stranger' with Electronic Arts</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news121104oddworldstranger_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121104oddworldstranger" class="article-title">Oddworld Stranger renamed, dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news250603oddworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news250603oddworld" class="article-title">Oddworld details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106cnc3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106cnc3" class="article-title">C&C3 heads to Xbox 360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news-160604-strangersigned_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-160604-strangersigned" class="article-title">Fourth Oddworld title nearing completion</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news290304oddworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news290304oddworld" class="article-title">Oddworld Inhabitants no longer working with Microsoft</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news090704oddworldstrangerdate_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090704oddworldstrangerdate" class="article-title">EA announces Oddworld Stranger date</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47444_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47444" class="article-title">Oddworld munches sequel</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fi-oddworldstrangerswrath-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-oddworldstrangerswrath-x" class="article-title">Oddworld Stranger's Wrath</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news170804psi-opsfilm_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170804psi-opsfilm" class="article-title">Spy-Hunter producers buy up Psi-Ops film rights</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news181103swondemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news181103swondemo" class="article-title">Secret Demos Over Normandy</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news230104swon_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230104swon" class="article-title">Secret Downloads Over Normandy Part 4!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47787_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47787" class="article-title">LucasArts' Secret Weapons</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news101103swongold_thumbnail.png">
+			<a href="https://www.eurogamer.net/news101103swongold" class="article-title">Secret Weapons Over Retail</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-45802_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45802" class="article-title">Secret Weapons Of The LucasArts</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-46681_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46681" class="article-title">Year of the Dead 2003</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_ffvii-doc-rev_thumbnail.png">
+			<a href="https://www.eurogamer.net/ffvii-doc-rev" class="article-title">Final Fantasy VII: Dirge of Cerberus</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106usps3launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106usps3launch" class="article-title">US gears up for PS3 launch</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-46192_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46192" class="article-title">A little less conversation, a little more Redshift</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-45609_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45609" class="article-title">Microsoft sees Redshift</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news160804mechassault2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news160804mechassault2" class="article-title">MechAssault 2 due out by the end of 2004</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47783_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47783" class="article-title">MechAssault CTF in May</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news090703mechassault_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090703mechassault" class="article-title">MechAssault goes global</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news240504mechassault2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240504mechassault2" class="article-title">MechAssault 2 trailer released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news110304day1xbox2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110304day1xbox2" class="article-title">MechAssault developer working on Xbox 2 title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news180603mechassault_thumbnail.png">
+			<a href="https://www.eurogamer.net/news180603mechassault" class="article-title">More MechAssault content</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fi-mechassault-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-mechassault-x" class="article-title">MechAssault</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fi-kungfuchaos-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-kungfuchaos-x" class="article-title">Kung Fu Chaos</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-45591_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-45591" class="article-title">Kung Fu Chaos hits Xbox</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-railroads-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-railroads-pc" class="article-title">Sid Meier's Railroads!</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-46664_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46664" class="article-title">2003: Year of the Dragoon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-47134_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47134" class="article-title">Panzer Drags on</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_fl-panzerdragoonorta-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fl-panzerdragoonorta-x" class="article-title">Panzer Dragoon Orta</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_article-31573_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-31573" class="article-title">Sam console port a Serious possibility?</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news050104ubixboxcube_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050104ubixboxcube" class="article-title">BG&E and POP still due on Xbox/Cube</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news110204ubidates_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110204ubidates" class="article-title">POP and BG&E on Xbox/Cube this month</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news130104bgepop_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130104bgepop" class="article-title">Ubi dates BG&E/POP for Xbox/Cube</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news240603bge_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240603bge" class="article-title">BG&E movie released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news050405bge_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050405bge" class="article-title">Beyond Good & Evil price drop</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-steelbattalion-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-steelbattalion-x" class="article-title">Steel Battalion</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106mcrae_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106mcrae" class="article-title">McRae gets Neon makeover</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news041105candcfirstdecade_thumbnail.png">
+			<a href="https://www.eurogamer.net/news041105candcfirstdecade" class="article-title">EA celebrates C&C</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news190406commandandconquer_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190406commandandconquer" class="article-title">C&C3 announcement soon?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news200406candc3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200406candc3" class="article-title">C&C3 confirmed, details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news181006candc3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news181006candc3" class="article-title">C&C3 voice cast unveiled</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106wiijapan400k_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106wiijapan400k" class="article-title">400k Wiis for Japanese launch</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106ebay2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106ebay2" class="article-title">eBay UK blocks PS3 auctions</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_gh2-eg-rev_thumbnail.png">
+			<a href="https://www.eurogamer.net/gh2-eg-rev" class="article-title">Guitar Hero 2</a>
+			<div class="article-author">Keza MacDonald</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-vivapinata-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-vivapinata-x360" class="article-title">Viva Piñata</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106wiidvd_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106wiidvd" class="article-title">Nintendo declines to confirm DVD Wii for US and Europe</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106carbon_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106carbon" class="article-title">More NFS Carbon downloads</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106superman_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106superman" class="article-title">Superman Returns demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106ebayps3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106ebayps3" class="article-title">eBay limits PS3 auctions</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_news161106nhl07_thumbnail.png">
+			<a href="https://www.eurogamer.net/news161106nhl07" class="article-title">NHL 07 PC demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_a-fiveyearsxbox-pt1_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-fiveyearsxbox-pt1" class="article-title">GamesIndustry.biz: Five Years of Xbox</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2006/11/16_r-smackdownvsraw2007-x360_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-smackdownvsraw2007-x360" class="article-title">WWE Smackdown Vs Raw 2007</a>
+			<div class="article-author">Liam Kavanagh</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127845/1-million-Gears-of-War-copies-to-sell-by-Christmas/" class="article-title">1 million Gears of War copies to sell by Christmas</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127844/Game-programmers-wanted-for-award-winning-Auckland-course/" class="article-title">Game programmers wanted for award-winning Auckland course</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127843/Halo-3-beta-test-next-Autumn-new-Halo-2-maps-on-Xbox-360/" class="article-title">Halo 3 beta test next Autumn, new Halo 2 maps on Xbox 360</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i127842/Defender-on-Xbox-Live-Arcade-today/" class="article-title">Defender on Xbox Live Arcade today</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/slave-hack.php" class="article-title">Slave Hack</a>
+			<div class="article-author">Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/vv2-developers-diary.php" class="article-title">VV2: Developer's Diary</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/digging-for-ds-conte.php" class="article-title">Digging for DS contest</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/last-chance-for-cdx.php" class="article-title">Last chance for CDX</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2006/11/16/gametunnels-g4tv-appearance/" class="article-title">GameTunnel’s G4TV Appearance</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2006/11/16_2006_11_16_due-this-year-darkside-adventures-reactor-09_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2006/11/16/due-this-year-darkside-adventures-reactor-09/" class="article-title">Due This Year: Darkside Adventures, Reactor 09</a>
+			<div class="article-author">Brandon McCartin (BMcC)</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<a href="http://indygamer.blogspot.com/2006/11/shine-shine-galaxy.html" class="article-title">Shine-Shine Galaxy</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 18, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ghouls-n-ghosts-review/1900-6178988/" class="article-title">Ghouls 'n Ghosts Review</a>
+			<div class="article-subtitle">This is a good approximation of the classic arcade game, but the intense difficulty toes the line between satisfying and downright cruel.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/turn-it-around-review/1900-6178990/" class="article-title">Turn It Around Review</a>
+			<div class="article-subtitle">Most of the minigames are lame and the touch-screen controls rarely work like they should.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/syphon-filter-dark-mirror-review/1900-6179010/" class="article-title">Syphon Filter: Dark Mirror Review</a>
+			<div class="article-subtitle">This port of the excellent PSP game filters out online play and much of the fun that comes with it.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-in-conflict-review/1900-6179012/" class="article-title">World in Conflict Review</a>
+			<div class="article-subtitle">World in Conflict is a thrilling, spectacular strategy game, and an even better multiplayer experience.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_our-man-in-tokyo_1100-6235583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/our-man-in-tokyo/1100-6235583/" class="article-title">Our Man in Tokyo</a>
+			<div class="article-subtitle">GameSpot UK's editors are in Japan getting ready for the Tokyo Games Show along with the rest of the global GameSpot team. Guy Cocker has been out and about with his video camera to give you a closer look at his journey, the city of Tokyo and all the things he can find to point a camera at! Take a...</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_gamestop-fires-off-ratchet-and-clank-demo_1100-6178906_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-fires-off-ratchet-and-clank-demo/1100-6178906/" class="article-title">GameStop fires off Ratchet and Clank demo</a>
+			<div class="article-subtitle">First-level sample of Insomniac's platformer available at game retailer with preorder purchase of full game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_oj-squeezed-out-of-50k-for-all-pro-2k8_1100-6178777_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oj-squeezed-out-of-50k-for-all-pro-2k8/1100-6178777/" class="article-title">OJ squeezed out of $50K for All-Pro 2K8</a>
+			<div class="article-subtitle">Contract between Take-Two and OJ Simpson for appearance in 2K Sports' non-NFL footballer reveals compensation terms.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_every-extend-extra-extreme-impressions_1100-6178953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/every-extend-extra-extreme-impressions/1100-6178953/" class="article-title">Every Extend Extra Extreme Impressions</a>
+			<div class="article-subtitle">We met with Tetsuya Mizuguchi to see the new Every Extend on Xbox Live Arcade.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_hellgate-beta-sign-up-doors-open_1100-6178930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hellgate-beta-sign-up-doors-open/1100-6178930/" class="article-title">Hellgate beta sign-up doors open</a>
+			<div class="article-subtitle">Flagship Studios' postapocalyptic RPG now taking applications for volunteer testers.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_sega-rally-revo-revs-up-xbl-demo_1100-6178934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-rally-revo-revs-up-xbl-demo/1100-6178934/" class="article-title">Sega Rally Revo revs up XBL demo</a>
+			<div class="article-subtitle">Two-track trial for Japanese publisher's latest racer splashes onto Microsoft's online service.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_mass-effect-update-starting-the-adventure_1100-6178928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-update-starting-the-adventure/1100-6178928/" class="article-title">Mass Effect Update: Starting the Adventure</a>
+			<div class="article-subtitle">We head up to BioWare's Edmonton offices and spend some quality time with a near-final version of its upcoming Xbox 360 RPG.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_intel-wreaks-havok-for-110m_1100-6178911_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/intel-wreaks-havok-for-110m/1100-6178911/" class="article-title">Intel wreaks Havok for $110M</a>
+			<div class="article-subtitle">Silicon Valley chipmaker scoops up Irish developer of ubiquitous physics engine for a reportedly princely sum.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_geon-emotions-tickle-xbla_1100-6235582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/geon-emotions-tickle-xbla/1100-6235582/" class="article-title">Geon: Emotions tickle XBLA</a>
+			<div class="article-subtitle">Microsoft seems to have developed a taste for games with a loopy streak of late. In August, famed oddball game designer Jeff Minter released his psychedelic ungulate tribute Space Giraffe over Xbox Live, to cautiously optimistic reviews. The latest title to render Xbox Live gamers' mouths agape...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_nba-live-08-soundtrack-goes-globe-trotting_1100-6178972_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-live-08-soundtrack-goes-globe-trotting/1100-6178972/" class="article-title">NBA Live 08 soundtrack goes globe-trotting</a>
+			<div class="article-subtitle">EA's annual pro basketball sim features 19 international artists, including Datarock, Joss Stone, DJ Vadim, and LCD Soundsystem.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_geon-emotions-tickle-xbla_1100-6178978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/geon-emotions-tickle-xbla/1100-6178978/" class="article-title">Geon: Emotions tickle XBLA</a>
+			<div class="article-subtitle">Strawdog Studios' quirky action game added to Microsoft's online game service this Wednesday.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_tokyo-gears-up-for-tgs_1100-6235581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-gears-up-for-tgs/1100-6235581/" class="article-title">Tokyo gears up for TGS</a>
+			<div class="article-subtitle">The GameSpot crew has landed in Japan for the Tokyo Game Show 2007, an event which this year is set to run an extra day and be bigger than ever before.The Makuhari Messe convention centre, where the TGS is held every year, is set outside of Tokyo in the city of Chiba, close to Tokyo...</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_tokyo-gears-up-for-tgs-2007_1100-6235580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-gears-up-for-tgs-2007/1100-6235580/" class="article-title">Tokyo gears up for TGS 2007</a>
+			<div class="article-subtitle">The GameSpot crew has landed in Japan for the Tokyo Game Show 2007, an event which this year is set to run an extra day and be bigger than ever before.The Makuhari Messe convention centre, where the TGS is held every year, is set outside of Tokyo in the city of Chiba, close to Tokyo...</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_valve-cracks-open-tf2-beta_1100-6235579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-cracks-open-tf2-beta/1100-6235579/" class="article-title">Valve cracks open TF2 beta</a>
+			<div class="article-subtitle">Testing the waters before The Orange Box officially ships out on October 10, Valve has cracked the floodgates on the Team Fortress 2 beta. As previously reported, those who prepurchase The Orange Box through Valve's online portal Steam before October 10 will receive 10 percent off the PC game's...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_pharrell-williams-to-host-uk-halo-3-launch_1100-6178951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pharrell-williams-to-host-uk-halo-3-launch/1100-6178951/" class="article-title">Pharrell Williams to host UK Halo 3 launch</a>
+			<div class="article-subtitle">Rap star coming to London to headline the IMAX-based launch party for Microsoft's Xbox 360 shooter.</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_george-harrison-leaving-nintendo_1100-6178780_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/george-harrison-leaving-nintendo/1100-6178780/" class="article-title">George Harrison leaving Nintendo</a>
+			<div class="article-subtitle">NOA marketing chief confirms his departure as the company relocates its US publicity operations.</div>
+			<div class="article-author">Emma Boyes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_report-sony-to-sell-cell-factory_1100-6178926_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-sony-to-sell-cell-factory/1100-6178926/" class="article-title">Report: Sony to sell Cell factory</a>
+			<div class="article-subtitle"><i>Nikkei</i> reports that electronics giant may sell PlayStation 3 chip production facilities to occasional rival Toshiba.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_dirts-mcrae-dead-at-39_1100-6178865_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dirts-mcrae-dead-at-39/1100-6178865/" class="article-title">DiRT's McRae dead at 39</a>
+			<div class="article-subtitle">Cover driver of Codemasters' off-road racer perishes with son and two others in tragic helicopter crash.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_iwata-wii-sports-2-benched-for-now_1100-6178806_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/iwata-wii-sports-2-benched-for-now/1100-6178806/" class="article-title">Iwata: Wii Sports 2 benched for now</a>
+			<div class="article-subtitle">Nintendo CEO dismisses possibility of sequel for popular console pack-in popping up anytime soon.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_force-being-unleashed-on-wii-next-spring_1100-6178981_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/force-being-unleashed-on-wii-next-spring/1100-6178981/" class="article-title">Force being Unleashed on Wii next spring</a>
+			<div class="article-subtitle">Following months of rumors, LucasArts confirms its first game featuring Wii Remote-enabled lightsaber combat.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_valve-cracks-open-tf2-beta_1100-6178989_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-cracks-open-tf2-beta/1100-6178989/" class="article-title">Valve cracks open TF2 beta</a>
+			<div class="article-subtitle">PC prepurchasers of Orange Box compilation can now run, gun in over-the-top shooter pack-in.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_halo-3-midnight-mania-to-sweep-us_1100-6178998_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-3-midnight-mania-to-sweep-us/1100-6178998/" class="article-title">Halo 3 midnight mania to sweep US</a>
+			<div class="article-subtitle">Early-morning launch events for Bungie's sci-fi shooter in New York, LA, Seattle, and Miami promise celebrities, local pro athletes, and epic swag giveaways.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_chinese-man-dies-after-three-day-mmog-binge_1100-6178933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chinese-man-dies-after-three-day-mmog-binge/1100-6178933/" class="article-title">Chinese man dies after three-day MMOG binge</a>
+			<div class="article-subtitle">Thirty-year-old Guangzhou resident declared dead at Internet cafe where he gamed for 72 hours straight.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_oklahoma-game-law-injunction-permanent_1100-6179005_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oklahoma-game-law-injunction-permanent/1100-6179005/" class="article-title">Oklahoma game-law injunction permanent</a>
+			<div class="article-subtitle">Judge rules First Amendment protection of interactive entertainment sacrosanct, forever foiling so-called "games-as-porn" bill.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_geon-emotions-final-hands-on_1100-6179003_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/geon-emotions-final-hands-on/1100-6179003/" class="article-title">Geon: Emotions Final Hands-On</a>
+			<div class="article-subtitle">Eidos and Strawdog Studios invite us to check out the finished version of their upcoming Xbox Live Arcade game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_radioshack-reorganizing-retail-outlets-to-sell-games_1100-6179008_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/radioshack-reorganizing-retail-outlets-to-sell-games/1100-6179008/" class="article-title">RadioShack reorganizing retail outlets to sell games</a>
+			<div class="article-subtitle">[UPDATE] Analysts report that ubiquitous electronics chain to start hawking game software and hardware; online store already offering Halo 3 for in-store pickup.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_super-smash-bros-to-brawl-online_1100-6235578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-smash-bros-to-brawl-online/1100-6235578/" class="article-title">Super Smash Bros. to brawl online</a>
+			<div class="article-subtitle">Multiplayer mayhem being the core experience of any Super Smash Bros. game, rumor mills have churned the possibility of online play for the Wi-Fi-equipped Wii version of the game to a powder-fine millet. The rumor, however, can now be put to rest, as the game's official Web site, Super Smash Bros...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_lumines-live-rockin-holiday-pack-preview_1100-6179023_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lumines-live-rockin-holiday-pack-preview/1100-6179023/" class="article-title">Lumines Live! Rockin' Holiday Pack Preview</a>
+			<div class="article-subtitle">The latest downloadable content pack for Lumines! Live was shown to us ahead of this year's Tokyo Game Show.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_pre-tgs-07-rez-hd-hands-on_1100-6179007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pre-tgs-07-rez-hd-hands-on/1100-6179007/" class="article-title">Pre-TGS '07: Rez HD Hands-On</a>
+			<div class="article-subtitle">We try out Q Entertainment's HD upgrade of the fan favorite shooter for Xbox Live Arcade.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_bisexual-extraterrestrials-steaming-up-mass-effect_1100-6235577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bisexual-extraterrestrials-steaming-up-mass-effect/1100-6235577/" class="article-title">Bisexual extraterrestrials steaming up Mass Effect</a>
+			<div class="article-subtitle">Nowhere is the cultural divide between Europe and the US more visible than in entertainment. Traditionally, the US frowns upon frank descriptions of sexuality while remaining indifferent to violence. Across the Atlantic, it's just the opposite, with governments dropping the banhammer on gore while...</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/09/18_australian-made-games_1100-6235576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/australian-made-games/1100-6235576/" class="article-title">Australian Made games</a>
+			<div class="article-subtitle">For almost 21 years now, the Australian Made logo has been appearing on food, beverages, furniture, and other household goods, but never games--until now. Brisbane-based developer, Auran, has become the first Australian games studio to apply the "Australian Made" logo to their packaged software.  ...</div>
+			<div class="article-author">James Kozanecki</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_team-fortress-2-beta-live_thumbnail.png">
+			<a href="https://www.eurogamer.net/team-fortress-2-beta-live" class="article-title">Team Fortress 2 beta live</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_smash-bros-wi-fi-detailed_thumbnail.png">
+			<a href="https://www.eurogamer.net/smash-bros-wi-fi-detailed" class="article-title">Smash Bros. Wi-Fi detailed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_another-chinese-gamer-dies_thumbnail.png">
+			<a href="https://www.eurogamer.net/another-chinese-gamer-dies" class="article-title">Another Chinese gamer dies</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_world-in-conflict-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-in-conflict-review" class="article-title">World in Conflict</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_microsofts-halo-3-launch-plans_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsofts-halo-3-launch-plans" class="article-title">Microsoft's Halo 3 launch plans</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_atari-doing-jamster-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/atari-doing-jamster-game" class="article-title">Atari doing Jamster game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_world-in-conflict-multiplayer-beta-first-impressions_thumbnail.png">
+			<a href="https://www.eurogamer.net/world-in-conflict-multiplayer-beta-first-impressions" class="article-title">World In Conflict Multiplayer Beta</a>
+			<div class="article-author">Jim Rossignol</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_yoshi-leads-us-vc_thumbnail.png">
+			<a href="https://www.eurogamer.net/yoshi-leads-us-vc" class="article-title">Yoshi leads US VC</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_dark-messiah-360-slips-again_thumbnail.png">
+			<a href="https://www.eurogamer.net/dark-messiah-360-slips-again" class="article-title">Dark Messiah 360 slips again</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_ea-sits-on-uk-charts-throne_thumbnail.png">
+			<a href="https://www.eurogamer.net/ea-sits-on-uk-charts-throne" class="article-title">EA sits on UK charts throne</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_geometry-wars-waves-not-suitable-for-xbla_thumbnail.png">
+			<a href="https://www.eurogamer.net/geometry-wars-waves-not-suitable-for-xbla" class="article-title">Geometry Wars Waves not suitable for XBLA</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_egtv-exclusive-moh-trailer_thumbnail.png">
+			<a href="https://www.eurogamer.net/egtv-exclusive-moh-trailer" class="article-title">EGTV: Exclusive MoH trailer</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_news240506mohairborne_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240506mohairborne" class="article-title">EA signs Jeep for MOH Airborne</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_news040506supermanmoh_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040506supermanmoh" class="article-title">Superman, MOH delayed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_news180106mohairborne_thumbnail.png">
+			<a href="https://www.eurogamer.net/news180106mohairborne" class="article-title">MOH Airborne: seven levels!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/09/18_news170106mohairborne_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170106mohairborne" class="article-title">Medal of Honor for PS3, X360</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128589/New-Chinese-studio-for-Ubisoft/" class="article-title">New Chinese studio for Ubisoft</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128588/Sega-rveals-new-details-on-Nights-Journey-of-Dreams/" class="article-title">Sega rveals new details on Nights: Journey of Dreams</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128587/Turbo-CD-Super-CD-games-for-Wii/" class="article-title">Turbo CD, Super CD games for Wii</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128586/Sega-Rally-demo-now-live/" class="article-title">Sega Rally demo now live</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/yin-yang.php" class="article-title">Yin Yang</a>
+			<div class="article-author">Patrick</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/09/18_2007_09_18_runmans-monster-fracas_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/09/18/runmans-monster-fracas/" class="article-title">RunMan’s Monster Fracas</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/18_2007_09_goldeneye-2d.html_thumbnail.png">
+			<a href="http://indygamer.blogspot.com/2007/09/goldeneye-2d.html" class="article-title">GoldenEye 2D</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/18_2007_09_blackwell-unbound-demo.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/09/blackwell-unbound-demo.html" class="article-title">Blackwell Unbound Demo</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/09/18_2007_09_iac-acquires-garagegames.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/09/iac-acquires-garagegames.html" class="article-title">IAC Acquires GarageGames</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

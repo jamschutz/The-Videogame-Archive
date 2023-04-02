@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 2, 2008</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/insecticide-review/1900-6193310/" class="article-title">Insecticide Review</a>
+			<div class="article-subtitle">Insecticide can't decide whether it wants to be an adventure or a platformer, so it does neither particularly well.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rock-band-review/1900-6192998/" class="article-title">Rock Band Review</a>
+			<div class="article-subtitle">Rock Band for the Wii is still a great game, even if it's scaled back and late to the party.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mega-man-star-force-2-zerker-x-saurian-review/1900-6193309/" class="article-title">Mega Man Star Force 2: Zerker X Saurian Review</a>
+			<div class="article-subtitle">Bad graphics and repetitive play make Mega Man's latest adventure a dull one.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mega-man-star-force-2-zerker-x-ninja-review/1900-6193308/" class="article-title">Mega Man Star Force 2: Zerker X Ninja Review</a>
+			<div class="article-subtitle">Bad graphics and repetitive play make Mega Man's latest adventure a dull one.</div>
+			<div class="article-author">Brian Fishman</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deadliest-catch-alaskan-storm-review/1900-6193322/" class="article-title">Deadliest Catch: Alaskan Storm Review</a>
+			<div class="article-subtitle">This disappointing strategy game isn't nearly as engaging as the Discovery Channel show it's based on.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_soul-calibur-returns-on-the-360_1100-6193228_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soul-calibur-returns-on-the-360/1100-6193228/" class="article-title">Soul Calibur returns on the 360</a>
+			<div class="article-subtitle">The classic is back and ready for download via the Xbox Live Arcade; Echochrome hits EU PlayStation Network.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_this-is-vegas-folds-til-09_1100-6193290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-is-vegas-folds-til-09/1100-6193290/" class="article-title">This is Vegas folds 'til '09</a>
+			<div class="article-subtitle">Midway's Sin City sim won't make original release date; publisher says it needs the extra time to make it a must-have title.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_rock-band-2-suffers-song-leak-symphony_1100-6234659_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-2-suffers-song-leak-symphony/1100-6234659/" class="article-title">Rock Band 2 suffers song leak symphony?</a>
+			<div class="article-subtitle">Source: G4's X-Play and an alleged play tester, by way of Rock Band fan site ScoreHero. What we heard: Rock stars aren't exactly known for the ability to keep a low profile, and the same can be said for the games that turn everyday Toms, Dicks, and Harrys into them. On Monday, MTV Games and...</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_locks-quest-hands-on_1100-6193128_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/locks-quest-hands-on/1100-6193128/" class="article-title">Lock's Quest Hands-On</a>
+			<div class="article-subtitle">With wrench in hand, it's time to save the world.</div>
+			<div class="article-author">Sophia Tong</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_square-enix-arms-chrono-trigger-ds_1100-6193283_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-arms-chrono-trigger-ds/1100-6193283/" class="article-title">Square Enix arms Chrono Trigger DS</a>
+			<div class="article-subtitle">Publisher confirms next remake for Nintendo's handheld will be widely acclaimed Super Nintendo action RPG, available this holiday.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_rock-band-2-suffers-song-leak-symphony_1100-6193296_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-2-suffers-song-leak-symphony/1100-6193296/" class="article-title">Rock Band 2 suffers song-leak symphony?</a>
+			<div class="article-subtitle">ScoreHero forum users may have already sleuthed out 20 songs for Harmonix's just-announced follow-up to hit rhythm game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_publishers-leaning-on-licenses_1100-6193311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/publishers-leaning-on-licenses/1100-6193311/" class="article-title">Publishers leaning on licenses</a>
+			<div class="article-subtitle">Dragon Ball accounts for nearly half of Atari sales, whereas THQ reaps a quarter of its revenues from WWE, another quarter from Pixar and Nickelodeon.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_modern-zombie_1100-6181965_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modern-zombie/1100-6181965/" class="article-title">Modern Zombie</a>
+			<div class="article-subtitle">We take a look at some of the important issues and games facing zombies today.</div>
+			<div class="article-author">Joe Dodson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_real-time-strategy-road-map-2007_1100-6168947_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/real-time-strategy-road-map-2007/1100-6168947/" class="article-title">Real-Time Strategy Road Map 2007</a>
+			<div class="article-subtitle">It has been a good year for real-time strategy fans so far, and it's about to get better. Get up to speed on the most promising games of 2007.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_activision-vivendi-injunction-tossed_1100-6193318_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-vivendi-injunction-tossed/1100-6193318/" class="article-title">Activision-Vivendi injunction tossed</a>
+			<div class="article-subtitle">Delaware judge denies shareholder request to halt merger; Activision Blizzard union on track for July 9 close.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_from-the-bleachers-07-02-08_1100-6234658_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/from-the-bleachers-07-02-08/1100-6234658/" class="article-title">From the Bleachers: 07/02/08</a>
+			<div class="article-subtitle">Last time, the FtB crew brazenly referred to soccer as "evil." This week, they make up for it with discussions of EA Sports' upcoming FIFA 09 and FIFA Manager 09, as well as a recap of Spain's huge victory over Germany in Euro 2008. With Shanker on injured reserve, Aaron and Brian recall their love...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_pure-hands-on_1100-6193319_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pure-hands-on/1100-6193319/" class="article-title">Pure Hands-On</a>
+			<div class="article-subtitle">We go ATV off-roading with this combination of racing and extreme sports.</div>
+			<div class="article-author">Shanker Srinivasan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_james-bond-quantum-of-solace-first-look_1100-6193300_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/james-bond-quantum-of-solace-first-look/1100-6193300/" class="article-title">James Bond: Quantum of Solace First Look</a>
+			<div class="article-subtitle">We track down Activision and Treyarch's first game based on the James Bond movie franchise.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_wii-fifa-soccer-09-hands-on_1100-6193323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-fifa-soccer-09-hands-on/1100-6193323/" class="article-title">Wii FIFA Soccer 09 Hands-On</a>
+			<div class="article-subtitle">Soccer is coming to EA Sports' All-Play series and we've got a hands-on look.</div>
+			<div class="article-author">Shanker Srinivasan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2008/07/02_gut-reactions-blizzard-breakdown_1100-6193315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gut-reactions-blizzard-breakdown/1100-6193315/" class="article-title">Gut Reactions: Blizzard Breakdown</a>
+			<div class="article-subtitle">GameSpot's editors sound off on the news coming out of the recent Blizzard Invitational event.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_blizzard-pc-decline-talk-is-dead-wrong_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-pc-decline-talk-is-dead-wrong" class="article-title">Blizzard: PC decline talk is "dead wrong"</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_go-team-and-battles-in-littlebigplanet_thumbnail.png">
+			<a href="https://www.eurogamer.net/go-team-and-battles-in-littlebigplanet" class="article-title">Go! Team and Battles in LittleBigPlanet</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_media-molecules-david-smith-talks-littlebigplanet-live-q-and-a_thumbnail.png">
+			<a href="https://www.eurogamer.net/media-molecules-david-smith-talks-littlebigplanet-live-q-and-a" class="article-title">Media Molecule's David Smith talks LittleBigPlanet</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_lbp-to-feature-voice-chat-ps-eye-options_thumbnail.png">
+			<a href="https://www.eurogamer.net/lbp-to-feature-voice-chat-ps-eye-options" class="article-title">LBP to feature voice chat, PS Eye options</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_littlebigplanet-to-run-at-30fps-720p_thumbnail.png">
+			<a href="https://www.eurogamer.net/littlebigplanet-to-run-at-30fps-720p" class="article-title">LittleBigPlanet to run at 30fps, 720p</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_littlebigplanet-beta-already-under-way_thumbnail.png">
+			<a href="https://www.eurogamer.net/littlebigplanet-beta-already-under-way" class="article-title">LittleBigPlanet beta already under way</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_trophies-confirmed-for-littlebigplanet_thumbnail.png">
+			<a href="https://www.eurogamer.net/trophies-confirmed-for-littlebigplanet" class="article-title">Trophies confirmed for LittleBigPlanet</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_soulcalibur-iv-pre-order-deals-unveiled_thumbnail.png">
+			<a href="https://www.eurogamer.net/soulcalibur-iv-pre-order-deals-unveiled" class="article-title">Soulcalibur IV pre-order deals unveiled</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_we-love-golf-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/we-love-golf-review" class="article-title">We Love Golf</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_news110906dmc4_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110906dmc4" class="article-title">DMC4 playable at TGS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_politicians-could-learn-from-eve-council_thumbnail.png">
+			<a href="https://www.eurogamer.net/politicians-could-learn-from-eve-council" class="article-title">Politicians "could learn from" EVE Council</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_insomniacs-ted-price-on-resistance-2-live-q-and-a_thumbnail.png">
+			<a href="https://www.eurogamer.net/insomniacs-ted-price-on-resistance-2-live-q-and-a" class="article-title">Insomniac's Ted Price on Resistance 2</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_no-bare-bums-or-boobs-in-soulcalibur-iv_thumbnail.png">
+			<a href="https://www.eurogamer.net/no-bare-bums-or-boobs-in-soulcalibur-iv" class="article-title">No bare bums or boobs in Soulcalibur IV</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_castlevania-judgment-coming-to-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/castlevania-judgment-coming-to-wii" class="article-title">Castlevania Judgment coming to Wii</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_ps3-trophies-now-in-super-stardust-hd_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-trophies-now-in-super-stardust-hd" class="article-title">PS3 trophies now in Super Stardust HD</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_first-rock-band-2-songs-spotted_thumbnail.png">
+			<a href="https://www.eurogamer.net/first-rock-band-2-songs-spotted" class="article-title">First Rock Band 2 songs spotted</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_gamecock-games-invade-steam_thumbnail.png">
+			<a href="https://www.eurogamer.net/gamecock-games-invade-steam" class="article-title">Gamecock games invade Steam</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_thq-reveals-more-wrestlers-for-wwe-09_thumbnail.png">
+			<a href="https://www.eurogamer.net/thq-reveals-more-wrestlers-for-wwe-09" class="article-title">THQ reveals more wrestlers for WWE '09</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2008/07/02_secret-agent-clank-review_thumbnail.png">
+			<a href="https://www.eurogamer.net/secret-agent-clank-review" class="article-title">Secret Agent Clank</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131958/SEGA-NZ-change-release-dates/" class="article-title">SEGA NZ change release dates</a>
+			<div class="article-subtitle">Incredible Hulk available sooner.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131956/Crysis-Warhead-first-look/" class="article-title">Crysis Warhead first look</a>
+			<div class="article-subtitle">Two screenshots? Gee thanks.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131955/EA-NZ-release-schedule-updated/" class="article-title">EA NZ release schedule updated</a>
+			<div class="article-subtitle">Crysis Warhead, Spore get dates.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131954/Microsoft-confirm-new-RRP-for-360-range/" class="article-title">Microsoft confirm new RRP for 360 range</a>
+			<div class="article-subtitle">Just in time for winter, too.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131953/Civilization-Revolution-trailer-3/" class="article-title">Civilization Revolution trailer #3</a>
+			<div class="article-subtitle">In-game footage from 2K.</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i131952/Diablo-III-petition-created/" class="article-title">Diablo III petition created</a>
+			<div class="article-subtitle">Seems not everyone likes it?</div>
+			<div class="article-author">Dan Cheer</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/boat-house.php" class="article-title">Boat House</a>
+			<div class="article-author">Jess</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2008/07/02_2008_07_02_igf-2009-call-for-submissions_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2008/07/02/igf-2009-call-for-submissions/" class="article-title">IGF 2009: Call For Submissions!</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<a href="https://www.tigsource.com/2008/07/02/treasure-seas-incorporated/" class="article-title">Treasure Seas Incorporated</a>
+			<div class="article-author">Alehkhs</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

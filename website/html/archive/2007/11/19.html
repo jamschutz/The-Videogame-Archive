@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 19, 2007</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/need-for-speed-prostreet-review/1900-6183134/" class="article-title">Need for Speed ProStreet Review</a>
+			<div class="article-subtitle">ProStreet is a solid racing game, but it has some performance issues and is missing most of what made the previous games in the series interesting.</div>
+			<div class="article-author">Aaron Thomas</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/you-are-empty-review/1900-6183122/" class="article-title">You Are Empty Review</a>
+			<div class="article-subtitle">Soviet gulags were probably more punishing than You Are Empty, but we're not taking any bets.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mass-effect-review/1900-6183119/" class="article-title">Mass Effect Review</a>
+			<div class="article-subtitle">An excellent story and fun battles make this a universe worth exploring.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/uncharted-drakes-fortune-review/1900-6183147/" class="article-title">Uncharted: Drake's Fortune Review</a>
+			<div class="article-subtitle">Incredible production values and plenty of thrilling moments help make Uncharted an action-packed adventure, in spite of some slightly uneven gameplay.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bee-movie-game-review/1900-6183146/" class="article-title">Bee Movie Game Review</a>
+			<div class="article-subtitle">Younger players will enjoy the variety and sandbox-style freedom of Bee Movie Game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bee-movie-game-review/1900-6183148/" class="article-title">Bee Movie Game Review</a>
+			<div class="article-subtitle">Younger players will enjoy the variety and sandbox-style freedom of Bee Movie Game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bee-movie-game-review/1900-6183145/" class="article-title">Bee Movie Game Review</a>
+			<div class="article-subtitle">Younger players will enjoy the variety and sandbox-style freedom of Bee Movie Game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_report-mexico-gaming-approaches-1-billion_1100-6183050_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-mexico-gaming-approaches-1-billion/1100-6183050/" class="article-title">Report: Mexico gaming approaches $1 billion</a>
+			<div class="article-subtitle">Americas News Intelligence projects rapid expansion in south-of-the-border market due in part to people marrying at a later age.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_gcap-aussie-game-biz-grows-to-a130-million_1100-6183085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gcap-aussie-game-biz-grows-to-a130-million/1100-6183085/" class="article-title">GCAP: Aussie game biz grows to A$130 million</a>
+			<div class="article-subtitle">Australian game-development scene now worth A$130 million ($115 million), employs 2,000 people.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_gcap-top-aussie-games-for-07-named_1100-6183086_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gcap-top-aussie-games-for-07-named/1100-6183086/" class="article-title">GCAP: Top Aussie games for '07 named</a>
+			<div class="article-subtitle">Puzzle Quest: Challenge of the Warlords named top Aussie-made game at industry awards.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_singstar-playstation-3-updated-hands-on_1100-6183088_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/singstar-playstation-3-updated-hands-on/1100-6183088/" class="article-title">SingStar PlayStation 3 Updated Hands-On</a>
+			<div class="article-subtitle">We check out the SingStore and figure out how to upload our out-of-tune croonings in our final play-through of SingStar for the PS3 before its December release.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_xbox-360-hardware-resource-center_1100-6183113_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-360-hardware-resource-center/1100-6183113/" class="article-title">Xbox 360 Hardware Resource Center</a>
+			<div class="article-subtitle">Find out everything you need to know about the Xbox 360 and its accessories in our hardware resource center.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_playstation-3-hardware-resource-center_1100-6183114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-3-hardware-resource-center/1100-6183114/" class="article-title">PlayStation 3 Hardware Resource Center</a>
+			<div class="article-subtitle">Find out everything you need to know about the PlayStation 3 and its accessories in our hardware resource center.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_wii-hardware-resource-center_1100-6183115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-hardware-resource-center/1100-6183115/" class="article-title">Wii Hardware Resource Center</a>
+			<div class="article-subtitle">Find out everything you need to know about the Wii and its accessories in our hardware resource center.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_first-round-results-plans-for-next-matches_1100-6235341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-round-results-plans-for-next-matches/1100-6235341/" class="article-title">First round results - plans for next matches</a>
+			<div class="article-subtitle">Many thanks to the eight teams who took part in matches today! The results are as follows:Team 3 vs Team 6This match was won by Team 3 (Leader: Fugamatic).Team 11 vs Team 12This match went to a final playoff, and was won by Team 11 (Leader: Mesagoji).Team 13 vs Team 14This match was won by Team 13...</div>
+			<div class="article-author">Laura Jenner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_epic-games-codemasters-join-esa_1100-6183120_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/epic-games-codemasters-join-esa/1100-6183120/" class="article-title">Epic Games, Codemasters join ESA</a>
+			<div class="article-subtitle">Two more developers accepted into US game industry trade organization, pushing total number of member companies to 29.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_codemasters-punches-in-record-results_1100-6183132_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-punches-in-record-results/1100-6183132/" class="article-title">Codemasters punches in record results</a>
+			<div class="article-subtitle">UK-based publisher and developer reports 38 percent climb in revenue for 2007 fiscal year on the tails of DiRT and Overlord; US growth spikes 332 percent.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_halo-novel-hits-the-charts_1100-6235340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-novel-hits-the-charts/1100-6235340/" class="article-title">Halo novel hits the charts</a>
+			<div class="article-subtitle">Not content to merely stake a claim on gaming retailer shelves, the Master Chief has stepped up the fighting on another front in his war against Microsoft-related poverty: bookstores. Tor Books today is touting the success of Halo: Contact Harvest, which went on sale late last month and debuted at...</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_halo-novel-hits-the-charts_1100-6183136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-novel-hits-the-charts/1100-6183136/" class="article-title">Halo novel hits the charts </a>
+			<div class="article-subtitle"><i>Contact Harvest</i> debuts in the No. 3 spot on the <i>New York Times</i> paperback trade fiction bestseller list.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_shippin-out-november-19-23-rock-band-mass-effect-uncharted_1100-6183102_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shippin-out-november-19-23-rock-band-mass-effect-uncharted/1100-6183102/" class="article-title">Shippin' Out November 19-23: Rock Band, Mass Effect, Uncharted</a>
+			<div class="article-subtitle">Platform exclusivity runs rampant as headliners join Unreal Tournament III, Ghost Squad, Time Crisis 4, Mario Party DS, FFXII: Revenant Wings, Trauma Center: New Blood.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_qanda-microsoft-on-xbox-live-turning-five_1100-6183116_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-microsoft-on-xbox-live-turning-five/1100-6183116/" class="article-title">Q&A: Microsoft on Xbox Live turning five</a>
+			<div class="article-subtitle">XBL Arcade product manager Jeremy Wacksman reflects on a half-decade of Live-enabled consoles and what's in store for the future.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2007/11/19_nanostray-2-updated-hands-on_1100-6183144_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nanostray-2-updated-hands-on/1100-6183144/" class="article-title">Nanostray 2 Updated Hands-On</a>
+			<div class="article-subtitle">Majesco and Shin'en are back with yet another scrolling handheld shooter, and we dove in to see what's new.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_unreal-tournament-3-interview_thumbnail.png">
+			<a href="https://www.eurogamer.net/unreal-tournament-3-interview" class="article-title">Unreal Tournament 3</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_fantasy-world-dizzy-article_thumbnail.png">
+			<a href="https://www.eurogamer.net/fantasy-world-dizzy-article" class="article-title">Fantasy World Dizzy</a>
+			<div class="article-author">Spanner Spencer</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_news191107qantm_thumbnail.png">
+			<a href="https://www.eurogamer.net/news191107qantm" class="article-title">Qantm opens first UK college</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_bungie-wheels-out-halo-3-stats_thumbnail.png">
+			<a href="https://www.eurogamer.net/bungie-wheels-out-halo-3-stats" class="article-title">Bungie wheels out Halo 3 stats</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_cod4-conquers-spain-germany_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod4-conquers-spain-germany" class="article-title">COD4 conquers Spain, Germany</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_more-blood-bowl-from-cyanide_thumbnail.png">
+			<a href="https://www.eurogamer.net/more-blood-bowl-from-cyanide" class="article-title">More Blood Bowl from Cyanide</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_ps3-firmware-201-soon_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-firmware-201-soon" class="article-title">PS3 firmware 2.01 soon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_atlus-now-a-360-publisher_thumbnail.png">
+			<a href="https://www.eurogamer.net/atlus-now-a-360-publisher" class="article-title">Atlus now a 360 publisher</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_hl2-eptwo-stats-digested_thumbnail.png">
+			<a href="https://www.eurogamer.net/hl2-eptwo-stats-digested" class="article-title">HL2: EpTwo stats digested</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_ps3-dev-kit-cost-halved_thumbnail.png">
+			<a href="https://www.eurogamer.net/ps3-dev-kit-cost-halved" class="article-title">PS3 dev kit cost halved</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_house-of-the-dead-for-wii_thumbnail.png">
+			<a href="https://www.eurogamer.net/house-of-the-dead-for-wii" class="article-title">House of the Dead for Wii</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_new-terminator-game-coming_thumbnail.png">
+			<a href="https://www.eurogamer.net/new-terminator-game-coming" class="article-title">New Terminator game coming</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_cod4-live-patch-in-works_thumbnail.png">
+			<a href="https://www.eurogamer.net/cod4-live-patch-in-works" class="article-title">COD4 Live patch in works</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_j-allard-on-central-live-network_thumbnail.png">
+			<a href="https://www.eurogamer.net/j-allard-on-central-live-network" class="article-title">J Allard on central Live network</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2007/11/19_bomberman-live-gets-update_thumbnail.png">
+			<a href="https://www.eurogamer.net/bomberman-live-gets-update" class="article-title">Bomberman Live gets update</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128730/Ambx-patches-for-Overlord-Jericho/" class="article-title">Ambx patches for Overlord, Jericho</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128734/WoW-patch-2.3-for-Burning-Crusade/" class="article-title">WoW patch 2.3 for Burning Crusade</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128731/Cooking-Mama-2-early-2008/" class="article-title">Cooking Mama 2 early 2008</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128732/3D-glasses-for-DLP-TVs/" class="article-title">3D glasses for DLP TVs</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i128735/Bomberman-Live-XBLA-patched/" class="article-title">Bomberman Live XBLA patched</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/anikas-odyssey.php" class="article-title">Anika's Odyssey</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/11/19_2007_11_19_rakkasan_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/11/19/rakkasan/" class="article-title">Rakkasan</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/TIGSource/_thumbnails/2007/11/19_2007_11_19_eschalon-book-i_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2007/11/19/eschalon-book-i/" class="article-title">Eschalon: Book I</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/11/19_2007_11_underside-trailer.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/11/underside-trailer.html" class="article-title">The Underside Trailer</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/11/19_2007_11_nigoros-next-project.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/11/nigoros-next-project.html" class="article-title">NIGORO's next project</a>
+			<div class="article-author">Shih Tzu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2007/11/19_2007_11_edens-aegis.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2007/11/edens-aegis.html" class="article-title">Eden's Aegis</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<a href="http://indygamer.blogspot.com/2007/11/graham-goring-interview.html" class="article-title">Graham Goring Interview</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<a href="http://indygamer.blogspot.com/2007/11/news_19.html" class="article-title">News</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
