@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 10, 2002</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_gta-vice-city-to-be-released-alongside-soundtracks_1100-2879673_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-vice-city-to-be-released-alongside-soundtracks/1100-2879673/" class="article-title">GTA: Vice City to be released alongside soundtracks</a>
+			<div class="article-subtitle">Rockstar Games announces that its eagerly awaited action sequel will launch alongside no fewer than seven albums based on the game's radio stations.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_blizzard-to-make-announcement-at-tgs_1100-2879748_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-to-make-announcement-at-tgs/1100-2879748/" class="article-title">Blizzard to make announcement at TGS</a>
+			<div class="article-subtitle">The developers behind the WarCraft and Starcraft series of games will be making a new product announcement at the Tokyo Game Show.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_shadowbane-delayed-until-2003_1100-2879786_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadowbane-delayed-until-2003/1100-2879786/" class="article-title">Shadowbane delayed until 2003</a>
+			<div class="article-subtitle">Ubi Soft announces that its online role-playing game will no longer be released in November due to extended beta testing.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_unreal-tournament-2003-demo-this-week_1100-2879787_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-tournament-2003-demo-this-week/1100-2879787/" class="article-title">Unreal Tournament 2003 demo this week?</a>
+			<div class="article-subtitle">Mark Rein of Epic Games has stated that the long-awaited playable demo of this first-person shooter should be available this week.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_greeks-game-on_1100-2879817_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/greeks-game-on/1100-2879817/" class="article-title">Greeks game on</a>
+			<div class="article-subtitle">A Greek court throws out the first case seeking to prosecute three people for violating a law prohibiting gaming in public places, and labels the law unconstitutional.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_emperor-rise-of-the-middle-kingdom-ships_1100-2879785_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/emperor-rise-of-the-middle-kingdom-ships/1100-2879785/" class="article-title">Emperor: Rise of the Middle Kingdom ships</a>
+			<div class="article-subtitle">Sierra announces that the newest Impressions city-building game set in ancient China has shipped to stores.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_tron-20-preview_1100-2879620_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tron-20-preview/1100-2879620/" class="article-title">Tron 2.0 Preview</a>
+			<div class="article-subtitle">We take a look at the visually impressive sequel to Disney's Tron.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_combat-mission-barbarossa-to-berlin-preview_1100-2879800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/combat-mission-barbarossa-to-berlin-preview/1100-2879800/" class="article-title">Combat Mission: Barbarossa to Berlin Preview</a>
+			<div class="article-subtitle">The next Combat Mission game chronicles the struggle between the Soviets and the Germans during WWII. Read on to find out what you can expect from this promising strategy game.</div>
+			<div class="article-author">Scott Osborne</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_phantagram-and-encore-to-co-publish_1100-2879873_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phantagram-and-encore-to-co-publish/1100-2879873/" class="article-title">Phantagram and Encore to co-publish</a>
+			<div class="article-subtitle">Encore will handle North American sales and distribution for Phantagram on five upcoming games, including Phantom Crash.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_konami-doing-new-teenage-mutant-ninja-turtles-games_1100-2879876_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-doing-new-teenage-mutant-ninja-turtles-games/1100-2879876/" class="article-title">Konami doing new Teenage Mutant Ninja Turtles games</a>
+			<div class="article-subtitle">Konami gets the worldwide rights to do Teenage Mutant Ninja Turtles games based on the new upcoming animated series.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_grand-prix-4-ships_1100-2879877_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-prix-4-ships/1100-2879877/" class="article-title">Grand Prix 4 ships</a>
+			<div class="article-subtitle">Infogrames ships the latest in Geoff Cramond's Grand Prix racing series.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_sas-commando-advises-on-igi2_1100-2879878_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sas-commando-advises-on-igi2/1100-2879878/" class="article-title">SAS Commando advises on IGI2</a>
+			<div class="article-subtitle">Codemasters has hired SAS Commando Chris Ryan to ensure the accuracy of the weapon details and tactics in the upcoming tactical shooter IGI2.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2002/09/10_hands-onikaruga_1100-2879864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hands-onikaruga/1100-2879864/" class="article-title">Hands-onIkaruga</a>
+			<div class="article-subtitle">Treasure says farewell to the Dreamcast with a port of its vertical arcade shooter.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/farscape-the-game-review/1900-2879790/" class="article-title">Farscape: The Game Review</a>
+			<div class="article-subtitle">Instead of drawing from the rich source material of the TV show, Farscape is a conventional action game with a clunky interface and a dated engine.</div>
+			<div class="article-author">Tom Chick</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fortress-review/1900-2806779/" class="article-title">Fortress Review</a>
+			<div class="article-subtitle">Fortress, by Majesco, is a competitive puzzle-strategy game that answers the question, "What if Tetris were a battlefield?"</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/emperor-rise-of-the-middle-kingdom-review/1900-2879794/" class="article-title">Emperor: Rise of the Middle Kingdom Review</a>
+			<div class="article-subtitle">Emperor is a fun and satisfying management game, but it is primarily the same fun and satisfying management game as those that have preceded it.</div>
+			<div class="article-author">Ron Dulin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-partners-review/1900-2879793/" class="article-title">The Partners Review</a>
+			<div class="article-subtitle">It's an interesting attempt to create a soap opera with The Sims as a model, but the fact is, The Sims was already a great little soap opera on its own.</div>
+			<div class="article-author">Ron Dulin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/quantum-redshift-review/1900-2879845/" class="article-title">Quantum Redshift Review</a>
+			<div class="article-subtitle">Quantum Redshift is by all means technically proficient, but it's uninspired and will probably give you the sensation that you've already done all this before.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_article-46649_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46649" class="article-title">Chris Ryan is going in, says Codemasters</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_a-tgs2002prev_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-tgs2002prev" class="article-title">Showtime in Japan, Tokyo Game Show 2002</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_article-46647_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46647" class="article-title">EA confirms Xbox and Cube Frontlines</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_article-46646_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46646" class="article-title">Rare deal for Microsoft</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_r-projectzero-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-projectzero-ps2" class="article-title">Project Zero</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2002/09/10_article-46645_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-46645" class="article-title">Shadowbane held back</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123430/Battlefield-1942-In-The-Country/" class="article-title">Battlefield 1942 In The Country</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123429/Warcraft-III-Cheaters-Banned/" class="article-title">Warcraft III Cheaters Banned</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123428/Colin-Mcrae-3-Website-Opens/" class="article-title">Colin Mcrae 3 Website Opens</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
