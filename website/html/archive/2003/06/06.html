@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 6, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_playstation-experience-2003-confirmed-for-europe_1100-6029529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-experience-2003-confirmed-for-europe/1100-6029529/" class="article-title">PlayStation Experience 2003 confirmed for Europe</a>
+			<div class="article-subtitle">SCEE confirms that it will host its second PlayStation Experience event in London this summer, and that events elsewhere in Europe will follow.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_new-metal-gear-solid-3-details_1100-6029469_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-metal-gear-solid-3-details/1100-6029469/" class="article-title">New Metal Gear Solid 3 details</a>
+			<div class="article-subtitle">The director of MGS3 talks about the main character's identity, as well as the gameplay mechanics featured in the new game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_official-tengai-makyou-site-opens_1100-6029617_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/official-tengai-makyou-site-opens/1100-6029617/" class="article-title">Official Tengai Makyou site opens</a>
+			<div class="article-subtitle">Hudson opens the official site for the next game in the Tengai Makyou series.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_nintendo-cracking-down-on-importers_1100-6029619_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-cracking-down-on-importers/1100-6029619/" class="article-title">Nintendo cracking down on importers</a>
+			<div class="article-subtitle">Retailers caught selling imported games in European countries will no longer be able to sell Nintendo products.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_elder-scrolls-iii-bloodmoon-for-europe_1100-6029608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elder-scrolls-iii-bloodmoon-for-europe/1100-6029608/" class="article-title">Elder Scrolls III: Bloodmoon for Europe</a>
+			<div class="article-subtitle">Ubi Soft announces that it will publish the second expansion for The Elder Scrolls III: Morrowind in Europe later this month.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_vu-games-signs-rock-band-metallica_1100-6029468_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vu-games-signs-rock-band-metallica/1100-6029468/" class="article-title">VU Games signs rock band Metallica</a>
+			<div class="article-subtitle">Vivendi Universal Games announces plans to create a vehicular combat game inspired by the rock band Metallica.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_rise-of-power-announced_1100-6029609_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rise-of-power-announced/1100-6029609/" class="article-title">Rise of Power announced</a>
+			<div class="article-subtitle">A small team of independent developers is currently working on an online first-person RPG to take on PlanetSide. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_1000000-unreal-mod-contest-announced_1100-6029610_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1000000-unreal-mod-contest-announced/1100-6029610/" class="article-title">$1,000,000 Unreal mod contest announced</a>
+			<div class="article-subtitle">A competition is being held to find the best mods in development for Unreal Tournament 2003 or the upcoming 2004 edition.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_danceuk-announced_1100-6029612_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/danceuk-announced/1100-6029612/" class="article-title">Dance:UK announced</a>
+			<div class="article-subtitle">Bigben Interactive announces that it will release a dancing game for the PlayStation and PlayStation 2 later this year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_artisan-bringing-games-to-big-screen_1100-6029613_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/artisan-bringing-games-to-big-screen/1100-6029613/" class="article-title">Artisan bringing games to big screen</a>
+			<div class="article-subtitle">Artisan Pictures announces that it has secured the North American distribution rights to both the House of the Dead and Alone in the Dark movies.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_idsa-challenges-washington-video-game-bill_1100-6029614_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/idsa-challenges-washington-video-game-bill/1100-6029614/" class="article-title">IDSA challenges Washington video game bill</a>
+			<div class="article-subtitle">The Interactive Digital Software Association has filed a lawsuit challenging the constitutionality of the new Washington state HB1009 law.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_spawn-preview_1100-6029643_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spawn-preview/1100-6029643/" class="article-title">Spawn Preview</a>
+			<div class="article-subtitle">We check out Namco's upcoming action game starring the comic hero.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_gamejobscom-relaunching_1100-6029652_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamejobscom-relaunching/1100-6029652/" class="article-title">GameJobs.com relaunching</a>
+			<div class="article-subtitle">The IEMA has overhauled its site specializing in game industry jobs.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_nintendo-lineup-for-early-2003_1100-2908916_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-lineup-for-early-2003/1100-2908916/" class="article-title">Nintendo lineup for early 2003</a>
+			<div class="article-subtitle">Nintendo of America releases a comprehensive list of the GameCube and GBA titles that will be released in time for summer.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_master-of-orion-iii-official-patch-released_1100-6029653_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/master-of-orion-iii-official-patch-released/1100-6029653/" class="article-title">Master of Orion III official patch released</a>
+			<div class="article-subtitle">Quicksilver releases an "official beta" patch for its space empire game to improve the game's interface and enemy AI, among other things.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_savage-beta-testers-wanted_1100-2909756_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/savage-beta-testers-wanted/1100-2909756/" class="article-title">Savage beta testers wanted</a>
+			<div class="article-subtitle">S2 Games announces that it's accepting applications from players interested in beta-testing its upcoming multiplayer first-person action game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_official-uk-game-sales-chart_1100-2912026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/official-uk-game-sales-chart/1100-2912026/" class="article-title">Official UK game sales chart</a>
+			<div class="article-subtitle">The PS2 version of The Sims is still atop the UK game sales chart, despite the arrival of Splinter Cell for the PC.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_first-look-micro-machines_1100-2448807_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-look-micro-machines/1100-2448807/" class="article-title">First Look: Micro Machines</a>
+			<div class="article-subtitle">We have shots of the GBC version of Micro Machines 1&2: Twin Turbo.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_evil-genius-preview_1100-6029616_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/evil-genius-preview/1100-6029616/" class="article-title">Evil Genius Preview</a>
+			<div class="article-subtitle">Elixir Studios' upcoming strategy game will let you play as a criminal mastermind.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/06/06_sega-ages-coming-in-august_1100-6029654_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-ages-coming-in-august/1100-6029654/" class="article-title">Sega Ages coming in August</a>
+			<div class="article-subtitle">Remakes of Phantasy Star, Fantasy Zone, and Monaco GP will be available this August in Japan.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/midnight-club-ii-review/1900-6029621/" class="article-title">Midnight Club II Review</a>
+			<div class="article-subtitle">While there are definitely a few bumps in the road, Midnight Club II is a fine introduction to auto racing for Microsoft's Xbox Live service.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lufia-the-ruins-of-lore-review/1900-6029642/" class="article-title">Lufia: The Ruins of Lore Review</a>
+			<div class="article-subtitle">While Lufia: The Ruins of Lore may appeal to hard-core fans of the series or the genre, it's mostly a straightforward RPG that's not recommendable over the competition.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/motogp-2-review/1900-6029635/" class="article-title">MotoGP 2 Review</a>
+			<div class="article-subtitle">MotoGP2 for the PC falls short of its potential.</div>
+			<div class="article-author">Tyler Winegarner</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_i-wingcommander-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-wingcommander-gba" class="article-title">Wing Commanders</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603makesomethingunreal_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603makesomethingunreal" class="article-title">NVIDIA backs UT2003/4 design competition</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603bloodmoon_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603bloodmoon" class="article-title">Ubi Soft to publish Bloodmoon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603whatsnew_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603whatsnew" class="article-title">What's New?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_fi-counter-strike-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-counter-strike-x" class="article-title">E3 2003: Counter-Strike</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603hhell_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603hhell" class="article-title">Heaven & Hell demo out</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news050603psex_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050603psex" class="article-title">This year's PlayStation Experience announced</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603tides_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603tides" class="article-title">New Tides of War content available</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603armedanddangerous_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603armedanddangerous" class="article-title">Lucas is Armed & Dangerous thanks to MDK team</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603realtimeworlds_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603realtimeworlds" class="article-title">Real Time Worlds hints at the future</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_r-rtcw-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-rtcw-x" class="article-title">Return to Castle Wolfenstein: Tides of War</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/06/06_news060603spaceworld_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060603spaceworld" class="article-title">Nintendo's Spaceworld on hiatus - again</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124422/New-IPs-for-Freelancer-and-Neverwinter-Nights-servers/" class="article-title">New IPs for Freelancer and Neverwinter Nights servers</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124421/GTA-Vice-City-Next-Thursday/" class="article-title">GTA: Vice City Next Thursday</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124420/Zelda-Available-Again/" class="article-title">Zelda Available Again</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124419/First-UT-2004-Screens/" class="article-title">First UT 2004 Screens</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124418/Silent-Hill-3-Arrives/" class="article-title">Silent Hill 3 Arrives</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124417/Horizons-Website-Opens/" class="article-title">Horizons Website Opens</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

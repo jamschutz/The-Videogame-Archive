@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 15, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_mlb-2k5-the-life-of-the-gm_1100-6236900_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-2k5-the-life-of-the-gm/1100-6236900/" class="article-title">MLB 2K5: The Life of the GM</a>
+			<div class="article-subtitle">I recently read Michael Lewis' excellent Moneyball, a book that caused a firestorm of controversy in 2003 for its behind-the-scenes look at Oakland A's general manager Billy Beane and the A's unlikely success in the 2002 season, due in no small part to Beane's deft handling of his club's tiny...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_investor-snapshot-game-stocks-flat-on-valentines-day_1100-6118561_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/investor-snapshot-game-stocks-flat-on-valentines-day/1100-6118561/" class="article-title">Investor snapshot: Game stocks flat on Valentine's Day</a>
+			<div class="article-subtitle">Activision on the rebound, Midway and Atari climb; Nintendo, Jamdat, and Electronics Boutique dip as the larger markets stay put.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_nvidia-launches-new-wireless-multimedia-processor_1100-6118563_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-launches-new-wireless-multimedia-processor/1100-6118563/" class="article-title">Nvidia launches new wireless multimedia processor</a>
+			<div class="article-subtitle">GoForce 3D 4800 improves video playback, 3D graphics, and game textures; the processor is expected in new phones by the end of the year.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_igda-names-nominees-for-choice-awards_1100-6118559_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/igda-names-nominees-for-choice-awards/1100-6118559/" class="article-title">IGDA names nominees for Choice Awards</a>
+			<div class="article-subtitle">Half-Life 2 leads with six nominations, followed by San Andreas, Katamari Damacy, World of Warcraft, and Doom 3. GDC event will see winners announced.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_project-snowblind-golden_1100-6118564_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/project-snowblind-golden/1100-6118564/" class="article-title">Project: Snowblind golden</a>
+			<div class="article-subtitle">Eidos' near-future squad shooter has invaded the factory; due for the PlayStation 2 and Xbox on February 23.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_tarzan-released-for-the-nintendo-64_1100-2446604_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tarzan-released-for-the-nintendo-64/1100-2446604/" class="article-title">Tarzan Released for the Nintendo 64</a>
+			<div class="article-subtitle">Activision announced that Disney's Tarzan for the Nintendo 64 has been released.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_namco-buffs-up-popeye-for-the-gba_1100-6118580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-buffs-up-popeye-for-the-gba/1100-6118580/" class="article-title">Namco buffs up Popeye for the GBA</a>
+			<div class="article-subtitle">Animated sailor shrinking onto Nintendo's portable this spring; Popeye and friends team together to defeat the Sea Hag witch.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_midway-scores-adult-swim-license_1100-6118585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midway-scores-adult-swim-license/1100-6118585/" class="article-title">Midway scores Adult Swim license</a>
+			<div class="article-subtitle">Games will tap <i>Aqua Teen Hunger Force</i>, <i>Space Ghost</i>, <i>Harvey Birdman</i>, <i>The Brak Show</i>, and <i>Sealab 2021</i>; first game due in late 2006.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_world-of-warcraft-takes-on-europe_1100-6118587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-takes-on-europe/1100-6118587/" class="article-title">World of Warcraft takes on Europe</a>
+			<div class="article-subtitle">Europe gets hit by Blizzard; World of Warcraft becomes fastest-selling online game in European history.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_seven-kingdoms-conquest-qanda-overview_1100-6118589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seven-kingdoms-conquest-qanda-overview/1100-6118589/" class="article-title">Seven Kingdoms: Conquest Q&A - Overview</a>
+			<div class="article-subtitle">Infinite Interactive lead designer Steve Fawkner provides an overview of this upcoming strategy sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_virtual-girlfriend-impressions_1100-6118592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtual-girlfriend-impressions/1100-6118592/" class="article-title">Virtual Girlfriend Impressions</a>
+			<div class="article-subtitle">We try a few one-liners on this realistic mobile dating sim at 3GSM.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_nascar-simracing-crosses-retail-finish-line_1100-6118593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nascar-simracing-crosses-retail-finish-line/1100-6118593/" class="article-title">NASCAR SimRacing crosses retail finish line</a>
+			<div class="article-subtitle">EA waves checkered flag for its stock-car simulator; PC racer features multiplayer support for 43 simultaneous drivers.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_dragons-of-norrath-expands-everquest_1100-6118596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragons-of-norrath-expands-everquest/1100-6118596/" class="article-title">Dragons of Norrath expands EverQuest</a>
+			<div class="article-subtitle">Latest expansion to original EverQuest hits stores; add-on features new zones, creatures, interactive world map.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_bet-on-soldier-updated-impressions_1100-6118590_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bet-on-soldier-updated-impressions/1100-6118590/" class="article-title">Bet on Soldier Updated Impressions</a>
+			<div class="article-subtitle">We get a detailed look at this promising French-designed first-person shooter.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_analyst-predicts-spike-in-january-software-sales_1100-6118542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-predicts-spike-in-january-software-sales/1100-6118542/" class="article-title">Analyst predicts spike in January software sales</a>
+			<div class="article-subtitle">Analyst forecasts six percent year-on-year increase in monthly software sales to $400; Resident Evil 4 and The Getaway: Black Monday as the month's biggest debuts.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_konami-ships-nano-breaker_1100-6118603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-ships-nano-breaker/1100-6118603/" class="article-title">Konami ships Nano Breaker</a>
+			<div class="article-subtitle">Action title from Castlevania producer now available for the PS2; cyborg hero uses shape-shifting plasma blade to save humankind.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_elpida-memory-tapped-to-make-ps3-chips_1100-6118242_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elpida-memory-tapped-to-make-ps3-chips/1100-6118242/" class="article-title">Elpida Memory tapped to make PS3 chips</a>
+			<div class="article-subtitle">Japanese DRAM producer may also supply chips for Nintendo's next-gen console.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_die-hard-hands-on_1100-6118599_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/die-hard-hands-on/1100-6118599/" class="article-title">Die Hard Hands-On</a>
+			<div class="article-subtitle">Yippie Ki Yay, mobile gamer.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_second-sight-sees-pc-release_1100-6118608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/second-sight-sees-pc-release/1100-6118608/" class="article-title">Second Sight sees PC release</a>
+			<div class="article-subtitle">Codemasters' paranormal action title in retail stores; first PC title from Free Radical Design lets gamers use psychic powers.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_investor-snapshot-game-stocks-edge-higher_1100-6118618_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/investor-snapshot-game-stocks-edge-higher/1100-6118618/" class="article-title">Investor snapshot: Game stocks edge higher</a>
+			<div class="article-subtitle">Electronics Boutique, EA see biggest gains as US and world markets rise on Tuesday.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_turbine-tweaks-its-business-model_1100-6118602_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/turbine-tweaks-its-business-model/1100-6118602/" class="article-title">Turbine tweaks its business model</a>
+			<div class="article-subtitle">Asheron's Call company embraces digital distribution in "turning point" for decade-old developer.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/15_spring-training-springs-ahead_1100-6236899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spring-training-springs-ahead/1100-6236899/" class="article-title">Spring Training Springs Ahead</a>
+			<div class="article-subtitle">Spring training is here. Well, almost. A handful of teams saw pitchers and catchers reporting for duty today, including MLB's rookie club the Washington Nationals; the perennial powerhouse New York Yankees; and the Cincinnati Reds, complete with Ken Griffey Jr., making an early spring training...</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/bob-review/1900-6118601/" class="article-title">Bob Review</a>
+			<div class="article-subtitle">Bob hops over the technical hurdles of putting a platformer on your phone quite well, but some of the game's level designs may have you attempting to snap your phone in half.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tenchu-fatal-shadows-review/1900-6118623/" class="article-title">Tenchu: Fatal Shadows Review</a>
+			<div class="article-subtitle">As if through stubborn adherence to tradition, Tenchu just hasn't evolved with the times. As a result, you'll need to keep a sharp lookout to spot this game's strong traits.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205chainsaw_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205chainsaw" class="article-title">Resi 4 Chainsaw Controller coming to the UK</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205wowsales_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205wowsales" class="article-title">Europe WOWs Blizzard with Warcraft MMO uptake</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_fi-firedup-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-firedup-psp" class="article-title">Fired Up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205singles2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205singles2" class="article-title">Singles sequel set for May release</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205matrixonline_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205matrixonline" class="article-title">Matrix Online Euro testers sought, date confirmed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205winterassault_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205winterassault" class="article-title">Relic working on Dawn of War expansion</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/15_news150205pumpitup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150205pumpitup" class="article-title">Mastiff ready to Pump It Up on PS2/Xbox</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126300/Guild-Wars-to-launch-April-28/" class="article-title">Guild Wars to launch April 28</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126299/Nvidia-says-new-mobile-performance-challenges-consoles/" class="article-title">Nvidia says new mobile performance challenges consoles</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126298/Atari-announces-The-Matrix-Path-of-Neo/" class="article-title">Atari announces The Matrix: Path of Neo</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126297/Elves-the-sexiest-of-all/" class="article-title">Elves the sexiest of all</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/ball-revamped-m.php" class="article-title">Ball Revamped: Metaphysik</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

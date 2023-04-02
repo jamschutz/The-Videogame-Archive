@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 12, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_nokia-officially-n-raged-by-n-gage-hack_1100-6083174_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nokia-officially-n-raged-by-n-gage-hack/1100-6083174/" class="article-title">Nokia officially N-raged by N-Gage hack</a>
+			<div class="article-subtitle">Handset giant concedes the game-card code on its mobile phone/game deck has been "bypassed."</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_sce-pulls-forbidden-siren-commercial-in-japan_1100-6082441_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sce-pulls-forbidden-siren-commercial-in-japan/1100-6082441/" class="article-title">SCE pulls Forbidden Siren commercial in Japan</a>
+			<div class="article-subtitle">Sony Computer Entertainment attempts to head off criticism in Japan by pulling a scary commercial for its recently released horror game.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_quidditch-world-cup-under-way_1100-6077449_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quidditch-world-cup-under-way/1100-6077449/" class="article-title">Quidditch World Cup under way</a>
+			<div class="article-subtitle">EA announces that all five versions of Harry Potter: Quidditch World Cup have shipped to stores in North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_sands-of-time-shifting-ahead-of-time_1100-6078092_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sands-of-time-shifting-ahead-of-time/1100-6078092/" class="article-title">Sands of Time shifting ahead of time</a>
+			<div class="article-subtitle">The latest magic carpet ride in the Prince of Persia series will start landing in stores this Thursday.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_psi-ops-the-mindgate-conspiracy-qanda_1100-6083380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psi-ops-the-mindgate-conspiracy-qanda/1100-6083380/" class="article-title">Psi-Ops: The Mindgate Conspiracy Q&A</a>
+			<div class="article-subtitle">We talk to Midway about the game formerly known as ESPionage.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_the-nightmare-before-christmas-announced_1100-6029130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-nightmare-before-christmas-announced/1100-6029130/" class="article-title">The Nightmare Before Christmas announced</a>
+			<div class="article-subtitle">Capcom and Buena Vista Interactive announce that they're collaborating on a PS2 game based on Tim Burton's 1993 animated movie.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_microsoft-launches-game-advisor_1100-6083395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-launches-game-advisor/1100-6083395/" class="article-title">Microsoft launches Game Advisor</a>
+			<div class="article-subtitle">Microsoft's new online service is designed to sort out PC gaming's mysteries for newbie XP users.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_dead-to-rights-pc-patch-coming-soon_1100-6083397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-to-rights-pc-patch-coming-soon/1100-6083397/" class="article-title">Dead to Rights PC patch coming soon</a>
+			<div class="article-subtitle">Hip Games is readying a downloadable update for players experiencing a serious bug in the game's opening level.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_soul-calibur-ii-updated-impressions_1100-6024195_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soul-calibur-ii-updated-impressions/1100-6024195/" class="article-title">Soul Calibur II Updated Impressions</a>
+			<div class="article-subtitle">We've got details on the hidden characters and numerous gameplay modes in the Japanese home versions of Namco's fighting game sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_soul-calibur-ii-fighter-profiles_1100-6071851_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soul-calibur-ii-fighter-profiles/1100-6071851/" class="article-title">Soul Calibur II Fighter Profiles</a>
+			<div class="article-subtitle">Take a look at these detailed looks at the fighters of Soul Calibur II.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_psi-ops-the-mindgate-conspiracy-e3-2003-preshow-report_1100-6026953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psi-ops-the-mindgate-conspiracy-e3-2003-preshow-report/1100-6026953/" class="article-title">Psi-Ops: The Mindgate Conspiracy E3 2003 Preshow Report</a>
+			<div class="article-subtitle">Midway's recently announced sci-fi-themed stealth action game is on display at E3.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_terminator-3-rise-of-the-machines-ships_1100-6083168_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/terminator-3-rise-of-the-machines-ships/1100-6083168/" class="article-title">Terminator 3: Rise of the Machines ships</a>
+			<div class="article-subtitle">Atari announces the North American release of its movie-inspired action game for the PlayStation 2, Xbox, and Game Boy Advance.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_halo-pc-championship-announced_1100-6083169_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-pc-championship-announced/1100-6083169/" class="article-title">Halo PC championship announced</a>
+			<div class="article-subtitle">Microsoft, iGames, and EB Games announce that sign-ups for the Halo for Windows Worldwide Championship have officially begun.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_yu-gi-oh-titles-shipping_1100-6083170_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yu-gi-oh-titles-shipping/1100-6083170/" class="article-title">Yu-Gi-Oh! titles shipping</a>
+			<div class="article-subtitle">Konami announces that Yu-Gi-Oh! The Falsebound Kingdom and Yu-Gi-Oh! The Sacred Cards have shipped to stores in North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_sega-profits-soar_1100-6083173_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-profits-soar/1100-6083173/" class="article-title">Sega profits soar</a>
+			<div class="article-subtitle">Sega reports strong profits for the first fiscal half of 2003.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_shigeru-miyamoto-qanda_1100-2911878_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shigeru-miyamoto-qanda/1100-2911878/" class="article-title">Shigeru Miyamoto Q&A</a>
+			<div class="article-subtitle">We chat with the creator of Mario about Link's new look, Mario Kart for the GameCube, sequels, and more.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_e3-2004-speakers-wanted_1100-6083172_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2004-speakers-wanted/1100-6083172/" class="article-title">E3 2004 speakers wanted</a>
+			<div class="article-subtitle">E3 invites games industry leaders from all over the world to apply to speak at its conference program.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_2003-bafta-games-awards-nominations_1100-6083175_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2003-bafta-games-awards-nominations/1100-6083175/" class="article-title">2003 BAFTA Games Awards nominations</a>
+			<div class="article-subtitle">The British Academy of Film and Television Arts releases a list of the nominations for its inaugural Games Awards.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_definitely-no-dark-alliance-ii-until-04_1100-6083432_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/definitely-no-dark-alliance-ii-until-04/1100-6083432/" class="article-title">Definitely no Dark Alliance II until '04</a>
+			<div class="article-subtitle">Interplay officially confirms the next Baldur's Gate will arrive late.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/11/12_espionage-renamed-psi-ops_1100-6083409_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/espionage-renamed-psi-ops/1100-6083409/" class="article-title">ESPionage renamed Psi-Ops</a>
+			<div class="article-subtitle">Following a brief delay, Midway's paranormal action title will mind-meld with gamers in Summer 2004.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harry-potter-quidditch-world-cup-review/1900-6083405/" class="article-title">Harry Potter: Quidditch World Cup Review</a>
+			<div class="article-subtitle">While Harry Potter: Quidditch World Cup is a decent first effort at simulating the chosen sport of wizards, it falls short of its promise primarily because of sluggish controls.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harry-potter-quidditch-world-cup-review/1900-6083400/" class="article-title">Harry Potter: Quidditch World Cup Review</a>
+			<div class="article-subtitle">While Harry Potter: Quidditch World Cup is a decent first effort at simulating the chosen sport of wizards, it falls short of its promise primarily because of sluggish controls.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harry-potter-quidditch-world-cup-review/1900-6083402/" class="article-title">Harry Potter: Quidditch World Cup Review</a>
+			<div class="article-subtitle">While Harry Potter: Quidditch World Cup is a decent first effort at simulating the chosen sport of wizards, it falls short of its promise primarily because of sluggish controls.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/harry-potter-quidditch-world-cup-review/1900-6083406/" class="article-title">Harry Potter: Quidditch World Cup Review</a>
+			<div class="article-subtitle">While Harry Potter: Quidditch World Cup is a decent first effort at simulating the chosen sport of wizards, it falls short of its promise primarily because of sluggish controls.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/medal-of-honor-rising-sun-review/1900-6083407/" class="article-title">Medal of Honor Rising Sun Review</a>
+			<div class="article-subtitle">The weakness of Rising Sun's gameplay undermines what could have been a much more enjoyable experience.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/medal-of-honor-rising-sun-review/1900-6083410/" class="article-title">Medal of Honor Rising Sun Review</a>
+			<div class="article-subtitle">The weakness of Rising Sun's gameplay undermines what could have been a much more enjoyable experience.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/medal-of-honor-rising-sun-review/1900-6083408/" class="article-title">Medal of Honor Rising Sun Review</a>
+			<div class="article-subtitle">The weakness of Rising Sun's gameplay undermines what could have been a much more enjoyable experience.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/curse-the-eye-of-isis-review/1900-6083390/" class="article-title">Curse: The Eye of Isis Review</a>
+			<div class="article-subtitle">Curse is without even the tiniest smidgen of originality, though it is an acceptable memorial to a classic genre.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/f1-challenge-99-02/1900-6083389/" class="article-title">F1 Challenge '99-'02 Review</a>
+			<div class="article-subtitle">On the track, the already incredible racing experience of last year's installment, F1 2002, is incrementally better this time around.</div>
+			<div class="article-author">Gord Goble</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/legacy-of-kain-defiance-review/1900-6083425/" class="article-title">Legacy of Kain: Defiance Review</a>
+			<div class="article-subtitle">Legacy of Kain: Defiance has an outstanding premise, but it's ultimately a disappointment.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/legacy-of-kain-defiance/1900-6083413/" class="article-title">Legacy of Kain: Defiance Review</a>
+			<div class="article-subtitle">Legacy of Kain: Defiance has an outstanding premise, but it's ultimately a disappointment.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103n-gagepiracy_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103n-gagepiracy" class="article-title">Nokia vows revenge on pirates</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103stalker_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103stalker" class="article-title">The sun's always shining in Stalker</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_r-ratchetandclank2-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-ratchetandclank2-ps2" class="article-title">Ratchet & Clank 2: Locked & Loaded</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103deusex2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103deusex2" class="article-title">New Deus Ex 2 footage</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103genepool_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103genepool" class="article-title">Genepool looks for a way forward following cancellation</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_r-gbtg-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-gbtg-x" class="article-title">Grabbed by the Ghoulies</a>
+			<div class="article-author">Ronan Jennings</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103uru_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103uru" class="article-title">Uru: Ages Beyond Myst demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/11/12_news121103tron_thumbnail.png">
+			<a href="https://www.eurogamer.net/news121103tron" class="article-title">Tron 2.0 updated</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125067/Highly-Anticipated-Sequels-Out-Tomorrow/" class="article-title">Highly Anticipated Sequels Out Tomorrow</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125066/Harry-Potter-Quidditch-World-Cup-Released/" class="article-title">Harry Potter: Quidditch World Cup Released</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125065/New-Simpsons-Game-Now-Available/" class="article-title">New Simpsons Game Now Available</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125064/Looney-Tunes-Back-In-Action/" class="article-title">Looney Tunes Back In Action</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125063/Fly-Down-The-Slopes-With-Amped-2/" class="article-title">Fly Down The Slopes With Amped 2</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125062/Knights-Of-The-Old-Republic-Goes-Gold/" class="article-title">Knights Of The Old Republic Goes Gold</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125061/True-Crime-This-Friday/" class="article-title">True Crime This Friday</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

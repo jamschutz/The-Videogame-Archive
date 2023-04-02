@@ -14,17 +14,15 @@ namespace WebsiteBuilder
     {
         static void Main(string[] args)
         {
-            int year = 2003;
-            int month = 10;
-            int day = 13;
+            int startYear = 2003;
+            int endYear = 2005;
 
             DbManager dbManager = new DbManager();
             List<string> publications = dbManager.GetAllPublicationNames();
-
-
-
-            //BuildWebpageForDate(year, month, day, dbManager, publications);
-            BuildWebpageForYear(2002, dbManager, publications);
+            
+            for (int year = startYear; year <= endYear; year++) {
+                BuildWebpageForYear(year, dbManager, publications);
+            }            
         }
 
 

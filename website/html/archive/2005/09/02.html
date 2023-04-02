@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 2, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_sports-season-has-begun_1100-6236697_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sports-season-has-begun/1100-6236697/" class="article-title">Sports Season Has Begun</a>
+			<div class="article-subtitle">After 239 days, college football is back. Beyond tonight's UCF/South Carolina game, marking the return of Steve Spurrier to his rightful place in the world--coaching SEC football--this weekend's slate of games is a bit light on intrigue but, I am so excited about the season I can barely contain...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_new-toca-gets-a-name-change_1100-6132431_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-toca-gets-a-name-change/1100-6132431/" class="article-title">New TOCA gets a name change</a>
+			<div class="article-subtitle">American release of Codemasters' multidiscipline racer to release under original European title.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_psp-sales-strong-in-europe-down-under_1100-6132462_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-sales-strong-in-europe-down-under/1100-6132462/" class="article-title">PSP sales strong in Europe, Down Under</a>
+			<div class="article-subtitle">Early reports from latest regions to get invaded by PSP show more of the same: long lines, high demand.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_toshiba-to-delay-hd-dvd-rollout_1100-6132464_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/toshiba-to-delay-hd-dvd-rollout/1100-6132464/" class="article-title">Toshiba to delay HD-DVD rollout?</a>
+			<div class="article-subtitle">Previously expected 2005 US launch thrown into question as company seeks "most effective timing" and "best way" to launch.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_konami-cooking-up-suikoden-v_1100-6132468_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-cooking-up-suikoden-v/1100-6132468/" class="article-title">Konami cooking up Suikoden V</a>
+			<div class="article-subtitle">The popular RPG series is returning once again to the PlayStation 2, with another batch of 108 NPCs.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_blizzard-wins-hacking-lawsuit_1100-6132467_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-wins-hacking-lawsuit/1100-6132467/" class="article-title">Blizzard wins hacking lawsuit</a>
+			<div class="article-subtitle">Federal appeals court says players don't have the right  to reverse engineer games to circumvent Battle.net.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_phantom-appears-in-europe_1100-6132495_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phantom-appears-in-europe/1100-6132495/" class="article-title">Phantom appears in Europe</a>
+			<div class="article-subtitle">Infinium Labs' new CEO speaks to development community about on-demand gaming platform.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_galactic-civilization-ii-dread-lords-hands-on-planets-ship-design-and-empire-building_1100-6132472_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/galactic-civilization-ii-dread-lords-hands-on-planets-ship-design-and-empire-building/1100-6132472/" class="article-title">Galactic Civilization II: Dread Lords Hands-On--Planets, Ship Design, and Empire Building</a>
+			<div class="article-subtitle">Dread Lords is finally beginning to look more like a game and less like a technological placeholder; we get our hands on the latest version to test it out.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_china-goes-after-japan-in-new-game_1100-6132476_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/china-goes-after-japan-in-new-game/1100-6132476/" class="article-title">China goes after Japan in new game</a>
+			<div class="article-subtitle">Communist party hopes to facilitate patriotism among growing gaming community with Anti-Japan War Online.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_bungie-responds-to-disaster-in-south_1100-6132504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-responds-to-disaster-in-south/1100-6132504/" class="article-title">Bungie responds to disaster in South</a>
+			<div class="article-subtitle">"Fight the Flood" T-shirts on sale now; all proceeds go to help victims of Hurricane Katrina; SOE also asks for EQII players to donate.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_tgs-plays-nice-with-psp-game-sharing_1100-6132506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-plays-nice-with-psp-game-sharing/1100-6132506/" class="article-title">TGS plays nice with PSP game sharing</a>
+			<div class="article-subtitle">PSP-owning Tokyo Game Show attendees can download game demos to their handheld; five games announced with more to come.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_feel-the-magic-again-with-web-site-for-sega-sequel_1100-6132520_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/feel-the-magic-again-with-web-site-for-sega-sequel/1100-6132520/" class="article-title">Feel the Magic again with Web site for Sega sequel</a>
+			<div class="article-subtitle">Flash demo now available on official site for Sega's touch-centric collection of DS minigames.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_resident-evil-4-collectors-pack-revealed_1100-6132523_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-4-collectors-pack-revealed/1100-6132523/" class="article-title">Resident Evil 4 Collector's Pack revealed</a>
+			<div class="article-subtitle">Capcom unveils deluxe PS2 RE4 deal with six-CD soundtrack from past games, T-shirt, and 7-inch Leon figurine.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_x-men-legends-ii-rise-of-apocalypse-hands-on-preview_1100-6132524_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x-men-legends-ii-rise-of-apocalypse-hands-on-preview/1100-6132524/" class="article-title">X-Men Legends II: Rise of Apocalypse Hands-On Preview</a>
+			<div class="article-subtitle">We sample from the X-Men Legends II menu, trying the game on nearly every platform available.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_x-men-legends-ii-rise-of-apocalypse-hands-on-preview_1100-6132526_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x-men-legends-ii-rise-of-apocalypse-hands-on-preview/1100-6132526/" class="article-title">X-Men Legends II: Rise of Apocalypse Hands-On Preview</a>
+			<div class="article-subtitle">We sample from the X-Men Legends II menu, trying the game on nearly every platform available.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_x-men-legends-ii-rise-of-apocalypse-hands-on-preview_1100-6132525_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x-men-legends-ii-rise-of-apocalypse-hands-on-preview/1100-6132525/" class="article-title">X-Men Legends II: Rise of Apocalypse Hands-On Preview</a>
+			<div class="article-subtitle">We sample from the X-Men Legends II menu, trying the game on nearly every platform available.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_dk-king-of-swing-preview_1100-6132522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dk-king-of-swing-preview/1100-6132522/" class="article-title">DK: King of Swing Preview</a>
+			<div class="article-subtitle">We go bananas with a finished version of Nintendo's upcoming tree-swinger for the GBA.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_ultimate-spider-man-updated-hands-on_1100-6132517_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultimate-spider-man-updated-hands-on/1100-6132517/" class="article-title">Ultimate Spider-Man Updated Hands-On</a>
+			<div class="article-subtitle">We check out the latest work-in-progress Xbox version of what just might be the ultimate Spider-Man game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_street-fighter-alpha-3-psp-site-opens_1100-6132531_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-fighter-alpha-3-psp-site-opens/1100-6132531/" class="article-title">Street Fighter Alpha 3 PSP site opens</a>
+			<div class="article-subtitle">Capcom Fighting Evolution's Ingrid joins the roster for handheld version of much-ported fighter.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_blitzkrieg-ii-demo-offers-three-offensives_1100-6132533_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blitzkrieg-ii-demo-offers-three-offensives/1100-6132533/" class="article-title">Blitzkrieg II demo offers three offensives</a>
+			<div class="article-subtitle">Sampling of the PC game now available on GameSpot DLX; includes tours from German, American, and Russian campaigns.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_bet-on-soldier-demo-out-now_1100-6132551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bet-on-soldier-demo-out-now/1100-6132551/" class="article-title">Bet on Soldier demo out now</a>
+			<div class="article-subtitle">Gamers can get free taste of Digital Jesters' futuristic shooter; two missions, three character classes to choose from.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_brothers-in-arms-earned-in-blood-hands-on_1100-6132555_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brothers-in-arms-earned-in-blood-hands-on/1100-6132555/" class="article-title">Brothers in Arms: Earned in Blood Hands-on</a>
+			<div class="article-subtitle">Gameloft's dialing in the World War II action, from the North African coast to the beaches of Normandy.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_need-for-speed-most-wanted-gets-dated_1100-6132553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-most-wanted-gets-dated/1100-6132553/" class="article-title">Need for Speed Most Wanted gets dated</a>
+			<div class="article-subtitle">Current-gen platforms will see EA's latest racer launch November 15, Xbox 360 version release still TBD.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_mattrick-and-mcmillan-depart-ea_1100-6132529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mattrick-and-mcmillan-depart-ea/1100-6132529/" class="article-title">Mattrick and McMillan depart EA</a>
+			<div class="article-subtitle">Frontline decision-makers are reassigned after EA Worldwide Studios head and executive vice president exit.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_former-acclaim-boss-slammed-in-court-docs_1100-6132505_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-acclaim-boss-slammed-in-court-docs/1100-6132505/" class="article-title">Former Acclaim boss slammed in court docs</a>
+			<div class="article-subtitle">Greg Fischbach takes a beating in documents dropped in NYC bankruptcy proceedings; accused of operating Acclaim "as if it were a personal piggy bank."</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/09/02_mortal-kombat-shaolin-monks-behind-the-scenes_1100-6132563_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-shaolin-monks-behind-the-scenes/1100-6132563/" class="article-title">Mortal Kombat: Shaolin Monks Behind the Scenes</a>
+			<div class="article-subtitle">We get an exclusive look behind the scenes of Midway's upcoming branch on the MK family tree.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/radiata-stories-review/1900-6132507/" class="article-title">Radiata Stories Review</a>
+			<div class="article-subtitle">Radiata Stories doesn't really bring anything new to the genre, but it's an enjoyable game simply because it delivers the humor that role-playing games so often lack.</div>
+			<div class="article-author">Greg Mueller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/namco-museum-50th-anniversary-review/1900-6132519/" class="article-title">Namco Museum: 50th Anniversary Review</a>
+			<div class="article-subtitle">Namco Museum: 50th Anniversary is a good choice for people who don't already own Namco's earlier collections.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-2k6-review/1900-6132530/" class="article-title">NHL 2K6 Review</a>
+			<div class="article-subtitle">This franchise lives and dies by its gameplay, and on that front, it does not disappoint.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-2k6-review/1900-6132528/" class="article-title">NHL 2K6 Review</a>
+			<div class="article-subtitle">This franchise lives and dies by its gameplay, and on that front, it does not disappoint.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905lma_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905lma" class="article-title">New LMA Manager details</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905egngpsp_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905egngpsp" class="article-title">Extreme Ghouls 'n Ghosts PSP</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_i-bonedonconnor-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-bonedonconnor-pc" class="article-title">Tellin' Tales</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905hdtv_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905hdtv" class="article-title">HD-DVD launch delayed?</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905superfly_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905superfly" class="article-title">Superfly PSP case on way</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905battlefield2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905battlefield2" class="article-title">BF2 stat-padders stopped</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905fifamanager_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905fifamanager" class="article-title">FIFA Manager 06 announced, FIFA 06 demo released</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_i-firstinlineforpsp_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-firstinlineforpsp" class="article-title">Q&A: First in line for the PSP launch</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_news020905jowood_thumbnail.png">
+			<a href="https://www.eurogamer.net/news020905jowood" class="article-title">JoWooD wins court case</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_r-virtuatennis-psp_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-virtuatennis-psp" class="article-title">Virtua Tennis: World Tour</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/09/02_a-x360questions-010905_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-x360questions-010905" class="article-title">Xbox 360: Lots And Lots Of Questions Answered</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126777/Pure-extras-exclusive-to-PAL/" class="article-title">Pure extras exclusive to PAL</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126776/PSP-portal-streams-news-trailers/" class="article-title">PSP portal streams news, trailers</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126775/Nintendo-reiterates-DS-facts/" class="article-title">Nintendo reiterates "DS facts"</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126774/Phantom-appears-in-Europe/" class="article-title">Phantom appears in Europe</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126773/Total-Club-Manager-joins-FIFA-family/" class="article-title">Total Club Manager joins FIFA family</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/troyis.php" class="article-title">Troyis</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/finding-4.php" class="article-title">Finding 4</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2005/09/02_2005_09_cho-ren-sha-68k.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2005/09/cho-ren-sha-68k.html" class="article-title">Cho Ren Sha 68K</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

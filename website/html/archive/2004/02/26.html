@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 26, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_dark-age-of-camelot-charting-new-frontiers_1100-6089562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-age-of-camelot-charting-new-frontiers/1100-6089562/" class="article-title">Dark Age of Camelot charting New Frontiers</a>
+			<div class="article-subtitle">Mythic announces it is readying a free expansion for its fantasy MMORPG.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_star-wars-episode-i-starfighter-hands-on_1100-2628311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-episode-i-starfighter-hands-on/1100-2628311/" class="article-title">Star Wars: Episode I Starfighter Hands-On</a>
+			<div class="article-subtitle">The Star Wars franchise is coming to the PS2, and we spent some quality time with a recenty build of the game to see how its shaping up.</div>
+			<div class="article-author">Ben Stahl</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_new-shots-warlocked_1100-2573234_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-shots-warlocked/1100-2573234/" class="article-title">New Shots: Warlocked</a>
+			<div class="article-subtitle">Nintendo releases news screens of Warlocked for the Game Boy Color.</div>
+			<div class="article-author">Shahed Ahmed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_the-games-of-e3_1100-2865698_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-games-of-e3/1100-2865698/" class="article-title">The games of E3</a>
+			<div class="article-subtitle">Take a look at a list of what to expect from the upcoming Electronic Entertainment Expo in Los Angeles.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_sanity-aikens-artifact_1100-2568090_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sanity-aikens-artifact/1100-2568090/" class="article-title">Sanity: Aiken's Artifact</a>
+			<div class="article-subtitle">Sanity is a futuristic sci-fi third-person action shooter in which you don't use guns or grenades to blow up your enemies; instead, you fight with psionic powers, like pyrokinesis.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_tropico_1100-2568420_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tropico/1100-2568420/" class="article-title">Tropico</a>
+			<div class="article-subtitle">PopTop Software's Tropico is a strategy game that takes place on a remote Carribean island. You'll  build hotels, houses, and factories to expand your city, and you'll also  deal with political and economic tensions.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_hogs-of-war-preview_1100-2565309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hogs-of-war-preview/1100-2565309/" class="article-title">Hogs of War Preview</a>
+			<div class="article-subtitle">Check out our preview of this pig-battler.</div>
+			<div class="article-author">Ben Stahl</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_world-basketball-manager-seeks-publisher_1100-6090118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-basketball-manager-seeks-publisher/1100-6090118/" class="article-title">World Basketball Manager seeks publisher</a>
+			<div class="article-subtitle">Greek developer Metal Fin is seeking an international publisher for its basketball management game. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_la-pucelle-tactics-american-arrival-scheduled_1100-6089555_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/la-pucelle-tactics-american-arrival-scheduled/1100-6089555/" class="article-title">La Pucelle: Tactics' American arrival scheduled</a>
+			<div class="article-subtitle">Fledgling publisher Mastiff will bring the Disgaea creators' RPG to US stores in May.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_tom-clancys-splinter-cell-pandora-tomorrow-hands-on-impressions_1100-6090072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancys-splinter-cell-pandora-tomorrow-hands-on-impressions/1100-6090072/" class="article-title">Tom Clancy's Splinter Cell Pandora Tomorrow Hands-On Impressions</a>
+			<div class="article-subtitle">We guide ultrasecret agent Sam Fisher through two dangerous covert ops from his upcoming stealth action sequel.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_battlefield-vietnam-updated-hands-on-impressions_1100-6089944_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-vietnam-updated-hands-on-impressions/1100-6089944/" class="article-title">Battlefield Vietnam Updated Hands-On Impressions</a>
+			<div class="article-subtitle">We're back from the steamy jungles of Vietnam, where we served our latest tour of duty. Get debriefed here.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_new-ultima-online-expansion-in-works_1100-6090107_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ultima-online-expansion-in-works/1100-6090107/" class="article-title">New Ultima Online expansion in works</a>
+			<div class="article-subtitle">Electronic Arts announces that the next expansion pack for Ultima Online will add new professions and locations to the popular online role-playing game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_bafta-games-awards-winners-announced_1100-6090110_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bafta-games-awards-winners-announced/1100-6090110/" class="article-title">BAFTA Games Awards winners announced</a>
+			<div class="article-subtitle">The British Academy of Film and Television Arts announces the winners of its inaugural Games Awards.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_midway-sports-announces-mlb-slugfest-loaded_1100-6090111_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midway-sports-announces-mlb-slugfest-loaded/1100-6090111/" class="article-title">Midway Sports announces MLB SlugFest: Loaded</a>
+			<div class="article-subtitle">The next title in Midway Sports' arcade-style baseball series will boast online play for both the PS2 and Xbox when it's released later this year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_ea-signs-black-hole-games-armies-of-exigo_1100-6090112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-signs-black-hole-games-armies-of-exigo/1100-6090112/" class="article-title">EA signs Black Hole Games' Armies of Exigo</a>
+			<div class="article-subtitle">Electronic Arts announces a publishing agreement with Black Hole Games for its upcoming fantasy real-time strategy game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_ubisoft-signs-pal-flipnic_1100-6083467_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-signs-pal-flipnic/1100-6083467/" class="article-title">Ubisoft signs PAL Flipnic</a>
+			<div class="article-subtitle">Ubisoft announces that it will release this psychedelic pinball game from SCE in PAL territories later this year. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-silent-storm-developers_1100-6086595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-silent-storm-developers/1100-6086595/" class="article-title">Q&A: Silent Storm developers</a>
+			<div class="article-subtitle">Nival Interactive's turn-based strategy game will hit store shelves soon. Public relations manager Dmitry Kolpakov discusses its development.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_tgs-2003-bujingai-impressions_1100-6076001_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tgs-2003-bujingai-impressions/1100-6076001/" class="article-title">TGS 2003 Bujingai Impressions</a>
+			<div class="article-subtitle">Taito, Red Entertainment, and some heavyweight anime producers are teaming up to create Bujingai, a third-person action game in a similar vein as Sega's Shinobi.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-feargus-urquhart-part-two_1100-6086129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-feargus-urquhart-part-two/1100-6086129/" class="article-title">Q&A: Feargus Urquhart, Part Two</a>
+			<div class="article-subtitle">Black Isle Studios' ex-honcho speculates on what 2004 holds for his former employer Interplay and his new company, Obsidian Entertainment.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-radical-chief-takes-ea-jab-in-stride_1100-6085693_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-radical-chief-takes-ea-jab-in-stride/1100-6085693/" class="article-title">Q&A: Radical chief takes EA jab in stride</a>
+			<div class="article-subtitle">Radical Entertainment CEO Ian Wilkinson speaks his mind on Electronic Arts' efforts to nab his studio's talent.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_tokyo-game-show-2004-details-announced_1100-6090131_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tokyo-game-show-2004-details-announced/1100-6090131/" class="article-title">Tokyo Game Show 2004 details announced</a>
+			<div class="article-subtitle">This year CESA will expand into nontraditional platforms and will appeal to casual gamers.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_origin-obit-confirmed_1100-6090094_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/origin-obit-confirmed/1100-6090094/" class="article-title">Origin obit confirmed</a>
+			<div class="article-subtitle">On a tear to consolidate its studio operations, EA says it will close down Ultima Online developer Origin Systems.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-has-seamus-blackley-gone-hollywood_1100-6085116_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-has-seamus-blackley-gone-hollywood/1100-6085116/" class="article-title">Q&A: Has Seamus Blackley gone Hollywood?</a>
+			<div class="article-subtitle">Hear how the veteran producer, console evangelist, and now CAA power agent hopes to turn the movie industry on to the power of games. Part one of our two-part interview inside.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_jamdat-secures-cash-infusion-to-fuel-global-growth_1100-6085012_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jamdat-secures-cash-infusion-to-fuel-global-growth/1100-6085012/" class="article-title">JAMDAT secures cash infusion to fuel global growth</a>
+			<div class="article-subtitle">One of mobile gaming's first players picks up $11 million in funding from Benchmark. JAMDAT CEO Mitch Lasky Q&A inside.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-how-ataris-steve-allison-helps-drive-movie-talent-to-games_1100-6085458_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-how-ataris-steve-allison-helps-drive-movie-talent-to-games/1100-6085458/" class="article-title">Q&A: How Atari's Steve Allison helps drive movie talent to games</a>
+			<div class="article-subtitle">Atari's marketing VP Steve Allison talks about Hollywood's increasing influence in games--and how it's bound to change everything we know about the industry.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-banned-sims-blogger-bites-back_1100-6085767_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-banned-sims-blogger-bites-back/1100-6085767/" class="article-title">Q&A: Banned Sims blogger bites back</a>
+			<div class="article-subtitle">Tossed onto his virtual bum by EA for exposing The Sims Online's seamier side, Peter Ludlow talks about real censorship and virtual vice. Interview inside.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-pt-2-has-seamus-blackley-gone-hollywood_1100-6085207_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-pt-2-has-seamus-blackley-gone-hollywood/1100-6085207/" class="article-title">Q&A (Pt. 2): Has Seamus Blackley gone Hollywood? </a>
+			<div class="article-subtitle">One of gaming's most outspoken programmers, producers, and now deal-makers speaks about his new gig at CAA, and what he remembers most about having worked in Tinseltown before.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-loren-kaiser-on-the-discover-engine_1100-6086190_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-loren-kaiser-on-the-discover-engine/1100-6086190/" class="article-title">Q&A: Loren Kaiser on the DISCover engine</a>
+			<div class="article-subtitle">Digital Interactive Systems' vice president explains how the ApeXtreme PC game console's auto-updating, "Drop and Play" software works.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-feargus-urquhart-part-one_1100-6086046_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-feargus-urquhart-part-one/1100-6086046/" class="article-title">Q&A: Feargus Urquhart, Part One</a>
+			<div class="article-subtitle">The Obsidian Entertainment founder talks about Black Isle Studios' demise, the fate of Fallout 3, and the future of RPGs.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-mapping-will-wright_1100-6085945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-mapping-will-wright/1100-6085945/" class="article-title">Q&A: Mapping Will Wright</a>
+			<div class="article-subtitle">Maxis chief, and the brain trust behind Sim City and The Sims, talks up the return of the Sims.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-american-mcgee-the-movie_1100-6087040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-american-mcgee-the-movie/1100-6087040/" class="article-title">Q&A: American McGee: The Movie</a>
+			<div class="article-subtitle">Disney is making three films based on the iconoclastic designer's unreleased game. McGee tells GameSpot what's up with Oz.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-johnathan-fatal1ty-wendel_1100-6089178_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-johnathan-fatal1ty-wendel/1100-6089178/" class="article-title">Q&A: Johnathan "Fatal1ty" Wendel</a>
+			<div class="article-subtitle">The Quake III champ-turned-computer entrepreneur shoots his mouth off about professional gaming.</div>
+			<div class="article-author">David Becker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-scenario-scribe-david-freeman_1100-6087450_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-scenario-scribe-david-freeman/1100-6087450/" class="article-title">Q&A: Scenario scribe David Freeman</a>
+			<div class="article-subtitle">The <i>Dungeon Siege</i> movie screenwriter gets emotional about the film and game industries.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-game-filmmaker-uwe-boll_1100-6089828_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-game-filmmaker-uwe-boll/1100-6089828/" class="article-title">Q&A: Game filmmaker Uwe Boll </a>
+			<div class="article-subtitle">Filmmaker specializing in game adaptations considers sex, gore, and nudity--and says bring it on.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-turbines-new-la-chief-jason-bell_1100-6089513_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-turbines-new-la-chief-jason-bell/1100-6089513/" class="article-title">Q&A: Turbine's new LA chief, Jason Bell</a>
+			<div class="article-subtitle">New head of the developer's SoCal operation talks about focusing on game development and breaking into the Asian market.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_qanda-mythic-founder-mark-jacobs_1100-6089360_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-mythic-founder-mark-jacobs/1100-6089360/" class="article-title">Q&A: Mythic founder Mark Jacobs</a>
+			<div class="article-subtitle">Camelot developer reflects on what it takes to tough out a MMORPG launch--and why the mighty sometimes fall.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-the-rise-and-fall-of-ceg_1100-6083379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-the-rise-and-fall-of-ceg/1100-6083379/" class="article-title">Spot On: The rise and fall of CEG</a>
+			<div class="article-subtitle">Gene Mauro thought his team would change the game development process. Two years later, their experiment is over.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-top-retailers-to-nix-pc-games_1100-6085583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-top-retailers-to-nix-pc-games/1100-6085583/" class="article-title">Spot On: Top retailers to nix PC games?</a>
+			<div class="article-subtitle">With the state of PC gaming up for debate, could two of industry's biggest retail players be calling it quits?</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-famicom-makes-history-in-japan_1100-6084885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-famicom-makes-history-in-japan/1100-6084885/" class="article-title">Spot On: Famicom makes history in Japan</a>
+			<div class="article-subtitle">Level X game exhibition and Famicom 20th anniversary treated as high art in Japan. GameSpot takes you behind the scenes.</div>
+			<div class="article-author">Dan Tochen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-behind-the-scenes-at-namcos-ledzone_1100-6084821_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-behind-the-scenes-at-namcos-ledzone/1100-6084821/" class="article-title">Spot On: Behind the scenes at Namco's LEDZone</a>
+			<div class="article-subtitle">Networked gameplay gets a boost from Namco as arcade giant makes a move toward creating PC bang culture in Japan. First of a four-part series starts today.</div>
+			<div class="article-author">Dan Tochen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-beating-the-odds-tokyo-style_1100-6086268_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-beating-the-odds-tokyo-style/1100-6086268/" class="article-title">Spot On: Beating the odds, Tokyo-style</a>
+			<div class="article-subtitle">In the high-cost world of game development, success for one pint-sized studio in Japan comes from picking its fights and playing to its strengths. Here's how they do it.</div>
+			<div class="article-author">Dan Tochen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-virtual-super-bowl-2004_1100-6087263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-virtual-super-bowl-2004/1100-6087263/" class="article-title">Spot On: Virtual Super Bowl 2004</a>
+			<div class="article-subtitle">One sports sim has consistently picked the big game’s winner, but this year, the competition makes GameDay scramble.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_rumor-control-s3-and-3dfx_1100-2451034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-s3-and-3dfx/1100-2451034/" class="article-title">Rumor Control: S3 And 3dfx</a>
+			<div class="article-subtitle">Is 3dfx planning a hostile bid on competitor S3? GameSpot News investigates.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_rumor-control-99-xbox-nintendo-3ds-baldurs-gate-3_1100-6087254_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-99-xbox-nintendo-3ds-baldurs-gate-3/1100-6087254/" class="article-title">Rumor Control: $99 Xbox, Nintendo 3DS, Baldur's Gate 3</a>
+			<div class="article-subtitle">[UPDATE] The week's raked muck yields tidbits on a Panzer Dragoon Saga sequel and a virtual Halle Berry.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_rumor-control-re-enter-the-matrix-and-psp-pre-orders_1100-6089066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-re-enter-the-matrix-and-psp-pre-orders/1100-6089066/" class="article-title">Rumor Control: Re-enter the Matrix and PSP pre-orders</a>
+			<div class="article-subtitle">[UPDATE] These join the life-sized Kasumi bikini pillow and the rest of the week's weirdest rumors.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_rumor-control-goldeneye-redux-and-another-ninja-gaiden-delay_1100-6089387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-goldeneye-redux-and-another-ninja-gaiden-delay/1100-6089387/" class="article-title">Rumor Control: GoldenEye Redux and another Ninja Gaiden delay</a>
+			<div class="article-subtitle">Also this week: The PC Halo Edit tool non-controversy, the GPSDS, and the Nintendo ex-president's bizarre comments.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_cartoon-network-aol-team-up-with-the-igf_1100-6090167_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cartoon-network-aol-team-up-with-the-igf/1100-6090167/" class="article-title">Cartoon Network, AOL team up with the IGF</a>
+			<div class="article-subtitle">One indie shop stands to win the right to use a Cartoon Network character as well as AOL blogging tools.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-the-apextreme-pc-game-console_1100-6086185_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-the-apextreme-pc-game-console/1100-6086185/" class="article-title">Spot On: The ApeXtreme PC Game Console</a>
+			<div class="article-subtitle">Apex, Via, and Digital Interactive Systems' new device promises to bring a console's simplicity to PC games. The question is: Can it?</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/02/26_spot-on-konami-gamers-day-2004_1100-6086322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spot-on-konami-gamers-day-2004/1100-6086322/" class="article-title">Spot On: Konami Gamers' Day 2004</a>
+			<div class="article-subtitle">Suikoden IV, WWX, Silent Hill 4, Neo Contra, and four other games are unveiled at the publishers' San Francisco Event.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/brunswick-circuit-pro-bowling-2-review/1900-2546886/" class="article-title">Brunswick Circuit Pro Bowling 2 Review</a>
+			<div class="article-subtitle">Brunswick Circuit Pro Bowling 2 is accurate enough to keep die-hard rollers happy, yet simple enough to be a game even a casual bowling fan would enjoy.</div>
+			<div class="article-author">Ben Stahl</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/street-sk8er-2-review/1900-2546065/" class="article-title">Street Sk8er 2 Review</a>
+			<div class="article-subtitle">Street Sk8er 2 is a huge improvement over the original, and skaters looking for something to do while waiting for Tony Hawk 2 to ship would do well to check out EA's second offering.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tarzan-review/1900-2545279/" class="article-title">Tarzan Review</a>
+			<div class="article-subtitle">Even if movie-license games turn you off, this game is an exception and worth taking a look at.</div>
+			<div class="article-author">Lauren Fielder</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ninja-gaiden-review/1900-6090169/" class="article-title">Ninja Gaiden Review</a>
+			<div class="article-subtitle">This is one of the best, most challenging action adventure games ever made.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204farcry_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204farcry" class="article-title">Far Cry console versions underway, but sequel rumours rubbished</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204matrixonline_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204matrixonline" class="article-title">Ubi no longer co-publishing Matrix Online</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204baftas_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204baftas" class="article-title">Vice City sweeps BAFTA Games Awards</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204mariogolfgba_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204mariogolfgba" class="article-title">Mario Golf GBA to ship with wireless adapter</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_p-steelfang-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-steelfang-pc" class="article-title">Steel Fang</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_p-burnout3_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-burnout3" class="article-title">Burnout 3</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news250204savagedemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news250204savagedemo" class="article-title">Revised Savage demo launched</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204x2demo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204x2demo" class="article-title">X2: The Playable Demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news260204factor5_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260204factor5" class="article-title">Factor 5 registers some trademarks</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/02/26_news250204team17cube_thumbnail.png">
+			<a href="https://www.eurogamer.net/news250204team17cube" class="article-title">Team 17's next game not on Cube</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125455/PSP-Moves-to-2005/" class="article-title">PSP Moves to 2005</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 6, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_stunt-car-racer-pro-announced_1100-6024666_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stunt-car-racer-pro-announced/1100-6024666/" class="article-title">Stunt Car Racer Pro announced</a>
+			<div class="article-subtitle">Geoff Crammond confirms that he is currently working on a sequel to the influential Commodore 64 game Stunt Car Racer.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_eve-online-ships_1100-6026303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eve-online-ships/1100-6026303/" class="article-title">EVE Online ships</a>
+			<div class="article-subtitle">Simon & Schuster announces that its space-themed massively multiplayer online game is now available.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_lost-toys-to-work-on-stunt-car-racer-pro_1100-6026300_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lost-toys-to-work-on-stunt-car-racer-pro/1100-6026300/" class="article-title">Lost Toys to work on Stunt Car Racer Pro</a>
+			<div class="article-subtitle">Geoff Crammond announces that his game company, Simergy, will partner with UK-based developer Lost Toys to develop its upcoming racing game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_lma-manager-2004-announced_1100-6026306_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lma-manager-2004-announced/1100-6026306/" class="article-title">LMA Manager 2004 announced</a>
+			<div class="article-subtitle">Codemasters announces the next game in its popular soccer management series for the PS2 and Xbox.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_planetside-confirmed-for-europe_1100-6026307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/planetside-confirmed-for-europe/1100-6026307/" class="article-title">PlanetSide confirmed for Europe</a>
+			<div class="article-subtitle">Ubi Soft announces that it will publish Sony Online Entertainment's upcoming action game in Europe, Australia, New Zealand, Quebec, and Japan. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_memorick-the-apprentice-knight-announced_1100-6026309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/memorick-the-apprentice-knight-announced/1100-6026309/" class="article-title">Memorick, The Apprentice Knight announced</a>
+			<div class="article-subtitle">Microïds announces that it's working on an action adventure game inspired by Arthurian legends. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_enter-the-matrix-orders-top-4-million_1100-6026311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enter-the-matrix-orders-top-4-million/1100-6026311/" class="article-title">Enter the Matrix orders top 4 million</a>
+			<div class="article-subtitle">Atari announces that retail orders for its upcoming movie-inspired action game have already exceeded 4 million units.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_ea-reveals-details-on-the-sims-2_1100-6026249_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-reveals-details-on-the-sims-2/1100-6026249/" class="article-title">EA reveals details on The Sims 2</a>
+			<div class="article-subtitle">The company releases a few details on the official sequel to its best-selling franchise.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_postal-2-earns-first-intense-violence-rating_1100-6024980_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/postal-2-earns-first-intense-violence-rating/1100-6024980/" class="article-title">Postal 2 earns first 'Intense Violence' rating</a>
+			<div class="article-subtitle">Running With Scissors' controversial action sequel has been rated by the ESRB and is the first game ever to earn an "Intense Violence" label, amongst others.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_first-look-syphon-filter-the-omega-strain_1100-6026315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-look-syphon-filter-the-omega-strain/1100-6026315/" class="article-title">First look: Syphon Filter: The Omega Strain</a>
+			<div class="article-subtitle">Sony releases the first screenshots from the next game in the Syphon Filter series.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_wolfenstein-ships-for-the-xbox_1100-6026312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wolfenstein-ships-for-the-xbox/1100-6026312/" class="article-title">Wolfenstein ships for the Xbox</a>
+			<div class="article-subtitle">Activision announces that id Software's Return to Castle Wolfenstein: Tides of War has shipped to stores across North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_space-colony-announced_1100-6026308_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/space-colony-announced/1100-6026308/" class="article-title">Space Colony announced</a>
+			<div class="article-subtitle">Gathering announces that FireFly Studios is working on a space-community-building strategy game for the PC. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_tribes-vengeance-qanda_1100-6026329_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tribes-vengeance-qanda/1100-6026329/" class="article-title">Tribes: Vengeance Q&A</a>
+			<div class="article-subtitle">We talk with Sierra's Chris Mahnken about the next game in the Tribes series, which will include a story-based single-player component.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_ubi-soft-reports-strong-sales_1100-6026349_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubi-soft-reports-strong-sales/1100-6026349/" class="article-title">Ubi Soft reports strong sales </a>
+			<div class="article-subtitle">The publisher reports that the quarter that ended March 31 showed an increase in sales of 98 percent.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_hollywood-composer-to-score-lineage-ii_1100-6026350_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hollywood-composer-to-score-lineage-ii/1100-6026350/" class="article-title">Hollywood composer to score Lineage II</a>
+			<div class="article-subtitle">NCSoft announces that Bill Brown will create the musical score for its online RPG.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_galactic-civilizations-demo-released_1100-6026351_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/galactic-civilizations-demo-released/1100-6026351/" class="article-title">Galactic Civilizations demo released</a>
+			<div class="article-subtitle">Get the playable demo of Stardock's space empire game first on GameSpot.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_first-look-the-sims-2_1100-6026347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-look-the-sims-2/1100-6026347/" class="article-title">First look: The Sims 2</a>
+			<div class="article-subtitle">EA releases the first screenshots of its just-announced sequel to the blockbuster virtual life game</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_vampire-the-masquerade-bloodlines-revealed_1100-6026275_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vampire-the-masquerade-bloodlines-revealed/1100-6026275/" class="article-title">Vampire: The Masquerade - Bloodlines revealed</a>
+			<div class="article-subtitle">Get the exclusive first details on this upcoming role-playing game powered by the Half-Life 2 engine.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_castlevania-aria-of-sorrow-impressions_1100-6026363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castlevania-aria-of-sorrow-impressions/1100-6026363/" class="article-title">Castlevania: Aria of Sorrow Impressions</a>
+			<div class="article-subtitle">We go vampire-hunting in the lastest Castlevania game for the GBA. Read all about it and check out new movies and screens.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/06_deus-ex-invisible-war-updated-preview_1100-6026317_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deus-ex-invisible-war-updated-preview/1100-6026317/" class="article-title">Deus Ex: Invisible War Updated Preview</a>
+			<div class="article-subtitle">We get a sneak peek at the E3 demo of Ion Storm's promising first-person action RPG that's due out this fall.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jungle-book-rhythm-ngroove-review/1900-6026336/" class="article-title">Jungle Book Rhythm N'Groove Review</a>
+			<div class="article-subtitle">Considering that the original PlayStation game is roughly identical, always stays synced up, and can be found at bargain-bin prices, the PlayStation 2 version seems pretty unnecessary.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_r-postal2-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-postal2-pc" class="article-title">Postal 2</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503mgs3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503mgs3" class="article-title">Konami confirms MGS3 for E3</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503chaserdemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503chaserdemo" class="article-title">Chaser demo released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503majesco_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503majesco" class="article-title">E3 2003: Majesco's line-up</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503willrockdemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503willrockdemo" class="article-title">Will Rock demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503armedanddangerous_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503armedanddangerous" class="article-title">LucasArts announces Armed & Dangerous</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503superman_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503superman" class="article-title">EA gets Superman licence</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503splintercell_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503splintercell" class="article-title">Splinter Cell announcement today</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503kotorpc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503kotorpc" class="article-title">Knights of the increasingly Old Republic</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503toontown_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503toontown" class="article-title">Toontown goes online</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503sims2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503sims2" class="article-title">Sims sequel to appear at E3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_news060503bloodlines_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060503bloodlines" class="article-title">Vampire: The Masquerade sequel to use Half-Life 2 engine</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/06_r-dw3xl-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-dw3xl-ps2" class="article-title">Dynasty Warriors III: Xtreme Legends</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124309/SOCOM-Next-Month-For-Playstation-2/" class="article-title">SOCOM Next Month For Playstation 2</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124308/Indiana-Delayed-Again/" class="article-title">Indiana Delayed Again</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124307/Dead-To-Rights-Goes-Multi-Format/" class="article-title">Dead To Rights Goes Multi-Format</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124306/Electronic-Arts-Get-Superman/" class="article-title">Electronic Arts Get Superman</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124305/New-Dark-Age-Of-Camelot-Expansion-Announced/" class="article-title">New Dark Age Of Camelot Expansion Announced</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124304/The-Sims-2-Announced/" class="article-title">The Sims 2 Announced</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 1, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_sony-showing-off-pearly-white-ps2-in-japan_1100-6101744_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-showing-off-pearly-white-ps2-in-japan/1100-6101744/" class="article-title">Sony showing off pearly white PS2--in Japan</a>
+			<div class="article-subtitle">Sony will be releasing a shiny albino summer model of its console this summer across the Pacific.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_electronic-arts-kills-ultima-x-odyssey_1100-6101727_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/electronic-arts-kills-ultima-x-odyssey/1100-6101727/" class="article-title">Electronic Arts kills Ultima X: Odyssey</a>
+			<div class="article-subtitle">Another major MMORPG is canceled as EA redirects resources toward the upcoming Ultima Online expansion pack and a second UO-related project.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_alpha-black-zero-sets-release-date_1100-6101749_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alpha-black-zero-sets-release-date/1100-6101749/" class="article-title">Alpha Black Zero sets release date</a>
+			<div class="article-subtitle">First-person tactical shooter for PC aims for late-July release.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_square-enix-reorganizes-us-subsidiary_1100-6101762_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-reorganizes-us-subsidiary/1100-6101762/" class="article-title">Square Enix reorganizes US subsidiary</a>
+			<div class="article-subtitle">Name change, executive appointments part of global shake-up of Japanese parent organization.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_fireworks-for-rollercoaster-tycoon-3_1100-6101756_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fireworks-for-rollercoaster-tycoon-3/1100-6101756/" class="article-title">Fireworks for RollerCoaster Tycoon 3</a>
+			<div class="article-subtitle">Atari announces that RollerCoaster Tycoon 3 will incorporate an all-new Fireworks MixMaster feature. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_capcom-launches-clover-studio_1100-6101742_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-launches-clover-studio/1100-6101742/" class="article-title">Capcom launches Clover Studio </a>
+			<div class="article-subtitle">New in-house development studio begins operations in Osaka, launches Web site today.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_no-dead-or-alive-ultimate-until-october_1100-6101764_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-dead-or-alive-ultimate-until-october/1100-6101764/" class="article-title">No Dead or Alive Ultimate until October</a>
+			<div class="article-subtitle">Official Web site for Tecmo's online-enabled DOA compilation says the Xbox title has been pushed back.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_world-of-warcraft-updated-hands-on-impressions-player-versus-player_1100-6101746_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-updated-hands-on-impressions-player-versus-player/1100-6101746/" class="article-title">World of Warcraft Updated Hands-On Impressions - Player-Versus-Player</a>
+			<div class="article-subtitle">Blizzard has begun the player-versus-player phase of its enormous MMORPG beta test. We busted a few heads and are here with a new report.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_headhunter-redemption-preview_1100-6101702_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/headhunter-redemption-preview/1100-6101702/" class="article-title">Headhunter: Redemption Preview</a>
+			<div class="article-subtitle">Jack Wade is back and grizzlier than ever in the new action sequel from Sega and Amuze.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_nokia-and-sun-bringing-snap-to-java-handsets_1100-6101766_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nokia-and-sun-bringing-snap-to-java-handsets/1100-6101766/" class="article-title">Nokia and Sun bringing SNAP to Java Handsets</a>
+			<div class="article-subtitle">Two companies join forces to bring SNAP Mobile, Nokia's multiplayer middleware suite, to Java devices, thereby creating a global standard.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_massive-assault-receives-massive-update_1100-6101795_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/massive-assault-receives-massive-update/1100-6101795/" class="article-title">Massive Assault receives massive update</a>
+			<div class="article-subtitle">Patch and new planet available for Wargaming.net's online turn-based strategy game.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_medical-study-links-games-to-obesity_1100-6101806_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medical-study-links-games-to-obesity/1100-6101806/" class="article-title">Medical study links games to obesity</a>
+			<div class="article-subtitle">Swiss researchers find a "strong association" between playing games and childhood weight gain.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_midway-defends-defender-with-lawsuit_1100-6101800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midway-defends-defender-with-lawsuit/1100-6101800/" class="article-title">Midway defends Defender with lawsuit</a>
+			<div class="article-subtitle">The company sues Sony Ericsson over unauthorized use of its arcade classic in mobile phones.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_infospace-acquires-atlas-mobile_1100-6101765_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infospace-acquires-atlas-mobile/1100-6101765/" class="article-title">InfoSpace acquires Atlas Mobile</a>
+			<div class="article-subtitle">Tech and software company absorbs multiplayer games services developer and assumes its power.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_ea-announces-madden-2005-soundtrack_1100-6101752_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-announces-madden-2005-soundtrack/1100-6101752/" class="article-title">EA announces Madden 2005 soundtrack</a>
+			<div class="article-subtitle">Newest Madden game to feature brand-new top-40 hits and exclusive remixes.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_mortal-kombat-to-plug-into-tv-games_1100-6101813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-to-plug-into-tv-games/1100-6101813/" class="article-title">Mortal Kombat to plug into TV Games</a>
+			<div class="article-subtitle">The arcade classic will be available as a Jakks plug-and-play product for the holidays.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/01_kingdom-under-fire-the-crusaders-character-spotlight_1100-6101787_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kingdom-under-fire-the-crusaders-character-spotlight/1100-6101787/" class="article-title">Kingdom Under Fire: The Crusaders Character Spotlight</a>
+			<div class="article-subtitle">Take a look at the dramatis personae in Phantagram's upcoming Xbox-exclusive strategy game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-tour-soccer-2005-review/1900-6101767/" class="article-title">World Tour Soccer 2005 Review</a>
+			<div class="article-subtitle">World Tour Soccer 2005 plays such an ugly version of the beautiful game that it's unlikely you'll play it for long enough to see even half of what it offers.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/block-breaker-deluxe-review/1900-6101757/" class="article-title">Block Breaker Deluxe Review</a>
+			<div class="article-subtitle">It may be nothing more than a repackaged Arkanoid, but it plays well and makes for a great mobile game.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/atari-retro-review/1900-6101771/" class="article-title">Atari Retro Review</a>
+			<div class="article-subtitle">While the emulation used to power these old games is well-done, the game is utterly lacking in the bells-and-whistles department.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704epicunreal_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704epicunreal" class="article-title">Unreal 3 and more UT games planned</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704epicnewgame_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704epicnewgame" class="article-title">New Epic title in the works for 2006</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_r-athens2004-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-athens2004-ps2" class="article-title">Athens 2004</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_r-syphonfiltertos-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-syphonfiltertos-ps2" class="article-title">Syphon Filter: The Omega Strain</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_fi-papermario2-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-papermario2-gc" class="article-title">Paper Mario 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704roundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704roundup" class="article-title">Things And Stuff: Thursday News Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704vugamessuit_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704vugamessuit" class="article-title">VU Games sued by programmer</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news300604halo2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news300604halo2" class="article-title">Brand new Halo 2 shots and artwork</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704geistdelayed_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704geistdelayed" class="article-title">Nintendo's Geist delayed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704kromestudios_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704kromestudios" class="article-title">Krome Studios preparing for next generation</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704riddickpc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704riddickpc" class="article-title">EBGames lists Vivendi's Riddick for PC</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/01_news010704allnet_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010704allnet" class="article-title">Sega, Sammy and Namco announce ALL.net</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125782/Full-Spectrum-Warrior-Winner-Drawn/" class="article-title">Full Spectrum Warrior Winner Drawn</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/japanese-counting-game.php" class="article-title">Japanese counting game</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 27, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_once-upon-a-knight-updated-impressions_1100-6073796_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/once-upon-a-knight-updated-impressions/1100-6073796/" class="article-title">Once Upon a Knight Updated Impressions</a>
+			<div class="article-subtitle">We take an updated look at this quirky strategy role-playing hybrid game for the PC.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_kya-dark-lineage-updated-impressions_1100-6073817_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kya-dark-lineage-updated-impressions/1100-6073817/" class="article-title">Kya: Dark Lineage Updated Impressions</a>
+			<div class="article-subtitle">We see a new build of Atari's surprisingly complex action adventure game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_the-sims-double-deluxe-announced_1100-6074043_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-double-deluxe-announced/1100-6074043/" class="article-title">The Sims Double Deluxe announced</a>
+			<div class="article-subtitle">EA's new compilation of The Sims features not one but two of the game's popular expansion packs.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_acclaim-reveals-details-on-upcoming-lineup_1100-6074063_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/acclaim-reveals-details-on-upcoming-lineup/1100-6074063/" class="article-title">Acclaim reveals details on upcoming lineup</a>
+			<div class="article-subtitle">We have a look at Alias, NBA Jam, and two additional games.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_rome-total-war-updated-impressions_1100-6074046_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rome-total-war-updated-impressions/1100-6074046/" class="article-title">Rome: Total War Updated Impressions</a>
+			<div class="article-subtitle">We take an updated look at the next game in the Total War strategy series.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_true-crime-hands-on-impressions_1100-6074051_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/true-crime-hands-on-impressions/1100-6074051/" class="article-title">True Crime Hands-On Impressions</a>
+			<div class="article-subtitle">We take Luxoflux's hard-hitting action game out for a spin.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_disneys-extreme-skate-adventure-hands-on_1100-6074061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/disneys-extreme-skate-adventure-hands-on/1100-6074061/" class="article-title">Disney's Extreme Skate Adventure Hands-On</a>
+			<div class="article-subtitle">We try out the PS2 version of Activision's Disney-themed skateboarding game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_the-movies-updated-impressions_1100-6074062_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-movies-updated-impressions/1100-6074062/" class="article-title">The Movies Updated Impressions</a>
+			<div class="article-subtitle">We attempt to make a family-friendly horror movie with Lionhead's upcoming movie-themed tycoon game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_risk-updated-impressions_1100-6073818_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/risk-updated-impressions/1100-6073818/" class="article-title">Risk Updated Impressions</a>
+			<div class="article-subtitle">We take a look at a near-final version of Atari's take on the classic board game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_the-temple-of-elemental-evil-updated-impressions_1100-6073798_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-temple-of-elemental-evil-updated-impressions/1100-6073798/" class="article-title">The Temple of Elemental Evil Updated Impressions</a>
+			<div class="article-subtitle">We take an updated look at Troika's upcoming game based on the classic Dungeons & Dragons module.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_terminator-3-war-of-the-machines-impressions_1100-6073801_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/terminator-3-war-of-the-machines-impressions/1100-6073801/" class="article-title">Terminator 3: War of the Machines Impressions</a>
+			<div class="article-subtitle">We take an up-close look at this multiplayer-focused PC shooter based on the Terminator universe.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_taito-to-release-50th-anniversary-title_1100-6074077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/taito-to-release-50th-anniversary-title/1100-6074077/" class="article-title">Taito to release 50th-anniversary title </a>
+			<div class="article-subtitle">A new action game featuring art design from Toshihiro Kawamoto will be released by Red Entertainment.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_two-wild-arms-games-in-development_1100-6074079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/two-wild-arms-games-in-development/1100-6074079/" class="article-title">Two Wild Arms games in development</a>
+			<div class="article-subtitle">Sony reveals that Alter Code: F and Another Code: F are in development for the PlayStation 2.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_lineage-animated-series-in-the-works_1100-6074084_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lineage-animated-series-in-the-works/1100-6074084/" class="article-title">Lineage animated series in the works</a>
+			<div class="article-subtitle">Cyper secures the rights to produce an animated series based on the popular online game and comic book.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_steams-future_1100-6074085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steams-future/1100-6074085/" class="article-title">Steam's future</a>
+			<div class="article-subtitle">Valve's Erik Johnson comments on the future for the company's download service, after the end of the free beta.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_genki-konami-to-do-shinsengumi-samurai-game_1100-6074080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/genki-konami-to-do-shinsengumi-samurai-game/1100-6074080/" class="article-title">Genki, Konami to do Shinsengumi samurai game</a>
+			<div class="article-subtitle">The two companies are working on a game based on the elite military group.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_activision-increases-focus-on-music_1100-6074037_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-increases-focus-on-music/1100-6074037/" class="article-title">Activision increases focus on music</a>
+			<div class="article-subtitle">Publisher signs two music-industry vets.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_champions-of-norrath-realms-of-everquest-preview_1100-6074101_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/champions-of-norrath-realms-of-everquest-preview/1100-6074101/" class="article-title">Champions of Norrath: Realms of EverQuest Preview</a>
+			<div class="article-subtitle">We check out Sony Online Entertainment and Snowblind Studios' promising adventure game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_ncsoft-expands-partnerships_1100-6074106_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ncsoft-expands-partnerships/1100-6074106/" class="article-title">NCsoft expands partnerships </a>
+			<div class="article-subtitle">South Korea-based online game publisher NCsoft teams up with Taiwanese distributor Gamania in a joint venture--paving the way for Lineage II distribution in that market.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_new-namco-title-for-xbox-ps2_1100-6074109_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-namco-title-for-xbox-ps2/1100-6074109/" class="article-title">New Namco title for Xbox, PS2</a>
+			<div class="article-subtitle">Plague of Darkness, an online action adventure game, is scheduled to ship next summer.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_ea-commited-to-n-gage_1100-6074112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-commited-to-n-gage/1100-6074112/" class="article-title">EA Commited to N-Gage</a>
+			<div class="article-subtitle">Nokia says a number of Electronics Arts games are on the way for the N-Gage.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_scea-promotes-hirai_1100-6074114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/scea-promotes-hirai/1100-6074114/" class="article-title">SCEA promotes Hirai</a>
+			<div class="article-subtitle">Ken Kutaragi bestows CEO status upon SCEA's Kazuo Hirai.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_npd-pc-game-sales-charts_1100-6074110_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/npd-pc-game-sales-charts/1100-6074110/" class="article-title">NPD PC game sales charts</a>
+			<div class="article-subtitle">Warcraft III takes to the skies, overflying Flight Sim 2004 to claim top PC spot for the last week and solidifying its position as the number-one selling game in July.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_scea-marks-ps2-anniversary_1100-6074123_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/scea-marks-ps2-anniversary/1100-6074123/" class="article-title">SCEA marks PS2 anniversary</a>
+			<div class="article-subtitle">Sony, proud parent of the Network Adapter, celebrates a year online.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_enlight-to-publish-warlords-battlecry-iii_1100-6074133_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enlight-to-publish-warlords-battlecry-iii/1100-6074133/" class="article-title">Enlight to publish Warlords Battlecry III</a>
+			<div class="article-subtitle">Enlight Software nabs the worldwide publishing rights for Infinite Interactive's Warlords Battlecry III.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_lik-sang-settles-with-sony_1100-6074041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lik-sang-settles-with-sony/1100-6074041/" class="article-title">Lik Sang settles with Sony</a>
+			<div class="article-subtitle">The Hong Kong mod-chip distributor settles its legal dispute with Sony Computer Entertainment.</div>
+			<div class="article-author">Thomas Layton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_ultima-x-odyssey-preview_1100-6074137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultima-x-odyssey-preview/1100-6074137/" class="article-title">Ultima X: Odyssey Preview</a>
+			<div class="article-subtitle">We give you the details on Origin's upcoming MMORPG sequel to the famous computer role-playing series.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_unreal-ii-multiplayer-details_1100-6074189_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-ii-multiplayer-details/1100-6074189/" class="article-title">Unreal II multiplayer details</a>
+			<div class="article-subtitle">Legend's Scott Dalton discusses the upcoming XMP multiplayer mode for Unreal II.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/08/27_jedi-knight-jedi-academy-updated-hands-on-impressions_1100-6074049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jedi-knight-jedi-academy-updated-hands-on-impressions/1100-6074049/" class="article-title">Jedi Knight: Jedi Academy Updated Hands-On Impressions</a>
+			<div class="article-subtitle">We sit down with the soon-to-be-released follow-up to Jedi Knight II: Jedi Outcast.</div>
+			<div class="article-author">Craig Beers</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/futurama-review/1900-6074088/" class="article-title">Futurama Review</a>
+			<div class="article-subtitle">Unless you're a rabid fan who simply has to be in contact with all things Futurama, this game is playable enough to warrant a rental but little else.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/futurama-review/1900-6074086/" class="article-title">Futurama Review</a>
+			<div class="article-subtitle">Unless you're a rabid fan who simply has to be in contact with all things Futurama, this game is playable enough to warrant a rental but little else.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_ects2003-preview_thumbnail.png">
+			<a href="https://www.eurogamer.net/ects2003-preview" class="article-title">ECTS 2003 Preview</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_ects2003-driver3_thumbnail.png">
+			<a href="https://www.eurogamer.net/ects2003-driver3" class="article-title">ECTS 2003: Driver 3</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_ects2003-mgs3_thumbnail.png">
+			<a href="https://www.eurogamer.net/ects2003-mgs3" class="article-title">ECTS 2003: Metal Gear Solid 3: Snake Eater</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_news270803proevo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270803proevo" class="article-title">ECTS 2003: Pro Evo 3 PC confirmation</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_ects2003-buffychaosbleeds_thumbnail.png">
+			<a href="https://www.eurogamer.net/ects2003-buffychaosbleeds" class="article-title">ECTS 2003: Buffy: Chaos Bleeds</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_news270803ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270803ps2" class="article-title">New PS2, sir?</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_news270803hl2trailer_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270803hl2trailer" class="article-title">ECTS 2003: Half-Life still on for Sept 30th</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/08/27_news270803yager_thumbnail.png">
+			<a href="https://www.eurogamer.net/news270803yager" class="article-title">Yager demo</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124743/New-Tony-Hawk-Game-This-November/" class="article-title">New Tony Hawk Game This November</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124742/Warhammer-40K-Firewarrior-Next-Month/" class="article-title">Warhammer 40K: Firewarrior Next Month</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124747/Warlords-IV-Demo-Available/" class="article-title">Warlords IV Demo Available</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124746/New-Screenshots/" class="article-title">New Screenshots</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124745/KOTOR-For-The-PC/" class="article-title">KOTOR For The PC</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124744/TRON-2.0-Out-Tomorrow/" class="article-title">TRON 2.0 Out Tomorrow</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

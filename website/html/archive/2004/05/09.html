@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 9, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_fi-driv3r_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-driv3r" class="article-title">DRIV3R</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news060504pop2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060504pop2" class="article-title">First Prince of Persia 2 shots and details</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news060504eae3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060504eae3lineup" class="article-title">EA announces vast line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_fi-vanhelsing-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-vanhelsing-ps2" class="article-title">Van Helsing</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_i-chroniclesofriddick_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-chroniclesofriddick" class="article-title">Starbreeze shines Riddick</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-half-life2-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-half-life2-pc" class="article-title">Half-Life 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-stalkersoc-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-stalkersoc-pc" class="article-title">S.T.A.L.K.E.R: Shadow Of Chernobyl</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_fi-fsw-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-fsw-x" class="article-title">Full Spectrum Warrior</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-sly2bandofthieves-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-sly2bandofthieves-ps2" class="article-title">Sly 2: Band of Thieves</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-ratchetandclank3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-ratchetandclank3-ps2" class="article-title">Ratchet & Clank 3: Up Your Arsenal</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-deathbydegrees-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-deathbydegrees-ps2" class="article-title">Death By Degrees</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-mercenaries_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-mercenaries" class="article-title">Mercenaries</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-doom3-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-doom3-pc" class="article-title">Doom III</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-kotor2_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-kotor2" class="article-title">Knights of the Old Republic: The Sith Lords</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_fi-silenthill4theroom-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-silenthill4theroom-ps2" class="article-title">Silent Hill 4: The Room</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-metalgearsolid3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-metalgearsolid3-ps2" class="article-title">Metal Gear Solid 3: Snake Eater</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-soldiers-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-soldiers-pc" class="article-title">Soldiers: Heroes of World War II</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-secondsight_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-secondsight" class="article-title">Second Sight</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_ir-onimusha3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/ir-onimusha3-ps2" class="article-title">Onimusha 3: Demon Siege</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-vtmbloodlines-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-vtmbloodlines-pc" class="article-title">Vampire: The Masquerade - Bloodlines</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-juiced_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-juiced" class="article-title">Juiced</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_p-residentevil4-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-residentevil4-gc" class="article-title">Resident Evil 4</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news070504vivendie3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070504vivendie3lineup" class="article-title">Vivendi announces line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news060504segae3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060504segae3lineup" class="article-title">Sega's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news060504codiese3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060504codiese3lineup" class="article-title">Codies plans live webcam feed</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news050504thqe3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050504thqe3lineup" class="article-title">THQ to Destroy All Humans!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news050504lucasartse3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news050504lucasartse3lineup" class="article-title">KOTOR2 tops Lucas line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504namcoe3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504namcoe3lineup" class="article-title">Tekken leads out Namco troops</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504mariosunshinedirectore3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504mariosunshinedirectore3" class="article-title">Mario Sunshine co-director at E3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504activisione3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504activisione3lineup" class="article-title">Activision's wars and heroes</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504konamie3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504konamie3lineup" class="article-title">Konami's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504squareenixe3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504squareenixe3lineup" class="article-title">FFXII leads charge for Squenix</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news040504halflife2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040504halflife2" class="article-title">Half-Life 2 to appear on video</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news300404snke3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news300404snke3lineup" class="article-title">SNK announces line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news260404ncsofte3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260404ncsofte3lineup" class="article-title">NCsoft line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news260404sonye3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news260404sonye3lineup" class="article-title">SCEA gaffe reveals full extent of vast E3 line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news200404sammye3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200404sammye3lineup" class="article-title">Sammy's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news200404dreamcatchere3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news200404dreamcatchere3lineup" class="article-title">DreamCatcher's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news190404eae3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190404eae3" class="article-title">EA to air pre-show sextet in CA</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news160404theshield_thumbnail.png">
+			<a href="https://www.eurogamer.net/news160404theshield" class="article-title">Shield sex shock for Sammy</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news160404cenegae3lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news160404cenegae3lineup" class="article-title">Shade and Creature Conflict lead out Cenega's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news150404ubisofte32004lineup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news150404ubisofte32004lineup" class="article-title">Prince of Persia and Ghost Recon 2 lead out Ubisoft's big guns</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/05/09_news281103yusuzuki_thumbnail.png">
+			<a href="https://www.eurogamer.net/news281103yusuzuki" class="article-title">New Yu Suzuki title at E3 2004?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/scribbler.php" class="article-title">Scribbler</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

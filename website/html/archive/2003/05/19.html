@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 19, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_final-fantasy-tactics-advance-hands-on_1100-6028533_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-tactics-advance-hands-on/1100-6028533/" class="article-title">Final Fantasy Tactics Advance Hands-On</a>
+			<div class="article-subtitle">We've played the import of this strategy RPG before, but this was our first time with the English-language version.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_advance-wars-2-black-hole-rising-hands-on_1100-6028534_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/advance-wars-2-black-hole-rising-hands-on/1100-6028534/" class="article-title">Advance Wars 2: Black Hole Rising Hands-On</a>
+			<div class="article-subtitle">We take a few turns on the upcoming sequel to one of our very favorite Game Boy Advance games.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_john-carmack-speaks-on-doom-3_1100-6027989_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/john-carmack-speaks-on-doom-3/1100-6027989/" class="article-title">John Carmack Speaks on Doom 3</a>
+			<div class="article-subtitle">The id programmer reveals a few small details about the game in a talk at E3.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_baldurs-gate-dark-alliance-ii-hands-on-impressions_1100-6028246_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/baldurs-gate-dark-alliance-ii-hands-on-impressions/1100-6028246/" class="article-title">Baldur's Gate: Dark Alliance II Hands-On Impressions</a>
+			<div class="article-subtitle">We took this action role-playing game sequel for a spin at E3.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_urban-freestyle-soccer-e3-2003-preshow-report_1100-6026509_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/urban-freestyle-soccer-e3-2003-preshow-report/1100-6026509/" class="article-title">Urban Freestyle Soccer E3 2003 Preshow Report</a>
+			<div class="article-subtitle">Acclaim's arcade-style soccer game will be released on all console platforms and the PC.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_lethal-skies-ii-hands-on_1100-6028541_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lethal-skies-ii-hands-on/1100-6028541/" class="article-title">Lethal Skies II Hands-On</a>
+			<div class="article-subtitle">We took to the unfriendly skies in Sammy's upcoming sequel to its 2002 flight combat game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_sx-superstar-hands-on_1100-6028542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sx-superstar-hands-on/1100-6028542/" class="article-title">SX Superstar Hands-On</a>
+			<div class="article-subtitle">We hit the dirt in Acclaim's soon-to-be-released motocross racing game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_nba-jam-hands-on_1100-6028544_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-jam-hands-on/1100-6028544/" class="article-title">NBA Jam Hands-On</a>
+			<div class="article-subtitle">Acclaim revives the three-on-three arcade basketball classic, and it's looking good.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_alias-hands-on_1100-6028545_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alias-hands-on/1100-6028545/" class="article-title">Alias Hands-On</a>
+			<div class="article-subtitle">We check out Acclaim's upcoming third-person stealth action game based on the hit TV show starring Jennifer Garner.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_project-gotham-racing-2-hands-on_1100-6028546_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/project-gotham-racing-2-hands-on/1100-6028546/" class="article-title">Project Gotham Racing 2 Hands-On</a>
+			<div class="article-subtitle">We check out the sequel to Bizarre Creations' upcoming Xbox racer.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_amped-2-hands-on_1100-6028547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amped-2-hands-on/1100-6028547/" class="article-title">Amped 2 Hands-On</a>
+			<div class="article-subtitle">Find out what Microsoft has in store for its snowboarding sequel.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_conflict-desert-storm-ii-back-to-baghdad-hands-on_1100-6028549_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/conflict-desert-storm-ii-back-to-baghdad-hands-on/1100-6028549/" class="article-title">Conflict: Desert Storm II - Back to Baghdad Hands-On</a>
+			<div class="article-subtitle">We take a look at the sequel to last year's Gulf War action title from Gotham Games.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_dragon-ball-z-budokai-2-impressions_1100-6028551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-z-budokai-2-impressions/1100-6028551/" class="article-title">Dragon Ball Z: Budokai 2 Impressions</a>
+			<div class="article-subtitle">We get some new details on Atari's next Dragon Ball Z fighting game.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_jacked-impressions_1100-6028553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jacked-impressions/1100-6028553/" class="article-title">Jacked Impressions</a>
+			<div class="article-subtitle">3DO's motorcycle game is coming for the PlayStation 2, Xbox, and GameCube later this year.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_four-horsemen-of-the-apocalypse-impressions_1100-6028554_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/four-horsemen-of-the-apocalypse-impressions/1100-6028554/" class="article-title">Four Horsemen of the Apocalypse Impressions</a>
+			<div class="article-subtitle">3DO's Armageddon-themed game was demonstrated at E3 2003.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_street-racing-syndicate-impressions_1100-6028555_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-racing-syndicate-impressions/1100-6028555/" class="article-title">Street Racing Syndicate Impressions</a>
+			<div class="article-subtitle">Licensed cars and parts not enough? 3DO's street racing game includes real-life models as well.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_phantasy-star-online-episode-iii-card-revolution-impressions_1100-6028557_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phantasy-star-online-episode-iii-card-revolution-impressions/1100-6028557/" class="article-title">Phantasy Star Online Episode III: C.A.R.D. Revolution Impressions</a>
+			<div class="article-subtitle">The latest installment in the Phantasy Star Online series heads off into new territory.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_spawn-impressions_1100-6028558_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spawn-impressions/1100-6028558/" class="article-title">Spawn Impressions</a>
+			<div class="article-subtitle">Todd MacFarlane's hero from hell is getting a new action game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_super-mario-advance-4-impressions_1100-6028559_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-mario-advance-4-impressions/1100-6028559/" class="article-title">Super Mario Advance 4 Impressions</a>
+			<div class="article-subtitle">Mario's classic NES adventure gets a face-lift and goes portable.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_rome-total-war-impressions_1100-6028560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rome-total-war-impressions/1100-6028560/" class="article-title">Rome: Total War Impressions</a>
+			<div class="article-subtitle">We sat in with Creative Assembly for a look at the next game in the Total War series.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/19_ice-nine-impressions_1100-6028562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ice-nine-impressions/1100-6028562/" class="article-title">Ice Nine Impressions</a>
+			<div class="article-subtitle">Bam Entertainment gives us a look at its PS2 first-person shooter at E3.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/19_news190503troopers_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190503troopers" class="article-title">Empire snags Starship Troopers licence</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/19_news090503fahrenheit_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090503fahrenheit" class="article-title">Omikron developer's new title published by...</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/19_news190503simpsons_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190503simpsons" class="article-title">Vivendi in Hit & Run</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/19_news190503nam_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190503nam" class="article-title">2015 are Men of (eugh) Valor</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/19_news190503dino_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190503dino" class="article-title">Take a trip to Dinotopia</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124358/New-Xbox-Classic-Games/" class="article-title">New Xbox Classic Games</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124357/Wolfenstein-Delayed-For-Playstation-2/" class="article-title">Wolfenstein Delayed For Playstation 2</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

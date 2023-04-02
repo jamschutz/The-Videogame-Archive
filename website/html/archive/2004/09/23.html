@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 23, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_take-two-squeezing-juiced_1100-6108179_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-squeezing-juiced/1100-6108179/" class="article-title">Take-Two squeezing Juiced?</a>
+			<div class="article-subtitle">The Grand Theft Auto publisher is in negotiations to pay $10 million for Acclaim's street racer.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_sci-games-announces-midway_1100-6096627_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-games-announces-midway/1100-6096627/" class="article-title">SCi Games announces Midway</a>
+			<div class="article-subtitle">SCi Games plans to release a World War II-inspired tactical multiplayer game for PC, PS2, and Xbox in 2005. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_analyst-psp-may-miss-march-2005-launch_1100-6101664_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/analyst-psp-may-miss-march-2005-launch/1100-6101664/" class="article-title">Analyst: PSP may miss March 2005 launch</a>
+			<div class="article-subtitle">[UPDATE] American Technology Research's PJ McNealy says "internal issues" at Sony may delay its portable's launch, a charge Sony adamantly denies.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_dead-or-alive-ultimate-delayed-again_1100-6108273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-or-alive-ultimate-delayed-again/1100-6108273/" class="article-title">Dead or Alive Ultimate delayed again</a>
+			<div class="article-subtitle">Japanese release of online fighter pushed back for more work on Xbox Live play.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_infinium-announces-phantom-partners_1100-6108070_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infinium-announces-phantom-partners/1100-6108070/" class="article-title">Infinium announces Phantom partners</a>
+			<div class="article-subtitle">Eidos, Atari, and VU Games lead the list of publishers and developers on board the new service.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_colin-mcrae-rally-2005-demo-ready-for-download_1100-6108323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/colin-mcrae-rally-2005-demo-ready-for-download/1100-6108323/" class="article-title">Colin McRae Rally 2005 demo ready for download</a>
+			<div class="article-subtitle">Rally with up to eight friends through six sample courses.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_jim-carrey-to-voice-lemony-snicket-video-game_1100-6108312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jim-carrey-to-voice-lemony-snicket-video-game/1100-6108312/" class="article-title">Jim Carrey to voice Lemony Snicket video game</a>
+			<div class="article-subtitle">Rubber-faced actor stars as the evil Count Olaf in film, game versions of children's book series.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_elf-comes-to-gba-this-christmas_1100-6108348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elf-comes-to-gba-this-christmas/1100-6108348/" class="article-title">Elf comes to GBA this Christmas</a>
+			<div class="article-subtitle">Portable version of popular Will Ferrell movie to hit alongside DVD release in November.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_ubisoft-unearths-tork-prehistoric-punk_1100-6108347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-unearths-tork-prehistoric-punk/1100-6108347/" class="article-title">Ubisoft unearths Tork: Prehistoric Punk</a>
+			<div class="article-subtitle">French publisher resurrects Tiwak's originally canceled Xbox platformer, which is due in January 2005</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_immersion-wins-patent-infringement-suit-vs-sony_1100-6108298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/immersion-wins-patent-infringement-suit-vs-sony/1100-6108298/" class="article-title">Immersion wins patent-infringement suit vs. Sony</a>
+			<div class="article-subtitle">Federal court finds that PlayStation hardware infringed on San Jose firm's patents, awards $82 million in damages.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_square-spills-additional-before-crisis-details_1100-6108320_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-spills-additional-before-crisis-details/1100-6108320/" class="article-title">Square spills additional Before Crisis details</a>
+			<div class="article-subtitle">Game's producer and director open up on eve of Final Fantasy release for mobile gamers.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_ea-confirms-need-for-speed-tiger-woods-for-psp-launch_1100-6108340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-confirms-need-for-speed-tiger-woods-for-psp-launch/1100-6108340/" class="article-title">EA confirms Need for Speed, Tiger Woods for PSP launch</a>
+			<div class="article-subtitle">Game giant confirms new additions to flagship franchises will be available when Sony's portable goes on sale next year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_shadow-ops-red-mercury-explodes-onto-pc_1100-6108326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shadow-ops-red-mercury-explodes-onto-pc/1100-6108326/" class="article-title">Shadow Ops: Red Mercury explodes onto PC</a>
+			<div class="article-subtitle">Atari's cinematic military FPS blasts into retail channel.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_ea-sports-announces-buy-2-get-1-free-promotion_1100-6108303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sports-announces-buy-2-get-1-free-promotion/1100-6108303/" class="article-title">EA Sports announces buy 2, get 1 free promotion </a>
+			<div class="article-subtitle">[UPDATE] Electronic Arts CFO Warren Jenson tells securities conference of plan to counter ESPN's discount prices and win the coming holiday "battle."</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_nba-live-2005-goes-gold-moves-forward-drops-price_1100-6108292_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-live-2005-goes-gold-moves-forward-drops-price/1100-6108292/" class="article-title">NBA Live 2005 goes gold, moves forward, drops price</a>
+			<div class="article-subtitle">EA Sports' B-baller travels to the factory early; will now be released before ESPN NBA 2K5 for just $39.99.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_midway-instilling-fear-and-respect_1100-6108263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midway-instilling-fear-and-respect/1100-6108263/" class="article-title">Midway instilling Fear and Respect</a>
+			<div class="article-subtitle">The publisher is internally developing a new "urban actioner" with the help of <i>Boyz N the Hood</i> director John Singleton.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_chartspot-august-2004_1100-6107669_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chartspot-august-2004/1100-6107669/" class="article-title">ChartSpot: August 2004</a>
+			<div class="article-subtitle">While Madden-mania sweeps the console charts, the PC best-sellers face certain Doom at the hand of id's shooter.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/09/23_need-for-speed-underground-rivals-first-look_1100-6108301_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-underground-rivals-first-look/1100-6108301/" class="article-title">Need for Speed Underground Rivals First Look</a>
+			<div class="article-subtitle">Get the first details on EA Games' upcoming racing game for the Sony PSP.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rome-total-war-review/1900-6108207/" class="article-title">Rome: Total War Review</a>
+			<div class="article-subtitle">Rome: Total War is the very definition of an epic strategy game.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragon-ball-z-buus-fury-review/1900-6108333/" class="article-title">Dragon Ball Z: Buu's Fury Review</a>
+			<div class="article-subtitle">The small problems that have been apparent throughout the series are still intact, along with a couple of new quirks that make the game overly easy.</div>
+			<div class="article-author">Tim Tracy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/army-men-sarges-war-review/1900-6106960/" class="article-title">Army Men: Sarge's War Review</a>
+			<div class="article-subtitle">After playing through Army Men: Sarge's War, it's likely that you'll find yourself wondering why anyone bothered to salvage the Army Men license at all.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-wars-trilogy-apprentice-of-the-force-review/1900-6108287/" class="article-title">Star Wars Trilogy: Apprentice of the Force Review</a>
+			<div class="article-subtitle">There are some choice moments in Star Wars Trilogy: Apprentice of the Force, but they don't come up as often as they should in this short action game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shadow-ops-red-mercury-review/1900-6108308/" class="article-title">Shadow Ops: Red Mercury Review</a>
+			<div class="article-subtitle">The campaign missions can be pretty intense at times, but the underlying action itself lacks the sort of visceral punch that shooters ought to have.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/madden-nfl-2005-review/1900-6108311/" class="article-title">Madden NFL 2005 Review</a>
+			<div class="article-subtitle">Madden 2005 is just a bit too much like last year's Madden for comfort--but it's still a truly excellent game of football all around.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/monster-hunter-review/1900-6108338/" class="article-title">Monster Hunter Review</a>
+			<div class="article-subtitle">In today's world, Monster Hunter is merely a living fossil, reminding us of what online console gaming once looked like.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/vietcong-purple-haze-review/1900-6107940/" class="article-title">Vietcong: Purple Haze Review</a>
+			<div class="article-subtitle">Thoroughly retooled by a new developer, Purple Haze generally makes a mess of what used to be a good game.</div>
+			<div class="article-author">Erik Wolpaw</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904fm2005_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904fm2005" class="article-title">Football Manager 2005 dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904roundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904roundup" class="article-title">Things And Stuff: Thursday News Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904ps2hdd_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904ps2hdd" class="article-title">PStwo will not support HDD</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904juiced_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904juiced" class="article-title">Take-Two taps Juiced</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904mgs3japdate_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904mgs3japdate" class="article-title">MGS3 gets Japanese release date</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_news230904fswsequel_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230904fswsequel" class="article-title">Full Spectrum Warrior sequel in development</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/09/23_r-thesims2-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-thesims2-pc" class="article-title">The Sims 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/hitchhikers-ill.php" class="article-title">Hitchhiker's Illustrated Guide to the Galaxy</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 30, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_austin-powers-pinball-ships_1100-2909854_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/austin-powers-pinball-ships/1100-2909854/" class="article-title">Austin Powers Pinball ships</a>
+			<div class="article-subtitle">Global Star Software announces that its movie-inspired pinball game has now shipped to stores across North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_world-championship-snooker-2003-details_1100-2909864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-championship-snooker-2003-details/1100-2909864/" class="article-title">World Championship Snooker 2003 details</a>
+			<div class="article-subtitle">Codemasters releases new information on what it claims will be the definitive snooker simulation. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_the-sims-confirmed-for-the-xbox-and-gamecube_1100-2909866_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-confirmed-for-the-xbox-and-gamecube/1100-2909866/" class="article-title">The Sims confirmed for the Xbox and GameCube</a>
+			<div class="article-subtitle">Electronic Arts announces that Xbox and GameCube versions of its life-simulation game are in development.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_all-star-baseball-2004-site-launches_1100-2909865_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-star-baseball-2004-site-launches/1100-2909865/" class="article-title">All-Star Baseball 2004 site launches</a>
+			<div class="article-subtitle">Acclaim launches an official site for its upcoming sports game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_brute-force-to-benefit-from-xbox-live_1100-2909869_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brute-force-to-benefit-from-xbox-live/1100-2909869/" class="article-title">Brute Force to benefit from Xbox Live</a>
+			<div class="article-subtitle">Microsoft announces that its upcoming third-person shooter will benefit from both a system link option and downloadable content.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_ea-consolidates-studios-closes-westwood_1100-2909852_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-consolidates-studios-closes-westwood/1100-2909852/" class="article-title">EA consolidates studios, closes Westwood</a>
+			<div class="article-subtitle">The publisher reveals plans for a large new studio in Los Angeles, bringing together the Medal of Honor and C&C: Generals teams, plus staff from Westwood's closing Las Vegas location.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_tdk-signs-the-ufc_1100-2909874_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tdk-signs-the-ufc/1100-2909874/" class="article-title">TDK signs the UFC</a>
+			<div class="article-subtitle">TDK Mediactive secures the rights to the Ultimate Fighting Championship.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_chariots-of-war-announced_1100-2909877_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chariots-of-war-announced/1100-2909877/" class="article-title">Chariots of War announced</a>
+			<div class="article-subtitle">Paradox Entertainment and Slitherine Strategies announce that they're working on a sequel to the strategy game Legion. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_free-gamecube-games-for-europe_1100-2909879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-gamecube-games-for-europe/1100-2909879/" class="article-title">Free GameCube games for Europe</a>
+			<div class="article-subtitle">Nintendo Europe announces that it will give a free game from a choice of seven to anybody buying a GameCube console before March 20.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_the-sims-online-off-to-slow-start_1100-2909880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-online-off-to-slow-start/1100-2909880/" class="article-title">The Sims Online off to slow start</a>
+			<div class="article-subtitle">Initial sales of The Sims Online have been less than expected, EA executives acknowledge.</div>
+			<div class="article-author">David Becker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_carmack-sounds-off-on-geforce-fx_1100-2909882_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carmack-sounds-off-on-geforce-fx/1100-2909882/" class="article-title">Carmack sounds off on GeForce FX</a>
+			<div class="article-subtitle">Id Software's technical director compares the Doom III performance of Nvidia's upcoming GeForce FX with ATI's Radeon 9700 Pro.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_millar-brothers-reunited-at-jaleco_1100-2909885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/millar-brothers-reunited-at-jaleco/1100-2909885/" class="article-title">Millar brothers reunited at Jaleco</a>
+			<div class="article-subtitle">Jaleco Entertainment announces that is has hired Millar brothers Chris and Ron, who previously worked on games in the Starcraft, Warcraft, and Diablo series.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_lionheart-designer-diary-3_1100-2909871_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lionheart-designer-diary-3/1100-2909871/" class="article-title">Lionheart Designer Diary #3</a>
+			<div class="article-subtitle">Reflexive designer Bryce Baker discusses the final stages of Lionheart's development and what it's like to design content for an expansive computer RPG.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_midnight-club-ii-preview_1100-2909576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midnight-club-ii-preview/1100-2909576/" class="article-title">Midnight Club II Preview</a>
+			<div class="article-subtitle">We take an exclusive first look at Rockstar's upcoming racer.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_new-x-files-game-in-the-works_1100-2909913_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-x-files-game-in-the-works/1100-2909913/" class="article-title">New X-Files game in the works</a>
+			<div class="article-subtitle">Vivendi and Fox team up to deliver a new game based on The X-Files.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_sega-to-publish-online-pc-games_1100-2909914_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-to-publish-online-pc-games/1100-2909914/" class="article-title">Sega to publish online PC games</a>
+			<div class="article-subtitle">The first game in Sega's new Online Developer Program is Legacy Online, an economic strategy game.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_alter-echo-receives-a-new-look_1100-2909915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alter-echo-receives-a-new-look/1100-2909915/" class="article-title">Alter Echo receives a new look.</a>
+			<div class="article-subtitle">Characters are redesigned in the upcoming action game from THQ and Outrage games.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_first-ut-2003-bonus-pack-coming-tomorrow_1100-2909916_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-ut-2003-bonus-pack-coming-tomorrow/1100-2909916/" class="article-title">First UT 2003 bonus pack coming tomorrow</a>
+			<div class="article-subtitle">A map pack from Digital Extremes will be out tomorrow, but Epic confirms that its larger bonus pack won't be out soon.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_steel-battalion-updated-preview_1100-2896332_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steel-battalion-updated-preview/1100-2896332/" class="article-title">Steel Battalion Updated Preview</a>
+			<div class="article-subtitle">We take an in-depth look at the import of Capcom's upcoming mother of all mech games.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_ultima-online-age-of-shadows-preview_1100-2907892_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultima-online-age-of-shadows-preview/1100-2907892/" class="article-title">Ultima Online: Age of Shadows Preview</a>
+			<div class="article-subtitle">Here's a look at the upcoming Ultima Online expansion that adds a new continent, two player classes, and an interface to design player houses from the ground up.</div>
+			<div class="article-author">Jason Brown</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_command-and-conquer-generals-updated-preview_1100-2909317_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/command-and-conquer-generals-updated-preview/1100-2909317/" class="article-title">Command & Conquer: Generals Updated Preview</a>
+			<div class="article-subtitle">The next Command & Conquer game is only a few weeks away. We take a good look at a near-final build of EA's real-time strategy game featuring convincing modern-day combat.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_skies-of-arcadia-legends-preview_1100-2907754_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skies-of-arcadia-legends-preview/1100-2907754/" class="article-title">Skies of Arcadia Legends Preview</a>
+			<div class="article-subtitle">We take to the skies in Sega's upcoming GameCube RPG.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_the-sims-online-preview_1100-2849886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-online-preview/1100-2849886/" class="article-title">The Sims Online Preview</a>
+			<div class="article-subtitle">After two years, you'll finally be able to take your sims online. Read our preview of The Sims Online to find out more.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/01/30_sea-dogs-ii-preview_1100-2899201_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sea-dogs-ii-preview/1100-2899201/" class="article-title">Sea Dogs II Preview</a>
+			<div class="article-subtitle">We've got new screenshots and details on Akella's forthcoming pirate role-playing game.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/kao-the-kangaroo-review/1900-2694543/" class="article-title">KAO the Kangaroo Review</a>
+			<div class="article-subtitle">Part of what makes Kao enjoyable is the mix of traditional platform game mechanics and the occasional extreme sports experience.</div>
+			<div class="article-author">Trey Walker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/devil-may-cry-2/1900-2909902/" class="article-title">Devil May Cry 2 Review</a>
+			<div class="article-subtitle">In the end, Devil May Cry 2 is a big disappointment, and it just isn't all that entertaining.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/disney-sports-soccer-review/1900-2909895/" class="article-title">Disney Sports Soccer Review</a>
+			<div class="article-subtitle">Even though Disney Sports Soccer doesn't exactly conform to the traditional soccer-game formula, it is a passable choice for those who just want a simple interpretation of the sport.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47328_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47328" class="article-title">Free game for new Cube owners</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47327_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47327" class="article-title">Ghost n' Goblins Online anyone?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47326_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47326" class="article-title">More Sims for console owners</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_r-thesims-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-thesims-ps2" class="article-title">The Sims</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47325_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47325" class="article-title">EA consolidates in new LA campus</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47324_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47324" class="article-title">Freeloader on Feb 3rd?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47323_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47323" class="article-title">Nintendo poll on Metroid movie</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47322_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47322" class="article-title">Splinter Cell PC goes gold</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47320_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47320" class="article-title">Sega Arcade Gallery heads Westward</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47319_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47319" class="article-title">Another Vietnam game</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47318_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47318" class="article-title">Pitfall resurrected</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47317_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47317" class="article-title">Apocalyptica for Europe only</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47316_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47316" class="article-title">First Fantasy March?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47315_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47315" class="article-title">No Unreal II demo... yet</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/01/30_article-47314_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47314" class="article-title">Star Wars KOTOR slips</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123956/Electronic-Arts-Drop-Console-Game-Prices/" class="article-title">Electronic Arts Drop Console Game Prices</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123959/Pitfall-Heads-To-Next-Generation-Consoles/" class="article-title">Pitfall Heads To Next Generation Consoles</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123958/New-Horizons-Website-Opens/" class="article-title">New Horizons Website Opens</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i123957/Free-Freight-Promotion/" class="article-title">Free Freight Promotion</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

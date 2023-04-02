@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 11, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_gunstar-super-heroes-coming-to-gba_1100-6124082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gunstar-super-heroes-coming-to-gba/1100-6124082/" class="article-title">Gunstar Super Heroes coming to GBA</a>
+			<div class="article-subtitle">Sega's sequel to the Genesis action game follows Blue and Red over six different levels.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_blockbuster-to-rent-psp-games_1100-6124071_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blockbuster-to-rent-psp-games/1100-6124071/" class="article-title">Blockbuster to rent PSP games</a>
+			<div class="article-subtitle">National video and game rental chain will start offering PSP games next week.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_knights-of-honor-gallops-into-retail_1100-6124081_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/knights-of-honor-gallops-into-retail/1100-6124081/" class="article-title">Knights of Honor gallops into retail</a>
+			<div class="article-subtitle">Paradox's medieval PC strategy game lets gamers joust between diplomacy, espionage, trade, and war.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_zoo-tycoon-2-expands_1100-6124116_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zoo-tycoon-2-expands/1100-6124116/" class="article-title">Zoo Tycoon 2 expands</a>
+			<div class="article-subtitle">Gamers can now care for endangered species in the zoo sim; new items include transportation and rare animals.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_kojima-working-on-new-game_1100-6124119_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kojima-working-on-new-game/1100-6124119/" class="article-title">Kojima working on new game</a>
+			<div class="article-subtitle">Metal Gear Solid creator's next game will be unveiled next week; details under wraps.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_namco-cages-curious-george_1100-6124129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-cages-curious-george/1100-6124129/" class="article-title">Namco cages Curious George</a>
+			<div class="article-subtitle">Publisher monkeys around with the license based on the animated film from Universal Pictures.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_spring-training-the-2005-mlb-games-roundup_1100-6118799_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spring-training-the-2005-mlb-games-roundup/1100-6118799/" class="article-title">Spring Training: The 2005 MLB Games Roundup</a>
+			<div class="article-subtitle">We welcome the virtual boys of summer to spring training in our look at the 2005 baseball titles.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_football-manager-2006-qanda_1100-6124092_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/football-manager-2006-qanda/1100-6124092/" class="article-title">Football Manager 2006 Q&A</a>
+			<div class="article-subtitle">Miles Jacobson talks to us about Sports Interactive's recently announced soccer management game for the PC and PSP.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_nokia-sponsoring-nba-2k5-tournament_1100-6124146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nokia-sponsoring-nba-2k5-tournament/1100-6124146/" class="article-title">Nokia sponsoring NBA 2K5 tournament</a>
+			<div class="article-subtitle">Online players of the basketball game can compete to win $10,000 and trip to New York.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_sony-releases-psp-security-update-patch_1100-6124149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-releases-psp-security-update-patch/1100-6124149/" class="article-title">Sony releases PSP security update patch</a>
+			<div class="article-subtitle">Patch becomes available just one day after its announcement; no details given as to what it fixes.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_prey-qanda-first-details-on-the-new-prey_1100-6124152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prey-qanda-first-details-on-the-new-prey/1100-6124152/" class="article-title">Prey Q&A - First Details on the New Prey</a>
+			<div class="article-subtitle">Prey promises to be one of the big games of E3, and we get the details on this resurrected first-person shooter from the developers themselves.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_armored-core-last-raven-coming-to-ps2s_1100-6124133_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/armored-core-last-raven-coming-to-ps2s/1100-6124133/" class="article-title">Armored Core: Last Raven coming to PS2s</a>
+			<div class="article-subtitle">Tenth installment of the mech series will be the last for the PlayStation 2 platform.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_prey-to-reenter-fray-at-e3_1100-6121740_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prey-to-reenter-fray-at-e3/1100-6121740/" class="article-title">Prey to reenter fray at E3?</a>
+			<div class="article-subtitle">CNN/Money's Chris Morris claims 3D Realms' once-canceled game is being revamped with the new Doom engine.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_64-bit-far-cry-patch-arrives_1100-6124160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/64-bit-far-cry-patch-arrives/1100-6124160/" class="article-title">64-bit Far Cry patch arrives</a>
+			<div class="article-subtitle">AMD and Crytek announce the arrival of a 64-bit update to the PC first-person shooter.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_football-manager-2006-announced-for-pc-psp_1100-6124042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/football-manager-2006-announced-for-pc-psp/1100-6124042/" class="article-title">Football Manager 2006 announced for PC, PSP</a>
+			<div class="article-subtitle">Next soccer management game from Sports Interactive to kick off on the PSP and PC.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_ea-announces-e3-lineup_1100-6124143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-announces-e3-lineup/1100-6124143/" class="article-title">EA announces E3 lineup</a>
+			<div class="article-subtitle">Publisher will showcase Spore, Black, The Godfather, two Battlefield games, and next-generation offerings.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_cold-winter-ships-to-stores_1100-6124164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cold-winter-ships-to-stores/1100-6124164/" class="article-title">Cold Winter ships to stores</a>
+			<div class="article-subtitle">VU Games' first-person shooter is now available for the PlayStation 2.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_arc-the-lad-end-of-darkness-preview_1100-6124178_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arc-the-lad-end-of-darkness-preview/1100-6124178/" class="article-title">Arc the Lad: End of Darkness Preview</a>
+			<div class="article-subtitle">We get our hands on a work-in-progress version of Namco's upcoming PS2 role-playing game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_mortal-kombat-shaolin-monks-preshow-hands-on_1100-6124181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-shaolin-monks-preshow-hands-on/1100-6124181/" class="article-title">Mortal Kombat: Shaolin Monks Preshow Hands-On</a>
+			<div class="article-subtitle">We descend into Goro's lair to check out the E3 demo of Midway's upcoming MK-themed brawler.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_call-of-duty-2-big-red-one-first-look_1100-6124182_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-2-big-red-one-first-look/1100-6124182/" class="article-title">Call of Duty 2: Big Red One First Look</a>
+			<div class="article-subtitle">Treyarch and United Offensive developer Gray Matter are teaming up to create the definitive Call of Duty experience for consoles. We get the first details.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_eas-e3-nba-nhl-and-console-tiger-mia_1100-6236803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eas-e3-nba-nhl-and-console-tiger-mia/1100-6236803/" class="article-title">EA's E3: NBA, NHL, and console Tiger MIA?</a>
+			<div class="article-subtitle">EA has released the official list of games scheduled to be shown at next week's E3. Here's the sports/driving titles confirmed so far:NCAA Football 06Madden NFL 06NASCAR 06Burnout RevengeNeed for Speed Most WantedOn the mobile front, here's what we can expect to see:FIFA Soccer 06Madden NFL 06Tiger...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/05/11_football-manager-2006-for-pc-and-psp_1100-6236802_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/football-manager-2006-for-pc-and-psp/1100-6236802/" class="article-title">Football Manager 2006 for PC & PSP</a>
+			<div class="article-subtitle">Earlier this week, UK-based Sports Interactive made the inevitable announcement that it's working on Football Manager 2006 for the PC &amp; Mac, a game that  will almost certainly be released as Worldwide Soccer Manager 2006 ion this side of the pond if the North American release of last year's...</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/star-trek-the-cold-enemy-review/1900-6124175/" class="article-title">Star Trek: The Cold Enemy Review</a>
+			<div class="article-subtitle">This game's maddeningly clever level designs, combined with its unusually smooth animation, will keep action fans sweating--whether they're fans of the old show or not.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505revolution_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505revolution" class="article-title">Revolution in mid-2006?</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505playpsps_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505playpsps" class="article-title">Play halts sales of US PSPs</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-nfsu2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-nfsu2-x" class="article-title">Need For Speed Underground 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-mkdeception-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-mkdeception-x" class="article-title">Mortal Kombat: Deception</a>
+			<div class="article-author">Ronan Jennings</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-wormsforts-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-wormsforts-pc" class="article-title">Worms Forts: Under Siege</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-ty2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-ty2-x" class="article-title">Ty the Tasmanian Tiger 2: Bush Rescue</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-vampirebloodlines-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-vampirebloodlines-pc" class="article-title">Vampire: The Masquerade - Bloodlines</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-ratchetandclank3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-ratchetandclank3-ps2" class="article-title">Ratchet & Clank 3</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-killzone-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-killzone-ps2" class="article-title">Killzone</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_ir-metalgearsolid3-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/ir-metalgearsolid3-ps2" class="article-title">Metal Gear Solid 3: Snake Eater</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-ghostrecon2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-ghostrecon2-x" class="article-title">Tom Clancy's Ghost Recon 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-crashnburn-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-crashnburn-ps2" class="article-title">Crash 'n' Burn</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_fi-killer7-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-killer7-gc" class="article-title">Killer 7</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-goldeneyerogueagent_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-goldeneyerogueagent" class="article-title">GoldenEye: Rogue Agent</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-princeofpersia2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-princeofpersia2-x" class="article-title">Prince of Persia: Warrior Within</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-codfinesthour-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-codfinesthour-x" class="article-title">Call of Duty: Finest Hour</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news070505activisionq4_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070505activisionq4" class="article-title">Activision's Q4 masterplan</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news090505fm2006_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090505fm2006" class="article-title">FM 2006 for PC and PSP!</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news060505egrelaunch_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060505egrelaunch" class="article-title">Eurogamer set to relaunch</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news090505topspin_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090505topspin" class="article-title">Top Spin balls PS2</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news190405eathqxbox360_thumbnail.png">
+			<a href="https://www.eurogamer.net/news190405eathqxbox360" class="article-title">THQ and EA talk next-gen</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-supermarioball-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-supermarioball-gba" class="article-title">Super Mario Ball</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505gunstarheroes_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505gunstarheroes" class="article-title">Gunstar Super Heroes for GBA</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news090505umdcracked_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090505umdcracked" class="article-title">PSP's UMD format cracked</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505midwaypsp_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505midwaypsp" class="article-title">New Midway PSP titles</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news060505zaxis_thumbnail.png">
+			<a href="https://www.eurogamer.net/news060505zaxis" class="article-title">X-Men 3, Iron Man confirmed</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news080505pariah2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080505pariah2" class="article-title">Pariah add-on, not sequel?</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news040505ps3towin_thumbnail.png">
+			<a href="https://www.eurogamer.net/news040505ps3towin" class="article-title">Sony to win next-gen - analyst</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505ealine-up_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505ealine-up" class="article-title">EA unveils vast line-up</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news090505woobarker_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090505woobarker" class="article-title">Clive Barker, John Woo unite</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-mechassault2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-mechassault2-x" class="article-title">MechAssault 2: Lone Wolf</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news090505sonicrush_thumbnail.png">
+			<a href="https://www.eurogamer.net/news090505sonicrush" class="article-title">SEGA registers Sonic Rush</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-sonicmegacollectionplus-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-sonicmegacollectionplus-ps2" class="article-title">Sonic Mega Collection Plus</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-doaultimate-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-doaultimate-x" class="article-title">Dead or Alive Ultimate</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-acecombat5-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-acecombat5-ps2" class="article-title">Ace Combat: Squadron Leader</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news100505virtuatennis_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100505virtuatennis" class="article-title">Virtua Tennis PSP planned as Euro launch title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505usarmy_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505usarmy" class="article-title">US army licenses Unreal Engine</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505thqe3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505thqe3" class="article-title">THQ's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505ffitunes_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505ffitunes" class="article-title">UK iTunes could see FF music</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-uefachampsleague2005_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-uefachampsleague2005" class="article-title">UEFA Champions League 2004-2005</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news100505titanquest_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100505titanquest" class="article-title">Titan Quest at E3</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-mercenaries-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-mercenaries-x" class="article-title">Mercenaries</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_r-banjopilot-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-banjopilot-gba" class="article-title">Banjo Pilot</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505taxidriver_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505taxidriver" class="article-title">Taxi Driver game on way</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505sly3d_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505sly3d" class="article-title">Sly has 3D specs</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news110505blueburst_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110505blueburst" class="article-title">Play PSO Blue Burst for free!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_i-hitmanbloodmoney-may2005_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-hitmanbloodmoney-may2005" class="article-title">Hitman: Blood Money</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/05/11_news070505xbox360photos_thumbnail.png">
+			<a href="https://www.eurogamer.net/news070505xbox360photos" class="article-title">Xbox 360 photos turn heads</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126512/New-Radeon-cards-available-this-month/" class="article-title">New Radeon cards available this month</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126511/Phantasy-Star-Online-Blue-Burst-available-for-free-trial/" class="article-title">Phantasy Star Online Blue Burst available for free trial</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126510/Sega-announces-Gunstar-Super-Heroes/" class="article-title">Sega announces Gunstar Super Heroes</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126509/Rainbox-Six-Lockdown-lauching-worldwide-in-September/" class="article-title">Rainbox Six: Lockdown lauching worldwide in September</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

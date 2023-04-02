@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 24, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_featherweights-float-into-fight-night-2_1100-6236886_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/featherweights-float-into-fight-night-2/1100-6236886/" class="article-title">Featherweights Float into Fight Night 2</a>
+			<div class="article-subtitle">An alert reader pointed out that our recent announcement of Fight Night Round 2's roster inadvertently left out the featherweight division. After a little digging, we found out that the featherweights will be represented in the game. Here's the full list:Rafael MarquezErik MoralesManny...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_fifa-street-reviewed_1100-6236885_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-street-reviewed/1100-6236885/" class="article-title">FIFA Street: Reviewed</a>
+			<div class="article-subtitle">I've been playing all three console versions of FIFA Street this week - a game that I've been looking forward to getting my hands on ever since it was announced last year. Given the quality of the recently released NBA Street V3 I had some pretty high hopes for it as well, but I'm sorry to report...</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_ultima-onlines-renaissance_1100-2541504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultima-onlines-renaissance/1100-2541504/" class="article-title">Ultima Online's Renaissance</a>
+			<div class="article-subtitle">Origin's online RPG hits 150K subscribers as a new retail version is being prepared for release</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_sony-pulling-the-plug-on-the-psx_1100-6119142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-pulling-the-plug-on-the-psx/1100-6119142/" class="article-title">Sony pulling the plug on the PSX?</a>
+			<div class="article-subtitle">Officials are tight-lipped about future plans as the latest model of the PS2/PVR hybrid is "discontinued."</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_hidy-ho-south-park-ships_1100-2460042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hidy-ho-south-park-ships/1100-2460042/" class="article-title">Hidy Ho! South Park Ships</a>
+			<div class="article-subtitle">South Park ready to ship to retailers March 1.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_segas-dc-football-game_1100-2460447_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/segas-dc-football-game/1100-2460447/" class="article-title">Sega's DC Football Game</a>
+			<div class="article-subtitle">The curtain lifts on Sega of America's first US Dreamcast title.</div>
+			<div class="article-author">Chris Johnston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_motorsims-debut_1100-2460445_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motorsims-debut/1100-2460445/" class="article-title">Motorsims Debut</a>
+			<div class="article-subtitle">AMA Superbike will debut at Bike Week, the annual motorcyclist gathering in Daytona, Florida.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_team-fortress-classic_1100-2460444_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-fortress-classic/1100-2460444/" class="article-title">Team Fortress Classic</a>
+			<div class="article-subtitle">Half-Life players with a taste for the Quake teamplay mod will soon get a free fix with new add-on.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_team-fortress-full-speed-ahead_1100-2463316_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-fortress-full-speed-ahead/1100-2463316/" class="article-title">Team Fortress Full Speed Ahead</a>
+			<div class="article-subtitle">Sierra Studios and Valve will be shipping Team Fortress 2 as a Half-Life expansion pack later in the year.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_hasbro-pulls-out-a-tetris_1100-2452378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hasbro-pulls-out-a-tetris/1100-2452378/" class="article-title">Hasbro Pulls Out A Tetris</a>
+			<div class="article-subtitle">Hasbro Interactive gets the license for The Next Tetris on PlayStation and PC.</div>
+			<div class="article-author">Chris Johnston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_ea-buys-dreamworks-interactive_1100-2541495_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-buys-dreamworks-interactive/1100-2541495/" class="article-title">EA Buys DreamWorks Interactive</a>
+			<div class="article-subtitle">Electronic Arts announces that it will buy DreamWorks Interactive, developer of the acclaimed Medal of Honor.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_tom-clancys-ghost-recon-jungle-storm-hands-on_1100-6118875_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancys-ghost-recon-jungle-storm-hands-on/1100-6118875/" class="article-title">Tom Clancy's Ghost Recon: Jungle Storm Hands-On</a>
+			<div class="article-subtitle">Gameloft's bringing another of their hit N-Gage games to mobile.  We go hands-on in Cannes.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_brothers-in-arms-road-to-hill-30-strikes-gold_1100-6119145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brothers-in-arms-road-to-hill-30-strikes-gold/1100-6119145/" class="article-title">Brothers in Arms: Road to Hill 30 strikes gold</a>
+			<div class="article-subtitle">Gearbox's gritty WWII squad shooter on schedule to ship March 1 for the Xbox; story follows the 101st Airborne.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_troika-closes_1100-6119143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/troika-closes/1100-6119143/" class="article-title">Troika closes</a>
+			<div class="article-subtitle">After months of rumors, the end finally comes for the independent PC RPG developer.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_act-of-war-direct-action-qanda-dale-brown_1100-6119017_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/act-of-war-direct-action-qanda-dale-brown/1100-6119017/" class="article-title">Act of War: Direct Action Q&A - Dale Brown</a>
+			<div class="article-subtitle"><i>The New York Times</i> best-selling author Dale Brown discusses his involvement in this next-generation real-time strategy game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_mechassault-2-jacks-free-maps_1100-6119147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mechassault-2-jacks-free-maps/1100-6119147/" class="article-title">MechAssault 2 jacks free maps</a>
+			<div class="article-subtitle">Two maps for the robot rumbler downloadable via Xbox Live; content previously available in limited edition.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_socom-3-us-navy-seals-first-look_1100-6119125_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/socom-3-us-navy-seals-first-look/1100-6119125/" class="article-title">SOCOM 3: U.S. Navy SEALs First Look</a>
+			<div class="article-subtitle">Sony and Zipper Interactive unveil the third entry in the acclaimed PlayStation 2 shooter franchise.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_majesco-opens-portal-to-razes-hell_1100-6119156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/majesco-opens-portal-to-razes-hell/1100-6119156/" class="article-title">Majesco opens portal to Raze's Hell</a>
+			<div class="article-subtitle">Web site for upcoming cutesy-killer live; site features gameplay movie, screenshots, and information.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_dell-turns-up-volume-on-games-music_1100-6119160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dell-turns-up-volume-on-games-music/1100-6119160/" class="article-title">Dell turns up volume on games, music</a>
+			<div class="article-subtitle">In an effort to beef up its portfolio of products for the home market, Dell announces four new additions to its mobile-entertainment lineup.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_music-to-kick-and-punch-to-ea-reveals-tracks-for-two-games_1100-6119163_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/music-to-kick-and-punch-to-ea-reveals-tracks-for-two-games/1100-6119163/" class="article-title">Music to kick and punch to: EA reveals tracks for two games</a>
+			<div class="article-subtitle">Beats and rhymes featured in FIFA Street and Fight Night Round 2 include tracks from Fat Boy Slim, Fabolous, and Dizzee Rascal.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_investor-snapshot-jamdat-jump-starts-game-stocks_1100-6119167_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/investor-snapshot-jamdat-jump-starts-game-stocks/1100-6119167/" class="article-title">Investor snapshot: Jamdat jump-starts game stocks</a>
+			<div class="article-subtitle">EA, EB shares are up more than a buck; Jamdat rises ahead of earnings.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_battlefield-2-profile-preview-the-vehicles-of-battlefield-2_1100-6119131_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-2-profile-preview-the-vehicles-of-battlefield-2/1100-6119131/" class="article-title">Battlefield 2 Profile Preview - The Vehicles of Battlefield 2</a>
+			<div class="article-subtitle">We have the details on many of the vehicles you'll take into battle in this highly anticipated sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_atari-publishing-indigo-prophecy_1100-6119179_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/atari-publishing-indigo-prophecy/1100-6119179/" class="article-title">Atari publishing Indigo Prophecy</a>
+			<div class="article-subtitle">French publisher will bring renamed version of Quantic Dream's adventure game Fahrenheit to US shores. New screens inside.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_star-wars-ep-iii-controllers-due-in-april_1100-6119175_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-ep-iii-controllers-due-in-april/1100-6119175/" class="article-title">Star Wars Ep III controllers due in April</a>
+			<div class="article-subtitle">Intec unveils line of controllers for the PS2 and Xbox that give Revenge of the Sith players a boost.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_er-first-impressions_1100-6119178_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/er-first-impressions/1100-6119178/" class="article-title">ER First Impressions</a>
+			<div class="article-subtitle">Paging Doctor Gamer. Get the first details on this Sims-like strategy game based on the hit television drama.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/02/24_star-wars-republic-commando-designer-diary-7-the-write-stuff_1100-6119176_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-republic-commando-designer-diary-7-the-write-stuff/1100-6119176/" class="article-title">Star Wars: Republic Commando Designer Diary #7 - The Write Stuff</a>
+			<div class="article-subtitle">Writer Ryan Kaufman discusses his involvement in the development of this Star Wars shooter's central characters.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tekken-5-review/1900-6119171/" class="article-title">Tekken 5 Review</a>
+			<div class="article-subtitle">This fighting game is even more addictive and exciting than the original Tekken was when it first exploded onto the PlayStation back in 1995.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-soccer-winning-eleven-8-international-review/1900-6119190/" class="article-title">World Soccer Winning Eleven 8 International Review</a>
+			<div class="article-subtitle">World Soccer Winning Eleven 8 International is undoubtedly Konami's best soccer game to date, thanks to a number of quite dramatic improvements made both on and off the field.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news230205newscorp2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230205newscorp2" class="article-title">Eidos insiders confirm News Corp deal is imminent</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205puyopopfeverds_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205puyopopfeverds" class="article-title">Puyo Pop Fever for the DS</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205sixgun_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205sixgun" class="article-title">BattleBorne announces 6GUN</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205mechassault2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205mechassault2" class="article-title">Free MechAssault 2 maps for download</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205psx_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205psx" class="article-title">Sony halts PSX production</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205chaostheorydemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205chaostheorydemo" class="article-title">Chaos Theory single-player demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news240205socom3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news240205socom3" class="article-title">SOCOM 3 deploying this autumn</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/02/24_news230205nintendodatesq2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news230205nintendodatesq2" class="article-title">Nintendo of Europe's Q2 line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126328/Constantine-giveaway-entries-now-closed/" class="article-title">Constantine giveaway entries now closed</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126327/Ten-Auckland-double-passes-to-Constantine-movie/" class="article-title">Ten Auckland double passes to Constantine movie</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126324/Gameplanet-launches-Nintendo-DS-home-page/" class="article-title">Gameplanet launches Nintendo DS home page</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126325/Nintendo-unveils-strong-Q2-lineup/" class="article-title">Nintendo unveils strong Q2 lineup</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 1, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_activision-visionaries-set-sights-on-star-trek_1100-2464976_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-visionaries-set-sights-on-star-trek/1100-2464976/" class="article-title">Activision Visionaries Set Sights on Star Trek</a>
+			<div class="article-subtitle">Activision brass sounds off on the company's new Star Trek license and answer the question: So you've paid the big bucks, now what do you do?</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_sx-superstar-ships_1100-6030849_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sx-superstar-ships/1100-6030849/" class="article-title">SX Superstar ships</a>
+			<div class="article-subtitle">Acclaim ships the Xbox and GameCube versions of its latest supercross racing game to stores across North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_new-mega-man-site-launches_1100-6030894_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-mega-man-site-launches/1100-6030894/" class="article-title">New Mega Man site launches</a>
+			<div class="article-subtitle">Capcom Europe announces the launch of an all-new official Web site dedicated to Mega Man.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_latest-earth-and-beyond-update-details_1100-6030895_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/latest-earth-and-beyond-update-details/1100-6030895/" class="article-title">Latest Earth & Beyond update details</a>
+			<div class="article-subtitle">A new pirate sector is among the additions being made to Electronic Arts' online space RPG in its latest update.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_captain-scarlet-retaliation-update_1100-6030896_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/captain-scarlet-retaliation-update/1100-6030896/" class="article-title">Captain Scarlet: Retaliation update</a>
+			<div class="article-subtitle">Batfish Studios releases new information on its recently renamed Captain Scarlet-inspired strategy game for the PC. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_the-sims-coming-to-the-gba_1100-6030897_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-coming-to-the-gba/1100-6030897/" class="article-title">The Sims coming to the GBA</a>
+			<div class="article-subtitle">Electronic Arts announces that a GBA version of The Sims Bustin' Out is currently in development at its Maxis studio.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_official-uk-game-sales-chart_1100-6030898_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/official-uk-game-sales-chart/1100-6030898/" class="article-title">Official UK game sales chart</a>
+			<div class="article-subtitle">SOCOM: US Navy Seals claims the top of the UK sales chart from Enter the Matrix.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_gem-smashers-ships_1100-6030904_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gem-smashers-ships/1100-6030904/" class="article-title">Gem Smashers ships</a>
+			<div class="article-subtitle">Metro3D announces the North American release of its colorful puzzle game for the Game Boy Advance.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_republic-coming-this-month_1100-6030910_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/republic-coming-this-month/1100-6030910/" class="article-title">Republic coming this month</a>
+			<div class="article-subtitle">Elixir says it expects its long-awaited strategy game to go gold in two weeks.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_anarchy-online-shadowlands-release-date_1100-6030909_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/anarchy-online-shadowlands-release-date/1100-6030909/" class="article-title">Anarchy Online: Shadowlands release date</a>
+			<div class="article-subtitle">Funcom reveals that the stand-alone expansion pack for its sci-fi online RPG will be complete in August.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_hunter-the-reckoning-wayward-music-announced_1100-6030905_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hunter-the-reckoning-wayward-music-announced/1100-6030905/" class="article-title">Hunter: The Reckoning Wayward music announced</a>
+			<div class="article-subtitle">VU Games announces that its upcoming action horror game for the PS2 will feature music from Forty Foot Echo and No One.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_warcraft-iii-the-frozen-throne-ships_1100-6030911_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warcraft-iii-the-frozen-throne-ships/1100-6030911/" class="article-title">Warcraft III: The Frozen Throne ships</a>
+			<div class="article-subtitle">Blizzard releases an expansion pack for its best-selling real-time strategy game that introduces new units, a new single-player campaign, and more.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_bill-roper-interview_1100-6030892_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bill-roper-interview/1100-6030892/" class="article-title">Bill Roper interview</a>
+			<div class="article-subtitle">We speak to former Blizzard North vice president Bill Roper about the sudden departure of the studio's management and these former Blizzard employees' new plans.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_41st-amusement-machine-show-dates-announced_1100-6030915_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/41st-amusement-machine-show-dates-announced/1100-6030915/" class="article-title">41st Amusement Machine Show dates announced</a>
+			<div class="article-subtitle">The show will focus on upcoming arcade games.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_railroad-tycoon-3-preview_1100-6030899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/railroad-tycoon-3-preview/1100-6030899/" class="article-title">Railroad Tycoon 3 Preview</a>
+			<div class="article-subtitle">The next game in PopTop Software's Railroad Tycoon strategy series will have an all-new 3D engine and much more.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_warhammer-40000-fire-warrior-preview_1100-6030908_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-40000-fire-warrior-preview/1100-6030908/" class="article-title">Warhammer 40,000: Fire Warrior Preview</a>
+			<div class="article-subtitle">We travel to a dark and distant future with a preview version of Kuju Entertainment's upcoming Warhammer 40,000-inspired first-person shooter.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_the-sims-bustin-out-qanda_1100-6030933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-bustin-out-qanda/1100-6030933/" class="article-title">The Sims Bustin' Out Q&A</a>
+			<div class="article-subtitle">We talk to Maxis about the newest installment of the Sims on consoles.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_the-sims-bustin-out-qanda_1100-6030934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-sims-bustin-out-qanda/1100-6030934/" class="article-title">The Sims Bustin' Out Q&A</a>
+			<div class="article-subtitle">We talk to Maxis about the newest installment of the Sims on consoles.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_st-louis-to-appeal-video-game-ruling_1100-6030641_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/st-louis-to-appeal-video-game-ruling/1100-6030641/" class="article-title">St. Louis to appeal video game ruling</a>
+			<div class="article-subtitle">The county will appeal the decision made by the appeals court regarding the sale or rental of violent video games.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_midnight-club-ii-ships-for-the-pc_1100-6031001_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midnight-club-ii-ships-for-the-pc/1100-6031001/" class="article-title">Midnight Club II ships for the PC</a>
+			<div class="article-subtitle">Rockstar releases the PC version of its open-ended street racing game.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_yahoo-offers-unlimited-games-on-demand_1100-6030999_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yahoo-offers-unlimited-games-on-demand/1100-6030999/" class="article-title">Yahoo offers unlimited games on demand </a>
+			<div class="article-subtitle">The portal's online PC-game rental program is extended with an unlimited subscription for $14.95 per month.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_tomb-raider-ships-for-the-pc_1100-6031003_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tomb-raider-ships-for-the-pc/1100-6031003/" class="article-title">Tomb Raider ships for the PC</a>
+			<div class="article-subtitle">Eidos releases the PC version of Lara Croft's next adventure.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_war-of-the-ring-now-for-2003_1100-6031005_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/war-of-the-ring-now-for-2003/1100-6031005/" class="article-title">War of the Ring now for 2003</a>
+			<div class="article-subtitle">VU Games reveals that Liquid's PC Lord of the Rings real-time strategy game is ahead of schedule.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_christian-slater-to-star-in-alone-in-the-dark_1100-6031006_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/christian-slater-to-star-in-alone-in-the-dark/1100-6031006/" class="article-title">Christian Slater to star in Alone in the Dark</a>
+			<div class="article-subtitle">The star of Gleaming the Cube and other films will take the lead role in the Alone in the Dark movie.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_tomb-raider-the-angel-of-darkness-impressions_1100-6031010_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tomb-raider-the-angel-of-darkness-impressions/1100-6031010/" class="article-title">Tomb Raider: The Angel of Darkness Impressions</a>
+			<div class="article-subtitle">We got our hands on the PC version of Lara Croft's latest adventure, and we have impressions and screens to show for it.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_yoshiki-okamoto-leaves-capcom-to-form-new-company_1100-6030916_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yoshiki-okamoto-leaves-capcom-to-form-new-company/1100-6030916/" class="article-title">Yoshiki Okamoto leaves Capcom to form new company</a>
+			<div class="article-subtitle">One of the men behind Street Fighter II and a number of high-profile Capcom games leaves the company.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/07/01_microsoft-discontinues-sidewinder-peripherals_1100-6031007_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-discontinues-sidewinder-peripherals/1100-6031007/" class="article-title">Microsoft discontinues SideWinder peripherals</a>
+			<div class="article-subtitle">The publisher's line of PC gamepads and joysticks is being phased out due to lack of demand.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ape-escape-2-review/1900-6030914/" class="article-title">Ape Escape 2 Review</a>
+			<div class="article-subtitle">The game's relative ease is offset by the sheer number of weird unlockable items, and the end result is a platform game that is, above all, great fun.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rock-n-roll-racing-review/1900-6030920/" class="article-title">Rock 'N Roll Racing Review</a>
+			<div class="article-subtitle">The Game Boy Advance version of the game is a great port of a 16-bit classic.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_news010703activision_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010703activision" class="article-title">Activision sues Viacom over lack of decent Star Trek</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_i-jonharevtv_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-jonharevtv" class="article-title">Make your own TV shows!</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_news010703segaam2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010703segaam2" class="article-title">Sega AM2 to announce new game</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_news010703charts_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010703charts" class="article-title">UK Charts: SOCOM No.1 at last</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_r-planetside-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-planetside-pc" class="article-title">PlanetSide</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_news010703blizzard_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010703blizzard" class="article-title">Blizzard struck by resignations</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/07/01_news010703tron20_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010703tron20" class="article-title">TRON 2.0 multiplayer demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124525/TRON-2.0-Multi-Player-Demo-Released/" class="article-title">TRON 2.0 Multi-Player Demo Released</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124524/New-Morrowind-Expansion-Pack-This-Week/" class="article-title">New Morrowind Expansion Pack This Week</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124523/Step-Into-The-World-Of-SX-Superstar/" class="article-title">Step Into The World Of SX Superstar</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124522/Dead-To-Rights-Slips-Again/" class="article-title">Dead To Rights Slips Again</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124521/Eye-Toy-Releasing-Friday/" class="article-title">Eye Toy Releasing Friday</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124520/Liberty-Island-Game-Re-Named/" class="article-title">Liberty Island Game Re-Named</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124519/Tuesday-Rant/" class="article-title">Tuesday Rant</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

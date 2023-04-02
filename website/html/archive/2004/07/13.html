@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 13, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_miyamoto-ds-wireless-internet-a-possibility_1100-6102407_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/miyamoto-ds-wireless-internet-a-possibility/1100-6102407/" class="article-title">Miyamoto: DS wireless Internet a possibility</a>
+			<div class="article-subtitle">Nintendo's Miyamoto says third-party software could allow DS to connect to Internet through its wireless LAN.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_blue-stinger-illbleed-creator-nishigaki-dead-at-42_1100-6100692_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blue-stinger-illbleed-creator-nishigaki-dead-at-42/1100-6100692/" class="article-title">Blue Stinger, Illbleed creator Nishigaki dead at 42</a>
+			<div class="article-subtitle">As Xbox updates two Dreamcast titles near release, news of the game creator's death surfaces.</div>
+			<div class="article-author">John Andersen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_game-critics-award-best-of-e3-2004_1100-6100181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-critics-award-best-of-e3-2004/1100-6100181/" class="article-title">Game Critics award Best of E3 2004</a>
+			<div class="article-subtitle">Sony PSP is named Best of Show, while Halo 2 and Splinter Cell 3 top the honored games.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_halo-2-leads-game-critics-awards-best-of-e3-nominees_1100-6099252_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-2-leads-game-critics-awards-best-of-e3-nominees/1100-6099252/" class="article-title">Halo 2 leads Game Critics Awards' Best of E3 nominees</a>
+			<div class="article-subtitle">Bungie's sci-fi shooter garners four nominations, while Splinter Cell 3, God of War, Half-Life 2, and Jade Empire tally three nods each.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_splinter-cell-3-title-blown_1100-6099834_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/splinter-cell-3-title-blown/1100-6099834/" class="article-title">Splinter Cell 3 title blown?</a>
+			<div class="article-subtitle">Ubisoft registers "Splinter Cell Chaos Theory" with the US Patent Office; "Remember Shadow Strike," cautions the publisher.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_namco-ships-tales-of-symphonia_1100-6102424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-ships-tales-of-symphonia/1100-6102424/" class="article-title">Namco ships Tales of Symphonia</a>
+			<div class="article-subtitle">Latest in the Tales series of role-playing games available in North American stores exclusively for the GameCube.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_tom-clancys-splinter-cell-chaos-theory-impressions-e3-2004_1100-6097976_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancys-splinter-cell-chaos-theory-impressions-e3-2004/1100-6097976/" class="article-title">Tom Clancy's Splinter Cell Chaos Theory Impressions - E3 2004</a>
+			<div class="article-subtitle">Ubisoft's next Splinter Cell game is on hand at E3 2004--and it looks very impressive indeed.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_samurai-warriors-ships-for-xbox_1100-6102430_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/samurai-warriors-ships-for-xbox/1100-6102430/" class="article-title">Samurai Warriors ships for Xbox</a>
+			<div class="article-subtitle">Koei announces the North American release of Omega Force's tactical action game for the Xbox.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_athens-2004-ships-for-ps2_1100-6102439_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/athens-2004-ships-for-ps2/1100-6102439/" class="article-title">Athens 2004 ships for PS2</a>
+			<div class="article-subtitle">SCEA announces that Eurocom's official video game of the Olympic Games has shipped to stores across North America.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_deluxe-sims-2-dvd-edition-planned_1100-6102268_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deluxe-sims-2-dvd-edition-planned/1100-6102268/" class="article-title">Deluxe Sims 2 DVD edition planned</a>
+			<div class="article-subtitle">DVD version of the eagerly awaited life-sim sequel will feature a bevy of bonus materials.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_battlefield-modern-combat-delayed-until-fall-2005_1100-6102445_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-modern-combat-delayed-until-fall-2005/1100-6102445/" class="article-title">Battlefield: Modern Combat delayed until fall 2005</a>
+			<div class="article-subtitle">Addition of a new single-player campaign pushes back Electronic Arts' anticipated shooter by one year.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_ubisoft-announces-splinter-cell-3_1100-6096660_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-announces-splinter-cell-3/1100-6096660/" class="article-title">Ubisoft announces Splinter Cell 3</a>
+			<div class="article-subtitle">[UPDATE] Ubi's Montreal studio will help Sam Fisher sneak back onto PCs in "late 2004"; console dates TBA soon. First screens inside.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_third-wave-games-announces-war-world_1100-6102446_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/third-wave-games-announces-war-world/1100-6102446/" class="article-title">Third Wave Games announces War World</a>
+			<div class="article-subtitle">Newly formed developer Third Wave Games plans to release its first online mech combat game this fall. First screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_kohan-ii-kings-of-war-hands-on-impressions_1100-6102419_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kohan-ii-kings-of-war-hands-on-impressions/1100-6102419/" class="article-title">Kohan II: Kings of War Hands-On Impressions</a>
+			<div class="article-subtitle">After playing an early version of Kohan II, we know that developer TimeGate is on the right track.</div>
+			<div class="article-author">Jason Ocampo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_psp-lands-99-international-developers-45-japanese-games_1100-6097859_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-lands-99-international-developers-45-japanese-games/1100-6097859/" class="article-title">PSP lands 99 international developers, 45 Japanese games </a>
+			<div class="article-subtitle">Sony's new handheld will launch with strong support from the developer community and a large catalog at home.</div>
+			<div class="article-author">Dan Tochen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_pikmin-2-dated-for-europe_1100-6102480_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pikmin-2-dated-for-europe/1100-6102480/" class="article-title">Pikmin 2 dated for Europe</a>
+			<div class="article-subtitle">Nintendo plans to release Pikmin 2 for the GameCube across Europe in October.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_vu-games-shuffles-executives-reorganizes-further_1100-6102477_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vu-games-shuffles-executives-reorganizes-further/1100-6102477/" class="article-title">VU Games shuffles executives, reorganizes further</a>
+			<div class="article-subtitle">Shake-up that started in January continues as Vivendi Universal game unit is split into "separate businesses."</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_move2play-announced-for-eyetoy_1100-6102489_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/move2play-announced-for-eyetoy/1100-6102489/" class="article-title">Move2play announced for EyeToy</a>
+			<div class="article-subtitle">Europress announces that its first-ever PlayStation 2 game will be a collection of 12 fairground-themed EyeToy minigames. First screen inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_amazing-island-preview_1100-6102492_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazing-island-preview/1100-6102492/" class="article-title">Amazing Island Preview</a>
+			<div class="article-subtitle">We check out Sega's island adventure for the GameCube.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_terminator-3-the-redemption-preview_1100-6102491_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/terminator-3-the-redemption-preview/1100-6102491/" class="article-title">Terminator 3: The Redemption Preview</a>
+			<div class="article-subtitle">We get hands-on with the latest PS2 and Xbox builds of this movie-inspired third-person action game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_terminator-3-the-redemption-preview_1100-6102490_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/terminator-3-the-redemption-preview/1100-6102490/" class="article-title">Terminator 3: The Redemption Preview</a>
+			<div class="article-subtitle">We get hands-on with the latest PS2 and Xbox builds of this movie-inspired third-person action game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_star-wars-trilogy-coming-to-gba_1100-6102416_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-trilogy-coming-to-gba/1100-6102416/" class="article-title">Star Wars Trilogy coming to GBA</a>
+			<div class="article-subtitle">Ubisoft and LucasArts announce Star Wars Trilogy: Apprentice of the Force for this September. First screens inside.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_microsoft-to-publish-outrun2-in-us_1100-6102504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-to-publish-outrun2-in-us/1100-6102504/" class="article-title">Microsoft to publish OutRun2 in US</a>
+			<div class="article-subtitle">Sega's arcade racer will come to the North American Xbox this October.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/07/13_yu-yu-hakusho-dark-tournament-preview_1100-6102493_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yu-yu-hakusho-dark-tournament-preview/1100-6102493/" class="article-title">Yu Yu Hakusho: Dark Tournament Preview</a>
+			<div class="article-subtitle">We put our spirit power to the test as we go hands-on with this anime-inspired fighting game.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/karaoke-revolution-volume-2-review/1900-6102438/" class="article-title">Karaoke Revolution Volume 2 Review</a>
+			<div class="article-subtitle">How much you'll get out of Karaoke Revolution Volume 2 is tied directly to your interest in the songs on the disc.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mega-man-battle-network-4-blue-moon-review/1900-6102505/" class="article-title">Mega Man Battle Network 4 Blue Moon Review</a>
+			<div class="article-subtitle">There isn't much here that wasn't done just as well, or better, in the previous game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mega-man-battle-network-4-red-sun-review/1900-6102503/" class="article-title">Mega Man Battle Network 4 Red Sun Review</a>
+			<div class="article-subtitle">There isn't much here that wasn't done just as well, or better, in the previous game.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/13_news-130704-bethsedafallout3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-130704-bethsedafallout3" class="article-title">Bethseda licenses Fallout rights, announces Fallout 3</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/07/13_news-130704-halodeluxe_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-130704-halodeluxe" class="article-title">Halo 2 Deluxe Limited Edition available for pre-order</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125810/Gran-Turismo-Prize-Pack-Winner/" class="article-title">Gran Turismo Prize Pack Winner</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125809/Mmmm...-Beer/" class="article-title">Mmmm... Beer</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125808/Fairground-Fare-for-Eye-Toy/" class="article-title">Fairground Fare for Eye Toy</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125807/Dino-Dini-to-Bring-Viva-Football-to-all-Formats/" class="article-title">Dino Dini to Bring Viva Football to all Formats</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125806/Cycling-Manager-4-Demo-Now-Available/" class="article-title">Cycling Manager 4 Demo Now Available</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125805/PlayStation-3-to-debut-at-E3-2005/" class="article-title">PlayStation 3 to debut at E3 2005</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tontie.php" class="article-title">Tontie</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

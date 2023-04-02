@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 3, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_phantom-dust-not-coming-to-america_1100-6099835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phantom-dust-not-coming-to-america/1100-6099835/" class="article-title">Phantom Dust not coming to America</a>
+			<div class="article-subtitle">Microsoft declines to bring its Japanese studio's Xbox action game across the Pacific.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_rebellion-inks-deal-with-dc-comics_1100-6095420_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rebellion-inks-deal-with-dc-comics/1100-6095420/" class="article-title">Rebellion inks deal with DC Comics</a>
+			<div class="article-subtitle">Rebellion announces a North American distribution and publishing deal with DC Comics. Rogue Trooper game in development.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_chronicles-of-riddick-escape-from-butcher-bay-ships_1100-6099681_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chronicles-of-riddick-escape-from-butcher-bay-ships/1100-6099681/" class="article-title">Chronicles of Riddick: Escape From Butcher Bay ships</a>
+			<div class="article-subtitle">VU Games' Xbox-exclusive shooter breaks into retail outlets nationwide.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_could-carmageddon-be-at-hand_1100-6091282_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/could-carmageddon-be-at-hand/1100-6091282/" class="article-title">Could Carmageddon be at hand?</a>
+			<div class="article-subtitle">SCi's long-dormant car combat franchise could be making a comeback in 2005.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_new-carmageddon-for-2005_1100-6030218_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-carmageddon-for-2005/1100-6030218/" class="article-title">New Carmageddon for 2005</a>
+			<div class="article-subtitle">Reports from the UK suggest that a new Carmageddon game is in development and is scheduled for release in 2005.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_toyota-offering-free-gran-turismo-4-demo-disc_1100-6099820_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/toyota-offering-free-gran-turismo-4-demo-disc/1100-6099820/" class="article-title">Toyota offering free Gran Turismo 4 demo disc</a>
+			<div class="article-subtitle">Carmaker promises to send those requesting Prius brochures a "playable" demo; reports indicate it features two cars on two tracks.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_super-robot-taisen-series-ships-10-million_1100-6099878_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-robot-taisen-series-ships-10-million/1100-6099878/" class="article-title">Super Robot Taisen series ships 10 million</a>
+			<div class="article-subtitle">The popular anime-mech franchise's 33rd title helps it make its 10 millionth shipment since 1991.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_spider-man-2-e3-2004-preshow-impressions_1100-6095262_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-2-e3-2004-preshow-impressions/1100-6095262/" class="article-title">Spider-Man 2 E3 2004 Preshow Impressions</a>
+			<div class="article-subtitle">Activision and Treyarch show off the upcoming game based on the next Spider-Man film.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_true-fantasy-live-online-gets-the-axe_1100-6099836_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/true-fantasy-live-online-gets-the-axe/1100-6099836/" class="article-title">True Fantasy Live Online gets the axe</a>
+			<div class="article-subtitle">Microsoft Japan and Level 5 halt development of their massively multiplayer online role-playing game for the Xbox.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_trackmania-hands-on-preview_1100-6099846_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/trackmania-hands-on-preview/1100-6099846/" class="article-title">Trackmania Hands-On Preview</a>
+			<div class="article-subtitle">We try out Enlight's soon-to-be-released racing-puzzle-game hybrid.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_john-woo-directing-rainbow-six-movie_1100-6099854_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/john-woo-directing-rainbow-six-movie/1100-6099854/" class="article-title">John Woo directing Rainbow Six movie</a>
+			<div class="article-subtitle"><i>Variety</i> reports that Paramount has signed the Hong Kong director to direct a film based on the Tom Clancy game and book.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_thq-announces-motogp-3-for-xbox-and-pc_1100-6099837_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-announces-motogp-3-for-xbox-and-pc/1100-6099837/" class="article-title">THQ announces MotoGP 3 for Xbox and PC</a>
+			<div class="article-subtitle">THQ announces that Climax is working on the third motorcycle racing game in its popular series for both Xbox and PC.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_sci-reports-record-six-month-results_1100-6099838_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-reports-record-six-month-results/1100-6099838/" class="article-title">SCi reports record six-month results</a>
+			<div class="article-subtitle">SCi reports its highest ever turnover in the first half of the financial year for the six months ended March 31, 2004.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_atlus-signs-galleon-for-us_1100-6099840_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/atlus-signs-galleon-for-us/1100-6099840/" class="article-title">Atlus signs Galleon for US</a>
+			<div class="article-subtitle">SCi confirms that Confounding Factor's Galleon: Islands of Mystery will be published in the US by Atlus.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_sci-publishing-rogue-trooper-in-2005_1100-6099839_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sci-publishing-rogue-trooper-in-2005/1100-6099839/" class="article-title">SCi publishing Rogue Trooper in 2005</a>
+			<div class="article-subtitle">SCi reveals that it will publish Rebellion's 2000 AD-inspired action game during its next financial year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_ea-announces-madden-nfl-2005-collectors-edition_1100-6099841_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-announces-madden-nfl-2005-collectors-edition/1100-6099841/" class="article-title">EA announces Madden NFL 2005 Collector's Edition</a>
+			<div class="article-subtitle">EA plans to release a collector's edition of its upcoming Madden football game to celebrate the series' 15th year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_carmageddon-4-coming-in-2005_1100-6099842_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carmageddon-4-coming-in-2005/1100-6099842/" class="article-title">Carmageddon 4 coming in 2005</a>
+			<div class="article-subtitle">SCi confirms that the next Carmageddon title is scheduled for release during its 2005 fiscal year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_new-web-site-for-konami-of-europe_1100-6099843_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-web-site-for-konami-of-europe/1100-6099843/" class="article-title">New Web site for Konami of Europe</a>
+			<div class="article-subtitle">Konami of Europe unveils its all-new pan-European Web site.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_break-into-the-games-industry-in-maryland_1100-6099847_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/break-into-the-games-industry-in-maryland/1100-6099847/" class="article-title">Break into the games industry in Maryland</a>
+			<div class="article-subtitle">The Game Initiative's next conference and resume workshop for games industry hopefuls will take place in Maryland later this month.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_shellshock-nam-67-soundtrack-details-emerge_1100-6099848_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shellshock-nam-67-soundtrack-details-emerge/1100-6099848/" class="article-title">ShellShock: Nam '67 soundtrack details emerge</a>
+			<div class="article-subtitle">Eidos announces that its upcoming Vietnam War-themed action game will feature a number of music tracks from the '60s. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_galactic-civilizations-altarian-prophecy-off-to-factory_1100-6099891_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/galactic-civilizations-altarian-prophecy-off-to-factory/1100-6099891/" class="article-title">Galactic Civilizations: Altarian Prophecy off to factory</a>
+			<div class="article-subtitle">New expansion pack will add two additional races, as well as a brand-new campaign.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_the-matrix-online-beta-under-way_1100-6099887_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-matrix-online-beta-under-way/1100-6099887/" class="article-title">The Matrix Online beta under way</a>
+			<div class="article-subtitle">Sega and Monolith kick off the closed beta for the film-trilogy-inspired MMORPG.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_ati-admits-to-same-tricks-as-nvidia_1100-6099873_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ati-admits-to-same-tricks-as-nvidia/1100-6099873/" class="article-title">ATI admits to same "tricks" as Nvidia</a>
+			<div class="article-subtitle">Graphics company ATI, longtime critic of competitor Nvidia's video card driver optimizations, concedes to using undocumented optimizations of its own.</div>
+			<div class="article-author">James Yu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_kingdom-under-fire-the-crusaders-returning-to-xbox_1100-6099889_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kingdom-under-fire-the-crusaders-returning-to-xbox/1100-6099889/" class="article-title">Kingdom Under Fire: The Crusaders returning to Xbox</a>
+			<div class="article-subtitle">Microsoft will publish former NCsoft studio Phantagram's action strategy game this fall.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/03_fable-to-unfold-in-september_1100-6099899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fable-to-unfold-in-september/1100-6099899/" class="article-title">Fable to unfold in September</a>
+			<div class="article-subtitle">An update to Lionhead Studios' Web site tightens the release window for the expansive Xbox RPG.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/apocalyptica-review/1900-6099760/" class="article-title">Apocalyptica Review</a>
+			<div class="article-subtitle">Apocalyptica is terrible from top to bottom, suffering from bland, derivative gameplay, simplistic level design, brain-dead AI, and a buggy graphics engine that chugs even at low resolution.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shrek-2-review/1900-6099888/" class="article-title">Shrek 2 Review</a>
+			<div class="article-subtitle">Shrek 2 for the PC is strictly for kids, though considering its clunky controls and short running time, it's not even a terribly good game for them.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shrek-2-review/1900-6099879/" class="article-title">Shrek 2 Review</a>
+			<div class="article-subtitle">Shrek 2 is a team-oriented action game that's primarily geared toward younger players.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/batter-up-by-fox-sports-review/1900-6099907/" class="article-title">Batter Up! by Fox Sports Review</a>
+			<div class="article-subtitle">Batter Up! hits the sweet spot between substantive gameplay, home run derby frivolity, and slick presentation.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_r-vanhelsing-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-vanhelsing-ps2" class="article-title">Van Helsing</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news030604tflo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news030604tflo" class="article-title">Microsoft cans True Fantasy Live Online</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_ukcharts-020604_thumbnail.png">
+			<a href="https://www.eurogamer.net/ukcharts-020604" class="article-title">UK Charts: Potter casts No.1 spell</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_i-thesagaofryzom-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-thesagaofryzom-pc" class="article-title">The Saga of Ryzom</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_fi-thepunisher_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-thepunisher" class="article-title">The Punisher</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_p-splintercell3e3-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-splintercell3e3-pc" class="article-title">Splinter Cell 3</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news030604thingsandstuff_thumbnail.png">
+			<a href="https://www.eurogamer.net/news030604thingsandstuff" class="article-title">Things And Stuff: Thursday News Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news030604everquest2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news030604everquest2" class="article-title">European EverQuest II beta sign-ups soon</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news030604katamaridamacysequel_thumbnail.png">
+			<a href="https://www.eurogamer.net/news030604katamaridamacysequel" class="article-title">Katamari Damacy picks up network mode</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news030604motogp3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news030604motogp3" class="article-title">MotoGP 3 due in late 2005</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news-020604-commandosfps_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-020604-commandosfps" class="article-title">Commandos FPS spin-off Strike Force revealed</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news-020604-vugxmasreleases_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-020604-vugxmasreleases" class="article-title">Vivendi confirms pre-Xmas Euro schedule</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news-020604-livealerts_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-020604-livealerts" class="article-title">Microsoft launches Live Alerts</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_fi-driv3rmay_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-driv3rmay" class="article-title">DRIV3R</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_r-singstar-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-singstar-ps2" class="article-title">SingStar</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/03_news-020604-wedsnewsroundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news-020604-wedsnewsroundup" class="article-title">This And That: Wednesday News Roundup</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125733/Music-Middleware-Developer-Gets-Nintendo-DS-License/" class="article-title">Music Middleware Developer Gets Nintendo DS License</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125732/Movie-Boss-to-Deliver-Interactive-Summit-Keynote-Speech/" class="article-title">Movie Boss to Deliver Interactive Summit Keynote Speech</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125731/MotoGP-3-Announced-for-Q3-2005/" class="article-title">MotoGP 3 Announced for Q3 2005</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125736/Ex-Nintendo-Chairman-Still-One-of-Japans-Richest/" class="article-title">Ex-Nintendo Chairman Still One of Japan's Richest</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125735/Dream-Ends-for-True-Fanstasy-Live-Online-Fans/" class="article-title">Dream Ends for True Fanstasy Live Online Fans</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125734/Ground-Control-II-Users-to-Get-Professional-Editing-Tool/" class="article-title">Ground Control II Users to Get Professional Editing Tool</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

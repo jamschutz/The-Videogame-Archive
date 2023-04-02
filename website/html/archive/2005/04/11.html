@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 11, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_top-carmakers-join-gran-turismo-4-tournament_1100-6118243_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-carmakers-join-gran-turismo-4-tournament/1100-6118243/" class="article-title">Top carmakers join Gran Turismo 4 tournament</a>
+			<div class="article-subtitle">Nine of the world's biggest auto companies will race GT4's re-creations of their vehicles.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_five-psp-games-playable-online-at-launch_1100-6118191_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/five-psp-games-playable-online-at-launch/1100-6118191/" class="article-title">Five PSP games playable online at launch</a>
+			<div class="article-subtitle">SCEA confirms MLB, NBA, Gretzky NHL, ATV Offroad Fury: Blazin' Trails, and Twisted Metal: Head-On will all be playable over the Internet in "infrastructure" mode.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_sims-celebrates-fifth-anniversary_1100-6118107_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sims-celebrates-fifth-anniversary/1100-6118107/" class="article-title">Sims celebrates fifth anniversary</a>
+			<div class="article-subtitle">Since its debut, Sims has shipped 52 million units, been translated into 17 languages, and influenced gamer demographics.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_baseball-budgets-pricing-war-begins_1100-6118086_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/baseball-budgets-pricing-war-begins/1100-6118086/" class="article-title">Baseball budgets: Pricing war begins</a>
+			<div class="article-subtitle">Online retailers speculate on baseball game pricing; 2K's MLB 2K5 might be $19.99, EA's MVP 2005 possibly $30.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_demento-dated-for-japan_1100-6117945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/demento-dated-for-japan/1100-6117945/" class="article-title">Demento dated for Japan</a>
+			<div class="article-subtitle">Capcom’s gothic-horror PS2 game is slated for release April 21.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_rome-total-war-patch-v12-released_1100-6117860_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rome-total-war-patch-v12-released/1100-6117860/" class="article-title">Rome: Total War patch v1.2 released</a>
+			<div class="article-subtitle">Patch allows gamers to continue online gameplay; adds ability to create, script, and film battles.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_lego-star-wars-web-site-launches_1100-6117834_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-star-wars-web-site-launches/1100-6117834/" class="article-title">Lego Star Wars Web site launches</a>
+			<div class="article-subtitle">Cross-platform game re-creates scenes from recent Star Wars movies in full Lego style.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_nintendo-unveils-bundle-of-evil_1100-6117768_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-unveils-bundle-of-evil/1100-6117768/" class="article-title">Nintendo unveils bundle of Evil</a>
+			<div class="article-subtitle">Euro-only Resident Evil 4 package includes special GameCube and plenty of other goodies.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_death-jr-comic-book-dated_1100-6117053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/death-jr-comic-book-dated/1100-6117053/" class="article-title">Death Jr. comic book dated</a>
+			<div class="article-subtitle">Duke Nukem Forever contributor to coauthor the comic book that will inform the PSP game.</div>
+			<div class="article-author">Beth Winegarner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_three-and-out_1100-6114647_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/three-and-out/1100-6114647/" class="article-title">Three and Out</a>
+			<div class="article-subtitle">The future of PC gaming, the BCS, holiday wishes, and the GameSpot Sports crew's most embarrassing sports moments are all ahead in the latest edition of Three & Out.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_backyard-wrestling-2-there-goes-the-neighborhood-character-spotlight_1100-6111593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/backyard-wrestling-2-there-goes-the-neighborhood-character-spotlight/1100-6111593/" class="article-title">Backyard Wrestling 2: There Goes the Neighborhood Character Spotlight</a>
+			<div class="article-subtitle">Take a look at the rather interesting personalities who will beat each other silly in Eidos' upcoming wrestling sequel.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_rumor-control-no-halo-3-and-9-11-the-game_1100-6110134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-no-halo-3-and-9-11-the-game/1100-6110134/" class="article-title">Rumor Control: No Halo 3 and 9/11: The Game </a>
+			<div class="article-subtitle">[UPDATE] This week: Halo 2 trailer rumors, the Killzone non-delay, and Age of Empires 3.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_dawn-of-war-demo-jumps-into-fray_1100-6106979_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dawn-of-war-demo-jumps-into-fray/1100-6106979/" class="article-title">Dawn of War demo jumps into fray</a>
+			<div class="article-subtitle">Lead the space marines in Relic's Warhammer 40K RTS in the multimap demo, available now on GameSpot DLX.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_splinter-cell-pandora-tomorrow-first-look_1100-6085665_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/splinter-cell-pandora-tomorrow-first-look/1100-6085665/" class="article-title">Splinter Cell: Pandora Tomorrow First Look</a>
+			<div class="article-subtitle">Sam Fisher returns in the highly anticipated online-enabled sequel to Splinter Cell.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_ea-revs-up-need-for-speed-most-wanted_1100-6121987_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-revs-up-need-for-speed-most-wanted/1100-6121987/" class="article-title">EA revs up Need for Speed: Most Wanted</a>
+			<div class="article-subtitle">Publisher divulges first details, screen of the next installment in its popular racing series; promises next-gen version this November.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_ects-and-gdce-future-unclear_1100-6121949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ects-and-gdce-future-unclear/1100-6121949/" class="article-title">ECTS and GDCE future unclear</a>
+			<div class="article-subtitle">[UPDATE] CMPi support for London trade show and its companion game developers conference fuzzy; GDCE "not yet officially canceled" say sources close to CMP in North America.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_psychonauts-demo-now-on-dlx_1100-6122004_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psychonauts-demo-now-on-dlx/1100-6122004/" class="article-title">Psychonauts demo now on DLX</a>
+			<div class="article-subtitle">Tim Schafer's new platformer finally seeing light next week; demo starts players off at a summer camp for psychics.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_konami-takes-yu-gi-oh-online_1100-6122009_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-takes-yu-gi-oh-online/1100-6122009/" class="article-title">Konami takes Yu-Gi-Oh! online</a>
+			<div class="article-subtitle">Online version of collectible card game links players in Japan, US, and Europe.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_dragonshard-designer-diary-5-the-building-nexus_1100-6121997_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragonshard-designer-diary-5-the-building-nexus/1100-6121997/" class="article-title">Dragonshard Designer Diary #5 - The Building Nexus</a>
+			<div class="article-subtitle">Dragonshard will feature an innovative building approach in real-time strategy, and designer Charley Price tells us all about it.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_massive-names-advertisers-says-40-games-will-sport-ads_1100-6121928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/massive-names-advertisers-says-40-games-will-sport-ads/1100-6121928/" class="article-title">Massive names advertisers, says 40 games will sport ads</a>
+			<div class="article-subtitle">T-Mobile, Coke, Universal Music Group among brands on board dynamically served ad network.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_sony-unleashes-ratchet-deadlocked_1100-6122014_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-unleashes-ratchet-deadlocked/1100-6122014/" class="article-title">Sony unleashes Ratchet: Deadlocked</a>
+			<div class="article-subtitle">New PS2 game in the Ratchet & Clank franchise will showcase cooperative play and squad management this fall.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_baten-kaitos-collaborator-announces-new-game_1100-6122016_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/baten-kaitos-collaborator-announces-new-game/1100-6122016/" class="article-title">Baten Kaitos collaborator announces new game</a>
+			<div class="article-subtitle">Dev studio Tri-Crescendo announces new fantasy role-playing game.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_china-mobile-users-to-near-600-million_1100-6122018_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/china-mobile-users-to-near-600-million/1100-6122018/" class="article-title">China mobile users to near 600 million</a>
+			<div class="article-subtitle">With 334 million mobile users by year's end, a doubling by 2010 is possible, says analyst.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_genji-dated-in-japan_1100-6122017_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/genji-dated-in-japan/1100-6122017/" class="article-title">Genji dated in Japan</a>
+			<div class="article-subtitle">Game Republic's first game is due on Japanese PS2s this summer.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_dungeons-and-dragons-online-sign-ups-starting_1100-6122021_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dungeons-and-dragons-online-sign-ups-starting/1100-6122021/" class="article-title">Dungeons & Dragons Online sign-ups starting</a>
+			<div class="article-subtitle">New MMORPG based on legendary pen-and-paper fantasy game adventures on PCs later this year.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_jak-x-combat-racing-first-look_1100-6122020_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jak-x-combat-racing-first-look/1100-6122020/" class="article-title">Jak X: Combat Racing First Look</a>
+			<div class="article-subtitle">Sony and Naughty Dog take the Jak franchise on the open road for the fourth entry in the series.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_empire-earth-ii-basks-in-gold_1100-6122042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/empire-earth-ii-basks-in-gold/1100-6122042/" class="article-title">Empire Earth II basks in gold</a>
+			<div class="article-subtitle">Expansive real-time strategy game is complete; will hit shelves April 28.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_qanda-massive-inc-ceo-mitch-davis_1100-6122049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-massive-inc-ceo-mitch-davis/1100-6122049/" class="article-title">Q&A: Massive Inc. CEO Mitch Davis</a>
+			<div class="article-subtitle">In-game ad network founder hopes to make games an attractive buy for brands weaned on TV and other traditional media. Says Davis: The times are a changin'.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_ubisoft-opens-new-canadian-studio_1100-6122034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-opens-new-canadian-studio/1100-6122034/" class="article-title">Ubisoft opens new Canadian studio</a>
+			<div class="article-subtitle">France-based publisher-developer further establishes its development foothold in Quebec province.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_sony-racing-out-jak-sequel_1100-6122056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-racing-out-jak-sequel/1100-6122056/" class="article-title">Sony racing out Jak sequel</a>
+			<div class="article-subtitle">Jak X: Combat Racing announced for fall release on the PS2; game features online play and vehicular combat.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/04/11_will-the-madness-never-cease_1100-6236835_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/will-the-madness-never-cease/1100-6236835/" class="article-title">Will The Madness Never Cease?</a>
+			<div class="article-subtitle">And another falls to the mighty EA Juggernaut. The news of the NCAA signing an exclusive deal with EA Sports to make them the only producers of collegiate football games on consoles and handheld devices is hardly a shock, especially since EA's been the only one makin college football games for a...</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/jade-empire-review/1900-6122015/" class="article-title">Jade Empire Review</a>
+			<div class="article-subtitle">If the setting of Jade Empire appeals to you, along with the promise of a good storyline and some open-ended role playing, then you'll be more than satisfied with BioWare's latest game.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/eye-of-rana-review/1900-6122064/" class="article-title">Eye of Rana Review</a>
+			<div class="article-subtitle">Although Eye of Rana isn't deep enough to satisfy ardent fans of the dungeon-crawler genre, most mobile gamers will be pleasantly surprised at how well it approximates the hypnotic, kill-and-loot gameplay of its predecessors.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/new-york-nights-success-in-the-city-review/1900-6122065/" class="article-title">New York Nights: Success in the City Review</a>
+			<div class="article-subtitle">While New York Nights isn't the most innovative game, it executes extremely well on an established formula. New York Nights isn't The Sims' poor cousin; it's its distinguished brother-in-law.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405jakratsly_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405jakratsly" class="article-title">Jak, Ratchet and Sly to return</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405wipeoutpure_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405wipeoutpure" class="article-title">WipEout PSP extras big in Japan</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405sonybrainbeam_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405sonybrainbeam" class="article-title">Sony to beam games into your brain</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405gamespopular_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405gamespopular" class="article-title">Games more popular than music</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405namco_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405namco" class="article-title">Namco announces US schedule</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news110405_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110405" class="article-title">New Viewtiful Joe</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/04/11_news080405psu_thumbnail.png">
+			<a href="https://www.eurogamer.net/news080405psu" class="article-title">Phantasy Star Universe for Europe</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126433/Brothers-in-Arms-competition-winner-announced/" class="article-title">Brothers in Arms competition winner announced</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126432/Pariah-site-goes-live/" class="article-title">Pariah site goes live</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/park.php" class="article-title">Park</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 26, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_march-madness-2005-respecting-history_1100-6237042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/march-madness-2005-respecting-history/1100-6237042/" class="article-title">March Madness 2005: Respecting History</a>
+			<div class="article-subtitle">Few sports have the breadth and depth of history as college basketball. Every sports fan, it seems, has a favorite March Madness story from back in the day--a huge Cinderella upset, or a disappointing last second loss to a close rival--which they will relate to you with the slightest provocation...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_rumor-control-jason-rubins-next-gig-and-halo-2-beta-details_1100-6104847_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumor-control-jason-rubins-next-gig-and-halo-2-beta-details/1100-6104847/" class="article-title">Rumor Control: Jason Rubin's next gig and Halo 2 beta details</a>
+			<div class="article-subtitle">This week: Xbox Doom 3 in 2005 (again) and Codename: Panzers rewrites history, much to the Poles' offense.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_grand-theft-auto-san-andreas-weekend-update-street-talking_1100-6111263_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-theft-auto-san-andreas-weekend-update-street-talking/1100-6111263/" class="article-title">Grand Theft Auto: San Andreas Weekend Update: Street Talking</a>
+			<div class="article-subtitle">We take a final look at Rockstar's upcoming entry in the Grand Theft Auto series as its official street date looms.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_mortal-kombat-shaolin-monks-first-look_1100-6111244_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-shaolin-monks-first-look/1100-6111244/" class="article-title">Mortal Kombat: Shaolin Monks First Look</a>
+			<div class="article-subtitle">Midway takes the wraps off its new action adventure entry in the Mortal Kombat series.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_full-san-andreas-soundtrack-details_1100-6111346_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/full-san-andreas-soundtrack-details/1100-6111346/" class="article-title">Full San Andreas soundtrack details</a>
+			<div class="article-subtitle">From house to funk to country to gangsta rap, the next Grand Theft Auto's radio selection is the series' biggest yet.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_grand-theft-auto-san-andreas-weekend-update-thug-life_1100-6110735_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-theft-auto-san-andreas-weekend-update-thug-life/1100-6110735/" class="article-title">Grand Theft Auto: San Andreas Weekend Update: Thug Life</a>
+			<div class="article-subtitle">We get an exclusive look at the gangs of San Andreas. Exclusive assets and information inside.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_sony-lowers-the-price-of-the-classic-ps2-in-japan_1100-6111417_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-lowers-the-price-of-the-classic-ps2-in-japan/1100-6111417/" class="article-title">Sony lowers the price of the "classic" PS2 in Japan</a>
+			<div class="article-subtitle">SCE will continue to support the hard-disk drive, and will let consumers choose which version of the hardware to purchase.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_taiko-drum-master-ships-to-retail_1100-6111430_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/taiko-drum-master-ships-to-retail/1100-6111430/" class="article-title">Taiko Drum Master ships to retail</a>
+			<div class="article-subtitle">Namco's Japanese rhythm game and included drum controller are now available in stores.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_smackdown-vs-raw-goes-gold_1100-6111437_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/smackdown-vs-raw-goes-gold/1100-6111437/" class="article-title">SmackDown! vs. Raw goes gold</a>
+			<div class="article-subtitle">The first WWE title to feature online play enters the final manufacturing process, and will ship November 2 for the PS2.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_two-shrek-2-games-ship_1100-6111446_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/two-shrek-2-games-ship/1100-6111446/" class="article-title">Two Shrek 2 games ship</a>
+			<div class="article-subtitle">The giant green ogre and all his friends star in two new adventures for the Game Boy Advance and PC starting today.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_sega-ages-virtua-fighter-2-import-preview_1100-6111482_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-ages-virtua-fighter-2-import-preview/1100-6111482/" class="article-title">Sega Ages: Virtua Fighter 2 Import Preview</a>
+			<div class="article-subtitle">We check out the latest entry in Sega's nostalgia series in Japan, which brings the second entry in the Virtua Fighter series to the PlayStation 2.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_pacific-fighters-ships-for-the-pc_1100-6111452_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pacific-fighters-ships-for-the-pc/1100-6111452/" class="article-title">Pacific Fighters ships for the PC</a>
+			<div class="article-subtitle">Ubisoft ships the new WWII flight combat simulation from 1C Company to stores.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_men-of-valor-ships-for-the-pc_1100-6111454_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/men-of-valor-ships-for-the-pc/1100-6111454/" class="article-title">Men of Valor ships for the PC</a>
+			<div class="article-subtitle">Vivendi and 2015's Xbox Vietnam War action title is now playable with a mouse and keyboard.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_immortal-cities-children-of-the-nile-gold_1100-6111456_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/immortal-cities-children-of-the-nile-gold/1100-6111456/" class="article-title">Immortal Cities: Children of the Nile gold</a>
+			<div class="article-subtitle">The pharaoh simulator is sent off to manufacturing and will ship November 9.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_matrix-games-to-publish-gates-of-troy_1100-6111459_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/matrix-games-to-publish-gates-of-troy/1100-6111459/" class="article-title">Matrix Games to publish Gates of Troy</a>
+			<div class="article-subtitle">Slitherine Strategies' Spartan sequel is slated to ship soon and will cover the Trojan War in all its detail.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_ea-and-wb-begin-batman-begins_1100-6111461_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-and-wb-begin-batman-begins/1100-6111461/" class="article-title">EA and WB begin Batman Begins</a>
+			<div class="article-subtitle">The game giant and movie studio announce a multiplatform adaptation of the upcoming superhero flick--including a PSP version.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_konami-ships-two-yu-gi-oh-titles_1100-6111473_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-ships-two-yu-gi-oh-titles/1100-6111473/" class="article-title">Konami ships two Yu-Gi-Oh! titles</a>
+			<div class="article-subtitle">The <i>Shonen Jump</i> manga series spawns more strategy games on the PS2 and GBA, available starting today.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_scrapland-gets-gold-plating_1100-6111478_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/scrapland-gets-gold-plating/1100-6111478/" class="article-title">Scrapland gets gold plating</a>
+			<div class="article-subtitle">American McGee's "film noir murder mystery set in the world of robots" clangs off to the factory and will ship early next month for the PC.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_big-stakes-in-holiday-game-scramble_1100-6111464_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-stakes-in-holiday-game-scramble/1100-6111464/" class="article-title">Big stakes in holiday game scramble</a>
+			<div class="article-subtitle">A new Grand Theft Auto game is coming out for the holiday season. So is Halo 2. And more Metal Gear Solid, and Half-Life 2, and Need for Speed. Do gamers even have that much cash?</div>
+			<div class="article-author">David Becker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_activision-reports-solid-earnings-raises-guidance_1100-6111475_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-reports-solid-earnings-raises-guidance/1100-6111475/" class="article-title">Activision reports solid earnings, raises guidance</a>
+			<div class="article-subtitle">Momentum swings toward the house that Spidey built; revenues, profits climb. Guidance for full fiscal year 2005 up $50 million.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_no-xbox-doom-3-resurrection-of-evil-until-march-2005_1100-6111480_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-xbox-doom-3-resurrection-of-evil-until-march-2005/1100-6111480/" class="article-title">No Xbox Doom 3, Resurrection of Evil until March 2005</a>
+			<div class="article-subtitle">The publisher says the console version of and expansion pack for the popular PC shooter aren't coming until next spring, but concedes that id makes the final call.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_2-fast-2-furious-impressions_1100-6111401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2-fast-2-furious-impressions/1100-6111401/" class="article-title">2 Fast 2 Furious Impressions</a>
+			<div class="article-subtitle">We peel out in Digital Bridges' follow-up to its smash-hit racing game.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_spider-man-2-ds-qanda_1100-6111488_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-2-ds-qanda/1100-6111488/" class="article-title">Spider-Man 2 DS Q&A</a>
+			<div class="article-subtitle">We chat up Karthik Bala, CEO of Vicarious Visions, to find out more about Activision's Nintendo DS launch title and development for the handheld.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_need-for-speed-underground-2-demo-revs-up_1100-6111499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-underground-2-demo-revs-up/1100-6111499/" class="article-title">Need for Speed Underground 2 demo revs up</a>
+			<div class="article-subtitle">Need for Speed Underground fanatics rejoice as PC demo of hotly anticipated street racing sequel hits GameSpot DLX.</div>
+			<div class="article-author">Chris Kohler</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_ctia-panel-shills-for-mobile-gaming_1100-6111419_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ctia-panel-shills-for-mobile-gaming/1100-6111419/" class="article-title">CTIA panel shills for mobile gaming</a>
+			<div class="article-subtitle">The Load, Lock, N-Gage! panel reveals little about mobile gaming, and much about Airborne's lack of decorum.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_a-matter-of-control_1100-6237041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-matter-of-control/1100-6237041/" class="article-title">A Matter of Control</a>
+			<div class="article-subtitle">While reading the GameSpot Sports Game Forum this morning, I happened upon an interesting thread by a GameSpot reader calling himself JAMPro. The theme of his post was execution in football games, specifically in the passing game. To his way of thinking, throwing the ball in a modern-day NFL...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_deer-hunter-final-hands-on-impressions_1100-6111404_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deer-hunter-final-hands-on-impressions/1100-6111404/" class="article-title">Deer Hunter Final Hands-On Impressions</a>
+			<div class="article-subtitle">We sat down with Sorrent to get some hands-on time with the final version of this soon-to-be-released hunting game.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_dark-castle-hands-on_1100-6111405_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-castle-hands-on/1100-6111405/" class="article-title">Dark Castle Hands-on</a>
+			<div class="article-subtitle">We're gaming like it's 1986 at CTIA, thanks to this mobile version of the classic Mac platform action game.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_pinball-panic-hands-on-impressions_1100-6111406_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pinball-panic-hands-on-impressions/1100-6111406/" class="article-title">Pinball Panic Hands-On Impressions</a>
+			<div class="article-subtitle">We recently got our hands dirty with the GPRS multiplayer-enabled Pinball Panic.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_daily-puzzle-hands-on_1100-6111400_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/daily-puzzle-hands-on/1100-6111400/" class="article-title">Daily Puzzle Hands-On</a>
+			<div class="article-subtitle">We put on our thinking caps and try out Sorrent's new collection of head-scratchers at CTIA.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_zuma-hands-on_1100-6111399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zuma-hands-on/1100-6111399/" class="article-title">Zuma Hands-On</a>
+			<div class="article-subtitle">We get our hands on Sorrent's upcoming adaptation of PopCap's colorful puzzle game.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/10/26_are-wrestling-fans-really-this-nitpicky_1100-6237040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/are-wrestling-fans-really-this-nitpicky/1100-6237040/" class="article-title">Are Wrestling Fans Really This Nitpicky?</a>
+			<div class="article-subtitle">When it comes to their games, sports fans have always been very picky about how their favorite sports are represented both aesthetically and mechanically. However, no fans on this earth are more nitpicky about this, it seems, than those of professional wrestling. As a long time wrestling game fan,...</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ace-combat-5-the-unsung-war-review/1900-6111374/" class="article-title">Ace Combat 5: The Unsung War Review</a>
+			<div class="article-subtitle">Ace Combat 5 isn't the huge step for the series that Ace Combat 04 was, but it's still a great flight combat game, featuring grueling arcade-style action and plenty of surprises.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/atlantis-evolution-review/1900-6111339/" class="article-title">Atlantis Evolution Review</a>
+			<div class="article-subtitle">If you can bear playing Atlantis Evolution long enough, it starts to get better toward the end, but by then it's scant consolation.</div>
+			<div class="article-author">Scott Osborne</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/national-treasure-review/1900-6111257/" class="article-title">National Treasure Review</a>
+			<div class="article-subtitle">Unless you are obsessed with all things Nic Cage, there's absolutely no reason to buy this game.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dead-or-alive-ultimate-review/1900-6111467/" class="article-title">Dead or Alive Ultimate Review</a>
+			<div class="article-subtitle">For a game that's so bold as to call itself "Ultimate," DOAU sure comes close. It truly is the best, most fully featured Dead or Alive fighting game yet.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scaler-review/1900-6111505/" class="article-title">Scaler Review</a>
+			<div class="article-subtitle">Scaler just isn't an especially engaging platformer, so it's unlikely that anyone past the youngest of audiences will get too much fun from it.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/donald-trumps-real-estate-tycoon-review/1900-6111504/" class="article-title">Donald Trump's Real Estate Tycoon Review</a>
+			<div class="article-subtitle">Real Estate Tycoon's strong presentation makes it an offering worthy of notice by fans of business simulations.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-nightmare-of-druaga-review/1900-6111511/" class="article-title">The Nightmare of Druaga Review</a>
+			<div class="article-subtitle">The Nightmare of Druaga is a dungeon hack of the most boring kind.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/10/26_ukcharts-261004_thumbnail.png">
+			<a href="https://www.eurogamer.net/ukcharts-261004" class="article-title">UK Charts: FIFA 2005 back on top</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/10/26_news261004ffxi_thumbnail.png">
+			<a href="https://www.eurogamer.net/news261004ffxi" class="article-title">Final Fantasy XI celebrates Halloween</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/10/26_r-sly2bandofthieves-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-sly2bandofthieves-ps2" class="article-title">Sly 2: Band Of Thieves</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/10/26_news261004bardstale_thumbnail.png">
+			<a href="https://www.eurogamer.net/news261004bardstale" class="article-title">inXile plans to leak The Bard's Tale</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/10/26_news261004mgs3single_thumbnail.png">
+			<a href="https://www.eurogamer.net/news261004mgs3single" class="article-title">Konami to release MGS3 theme single</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126041/Doom-3-Resurrection-of-Evil-expansion-announced/" class="article-title">Doom 3: Resurrection of Evil expansion announced</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126040/Half-Life-2-may-be-banned-in-Australia/" class="article-title">Half-Life 2 may be banned in Australia</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126039/New-look-PlayStation-2-ships-Friday/" class="article-title">New look PlayStation 2 ships Friday</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126038/GTA-San-Andreas-arrives-in-New-Zealand/" class="article-title">GTA: San Andreas arrives in New Zealand</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/scary-scavenger-2.php" class="article-title">Scary Scavenger Hunt 2</a>
+			<div class="article-author">Jay</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/scary-scavenger.php" class="article-title">Scary Scavenger Hunt</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

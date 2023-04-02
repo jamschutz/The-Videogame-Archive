@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 17, 2005</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_aeon-flux-first-look_1100-6131253_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aeon-flux-first-look/1100-6131253/" class="article-title">Aeon Flux First Look</a>
+			<div class="article-subtitle">We meet with Majesco and get our first look at Terminal Reality's upcoming movie-inspired action game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_teen-titans-hands-on_1100-6131242_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/teen-titans-hands-on/1100-6131242/" class="article-title">Teen Titans Hands-On</a>
+			<div class="article-subtitle">We try out the latest version of Majesco's pint-sized game starring the popular comic and cartoon superteam.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_age-of-empires-the-age-of-kings-impressions_1100-6131266_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/age-of-empires-the-age-of-kings-impressions/1100-6131266/" class="article-title">Age of Empires: The Age of Kings Impressions</a>
+			<div class="article-subtitle">We meet with Majesco to take a look at the latest work-in-progress version of this turn-based strategy game for the DS.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_spartan-total-warrior-preview_1100-6131234_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spartan-total-warrior-preview/1100-6131234/" class="article-title">Spartan: Total Warrior Preview</a>
+			<div class="article-subtitle">We visit Creative Assembly's UK office to check out near-finished versions of Spartan: Total Warrior on all three of the current-generation consoles.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_bachus-bumped-to-ceo-at-infinium_1100-6131240_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bachus-bumped-to-ceo-at-infinium/1100-6131240/" class="article-title">Bachus bumped to CEO at Infinium</a>
+			<div class="article-subtitle">Industry vet promoted to top position at Phantom parent as founder relinquishes CEO slot but stays on board.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_rumble-roses-xx-confirmed-for-north-america_1100-6131258_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumble-roses-xx-confirmed-for-north-america/1100-6131258/" class="article-title">Rumble Roses XX confirmed for North America</a>
+			<div class="article-subtitle">All-gal grappler gets a return bout with online play, tag-team action on the Xbox 360.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_madden-nfl-06-updated-hands-on_1100-6131287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-nfl-06-updated-hands-on/1100-6131287/" class="article-title">Madden NFL 06 Updated Hands-On</a>
+			<div class="article-subtitle">We go hands-on with EA's upcoming footballer for the PSP.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_rumble-roses-xx-working-title-first-look_1100-6131222_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rumble-roses-xx-working-title-first-look/1100-6131222/" class="article-title">Rumble Roses XX (working title) First Look</a>
+			<div class="article-subtitle">Konami's buxom wrestling beauties are coming to the Xbox 360. We get an eyeful of its newest game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_marvel-nemesis-rise-of-the-imperfects-updated-hands-on-2_1100-6131295_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-nemesis-rise-of-the-imperfects-updated-hands-on-2/1100-6131295/" class="article-title">Marvel Nemesis: Rise of the Imperfects Updated Hands-On #2</a>
+			<div class="article-subtitle">We get to try the latest version of EA's upcoming PSP fighter.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_tiger-woods-pga-tour-06-hands-on_1100-6131277_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tiger-woods-pga-tour-06-hands-on/1100-6131277/" class="article-title">Tiger Woods PGA Tour 06 Hands-On</a>
+			<div class="article-subtitle">We observe Tiger prowling the links in this hands-on preview of Tiger Woods 06 for the PSP.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_metal-slug-4-and-5-delivers-one-two-punch-to-xbox_1100-6131314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-slug-4-and-5-delivers-one-two-punch-to-xbox/1100-6131314/" class="article-title">Metal Slug 4 & 5 delivers one-two punch to Xbox</a>
+			<div class="article-subtitle">Coin-op combo of SNK Playmore USA's 2D military shooters ships to stores.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_getting-up-gets-put-down-by-anti-graffiti-lobby_1100-6131203_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/getting-up-gets-put-down-by-anti-graffiti-lobby/1100-6131203/" class="article-title">Getting Up gets put down by anti-graffiti lobby</a>
+			<div class="article-subtitle">[UPDATE] Atari comes in for blasts from groups who worry that the upcoming Marc Ecko-inspired title will encourage a wave of destructive behavior. Today, the company reacted.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_psp-ys-pushed-into-2006_1100-6131303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psp-ys-pushed-into-2006/1100-6131303/" class="article-title">PSP Ys pushed into 2006</a>
+			<div class="article-subtitle">Konami's portable installment of the old-school action RPG series is set for launch next spring.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_konami-dances-out-rhythm-game-tunes_1100-6131279_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-dances-out-rhythm-game-tunes/1100-6131279/" class="article-title">Konami dances out rhythm game tunes</a>
+			<div class="article-subtitle">New tracks for DDR2 and Karaoke Revolution Party include "Brick House," "Endless Love," and songs from Fatboy Slim and Sean Paul.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_konami-redates-beatmania-slai-and-wallace-and-gromit_1100-6131309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-redates-beatmania-slai-and-wallace-and-gromit/1100-6131309/" class="article-title">Konami redates Beatmania, SLAI, and Wallace & Gromit</a>
+			<div class="article-subtitle">Mech fighter and claymation adventure game pulled up to September releases, Beatmania pushed back to next year.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_dig-dug-strikes-stateside-ds_1100-6131321_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dig-dug-strikes-stateside-ds/1100-6131321/" class="article-title">Dig Dug strikes stateside DS</a>
+			<div class="article-subtitle">Namco bringing new version of classic arcade action game to Nintendo's handheld in North America this fall.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_sonys-online-store-in-japan-moves-to-restrict-access-to-games_1100-6131330_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonys-online-store-in-japan-moves-to-restrict-access-to-games/1100-6131330/" class="article-title">Sony's online store in Japan moves to restrict access to games</a>
+			<div class="article-subtitle">PlayStation.com Japan building roadblocks to prevent the sale of adults only-rated games to minors.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_konami-snags-marvel-card-game-license_1100-6131334_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-snags-marvel-card-game-license/1100-6131334/" class="article-title">Konami snags Marvel card game license</a>
+			<div class="article-subtitle">Yu-Gi-Oh! publisher adds superheroes to its hand of trading card games.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_koeis-ni-oh-unplayable-at-tgs_1100-6131335_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/koeis-ni-oh-unplayable-at-tgs/1100-6131335/" class="article-title">Koei's Ni-Oh unplayable at TGS</a>
+			<div class="article-subtitle">Anticipated PlayStation 3 game gets video-only presentation at Tokyo Game Show.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_mgs3-subsistence-details-revealed_1100-6131333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mgs3-subsistence-details-revealed/1100-6131333/" class="article-title">MGS3: Subsistence details revealed</a>
+			<div class="article-subtitle">Konami lays down the skinny on online multiplayer modes and expanded portions of Snake Eater's single-player game.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_starmaker-given-to-the-movies-preorders_1100-6131340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/starmaker-given-to-the-movies-preorders/1100-6131340/" class="article-title">StarMaker given to The Movies preorders</a>
+			<div class="article-subtitle">Stand-alone program lets gamers skip the casting couch auditions to make their own characters for the upcoming Tinseltown sim.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_def-jam-throws-down-on-next-gens_1100-6131339_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/def-jam-throws-down-on-next-gens/1100-6131339/" class="article-title">Def Jam throws down on next-gens</a>
+			<div class="article-subtitle">The rappin' and fightin' series will continue on the new consoles, may cross to other genres as EA confirms Def Jam 3 is on the way.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_microsoft-unveils-age-of-empires-iii-collectors-edition_1100-6131341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-unveils-age-of-empires-iii-collectors-edition/1100-6131341/" class="article-title">Microsoft unveils Age of Empires III Collector's Edition</a>
+			<div class="article-subtitle">Special packaging of upcoming strategy game includes art book, making-of DVD, poster, and soundtrack CD.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_2k-games-reembarks-civ-iii-pirates-for-pcs_1100-6131348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2k-games-reembarks-civ-iii-pirates-for-pcs/1100-6131348/" class="article-title">2K Games reembarks Civ III, Pirates! for PCs</a>
+			<div class="article-subtitle">Sid Meier games from Firaxis rereleased for $29.99; Civvies build empires, pirates swashbuckle the high seas.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_new-broken-sword-game-announced_1100-6131353_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-broken-sword-game-announced/1100-6131353/" class="article-title">New Broken Sword game announced</a>
+			<div class="article-subtitle">Fourth iteration of Revolution's adventure game series coming to PCs next summer.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_graeme-revell-to-score-call-of-duty-sequels_1100-6131370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/graeme-revell-to-score-call-of-duty-sequels/1100-6131370/" class="article-title">Graeme Revell to score Call of Duty sequels</a>
+			<div class="article-subtitle"><i>Chronicles of Riddick</i> composer providing soundtracks for Activision's new first-person shooters.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_castlevania-dawn-of-sorrow-hands-on-a-fresh-bite_1100-6131181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castlevania-dawn-of-sorrow-hands-on-a-fresh-bite/1100-6131181/" class="article-title">Castlevania: Dawn of Sorrow Hands-On: A Fresh Bite</a>
+			<div class="article-subtitle">We plunge headfirst into a nearly final build of Konami's latest handheld vampire-slaying simulator.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_konami-to-leverage-brands-with-mobile-consumers_1100-6131382_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-to-leverage-brands-with-mobile-consumers/1100-6131382/" class="article-title">Konami to leverage brands with mobile consumers </a>
+			<div class="article-subtitle">Game pub teams with Funmail to promote wallpaper and ringtones based on Konami IPs.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_take-gt-legends-for-a-test-drive_1100-6131354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-gt-legends-for-a-test-drive/1100-6131354/" class="article-title">Take GT Legends for a test-drive</a>
+			<div class="article-subtitle">Historic racing-sim demo puts players behind the wheel of three different cars; download available now at DLX.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_black-buccaneer-sails-forth_1100-6131387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-buccaneer-sails-forth/1100-6131387/" class="article-title">Black Buccaneer sails forth</a>
+			<div class="article-subtitle">New action adventure game from France-based Widescreen Games explores darker side of being a pirate.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_castlevania-curse-of-darkness-hands-on-the-early-levels_1100-6131180_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castlevania-curse-of-darkness-hands-on-the-early-levels/1100-6131180/" class="article-title">Castlevania: Curse of Darkness Hands-On: The Early Levels</a>
+			<div class="article-subtitle">Konami leads us down the dark path of its latest 3D Castlevania in our in-depth look at the beginning of the game.</div>
+			<div class="article-author">Brad Shoemaker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_narnia-temporarily-exclusive-to-ps2-in-europe_1100-6131389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/narnia-temporarily-exclusive-to-ps2-in-europe/1100-6131389/" class="article-title">Narnia temporarily exclusive to PS2 in Europe</a>
+			<div class="article-subtitle">Sony Europe to provide marketing support, system bundles to promote game.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_mythic-unleashes-new-island-in-dark-age-of-camelot_1100-6131369_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mythic-unleashes-new-island-in-dark-age-of-camelot/1100-6131369/" class="article-title">Mythic unleashes new island in Dark Age of Camelot</a>
+			<div class="article-subtitle">Isle of Agramon a new setting for DAOC's massive realm-versus-realm battles.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_land-of-legends-goes-gold_1100-6131397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/land-of-legends-goes-gold/1100-6131397/" class="article-title">Land of Legends goes gold</a>
+			<div class="article-subtitle">Humans, elves, and more to battle when PC game is released in September; demo now available on GameSpot DLX.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_world-soccer-winning-eleven-9-hands-on-impressions_1100-6131393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-soccer-winning-eleven-9-hands-on-impressions/1100-6131393/" class="article-title">World Soccer Winning Eleven 9 Hands-On Impressions</a>
+			<div class="article-subtitle">Konami's wildly popular football franchise returns to the States early next year. We take our first hands-on look.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_motogp-3-pc-hands-on-the-pc-learns-the-meaning-of-speed_1100-6131347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/motogp-3-pc-hands-on-the-pc-learns-the-meaning-of-speed/1100-6131347/" class="article-title">MotoGP 3 PC Hands-On - The PC Learns the Meaning of Speed</a>
+			<div class="article-subtitle">We saddle up with the PC version of THQ's upcoming two-wheeled racing game.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_madden-challenge-details-finalized_1100-6131380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-challenge-details-finalized/1100-6131380/" class="article-title">Madden Challenge details finalized</a>
+			<div class="article-subtitle">EA's national virtual football tourney starts in Sin City at the end of the month; $100,000 goes to best pigskin player.</div>
+			<div class="article-author">Tim Surette</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_suikoden-tactics-hands-on-impressions_1100-6131398_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/suikoden-tactics-hands-on-impressions/1100-6131398/" class="article-title">Suikoden Tactics Hands-On Impressions</a>
+			<div class="article-subtitle">The 108 Star Story gets strategic with the all-new Suikoden Tactics.</div>
+			<div class="article-author">Bethany Massimilla</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_ea-touts-05-06-mobile-games-lineup_1100-6123094_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-touts-05-06-mobile-games-lineup/1100-6123094/" class="article-title">EA touts '05-'06 mobile games lineup</a>
+			<div class="article-subtitle">Digital Bridges deal left behind as EA intends to develop its own mobile titles; Madden, Need for Speed, The Sims, Tiger Woods, and FIFA franchises to be tapped first.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_chartspot-march-2005_1100-6123038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chartspot-march-2005/1100-6123038/" class="article-title">ChartSpot: March 2005</a>
+			<div class="article-subtitle">The GameCube is shut out of the console top 20 as Gran Turismo 4 retains pole position; Sims 2, WOW top PC charts.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_updates_1100-6236714_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/updates/1100-6236714/" class="article-title">Updates</a>
+			<div class="article-subtitle">In case you missed it (and I did, having spent a few days on vacation), the last few days have been pretty hectic here at GameSpot, especially on the sports side of things. Beginning last Friday, we posted our redesigned and fully updated History of Football feature and Alex rocked a great...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_gt-legends-demo-is-live_1100-6236713_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gt-legends-demo-is-live/1100-6236713/" class="article-title">GT Legends Demo is Live</a>
+			<div class="article-subtitle">Gearheads of the world, rejoice. After developing last year's critically hailed PC racing sim GTR FIA Racing, the four-wheel maniacs at SimBin are at it again, this time with GT Legends--a game that hearkens back to the glory days of sports car racing and features drivable rocket sleds from the 60s...</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2005/08/17_madden-challenge-2005-details-announced_1100-6236712_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madden-challenge-2005-details-announced/1100-6236712/" class="article-title">Madden Challenge 2005 Details Announced</a>
+			<div class="article-subtitle">Details on the fourth annual Madden Challenge tournament have been announced and a few changes are in store for gamers looking to prove they're the best cheeser... errr... Madden player around. First things first, the grand prize has doubled to a cool $100,000 and one can only assume the...</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/glimmerati-review/1900-6131336/" class="article-title">Glimmerati Review</a>
+			<div class="article-subtitle">Glimmerati's combination of simple driving with an engaging, character-driven plot makes it one of the N-Gage's better games.</div>
+			<div class="article-author">Stephen Palley</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805kingkonggr3launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805kingkonggr3launch" class="article-title">King Kong, Ghost Recon 3 to appear at Xbox 360 launch</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805mgsmovie_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805mgsmovie" class="article-title">A Metal Gear film from Uwe Boll?</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805konamidates_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805konamidates" class="article-title">Konami release dates</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805mgs3online_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805mgs3online" class="article-title">Metal Gear Solid online plans</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_a-independence2-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-independence2-pc" class="article-title">The State of Independence #2</a>
+			<div class="article-author">Kieron Gillen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_fi-tombraiderlegend-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-tombraiderlegend-ps2" class="article-title">Tomb Raider: Legend</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805mariosmash_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805mariosmash" class="article-title">Mario Smash Football dated</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805pspaccessories_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805pspaccessories" class="article-title">New PSP accessories launched</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805sotc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805sotc" class="article-title">Shadow OTC producer speaks</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805gbmicro_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805gbmicro" class="article-title">GB Micro priced, dated</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_a-ukcharts160805_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-ukcharts160805" class="article-title">UK Charts: Brian Lara still not out at No.1</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_fi-kingkong-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-kingkong-ps2" class="article-title">Peter Jackson's King Kong</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805sexingames_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805sexingames" class="article-title">IGDA to look at sex in games</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805zelda_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805zelda" class="article-title">No Zelda until April at earliest</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805hopdemo_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805hopdemo" class="article-title">Heroes of the Pacific demo</a>
+			<div class="article-author">Ellie Gibson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news170805revolution_thumbnail.png">
+			<a href="https://www.eurogamer.net/news170805revolution" class="article-title">Ubi supports Revolution</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2005/08/17_news160805twilightprincess_thumbnail.png">
+			<a href="https://www.eurogamer.net/news160805twilightprincess" class="article-title">Legend of Zelda: Twilight Princess slips to 2006</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126723/ONeal-to-be-cover-athlete-spokesman-for-NBA-2k6/" class="article-title">O'Neal to be cover athlete, spokesman for NBA 2k6</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126726/New-Zelda-delayed-till-2006/" class="article-title">New Zelda delayed till 2006</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126725/Codemasters-joins-online-distribution-network/" class="article-title">Codemasters joins online distribution network</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i126724/Tetris-creator-to-collaborate-on-new-series/" class="article-title">Tetris creator to collaborate on new series</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/update.php" class="article-title">Update</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2005/08/17_2005_08_galshell-blood-red-skies.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2005/08/galshell-blood-red-skies.html" class="article-title">Galshell: Blood Red Skies</a>
+			<div class="article-author">Tim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Indygamer/_thumbnails/2005/08/17_2005_08_route960.html_thumbnail.jpg">
+			<a href="http://indygamer.blogspot.com/2005/08/route960.html" class="article-title">Route960</a>
+			<div class="article-author">Tim</div>
+		</div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

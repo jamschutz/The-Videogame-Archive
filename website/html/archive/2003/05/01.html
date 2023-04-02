@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 1, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_colin-mcrae-rally-04-announced_1100-6026073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/colin-mcrae-rally-04-announced/1100-6026073/" class="article-title">Colin McRae Rally 04 announced</a>
+			<div class="article-subtitle">Codemasters announces that its next rally driving game will be coming to the PS2 and Xbox later this year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_silent-hill-3-coming-to-the-pc_1100-6026026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/silent-hill-3-coming-to-the-pc/1100-6026026/" class="article-title">Silent Hill 3 coming to the PC</a>
+			<div class="article-subtitle">Konami will release an enhanced version of its survival horror game on the PC this fall.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_new-voodoo-vince-details_1100-6026078_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-voodoo-vince-details/1100-6026078/" class="article-title">New Voodoo Vince details</a>
+			<div class="article-subtitle">Microsoft released some new information on its upcoming voodoo-doll-inspired action game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_michael-vick-takes-madden-nfl-2004-cover_1100-6026080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/michael-vick-takes-madden-nfl-2004-cover/1100-6026080/" class="article-title">Michael Vick takes Madden NFL 2004 cover</a>
+			<div class="article-subtitle">The Atlanta Falcons quarterback will be gracing the cover of EA Sports' next Madden game.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_weekly-pc-game-sales-chart_1100-6026076_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-pc-game-sales-chart/1100-6026076/" class="article-title">Weekly PC game sales chart</a>
+			<div class="article-subtitle">NovaLogic's Delta Force: Black Hawk Down remains on top.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_namco-gives-deadline-to-sega-for-merger_1100-6026081_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/namco-gives-deadline-to-sega-for-merger/1100-6026081/" class="article-title">Namco gives deadline to Sega for merger</a>
+			<div class="article-subtitle">Sega will have to give an answer within nine days.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_kelly-slaters-pro-surfer-coming-to-the-pc_1100-6026082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kelly-slaters-pro-surfer-coming-to-the-pc/1100-6026082/" class="article-title">Kelly Slater's Pro Surfer coming to the PC</a>
+			<div class="article-subtitle">Aspyr will convert and publish the PC version of Activision's surfing game.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_downhill-domination-preview_1100-6026095_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/downhill-domination-preview/1100-6026095/" class="article-title">Downhill Domination Preview</a>
+			<div class="article-subtitle">We check out Incog's upcoming downhill-mountain-biking game.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_deus-ex-2-and-thief-3-to-use-havok-engine_1100-2823438_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deus-ex-2-and-thief-3-to-use-havok-engine/1100-2823438/" class="article-title">Deus Ex 2 and Thief 3 to use Havok engine</a>
+			<div class="article-subtitle">Havok announces a deal with Eidos to include its physics engine technology in two upcoming Ion Storm games.</div>
+			<div class="article-author">Trey Walker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_eidos-announces-e3-lineup_1100-6026100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eidos-announces-e3-lineup/1100-6026100/" class="article-title">Eidos announces E3 lineup</a>
+			<div class="article-subtitle">Legacy of Kain: Defiance and Thief will be among the games at Eidos' E3 booth.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_tony-hawks-pro-skater-4-impressions_1100-6026097_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tony-hawks-pro-skater-4-impressions/1100-6026097/" class="article-title">Tony Hawk's Pro Skater 4 Impressions</a>
+			<div class="article-subtitle">We get a hands-on look at Aspyr's PC conversion of the latest in the popular skating series.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_brute-force-updated-preview_1100-6026096_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brute-force-updated-preview/1100-6026096/" class="article-title">Brute Force Updated Preview</a>
+			<div class="article-subtitle">We take an updated look at Microsoft and Digital Anvil's squad-based shooter.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_call-of-duty-qanda_1100-6026083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-qanda/1100-6026083/" class="article-title">Call of Duty Q&A</a>
+			<div class="article-subtitle">We get all the details on this upcoming World War II action game from Infinity Ward's Vince Zampella.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_postal-2-on-back-order_1100-6026120_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/postal-2-on-back-order/1100-6026120/" class="article-title">Postal 2 on back order</a>
+			<div class="article-subtitle">Whiptail Interactive announces that its controversial first-person shooter has sold out of its initial shipment.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_unreal-ii-demo-released_1100-6026121_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unreal-ii-demo-released/1100-6026121/" class="article-title">Unreal II demo released</a>
+			<div class="article-subtitle">Months after the game's release, Legend Entertainment delivers a free demo of its first-person shooter.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_vietcong-single-player-demo-released_1100-6026122_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vietcong-single-player-demo-released/1100-6026122/" class="article-title">Vietcong single-player demo released</a>
+			<div class="article-subtitle">A new single-player demo of Gathering of Developers' and Pterodon's Vietnam-inspired shooter has been released.</div>
+			<div class="article-author">Bob Colayco</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_gdc-2001-circus-maximus-unveiled_1100-2700373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gdc-2001-circus-maximus-unveiled/1100-2700373/" class="article-title">GDC 2001: Circus Maximus unveiled</a>
+			<div class="article-subtitle">Kodiak Interactive reveals the Xbox chariot racing game set in ancient Rome.</div>
+			<div class="article-author">Shahed Ahmed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/05/01_spy-hunter-impressions_1100-6026102_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spy-hunter-impressions/1100-6026102/" class="article-title">Spy Hunter Impressions</a>
+			<div class="article-subtitle">We check out the PC version of Midway's 3D update of the video game classic.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/devastation-review/1900-6024238/" class="article-title">Devastation Review</a>
+			<div class="article-subtitle">Devastation is an ambitious but seriously flawed shooter.</div>
+			<div class="article-author">Erik Wolpaw</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/seablade-review/1900-6026084/" class="article-title">SeaBlade Review</a>
+			<div class="article-subtitle">SeaBlade is just too light on action, production quality, and overall gameplay to make it a worthwhile purchase.</div>
+			<div class="article-author">Alex Navarro</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ninja-five-0-review/1900-6026090/" class="article-title">Ninja Five-0 Review</a>
+			<div class="article-subtitle">If you're up for some faux-nostalgic fun and some good, challenging ninja action, Ninja Five-0 is well worth your time.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tony-hawks-pro-skater-4-review/1900-2897632/" class="article-title">Tony Hawk's Pro Skater 4 Review</a>
+			<div class="article-subtitle">It doesn't quite make Tony Hawk 3 obsolete, but rather gives the handheld crowd yet another excellent action sports game to choose from.</div>
+			<div class="article-author">Ryan Davis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cabelas-4x4-off-road-adventure-3-review/1900-6026094/" class="article-title">Cabela's 4X4 Off-Road Adventure 3 Review</a>
+			<div class="article-subtitle">Cabela's 4x4 Off-Road Adventure 3 is simply too quirky, too slow-paced, and too repetitious to be enjoyable for most racing fans.</div>
+			<div class="article-author">Gord Goble</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503voodoovince_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503voodoovince" class="article-title">Microsoft employs Voodoo to drive Xbox sales</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503cmr04_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503cmr04" class="article-title">Codies confirm Colin McRae Rally 04</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503pop_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503pop" class="article-title">The Prince of Persia's evolution</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-cncgenerals-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-cncgenerals-pc" class="article-title">Command & Conquer Generals</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503stuntmangba_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503stuntmangba" class="article-title">V-Rally 3 GBA team working on Stuntman</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503half-life2xbox_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503half-life2xbox" class="article-title">Half-Life 2 on Xbox. As well.</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503batfish_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503batfish" class="article-title">Captain Scarlet to make an appearance at E3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503sh3pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503sh3pc" class="article-title">Silent Hill 3 heads to PC</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503nbajamcube_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503nbajamcube" class="article-title">NBA Jam not coming to Cube</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503xboxlive_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503xboxlive" class="article-title">MS revamps Xbox Live Starter Kit disc</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503nfsunderground_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503nfsunderground" class="article-title">Need For Speed going Underground</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503eglaunch_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503eglaunch" class="article-title">Eurogamer launches anew</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-zelda-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-zelda-gc" class="article-title">The Legend of Zelda: The Wind Waker</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503simsuperstergold_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503simsuperstergold" class="article-title">The Sims Superstar goes gold</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503tace3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503tace3" class="article-title">E3 2003: The Adventure Company</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503mgscube_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503mgscube" class="article-title">Metal Gear Solid coming to Cube</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503squenixe3_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503squenixe3" class="article-title">E3 2003: Square Enix's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_news010503wrestlemaniaxix_thumbnail.png">
+			<a href="https://www.eurogamer.net/news010503wrestlemaniaxix" class="article-title">Cube gets WrestleMania XIX exclusive</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_p-halo2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/p-halo2-x" class="article-title">Halo 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-rayman3-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-rayman3-gc" class="article-title">Rayman 3: Hoodlum Havoc</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47873_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47873" class="article-title">SD Adaptor launch and eCard revamp</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47872_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47872" class="article-title">E3 2003: Midway's line-up</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47870_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47870" class="article-title">Pilotwings Cube at E3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47869_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47869" class="article-title">Enter The Matrix TV ad</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47868_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47868" class="article-title">Kemco signs Bits' Rogue Ops</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47867_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47867" class="article-title">E3 2003: NCsoft's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47866_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47866" class="article-title">Unreal-powered trilogy of sci-fi for Xbox</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47865_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47865" class="article-title">3D Metal Slug and SNK vs. Capcom underway</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47864_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47864" class="article-title">Deee-lite singer sues Sega</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47863_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47863" class="article-title">Warthog to make Battlestar Galactica</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47861_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47861" class="article-title">Five Live for Sega</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47862_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47862" class="article-title">EA announces Quidditch World Cup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47860_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47860" class="article-title">Zelda bonus disk 60Hz-only</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47859_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47859" class="article-title">No new releases, Splinter Cell still on top</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47858_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47858" class="article-title">E3 2003: CDV's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47857_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47857" class="article-title">New Batman character debut</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47855_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47855" class="article-title">New Raven Shield map</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47853_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47853" class="article-title">Relic working on two new titles</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47854_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47854" class="article-title">Dell to compete with Alienware</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47852_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47852" class="article-title">Mario Kart GC gets network option</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47851_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47851" class="article-title">SSX3 details and shots released</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47850_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47850" class="article-title">E3 2003: Sega's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47849_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47849" class="article-title">E3 2003: NICE</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-supermonkeyballjr-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-supermonkeyballjr-gba" class="article-title">Super Monkey Ball Junior</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_qt-megamanandbass-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/qt-megamanandbass-gba" class="article-title">Mega Man & Bass</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-crashbandicoot2-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-crashbandicoot2-gba" class="article-title">Crash Bandicoot 2: N-Tranced</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-micromachines-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-micromachines-gba" class="article-title">MicroMachines</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-bombermanmax2-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-bombermanmax2-gba" class="article-title">Bomberman Max 2 Blue/Red</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-segarally-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-segarally-gba" class="article-title">Sega Rally</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47848_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47848" class="article-title">Primal competition winners</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-moo3-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-moo3-pc" class="article-title">Master of Orion 3</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-cm4-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-cm4-pc" class="article-title">Championship Manager 4</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-ravenshield-pc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-ravenshield-pc" class="article-title">Tom Clancy's Rainbow Six 3: Raven Shield</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47847_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47847" class="article-title">EA and Vivendi lock Lords</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47844_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47844" class="article-title">Vice City PC movies</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47845_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47845" class="article-title">Codemasters to show off Dragon Empires</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47846_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47846" class="article-title">Vivendi gets Fast and also Furious</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47842_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47842" class="article-title">Elixir working on second strategy title</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47841_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47841" class="article-title">Samus to return at E3</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47840_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47840" class="article-title">MindArk gives Entropia to MindArk</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47839_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47839" class="article-title">Trinity surfaces</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47838_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47838" class="article-title">A Darkmonth for Dirty Apes</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47837_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47837" class="article-title">Microsoft gets Mythical</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47836_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47836" class="article-title">E3 2003: Sunflowers' line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47835_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47835" class="article-title">JoWooD and Bigben get comfortable</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47834_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47834" class="article-title">Eidos patches Romanus empiricus</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47833_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47833" class="article-title">Lionhead takes RenderWare to The Movies</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47832_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47832" class="article-title">Vivendi reveals Tribes: Vengeance</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47829_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47829" class="article-title">Nintendo go Square</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47828_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47828" class="article-title">Vivendi to publish Half-Life 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47827_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47827" class="article-title">Team Fortress 2 update on the way</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47826_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47826" class="article-title">Sega to publish Worms 3D</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47825_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47825" class="article-title">Free Radical moves on from TimeSplitters</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47824_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47824" class="article-title">Arnie to star in Terminator 3</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47823_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47823" class="article-title">Elite Force II assaults the web</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_fi-residentevil0-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-residentevil0-gc" class="article-title">Resident Evil Zero</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-marioparty4-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-marioparty4-gc" class="article-title">Mario Party 4</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47822_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47822" class="article-title">Enemy Territory test released</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-rallychamps-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-rallychamps-gc" class="article-title">Rally Championship</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47821_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47821" class="article-title">Gran Turismo 4 at E3</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47820_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47820" class="article-title">E3 2003: Ubi Soft's line-up</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-rayman3-gba_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-rayman3-gba" class="article-title">Rayman 3: Hoodlum Havoc</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_i-mcassiusmarch-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-mcassiusmarch-x" class="article-title">Michel Cassius on Xbox Live</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_i-zelda-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-zelda-gc" class="article-title">Shigeru Miyamoto and Eiji Aonuma on Zelda: The Wind Waker</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47819_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47819" class="article-title">E3 2003: Dreamcatcher's line-up</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-residentevil0-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-residentevil0-gc" class="article-title">Resident Evil Zero</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47818_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47818" class="article-title">Ratchet & Clank return</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-supermonkeyball2-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-supermonkeyball2-gc" class="article-title">Super Monkey Ball 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-sonicmega-gc_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-sonicmega-gc" class="article-title">Sonic Mega Collection</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47817_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47817" class="article-title">Sega Ages gets August Japanese launch</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47816_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47816" class="article-title">Namco and McFarlane spawn cross-license</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47815_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47815" class="article-title">Full Throttle 2: Hell On Wheels</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47814_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47814" class="article-title">Tekki/Steel Battalion Wars murmurings</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-toejamandearl3-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-toejamandearl3-x" class="article-title">ToeJam & Earl III: Mission to Earth</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47813_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47813" class="article-title">E3 2003: Nintendo's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-cvs2eo-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-cvs2eo-x" class="article-title">Capcom Vs SNK 2 EO</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47810_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47810" class="article-title">Romijn-Stamos digitised</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47811_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47811" class="article-title">Infogrames to publish Gothic II</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-worldracing-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-worldracing-x" class="article-title">WorldRacing</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47809_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47809" class="article-title">EA names MOHAA expansion</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-doax-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-doax-x" class="article-title">Dead or Alive Xtreme Beach Volleyball</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47808_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47808" class="article-title">Rogue Squadron 3 details</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47807_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47807" class="article-title">Splinter Cell still top</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-indyemperor-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-indyemperor-x" class="article-title">Indiana Jones and The Emperor's Tomb</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47806_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47806" class="article-title">Sony unveils Dog's Life</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47805_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47805" class="article-title">CDV's Easter gift to you</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47804_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47804" class="article-title">Mario Kart screenshots</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47803_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47803" class="article-title">Master of Orion 3 patched. Again.</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47802_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47802" class="article-title">Valve's Day of Defeat goes gold</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47801_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47801" class="article-title">MS stops bundling chunky Xbox pad</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47800_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47800" class="article-title">Vectorman to show at E3</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_r-dmc2-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-dmc2-ps2" class="article-title">Devil May Cry 2</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47799_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47799" class="article-title">Sony making Getaway movie</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47798_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47798" class="article-title">Half-Life 2 screenshot</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47797_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47797" class="article-title">E3 2003: Buka's line-up</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47796_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47796" class="article-title">E3 2003: Russobit-M's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47795_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47795" class="article-title">E3 2003: Acclaim's line-up</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47794_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47794" class="article-title">WWE Crush Hour trailer</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47793_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47793" class="article-title">Studio Cambridge gets Ghosthunting</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47791_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47791" class="article-title">World War II: Frontline Command demo released</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/05/01_article-47792_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-47792" class="article-title">Headhunter back for Redemption</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124293/Burnout-2-For-Xbox/" class="article-title">Burnout 2 For Xbox</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124292/Infinium-Labs-Launch-Website/" class="article-title">Infinium Labs Launch Website</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124291/Sims-Superstar-Goes-Gold/" class="article-title">Sims Superstar Goes Gold</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124290/Need-For-Speed-Underground-Announced/" class="article-title">Need For Speed: Underground Announced</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

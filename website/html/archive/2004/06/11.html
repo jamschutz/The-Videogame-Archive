@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 11, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_bam-dismisses-mass-layoff-reports_1100-6100391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bam-dismisses-mass-layoff-reports/1100-6100391/" class="article-title">Bam! dismisses mass layoff reports</a>
+			<div class="article-subtitle">State of Emergency 2 publisher says it has only let go of one of its 130 staffers.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_nintendo-europe-boss-blasts-microsoft-gta_1100-6100390_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-europe-boss-blasts-microsoft-gta/1100-6100390/" class="article-title">Nintendo Europe boss blasts Microsoft, GTA</a>
+			<div class="article-subtitle">David Gosen launches attacks on Xbox Next, M-rated games, European retailers, and the games media during his ELSPA Games Summit speech.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_pc-gamers-admit-to-piracy_1100-6100456_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-gamers-admit-to-piracy/1100-6100456/" class="article-title">PC gamers admit to piracy</a>
+			<div class="article-subtitle">Recent Macrovision survey sees more than 50 percent of PC gamers admitting to software piracy.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_airborne-assault-conquest-of-the-aegean-announced_1100-6100457_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/airborne-assault-conquest-of-the-aegean-announced/1100-6100457/" class="article-title">Airborne Assault: Conquest of the Aegean announced</a>
+			<div class="article-subtitle">Matrix Games and Panther Games announce the development of a third title in their popular World War II strategy series.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_zoids-versus-sequel-coming-to-gamecube_1100-6100421_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zoids-versus-sequel-coming-to-gamecube/1100-6100421/" class="article-title">Zoids Versus sequel coming to GameCube</a>
+			<div class="article-subtitle">The third release in action game series will likely arrive sometime before March 2005.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_codemasters-releases-new-content-for-perimeter_1100-6100458_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/codemasters-releases-new-content-for-perimeter/1100-6100458/" class="article-title">Codemasters releases new content for Perimeter</a>
+			<div class="article-subtitle">Codemasters' sci-fi real-time strategy game benefits from addition of new multiplayer map and features.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_medieval-lords-signed-for-uk_1100-6100459_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medieval-lords-signed-for-uk/1100-6100459/" class="article-title">Medieval Lords signed for UK</a>
+			<div class="article-subtitle">Digital Jesters announces that it will publish Monte Cristo's historical city management game in the UK later this year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_tri-synergy-signs-the-saga-of-ryzom_1100-6100460_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tri-synergy-signs-the-saga-of-ryzom/1100-6100460/" class="article-title">Tri Synergy signs The Saga of Ryzom</a>
+			<div class="article-subtitle">Tri Synergy plans to launch Nevrax's massively multiplayer online role-playing game in North America later this year.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_xbox-live-confirmed-for-worms-forts-under-siege_1100-6100461_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-confirmed-for-worms-forts-under-siege/1100-6100461/" class="article-title">Xbox Live confirmed for Worms Forts: Under Siege!</a>
+			<div class="article-subtitle">Sega Europe confirms that the Xbox version of Team 17's Worms Forts: Under Siege! will support online play. New screens inside.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_blitzkrieg-burning-horizon-invades-retail_1100-6100430_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blitzkrieg-burning-horizon-invades-retail/1100-6100430/" class="article-title">Blitzkrieg: Burning Horizon invades retail</a>
+			<div class="article-subtitle">CDV orders the first expansion pack for its WWII-themed PC RTS to stores.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_microsoft-confirms-15-for-xbox-live_1100-6100489_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-confirms-15-for-xbox-live/1100-6100489/" class="article-title">Microsoft confirms 15 for Xbox Live</a>
+			<div class="article-subtitle">Microsoft releases a list of titles scheduled for release in the near future that will support its Xbox Live service.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_the-history-of-snk_1100-6089278_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-history-of-snk/1100-6089278/" class="article-title">The History of SNK</a>
+			<div class="article-subtitle">From Ozma Wars to The King of Fighters 2003, we take a comprehensive look at the rich and storied history of SNK.</div>
+			<div class="article-author">Frank Provo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_midnight-club-3-dub-edition-first-look_1100-6100551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/midnight-club-3-dub-edition-first-look/1100-6100551/" class="article-title">Midnight Club 3: DUB Edition First Look</a>
+			<div class="article-subtitle">Rockstar takes the wraps off of the latest entry in its street racing franchise, which will feature licensed cars and an affiliation with the influential upper-crust automotive lifestyle magazine.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_fear-e3-demonstration-part-3_1100-6100479_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-e3-demonstration-part-3/1100-6100479/" class="article-title">F.E.A.R. E3 Demonstration, Part 3</a>
+			<div class="article-subtitle">Check out the third and final part of our exclusive look at the E3 2004 demonstration.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_full-spectrum-warrior-us-army-mode-impressions_1100-6100542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/full-spectrum-warrior-us-army-mode-impressions/1100-6100542/" class="article-title">Full Spectrum Warrior US Army Mode Impressions</a>
+			<div class="article-subtitle">Full Spectrum Warrior was based on a military training program, which happens to be accessible via a cheat code. Find out what's different about it.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_no-n-gage-qd-in-us-until-july_1100-6100583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-n-gage-qd-in-us-until-july/1100-6100583/" class="article-title">No N-Gage QD in US until July</a>
+			<div class="article-subtitle">Nokia announces that the reworked version of its much-maligned game deck won't arrive until July 27.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_driv3r-character-preview_1100-6099046_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/driv3r-character-preview/1100-6099046/" class="article-title">DRIV3R Character Preview</a>
+			<div class="article-subtitle">Take a look at some of the personalities that will populate the world of the third Driver.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_espn-nfl-2k5-officially-1999_1100-6100505_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/espn-nfl-2k5-officially-1999/1100-6100505/" class="article-title">ESPN NFL 2K5 officially $19.99</a>
+			<div class="article-subtitle">New budget price for the latest installment in Visual Concepts' acclaimed football franchise is announced.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_fear-e3-demonstration-part-1_1100-6100253_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fear-e3-demonstration-part-1/1100-6100253/" class="article-title">F.E.A.R. E3 Demonstration, Part 1</a>
+			<div class="article-subtitle">Take an exclusive look at the first part of the E3 demonstration for this impressive action game from the creator of No One Lives Forever and Aliens Versus Predator 2.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/06/11_operation-flashpoint-updates_1100-2834307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/operation-flashpoint-updates/1100-2834307/" class="article-title">Operation Flashpoint updates</a>
+			<div class="article-subtitle">Codemasters releases a new multiplayer demo of its tactical action game, along with new upgrades.</div>
+			<div class="article-author">Trey Walker</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/maxim-balls-review/1900-6100552/" class="article-title">Maxim Balls Review</a>
+			<div class="article-subtitle">Maxim Balls is a decent little game that plays well, but it lacks any variety whatsoever.</div>
+			<div class="article-author">Damon Brown</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_news110604wormsfortslive_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110604wormsfortslive" class="article-title">Worms Forts goes Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_news110604roundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110604roundup" class="article-title">And The Rest: Friday News Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_news110604mobilepanel_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110604mobilepanel" class="article-title">Get free mobile games in exchange for feedback</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_whatsnew-110604_thumbnail.png">
+			<a href="https://www.eurogamer.net/whatsnew-110604" class="article-title">What's New?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_i-datelalexedge_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-datelalexedge" class="article-title">To The Maaaaax!</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_i-riddickextras-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/i-riddickextras-x" class="article-title">Chronicling Riddick: Extra Extra!</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_a-chroniclingriddickpart2_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-chroniclingriddickpart2" class="article-title">Chronicling Riddick: Journey To Butcher Bay</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_a-chroniclingriddickpart1_thumbnail.png">
+			<a href="https://www.eurogamer.net/a-chroniclingriddickpart1" class="article-title">Chronicling Riddick: Star Treatment</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_news110604pandoratomorrow_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110604pandoratomorrow" class="article-title">New Pandora Tomorrow maps on Live</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/06/11_news110604hl2sourcecode_thumbnail.png">
+			<a href="https://www.eurogamer.net/news110604hl2sourcecode" class="article-title">Arrests made in Half-Life 2 source code case</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125751/Frag.Ops-is-Released/" class="article-title">Frag.Ops is Released</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125754/New-Perimeter-Upgrade/" class="article-title">New Perimeter Upgrade</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125753/Nintendo-Hints-Next-Console-Not-Next-Year/" class="article-title">Nintendo Hints Next Console Not Next Year</a>
+			<div class="article-author">Martin Caie</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i125752/Online-Community-Tracks-Down-Half-Life-2-Hackers/" class="article-title">Online Community Tracks Down Half-Life 2 Hackers</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

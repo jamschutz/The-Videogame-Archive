@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 10, 2003</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_konami-to-show-suikoden-4-at-tgs_1100-6074876_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-to-show-suikoden-4-at-tgs/1100-6074876/" class="article-title">Konami to show Suikoden 4 at TGS</a>
+			<div class="article-subtitle">Bandai and Genki also reveal their TGS lineups.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_capcom-delivers-pn-03_1100-6074877_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-delivers-pn-03/1100-6074877/" class="article-title">Capcom delivers P.N. 03</a>
+			<div class="article-subtitle">Futuristic, curvaceous, possibly double-jointed heroine Vanessa Z. is readied for retail.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_buffy-comes-a-calling_1100-6074878_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/buffy-comes-a-calling/1100-6074878/" class="article-title">Buffy comes a calling</a>
+			<div class="article-subtitle">Based on the TV series, the new Buffy the Vampire Slayer game unveils a "lost episode."</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_the-battle-for-newerth-rages-at-retail_1100-6074879_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-battle-for-newerth-rages-at-retail/1100-6074879/" class="article-title">The Battle for Newerth rages at retail</a>
+			<div class="article-subtitle">Savage, from S2, fuses real-time strategy and first-person action.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_battlestar-galactica-site-launched_1100-6074852_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlestar-galactica-site-launched/1100-6074852/" class="article-title">Battlestar Galactica site launched</a>
+			<div class="article-subtitle">VU Games launches an official Web site dedicated to its upcoming '80s TV show-inspired space shooter for the PS2 and Xbox.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_playable-hulk-demo-for-movie-dvd_1100-6074853_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playable-hulk-demo-for-movie-dvd/1100-6074853/" class="article-title">Playable Hulk demo for movie DVD</a>
+			<div class="article-subtitle">VU Games announces that a playable Xbox demo of The Hulk will appear on the movie DVD scheduled for release next month.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_russobit-m-signs-phase-exodus_1100-6074854_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/russobit-m-signs-phase-exodus/1100-6074854/" class="article-title">Russobit-M signs Phase: Exodus</a>
+			<div class="article-subtitle">Russobit-M announces that it has signed Horns & Hoofs' upcoming futuristic strategy and role-playing game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_thq-to-copublish-disney-gba-games_1100-6074855_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-to-copublish-disney-gba-games/1100-6074855/" class="article-title">THQ to copublish Disney GBA games</a>
+			<div class="article-subtitle">THQ announces that it has entered into an international GBA copublishing agreement with Disney's Buena Vista Games.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_half-life-2-praised-by-microsoft_1100-6074856_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/half-life-2-praised-by-microsoft/1100-6074856/" class="article-title">Half-Life 2 praised by Microsoft</a>
+			<div class="article-subtitle">Microsoft hails Half-Life 2 as a new benchmark for the types of games that can be delivered on the Windows platform.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_japanese-game-update_1100-6074881_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/japanese-game-update/1100-6074881/" class="article-title">Japanese game update</a>
+			<div class="article-subtitle">Here's the latest on Suikoden 4, Armored Core: Nexus, Phantom Dust, and Fullmetal Alchemist.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_age-of-mythology-the-titans-oranos-showcase_1100-6074867_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/age-of-mythology-the-titans-oranos-showcase/1100-6074867/" class="article-title">Age of Mythology: The Titans Oranos Showcase</a>
+			<div class="article-subtitle">In our third and final showcase for this upcoming expansion pack, we visit with the mighty lord of the sky, Oranos.</div>
+			<div class="article-author">Elliott Chin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_sphinx-and-the-cursed-mummy-qanda_1100-6074892_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sphinx-and-the-cursed-mummy-qanda/1100-6074892/" class="article-title">Sphinx and the Cursed Mummy Q&A</a>
+			<div class="article-subtitle">We talk to THQ about its upcoming Egyptian-themed action game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_gladius-updated-preview_1100-6074880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gladius-updated-preview/1100-6074880/" class="article-title">Gladius Updated Preview</a>
+			<div class="article-subtitle">We try out a near-final version of LucasArts' upcoming strategy RPG.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_gladius-updated-preview_1100-6074894_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gladius-updated-preview/1100-6074894/" class="article-title">Gladius Updated Preview</a>
+			<div class="article-subtitle">We try out a near-final version of LucasArts' upcoming strategy RPG.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_gladius-updated-preview_1100-6074895_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gladius-updated-preview/1100-6074895/" class="article-title">Gladius Updated Preview</a>
+			<div class="article-subtitle">We try out a near-final version of LucasArts' upcoming strategy RPG.</div>
+			<div class="article-author">Ricardo Torres</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_final-fantasy-x-2-prologue-for-us-and-europe_1100-6074857_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-x-2-prologue-for-us-and-europe/1100-6074857/" class="article-title">Final Fantasy X-2: Prologue for US and Europe</a>
+			<div class="article-subtitle">Atari and Square Enix announce plans to release an Unlimited SaGa collector's edition complete with Eternal Calm, Final Fantasy X-2: Prologue bonus DVD.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_weird-war-site-opens_1100-6074859_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weird-war-site-opens/1100-6074859/" class="article-title">Weird War site opens</a>
+			<div class="article-subtitle">Techland launches an official Web site dedicated to its upcoming World War II-inspired role-playing game.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_10000-in-prize-money-for-first-mlg-event_1100-6074860_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/10000-in-prize-money-for-first-mlg-event/1100-6074860/" class="article-title">$10,000 in prize money for first MLG event</a>
+			<div class="article-subtitle">Major League Gaming announces that its first major console gaming tournament will take place in New York next month.</div>
+			<div class="article-author">Justin Calvert</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_gulbis-joins-tiger-in-pga-tour-2004_1100-6074899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gulbis-joins-tiger-in-pga-tour-2004/1100-6074899/" class="article-title">Gulbis joins Tiger in PGA Tour 2004 </a>
+			<div class="article-subtitle">Natalie Gulbis is "in the game," but what about Annika Sorenstam?</div>
+			<div class="article-author">Thomas Layton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_nintendo-double-dash-bonus-disc_1100-6074900_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-double-dash-bonus-disc/1100-6074900/" class="article-title">Nintendo Double Dash bonus disc </a>
+			<div class="article-subtitle">Those who preorder GameCube racer will get preview disc with movies, demos.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_ubisoft-outlines-xiii-online_1100-6074901_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-outlines-xiii-online/1100-6074901/" class="article-title">Ubisoft outlines XIII online </a>
+			<div class="article-subtitle">Publisher runs down multiplayer features for each platform.</div>
+			<div class="article-author">Thomas Layton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_medal-of-honor-breaking-through_1100-6074902_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-breaking-through/1100-6074902/" class="article-title">Medal of Honor breaking through</a>
+			<div class="article-subtitle">EA releases a multiplayer demo for the MOHAA: Breakthrough expansion pack.</div>
+			<div class="article-author">Sam Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2003/09/10_call-of-duty-updated-hands-on-impressions_1100-6073476_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-updated-hands-on-impressions/1100-6073476/" class="article-title">Call of Duty Updated Hands-On Impressions</a>
+			<div class="article-subtitle">We spend some more hands-on time with Infinity Ward's World War II shooter at QuakeCon 2003.</div>
+			<div class="article-author">Andrew Park</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/hoyle-majestic-chess-review/1900-6074888/" class="article-title">Hoyle Majestic Chess Review</a>
+			<div class="article-subtitle">Hoyle Majestic Chess focuses on those new to the game, and it features a fun and innovative way to learn how to play chess.</div>
+			<div class="article-author">Jeff Lackey</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903hulk_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903hulk" class="article-title">Hulk DVD ships with Xbox demo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_fi-rogueops-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-rogueops-ps2" class="article-title">Rogue Ops</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_fi-jak2-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-jak2-ps2" class="article-title">Jak II: Renegade</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903playerschoice_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903playerschoice" class="article-title">NoA expands Player's Choice</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903opflash2_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903opflash2" class="article-title">OpFlash 2 delayed?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903rshield_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903rshield" class="article-title">Raven Shield patch fun</a>
+			<div class="article-author">Martin Taylor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903steelbat_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903steelbat" class="article-title">Capcom considered new Steel Battalion controller</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903magatama_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903magatama" class="article-title">Microsoft Japan unveils Magatama</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_news100903charts_thumbnail.png">
+			<a href="https://www.eurogamer.net/news100903charts" class="article-title">UK Charts: EyeToy makes it five weeks at No.1</a>
+			<div class="article-author">Rob Fahey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2003/09/10_r-chaoslegion-ps2_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-chaoslegion-ps2" class="article-title">Chaos Legion</a>
+			<div class="article-author">Kristan Reed</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124803/New-Europa-Title-Next-Week/" class="article-title">New Europa Title Next Week</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124802/Its-That-Time-Of-Year-For-NFL-Fans/" class="article-title">It's That Time Of Year For NFL Fans</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124801/60-Million-Playstation-2-Consoles-Now-Shipped/" class="article-title">60 Million Playstation 2 Consoles Now Shipped</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124808/Half-Life-1.1.2.0-and-CS-1.6-releasing-tomorrow/" class="article-title">Half-Life 1.1.2.0 and CS 1.6 releasing tomorrow!</a>
+			<div class="article-author">Simon Garner</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124807/Situation-Report-Issue-3/" class="article-title">Situation Report Issue 3</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124806/Mature-Gaming/" class="article-title">Mature Gaming</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124805/Rugby-2004-Release-Update/" class="article-title">Rugby 2004 Release Update</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i124804/New-Xbox-Classics/" class="article-title">New Xbox 'Classics'</a>
+			<div class="article-author">Gary Wright</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 13, 2004</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_mechassault-2-due-in-2004_1100-6104769_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mechassault-2-due-in-2004/1100-6104769/" class="article-title">MechAssault 2 due in 2004</a>
+			<div class="article-subtitle">Microsoft and Day 1 Studios' mech-jacking extravaganza will hit Xboxes on December 28.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_atari-announces-new-real-time-strategy-game_1100-6104770_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/atari-announces-new-real-time-strategy-game/1100-6104770/" class="article-title">Atari announces new real-time strategy game</a>
+			<div class="article-subtitle">Act of War: Direct Action follows elite US troops in a near-future conspiracy; due spring 2005.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_front-mission-online-beta-testers-sought_1100-6104779_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/front-mission-online-beta-testers-sought/1100-6104779/" class="article-title">Front Mission Online beta testers sought</a>
+			<div class="article-subtitle">Randomly chosen winners for the Japanese beta test will get to become Wanzer test pilots.</div>
+			<div class="article-author">Hirohiko Niizumi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_sid-meiers-pirates-to-plunder-xbox_1100-6104778_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sid-meiers-pirates-to-plunder-xbox/1100-6104778/" class="article-title">Sid Meier's Pirates! to plunder Xbox</a>
+			<div class="article-subtitle">Console gamers will be given no quarter by Atari and Firaxis' sprawling buccaneer adventure.</div>
+			<div class="article-author">Tor Thorsen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_evil-genius-release-date-set_1100-6104772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/evil-genius-release-date-set/1100-6104772/" class="article-title">Evil Genius release date set</a>
+			<div class="article-subtitle">VU will unleash the spy movie-inspired strategy game on PCs on October 1.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_ati-ships-1-million-pci-express-cards_1100-6104776_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ati-ships-1-million-pci-express-cards/1100-6104776/" class="article-title">ATI ships 1 million PCI Express cards</a>
+			<div class="article-subtitle">Consumer- and professional-level graphics boards on the new high-speed standard sell big since their releases in June.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_new-kumawar-mission-released_1100-6104785_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-kumawar-mission-released/1100-6104785/" class="article-title">New Kuma\War mission released</a>
+			<div class="article-subtitle">US troops help the Iraqi army clear out a police station in the latest mission for the PC shooter.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_medal-of-honor-pacific-assault-designer-diary-3_1100-6104782_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-pacific-assault-designer-diary-3/1100-6104782/" class="article-title">Medal of Honor Pacific Assault Designer Diary 3</a>
+			<div class="article-subtitle">Ever wonder what it's like being a game developer? Lead designer Dave Nash walks us through one of his days. Here's a hint: it involves a lot of meetings.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_sweden-bans-consoles-in-prison_1100-6104795_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sweden-bans-consoles-in-prison/1100-6104795/" class="article-title">Sweden bans consoles in prison</a>
+			<div class="article-subtitle">Recent jailbreaks force prison officials to crack down on communication abilities in gaming systems.</div>
+			<div class="article-author">Benjamin Golze</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_grand-theft-auto-san-andreas-weekend-update-robbery-and-home-invasion_1100-6104797_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-theft-auto-san-andreas-weekend-update-robbery-and-home-invasion/1100-6104797/" class="article-title">Grand Theft Auto: San Andreas Weekend Update: Robbery and Home Invasion</a>
+			<div class="article-subtitle">In Vice City, you could deliver pizzas on a little scooter for some extra cash. In San Andreas, you can invade people's homes in the dead of night to steal their luxury goods. We've got the full scoop. Also: Swimming in San Andreas.</div>
+			<div class="article-author">Greg Kasavin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_burnout-3-takedown-online-hands-on-impressions_1100-6104813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/burnout-3-takedown-online-hands-on-impressions/1100-6104813/" class="article-title">Burnout 3: Takedown Online Hands-On Impressions</a>
+			<div class="article-subtitle">We take the PlayStation 2 version out onto the Internet for a quick spin.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_burnout-3-takedown-online-hands-on-impressions_1100-6104817_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/burnout-3-takedown-online-hands-on-impressions/1100-6104817/" class="article-title">Burnout 3: Takedown Online Hands-On Impressions</a>
+			<div class="article-subtitle">We take the PlayStation 2 version out onto the Internet for a quick spin.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_testers-sought-for-children-of-the-nile_1100-6104815_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/testers-sought-for-children-of-the-nile/1100-6104815/" class="article-title">Testers sought for Children of the Nile</a>
+			<div class="article-subtitle">City builder set in the time of pharaohs is looking for players to participate in closed beta.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_otogi-2-immortal-warriors-qanda_1100-6104799_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/otogi-2-immortal-warriors-qanda/1100-6104799/" class="article-title">Otogi 2: Immortal Warriors Q&A</a>
+			<div class="article-subtitle">We talk to From Software's Masanori Takeuchi about the upcoming otherworldly action game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_world-cyber-games-coming-to-san-francisco_1100-6104822_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-cyber-games-coming-to-san-francisco/1100-6104822/" class="article-title">World Cyber Games coming to San Francisco</a>
+			<div class="article-subtitle">Finals for the gaming competition to hold a five-day LAN party in front of City Hall.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_qanda-monolith-ceo-samantha-ryan_1100-6104811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/qanda-monolith-ceo-samantha-ryan/1100-6104811/" class="article-title">Q&A: Monolith CEO Samantha Ryan</a>
+			<div class="article-subtitle">Longtime Monolith leader Samantha Ryan checks in on what the acquisition by Warner Bros. means for the crew in Kirkland.</div>
+			<div class="article-author">Curt Feldman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_scarface-web-site-up-and-running_1100-6104816_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/scarface-web-site-up-and-running/1100-6104816/" class="article-title">Scarface Web site up and running</a>
+			<div class="article-subtitle">VU Games wastes no time taking site for just-announced game live.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_taito-classics-coming-from-ultracade_1100-6104814_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/taito-classics-coming-from-ultracade/1100-6104814/" class="article-title">Taito classics coming from Ultracade</a>
+			<div class="article-subtitle">All-in-one arcade units to feature classic games from the Taito library.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2004/08/13_stalker-shadow-of-chernobyl-qanda_1100-6095529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stalker-shadow-of-chernobyl-qanda/1100-6095529/" class="article-title">S.T.A.L.K.E.R.: Shadow of Chernobyl Q&A</a>
+			<div class="article-subtitle">We get the lowdown on all the new features that the developer plans to show at E3 2004.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pac-match-review/1900-6104800/" class="article-title">Pac-Match! Review</a>
+			<div class="article-subtitle">Pac-Match! is an enjoyable puzzle game with a lot of replay value.</div>
+			<div class="article-author">Mike Mearls</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/cs-garfield-pinball-review/1900-6104803/" class="article-title">CS Garfield Pinball Review</a>
+			<div class="article-subtitle">The differences between this game and any other pinball title are minimal and come as a result of the Garfield license rather than from original game design.</div>
+			<div class="article-author">Avery Score</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804starshiptroopers_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804starshiptroopers" class="article-title">Starship Troopers' 'Whiskey Alpha' scene reborn</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804oakenfold_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804oakenfold" class="article-title">Paul Oakenfold working on EA titles</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804fm2005_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804fm2005" class="article-title">See your face in Football Manager 2005</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804psex_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804psex" class="article-title">PlayStation Experience heads to Alton Towers</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_fi-flatout_thumbnail.png">
+			<a href="https://www.eurogamer.net/fi-flatout" class="article-title">FlatOut</a>
+			<div class="article-author">Patrick Garratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_r-shrek2-x_thumbnail.png">
+			<a href="https://www.eurogamer.net/r-shrek2-x" class="article-title">Shrek 2</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_whatsnew-130804_thumbnail.png">
+			<a href="https://www.eurogamer.net/whatsnew-130804" class="article-title">What's New?</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804roundup_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804roundup" class="article-title">And The Rest: Friday News Roundup</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2004/08/13_news130804warnerbuysmonolith_thumbnail.png">
+			<a href="https://www.eurogamer.net/news130804warnerbuysmonolith" class="article-title">Warner Bros. acquires Matrix Online dev Monolith</a>
+			<div class="article-author">GamesIndustry International</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/hangman.php" class="article-title">Hangman</a>
+			<div class="article-author">Jay</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
