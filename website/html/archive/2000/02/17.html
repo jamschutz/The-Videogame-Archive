@@ -1,0 +1,824 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 17, 2000</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_intel-launches-new-pentium-iiis_1100-2440246_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/intel-launches-new-pentium-iiis/1100-2440246/" class="article-title">Intel Launches New Pentium IIIs</a>
+			<div class="article-subtitle">The processor war heats up again as Intel announced launch of 750 and 800MHz Pentium IIIs.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_john-romero-loses-daikatana_1100-2440247_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/john-romero-loses-daikatana/1100-2440247/" class="article-title">John Romero Loses Daikatana</a>
+			<div class="article-subtitle">CGW's editor in chief heads to the Daikatana launch party to watch as John Romero gets beat at his own game.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_interplay-signs-monte-cristo_1100-2440298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interplay-signs-monte-cristo/1100-2440298/" class="article-title">Interplay Signs Monte Cristo</a>
+			<div class="article-subtitle">Interplay sings distribution deal for two business-simulation titles.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_quantex-sounds-off-with-aureal_1100-2440301_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quantex-sounds-off-with-aureal/1100-2440301/" class="article-title">Quantex Sounds Off With Aureal</a>
+			<div class="article-subtitle">Sound card and chip manufacturer Aureal has announced that Quantex will include the SQ1500 and SQ2500 boards in two of its business and multimedia desktop computer systems. Aureal-equipped computers are available from Quantex today.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_heatnet-opens-unreal-tournament_1100-2440296_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heatnet-opens-unreal-tournament/1100-2440296/" class="article-title">Heat.net Opens Unreal Tournament</a>
+			<div class="article-subtitle">Heat.net opens registration for Unreal Tournament on December 27. The winner will walk away with $5,000.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_street-luge-races-to-retail_1100-2440297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-luge-races-to-retail/1100-2440297/" class="article-title">Street Luge Races To Retail</a>
+			<div class="article-subtitle">HeadGames' latest sports title takes on the highly illegal plank-meets-concrete speed rush of street luge.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_cavia-to-publish-anime-games_1100-2440288_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cavia-to-publish-anime-games/1100-2440288/" class="article-title">Cavia To Publish Anime Games</a>
+			<div class="article-subtitle">Six giant Japanese companies form a new subsidiary called Cavia Inc. to publish games based on popular anime brands.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_downloadable-nes-games-on-64dd_1100-2440289_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/downloadable-nes-games-on-64dd/1100-2440289/" class="article-title">Downloadable NES Games on 64DD</a>
+			<div class="article-subtitle">Following Sega's footsteps, Nintendo plans to let gamers download classic NES titles through the 64DD.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-shots-eternal-ring_1100-2440290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-shots-eternal-ring/1100-2440290/" class="article-title">New Shots: Eternal Ring</a>
+			<div class="article-subtitle">We bring you brand-new screenshots of From Software's first-person-perspective RPG, Eternal Ring.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_even-more-biohazard-cv-screens_1100-2440291_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/even-more-biohazard-cv-screens/1100-2440291/" class="article-title">Even More Biohazard: CV Screens</a>
+			<div class="article-subtitle">We've come up with another set of shots that show why Code Veronica is one the most visually impressive games to ever grace the Dreamcast.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-biohazard-code-veronica-media_1100-2440292_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-biohazard-code-veronica-media/1100-2440292/" class="article-title">More Biohazard: Code Veronica Media</a>
+			<div class="article-subtitle">We have another batch of screens and movies from Biohazard: Code Veronica as we further progress.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_cotton-coming-to-neogeo-pocket-color_1100-2440293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cotton-coming-to-neogeo-pocket-color/1100-2440293/" class="article-title">Cotton Coming to NeoGeo Pocket Color</a>
+			<div class="article-subtitle">The Cotton series is heading to NeoGeo Pocket Color next year. Check out the details.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_tomb-raider-movie-a-step-closer_1100-2440284_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tomb-raider-movie-a-step-closer/1100-2440284/" class="article-title">Tomb Raider Movie a Step Closer</a>
+			<div class="article-subtitle">Paramount moves forward with negotiations for a Tomb Raider-inspired movie.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-tribes-missions_1100-2440285_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-tribes-missions/1100-2440285/" class="article-title">New Tribes Missions</a>
+			<div class="article-subtitle">Sierra releases ten new "balanced" missions for Starsiege: Tribes.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_castlevania-resurrection-delayed_1100-2440287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/castlevania-resurrection-delayed/1100-2440287/" class="article-title">Castlevania Resurrection Delayed</a>
+			<div class="article-subtitle">The Dreamcast incarnation of Castlevania has been pushed back to fall 2000.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_acclaim-signs-travis-pastrana_1100-2440279_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/acclaim-signs-travis-pastrana/1100-2440279/" class="article-title">Acclaim Signs Travis Pastrana</a>
+			<div class="article-subtitle">Acclaim Sports announces that it has signed gold-medal-winning rookie Travis Pastrana to star in new motorcycle games.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_space-channel-5-fashion-show_1100-2440280_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/space-channel-5-fashion-show/1100-2440280/" class="article-title">Space Channel 5 Fashion Show</a>
+			<div class="article-subtitle">We bring you new shots of the irresistible Ulala from Space Channel 5 in motion. Babe of the year? Easily.</div>
+			<div class="article-author">James Mielke</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_emil-games-gets-100000th-player_1100-2440281_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/emil-games-gets-100000th-player/1100-2440281/" class="article-title">Em@il Games Gets 100,000th Player</a>
+			<div class="article-subtitle">Hasbro's e-mail-enabled games from Scrabble to NASCAR to X-COM have become popular.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_oni-programmer-departs_1100-2440282_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oni-programmer-departs/1100-2440282/" class="article-title">Oni Programmer Departs</a>
+			<div class="article-subtitle">Bungie's anime-inspired action-adventure title loses lead programmer.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hp-lovecraft-horror-coming_1100-2440283_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hp-lovecraft-horror-coming/1100-2440283/" class="article-title">HP Lovecraft Horror Coming</a>
+			<div class="article-subtitle">Simon the Sorcerer 3 maker announces exclusive rights to the Call of Cthulhu.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-dc-espn-baseball-screens_1100-2440275_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-dc-espn-baseball-screens/1100-2440275/" class="article-title">New DC ESPN Baseball Screens</a>
+			<div class="article-subtitle">We bring you new shots of Konami's upcoming ESPN Baseball Tonight, coming this spring for the Sega Dreamcast.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hi-res-dreamcast-ecco-screens_1100-2440276_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hi-res-dreamcast-ecco-screens/1100-2440276/" class="article-title">Hi-Res Dreamcast Ecco Screens</a>
+			<div class="article-subtitle">We deliver new screenshots of Ecco the Dolphin for the Dreamcast. If you think you've seen this game before, think again.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_retailers-pleased-with-dreamcast_1100-2440277_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/retailers-pleased-with-dreamcast/1100-2440277/" class="article-title">Retailers Pleased With Dreamcast</a>
+			<div class="article-subtitle">Retailers across the US are predicting that strong sales for Sega's Dreamcast console will continue through the holidays.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_act-pulls-out-its-big-guns_1100-2440273_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/act-pulls-out-its-big-guns/1100-2440273/" class="article-title">Act Pulls Out Its Big Guns</a>
+			<div class="article-subtitle">PC to get a single light gun version of Act Labs' dual gun shooter with Die Hard Trilogy 2.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_business-week-praises-the-dreamcast_1100-2440353_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/business-week-praises-the-dreamcast/1100-2440353/" class="article-title">Business Week Praises the Dreamcast</a>
+			<div class="article-subtitle">The Dreamcast recognized as one of the Best Products of 1999 by Business Week magazine.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-ps2-middleware-technology_1100-2440355_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-ps2-middleware-technology/1100-2440355/" class="article-title">More PS2 Middleware Technology</a>
+			<div class="article-subtitle">A new development tool to assist developers in speeding up production times for PC and PlayStation2 games will make designing games easier.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_konami-arcade-classics-released_1100-2440349_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-arcade-classics-released/1100-2440349/" class="article-title">Konami Arcade Classics Released</a>
+			<div class="article-subtitle">Konami's arcade classics package for the Sony PlayStation has been released to stores.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_quebec-threatens-nintendo-and-sony_1100-2440350_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quebec-threatens-nintendo-and-sony/1100-2440350/" class="article-title">Quebec Threatens Nintendo and Sony</a>
+			<div class="article-subtitle">The Quebec provincial government threatens to sue Nintendo and Sony if they don't provide French-language versions of games.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_battletech-signs-10000-in-beta-test_1100-2440351_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battletech-signs-10000-in-beta-test/1100-2440351/" class="article-title">BattleTech Signs 10,000 In Beta Test</a>
+			<div class="article-subtitle">Kesmai's GameStorm attracts 10,000 beta testers to its upcoming MultiPlayer BattleTech: 3025 game.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-playstation2-kessen-screens_1100-2440348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-playstation2-kessen-screens/1100-2440348/" class="article-title">More PlayStation2 Kessen Screens</a>
+			<div class="article-subtitle">Browse through another set of new screens of the PlayStation 2 war-themed strategy title, Kessen.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hudson-announces-dc-network-rpg_1100-2440344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hudson-announces-dc-network-rpg/1100-2440344/" class="article-title">Hudson Announces DC Network RPG</a>
+			<div class="article-subtitle">Hudson announces its new network RPG titled Rune Jade for the Sega Dreamcast.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_interact-gets-sega-blessing_1100-2440345_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interact-gets-sega-blessing/1100-2440345/" class="article-title">Interact Gets Sega Blessing</a>
+			<div class="article-subtitle">Interact Accessories announces that it will soon team up with Sega to produce officially licensed peripherals for the Dreamcast.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-playstation2-kessen-screens_1100-2440346_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-playstation2-kessen-screens/1100-2440346/" class="article-title">New PlayStation2 Kessen Screens</a>
+			<div class="article-subtitle">Japanese publisher Koei releases some great new screens of its PlayStation 2 war-themed strategy title Kessen.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_dc-typing-of-the-dead-coming-march_1100-2440341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dc-typing-of-the-dead-coming-march/1100-2440341/" class="article-title">DC Typing of the Dead Coming March</a>
+			<div class="article-subtitle">The typing-tutorial game based on House of the Dead is heading to the Dreamcast in Japan this March.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_m2-d2-movie-discovered_1100-2440342_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/m2-d2-movie-discovered/1100-2440342/" class="article-title">M2 D2 Movie Discovered</a>
+			<div class="article-subtitle">While playing D2 we discover a secret movie - a video from the original M2 version of the game.</div>
+			<div class="article-author">James Mielke</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-playstation2-evergrace-screens_1100-2440343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-playstation2-evergrace-screens/1100-2440343/" class="article-title">New PlayStation2 Evergrace Screens</a>
+			<div class="article-subtitle">We get our hands on a few more screens of Evergrace, one of From Software's visually impressions PS2 launch titles.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-elite-force-screenshots_1100-2440338_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-elite-force-screenshots/1100-2440338/" class="article-title">New Elite Force Screenshots</a>
+			<div class="article-subtitle">Raven Software updates its Star Trek: Voyager - Elite Force site with new info and screenshots.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_interstate-82-map-editor-released_1100-2440339_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interstate-82-map-editor-released/1100-2440339/" class="article-title">Interstate '82 Map Editor Released</a>
+			<div class="article-subtitle">Players can now create and customize their own I'82 tracks.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_brother-killed-over-game_1100-2440340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brother-killed-over-game/1100-2440340/" class="article-title">Brother Killed Over Game</a>
+			<div class="article-subtitle">A 15-year-old boy in Kentucky has been charged with killing his brother over a video game.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_spike-saves-human_1100-2440333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spike-saves-human/1100-2440333/" class="article-title">Spike Saves Human</a>
+			<div class="article-subtitle">Spike has saved the now-bankrupt Human with newly established subsidiary company Vile.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_mindscape-ships-new-gbc-titles_1100-2440334_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mindscape-ships-new-gbc-titles/1100-2440334/" class="article-title">Mindscape Ships New GBC Titles</a>
+			<div class="article-subtitle">Mindscape announces two new titles for the Game Boy Color have shipped to stores: Dogz and Wings of Fury.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_sonys-network-console-in-2001_1100-2440336_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonys-network-console-in-2001/1100-2440336/" class="article-title">Sony's Network Console In 2001</a>
+			<div class="article-subtitle">Sony plans to release a new line of audio-visual components that will link all its hardware, including the PlayStation2.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_uk-to-levy-game-tax_1100-2440329_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-to-levy-game-tax/1100-2440329/" class="article-title">UK To Levy Game Tax?</a>
+			<div class="article-subtitle">BBC News is reporting that UK government officials are pushing for a video-game tax to fund higher learning.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_dc-vigilante-8-second-offense-ships_1100-2440331_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dc-vigilante-8-second-offense-ships/1100-2440331/" class="article-title">DC Vigilante 8: Second Offense Ships</a>
+			<div class="article-subtitle">Activision announces that the Dreamcast version of Vigilante 8: Second Offense has shipped to stores nationwide.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_vatical-releases-dreamcast-egg_1100-2440332_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vatical-releases-dreamcast-egg/1100-2440332/" class="article-title">Vatical Releases Dreamcast E.G.G.</a>
+			<div class="article-subtitle">Vatical Entertainment announces that Elemental Gimmick Gear (E.G.G.) for the Sega Dreamcast has shipped to stores.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_game-boy-titles-coming-in-march_1100-2440325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-boy-titles-coming-in-march/1100-2440325/" class="article-title">Game Boy Titles Coming in March</a>
+			<div class="article-subtitle">Warioland 3 and the first Legend of Zelda: Fushigina Kinomi for the GBC are heading to Japan this March.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_koei-fights-for-second-ps2-title_1100-2440326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/koei-fights-for-second-ps2-title/1100-2440326/" class="article-title">Koei Fights For Second PS2 Title</a>
+			<div class="article-subtitle">Koei and Omega Force bring the Romance of the Three Kingdoms fighting game onto PlayStation2.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_seventh-cross-sequel-confirmed_1100-2440327_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seventh-cross-sequel-confirmed/1100-2440327/" class="article-title">Seventh Cross Sequel Confirmed</a>
+			<div class="article-subtitle">NEC Home Electronics has confirmed that a sequel to Seventh Cross is currently in development.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_tysons-return-to-video-gaming_1100-2440320_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tysons-return-to-video-gaming/1100-2440320/" class="article-title">Tyson's Return to Video Gaming</a>
+			<div class="article-subtitle">Codemasters signs Mike Tyson to appear in an upcoming PC and PlayStation boxing game.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_via-to-buy-s3_1100-2440321_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/via-to-buy-s3/1100-2440321/" class="article-title">VIA To Buy S3</a>
+			<div class="article-subtitle">Taiwanese core-logic chipset manufacturer VIA plans on purchasing S3 in a deal worth nearly $150 million.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_werewolf-development-updated_1100-2440322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/werewolf-development-updated/1100-2440322/" class="article-title">Werewolf Development Updated</a>
+			<div class="article-subtitle">ASC Games updates its web site with the development status of Werewolf: The Apocalypse.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_final-fantasy-ix-animation-done_1100-2440316_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-ix-animation-done/1100-2440316/" class="article-title">Final Fantasy IX Animation Done</a>
+			<div class="article-subtitle">According to sources at Square's Honolulu studio, animation for the upcoming FFIX has been completed.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_nintendo-wins-piracy-battle_1100-2440317_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-wins-piracy-battle/1100-2440317/" class="article-title">Nintendo Wins Piracy Battle</a>
+			<div class="article-subtitle">A US Federal Court deals a blow against software piracy.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_nvidia-sues-s3_1100-2440312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-sues-s3/1100-2440312/" class="article-title">Nvidia Sues S3</a>
+			<div class="article-subtitle">The latest lawsuit to hit Silicon Valley is shrouded in mystery.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_millionaire-still-on-top_1100-2440313_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/millionaire-still-on-top/1100-2440313/" class="article-title">Millionaire Still on Top</a>
+			<div class="article-subtitle">Disney Interactive's PC game seems to be just as successful as the TV quiz show.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_take-twos-holiday-is-a-good-one_1100-2440314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-twos-holiday-is-a-good-one/1100-2440314/" class="article-title">Take-Two's Holiday Is a Good One</a>
+			<div class="article-subtitle">Sales expectations meet or exceed Take-Two's expectations for the holiday season.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_carrier-due-february_1100-2440315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carrier-due-february/1100-2440315/" class="article-title">Carrier Due February</a>
+			<div class="article-subtitle">Jaleco's Resident Evil-style adventure game is coming to the Dreamcast this February.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_latest-weekly-famitsu-scores_1100-2440304_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/latest-weekly-famitsu-scores/1100-2440304/" class="article-title">Latest Weekly Famitsu Scores</a>
+			<div class="article-subtitle">Japanese gaming publication Famitsu rates this week's game titles including Sega's Shen Mue. Take a look.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_update-on-marvel-vs-capcom-2_1100-2440306_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/update-on-marvel-vs-capcom-2/1100-2440306/" class="article-title">Update on Marvel vs. Capcom 2</a>
+			<div class="article-subtitle">Capcom unleashes new characters and gameplay in the sequel to Marvel vs. Capcom 2.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_nintendo-selects-ultimate-pokemom_1100-2440307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-selects-ultimate-pokemom/1100-2440307/" class="article-title">Nintendo Selects Ultimate PokeMOM</a>
+			<div class="article-subtitle">Nintendo's nationwide online contest to find the Ultimate PokeMOM concludes.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_ps-simtheme-park-in-march_1100-2440308_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps-simtheme-park-in-march/1100-2440308/" class="article-title">PS SimTheme Park In March</a>
+			<div class="article-subtitle">EA is getting ready to bring its popular PC-based amusement park builder to the PlayStation.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_gbc-test-drive-off-road-3-ships_1100-2440309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gbc-test-drive-off-road-3-ships/1100-2440309/" class="article-title">GBC Test Drive Off-Road 3 Ships</a>
+			<div class="article-subtitle">Infogrames announces that Test Drive Off-Road 3 for the Game Boy Color platform has shipped to stores.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_infogrames-ships-gbc-boarder-zone_1100-2440302_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/infogrames-ships-gbc-boarder-zone/1100-2440302/" class="article-title">Infogrames Ships GBC Boarder Zone</a>
+			<div class="article-subtitle">Infogrames' Boarder Zone for the Game Boy Color has shipped to stores.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_n64-brunswick-pro-bowling-ships_1100-2440303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/n64-brunswick-pro-bowling-ships/1100-2440303/" class="article-title">N64 Brunswick Pro Bowling Ships</a>
+			<div class="article-subtitle">THQ's Brunswick Circuit Pro Bowling for the Nintendo 64 console has shipped.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_viper-ii-dvd-bundle_1100-2440352_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/viper-ii-dvd-bundle/1100-2440352/" class="article-title">Viper II DVD Bundle</a>
+			<div class="article-subtitle">Diamond's Viper II will now be bundled with five Infogrames games on one DVD disc.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hoshigami-pushed-back-to-spring_1100-2440354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hoshigami-pushed-back-to-spring/1100-2440354/" class="article-title">Hoshigami Pushed Back To Spring</a>
+			<div class="article-subtitle">Max Five's strategy simulation RPG for the PlayStation has been pushed back from January to spring 2000.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hispanics-protest-toy-story-2-game_1100-2440356_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hispanics-protest-toy-story-2-game/1100-2440356/" class="article-title">Hispanics Protest Toy Story 2 Game</a>
+			<div class="article-subtitle">Toy Story 2 character sets off Mexican-American protest for alleged stereotyping.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hasbro-to-launch-gaming-portal_1100-2440405_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hasbro-to-launch-gaming-portal/1100-2440405/" class="article-title">Hasbro to Launch Gaming Portal</a>
+			<div class="article-subtitle">A Yahoo-like gaming site is in the works from Hasbro.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-ultima-ix-amends_1100-2440408_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-ultima-ix-amends/1100-2440408/" class="article-title">More Ultima IX Amends</a>
+			<div class="article-subtitle">After admitting to several Direct3D-related performance problems, Origin offers a free CD to registered users.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_capcom-announces-spring-lineup_1100-2440411_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-announces-spring-lineup/1100-2440411/" class="article-title">Capcom Announces Spring Lineup</a>
+			<div class="article-subtitle">Capcom announces its spring lineup of games, which includes such titles as Resident Evil: Code Veronica and Ghosts 'N Goblins.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-ridge-racer-v-renders_1100-2440398_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ridge-racer-v-renders/1100-2440398/" class="article-title">New Ridge Racer V Renders</a>
+			<div class="article-subtitle">Namco releases a few new renders of the sleek cars from Ridge Racer 5 for the PlayStation2.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_titus-takes-to-the-n64-with-roadsters_1100-2440399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/titus-takes-to-the-n64-with-roadsters/1100-2440399/" class="article-title">Titus Takes to the N64 with Roadsters</a>
+			<div class="article-subtitle">Titus' latest topless racer heads for new roads on the Nintendo 64.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_shootout-2000-in-time-for-santa_1100-2440400_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shootout-2000-in-time-for-santa/1100-2440400/" class="article-title">ShootOut 2000 In Time For Santa</a>
+			<div class="article-subtitle">989 Sports announces that NBA ShootOut 2000 for the PlayStation will make it to stores right before Christmas.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hp-chooses-aureal_1100-2440402_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hp-chooses-aureal/1100-2440402/" class="article-title">HP Chooses Aureal</a>
+			<div class="article-subtitle">Aureal Vortex2 and Vortex sound cards chosen as optional packages for HP systems.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_carmack-gets-engaged_1100-2440403_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carmack-gets-engaged/1100-2440403/" class="article-title">Carmack Gets Engaged</a>
+			<div class="article-subtitle">John Carmack, id's legendary programmer, announces his engagement to ex-id-ster Anna Kang.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_gran-turismo-2-on-december-16_1100-2440393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-2-on-december-16/1100-2440393/" class="article-title">Gran Turismo 2 on December 16</a>
+			<div class="article-subtitle">SCEA announces that Gran Turismo 2 for the PlayStation will be on store shelves this Thursday.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-look-dreamcast-mdk2_1100-2440394_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-look-dreamcast-mdk2/1100-2440394/" class="article-title">New Look: Dreamcast MDK2</a>
+			<div class="article-subtitle">Interplay stops by and shows off MDK2 running on the Dreamcast. Check out some new shots of it in action.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_first-look-offroad-thunder_1100-2440395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-look-offroad-thunder/1100-2440395/" class="article-title">First Look: Offroad Thunder</a>
+			<div class="article-subtitle">We bring you a first look at Midway's Offroad Thunder, slated to hit arcades across the US in early February.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_pokemon-movie-sequel-date_1100-2440396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-movie-sequel-date/1100-2440396/" class="article-title">Pokemon Movie Sequel Date</a>
+			<div class="article-subtitle">We learn the release date for Pokemon: The Movie 2, coming to North American movie theaters next year.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_pokemon-invades-hotels_1100-2440397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-invades-hotels/1100-2440397/" class="article-title">Pokemon Invades Hotels</a>
+			<div class="article-subtitle">Nintendo of America announces that Pokemon has now invaded more than 86,000 hotel rooms across the US.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_hasbro-talks-microprose_1100-2440388_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hasbro-talks-microprose/1100-2440388/" class="article-title">Hasbro Talks MicroProse</a>
+			<div class="article-subtitle">Hasbro closing two MicroProse studios but says it plans to keep the MicroProse vibe alive.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_is-ps2-onimushas-akechi-real_1100-2440389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/is-ps2-onimushas-akechi-real/1100-2440389/" class="article-title">Is PS2 Onimusha's Akechi Real?</a>
+			<div class="article-subtitle">How close does the model of Akechi resemble the Japanese actor Kaneshiro Takeshi? Take a look.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_sega-announces-excite-partnership_1100-2440391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-announces-excite-partnership/1100-2440391/" class="article-title">Sega Announces Excite Partnership</a>
+			<div class="article-subtitle">Sega announces partnership with Excite@Home for content and communication on the Dreamcast Network.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_disney-wants-to-be-a-millionaire_1100-2440386_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/disney-wants-to-be-a-millionaire/1100-2440386/" class="article-title">Disney Wants to be a Millionaire</a>
+			<div class="article-subtitle">The electronic version of the popular TV quiz show Who Wants to be a Millionaire? jumps to the top of this week's best-seller list.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_now-ear-this_1100-2440387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/now-ear-this/1100-2440387/" class="article-title">Now Ear This</a>
+			<div class="article-subtitle">Sensaura announces new 3D audio technology designed to mimic the human ear.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_crusaders-ships_1100-2440385_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crusaders-ships/1100-2440385/" class="article-title">Crusaders Ships</a>
+			<div class="article-subtitle">The 3DO Company has announced that its new fantasy-based action-RPG title, Crusaders of Might and Magic, has shipped to stores in North America. The game features spline-based animation along with EAX and A3D support.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-playstation2-onimusha-shots_1100-2440382_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-playstation2-onimusha-shots/1100-2440382/" class="article-title">More PlayStation2 Onimusha Shots</a>
+			<div class="article-subtitle">Take a look at a few more screens of Capcom's visually impressive Onimusha for the upcoming PlayStation2.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-dreamcast-nhl2k-screens_1100-2440380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-dreamcast-nhl2k-screens/1100-2440380/" class="article-title">New Dreamcast NHL2K Screens</a>
+			<div class="article-subtitle">We take a new look at NHL2K for the Dreamcast - will it live up to the standards set by NBA2K and NFL2K?</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-look-playstation2-onimusha_1100-2440381_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-look-playstation2-onimusha/1100-2440381/" class="article-title">New Look: PlayStation2 Onimusha</a>
+			<div class="article-subtitle">We take a look at Capcom's Resident Evil-like game for the PlayStation2 set during a Japanese civil war.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_the-nintendo-64-dd-arrives_1100-2440376_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-nintendo-64-dd-arrives/1100-2440376/" class="article-title">The Nintendo 64 DD Arrives</a>
+			<div class="article-subtitle">The Nintendo 64 DD releases in Japan, and we check it out. Screens of the boot-up sequence are included.</div>
+			<div class="article-author">Yutaka Ohbuchi</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_eidos-and-disney-team-up_1100-2440377_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eidos-and-disney-team-up/1100-2440377/" class="article-title">Eidos and Disney Team Up</a>
+			<div class="article-subtitle">Eidos has teamed up with Disney to deliver new games to the PlayStation, Dreamcast, and more.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-kyojin-no-doshin-screens_1100-2440378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-kyojin-no-doshin-screens/1100-2440378/" class="article-title">New Kyojin no Doshin Screens</a>
+			<div class="article-subtitle">We deliver new screens of Kyojin no Doshin for the 64DD, one of the more unique titles to come out in a while.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-mario-paint-studio-screens_1100-2440379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-mario-paint-studio-screens/1100-2440379/" class="article-title">New Mario Paint Studio Screens</a>
+			<div class="article-subtitle">We've gotten our hands on Mario Paint Studio for the Nintendo 64DD - take a look at some new screens.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_turrican-returns-in-3d_1100-2440375_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/turrican-returns-in-3d/1100-2440375/" class="article-title">Turrican Returns in 3D</a>
+			<div class="article-subtitle">The classic-shooter character returns in 3D for the PC, with a Dreamcast version rumored to follow.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_ffviii-pc-date-announced_1100-2440370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ffviii-pc-date-announced/1100-2440370/" class="article-title">FFVIII PC Date Announced</a>
+			<div class="article-subtitle">Square Electronic Arts releases the shipping date of Final Fantasy VIII for the PC.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_online-gaming-49-billion-worth_1100-2440371_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/online-gaming-49-billion-worth/1100-2440371/" class="article-title">Online Gaming... $4.9 billion Worth</a>
+			<div class="article-subtitle">Report claims that online game is going to grow in a big way.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_quake-iii-sales-through-the-roof_1100-2440372_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quake-iii-sales-through-the-roof/1100-2440372/" class="article-title">Quake III Sales Through the Roof</a>
+			<div class="article-subtitle">Activision's own numbers put sales of Quake III Arena past the 50,000 mark in only three days.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_bushnell-joins-webquest_1100-2440367_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bushnell-joins-webquest/1100-2440367/" class="article-title">Bushnell Joins WebQuest</a>
+			<div class="article-subtitle">Pong's creator joins Board of Directors of the company that built his latest gaming site.</div>
+			<div class="article-author">Micheal Mullen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_creative-loses-aureal-suit_1100-2440368_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/creative-loses-aureal-suit/1100-2440368/" class="article-title">Creative Loses Aureal Suit</a>
+			<div class="article-subtitle">A San Francisco jury rules that Aureal's Vortex chips do not infringe on Creative Labs' patent.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_shipping-3d-prophet-ddr-dvi_1100-2440369_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shipping-3d-prophet-ddr-dvi/1100-2440369/" class="article-title">Shipping: 3D Prophet DDR-DVI</a>
+			<div class="article-subtitle">Guillemot's DDR-equipped GeForce 256 card is now available in stores.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_new-playstation2-x-fire-screens_1100-2440364_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-playstation2-x-fire-screens/1100-2440364/" class="article-title">New PlayStation2 X-Fire Screens</a>
+			<div class="article-subtitle">We've gotten our hands on a few new screens of Electronic Arts Square's first game for the PlayStation2 console.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_miyamoto-plans-gb-advance-zelda_1100-2440365_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/miyamoto-plans-gb-advance-zelda/1100-2440365/" class="article-title">Miyamoto Plans GB Advance Zelda</a>
+			<div class="article-subtitle">Shigeru Miyamoto is currently planning a Zelda title for the next-generation Game Boy system.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_sid-meiers-anitetam-releases_1100-2440366_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sid-meiers-anitetam-releases/1100-2440366/" class="article-title">Sid Meier's Anitetam! Releases</a>
+			<div class="article-subtitle">Firaxis has announced that its latest real-time re-creation of the bloodiest day in Civil War history is now available. Players can order the game through the company's web site (www.firaxis.com) for US$29.99.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_dreamcast-toy-story-2-confirmed_1100-2440363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dreamcast-toy-story-2-confirmed/1100-2440363/" class="article-title">Dreamcast Toy Story 2 Confirmed</a>
+			<div class="article-subtitle">We confirm that the visually impressive Toy Story 2 is coming to the Dreamcast in the near future.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_cool-boarders-on-neogeo-pocket_1100-2440412_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cool-boarders-on-neogeo-pocket/1100-2440412/" class="article-title">Cool Boarders on NeoGeo Pocket</a>
+			<div class="article-subtitle">UEP Systems delivers a Cool Boarders title for the NeoGeo Pocket Color. We take a first look.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_this-weeks-famitsu-scores_1100-2440414_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-famitsu-scores/1100-2440414/" class="article-title">This Week's Famitsu Scores</a>
+			<div class="article-subtitle">Japanese publication Famitsu rates this week's new releases, including Valkyrie Profile, D2, and SNK vs. Capcom.</div>
+			<div class="article-author">Yukiyoshi Ike Sato</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_gran-turismo-2-soundtrack-announced_1100-2440415_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-2-soundtrack-announced/1100-2440415/" class="article-title">Gran Turismo 2 Soundtrack Announced</a>
+			<div class="article-subtitle">Sony Computer Entertainment America announces that a Gran Turismo 2 soundtrack will soon be available.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_medievil-2-director-interviewed_1100-2440416_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medievil-2-director-interviewed/1100-2440416/" class="article-title">MediEvil 2 Director Interviewed</a>
+			<div class="article-subtitle">We sit down with the creative director of Sony's upcoming MediEvil 2 to discuss the game and the future of the series.</div>
+			<div class="article-author">Axel Strohm</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_more-parasite-eve-ii-screens_1100-2440417_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-parasite-eve-ii-screens/1100-2440417/" class="article-title">More Parasite Eve II Screens</a>
+			<div class="article-subtitle">We captured a few more screens of Parasite Eve II for the PlayStation. Check out some of the impressive scenes.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_squares-parasite-eve-ii-arrives_1100-2440418_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/squares-parasite-eve-ii-arrives/1100-2440418/" class="article-title">Square's Parasite Eve II Arrives</a>
+			<div class="article-subtitle">The highly anticipated sequel to Parasite Eve has arrived at videogames.com. We deliver first media.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_gamer-commander-mx-ships_1100-2440404_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamer-commander-mx-ships/1100-2440404/" class="article-title">Gamer Commander MX Ships</a>
+			<div class="article-subtitle">Mindmaker readies its voice command software.</div>
+			<div class="article-author">Alan Dunkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_gone-gold-janes-f-a-18_1100-2440406_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gone-gold-janes-f-a-18/1100-2440406/" class="article-title">Gone Gold: Jane's F/A-18</a>
+			<div class="article-subtitle">Electronic Arts' latest Jane's military similar, F/A-18, has gone gold. The game, which places gamers in the cockpit of a US Navy Hornet, will be on store shelves during the first week of January and retail for around US$39.99.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_no-messiah-this-new-year_1100-2440407_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-messiah-this-new-year/1100-2440407/" class="article-title">No Messiah This New Year</a>
+			<div class="article-subtitle">Shiny's Dave Perry confirms that Messiah won't ship until 2000.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_windows-2000-done_1100-2440409_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/windows-2000-done/1100-2440409/" class="article-title">Windows 2000 Done</a>
+			<div class="article-subtitle">The long overdue operating system is now complete, says Microsoft.</div>
+			<div class="article-author">Amer Ajami</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/GameSpot/_thumbnails/2000/02/17_blaster-master-promotion-video_1100-2440410_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blaster-master-promotion-video/1100-2440410/" class="article-title">Blaster Master Promotion Video</a>
+			<div class="article-subtitle">We get our hands on some promotional video of the upcoming Blaster Master: Blasting Again for the PlayStation.</div>
+			<div class="article-author">Sam Kennedy</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26100_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26100" class="article-title">New FPS in Development, Chaser</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26099_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26099" class="article-title">StarSiege : Tribes 1.10.5 Patch</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26098_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26098" class="article-title">Metal Fatigue Demo Released March 3</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26094_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26094" class="article-title">UbiSoft does Dinosaurs</a>
+			<div class="article-author">Gestalt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26093_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26093" class="article-title">Star Trek: Armada Diary</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26092_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26092" class="article-title">Paul Jaquays on E3</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26091_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26091" class="article-title">The Tech</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26090_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26090" class="article-title">Eye Candy</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="http://localhost:5000/Eurogamer/_thumbnails/2000/02/17_article-26089_thumbnail.png">
+			<a href="https://www.eurogamer.net/article-26089" class="article-title">The Views</a>
+			<div class="article-author">Forlorn</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

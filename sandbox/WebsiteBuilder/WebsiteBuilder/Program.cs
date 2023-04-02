@@ -24,7 +24,7 @@ namespace WebsiteBuilder
 
 
             //BuildWebpageForDate(year, month, day, dbManager, publications);
-            BuildWebpageForYear(1998, dbManager, publications);
+            BuildWebpageForYear(2000, dbManager, publications);
         }
 
 
