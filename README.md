@@ -25,6 +25,9 @@ When you install it, place it in this path: `C:\Program Files (x86)\Poppler\popp
 thinking the 3 webcrawler entrypoints should be: `url_indexer`, `archiver`, `search_indexer` <br/>
 https://www.neh.gov/grants/odh/digital-humanities-advancement-grants
 
+azure function that unzips blob uploads:
+https://www.frankysnotes.com/2019/02/how-to-unzip-automatically-your-files.html
+
 
 ### Wayback Machine API
 https://github.com/internetarchive/wayback/tree/master/wayback-cdx-server#basic-usage
