@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 5, 2022</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rifftrax-the-game-review-dumb-jokes-reign-supreme/1900-6417875/" class="article-title">RiffTrax: The Game Review - Dumb Jokes Reign Supreme</a>
+			<div class="article-subtitle">The familiar voices from RiffTrax have their own game where you and your friends can make a robot do fart noises.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_legend-of-zelda-twilight-princess-and-wind-waker-switch-release-rumored-for-2022_1100-6503137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/legend-of-zelda-twilight-princess-and-wind-waker-switch-release-rumored-for-2022/1100-6503137/" class="article-title">Legend of Zelda: Twilight Princess And Wind Waker Switch Release Rumored For 2022</a>
+			<div class="article-subtitle">Industry pundits are speculating about Nintendo filling its Breath of the Wild 2 void with ports of classic Zelda games.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_pokemon-cookbook-will-show-you-how-to-cook-up-gengar_1100-6503138_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/pokemon-cookbook-will-show-you-how-to-cook-up-gengar/1100-6503138/" class="article-title">Pokemon Cookbook Will Show You How To Cook Up Gengar</a>
+			<div class="article-subtitle">Pokemon, the other other white meat.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_free-call-of-duty-warzone-dlc-out-now-for-playstation-plus-members_1100-6503139_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/free-call-of-duty-warzone-dlc-out-now-for-playstation-plus-members/1100-6503139/" class="article-title">Free Call Of Duty: Warzone DLC Out Now For PlayStation Plus Members</a>
+			<div class="article-subtitle">The newest Combat Pack for the battle royale game has arrived.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_xbox-summer-showcase-is-expected-to-run-for-about-90-minutes_1100-6503140_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-summer-showcase-is-expected-to-run-for-about-90-minutes/1100-6503140/" class="article-title">Xbox Summer Showcase Is Expected To Run For About 90 Minutes</a>
+			<div class="article-subtitle">Get ready for 90 minutes of world premieres.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_hitman-3-new-rocky-level-arrives-in-july-freelancer-mode-coming-later-in-2022_1100-6503142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hitman-3-new-rocky-level-arrives-in-july-freelancer-mode-coming-later-in-2022/1100-6503142/" class="article-title">Hitman 3's New Rocky Level Arrives In July, Freelancer Mode Coming Later In 2022</a>
+			<div class="article-subtitle">Agent 47 is preparing for a killer hike in July.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_sam-raimi-was-growing-avocados-and-recalibrating-his-directing-senses-during-9-year-break-before-doctor-strange-2_1100-6503141_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sam-raimi-was-growing-avocados-and-recalibrating-his-directing-senses-during-9-year-break-before-doctor-strange-2/1100-6503141/" class="article-title">Sam Raimi Was Growing Avocados And Recalibrating His Directing Senses During 9-Year Break Before Doctor Strange 2</a>
+			<div class="article-subtitle">In the Multiverse of Madness is Raimi''s first time back directing since 2013''s Oz the Great and Powerful.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_best-weapons-in-elden-ring_1100-6502513_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-weapons-in-elden-ring/1100-6502513/" class="article-title">Best Weapons In Elden Ring</a>
+			<div class="article-subtitle">There''s nothing more important than wielding the correct weapon in the Lands Between.</div>
+			<div class="article-author">Joey Carr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_deep-rock-galactic-season-2-new-weapons-performance-pass-and-more_1100-6502932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deep-rock-galactic-season-2-new-weapons-performance-pass-and-more/1100-6502932/" class="article-title">Deep Rock Galactic Season 2: New Weapons, Performance Pass, And More</a>
+			<div class="article-subtitle">Here''s everything new coming to Deep Rock Galactic''s second season, Rival Escalation.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_horizon-forbidden-west-ps5-patch-notes-include-many-bug-fixes_1100-6503143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/horizon-forbidden-west-ps5-patch-notes-include-many-bug-fixes/1100-6503143/" class="article-title">Horizon Forbidden West PS5 Patch Notes Include Many Bug Fixes</a>
+			<div class="article-subtitle">The newest patch for Horizon Forbidden West has arrived.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_halo-infinite-update-gets-rid-of-usable-pelican-glitch_1100-6503144_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-infinite-update-gets-rid-of-usable-pelican-glitch/1100-6503144/" class="article-title">Halo Infinite Update Gets Rid Of Usable Pelican Glitch</a>
+			<div class="article-subtitle">The dropship has actually been used during a campaign mission in Halo 4.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_netflix-sued-by-shareholders-after-losing-subscribers_1100-6503129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflix-sued-by-shareholders-after-losing-subscribers/1100-6503129/" class="article-title">Netflix Sued By Shareholders After Losing Subscribers</a>
+			<div class="article-subtitle">The streaming service faces further complications after a lackluster Q1 performance.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_zelda-ocarina-of-time-among-2022-world-video-game-hall-of-fame-inductees_1100-6503147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zelda-ocarina-of-time-among-2022-world-video-game-hall-of-fame-inductees/1100-6503147/" class="article-title">Zelda: Ocarina Of Time Among 2022 World Video Game Hall Of Fame Inductees</a>
+			<div class="article-subtitle">Ms. Pac-Man, Dance Dance Revolution, The Legend of Zelda: Ocarina of Time, and Sid Meier''s Civilization are the latest additions to the Strong Museum''s hall of fame.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_todays-wordle-answer-320-may-5-2022_1100-6503146_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/todays-wordle-answer-320-may-5-2022/1100-6503146/" class="article-title">Today's Wordle Answer (#320) - May 5, 2022</a>
+			<div class="article-subtitle">Let us help you keep your Wordle streak alive.</div>
+			<div class="article-author">Joey Carr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_open-world-zombie-mmo-the-day-before-delayed-to-2023-switches-to-unreal-engine-5_1100-6503148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/open-world-zombie-mmo-the-day-before-delayed-to-2023-switches-to-unreal-engine-5/1100-6503148/" class="article-title">Open-World Zombie MMO The Day Before Delayed To 2023, Switches To Unreal Engine 5</a>
+			<div class="article-subtitle">Steam''s most-wishlisted game overall is no longer releasing in 2022.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_moon-knight-could-lose-its-emmy-chances-because-of-one-marvel-tweet_1100-6503150_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/moon-knight-could-lose-its-emmy-chances-because-of-one-marvel-tweet/1100-6503150/" class="article-title">Moon Knight Could Lose Its Emmy Chances Because Of One Marvel Tweet</a>
+			<div class="article-subtitle">The comics giant may have accidentally hinted at a new season of Moon Knight, inadvertently disqualifying it from its intended award category.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_house-of-the-dragon-trailer-provides-best-look-yet-at-the-game-of-thrones-prequel_1100-6503149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/house-of-the-dragon-trailer-provides-best-look-yet-at-the-game-of-thrones-prequel/1100-6503149/" class="article-title">House Of The Dragon Trailer Provides Best Look Yet At The Game Of Thrones Prequel</a>
+			<div class="article-subtitle">"History does not remember blood. It remembers names."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_new-house-of-the-dragon-character-posters-revealed-see-them-here_1100-6503145_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-house-of-the-dragon-character-posters-revealed-see-them-here/1100-6503145/" class="article-title">New House Of The Dragon Character Posters Revealed, See Them Here</a>
+			<div class="article-subtitle">Get a closer look at the cast of characters who appear in the upcoming Game of Thrones prequel.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_new-mafia-prequel-game-currently-in-development-report_1100-6503153_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-mafia-prequel-game-currently-in-development-report/1100-6503153/" class="article-title">New Mafia Prequel Game Currently In Development - Report</a>
+			<div class="article-subtitle">This comes just as Hangar 13''s studio head leaves.</div>
+			<div class="article-author">George Yang</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_summer-game-fest-2022-date-revealed-for-june-9-game-announcements-expected_1100-6503152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/summer-game-fest-2022-date-revealed-for-june-9-game-announcements-expected/1100-6503152/" class="article-title">Summer Game Fest 2022 Date Revealed For June 9, Game Announcements Expected</a>
+			<div class="article-subtitle">E3 2022 is canceled, but Geoff Keighley''s big event is still happening.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_fortnite-is-playable-on-ios-again-with-xbox-cloud-gaming_1100-6503154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-is-playable-on-ios-again-with-xbox-cloud-gaming/1100-6503154/" class="article-title">Fortnite Is Playable On iOS Again With Xbox Cloud Gaming</a>
+			<div class="article-subtitle">Fortnite is the first free-to-play game on Xbox Cloud Gaming, and it''s out right now for no cost.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_two-of-battlefield-2042-most-popular-portal-modes-will-stay-in-rotation-for-the-foreseeable-future_1100-6503157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/two-of-battlefield-2042-most-popular-portal-modes-will-stay-in-rotation-for-the-foreseeable-future/1100-6503157/" class="article-title">Two Of Battlefield 2042's Most Popular Portal Modes Will Stay In Rotation "For The Foreseeable Future"</a>
+			<div class="article-subtitle">Flashback Conquest and Infantry Conquest will be sticking around, with a few changes.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_players-of-the-first-dying-light-game-can-now-upgrade-to-enhanced-edition-for-free_1100-6503156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/players-of-the-first-dying-light-game-can-now-upgrade-to-enhanced-edition-for-free/1100-6503156/" class="article-title">Players Of The First Dying Light Game Can Now Upgrade To Enhanced Edition For Free</a>
+			<div class="article-subtitle">The latest patch allows all players to be automatically upgraded.</div>
+			<div class="article-author">George Yang</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_tom-cruise-did-his-own-stunts-for-top-gun-maverick_1100-6503158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-cruise-did-his-own-stunts-for-top-gun-maverick/1100-6503158/" class="article-title">Tom Cruise Did His Own Stunts For Top Gun: Maverick</a>
+			<div class="article-subtitle">The Hollywood icon was behind the cockpit in all those action shots.</div>
+			<div class="article-author">Lan Pitts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_wow-burning-crusade-classic-fury-of-the-sunwell-update-arrives-may-10_1100-6503159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wow-burning-crusade-classic-fury-of-the-sunwell-update-arrives-may-10/1100-6503159/" class="article-title">WoW: Burning Crusade Classic's Fury Of The Sunwell Update Arrives May 10</a>
+			<div class="article-subtitle">The final content patch for Burning Crusade Classic is coming next week.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_tennocon-2022-coming-july-16-with-jaw-dropping-announcements_1100-6503160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tennocon-2022-coming-july-16-with-jaw-dropping-announcements/1100-6503160/" class="article-title">TennoCon 2022 Coming July 16 With "Jaw-Dropping" Announcements</a>
+			<div class="article-subtitle">The seventh annual TennoCon event is slated for July.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_call-of-duty-mobile-is-getting-a-tournament-mode-with-season-4_1100-6503161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-mobile-is-getting-a-tournament-mode-with-season-4/1100-6503161/" class="article-title">Call Of Duty Mobile Is Getting A Tournament Mode With Season 4</a>
+			<div class="article-subtitle">Activision has detailed the tournament mode arriving as part of Season 4: Wild Dogs.</div>
+			<div class="article-author">S.E. Doster</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_trek-to-yomi-tips-for-beginners_1100-6503151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/trek-to-yomi-tips-for-beginners/1100-6503151/" class="article-title">Trek To Yomi Tips for Beginners</a>
+			<div class="article-subtitle">Sword skills that will make the Kami proud.</div>
+			<div class="article-author">Zoey Handley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_olliolli-worlds-void-riders-dlc-is-as-weird-as-it-looks-exclusive_1100-6503135_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/olliolli-worlds-void-riders-dlc-is-as-weird-as-it-looks-exclusive/1100-6503135/" class="article-title">OlliOlli World's Void Riders DLC Is "As Weird As It Looks" (Exclusive)</a>
+			<div class="article-subtitle">GameSpot got an early look at the art for OlliOlli World''s first story expansion, which developer Roll7 says includes a new biome, new customization options, and aliens.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_3-xbox-games-are-free-this-weekend-including-civilization-6_1100-6503155_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3-xbox-games-are-free-this-weekend-including-civilization-6/1100-6503155/" class="article-title">3 Xbox Games Are Free This Weekend, Including Civilization 6</a>
+			<div class="article-subtitle">Most of the games are also get big discounts as part of the free-play weekend.</div>
+			<div class="article-author">Jon Bitner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_cod-black-ops-cold-war-is-getting-jungle-map-on-may-6_1100-6503166_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cod-black-ops-cold-war-is-getting-jungle-map-on-may-6/1100-6503166/" class="article-title">CoD: Black Ops Cold War Is Getting Jungle Map On May 6</a>
+			<div class="article-subtitle">Another throwback map is arriving to Black Ops Cold War for Year 2 content.</div>
+			<div class="article-author">S.E. Doster</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_blizzard-hires-first-head-of-culture-to-help-improve-diversity-and-inclusivity_1100-6503165_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-hires-first-head-of-culture-to-help-improve-diversity-and-inclusivity/1100-6503165/" class="article-title">Blizzard Hires First Head Of Culture To Help Improve Diversity And Inclusivity</a>
+			<div class="article-subtitle">The hiring comes after Activision Blizzard has been criticized for sexual harassment and discrimination.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_cobra-kai-season-5-trailer-arrives-with-september-release-date_1100-6503168_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cobra-kai-season-5-trailer-arrives-with-september-release-date/1100-6503168/" class="article-title">Cobra Kai Season 5 Trailer Arrives, With September Release Date</a>
+			<div class="article-subtitle">Following the events of Season 4, Cobra Kai is bigger than ever.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_amc-seems-to-scoff-at-ad-supported-tiers-for-streaming_1100-6503169_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/amc-seems-to-scoff-at-ad-supported-tiers-for-streaming/1100-6503169/" class="article-title">AMC Seems To Scoff At Ad-Supported Tiers For Streaming</a>
+			<div class="article-subtitle">Another streaming service finishing out Q1 weighs in on where things may be headed next.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_fortnite-week-7-challenges-chapter-3-season-2-tank-engines-seven-supplies-and-more_1100-6503170_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-week-7-challenges-chapter-3-season-2-tank-engines-seven-supplies-and-more/1100-6503170/" class="article-title">Fortnite Week 7 Challenges (Chapter 3, Season 2): Tank Engines, Seven Supplies, And More</a>
+			<div class="article-subtitle">This week''s challenges continue the story from previous Resistance quests.</div>
+			<div class="article-author">Hana Kim</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_friday-nite-fortnite-should-borrow-one-vital-feature-from-the-halo-infinite-battle-pass_1100-6503171_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/friday-nite-fortnite-should-borrow-one-vital-feature-from-the-halo-infinite-battle-pass/1100-6503171/" class="article-title">Friday 'Nite: Fortnite Should Borrow One Vital Feature From The Halo Infinite Battle Pass</a>
+			<div class="article-subtitle">Fortnite''s story is more important to the game than ever, so it''s unfortunate that many major characters are unavailable to newer players.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2022/05/05_fortnite-scarlet-witch-skin-brings-chaos-magic-to-the-item-shop_1100-6503172_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-scarlet-witch-skin-brings-chaos-magic-to-the-item-shop/1100-6503172/" class="article-title">Fortnite Scarlet Witch Skin Brings Chaos Magic To The Item Shop</a>
+			<div class="article-subtitle">Wanda comes with her signature cloak, a Psychic Energy Manipulation emote, and more.</div>
+			<div class="article-author">Juno Stump</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_warframes-annual-tennocon-fan-event-returns-this-july-in-digital-only-form_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/warframes-annual-tennocon-fan-event-returns-this-july-in-digital-only-form" class="article-title">Warframe's annual TennoCon fan event returns this July in digital-only form</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_animal-splicing-tycoon-game-lets-build-a-zoo-is-getting-dinosaur-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/animal-splicing-tycoon-game-lets-build-a-zoo-is-getting-dinosaur-dlc" class="article-title">Animal-splicing tycoon game Let's Build a Zoo is getting dinosaur DLC</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_prey-and-jotun-valhalla-edition-are-next-weeks-free-epic-store-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/prey-and-jotun-valhalla-edition-are-next-weeks-free-epic-store-games" class="article-title">Prey and Jotun: Valhalla Edition are next week's free Epic Store games</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_new-mafia-game-reportedly-in-development-at-hangar-13_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/new-mafia-game-reportedly-in-development-at-hangar-13" class="article-title">New Mafia game reportedly in development at Hangar 13</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_what-is-daily-focus-playlist-destiny-2-rewards-9009_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/what-is-daily-focus-playlist-destiny-2-rewards-9009" class="article-title">Destiny 2 Daily Focus playlist location and rewards</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_destiny-2-the-title-god-roll-get-farm-9009_thumbnail.png">
+			<a href="https://www.eurogamer.net/destiny-2-the-title-god-roll-get-farm-9009" class="article-title">How to get The Title in Destiny 2, The Title god roll recommendation</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_fortnite-joins-xbox-cloud-gaming-giving-iphone-users-another-way-to-play_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fortnite-joins-xbox-cloud-gaming-giving-iphone-users-another-way-to-play" class="article-title">Fortnite joins Xbox Cloud Gaming, giving iPhone users another way to play</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_star-wars-battlefront-3-psp-test-build-surfaces-but-its-not-what-it-seems_thumbnail..jpg">
+			<a href="https://www.eurogamer.net/star-wars-battlefront-3-psp-test-build-surfaces-but-its-not-what-it-seems" class="article-title">Star Wars Battlefront 3 PSP test build surfaces, but it's not what it seems</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_summer-game-fest-live-show-date-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/summer-game-fest-live-show-date-announced" class="article-title">Summer Game Fest live show date announced</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_pokemon-gos-big-summer-european-meet-up-detailed_thumbnail..jpg">
+			<a href="https://www.eurogamer.net/pokemon-gos-big-summer-european-meet-up-detailed" class="article-title">Pokémon Go's big summer European meet-up detailed</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_recover-stolen-seven-supplies-io-locations-fortnite-9006_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/recover-stolen-seven-supplies-io-locations-fortnite-9006" class="article-title">Where to recover stolen Seven supplies at IO locations in Fortnite</a>
+			<div class="article-author">Lottie Lynn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_dying-light-gets-brand-new-dieselpunk-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dying-light-gets-brand-new-dieselpunk-dlc" class="article-title">Dying Light gets brand new Dieselpunk DLC, who chainsaw that coming?</a>
+			<div class="article-author">Victoria Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_curse-of-monkey-island-designer-reveals-reasons-for-series-art-style-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/curse-of-monkey-island-designer-reveals-reasons-for-series-art-style-switch" class="article-title">Curse of Monkey Island designer reveals reasons for series' art style switch</a>
+			<div class="article-author">Victoria Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_digitalfoundry-2022-dell-s2721dgf-monitor-299-deal_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2022-dell-s2721dgf-monitor-299-deal" class="article-title">Our top gaming monitor pick is down to $299 at Best Buy ($150 off)</a>
+			<div class="article-author">Joel Loynds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_get-12-games-for-just-9-with-the-latest-humble-bundle_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/get-12-games-for-just-9-with-the-latest-humble-bundle" class="article-title">Get 12 games for just £9 with the latest Humble Bundle</a>
+			<div class="article-author">Mark Harrison</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_hitman-3s-roguelike-freelancer-mode-pushed-back-until-later-this-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hitman-3s-roguelike-freelancer-mode-pushed-back-until-later-this-year" class="article-title">Hitman 3's roguelike Freelancer mode pushed back until later this year</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_microsoft-offices-clippy-returns-by-way-of-halo-infinite_thumbnail..jpg">
+			<a href="https://www.eurogamer.net/microsoft-offices-clippy-returns-by-way-of-halo-infinite" class="article-title">Microsoft Office's Clippy returns, by way of Halo Infinite</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_how-to-disable-a-tank-locations-by-damaging-the-engine-in-fortnite-9006_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/how-to-disable-a-tank-locations-by-damaging-the-engine-in-fortnite-9006" class="article-title">How to disable a tank by damaging the engine in Fortnite</a>
+			<div class="article-author">Jessica Orr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_get-a-new-gaming-mouse-for-less-in-the-logitech-sale-at-amazon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/get-a-new-gaming-mouse-for-less-in-the-logitech-sale-at-amazon" class="article-title">Get a new gaming mouse for less in the Logitech sale at Amazon</a>
+			<div class="article-author">Mark Harrison</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_nintendo-changed-coconut-mall-in-mario-kart-8-and-fans-want-it-reverted_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-changed-coconut-mall-in-mario-kart-8-and-fans-want-it-reverted" class="article-title">Nintendo changed Coconut Mall in Mario Kart 8 and fans want it reverted</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_citizen-sleeper-review-a-gentle-cerebral-game-of-belonging-and-survival_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/citizen-sleeper-review-a-gentle-cerebral-game-of-belonging-and-survival" class="article-title">Citizen Sleeper review - a gentle, cerebral game of belonging and survival</a>
+			<div class="article-subtitle">Occasionally turning subtext into text, Citizen Sleeper's real magic is found in the boundless warmth of its characters - and the humanity of its own design.</div>
+			<div class="article-author">Chris Tapsell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_former-wwe-developer-yukes-announces-aew-fight-forever_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/former-wwe-developer-yukes-announces-aew-fight-forever" class="article-title">Former WWE developer Yuke's announces AEW Fight Forever</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_elden-ring-calculator-is-invaluable-tool-for-magic-users_thumbnail.png">
+			<a href="https://www.eurogamer.net/elden-ring-calculator-is-invaluable-tool-for-magic-users" class="article-title">Elden Ring calculator is invaluable tool for magic users</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_resident-evil-the-last-of-us-and-god-of-war-given-a-comic-book-makeover-by-rockstar-games-artist_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-the-last-of-us-and-god-of-war-given-a-comic-book-makeover-by-rockstar-games-artist" class="article-title">Resident Evil, The Last of Us and God of War given a comic book makeover by Rockstar Games artist</a>
+			<div class="article-author">Victoria Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_neill-blomkamp-backed-gunzilla-games-announces-next-project_thumbnail.png">
+			<a href="https://www.eurogamer.net/neill-blomkamp-backed-gunzilla-games-announces-next-project" class="article-title">Neill Blomkamp-backed Gunzilla Games announces next project</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_ubisoft-founding-family-likely-to-oppose-full-takeover-report-suggests_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ubisoft-founding-family-likely-to-oppose-full-takeover-report-suggests" class="article-title">Ubisoft founding family likely to oppose full takeover, report suggests</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_mafa-hangar-studio-head-stepping-down-after-seven-years_thumbnail..jpg">
+			<a href="https://www.eurogamer.net/mafa-hangar-studio-head-stepping-down-after-seven-years" class="article-title">Mafia 3's Hangar 13 studio head is stepping down after seven years</a>
+			<div class="article-author">Victoria Kennedy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_theres-a-final-fantasy-14-version-of-heardle_thumbnail.png">
+			<a href="https://www.eurogamer.net/theres-a-final-fantasy-14-version-of-heardle" class="article-title">There's a Final Fantasy 14 version of Heardle</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_heres-an-hour-of-footage-from-ravenholm-arkanes-cancelled-half-life-game_thumbnail.png">
+			<a href="https://www.eurogamer.net/heres-an-hour-of-footage-from-ravenholm-arkanes-cancelled-half-life-game" class="article-title">Here's an hour of footage from Ravenholm: Arkane's cancelled Half-Life game</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_streaming-numbers-are-down-in-a-post-lockdown-world_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/streaming-numbers-are-down-in-a-post-lockdown-world" class="article-title">Streaming numbers are down in a post-lockdown world</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_hitmans-voice-cast-on-playing-outsiders-absurd-humour-and-ios-future-with-bond_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hitmans-voice-cast-on-playing-outsiders-absurd-humour-and-ios-future-with-bond" class="article-title">Hitman's voice cast on playing outsiders, absurd humour, and IO's future with Bond</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_stylish-boss-rush-hack-and-slasher-furi-is-getting-new-onnamusha-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/stylish-boss-rush-hack-and-slasher-furi-is-getting-new-onnamusha-dlc" class="article-title">Stylish boss rush hack-and-slasher Furi is getting new Onnamusha DLC</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2022/05/05_king-arthur-knights-tale-review-nice-ideas-cant-lift-a-trudgy-core_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/king-arthur-knights-tale-review-nice-ideas-cant-lift-a-trudgy-core" class="article-title">King Arthur: Knight's Tale review - nice ideas can't lift a trudgy core</a>
+			<div class="article-subtitle">A dark RPG-strategy hybrid that's not without its pleasures, but tends towards numb repetition and becomes a slog.</div>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

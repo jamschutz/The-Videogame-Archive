@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 21, 2021</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/game-builder-garage-review-building-blocks/1900-6417690/" class="article-title">Game Builder Garage Review - Building Blocks</a>
+			<div class="article-subtitle">Nintendo''s new game creation software may not let you make the game of your dreams, but it''s a fun-to-use toolkit nonetheless.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-kindle-deals-fire-hd-oasis-paperwhite-and-more_1100-6493080_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/best-prime-day-kindle-deals-fire-hd-oasis-paperwhite-and-more/1100-6493080/" class="article-title">Best Prime Day Kindle Deals: Fire HD, Oasis, Paperwhite, And More</a>
+			<div class="article-subtitle">From the luxurious Kindle Oasis to the Kindle Fire HD 8 Plus, Amazon has tons of great Prime Day Kindle deals.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_get-samsungs-85-inch-q80a-4k-tv-for-2400-during-prime-day-supports-4k-and-120hz_1100-6493103_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/get-samsungs-85-inch-q80a-4k-tv-for-2400-during-prime-day-supports-4k-and-120hz/1100-6493103/" class="article-title">Get Samsung's 85-Inch Q80A 4K TV For $2,400 During Prime Day, Supports 4K And 120Hz</a>
+			<div class="article-subtitle">The Samsung Prime Day deal offers an excellent 4K TV that can utilize the power of next-gen consoles.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-samsung-prime-day-deals-2021-galaxy-s21-5g-for-600-odyssey-g7-monitor-for-560-and-more_1100-6493042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-samsung-prime-day-deals-2021-galaxy-s21-5g-for-600-odyssey-g7-monitor-for-560-and-more/1100-6493042/" class="article-title">Best Samsung Prime Day Deals 2021: Galaxy S21 5G For $600, Odyssey G7 Monitor For $560, And More</a>
+			<div class="article-subtitle">Prime Day is here, and Samsung fans can score some great deals on TV, cell phones, and more.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_razer-blade-15-base-gaming-laptop-falls-under-1000-for-first-time-during-prime-day_1100-6493076_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/razer-blade-15-base-gaming-laptop-falls-under-1000-for-first-time-during-prime-day/1100-6493076/" class="article-title">Razer Blade 15 Base Gaming Laptop Falls Under $1,000 For First Time During Prime Day</a>
+			<div class="article-subtitle">The cheapest Razer Blade 15 model has dropped to its lowest price ever during Prime Day 2021.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_hotel-transylvania-transformania-moves-to-october_1100-6493104_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hotel-transylvania-transformania-moves-to-october/1100-6493104/" class="article-title">Hotel Transylvania: Transformania Moves To October</a>
+			<div class="article-subtitle">The animated sequel was expected in July, but will now hit theaters on October 1.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_returnal-sees-huge-discount-during-amazon-prime-day-2021_1100-6493106_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/returnal-sees-huge-discount-during-amazon-prime-day-2021/1100-6493106/" class="article-title">Returnal Sees Huge Discount During Amazon Prime Day 2021</a>
+			<div class="article-subtitle">Housemarque''s roguelike shooter sees a big markdown just two months after its April 30 launch.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_wd-black-sn850-500gb-internal-ssd-sees-nearly-50-price-drop-for-amazon-prime-day_1100-6493109_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wd-black-sn850-500gb-internal-ssd-sees-nearly-50-price-drop-for-amazon-prime-day/1100-6493109/" class="article-title">WD Black SN850 500GB Internal SSD Sees Nearly 50% Price Drop For Amazon Prime Day</a>
+			<div class="article-subtitle">A top solid state drive has dropped $60 in a limited time Prime Day deal.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-tv-box-sets-for-50-off_1100-6493108_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-tv-box-sets-for-50-off/1100-6493108/" class="article-title">Prime Day: TV Box Sets For 50% Off</a>
+			<div class="article-subtitle">Prepare for winter by grabbing a number of TV series boxsets for a bargain during Amazon Prime Day 2021.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-grab-nintendo-switch-lite-bundle-with-free-128gb-microsd-card_1100-6493105_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-grab-nintendo-switch-lite-bundle-with-free-128gb-microsd-card/1100-6493105/" class="article-title">Prime Day: Grab Nintendo Switch Lite Bundle With Free 128GB MicroSD Card</a>
+			<div class="article-subtitle">Prime Day 2021 has a great deal on a range of Nintendo Switch Lite consoles and the storage space to keep some great games installed.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-echo-deals-2021-echo-show-5-echo-dot-get-big-discounts_1100-6492875_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-prime-day-echo-deals-2021-echo-show-5-echo-dot-get-big-discounts/1100-6492875/" class="article-title">Best Prime Day Echo Deals 2021: Echo Show 5, Echo Dot Get Big Discounts</a>
+			<div class="article-subtitle">Amazon Prime Day Echo deals are live, and you don''t want to miss them</div>
+			<div class="article-author">Jenae Sitzes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-mario-kart-live-gets-big-price-cut_1100-6493111_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-mario-kart-live-gets-big-price-cut/1100-6493111/" class="article-title">Prime Day: Mario Kart Live Gets Big Price Cut</a>
+			<div class="article-subtitle">Nintendo''s blurred line between toys and digital entertainment just got a 25% discount for Amazon Prime Day.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_4k-movie-collections-prime-day-deals-the-lord-of-the-rings-back-to-the-future-and-more_1100-6493112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/4k-movie-collections-prime-day-deals-the-lord-of-the-rings-back-to-the-future-and-more/1100-6493112/" class="article-title">4K Movie Collections Prime Day Deals: The Lord Of The Rings, Back To The Future, And More</a>
+			<div class="article-subtitle">Many classic film collections are now available in 4K at deep discounts during Prime Day.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_ted-lasso-season-2-trailer-has-all-the-warm-hearted-laughs-you-want_1100-6493113_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/ted-lasso-season-2-trailer-has-all-the-warm-hearted-laughs-you-want/1100-6493113/" class="article-title">Ted Lasso Season 2 Trailer Has All The Warm-Hearted Laughs You Want</a>
+			<div class="article-subtitle">Jason Sudeikis returns for the second season of the Apple TV+ soccer comedy.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_new-gi-joe-snake-eyes-trailer-delivers-origin-story-and-ninja-action_1100-6493107_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/new-gi-joe-snake-eyes-trailer-delivers-origin-story-and-ninja-action/1100-6493107/" class="article-title">New GI Joe: Snake Eyes Trailer Delivers Origin Story And Ninja Action</a>
+			<div class="article-subtitle">Henry Golding plays Snake Eyes in the latest GI Joe movie, which releases in July.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_play-for-all-2021-schedule_1100-6492224_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/play-for-all-2021-schedule/1100-6492224/" class="article-title">GameSpot Play For All 2021 Schedule: Livestreams, Exclusives, And Much More</a>
+			<div class="article-subtitle">Here''s when to expect all of June''s happenings.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-2021-save-big-on-jabra-wireless-earbuds_1100-6493117_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-2021-save-big-on-jabra-wireless-earbuds/1100-6493117/" class="article-title">Prime Day 2021: Save Big On Jabra Wireless Earbuds</a>
+			<div class="article-subtitle">Jabra''s Elite 85t Wireless Earbuds currently cost less than Apple''s AirPods Pro.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-save-on-wifi-extender-boost-your-signal-reach-for-your-gaming-needs_1100-6493119_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-save-on-wifi-extender-boost-your-signal-reach-for-your-gaming-needs/1100-6493119/" class="article-title">Prime Day: Save On WiFi Extender, Boost Your Signal Reach For Your Gaming Needs</a>
+			<div class="article-subtitle">Buying a WiFi extender is a good way of boosting the range of your router so that the signal reaches all the corners of your home.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-save-on-board-games-like-pandemic-and-exploding-kittens_1100-6493118_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-save-on-board-games-like-pandemic-and-exploding-kittens/1100-6493118/" class="article-title">Prime Day: Save On Board Games Like Pandemic And Exploding Kittens</a>
+			<div class="article-subtitle">Amazon Prime Day is upon us, and there are a lot of good deals on board games that''ll hook you and your friends.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-2021-drone-deals-discounts-on-dji-autel-and-more_1100-6493116_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/best-prime-day-2021-drone-deals-discounts-on-dji-autel-and-more/1100-6493116/" class="article-title">Best Prime Day 2021 Drone Deals: Discounts On DJI, Autel, And More</a>
+			<div class="article-subtitle">With Amazon Prime Day now underway, here''s a selection of the best drone deals available during this year''s two-day blowout sale.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_walmarts-best-prime-day-deals-switch-games-roku-tv-beats-solo-pro-and-more_1100-6493073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/walmarts-best-prime-day-deals-switch-games-roku-tv-beats-solo-pro-and-more/1100-6493073/" class="article-title">Walmart's Best Prime Day Deals: Switch Games, Roku TV, Beats Solo Pro, And More</a>
+			<div class="article-subtitle">Walmart''s Prime Day-adjacent sale, Deals For Days, is back with markdowns on electronics and more.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-deals-on-headphones-and-earbuds-apple-airpods-sony-bose-jabra-and-more_1100-6492399_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-prime-day-deals-on-headphones-and-earbuds-apple-airpods-sony-bose-jabra-and-more/1100-6492399/" class="article-title">Best Prime Day Deals On Headphones And Earbuds: Apple AirPods, Sony, Bose, Jabra, And More</a>
+			<div class="article-subtitle">Prime Day headphones deals have brought discounts on the Apple AirPods Pro and products from Bose, Sony, Samsung, and more.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_shazam-2-image-reveals-superpowered-familys-new-costumes_1100-6493110_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/shazam-2-image-reveals-superpowered-familys-new-costumes/1100-6493110/" class="article-title">Shazam 2 Image Reveals Superpowered Family's New Costumes</a>
+			<div class="article-subtitle">The DC sequel Shazam! Fury of the Gods releases in June 2023.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-deals-under-50-steelseries-arctis-1-for-35-fire-tv-stick-4k-for-25-and-more_1100-6493089_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-prime-day-deals-under-50-steelseries-arctis-1-for-35-fire-tv-stick-4k-for-25-and-more/1100-6493089/" class="article-title">Best Prime Day Deals Under $50: SteelSeries Arctis 1 For $35, Fire TV Stick 4K For $25, And More</a>
+			<div class="article-subtitle">From gaming accessories to Amazon smart devices, here are the best Prime Day deals under $50 that won''t break the bank.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-storage-deals-ssds-external-hard-drives-microsd-cards-and-nas-drives_1100-6493093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-prime-day-storage-deals-ssds-external-hard-drives-microsd-cards-and-nas-drives/1100-6493093/" class="article-title">Best Prime Day Storage Deals: SSDs, External Hard Drives, MicroSD Cards, and NAS Drives</a>
+			<div class="article-subtitle">Sort out all your gaming storage needs with these Prime Day deals on SSDs, hard drives, and more.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-halo-infinite-mega-construx-sets-see-big-price-drop_1100-6493115_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-halo-infinite-mega-construx-sets-see-big-price-drop/1100-6493115/" class="article-title">Prime Day: Halo Infinite Mega Construx Sets See Big Price Drop</a>
+			<div class="article-subtitle">Mega Bloks sets for the upcoming Halo Infinite video game are on sale for Amazon Prime Day.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-save-on-midway-games-documentary-movie-insert-coin_1100-6493122_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-save-on-midway-games-documentary-movie-insert-coin/1100-6493122/" class="article-title">Prime Day: Save On Midway Games Documentary Movie Insert Coin</a>
+			<div class="article-subtitle">The Midway Games documentary Insert Coin, which looks at the creation of Mortal Kombat and more arcade classics,  is on sale during Amazon Prime Day 2021.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-gaming-headset-deals-2021-razer-corsair-astro-hyperx-and-more_1100-6492522_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-gaming-headset-deals-2021-razer-corsair-astro-hyperx-and-more/1100-6492522/" class="article-title">Prime Day Gaming Headset Deals 2021: Razer, Corsair, Astro, HyperX, And More</a>
+			<div class="article-subtitle">Prime Day has got some great gaming headset deals, and you can save on a bunch of great headsets for PC, PS5, And Xbox.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-tony-hawks-pro-skater-1-2-nintendo-switch-edition-discounted-at-walmart_1100-6493124_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-tony-hawks-pro-skater-1-2-nintendo-switch-edition-discounted-at-walmart/1100-6493124/" class="article-title">Prime Day: Tony Hawk's Pro Skater 1 + 2 Nintendo Switch Edition Discounted At Walmart</a>
+			<div class="article-subtitle">Preorder the Nintendo Switch port of the Tony Hawk''s Pro Skater remake bundle at a great discount for Amazon Prime Day.</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-2021-best-robot-vacuum-deals-on-roomba-eufy-and-roborock_1100-6493121_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-2021-best-robot-vacuum-deals-on-roomba-eufy-and-roborock/1100-6493121/" class="article-title">Prime Day 2021: Best Robot Vacuum Deals On Roomba, Eufy, And Roborock</a>
+			<div class="article-subtitle">Here''s a roundup of some of the best robot vacuum cleaners on sale for Amazon Prime Day, including a steep discount on the Roomba 692.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-macbook-pro-with-m1-chip-gets-steepest-discount-yet_1100-6493125_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-macbook-pro-with-m1-chip-gets-steepest-discount-yet/1100-6493125/" class="article-title">Prime Day: MacBook Pro With M1 Chip Gets Steepest Discount Yet</a>
+			<div class="article-subtitle">Save a couple hundred bucks on a new MacBook Pro with this Prime Day deal.</div>
+			<div class="article-author">Mason Downey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-razer-basilisk-ultimate-mouse-gets-nearly-50-price-drop_1100-6493127_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-razer-basilisk-ultimate-mouse-gets-nearly-50-price-drop/1100-6493127/" class="article-title">Prime Day: Razer Basilisk Ultimate Mouse Gets Nearly 50% Price Drop</a>
+			<div class="article-subtitle">At nearly half off, this Razer gaming mouse is a Prime Day 2021 deal you''re going to want to check out.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-drops-the-best-ps5-headset-to-130-save-50_1100-6493129_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/prime-day-drops-the-best-ps5-headset-to-130-save-50/1100-6493129/" class="article-title">Prime Day Drops The Best PS5 Headset To $130 (Save $50)</a>
+			<div class="article-subtitle">Coming in at $47 off, this Prime Day 2021 deal on the Razer BlackShark V2 Pro is not one to miss.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-deals-on-smart-home-devices-smart-plugs-light-switches-power-strips-and-more_1100-6493126_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/best-prime-day-deals-on-smart-home-devices-smart-plugs-light-switches-power-strips-and-more/1100-6493126/" class="article-title">Best Prime Day Deals On Smart Home Devices: Smart Plugs, Light Switches, Power Strips And More</a>
+			<div class="article-subtitle">Get big discounts on smart devices for your home, like outlet plugs, light switches, power strips, thermostats, and more.</div>
+			<div class="article-author">James Carr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_ea-boosts-battlefield-4-server-capacity-following-player-surge_1100-6493130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-boosts-battlefield-4-server-capacity-following-player-surge/1100-6493130/" class="article-title">EA Boosts Battlefield 4 Server Capacity Following Player Surge</a>
+			<div class="article-subtitle">EA has only boosted server capacity for one region in the United States for the time being.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_ea-motive-reportedly-reviving-dead-space_1100-6493132_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/ea-motive-reportedly-reviving-dead-space/1100-6493132/" class="article-title">EA Motive Reportedly Reviving Dead Space</a>
+			<div class="article-subtitle">Motive Studios is reportedly working on a Dead Space reimaging for EA.</div>
+			<div class="article-author">James Carr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-phone-deals-2021-discounts-from-samsung-google-and-apple_1100-6492338_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/best-prime-day-phone-deals-2021-discounts-from-samsung-google-and-apple/1100-6492338/" class="article-title">Best Prime Day Phone Deals 2021: Discounts From Samsung, Google, And Apple</a>
+			<div class="article-subtitle">More Amazon Prime Day phone deals are coming, but you can already save on a few Android models, including Google Pixel and Samsung Galaxy.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_save-34-on-the-razer-kishi-phone-controller-during-prime-day-2021_1100-6493131_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/save-34-on-the-razer-kishi-phone-controller-during-prime-day-2021/1100-6493131/" class="article-title">Save $34 On The Razer Kishi Phone Controller During Prime Day 2021</a>
+			<div class="article-subtitle">Razer''s Kishi Mobile Game Controller turns any modern Android or iPhone into a legitimate handheld gaming system, and it''s on deep discount for Prime Day.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-fire-tv-deals-2021-fire-tv-cube-fire-tv-stick-4k-and-more_1100-6492883_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-fire-tv-deals-2021-fire-tv-cube-fire-tv-stick-4k-and-more/1100-6492883/" class="article-title">Prime Day Fire TV Deals 2021: Fire TV Cube, Fire TV Stick 4K, And More</a>
+			<div class="article-subtitle">Prime Day 2021 deals include big discounts on all three Fire Stick models, the versatile Fire TV Cube, and 4K Fire TVs.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_final-fantasy-ix-animated-series-is-in-development_1100-6493133_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-ix-animated-series-is-in-development/1100-6493133/" class="article-title">Final Fantasy IX Animated Series Is In Development</a>
+			<div class="article-subtitle">Square Enix has partnered with Cyber Group Studios to develop and produce an animated series based on the PlayStation game Final Fantasy 9.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_prime-day-soundbar-deals-2021-lg-samsung-tcl-and-more-to-expect_1100-6492968_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/prime-day-soundbar-deals-2021-lg-samsung-tcl-and-more-to-expect/1100-6492968/" class="article-title">Prime Day Soundbar Deals 2021: LG, Samsung, TCL, And More To Expect</a>
+			<div class="article-subtitle">Prime Day is now here, and we''re tracking the best Prime Day soundbar and speaker deals as they go live.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_a-frightening-conspiracy-is-unraveled-in-new-pubg-trailer-featuring-beyond-beliefs-jonathan-frakes_1100-6493134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-frightening-conspiracy-is-unraveled-in-new-pubg-trailer-featuring-beyond-beliefs-jonathan-frakes/1100-6493134/" class="article-title">A Frightening Conspiracy Is Unraveled In New PUBG Trailer Featuring Beyond Belief's Jonathan Frakes</a>
+			<div class="article-subtitle">There''s a convoluted history at the center of PlayerUnknown''s Battlegrounds'' in-game universe.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_best-prime-day-smart-watch-deals-apple-watch-series-6-for-350-plus-deals-from-fossil-samsung-and-garmin_1100-6493035_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-prime-day-smart-watch-deals-apple-watch-series-6-for-350-plus-deals-from-fossil-samsung-and-garmin/1100-6493035/" class="article-title">Best Prime Day Smart Watch Deals: Apple Watch Series 6 For $350, Plus Deals From Fossil, Samsung, And Garmin</a>
+			<div class="article-subtitle">Prime Day has begun, and smart shoppers should watch these deals on smart watches.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_call-of-duty-warzone-adds-new-pride-flags_1100-6493069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-warzone-adds-new-pride-flags/1100-6493069/" class="article-title">Call Of Duty: Warzone Adds New Pride Flags</a>
+			<div class="article-subtitle">Raven Software is celebrating Pride month with the addition of 8 new Pride flag Calling Cards.</div>
+			<div class="article-author">Hayley Williams</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_xbox-game-studios-exec-says-its-main-focus-is-diversity_1100-6493135_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-game-studios-exec-says-its-main-focus-is-diversity/1100-6493135/" class="article-title">Xbox Game Studios Exec Says Its Main Focus Is Diversity</a>
+			<div class="article-subtitle">Xbox head of publishing has shared how the company plans to reach its target of 3 billion Xbox players.</div>
+			<div class="article-author">Hayley Williams</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/06/21_handmaids-tale-showrunner-bruce-miller-on-whats-in-store-for-season-five_1100-6493136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/handmaids-tale-showrunner-bruce-miller-on-whats-in-store-for-season-five/1100-6493136/" class="article-title">Handmaid's Tale Showrunner Bruce Miller On What's In Store For Season Five</a>
+			<div class="article-subtitle">Here''s where The Handmaid''s Tale is heading next.</div>
+			<div class="article-author">Hayley Williams</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_digitalfoundry-2021-star-wars-jedi-fallen-order-patch-tested_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2021-star-wars-jedi-fallen-order-patch-tested" class="article-title">Star Wars Jedi: Fallen Order's enhanced PS5/Xbox Series patch - all upgrades tested</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_bungie-steps-in-to-shut-down-sales-of-destiny-2s-spicy-ramen-coupon-emblem_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bungie-steps-in-to-shut-down-sales-of-destiny-2s-spicy-ramen-coupon-emblem" class="article-title">Bungie steps in to shut down sales of Destiny 2's Spicy Ramen Coupon emblem</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_dont-touch-call-of-duty-warzones-deadly-door_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dont-touch-call-of-duty-warzones-deadly-door" class="article-title">Don't touch Call of Duty: Warzone's deadly door</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_valheims-community-made-vr-mod-now-has-motion-control-support_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valheims-community-made-vr-mod-now-has-motion-control-support" class="article-title">Valheim's community-made VR mod now has motion controls</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_cyberpunk-2077-finally-returns-to-playstation-store-still-with-warning-not-to-buy-for-base-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cyberpunk-2077-finally-returns-to-playstation-store-still-with-warning-not-to-buy-for-base-ps4" class="article-title">Cyberpunk 2077 finally returns to PlayStation Store, still with warning not to buy for base PS4</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_pokemon-go-adding-new-costumed-pikachu-just-for-okinawa-islands-of-japan_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-adding-new-costumed-pikachu-just-for-okinawa-islands-of-japan" class="article-title">Pokémon Go adding new costumed Pikachu just for Okinawa islands of Japan</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_a-week-on-some-nintendo-switch-users-say-theyre-still-unable-to-download-games-and-updates_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/a-week-on-some-nintendo-switch-users-say-theyre-still-unable-to-download-games-and-updates" class="article-title">A week on, some Nintendo Switch fans say they're still unable to download games and updates</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_report-of-ea-motive-revival-project-sets-tongues-wagging_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/report-of-ea-motive-revival-project-sets-tongues-wagging" class="article-title">Report of EA Motive "revival" project sets tongues wagging</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/06/21_death-trash-is-a-gristly-gorgeous-and-subtly-funny-rpg_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/death-trash-is-a-gristly-gorgeous-and-subtly-funny-rpg" class="article-title">Steam Next Fest: Death Trash is a gristly, gorgeous, and subtly funny RPG</a>
+			<div class="article-author">Chris Tapsell</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-escape-n300.php" class="article-title">Weekday Escape N°300</a>
+			<div class="article-author">chrpa</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

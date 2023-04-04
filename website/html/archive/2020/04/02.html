@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 2, 2020</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/good-job-review-office-space/1900-6417443/" class="article-title">Good Job Review - Office Space</a>
+			<div class="article-subtitle">Good Job is a humorous and inventive puzzle game where sometimes the best job isn''t the cleanest one.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_new-high-end-gaming-laptops-revealed-by-msi_1100-6475529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-high-end-gaming-laptops-revealed-by-msi/1100-6475529/" class="article-title">New High-End Gaming Laptops Revealed By MSI</a>
+			<div class="article-subtitle">MSI''s latest laptops were created with hardcore gamers and content creators in mind.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_phil-spencer-wants-xbox-series-x-to-have-single-gl_1100-6475553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/phil-spencer-wants-xbox-series-x-to-have-single-gl/1100-6475553/" class="article-title">Phil Spencer Wants Xbox Series X To Have Single Global Launch</a>
+			<div class="article-subtitle">Head of Xbox Phil Spencer wants all regions to get Xbox Series X at the same time, unlike with Xbox One.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_xbox-head-says-xcloud-on-xbox-series-x-makes-sense_1100-6475551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-head-says-xcloud-on-xbox-series-x-makes-sense/1100-6475551/" class="article-title">Xbox Head Says xCloud On Xbox Series X Makes Sense Because It Gets People To Try More Games</a>
+			<div class="article-subtitle">Xbox boss Phil Spencer says xCloud and Game Pass work similarly to encourage players to try new games.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_pokemon-gos-april-2020-events-include-shadow-entei_1100-6475443_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-gos-april-2020-events-include-shadow-entei/1100-6475443/" class="article-title">Pokemon Go's April 2020 Events Include Shadow Entei, Alolan Exeggutor, And More</a>
+			<div class="article-subtitle">Niantic has outlined some of the events that will be happening in the hit Pokemon mobile game next month.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_train-to-busan-sequel-trailer-delivers-spectacular_1100-6475554_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/train-to-busan-sequel-trailer-delivers-spectacular/1100-6475554/" class="article-title">Train To Busan Sequel Trailer Delivers Spectacular Post-Apocalyptic Zombie Action</a>
+			<div class="article-subtitle">Train to Busan Presents: Peninsula is the much-anticipated sequel to the 2016 South Korean hit.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_this-weeks-epic-free-games-are-live-now_1100-6475267_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-epic-free-games-are-live-now/1100-6475267/" class="article-title">This Week's Epic Free Games Are Live Now</a>
+			<div class="article-subtitle">The Epic Games Store''s latest duo of free games includes indie classic Gone Home.</div>
+			<div class="article-author">Jenae Sitzes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_sea-of-thieves-is-finally-coming-to-steam_1100-6475560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sea-of-thieves-is-finally-coming-to-steam/1100-6475560/" class="article-title">Sea Of Thieves Is Finally Coming To Steam</a>
+			<div class="article-subtitle">The online buccaneering game will come to Valve''s storefront with cross-play, but no release date as of yet.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_borderlands-3-hotfix-patch-notes-gives-big-buff-to_1100-6475558_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/borderlands-3-hotfix-patch-notes-gives-big-buff-to/1100-6475558/" class="article-title">Borderlands 3 Hotfix Patch Notes Gives Big Buff To Moze</a>
+			<div class="article-subtitle">A new hotfix for Borderlands 3 is going live, and it makes Moze a considerably stronger Vault Hunter alongside some other fixes.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_overwatch-update-gives-everyone-googly-eyes-for-ap_1100-6475448_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overwatch-update-gives-everyone-googly-eyes-for-ap/1100-6475448/" class="article-title">Overwatch Update Gives Everyone Googly Eyes For April Fools (Yes, Everyone)</a>
+			<div class="article-subtitle">A sneaky update for Overwatch gives all of the characters an incredible craft store makeover on PC, PS4, Xbox One, and Switch.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_a-quiet-place-2-gets-new-2020-release-date_1100-6474711_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-quiet-place-2-gets-new-2020-release-date/1100-6474711/" class="article-title">A Quiet Place 2 Gets New 2020 Release Date</a>
+			<div class="article-subtitle">The horror sequel was set to be released on March 20, but has now been delayed.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_john-wick-hex-heads-to-playstation-4-next-month_1100-6475562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/john-wick-hex-heads-to-playstation-4-next-month/1100-6475562/" class="article-title">John Wick Hex Heads To PlayStation 4 Next Month</a>
+			<div class="article-subtitle">You can now use a Dualshock 4 to command John Wick on PS4 this May.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_top-gun-maverick-delayed-will-now-arrive-in-decemb_1100-6475566_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-gun-maverick-delayed-will-now-arrive-in-decemb/1100-6475566/" class="article-title">Top Gun: Maverick Delayed, Will Now Arrive In December</a>
+			<div class="article-subtitle">The action sequel has had its release date pushed due to the coronavirus outbreak.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_lets-just-take-a-minute-to-admire-this-pixel-art-f_1100-6475565_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lets-just-take-a-minute-to-admire-this-pixel-art-f/1100-6475565/" class="article-title">Let's Just Take A Minute To Admire This Pixel Art From Chucklefish's New Game</a>
+			<div class="article-subtitle">The Harry Potter-esque game comes from the publishers of Stardew Valley.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_2019s-best-rpg-is-on-sale-for-its-lowest-price-yet_1100-6475563_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/2019s-best-rpg-is-on-sale-for-its-lowest-price-yet/1100-6475563/" class="article-title">2019's Best RPG Is On Sale For Its Lowest Price Yet</a>
+			<div class="article-subtitle">ZA/UM''s incredible Disco Elysium is discounted at Steam for a limited time.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_animal-crossing-new-horizons-112-update-patch-note_1100-6475567_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/animal-crossing-new-horizons-112-update-patch-note/1100-6475567/" class="article-title">Animal Crossing: New Horizons 1.1.2 Update Patch Notes</a>
+			<div class="article-subtitle">A new patch for Animal Crossing catches some tricky bugs, and not the kind you can donate to Blathers.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_free-xbox-one-games-you-can-play-this-weekend_1100-6475568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-xbox-one-games-you-can-play-this-weekend/1100-6475568/" class="article-title">Free Xbox One Games You Can Play This Weekend</a>
+			<div class="article-subtitle">Microsoft has revealed the free Xbox One games you''ll be able to play during the latest Free Play Days promotion.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_apex-legends-most-played-characters-change-with-ea_1100-6475542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/apex-legends-most-played-characters-change-with-ea/1100-6475542/" class="article-title">Apex Legends' Most Played Characters Change With Each Season, Says Respawn</a>
+			<div class="article-subtitle">Lifeline main right here.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_apex-legends-gets-a-bloodhound-town-takeover-next-_1100-6475517_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/apex-legends-gets-a-bloodhound-town-takeover-next-/1100-6475517/" class="article-title">Apex Legends Gets A Bloodhound Town Takeover Next Week</a>
+			<div class="article-subtitle">A dead prowler and a murder of crows seem to suggest that Apex Legends'' technological tracker is getting their own town takeover in the latter half of Season 4: Assimilation.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_nintendo-switch-exclusive-arms-gets-first-new-even_1100-6475572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-switch-exclusive-arms-gets-first-new-even/1100-6475572/" class="article-title">Nintendo Switch Exclusive Arms Gets First New Event In Nearly A Year</a>
+			<div class="article-subtitle">Pick up your Switch, fire up Arms, and help decide who''s the best between Spring Man and Ribbon Girl.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_disney-plus-obi-wan-star-wars-series-gets-a-new-wr_1100-6475575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/disney-plus-obi-wan-star-wars-series-gets-a-new-wr/1100-6475575/" class="article-title">Disney Plus Obi-Wan Star Wars Series Gets A New Writer</a>
+			<div class="article-subtitle">John Wick 3 executive producer will pen the upcoming Star Wars series.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_heres-when-we-can-watch-the-simpsons-in-the-correc_1100-6475580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-when-we-can-watch-the-simpsons-in-the-correc/1100-6475580/" class="article-title">Here's When We Can Watch The Simpsons In The Correct Ratio On Disney+</a>
+			<div class="article-subtitle">Disney has stated that the earlier seasons of the show should be available in 3:4 by the end of May.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_marvels-iron-man-vr-delayed-alongside-the-last-of-_1100-6475581_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/marvels-iron-man-vr-delayed-alongside-the-last-of-/1100-6475581/" class="article-title">Marvel's Iron Man VR Delayed Alongside The Last Of Us 2</a>
+			<div class="article-subtitle">No new release date has been confirmed for the PSVR exclusive title.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_amazon-prime-video-is-bringing-this-years-sxsw-mov_1100-6475576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazon-prime-video-is-bringing-this-years-sxsw-mov/1100-6475576/" class="article-title">Amazon Prime Video Is Bringing This Year's SXSW Movies Into Your Home, For Free</a>
+			<div class="article-subtitle">You won''t need a membership to Amazon to watch this year''s movie selections from South By South West.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_new-the-last-of-us-2-screenshots-drop-after-delay_1100-6475577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-the-last-of-us-2-screenshots-drop-after-delay/1100-6475577/" class="article-title">New The Last Of Us 2 Screenshots Drop After Delay</a>
+			<div class="article-subtitle">You''ll have to wait a while longer for The Last of Us Part 2, but at least there are new PS4 screens to look at.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_patch-notes-big-update-for-call-of-duty-warzone-an_1100-6475302_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/patch-notes-big-update-for-call-of-duty-warzone-an/1100-6475302/" class="article-title">Patch Notes--Big Update For Call Of Duty Warzone And Modern Warfare Are Now Live</a>
+			<div class="article-subtitle">The delayed update for PS4, Xbox One, and PC has brought a new map, operator, and more to both games.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_hbo-to-stream-select-movies-and-classic-tv-shows-f_1100-6475583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hbo-to-stream-select-movies-and-classic-tv-shows-f/1100-6475583/" class="article-title">HBO To Stream Select Movies & Classic TV Shows For Free</a>
+			<div class="article-subtitle">HBO is offering streaming of hits like "Veep", "The Sopranos", "Ballers" for free</div>
+			<div class="article-author">Lan Pitts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_pubg-reveals-april-fools-joke-was-a-ridiculous-lim_1100-6475442_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pubg-reveals-april-fools-joke-was-a-ridiculous-lim/1100-6475442/" class="article-title">PUBG Reveals April Fools' Joke Was A Ridiculous Limited-Time Game Mode</a>
+			<div class="article-subtitle">PUBG''s new Fantasy Battle Royale casts the players as trash can knights and fireball-hurling wizards on Erandel.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_rogue-legacy-2-announced_1100-6475585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rogue-legacy-2-announced/1100-6475585/" class="article-title">Rogue Legacy 2 Announced</a>
+			<div class="article-subtitle">More information about the sequel will drop "in the coming days," according to its developer.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_the-division-2-warlords-s1-lets-loose-a-new-rogue-_1100-6475465_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-division-2-warlords-s1-lets-loose-a-new-rogue-/1100-6475465/" class="article-title">The Division 2 Warlords S1 Lets Loose A New Rogue Agent</a>
+			<div class="article-subtitle">The latest manhunt target is out now for Season One owners on PS4, Xbox One, and PC.</div>
+			<div class="article-author">Richard Wakeling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_seinfelds-larry-david-made-a-covid-19-psa-telling-_1100-6475493_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seinfelds-larry-david-made-a-covid-19-psa-telling-/1100-6475493/" class="article-title">Seinfeld's Larry David Made A COVID-19 PSA, Telling "Idiots" To Stay Inside</a>
+			<div class="article-subtitle">The Curb Your Enthusiasm star has a simple message for everyone--embrace the excuse to stay home and watch television.</div>
+			<div class="article-author">James O'Connor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_psa-persona-5-royal-players-get-all-persona-5-dlc-_1100-6475449_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psa-persona-5-royal-players-get-all-persona-5-dlc-/1100-6475449/" class="article-title">PSA: Persona 5 Royal Players Get All Persona 5 DLC For Free</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_xbox-ones-big-spring-sale-kicks-off-with-deals-on-_1100-6475587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-ones-big-spring-sale-kicks-off-with-deals-on-/1100-6475587/" class="article-title">Xbox One's Big Spring Sale Kicks Off With Deals On The Console's Best Games</a>
+			<div class="article-subtitle">The Xbox One''s spring sale has kicked off, featuring hundreds of games at great discounts.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_last-chance-to-claim-this-great-game-for-free-on-p_1100-6475457_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/last-chance-to-claim-this-great-game-for-free-on-p/1100-6475457/" class="article-title">Last Chance To Claim This Great Game For Free On PC</a>
+			<div class="article-subtitle">Ubisoft''s efforts to help gamers stay at home during the COVID-19 pandemic will go all April with free games, trials, discounts, and more.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_the-elder-scrolls-online-is-free-to-play-until-nex_1100-6475391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-elder-scrolls-online-is-free-to-play-until-nex/1100-6475391/" class="article-title">The Elder Scrolls Online Is Free To Play Until Next Week (PS4, Xbox One, PC)</a>
+			<div class="article-subtitle">The Elder Scrolls Online just kicked off a free play event on PS4, Xbox One, and PC, with steep discounts on its base game and Elsweyr.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_pokemon-go-is-letting-you-interact-with-gyms-from-_1100-6475469_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-is-letting-you-interact-with-gyms-from-/1100-6475469/" class="article-title">Pokemon Go Is Letting You Interact With Gyms From Farther Away</a>
+			<div class="article-subtitle">Before Niantic rolls out the option to participate in Raid Battles from home, the studio is doubling the distance from which you can interact with Gyms.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_amazon-is-going-big-on-gaming-launching-a-streamin_1100-6475589_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/amazon-is-going-big-on-gaming-launching-a-streamin/1100-6475589/" class="article-title">Amazon Is Going Big On Gaming, Launching A Streaming Service And Multiple New MMOs</a>
+			<div class="article-subtitle">The company is reportedly spending "hundreds of millions" of dollars to try to become one of the next big names in gaming.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_new-details-on-the-lord-of-the-rings-mmo-including_1100-6475590_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-details-on-the-lord-of-the-rings-mmo-including/1100-6475590/" class="article-title">New Details On The Lord Of The Rings MMO, Including Its Art Style, Have Emerged</a>
+			<div class="article-subtitle">More details have come to light on Amazon''s Lord of the Rings game that''s being worked on by former WoW and Destiny developers.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_sony-creates-100-million-fund-to-support-covid-19-_1100-6475550_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/sony-creates-100-million-fund-to-support-covid-19-/1100-6475550/" class="article-title">Sony Creates $100 Million Fund To Support COVID-19 Relief</a>
+			<div class="article-subtitle">Support to go towards people in the medical field, educational initiatives, and those in the creative community.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_the-last-of-us-2s-story-will-be-divisive-troy-bake_1100-6475591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-last-of-us-2s-story-will-be-divisive-troy-bake/1100-6475591/" class="article-title">The Last Of Us 2's Story Will Be Divisive, Troy Baker Says</a>
+			<div class="article-subtitle">The actor who plays Joel shares more teases for what to expect from the upcoming PS4 game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_hideo-kojima-wants-you-to-poop-not-pee-your-pants-_1100-6475592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hideo-kojima-wants-you-to-poop-not-pee-your-pants-/1100-6475592/" class="article-title">Hideo Kojima Wants You To Poop, Not Pee, Your Pants With A New Horror Game</a>
+			<div class="article-subtitle">The legendary game designer speaks about his ambition to scare you all over again with a new horror game sometime down the road.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_fans-are-annoyed-by-animal-crossing-new-horizons-e_1100-6475593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fans-are-annoyed-by-animal-crossing-new-horizons-e/1100-6475593/" class="article-title">Fans Are Annoyed By Animal Crossing: New Horizons Easter Bunny Event</a>
+			<div class="article-subtitle">Zipper is in my nightmares now.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_nintendo-switch-gets-a-lot-of-new-indie-releases-t_1100-6475595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-switch-gets-a-lot-of-new-indie-releases-t/1100-6475595/" class="article-title">Nintendo Switch Gets A Lot Of New Indie Releases This Week</a>
+			<div class="article-subtitle">A range of titles release this week on the Nintendo Switch.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_battlefield-5-will-give-you-a-free-bonus-just-for-_1100-6475597_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/battlefield-5-will-give-you-a-free-bonus-just-for-/1100-6475597/" class="article-title">Battlefield 5 Will Give You A Free Bonus Just For Signing In</a>
+			<div class="article-subtitle">Everyone who simply logs into the game on PS4, Xbox One, or PC will receive a bonus throughout the weekend; get all the details here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_nhl-20-patch-is-coming-soon-heres-what-it-adds-and_1100-6475598_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nhl-20-patch-is-coming-soon-heres-what-it-adds-and/1100-6475598/" class="article-title">NHL 20 Patch Is Coming Soon, Here's What It Adds And Changes</a>
+			<div class="article-subtitle">The next gameplay update for NHL 20 on PS4 and Xbox One is almost here; check out the full patch notes here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_hideo-kojimas-next-game-might-not-include-so-many-_1100-6475599_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hideo-kojimas-next-game-might-not-include-so-many-/1100-6475599/" class="article-title">Hideo Kojima's Next Game Might Not Include So Many Celebrities</a>
+			<div class="article-subtitle">Kojima is already thinking about his next project and who to cast.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_mass-effect-bioshock-co-developer-regains-its-inde_1100-6475600_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mass-effect-bioshock-co-developer-regains-its-inde/1100-6475600/" class="article-title">Mass Effect, BioShock Co-Developer Regains Its Independence From Sega</a>
+			<div class="article-subtitle">Boston-based developer Demiurge is independent once more, and it plans to help other studios release their games amid the COVID-19 crisis.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_you-can-play-the-dark-pictures-anthology-man-of-me_1100-6475601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/you-can-play-the-dark-pictures-anthology-man-of-me/1100-6475601/" class="article-title">You Can Play The Dark Pictures Anthology: Man Of Medan Even If You Don't Own The Game</a>
+			<div class="article-subtitle">Get a free version of the game for your friend on PS4, PC, and Xbox One.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_gears-5-adds-batistas-old-wwe-finisher-in-free-dlc_1100-6475602_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gears-5-adds-batistas-old-wwe-finisher-in-free-dlc/1100-6475602/" class="article-title">Gears 5 Adds Batista's Old WWE Finisher In Free DLC</a>
+			<div class="article-subtitle">Break some skulls on PC and Xbox One.</div>
+			<div class="article-author">Olivia Harris</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/04/02_modern-warfare-is-giving-out-10-free-battle-pass-t_1100-6475603_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/modern-warfare-is-giving-out-10-free-battle-pass-t/1100-6475603/" class="article-title">Modern Warfare Is Giving Out 10 Free Battle Pass Tiers, Here's How To Unlock Them</a>
+			<div class="article-subtitle">Activision is giving out 10 free tiers at the end of Modern Warfare''s Season 2 Battle Pass on PS4, Xbox One, and PC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_apex-legends-gets-permanent-duos-and-bloodhound-event_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/apex-legends-gets-permanent-duos-and-bloodhound-event" class="article-title">Apex Legends gets permanent duos and a Bloodhound event</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_digitalfoundry-2020-playstation-5-the-mark-cerny-tech-deep-dive_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2020-playstation-5-the-mark-cerny-tech-deep-dive" class="article-title">PlayStation 5 uncovered: the Mark Cerny tech deep dive</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_if-you-own-fallout-76-on-bethesda-net-you-can-get-a-steam-copy-free_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/if-you-own-fallout-76-on-bethesda-net-you-can-get-a-steam-copy-free" class="article-title">If you own Fallout 76 on Bethesda.net, you can get a Steam copy free</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_ps4-and-pc-fps-boundary-looks-like-the-zero-gravity-bits-from-call-of-duty-infinite-warfare_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ps4-and-pc-fps-boundary-looks-like-the-zero-gravity-bits-from-call-of-duty-infinite-warfare" class="article-title">Boundary looks like the zero-gravity bits from Call of Duty: Infinite Warfare</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_microsoft-eyes-impact-of-xbox-series-x-software-being-developed-from-home_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/microsoft-eyes-impact-of-xbox-series-x-software-being-developed-from-home" class="article-title">Microsoft eyes impact of Xbox Series X software developed from home</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_who-is-animal-crossings-zipper-t-bunny-an-investigation_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/who-is-animal-crossings-zipper-t-bunny-an-investigation" class="article-title">Animal Crossing's Zipper T Bunny doesn't deserve your hate</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_cool-call-of-duty-modern-warfare-2-campaign-remastered-easter-egg-fixes-nine-year-old-no-russian-continuity-error_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cool-call-of-duty-modern-warfare-2-campaign-remastered-easter-egg-fixes-nine-year-old-no-russian-continuity-error" class="article-title">Super cool Call of Duty: Modern Warfare 2 Campaign Remastered Easter egg fixes nine-year-old No Russian continuity error</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_panzer-dragoon-remake-review-flawed-revisit-to-an-off-kilter-masterpiece_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/panzer-dragoon-remake-review-flawed-revisit-to-an-off-kilter-masterpiece" class="article-title">Panzer Dragoon: Remake review - flawed revisit to an off-kilter masterpiece</a>
+			<div class="article-subtitle">A cult classic gets a fittingly strange remake whose patchiness can't obscure the original's brilliance.</div>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_someone-should-make-a-game-about-terrace-house_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/someone-should-make-a-game-about-terrace-house" class="article-title">Someone should make a game about: Terrace House</a>
+			<div class="article-author">Ed Thorn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_no-scalebound-isnt-back-in-production_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/no-scalebound-isnt-back-in-production" class="article-title">No, Scalebound isn't back in production</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_judge-rules-call-of-duty-can-depict-humvees-without-a-licence_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/judge-rules-call-of-duty-can-depict-humvees-without-a-licence" class="article-title">Judge rules Call of Duty can depict Humvees without a licence</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_digitalfoundry-2020-04-01-hands-on-with-the-dual-screen-ultra-premium-rog-zephyrus-duo-15_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2020-04-01-hands-on-with-the-dual-screen-ultra-premium-rog-zephyrus-duo-15" class="article-title">Hands-on with the dual-screen, ultra-premium Asus ROG Zephyrus Duo 15</a>
+			<div class="article-author">Will Judd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_call-of-duty-modern-warfare-2-remastered-brings-the-series-confounding-pinnacle-into-brilliant-focus_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-modern-warfare-2-remastered-brings-the-series-confounding-pinnacle-into-brilliant-focus" class="article-title">Call of Duty: Modern Warfare 2 Campaign Remastered brings the series' confounding pinnacle into brilliant focus</a>
+			<div class="article-author">Chris Tapsell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_sony-sets-up-usd100m-covid-19-global-relief-fund_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sony-sets-up-usd100m-covid-19-global-relief-fund" class="article-title">Sony sets up $100m COVID-19 relief fund</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_pong-quest-is-a-hilarious-dungeon-crawling-spin-on-the-arcade-classic_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pong-quest-is-a-hilarious-dungeon-crawling-spin-on-the-arcade-classic" class="article-title">Pong Quest is a "hilarious" dungeon-crawling spin on the arcade classic</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/04/02_digitalfoundry-2020-04-01-intel-announces-10th-gen-comet-lake-h-laptop-processors-with-up-to-5-3ghz-turbo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2020-04-01-intel-announces-10th-gen-comet-lake-h-laptop-processors-with-up-to-5-3ghz-turbo" class="article-title">Intel announces 10th-gen Comet Lake H laptop CPUs with up to 5.3GHz turbo</a>
+			<div class="article-author">Will Judd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5e8514f25e22f/Mortal-Shell-set-to-scratch-Souls-like-itch-later-this-year/" class="article-title">Mortal Shell set to scratch Souls-like itch later this year</a>
+			<div class="article-subtitle">More pain & punishment for Masocore fans</div>
+			<div class="article-author">Dan Grayson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5e84e13c841e6/Bethesda-to-skip-any-E3-digital-event-this-year/" class="article-title">Bethesda to skip any E3 digital event this year</a>
+			<div class="article-subtitle">Just as well they've already announced the next decade of releases.</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

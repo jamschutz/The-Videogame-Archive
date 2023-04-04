@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 14, 2021</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nickelodeon-all-star-brawl-review-better-than-bad-its-good/1900-6417760/" class="article-title">Nickelodeon All-Star Brawl Review - Better Than Bad, It's Good!</a>
+			<div class="article-subtitle">Nickelodeon All-Star Brawl offers a smashing competitive experience… but that''s about all the substance it has.</div>
+			<div class="article-author">Heidi Kemps</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/back-4-blood-review-reanimated/1900-6417761/" class="article-title">Back 4 Blood Review - Reanimated</a>
+			<div class="article-subtitle">Back 4 Blood recaptures the spirit of Left 4 Dead while introducing some engaging modern trappings.</div>
+			<div class="article-author">Richard Wakeling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_pokemon-go-is-testing-gameplay-changes_1100-6497060_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-is-testing-gameplay-changes/1100-6497060/" class="article-title">Pokemon Go Is Testing Gameplay Changes</a>
+			<div class="article-subtitle">The potential adjustments include help for new trainers and changes to PokeStops and egg hatching.</div>
+			<div class="article-author">Hayley Williams</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_sledgehammers-new-office-in-the-uk-will-support-vanguard-live-service-and-work-on-future-projects_1100-6497066_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/sledgehammers-new-office-in-the-uk-will-support-vanguard-live-service-and-work-on-future-projects/1100-6497066/" class="article-title">Sledgehammer's New Office In The UK Will Support Vanguard Live-Service And Work On "Future Projects"</a>
+			<div class="article-subtitle">Sledgehammer now has offices in the US, Australia, Canada, and the UK.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_naked-man-pauses-gta-so-he-could-stop-someone-stealing-his-car-parts_1100-6497072_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/naked-man-pauses-gta-so-he-could-stop-someone-stealing-his-car-parts/1100-6497072/" class="article-title">Naked Man Pauses GTA So He Could Stop Someone Stealing His Car Parts</a>
+			<div class="article-subtitle">Wearing no clothes, a man confronted a thief wielding a reciprocating saw and successfully fought him to the ground.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_the-best-capture-card-switch_1100-6497019_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-best-capture-card-switch/1100-6497019/" class="article-title">The Best Nintendo Switch Capture Cards</a>
+			<div class="article-subtitle">There''s only one way to record lengthy Nintendo Switch gameplay sessions, and that''s with a dedicated capture card. Here are five capture devices that are worth checking out.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_animal-crossing-player-recreates-the-legend-of-zelda-mabe-village_1100-6497073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/animal-crossing-player-recreates-the-legend-of-zelda-mabe-village/1100-6497073/" class="article-title">Animal Crossing Player Recreates The Legend Of Zelda's Mabe Village</a>
+			<div class="article-subtitle">The recreation is complete with animals and a Hylian Shield.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_gta-online-update-adds-free-gta-3-themed-t-shirt-new-ways-to-earn-xp-and-many-discounts_1100-6497074_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/gta-online-update-adds-free-gta-3-themed-t-shirt-new-ways-to-earn-xp-and-many-discounts/1100-6497074/" class="article-title">GTA Online Update Adds Free GTA 3-Themed T-Shirt, New Ways To Earn XP, And Many Discounts</a>
+			<div class="article-subtitle">Rockstar continues to update and evolve GTA Online.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_deathloop-first-update-fixes-some-big-issues-on-ps5-and-pc_1100-6497076_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deathloop-first-update-fixes-some-big-issues-on-ps5-and-pc/1100-6497076/" class="article-title">Deathloop's First Update Fixes Some Big Issues On PS5 And PC</a>
+			<div class="article-subtitle">Deathloop players can look forward to improved stability and some new features starting today.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_with-no-new-pga-tour-game-this-year-2k-opts-for-a-baller-edition-of-2k21-instead_1100-6497075_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/with-no-new-pga-tour-game-this-year-2k-opts-for-a-baller-edition-of-2k21-instead/1100-6497075/" class="article-title">With No New PGA Tour Game This Year, 2K Opts For A "Baller Edition" Of 2K21 Instead</a>
+			<div class="article-subtitle">An $80 edition featuring a variety of extra content is coming this month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_new-clip-for-the-batman-announces-new-trailer-during-dc-fandome_1100-6497077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-clip-for-the-batman-announces-new-trailer-during-dc-fandome/1100-6497077/" class="article-title">New Clip For The Batman Announces New Trailer During DC FanDome</a>
+			<div class="article-subtitle">The virtual convention will take place on October 16.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_vampire-the-masquerade-bloodlines-2-was-nearly-canceled-after-its-last-delay_1100-6497078_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vampire-the-masquerade-bloodlines-2-was-nearly-canceled-after-its-last-delay/1100-6497078/" class="article-title">Vampire: The Masquerade - Bloodlines 2 Was Nearly Canceled After Its Last Delay</a>
+			<div class="article-subtitle">Vampire: The Masquerade - Bloodlines 2 was saved by a single convincing pitch according to Paradox''s CEO.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_marvels-hawkeye-will-debut-first-two-episodes-on-november-24-new-clip-revealed_1100-6497080_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/marvels-hawkeye-will-debut-first-two-episodes-on-november-24-new-clip-revealed/1100-6497080/" class="article-title">Marvel's Hawkeye Will Debut First Two Episodes On November 24, New Clip Revealed</a>
+			<div class="article-subtitle">The holiday-themed Disney+ series will run for a total of six episodes.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_california-activision-blizzard-lawsuit-is-being-accused-of-ethics-violations_1100-6496991_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/california-activision-blizzard-lawsuit-is-being-accused-of-ethics-violations/1100-6496991/" class="article-title">California's Activision Blizzard Lawsuit Is Being Accused Of Ethics Violations</a>
+			<div class="article-subtitle">A federal agency is accusing California''s Department of Fair Employment and Housing of ethics violations, throwing the state''s Activision Blizzard lawsuit into chaos.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_new-world-guide-how-to-buy-houses-and-what-to-do-with-them_1100-6497082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-world-guide-how-to-buy-houses-and-what-to-do-with-them/1100-6497082/" class="article-title">New World Guide: How To Buy Houses (And What To Do With Them)</a>
+			<div class="article-subtitle">Owning homes in New World can come with some big benefits, as well as big price tags.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_battlefield-2042-hazard-zone-mode-officially-revealed-and-its-not-a-traditional-battle-royale_1100-6497071_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-2042-hazard-zone-mode-officially-revealed-and-its-not-a-traditional-battle-royale/1100-6497071/" class="article-title">Battlefield 2042 Hazard Zone Mode Officially Revealed, And It's Not A Traditional Battle Royale</a>
+			<div class="article-subtitle">Players work together to secure data drives and extract from a dangerous environment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_new-world-guide-how-to-obtain-tuning-orbs-for-expeditions-and-arenas_1100-6497084_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-world-guide-how-to-obtain-tuning-orbs-for-expeditions-and-arenas/1100-6497084/" class="article-title">New World Guide: How To Obtain Tuning Orbs For Expeditions And Arenas</a>
+			<div class="article-subtitle">Unlike dungeons in other MMOs, players will need to use one-time keys to access New World''s most lucrative PvE content.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_halo-infinite-competitive-multiplayer-mode-detailed-gameplay-footage-released_1100-6497083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-infinite-competitive-multiplayer-mode-detailed-gameplay-footage-released/1100-6497083/" class="article-title">Halo Infinite Competitive Multiplayer Mode Detailed, Gameplay Footage Released</a>
+			<div class="article-subtitle">Battle Rifle at start, no secondary weapon, and no radar are the hallmark features of the mode.</div>
+			<div class="article-author">Grace Benfell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_metroid-dread-studio-mercurysteam-does-not-credit-everyone-who-worked-on-the-game_1100-6497085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metroid-dread-studio-mercurysteam-does-not-credit-everyone-who-worked-on-the-game/1100-6497085/" class="article-title">Metroid Dread Studio MercurySteam Doesn't Credit Everyone Who Worked On The Game</a>
+			<div class="article-subtitle">Former developers who worked on Metroid Dread for less than 25% of the game''s total development time aren''t listed in the final credits, MercurySteam confirms.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_far-cry-6-comes-to-uno-in-special-crossover-of-ubisoft-games_1100-6497086_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/far-cry-6-comes-to-uno-in-special-crossover-of-ubisoft-games/1100-6497086/" class="article-title">Far Cry 6 Comes To Uno In Special Crossover Of Ubisoft Games</a>
+			<div class="article-subtitle">Ubisoft''s Uno game has added a $5 DLC that brings the world of Yara to the classic card game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_former-donkey-kong-record-holder-billy-mitchell-has-permission-to-sue-twin-galaxies_1100-6497087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-donkey-kong-record-holder-billy-mitchell-has-permission-to-sue-twin-galaxies/1100-6497087/" class="article-title">Former Donkey Kong Record Holder Billy Mitchell Has Permission To Sue Twin Galaxies</a>
+			<div class="article-subtitle">Billy Mitchell has been given the green light by the US appeals court to continue his defamation case against Twin Galaxies</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_pubg-halloween-update-hits-console_1100-6497088_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pubg-halloween-update-hits-console/1100-6497088/" class="article-title">PUBG Halloween Update Hits Console</a>
+			<div class="article-subtitle">The update comes with Halloween goodies, map balance adjusts, the ability to carry other players, and... breakable pots?</div>
+			<div class="article-author">Grace Benfell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_diablo-2-resurrected-will-get-a-login-queue-to-fight-ongoing-server-issues_1100-6497090_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-2-resurrected-will-get-a-login-queue-to-fight-ongoing-server-issues/1100-6497090/" class="article-title">Diablo 2: Resurrected Will Get A Login Queue To Fight Ongoing Server Issues</a>
+			<div class="article-subtitle">Large surges in game traffic, combined with legacy code, have caused ongoing server issues for Diablo 2: Resurrected.</div>
+			<div class="article-author">Cameron Koch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_treyarch-details-sinister-new-story-for-call-of-duty-vanguard-zombies_1100-6497081_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/treyarch-details-sinister-new-story-for-call-of-duty-vanguard-zombies/1100-6497081/" class="article-title">Treyarch Details Sinister New Story For Call Of Duty: Vanguard Zombies</a>
+			<div class="article-subtitle">Treyarch is continuing their Zombies storyline in Vanguard, but with more of a focus around Nazi occult experiments.</div>
+			<div class="article-author">S.E. Doster</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_the-best-fortnite-gliders-so-far_1100-6497091_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/the-best-fortnite-gliders-so-far/1100-6497091/" class="article-title">The Best Fortnite Gliders So Far</a>
+			<div class="article-subtitle">Fortnite gliders let you drop onto the island in style. Here are the best ones in the game.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_halo-infinite-competitive-settings-trailer-revealed-br-starts-for-everyone_1100-6497064_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/halo-infinite-competitive-settings-trailer-revealed-br-starts-for-everyone/1100-6497064/" class="article-title">Halo Infinite Competitive Settings Trailer Revealed: BR Starts For Everyone</a>
+			<div class="article-subtitle">343 has revealed Halo Infinite''s competitive settings.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_call-of-duty-vanguard-zombies-trailer-revealed-following-a-leak_1100-6497067_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/call-of-duty-vanguard-zombies-trailer-revealed-following-a-leak/1100-6497067/" class="article-title">Call Of Duty: Vanguard Zombies Trailer Revealed Following A Leak</a>
+			<div class="article-subtitle">The trailer has now premiered for everyone following a leak.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_marvels-eternals-is-pacing-ahead-of-black-widow-and-shang-chi-for-first-day-ticket-sales_1100-6497069_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/marvels-eternals-is-pacing-ahead-of-black-widow-and-shang-chi-for-first-day-ticket-sales/1100-6497069/" class="article-title">Marvel's Eternals Is Pacing Ahead Of Black Widow And Shang-Chi For First-Day Ticket Sales</a>
+			<div class="article-subtitle">Eternals'' day-one ticket sales were the "largest day one sales so far this year" for AMC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_fortnite-studio-invests-in-lebron-james-company-will-bring-unique-content-to-the-metaverse_1100-6497070_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/fortnite-studio-invests-in-lebron-james-company-will-bring-unique-content-to-the-metaverse/1100-6497070/" class="article-title">Fortnite Studio Invests In LeBron James' Company, Will Bring "Unique Content To The Metaverse"</a>
+			<div class="article-subtitle">Nike, the Fenway Sports Group, and other investors also bought a piece of SpringHill entertainment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_new-high-fashion-dark-souls-line-announced-featuring-watches-wallets-bags-and-boots_1100-6497092_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-high-fashion-dark-souls-line-announced-featuring-watches-wallets-bags-and-boots/1100-6497092/" class="article-title">New High Fashion Dark Souls Line Announced, Featuring Watches, Wallets, Bags, and Boots</a>
+			<div class="article-subtitle">The line has clothing items and accessories based on Dark Souls Characters like Solaire and Artorias.</div>
+			<div class="article-author">Grace Benfell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_dragon-age-4-will-reportedly-not-release-on-xbox-one-and-ps4_1100-6497093_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-4-will-reportedly-not-release-on-xbox-one-and-ps4/1100-6497093/" class="article-title">Dragon Age 4 Will Reportedly Not Release On Xbox One And PS4</a>
+			<div class="article-subtitle">Dragon Age 4 will reportedly only launch on current-gen consoles and PC.</div>
+			<div class="article-author">James Carr</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_best-ethernet-adapter-switch_1100-6497089_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-ethernet-adapter-switch/1100-6497089/" class="article-title">Best Nintendo Switch Ethernet Adapter: Reliable And Cheap Options</a>
+			<div class="article-subtitle">Need a more stable internet connection for your original model Nintendo Switch? These adapters should help you out.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/10/14_whats-in-the-fortnite-item-shop-october-15-2021-new-tricks-and-treats-bundle_1100-6497096_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/whats-in-the-fortnite-item-shop-october-15-2021-new-tricks-and-treats-bundle/1100-6497096/" class="article-title">What's In The Fortnite Item Shop - October 15, 2021: New Tricks And Treats Bundle</a>
+			<div class="article-subtitle">These trick-or-treaters offer lots of customization.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_mercurysteam-responds-to-complaints-some-metroid-dread-devs-were-left-out-of-credits_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mercurysteam-responds-to-complaints-some-metroid-dread-devs-were-left-out-of-credits" class="article-title">MercurySteam responds to complaints some Metroid Dread devs were left out of credits</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_sea-of-thieves-latest-charity-sails-are-raising-money-for-no-kid-hungry_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sea-of-thieves-latest-charity-sails-are-raising-money-for-no-kid-hungry" class="article-title">Sea of Thieves' latest charity sails are raising money for No Kid Hungry</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_paradox-says-it-almost-cancelled-vampire-the-masquerade-bloodlines-2-earlier-this-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/paradox-says-it-almost-cancelled-vampire-the-masquerade-bloodlines-2-earlier-this-year" class="article-title">Paradox says it almost cancelled Vampire: The Masquerade - Bloodlines 2 earlier this year</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_baldurs-gate-3-patch-6-impressions-and-an-interview-with-larian_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/baldurs-gate-3-patch-6-impressions-and-an-interview-with-larian" class="article-title">Baldur's Gate 3: Patch 6 impressions and a big interview with Larian</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_far-cry-6-anti-aircraft-destroy-blow-up-locations-uranium-8034_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-6-anti-aircraft-destroy-blow-up-locations-uranium-8034" class="article-title">Far Cry 6 anti aircraft guns: How to destroy anti aircraft guns easily and locations explained</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_far-cry-6-where-to-go-first-on-the-map-8034_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-6-where-to-go-first-on-the-map-8034" class="article-title">Far Cry 6: Where to go first on the map in Far Cry 6 explained</a>
+			<div class="article-subtitle">Curious about where to start the main story? Here's where to go first on the map in Far Cry 6.</div>
+			<div class="article-author">Diego Nicolás Argüello</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_far-cry-6-best-unique-weapons-locations-8034_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-6-best-unique-weapons-locations-8034" class="article-title">Far Cry 6 best weapons: Where to find the best unique weapons in Far Cry 6</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_far-cry-6-triada-blessings-relic-locations-oku-ida-mimo-abosi-8034_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-6-triada-blessings-relic-locations-oku-ida-mimo-abosi-8034" class="article-title">Far Cry 6 Triada Relic locations: Where to find Oluwa Cave and Oku, Ida and Mimo Abosi Triada Relics in Far Cry 6</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_call-of-duty-vanguards-zombie-mode-revealed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-vanguards-zombie-mode-revealed" class="article-title">Call of Duty Vanguard's Zombie mode revealed</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_pokemon-gos-next-five-years-the-evolution-of-ar-and-plans-for-when-the-game-runs-out-of-pokemon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-gos-next-five-years-the-evolution-of-ar-and-plans-for-when-the-game-runs-out-of-pokemon" class="article-title">Pokémon Go's next five years: plans for the future of AR, and when the game runs out of Pokémon</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_battlefield-2042s-hazard-zone-is-a-squad-based-extraction-mode_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-2042s-hazard-zone-is-a-squad-based-extraction-mode" class="article-title">Battlefield 2042's Hazard Zone is a squad based extraction mode</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_doctor-who-the-edge-of-reality-finally-launches-today-on-pc-playstation-xbox_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/doctor-who-the-edge-of-reality-finally-launches-today-on-pc-playstation-xbox" class="article-title">Doctor Who: The Edge of Reality finally launches today on PC, PlayStation, Xbox</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_call-of-duty-developer-sledgehammer-opens-studio-in-the-uk_thumbnail.png">
+			<a href="https://www.eurogamer.net/call-of-duty-developer-sledgehammer-opens-studio-in-the-uk" class="article-title">Call of Duty developer Sledgehammer opens UK studio</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_nfl-coach-jon-gruden-to-be-removed-from-madden-nfl-22_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nfl-coach-jon-gruden-to-be-removed-from-madden-nfl-22" class="article-title">NFL coach Jon Gruden to be removed from Madden NFL 22</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_what-weve-learned-about-digital-gamings-climate-impact-a-summary_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/what-weve-learned-about-digital-gamings-climate-impact-a-summary" class="article-title">What we've learned about digital gaming's climate impact - a summary</a>
+			<div class="article-author">Chris Tapsell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_gaming-forum-resetera-acquired-for-a-cool-usd4-5m_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gaming-forum-resetera-acquired-for-a-cool-usd4-5m" class="article-title">Gaming forum ResetEra acquired for a cool $4.5m</a>
+			<div class="article-author">Ishraq Subhan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_the-monster-hunter-rise-demo-is-out-now-on-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-monster-hunter-rise-demo-is-out-now-on-steam" class="article-title">Monster Hunter Rise demo out now on Steam</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_mobs-announced-for-fan-vote-ahead-of-minecraft-live_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mobs-announced-for-fan-vote-ahead-of-minecraft-live" class="article-title">Mobs announced for fan vote ahead of Minecraft Live</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_back-4-blood-how-to-unlock-characters-abilities-8035_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/back-4-blood-how-to-unlock-characters-abilities-8035" class="article-title">Back 4 Blood characters: How to unlock all characters and Back 4 Blood character abilities explained</a>
+			<div class="article-subtitle">Wondering how to unlock the whole Back 4 Blood roster? Here's how to unlock all characters, as well as the unique abilities of each.</div>
+			<div class="article-author">Diego Nicolás Argüello</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_back-4-blood-crossplay-how-to-invite-friends-create-matches-8035_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/back-4-blood-crossplay-how-to-invite-friends-create-matches-8035" class="article-title">Back 4 Blood crossplay: How to invite friends and create online multiplayer matches in Back 4 Blood</a>
+			<div class="article-subtitle">Wondering how to use crossplay in Back 4 Blood? Here's how crossplay works, as well as how to invite friends and create multiplayer matches.</div>
+			<div class="article-author">Diego Nicolás Argüello</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_joe-and-macs-back-on-pc-and-consoles-next-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/joe-and-macs-back-on-pc-and-consoles-next-year" class="article-title">Joe & Mac's back on PC and consoles next year</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_heart-machines-solar-ash-delayed-until-december_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/heart-machines-solar-ash-delayed-until-december" class="article-title">Heart Machine's Solar Ash delayed until December</a>
+			<div class="article-author">Ed Nightingale</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_nintendo-switch-oled-uk-launch-comfortably-beat-switch-lite_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-switch-oled-uk-launch-comfortably-beat-switch-lite" class="article-title">Nintendo Switch OLED UK launch comfortably beat Switch Lite</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_activision-unveils-server-side-and-kernel-level-anti-cheat-solution-for-call-of-duty_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/activision-unveils-server-side-and-kernel-level-anti-cheat-solution-for-call-of-duty" class="article-title">Activision unveils new server-side and kernel-level anti-cheat solution for Call of Duty</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_far-cry-6-owners-report-issues-upgrading-ps4-boxed-copies-to-ps5_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-6-owners-report-issues-upgrading-ps4-boxed-copies-to-ps5" class="article-title">Far Cry 6 owners report issues upgrading PS4 boxed copies to PS5</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_new-report-says-fifa-wants-more-than-double-from-ea-to-renew-license_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/new-report-says-fifa-wants-more-than-double-from-ea-to-renew-license" class="article-title">New report says FIFA wants "more than double" from EA to renew licence</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/10/14_ive-worked-out-what-metroid-dreads-bosses-are-for_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ive-worked-out-what-metroid-dreads-bosses-are-for" class="article-title">I've worked out what Metroid Dread's bosses are for</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-puzzle-n40.php" class="article-title">Weekday Puzzle N°40</a>
+			<div class="article-author">chrpa</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

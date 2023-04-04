@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 25, 2021</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/famicom-detective-club-review-the-n-e-s-murders/1900-6417680/" class="article-title">Famicom Detective Club Review -- The N.E.S. Murders</a>
+			<div class="article-subtitle">The Famicom Detective Club games show their age, but The Missing Heir still packs a twisty, Agatha Christie punch.</div>
+			<div class="article-author">Andrew King</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mass-effect-legendary-edition-review/1900-6417679/" class="article-title">Mass Effect: Legendary Edition Review</a>
+			<div class="article-subtitle">Parts of Mass Effect: Legendary Edition show their age, but this remaster is largely an improvement over BioWare''s original trilogy.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_rockstar-just-launched-a-music-label_1100-6491930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-just-launched-a-music-label/1100-6491930/" class="article-title">Rockstar Just Launched A Music Label</a>
+			<div class="article-subtitle">The label will expand on the Grand Theft Auto series'' already extensive use of music.</div>
+			<div class="article-author">Hayley Williams</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_overwatch-devs-celebrate-5-year-anniversary-with-special-thank-you-video_1100-6491935_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overwatch-devs-celebrate-5-year-anniversary-with-special-thank-you-video/1100-6491935/" class="article-title">Overwatch Devs Celebrate 5-Year Anniversary With Special Thank You Video</a>
+			<div class="article-subtitle">Happy birthday, Overwatch!</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_boss-baby-sequel-will-hit-peacock-on-same-day-as-theaters-release-moves-to-july_1100-6491937_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/boss-baby-sequel-will-hit-peacock-on-same-day-as-theaters-release-moves-to-july/1100-6491937/" class="article-title">Boss Baby Sequel Will Hit Peacock On Same Day As Theaters, Release Moves To July</a>
+			<div class="article-subtitle">The Boss Baby: Family Business will now debut on July 2.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_netflix-confirms-its-doing-more-gaming-style-interactive-entertainment_1100-6491834_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/netflix-confirms-its-doing-more-gaming-style-interactive-entertainment/1100-6491834/" class="article-title">Netflix Confirms It's Doing More Gaming-Style "Interactive Entertainment"</a>
+			<div class="article-subtitle">New signs suggest that Netflix is staffing up to expand its efforts in games.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_disney-attributes-black-widows-same-day-streaming-release-to-box-office-hesitancy_1100-6491925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/disney-attributes-black-widows-same-day-streaming-release-to-box-office-hesitancy/1100-6491925/" class="article-title">Disney Attributes Black Widow's Same-Day Streaming Release To Box Office Hesitancy</a>
+			<div class="article-subtitle">Vaccines are rolling out faster than ever, but theaters aren''t filling up just yet.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_virtua-fighter-5-ultimate-showdown-announced-for-ps4-releases-june-1_1100-6491911_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/virtua-fighter-5-ultimate-showdown-announced-for-ps4-releases-june-1/1100-6491911/" class="article-title">Virtua Fighter 5: Ultimate Showdown Announced For PS4, Releases June 1</a>
+			<div class="article-subtitle">Sega''s classic fighting game franchise is coming back on PS4, and it''s releasing sooner than you might think.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_danganronpa-v3-mobile-port-delayed-due-to-issue-during-quality-checks_1100-6491938_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/danganronpa-v3-mobile-port-delayed-due-to-issue-during-quality-checks/1100-6491938/" class="article-title">Danganronpa V3 Mobile Port Delayed Due To Issue During Quality Checks</a>
+			<div class="article-subtitle">The game has been delayed indefinitely days after its release date was publicly announced.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_tencent-now-holds-shares-in-control-alan-wake-studio-remedy_1100-6491939_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tencent-now-holds-shares-in-control-alan-wake-studio-remedy/1100-6491939/" class="article-title">Tencent Now Holds Shares In Control, Alan Wake Studio Remedy</a>
+			<div class="article-subtitle">Tencent makes yet another move, acquiring 500,000 shares in Remedy Entertainment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_new-on-amazon-prime-video-in-june-2021-flack-season-2-in-bruges-and-more_1100-6491942_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-on-amazon-prime-video-in-june-2021-flack-season-2-in-bruges-and-more/1100-6491942/" class="article-title">New On Amazon Prime Video In June 2021: Flack Season 2, In Bruges, And More</a>
+			<div class="article-subtitle">Here is everything landing on Prime Video this June.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_call-of-duty-black-ops-cold-war-rambos-gun-game-battle-pass-gifting-arrive-this-week_1100-6491941_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-black-ops-cold-war-rambos-gun-game-battle-pass-gifting-arrive-this-week/1100-6491941/" class="article-title">Call Of Duty: Black Ops Cold War -- Rambo's Gun Game, Battle Pass Gifting Arrive This Week</a>
+			<div class="article-subtitle">It''s another big week for Call of Duty.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_final-fantasy-7-remake-intergrade-dev-shows-off-yuffies-gameplay_1100-6491946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-7-remake-intergrade-dev-shows-off-yuffies-gameplay/1100-6491946/" class="article-title">Final Fantasy 7 Remake Intergrade Dev Shows Off Yuffie's Gameplay</a>
+			<div class="article-subtitle">Square Enix has revealed some more details about what you can expect from Final Fantasy 7''s big PS5 upgrade and DLC.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_hellraiser-reboot-movie-heading-to-hulu_1100-6491945_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/hellraiser-reboot-movie-heading-to-hulu/1100-6491945/" class="article-title">Hellraiser Reboot Movie Heading To Hulu</a>
+			<div class="article-subtitle">Hulu will release the next movie in the long-running horror series.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_mobile-publisher-netmarble-sees-three-games-with-double-digit-growth-in-q1-2021_1100-6491947_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mobile-publisher-netmarble-sees-three-games-with-double-digit-growth-in-q1-2021/1100-6491947/" class="article-title">Mobile Publisher Netmarble Sees Three Games With Double-Digit Growth In Q1 2021</a>
+			<div class="article-subtitle">Marvel: Contest of Champions is among the top-grossing games for the mobile publisher in Q1.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_this-weeks-red-dead-online-update-introduces-eight-new-races_1100-6491948_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-red-dead-online-update-introduces-eight-new-races/1100-6491948/" class="article-title">This Week's Red Dead Online Update Introduces Eight New Races</a>
+			<div class="article-subtitle">A majority of the discounts and bonuses from last week''s update are continuing through this week.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_axiom-verge-2-delayed-to-later-this-year_1100-6491950_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/axiom-verge-2-delayed-to-later-this-year/1100-6491950/" class="article-title">Axiom Verge 2 Delayed To Later This Year</a>
+			<div class="article-subtitle">A "Making-of" documentary about Axiom Verge 2 has dropped for free as consolation for the second delay.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_ps4-to-ps5-full-list-of-games-with-free-upgrades-and-game-boost_1100-6491551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-to-ps5-full-list-of-games-with-free-upgrades-and-game-boost/1100-6491551/" class="article-title">PS4 To PS5: Full List Of Games With Free Upgrades And Game Boost</a>
+			<div class="article-subtitle">The majority of these games support a free upgrade from PS4 to PS5, and others support Game Boost.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_new-ratchet-clank-rift-apart-cinematic-trailer-explains-what-you-need-to-know-about-the-story_1100-6491951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ratchet-clank-rift-apart-cinematic-trailer-explains-what-you-need-to-know-about-the-story/1100-6491951/" class="article-title">New Ratchet & Clank: Rift Apart Cinematic Trailer Explains What You Need To Know About The Story</a>
+			<div class="article-subtitle">Narrated by Zurkon Jr., the new trailer gives a quick overview of Rift Apart''s plot.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_fortnite-telescope-locations-where-to-repair-damaged-telescopes-foreshadowing-quest_1100-6491952_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/fortnite-telescope-locations-where-to-repair-damaged-telescopes-foreshadowing-quest/1100-6491952/" class="article-title">Fortnite Telescope Locations: Where To Repair Damaged Telescopes (Foreshadowing Quest)</a>
+			<div class="article-subtitle">All five damaged telescope locations</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_jackass-4s-johnny-knoxville-suffered-brain-hemorrhage-filming-one-of-the-stunts_1100-6491949_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/jackass-4s-johnny-knoxville-suffered-brain-hemorrhage-filming-one-of-the-stunts/1100-6491949/" class="article-title">Jackass 4's Johnny Knoxville Suffered Brain Hemorrhage Filming One Of The Stunts</a>
+			<div class="article-subtitle">Knoxville also talks about the situation with Bam Margera, who says he was fired from the film.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_fortnite-foreshadowing-quests-leak-hint-at-season-7-theme_1100-6491898_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-foreshadowing-quests-leak-hint-at-season-7-theme/1100-6491898/" class="article-title">Fortnite Foreshadowing Quests Arrive, Hint At Season 7 Alien Theme</a>
+			<div class="article-subtitle">Their release date is yet to be revealed.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_edgar-wrights-last-night-in-soho-trailer-delivers-time-travelling-60s-horror_1100-6491954_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/edgar-wrights-last-night-in-soho-trailer-delivers-time-travelling-60s-horror/1100-6491954/" class="article-title">Edgar Wright's Last Night In Soho Trailer Delivers Time-Travelling '60s Horror</a>
+			<div class="article-subtitle">The film stars Thomasin McKenzie and Anya Taylor-Joy, and releases in October.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_new-outriders-patch-fixes-damage-mitigation-bug-and-one-hit-kills-from-brood-mothers_1100-6491957_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-outriders-patch-fixes-damage-mitigation-bug-and-one-hit-kills-from-brood-mothers/1100-6491957/" class="article-title">New Outriders Patch Fixes Damage Mitigation Bug And One-Hit Kills From Brood Mothers</a>
+			<div class="article-subtitle">The latest Outriders update also addresses sign-in issues and fixes various crash problems.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_razer-launches-the-blackwidow-v3-mini-hyperspeed-its-first-65-keyboard_1100-6491956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/razer-launches-the-blackwidow-v3-mini-hyperspeed-its-first-65-keyboard/1100-6491956/" class="article-title">Razer Launches The Blackwidow V3 Mini HyperSpeed, Its First 65% Keyboard</a>
+			<div class="article-subtitle">If 60% is just too small for you, Razer''s latest mechanical and wireless keyboard offering might be the perfect compromise.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_cyberpunk-2077-on-playstation-cdpr-still-waiting-for-sony-to-reinstate-the-game_1100-6491955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cyberpunk-2077-on-playstation-cdpr-still-waiting-for-sony-to-reinstate-the-game/1100-6491955/" class="article-title">Cyberpunk 2077 On PlayStation: CDPR Still Waiting For Sony To Reinstate The Game</a>
+			<div class="article-subtitle">CD Projekt Red believes Sony is getting closer to making an announcement, but not yet.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_biomutant-guide-essential-beginners-tips_1100-6491926_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/biomutant-guide-essential-beginners-tips/1100-6491926/" class="article-title">Biomutant Guide: Essential Beginner's Tips</a>
+			<div class="article-subtitle">Here are some handy tips that should help you get the most out of Biomutant for PS4, Xbox One, and PC.</div>
+			<div class="article-author">Dave Jewitt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_ubisoft-subscription-service-gets-rewards-program-ui-overhaul_1100-6491960_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/ubisoft-subscription-service-gets-rewards-program-ui-overhaul/1100-6491960/" class="article-title">Ubisoft+ Subscription Service Gets Rewards Program, UI Overhaul</a>
+			<div class="article-subtitle">Ubisoft''s subscription service has a new look.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_marvels-loki-teased-as-future-fortnite-skin_1100-6491961_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/marvels-loki-teased-as-future-fortnite-skin/1100-6491961/" class="article-title">Marvel's Loki Teased As Future Fortnite Skin</a>
+			<div class="article-subtitle">The god of mischief will be up to no good on the Fortnite island.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_john-cena-apologizes-in-mandarin-to-china-for-calling-taiwan-a-country_1100-6491962_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/john-cena-apologizes-in-mandarin-to-china-for-calling-taiwan-a-country/1100-6491962/" class="article-title">John Cena Apologizes In Mandarin To China For Calling Taiwan A Country</a>
+			<div class="article-subtitle">F9 opened at international theaters over the past weekend.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_final-fantasy-xiv-on-ps5-exits-open-beta-begins-official-service_1100-6491964_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-xiv-on-ps5-exits-open-beta-begins-official-service/1100-6491964/" class="article-title">Final Fantasy XIV On PS5 Exits Open Beta, Begins Official Service</a>
+			<div class="article-subtitle">Final Fantasy XIV has now entered official service on the PS5, ending a month-long open beta, which will change very little for existing customers.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_the-legend-of-tianding-sees-you-use-kung-fu-to-steal-from-the-rich_1100-6491963_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-legend-of-tianding-sees-you-use-kung-fu-to-steal-from-the-rich/1100-6491963/" class="article-title">The Legend Of Tianding Sees You Use Kung Fu To Steal From The Rich</a>
+			<div class="article-subtitle">The game has a wonderfully vibrant style, taking artistic inspiration from Chinese manga.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_playstation-state-of-play-coming-may-27-with-new-gameplay-for-ps5s-horizon-forbidden-west_1100-6491936_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/playstation-state-of-play-coming-may-27-with-new-gameplay-for-ps5s-horizon-forbidden-west/1100-6491936/" class="article-title">PlayStation State Of Play Coming May 27 With New Gameplay For PS5's Horizon: Forbidden West</a>
+			<div class="article-subtitle">Get ready.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_gwent-pays-the-price-of-power-with-first-expansion-set-beginning-june-8_1100-6491966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gwent-pays-the-price-of-power-with-first-expansion-set-beginning-june-8/1100-6491966/" class="article-title">Gwent Pays The Price Of Power With First Expansion Set Beginning June 8</a>
+			<div class="article-subtitle">The first Expansion Set in the digital card game''s history will hit right before summer kicks off.</div>
+			<div class="article-author">Jason Fanelli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_destiny-2-update-fixes-new-hunter-exotic-nerfing-star-eater-scales-read-the-patch-notes_1100-6491971_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-2-update-fixes-new-hunter-exotic-nerfing-star-eater-scales-read-the-patch-notes/1100-6491971/" class="article-title">Destiny 2 Update "Fixes" New Hunter Exotic, Nerfing Star-Eater Scales; Read The Patch Notes</a>
+			<div class="article-subtitle">The new Destiny 2 Exotic Star-Eater Scales have been giving players way more damage than they should get, so Bungie has reeled it in.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_lena-headey-and-karen-gillan-are-a-mother-daughter-killing-team-in-gunpowder-milkshake-trailer_1100-6491969_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/lena-headey-and-karen-gillan-are-a-mother-daughter-killing-team-in-gunpowder-milkshake-trailer/1100-6491969/" class="article-title">Lena Headey And Karen Gillan Are A Mother-Daughter Killing Team In Gunpowder Milkshake Trailer</a>
+			<div class="article-subtitle">The movie comes to Netflix this July.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_dead-by-daylight-celebrates-fifth-anniversary-with-resident-evil-crossover_1100-6491967_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-by-daylight-celebrates-fifth-anniversary-with-resident-evil-crossover/1100-6491967/" class="article-title">Dead By Daylight Celebrates Fifth Anniversary With Resident Evil Crossover</a>
+			<div class="article-subtitle">The multiplayer horror game Dead By Daylight has notched five years of existence, and Resident Evil''s Jill Valentine, Leon Kennedy, and Nemesis are joining the party.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_eevee-pokemon-go-evolutions-guide_1100-6469091_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/eevee-pokemon-go-evolutions-guide/1100-6469091/" class="article-title">Eevee Pokemon Go Evolutions Guide: How To Get Leafeon, Glaceon, Sylveon, And Every Eeveelution</a>
+			<div class="article-subtitle">Hoping to get a specific Eevee evolution? Here''s how to evolve the adorable Pokemon into any form you want.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_knockout-city-encounters-issues-with-block-party-rewards-dev-working-on-a-fix_1100-6491972_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/knockout-city-encounters-issues-with-block-party-rewards-dev-working-on-a-fix/1100-6491972/" class="article-title">Knockout City Encounters Issues With Block Party Rewards, Dev Working On A Fix</a>
+			<div class="article-subtitle">"We''ll get these bonuses added to your account, hang tight!" the developers say.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_battlefield-6-leaks-roundup-trailer-images-details-revealed-ahead-of-time_1100-6491883_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/battlefield-6-leaks-roundup-trailer-images-details-revealed-ahead-of-time/1100-6491883/" class="article-title">Battlefield 6 Leaks Roundup: Trailer, Images, Details Revealed Ahead Of Time</a>
+			<div class="article-subtitle">EA''s new Battlefield game is coming this holiday, and some of it has leaked already.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_olympic-games-tokyo-2020-captures-olympic-action-without-mario-or-sonic_1100-6491953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/olympic-games-tokyo-2020-captures-olympic-action-without-mario-or-sonic/1100-6491953/" class="article-title">Olympic Games Tokyo 2020 Captures Olympic Action Without Mario Or Sonic</a>
+			<div class="article-subtitle">An officially licensed Tokyo Olympics 2020 game is coming this year, 2021, the year of the 2020 Olympics.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_the-garden-path-lets-you-befriend-people-with-cute-animal-and-vegetable-heads_1100-6491974_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-garden-path-lets-you-befriend-people-with-cute-animal-and-vegetable-heads/1100-6491974/" class="article-title">The Garden Path Lets You Befriend People With Cute Animal And Vegetable Heads</a>
+			<div class="article-subtitle">The slice-of-life sim features a cute hand-drawn storybook aesthetic and beautiful original soundtracks.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_xbox-super-saver-game-sale-is-live-here-are-the-best-deals_1100-6491970_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-super-saver-game-sale-is-live-here-are-the-best-deals/1100-6491970/" class="article-title">Xbox Super Saver Game Sale Is Live - Here Are The Best Deals</a>
+			<div class="article-subtitle">The Super Saver sale on Xbox One and Series X|S offers big discounts on loads of games you might have missed.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_how-cod-warzone-season-4-could-shake-things-up_1100-6491973_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-cod-warzone-season-4-could-shake-things-up/1100-6491973/" class="article-title">How CoD: Warzone Season 4 Could Shake Things Up</a>
+			<div class="article-subtitle">There''s little known about future seasons of Warzone, but some leaks and teases offer a glimpse at what might come to Call of Duty''s battle royale.</div>
+			<div class="article-author">S.E. Doster</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_the-portal-movie-from-jj-abrams-is-still-alive-but-the-half-life-movie-is-not_1100-6491931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-portal-movie-from-jj-abrams-is-still-alive-but-the-half-life-movie-is-not/1100-6491931/" class="article-title">The Portal Movie From JJ Abrams Is Still Alive, But The Half-Life Movie Is Not</a>
+			<div class="article-subtitle">JJ Abrams confirms the latest details on the long-awaited Portal and Half-Life movies.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_game-of-thrones-actress-recalls-the-worst-day-of-my-life-filming-a-waterboarding-scene_1100-6491933_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-actress-recalls-the-worst-day-of-my-life-filming-a-waterboarding-scene/1100-6491933/" class="article-title">Game Of Thrones Actress Recalls The "Worst Day Of My Life" Filming A Waterboarding Scene</a>
+			<div class="article-subtitle">Hannah Waddingham recalls being strapped down on a table for 10 hours and thinking, "The production company aren''t going to let you die, so get on with it."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_destiny-2-cross-play-beta-is-now-live_1100-6491801_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-2-cross-play-beta-is-now-live/1100-6491801/" class="article-title">Destiny 2 Cross-Play Beta Is Now Live</a>
+			<div class="article-subtitle">The event will last through Friday, May 27, and offers a special emblem as a reward.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_steve-o-has-doctor-paralyze-him-for-jackass-4_1100-6491976_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/steve-o-has-doctor-paralyze-him-for-jackass-4/1100-6491976/" class="article-title">Steve-O Has Doctor Paralyze Him For Jackass 4</a>
+			<div class="article-subtitle">Jackass 4 is due out in theaters on October 22, 2021.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_cw-boss-explains-why-live-action-powerpuff-girls-is-redoing-its-pilot_1100-6491914_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cw-boss-explains-why-live-action-powerpuff-girls-is-redoing-its-pilot/1100-6491914/" class="article-title">CW Boss Explains Why Live-Action Powerpuff Girls Is Redoing Its Pilot</a>
+			<div class="article-subtitle">Blossom, Buttercup, and Bubbles will get another shot at a live-action resurgence.</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_philo-streaming-service-prices-are-going-up-but-you-can-avoid-the-increase_1100-6491975_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/philo-streaming-service-prices-are-going-up-but-you-can-avoid-the-increase/1100-6491975/" class="article-title">Philo Streaming Service Prices Are Going Up, But You Can Avoid The Increase</a>
+			<div class="article-subtitle">The live TV service is raising its prices from $20 to $25, but you don''t have to pay that.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_fortnite-where-to-investigate-downed-black-helicopter-foreshadowing-quest_1100-6491943_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/fortnite-where-to-investigate-downed-black-helicopter-foreshadowing-quest/1100-6491943/" class="article-title">Fortnite: Where To Investigate Downed Black Helicopter (Foreshadowing Quest)</a>
+			<div class="article-subtitle">Here''s the location of the downed black helicopter for the new Fortnite challenge.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_unofficial-ps5-redesign-gives-the-console-an-elegant-new-look_1100-6491940_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/unofficial-ps5-redesign-gives-the-console-an-elegant-new-look/1100-6491940/" class="article-title">Unofficial PS5 Redesign Gives The Console An Elegant New Look</a>
+			<div class="article-subtitle">DIY Perks'' redesign makes the PS5 look fantastic when it''s horizontal, a first for the console.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_torchlight-3-update-introduces-new-class-the-cursed-captain_1100-6491978_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/torchlight-3-update-introduces-new-class-the-cursed-captain/1100-6491978/" class="article-title">Torchlight 3 Update Introduces New Class, The Cursed Captain</a>
+			<div class="article-subtitle">The Diablo-like dungeon-crawler has added a new ghost pirate class along with some other free goodies.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_valve-is-reportedly-making-a-steam-handheld-pc-that-sounds-like-a-nintendo-switch_1100-6491980_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-is-reportedly-making-a-steam-handheld-pc-that-sounds-like-a-nintendo-switch/1100-6491980/" class="article-title">Valve Is Reportedly Making A Steam Handheld PC That Sounds Like A Nintendo Switch</a>
+			<div class="article-subtitle">According to new reports, Valve is working on a handheld PC to play Steam games.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_destiny-2-when-is-cross-play-coming_1100-6487536_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-2-when-is-cross-play-coming/1100-6487536/" class="article-title">Destiny 2: When Is Cross-play Coming?</a>
+			<div class="article-subtitle">Here is what we know about Destiny 2''s upcoming crossplay feature, and a workaround you can use now.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_game-of-thrones-spinoff-10000-ships-gets-its-writer_1100-6491982_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-spinoff-10000-ships-gets-its-writer/1100-6491982/" class="article-title">Game of Thrones Spinoff 10,000 Ships Gets Its Writer</a>
+			<div class="article-subtitle">HBO is hoping that the next Game of Thrones is... more Game of Thrones.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_dave-bautistas-dream-role-surprised-everyone-us-included_1100-6491984_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dave-bautistas-dream-role-surprised-everyone-us-included/1100-6491984/" class="article-title">Dave Bautista's Dream Role Surprised Everyone, Us Included</a>
+			<div class="article-subtitle">Dave Bautista, known best for his role as Drax in Guardians of the Galaxy, has an unexpected role on his bucket list.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/05/25_destiny-2-vault-of-glass-guide-how-to-beat-every-encounter-and-find-all-hidden-chests-and-collectibles_1100-6491983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-2-vault-of-glass-guide-how-to-beat-every-encounter-and-find-all-hidden-chests-and-collectibles/1100-6491983/" class="article-title">Destiny 2 Vault Of Glass Guide: How To Beat Every Encounter And Find All Hidden Chests And Collectibles</a>
+			<div class="article-subtitle">The Vault of Glass is back in Destiny 2, and while it''s mostly the same as its Destiny 1 counterpart, there are some key changes you need to know about.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_valve-reportedly-working-on-a-switch-like-handheld-gaming-pc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valve-reportedly-working-on-a-switch-like-handheld-gaming-pc" class="article-title">Valve reportedly working on a "Switch-like" handheld gaming PC</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_axiom-verge-2-delayed-again-now-expected-in-latter-half-of-2021_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/axiom-verge-2-delayed-again-now-expected-in-latter-half-of-2021" class="article-title">Axiom Verge 2 delayed again, now expected in latter half of 2021</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_theres-a-sonic-the-hedgehog-30th-anniversary-livestream-this-thursday_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/theres-a-sonic-the-hedgehog-30th-anniversary-livestream-this-thursday" class="article-title">There's a Sonic the Hedgehog 30th anniversary livestream this Thursday</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_destiny-2-fatebringer-god-roll-drop-location-8005_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-2-fatebringer-god-roll-drop-location-8005" class="article-title">Destiny 2 Fatebringer god roll recommendation and drop location explained</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_destiny-2-vex-mythoclast-drop-rate-catalyst-8005_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-2-vex-mythoclast-drop-rate-catalyst-8005" class="article-title">Destiny 2 Vex Mythoclast: Drop location and how to get the Catalyst explained</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pigeon-dating-sim-hatoful-boyfriend-to-be-delisted-from-ios-android-ps-store-in-june_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pigeon-dating-sim-hatoful-boyfriend-to-be-delisted-from-ios-android-ps-store-in-june" class="article-title">Pigeon dating sim Hatoful Boyfriend to be delisted from iOS, Android, PS Store in June</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_heres-15-mins-of-warhammer-age-of-sigmar-storm-ground-gameplay_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/heres-15-mins-of-warhammer-age-of-sigmar-storm-ground-gameplay" class="article-title">Here's 15 mins of Warhammer Age of Sigmar: Storm Ground gameplay</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_virtua-fighter-is-back-and-its-back-very-soon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/virtua-fighter-is-back-and-its-back-very-soon" class="article-title">Virtua Fighter is back - and it's back very soon</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_horizon-forbidden-west-state-of-play-announced-for-thursday_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/horizon-forbidden-west-state-of-play-announced-for-thursday" class="article-title">Horizon Forbidden West State of Play announced for Thursday</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_digitalfoundry-2021-05-21-xtrfy-k4-tkl-insane-price_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2021-05-21-xtrfy-k4-tkl-insane-price" class="article-title">Our best value mechanical keyboard pick is 60% off right now</a>
+			<div class="article-author">Will Judd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_epic-v-apple-trial-ends-tim-sweeney-tweets-about-chicken_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/epic-v-apple-trial-ends-tim-sweeney-tweets-about-chicken" class="article-title">Epic v Apple trial ends, Tim Sweeney tweets about chicken</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-fans-peer-into-loot-box-style-egg-rarity-system-with-surprising-results_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-fans-peer-into-loot-box-style-egg-rarity-system-with-surprising-results" class="article-title">Pokémon Go fans peer into loot box-style egg rarity system with surprising results</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-celebi-quest-5392_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-celebi-quest-5392" class="article-title">Pokémon Go Celebi quest - every step in A Ripple in Time</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-sinnoh-stone-5392_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-sinnoh-stone-5392" class="article-title">Pokémon Go Sinnoh Stone - how to get the Sinnoh Stone for Gallade, Froslass, Tangrowth and much more</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-tips-tricks-6002_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-tips-tricks-6002" class="article-title">How to get back into Pokémon Go</a>
+			<div class="article-author">Lottie Lynn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-jump-start-research-tasks-rewards-6002_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-jump-start-research-tasks-rewards-6002" class="article-title">Pokémon Go Jump-Start Research quest tasks and rewards explained</a>
+			<div class="article-author">Lottie Lynn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-defeat-all-challengers-research-quest-research-8004_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-defeat-all-challengers-research-quest-research-8004" class="article-title">Pokémon Go Defeat All Challengers event research quest: How to complete each quest task</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-evolve-collection-challenge-8004_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-evolve-collection-challenge-8004" class="article-title">Pokémon Go Evolve Collection Challenge list and rewards</a>
+			<div class="article-author">Lottie Lynn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pokemon-go-luminous-legends-y-event-research-quest-task-field-8004_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-go-luminous-legends-y-event-research-quest-task-field-8004" class="article-title">Pokémon Go Luminous Legends Y event research quest: How to complete each quest task and field research explained</a>
+			<div class="article-author">Lottie Lynn</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_digitalfoundry-2021-mass-effect-legendary-edition-ps4-xbox-one-analysis_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2021-mass-effect-legendary-edition-ps4-xbox-one-analysis" class="article-title">How well does Mass Effect Legendary Edition run on last-gen consoles?</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_8-years-later-j-j-abrams-portal-movie-finally-on-the-rails_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/8-years-later-j-j-abrams-portal-movie-finally-on-the-rails" class="article-title">8 years later, J.J. Abrams' Portal movie "finally on the rails"</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_elder-scrolls-onlines-next-gen-update-delayed-by-a-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/elder-scrolls-onlines-next-gen-update-delayed-by-a-week" class="article-title">Elder Scrolls Online's next-gen update delayed by a week</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_pro-gear-spec-reminisicing-about-snks-90s-vision-of-the-future_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pro-gear-spec-reminisicing-about-snks-90s-vision-of-the-future" class="article-title">When the arcade came home: a short oral history of the Neo Geo</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/05/25_bose-700-noise-cancelling-headphones-deal_thumbnail.png">
+			<a href="https://www.eurogamer.net/bose-700-noise-cancelling-headphones-deal" class="article-title">Save 35% on these Bose 700 noise-cancelling headphones</a>
+			<div class="article-author">Mat Ombler</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-puzzle-n20.php" class="article-title">Weekday Puzzle N°20</a>
+			<div class="article-author">chrpa</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 14, 2021</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/oddworld-soulstorm-review/1900-6417663/" class="article-title">Oddworld: Soulstorm Review</a>
+			<div class="article-subtitle">Oddworld’s newest revival looks incredible, but its classic stealth-platforming feels old-school in all the wrong ways.</div>
+			<div class="article-author">Mike Epstein</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_cyberpunk-2077-1-21-patch-notes-include-lots-of-bug-fixes-ui-changes-and-more_1100-6490109_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/cyberpunk-2077-1-21-patch-notes-include-lots-of-bug-fixes-ui-changes-and-more/1100-6490109/" class="article-title">Cyberpunk 2077 1.21 Patch Notes Include Lots Of Bug Fixes, UI Changes, And More</a>
+			<div class="article-subtitle">CD Projekt Red''s mission to improve Cyberpunk 2077 continues with the latest big patch.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_hood-outlaws-and-legends-trailer-is-full-of-new-multiplayer-heist-action_1100-6490106_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hood-outlaws-and-legends-trailer-is-full-of-new-multiplayer-heist-action/1100-6490106/" class="article-title">Hood: Outlaws And Legends Trailer Is Full Of New Multiplayer Heist Action</a>
+			<div class="article-subtitle">Developer Sumo Digital''s Robin Hood-inspired multiplayer game details how you''ll rob from the rich and give to the poor in a new gameplay trailer.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_microsoft-flight-simulators-next-big-update-gives-france-and-amsterdam-a-huge-visual-upgrade_1100-6490107_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-flight-simulators-next-big-update-gives-france-and-amsterdam-a-huge-visual-upgrade/1100-6490107/" class="article-title">Microsoft Flight Simulator's Next Big Update Gives France And Amsterdam A Huge Visual Upgrade</a>
+			<div class="article-subtitle">World Update 4 adds high-resolution 3D photogrammetry for Paris and Amsterdam, as well as 100 new landmarks.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_nhl-21-added-to-ea-play-and-xbox-game-pass-ultimate_1100-6490110_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/nhl-21-added-to-ea-play-and-xbox-game-pass-ultimate/1100-6490110/" class="article-title">NHL 21 Added To EA Play And Xbox Game Pass Ultimate</a>
+			<div class="article-subtitle">Xbox Game Pass unlocks a library of hundreds of games, but we''ve rounded up our 30 favorite titles to check out now.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_steve-urkel-actor-jaleel-white-launching-new-weed-brand-on-4-20_1100-6490111_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/steve-urkel-actor-jaleel-white-launching-new-weed-brand-on-4-20/1100-6490111/" class="article-title">Steve Urkel Actor Jaleel White Launching New Weed Brand On 4/20</a>
+			<div class="article-subtitle">White''s new marijuana strain is called "ItsPurpl" and it launches on 4/20.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_synthetik-2-announced-coming-to-steam-early-access-this-year_1100-6490112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/synthetik-2-announced-coming-to-steam-early-access-this-year/1100-6490112/" class="article-title">Synthetik 2 Announced, Coming To Steam Early Access This Year</a>
+			<div class="article-subtitle">Synthetik 2 will be out in Steam Early Access this summer, adding refined gameplay, online co-op, and a new art direction.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_mark-wahlberg-movie-stu-adds-oscar-nominee-jacki-weaver_1100-6490114_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mark-wahlberg-movie-stu-adds-oscar-nominee-jacki-weaver/1100-6490114/" class="article-title">Mark Wahlberg Movie Stu Adds Oscar Nominee Jacki Weaver</a>
+			<div class="article-subtitle">The movie tells the story of Father Stuart Long, a boxer-turned-priest who was run over by a car and later found faith.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_how-animal-crossing-was-born-from-one-of-nintendos-biggest-flops_1100-6475342_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-animal-crossing-was-born-from-one-of-nintendos-biggest-flops/1100-6475342/" class="article-title">How Animal Crossing Was Born From One Of Nintendo's Biggest Flops</a>
+			<div class="article-subtitle">Before it became a global hit, Nintendo’s beloved life sim began as a project for a failed N64 accessory.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_michael-b-jordan-on-why-sylvester-stallone-isnt-coming-back-for-creed-3_1100-6490118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/michael-b-jordan-on-why-sylvester-stallone-isnt-coming-back-for-creed-3/1100-6490118/" class="article-title">Michael B. Jordan On Why Sylvester Stallone Isn't Coming Back For Creed 3</a>
+			<div class="article-subtitle">Stallone won''t play Rocky Balboa in the next Creed movie, which Jordan will direct and star in.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_lego-batman-director-chris-mckay-in-talks-for-dracula-spin-off-movie-renfield_1100-6490108_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-batman-director-chris-mckay-in-talks-for-dracula-spin-off-movie-renfield/1100-6490108/" class="article-title">Lego Batman Director Chris McKay In Talks For Dracula Spin-Off Movie Renfield</a>
+			<div class="article-subtitle">Renfield is one of several films based on classic horror characters in development at Universal.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_netflix-has-the-best-original-content-according-to-39-of-americans_1100-6490120_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/netflix-has-the-best-original-content-according-to-39-of-americans/1100-6490120/" class="article-title">Netflix Has The Best Original Content, According To 39% Of Americans</a>
+			<div class="article-subtitle">A new survey proves the streaming service''s original content game is strong.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_f9-trailer-features-han-killing-people-and-magnets-that-flip-cars-over_1100-6490099_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/f9-trailer-features-han-killing-people-and-magnets-that-flip-cars-over/1100-6490099/" class="article-title">F9 Trailer Features Han Killing People And Magnets That Flip Cars Over</a>
+			<div class="article-subtitle">Fast and the Furious 9 is due to hit theaters on June 25.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_ubisoft-shutting-down-servers-for-some-classic-games-including-rainbow-six-vegas_1100-6490078_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-shutting-down-servers-for-some-classic-games-including-rainbow-six-vegas/1100-6490078/" class="article-title">Ubisoft Shutting Down Servers For Some Classic Games, Including Rainbow Six Vegas</a>
+			<div class="article-subtitle">Assassin''s Creed II, Splinter Cell Conviction, and other classic Ubisoft games will no longer have multiplayer servers from June.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_gamestop-has-an-awesome-ps4-game-promotion-today-only_1100-6490121_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-has-an-awesome-ps4-game-promotion-today-only/1100-6490121/" class="article-title">GameStop Has An Awesome PS4 Game Promotion Today Only</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_nvidia-announces-native-dlss-support-for-unity_1100-6490126_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-announces-native-dlss-support-for-unity/1100-6490126/" class="article-title">Nvidia Announces Native DLSS Support For Unity</a>
+			<div class="article-subtitle">One of the most popular game engines is getting native DLSS support by the end of the year.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_wow-shadowlands-chains-of-domination-update-out-now-on-ptr_1100-6490124_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/wow-shadowlands-chains-of-domination-update-out-now-on-ptr/1100-6490124/" class="article-title">WoW: Shadowlands Chains Of Domination Update Out Now On PTR</a>
+			<div class="article-subtitle">Testers can now try out the next update to the Shadowlands expansion, but the raid isn''t coming until April 16.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_animal-crossing-new-horizons-soundtrack-available-to-preorder-from-japan_1100-6490122_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/animal-crossing-new-horizons-soundtrack-available-to-preorder-from-japan/1100-6490122/" class="article-title">Animal Crossing: New Horizons Soundtrack Available To Preorder From Japan</a>
+			<div class="article-subtitle">The Animal Crossing: New Horizons soundtrack on compact disc will cost you well over $100 to import from Japan.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_persona-5-mobile-game-code-name-x-announced_1100-6490130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/persona-5-mobile-game-code-name-x-announced/1100-6490130/" class="article-title">Persona 5 Mobile Game Code Name: X Announced</a>
+			<div class="article-subtitle">A mobile spinoff of the storied RPG series Persona has been announced by Perfect World Games, along with a trailer.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_fortnite-is-getting-new-dc-comics-cosmetics-all-summer-alongside-comic-arc_1100-6490129_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-is-getting-new-dc-comics-cosmetics-all-summer-alongside-comic-arc/1100-6490129/" class="article-title">Fortnite Is Getting New DC Comics Cosmetics All Summer Alongside Comic Arc</a>
+			<div class="article-subtitle">The Batman/Fortnite: Zero Point storyline will bring answers to mysteries and new cosmetics for comic fans.</div>
+			<div class="article-author">Mark Delaney</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_cris-tales-release-date-set-for-july-20_1100-6490132_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cris-tales-release-date-set-for-july-20/1100-6490132/" class="article-title">Cris Tales Release Date Set For July 20</a>
+			<div class="article-subtitle">After a few delays, Cris Tales is finally scheduled to launch this July.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_every-nintendo-showcase-game-and-demo-releasing-on-switch-today_1100-6490127_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/every-nintendo-showcase-game-and-demo-releasing-on-switch-today/1100-6490127/" class="article-title">Every Nintendo Showcase Game And Demo Releasing On Switch Today</a>
+			<div class="article-subtitle">You can play four of the games featured during the showcase on Switch without much of a wait.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_nintendo-indie-world-stream-had-20-minutes-of-news-and-reveals_1100-6490084_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nintendo-indie-world-stream-had-20-minutes-of-news-and-reveals/1100-6490084/" class="article-title">Nintendo Indie World Stream Had 20 Minutes Of News And Reveals</a>
+			<div class="article-subtitle">The next independent games showcase was held on Wednesday and it brought some big news.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_road-96-teases-thousands-of-road-trips-in-latest-trailer_1100-6490134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/road-96-teases-thousands-of-road-trips-in-latest-trailer/1100-6490134/" class="article-title">Road 96 Teases Thousands of Road Trips In Latest Trailer</a>
+			<div class="article-subtitle">Road 96 is going to ask you to make plenty of decisions during the hundreds of story-driven adventures you''ll experience inside of it.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_payday-crime-war-will-return-with-new-developer_1100-6490133_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/payday-crime-war-will-return-with-new-developer/1100-6490133/" class="article-title">Payday Crime War Will Return With New Developer</a>
+			<div class="article-subtitle">The game shut down in 2019 after NBCUniversal got out of gaming, but it''s coming back in 2021.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_skateboarding-game-olliolli-world-coming-this-winter_1100-6490125_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/skateboarding-game-olliolli-world-coming-this-winter/1100-6490125/" class="article-title">Skateboarding Game OlliOlli World Coming This Winter</a>
+			<div class="article-subtitle">The next entry in Roll7''s OlliOlli series is all about traveling the world to find new skate spots and follow the elusive skate gods.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_oxenfree-2-lost-signals-announced-releases-in-2021_1100-6490131_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oxenfree-2-lost-signals-announced-releases-in-2021/1100-6490131/" class="article-title">Oxenfree 2: Lost Signals Announced, Releases In 2021</a>
+			<div class="article-subtitle">The sequel will take place five years after the events of Oxenfree.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_ludwig-tops-ninjas-record-for-most-twitch-subscribers-after-month-long-subathon_1100-6490136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ludwig-tops-ninjas-record-for-most-twitch-subscribers-after-month-long-subathon/1100-6490136/" class="article-title">Ludwig Tops Ninja's Record For Most Twitch Subscribers After Month-long Subathon</a>
+			<div class="article-subtitle">Ludwig''s current subscriber count is over 280,000.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_assassins-creed-valhalla-dlc-wrath-of-the-druids-delayed-to-may_1100-6490137_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassins-creed-valhalla-dlc-wrath-of-the-druids-delayed-to-may/1100-6490137/" class="article-title">Assassin's Creed Valhalla DLC Wrath Of The Druids Delayed To May</a>
+			<div class="article-subtitle">Originally slated to launch on April 29, Assassin''s Creed Valhalla''s first paid DLC now arrives on May 13.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_call-of-duty-mobile-world-championship-event-returns-with-its-biggest-prize-pool-ever_1100-6490116_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/call-of-duty-mobile-world-championship-event-returns-with-its-biggest-prize-pool-ever/1100-6490116/" class="article-title">Call Of Duty Mobile World Championship Event Returns With Its Biggest Prize Pool Ever</a>
+			<div class="article-subtitle">This year''s competitive gaming event will begin in June; Activision''s mobile boss tells us all about it.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_apex-legends-season-9-character-possibly-teased-in-new-trailer_1100-6490140_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/apex-legends-season-9-character-possibly-teased-in-new-trailer/1100-6490140/" class="article-title">Apex Legends Season 9 Character Possibly Teased In New Trailer</a>
+			<div class="article-subtitle">In its celebration of a new milestone for Apex Legends, Respawn may have cheekily snuck in a tease for what''s next for the battle royale.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_latest-nvidia-game-ready-driver-brings-g-sync-to-more-lg-oled-tvs_1100-6490138_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/latest-nvidia-game-ready-driver-brings-g-sync-to-more-lg-oled-tvs/1100-6490138/" class="article-title">Latest Nvidia Game-Ready Driver Brings G-Sync To More LG OLED TVs</a>
+			<div class="article-subtitle">The update will also prepare your PC for Mortal Shell''s imminent RTX upgrade, including DLSS support.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_getsufumaden-undying-moon-remakes-the-konami-classic-for-pc-switch_1100-6490143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/getsufumaden-undying-moon-remakes-the-konami-classic-for-pc-switch/1100-6490143/" class="article-title">Getsufumaden: Undying Moon Remakes The Konami Classic For PC, Switch</a>
+			<div class="article-subtitle">Getsufumaden: Undying Moon is an upcoming Ukiyo-e style 2D action-roguevania published by Konami.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_ps5-adds-external-storage-support-and-more-in-first-big-console-update_1100-6490069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps5-adds-external-storage-support-and-more-in-first-big-console-update/1100-6490069/" class="article-title">PS5 Adds External Storage Support And More In First Big Console Update</a>
+			<div class="article-subtitle">Months after release Sony is finally patching in the ability to store PS5 titles on external hard drives, with the update out now.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_get-a-power-bank-that-charges-your-nintendo-switch-as-you-play-for-40-off_1100-6490142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/get-a-power-bank-that-charges-your-nintendo-switch-as-you-play-for-40-off/1100-6490142/" class="article-title">Get A Power Bank That Charges Your Nintendo Switch As You Play For $40 Off</a>
+			<div class="article-subtitle">Charging your Nintendo Switch on the go is possible, but you''ll need a power bank like this to be able to play it at the same time.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_scream-5-will-have-multiple-versions-in-production-to-avoid-spoilers_1100-6490146_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/scream-5-will-have-multiple-versions-in-production-to-avoid-spoilers/1100-6490146/" class="article-title">Scream 5 Will Have Multiple Versions In Production To Avoid Spoilers</a>
+			<div class="article-subtitle">The movie (the real one) will be in theaters on January 14, 2022.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_a-major-switch-eshop-sale-is-live-now-and-you-dont-want-to-miss-it_1100-6490147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-major-switch-eshop-sale-is-live-now-and-you-dont-want-to-miss-it/1100-6490147/" class="article-title">A Major Switch eShop Sale Is Live Now, And You Don't Want To Miss It</a>
+			<div class="article-subtitle">Hades, Shovel Knight, and a ton of Devolver Digital games are on sale for great prices during the Spring Indie World Sale.</div>
+			<div class="article-author">Steven Petite</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_this-new-netflix-series-teaches-you-how-to-fall-asleep_1100-6490148_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/this-new-netflix-series-teaches-you-how-to-fall-asleep/1100-6490148/" class="article-title">This New Netflix Series Teaches You How To Fall Asleep</a>
+			<div class="article-subtitle">Is it really that bad to look at your phone before bed? Do you actually need 8 hours? A new series will dig into these topics and more.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_the-house-of-the-dead-remake-comes-to-nintendo-switch-this-year_1100-6490135_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/the-house-of-the-dead-remake-comes-to-nintendo-switch-this-year/1100-6490135/" class="article-title">The House Of The Dead: Remake Comes To Nintendo Switch This Year</a>
+			<div class="article-subtitle">Forever Entertainment previously announced an agreement to remake both the first and second games.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_playstation-spring-sale-round-2-is-live-with-hundreds-of-new-deals_1100-6489586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-spring-sale-round-2-is-live-with-hundreds-of-new-deals/1100-6489586/" class="article-title">PlayStation Spring Sale Round 2 Is Live With Hundreds Of New Deals</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_nintendo-indie-world-showcase-all-the-games-and-trailers_1100-6490128_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nintendo-indie-world-showcase-all-the-games-and-trailers/1100-6490128/" class="article-title">Nintendo Indie World Showcase: All The Games And Trailers</a>
+			<div class="article-subtitle">Did you miss the Indie World stream? Here''s absolutely everything you need to know.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_halo-mcc-adds-escalation-slayer-mode-which-is-gun-game-the-halo-way_1100-6490150_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/halo-mcc-adds-escalation-slayer-mode-which-is-gun-game-the-halo-way/1100-6490150/" class="article-title">Halo: MCC Adds Escalation Slayer Mode, Which Is Gun Game The Halo Way</a>
+			<div class="article-subtitle">A brand-new mode for Halo is out now for Halo: Reach, Halo 2: Anniversary, and Halo 4 inside MCC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_warrior-season-3-coming-to-hbo-max_1100-6490151_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/warrior-season-3-coming-to-hbo-max/1100-6490151/" class="article-title">Warrior Season 3 Coming To HBO Max</a>
+			<div class="article-subtitle">No production start date has yet been announced.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_tmnt-shredders-revenge-confirmed-for-switch-launches-this-year_1100-6490123_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/tmnt-shredders-revenge-confirmed-for-switch-launches-this-year/1100-6490123/" class="article-title">TMNT: Shredder's Revenge Confirmed For Switch, Launches This Year</a>
+			<div class="article-subtitle">The newest TMNT game is on the way for Nintendo''s hybrid console.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_twitch-bans-over-7-million-bots-contributing-to-artificially-inflated-numbers_1100-6490152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/twitch-bans-over-7-million-bots-contributing-to-artificially-inflated-numbers/1100-6490152/" class="article-title">Twitch Bans Over 7 Million Bots Contributing To Artificially Inflated Numbers</a>
+			<div class="article-subtitle">These fake accounts have been detected through "ongoing machine learning," Twitch said.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_halo-composer-martin-odonnells-first-tiktok-is-a-banger_1100-6490141_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-composer-martin-odonnells-first-tiktok-is-a-banger/1100-6490141/" class="article-title">Halo Composer Martin O'Donnell's First TikTok Is A Banger</a>
+			<div class="article-subtitle">Former Bungie composer Martin O’Donnell has joined TikTok, releasing a piano rendition of the iconic Halo theme.</div>
+			<div class="article-author">Jessica Howard</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_dragon-age-2-writer-says-snyder-cut-version-would-add-more-nuance-varric-romance_1100-6490149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-2-writer-says-snyder-cut-version-would-add-more-nuance-varric-romance/1100-6490149/" class="article-title">Dragon Age 2 Writer Says "Snyder Cut" Version Would Add More Nuance, Varric Romance</a>
+			<div class="article-subtitle">"It''s never gonna happen," writer David Gaider admits, but he has some big ideas for what he would do with total creative freedom.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_new-bioshock-game-might-be-open-world-according-to-job-listings_1100-6490079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-bioshock-game-might-be-open-world-according-to-job-listings/1100-6490079/" class="article-title">New BioShock Game Might Be Open World, According To Job Listings</a>
+			<div class="article-subtitle">Job ads at Cloud Chamber have shed a little light on what kind of structure the new BioShock might have.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_warframe-gets-xbox-series-x-s-optimization-alongside-call-of-the-tempestarii-update_1100-6490115_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warframe-gets-xbox-series-x-s-optimization-alongside-call-of-the-tempestarii-update/1100-6490115/" class="article-title">Warframe Gets Xbox Series X|S Optimization Alongside Call Of The Tempestarii Update</a>
+			<div class="article-subtitle">The game runs at 60fps and in 4K on Xbox Series X.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_oculus-quest-2-air-link-will-let-you-wirelessly-stream-pc-vr-games_1100-6490113_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oculus-quest-2-air-link-will-let-you-wirelessly-stream-pc-vr-games/1100-6490113/" class="article-title">Oculus Quest 2 Air Link Will Let You Wirelessly Stream PC VR Games</a>
+			<div class="article-subtitle">The feature is similar to Virtual Desktop, an unofficial solution.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_xbox-live-gold-requirement-for-free-to-play-games-is-one-step-closer-to-ending_1100-6490119_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/xbox-live-gold-requirement-for-free-to-play-games-is-one-step-closer-to-ending/1100-6490119/" class="article-title">Xbox Live Gold Requirement For Free-To-Play Games Is One Step Closer To Ending</a>
+			<div class="article-subtitle">Soon you won''t need to pay extra to play free-to-play multiplayer games on Xbox.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_returnals-terrifying-enemies-required-new-tentacle-technology_1100-6490117_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/returnals-terrifying-enemies-required-new-tentacle-technology/1100-6490117/" class="article-title">Returnal's Terrifying Enemies Required New Tentacle Technology</a>
+			<div class="article-subtitle">Lovecraft''s influence is pretty undeniable when looking at these enemies.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_elder-scrolls-onlines-blackwood-is-a-familiar-return-to-oblivion-now-with-companions_1100-6490154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elder-scrolls-onlines-blackwood-is-a-familiar-return-to-oblivion-now-with-companions/1100-6490154/" class="article-title">Elder Scrolls Online's Blackwood Is A Familiar Return To Oblivion, Now With Companions</a>
+			<div class="article-subtitle">Elder Scrolls Online is introducing a brand-new Companion NPC system with the Blackwood chapter, but it does little else to mix up the predictable formula.</div>
+			<div class="article-author">David Jagneaux</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_new-on-shudder-in-may-2021-exclusive-horror-movies-psycho-goreman-the-wicker-man_1100-6490157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-on-shudder-in-may-2021-exclusive-horror-movies-psycho-goreman-the-wicker-man/1100-6490157/" class="article-title">New On Shudder In May 2021: Exclusive Horror Movies, Psycho Goreman, The Wicker man</a>
+			<div class="article-subtitle">Psycho Goreman, Neil Marshall''s The Reckoning, and the retro slasher Skull: The Mask are among May''s new Shudder movies.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_toxic-avenger-reboot-adds-jacob-tremblay_1100-6490162_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/toxic-avenger-reboot-adds-jacob-tremblay/1100-6490162/" class="article-title">Toxic Avenger Reboot Adds Jacob Tremblay</a>
+			<div class="article-subtitle">Good Boys'' Jacob Tremblay will star opposite Game of Thrones'' Peter Dinklage in Legendary''s reboot of the Troma cult classic.</div>
+			<div class="article-author">Eric Frederiksen</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_the-mediums-funny-new-trailer-highlights-its-best-user-reviews_1100-6490161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-mediums-funny-new-trailer-highlights-its-best-user-reviews/1100-6490161/" class="article-title">The Medium's Funny New Trailer Highlights Its Best User Reviews</a>
+			<div class="article-subtitle">Today''s trailer also announced a sale for the game on PC storefronts.</div>
+			<div class="article-author">Otto Kratky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_blooming-business-casinos-new-trailer-reveals-a-dark-criminal-underbelly-to-this-cute-looking-game_1100-6490164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blooming-business-casinos-new-trailer-reveals-a-dark-criminal-underbelly-to-this-cute-looking-game/1100-6490164/" class="article-title">Blooming Business: Casino's New Trailer Reveals A Dark Criminal Underbelly To This Cute-Looking Game</a>
+			<div class="article-subtitle">It''s all fun and games until the grumpy-looking bear strangles the cute bunny and pulls out a gun.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_gamespot-is-partnering-with-e3-2021-for-live-coverage_1100-6490165_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/gamespot-is-partnering-with-e3-2021-for-live-coverage/1100-6490165/" class="article-title">GameSpot Is Partnering With E3 2021 For Live Coverage</a>
+			<div class="article-subtitle">Join us from June 12 for comprehensive coverage from E3 2021.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2021/04/14_final-fantasy-14s-ps5-beta-brings-a-much-improved-experience-for-console_1100-6490158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-14s-ps5-beta-brings-a-much-improved-experience-for-console/1100-6490158/" class="article-title">Final Fantasy 14's PS5 Beta Brings A Much-Improved Experience For Console</a>
+			<div class="article-subtitle">Faster load times, sharper visuals, smoother frame rates, and some DualSense perks means PS5 owners can get more out of FFXIV.</div>
+			<div class="article-author">Michael Higham</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_wadjet-eye-and-primordia-dev-show-off-surreal-point-and-click-carnival-horror-strangeland_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wadjet-eye-and-primordia-dev-show-off-surreal-point-and-click-carnival-horror-strangeland" class="article-title">Wadjet Eye and Primordia dev show off surreal point-and-click carnival horror Strangeland</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_heres-a-first-look-at-the-house-of-the-dead-remake_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/heres-a-first-look-at-the-house-of-the-dead-remake" class="article-title">Here's a first look at the House of the Dead remake</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_assassins-creed-valhalla-ireland-expansion-delayed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/assassins-creed-valhalla-ireland-expansion-delayed" class="article-title">Assassin's Creed Valhalla Ireland expansion delayed</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_fez-out-now-on-nintendo-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fez-out-now-on-nintendo-switch" class="article-title">Fez out today on Nintendo Switch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_yakuza-0-is-gbp4-psn-store-spring-sale-ps4-ps5_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/yakuza-0-is-gbp4-psn-store-spring-sale-ps4-ps5" class="article-title">Yakuza 0 is just £4 in the PSN Store Spring sale</a>
+			<div class="article-author">James Pickard</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_outriders-players-are-punching-their-way-through-the-endgame_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/outriders-players-are-punching-their-way-through-the-endgame" class="article-title">Outriders players are punching their way through the endgame</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_minecraft-has-delayed-parts-of-its-big-caves-and-cliffs-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/minecraft-has-delayed-parts-of-its-big-caves-and-cliffs-update" class="article-title">Minecraft has split off and delayed parts of its big Caves & Cliffs update</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_nintendos-next-indie-switch-showcase-scheduled-for-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendos-next-indie-switch-showcase-scheduled-for-tomorrow" class="article-title">Watch Nintendo's next indie Switch showcase here</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_ubisoft-launches-online-channel-gtv-in-uk-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ubisoft-launches-online-channel-gtv-in-uk-tomorrow" class="article-title">Ubisoft launches online channel gTV in UK tomorrow</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_final-fantasy-7-remake-intergrades-standalone-yuffie-expansion-detailed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/final-fantasy-7-remake-intergrades-standalone-yuffie-expansion-detailed" class="article-title">Final Fantasy 7 Remake Intergrade's standalone Yuffie expansion detailed</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_steams-indian-harvest-festival-begins-today-and-offers-some-treats_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/steams-indian-harvest-festival-begins-today-and-offers-some-treats" class="article-title">Steam's Indian Harvest Festival begins today, and offers some real treats</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_fruit-ninja_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fruit-ninja" class="article-title">Fruit Ninja+ is as wonderful as it always was</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_kt-racings-wrc-10-looks-back-at-50-years-of-rallying_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/kt-racings-wrc-10-looks-back-at-50-years-of-rallying" class="article-title">KT Racing's WRC 10 looks back at 50 years of rallying</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_activision-confirms-it-issues-hardware-bans-to-repeat-or-serial-call-of-duty-warzone-cheaters_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/activision-confirms-it-issues-hardware-bans-to-repeat-or-serial-call-of-duty-warzone-cheaters" class="article-title">Activision confirms it issues hardware bans to "repeat or serial" Call of Duty: Warzone cheaters</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_cyberpunk-2077-patch-1-21-out-now-stops-police-spawning-behind-the-players-back-on-roofs_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cyberpunk-2077-patch-1-21-out-now-stops-police-spawning-behind-the-players-back-on-roofs" class="article-title">Cyberpunk 2077 patch 1.21 out now, stops police spawning behind the player's back on roofs</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_activision-and-developer-of-2017-strategy-game-warzone-in-legal-fight-over-warzone-trademark_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/activision-and-developer-of-2017-strategy-game-warzone-in-legal-fight-over-warzone-trademark" class="article-title">Activision and developer of 2017 strategy game Warzone in legal fight over Warzone trademark</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_wheres-the-cheapest-place-to-preorder-mass-effect-legendary-edition_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wheres-the-cheapest-place-to-preorder-mass-effect-legendary-edition" class="article-title">Mass Effect Legendary Edition pre-order: where's cheapest?</a>
+			<div class="article-author">Joel Franey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_check-out-mass-effect-legendary-editions-visual-changes-in-new-before-and-after-trailer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/check-out-mass-effect-legendary-editions-visual-changes-in-new-before-and-after-trailer" class="article-title">Check out Mass Effect Legendary Edition's visual changes in new before-and-after trailer</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_a-roblox-player-infiltrated-the-white-house-press-corps_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/a-roblox-player-infiltrated-the-white-house-press-corps" class="article-title">A Roblox player infiltrated the White House press corps</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_playstation-5-update-finally-lets-you-move-games-to-usb-storage_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/playstation-5-update-finally-lets-you-move-games-to-usb-storage" class="article-title">PlayStation 5 update finally lets you move games to USB storage</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_call-of-duty-warzones-big-nuke-event-set-for-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-warzones-big-nuke-event-set-for-next-week" class="article-title">Call of Duty: Warzone's big nuke event set for next week</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_blizzard-arcade-collection-adds-two-more-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/blizzard-arcade-collection-adds-two-more-games" class="article-title">Blizzard Arcade Collection adds two more games</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_warframe-dev-talks-accessibility-xbox-series-x-s-enhancements-and-more-as-new-update-arrives_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/warframe-dev-talks-accessibility-xbox-series-x-s-enhancements-and-more-as-new-update-arrives" class="article-title">Warframe dev talks accessibility, Xbox Series X/S enhancements, and more as new update arrives</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_call-of-the-sea-coming-to-playstation-in-may_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-the-sea-coming-to-playstation-in-may" class="article-title">Call of the Sea coming to PlayStation in May</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_someone-should-make-a-game-about-art-on-the-moon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/someone-should-make-a-game-about-art-on-the-moon" class="article-title">Someone should make a game about: art on the moon</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_life-is-strange-true-colors-getting-free-prequel-comic_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/life-is-strange-true-colors-getting-free-prequel-comic" class="article-title">Life is Strange: True Colors getting free prequel comic</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2021/04/14_does-sony-have-a-responsibility-to-preserve-its-gaming-history-its-the-eurogamer-news-cast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/does-sony-have-a-responsibility-to-preserve-its-gaming-history-its-the-eurogamer-news-cast" class="article-title">Does Sony have a responsibility to preserve its gaming history? It's the Eurogamer News Cast!</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-escape-n293.php" class="article-title">Weekday Escape N°293</a>
+			<div class="article-author">chrpa</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

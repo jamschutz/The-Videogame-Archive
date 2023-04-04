@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 24, 2020</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crusader-kings-3-review-pass-the-duchy/1900-6417551/" class="article-title">Crusader Kings 3 Review – Pass the Duchy</a>
+			<div class="article-subtitle">Crusader Kings 3 is an intricate story-telling device weaving countless threads as long as you have the will to keep it spinning.</div>
+			<div class="article-author">David Wildgoose</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nba-2k21-review-ball-another-day/1900-6417572/" class="article-title">NBA 2K21 Review – Ball Another Day</a>
+			<div class="article-subtitle">NBA 2K21 still manages to capture the art of basketball, but it''s largely the same dance as years past.</div>
+			<div class="article-author">Michael Higham</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/serious-sam-4-review-the-fourth-encounter/1900-6417573/" class="article-title">Serious Sam 4 Review – The Fourth Encounter</a>
+			<div class="article-subtitle">Technical issues and tired tropes aside, Serious Sam 4 is a largely successful synthesis of the series'' disparate identities.</div>
+			<div class="article-author">Andrew King</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_crusader-kings-3-guide-11-tips-to-get-you-started_1100-6481813_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crusader-kings-3-guide-11-tips-to-get-you-started/1100-6481813/" class="article-title">Crusader Kings 3 Guide: 11 Tips To Get You Started</a>
+			<div class="article-subtitle">Ever wanted to give Paradox''s famous grand strategy series a shot, but found it too intimidating? Crusader Kings 3 is a great place to start, especially if you keep these tips in mind.</div>
+			<div class="article-author">David Wildgoose</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_starfield-got-major-engine-rewrite-but-director-waiting-as-long-as-possible-to-show-it_1100-6482530_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/starfield-got-major-engine-rewrite-but-director-waiting-as-long-as-possible-to-show-it/1100-6482530/" class="article-title">Starfield Got "Major Engine Rewrite," But Director Waiting "As Long As Possible" To Show It</a>
+			<div class="article-subtitle">Starfield director Todd Howard says the game has been in the works for a long time, and it may still be a while before we see it.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_nier-replicant-remake-launches-next-april-on-ps4-xbox-one-and-pc_1100-6482543_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nier-replicant-remake-launches-next-april-on-ps4-xbox-one-and-pc/1100-6482543/" class="article-title">Nier Replicant Remake Launches Next April On PS4, Xbox One, And PC</a>
+			<div class="article-subtitle">Nier Replicant will be available for Xbox One, PS4, and PC, and features updated animations and more voice acting.</div>
+			<div class="article-author">Gabe Gurwin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_official-halo-3-odst-cosplay-guide-will-make-you-look-pristine-and-very-mean_1100-6482542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/official-halo-3-odst-cosplay-guide-will-make-you-look-pristine-and-very-mean/1100-6482542/" class="article-title">Official Halo 3: ODST Cosplay Guide Will Make You Look Pristine And Very Mean</a>
+			<div class="article-subtitle">Developer 343 Industries has put together the ultimate guide for dressing up as everyone''s favorite rookie shock trooper.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_pokemon-go-articuno-guide-raid-tips-weaknesses-and-best-counters_1100-6482236_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-articuno-guide-raid-tips-weaknesses-and-best-counters/1100-6482236/" class="article-title">Pokemon Go Articuno Guide: Raid Tips, Weaknesses, And Best Counters</a>
+			<div class="article-subtitle">The Legendary bird has returned to Raid Battles until September 25; here are some tips to help you battle and catch it.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_the-snk-mvsx-arcade-machine-is-available-to-preorder-at-amazon_1100-6480868_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-snk-mvsx-arcade-machine-is-available-to-preorder-at-amazon/1100-6480868/" class="article-title">The SNK MVSX Arcade Machine Is Available To Preorder At Amazon</a>
+			<div class="article-subtitle">Plenty of Neo Geo fighting game classics will be playable in their best and most authentic states when the arcade console arrives in November.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_lupin-iii-the-first-gets-another-new-trailer_1100-6482459_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lupin-iii-the-first-gets-another-new-trailer/1100-6482459/" class="article-title">Lupin III: The First Gets Another New Trailer</a>
+			<div class="article-subtitle">The animated CG movie is the latest entry in the long-running Lupin III series and is expected before the end of the year.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_new-kirby-game-for-switch-announced-kirby-fighters-2-is-out-now_1100-6482507_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-kirby-game-for-switch-announced-kirby-fighters-2-is-out-now/1100-6482507/" class="article-title">New Kirby Game For Switch Announced: Kirby Fighters 2 Is Out Now</a>
+			<div class="article-subtitle">Kirby Fighters 2 is out now on Nintendo Switch--watch the launch trailer and get more details here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_xbox-series-x-s-expansion-cards-are-barely-bigger-than-an-sd-card_1100-6482545_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-series-x-s-expansion-cards-are-barely-bigger-than-an-sd-card/1100-6482545/" class="article-title">Xbox Series X/S Expansion Cards Are Barely Bigger Than An SD Card</a>
+			<div class="article-subtitle">Microsoft''s solution to dwindling SSD storage space is a small plug-and-play expansion card.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_netflixs-cobra-kai-season-3-whats-next-for-miguel_1100-6466448_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflixs-cobra-kai-season-3-whats-next-for-miguel/1100-6466448/" class="article-title">Netflix's Cobra Kai Season 3: What's Next For Miguel</a>
+			<div class="article-subtitle">Cobra Kai took its message of "No Mercy" too far.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_sega-developing-yakuza-movie-adaptation_1100-6482551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sega-developing-yakuza-movie-adaptation/1100-6482551/" class="article-title">Sega Developing Yakuza Movie Adaptation</a>
+			<div class="article-subtitle">No cast or release date has yet been announced.</div>
+			<div class="article-author">David Wolinsky</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_nvidia-apologizes-for-rtx-3090-supply-issues-before-sales-even-begin_1100-6482552_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-apologizes-for-rtx-3090-supply-issues-before-sales-even-begin/1100-6482552/" class="article-title">Nvidia Apologizes For RTX 3090 Supply Issues Before Sales Even Begin</a>
+			<div class="article-subtitle">Anticipating the same demand that came with the launch of the RTX 3080, Nvidia isn''t waiting to issue an apology this time around.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_doom-eternal-is-coming-to-xbox-game-pass-very-soon_1100-6482525_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/doom-eternal-is-coming-to-xbox-game-pass-very-soon/1100-6482525/" class="article-title">Doom Eternal Is Coming To Xbox Game Pass Very Soon</a>
+			<div class="article-subtitle">The sequel to the rip-and-tear 2016 reboot of the Doom franchise will soon come to Xbox Game Pass, if a hint from the official Twitter account is to be believed.</div>
+			<div class="article-author">Steven T. Wright</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_xbox-game-pass-adds-night-in-the-woods-vermintide-2_1100-6482547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-game-pass-adds-night-in-the-woods-vermintide-2/1100-6482547/" class="article-title">Xbox Game Pass Adds Night In The Woods, Vermintide 2</a>
+			<div class="article-subtitle">A handful of new games have hit Xbox Game Pass over the last few days, including Halo ODST and Destiny 2.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_new-transformers-battlegrounds-trailer-shows-off-gameplay-and-giant-robot-t-rex-grimlock_1100-6482553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-transformers-battlegrounds-trailer-shows-off-gameplay-and-giant-robot-t-rex-grimlock/1100-6482553/" class="article-title">New Transformers: Battlegrounds Trailer Shows Off Gameplay And Giant Robot T-Rex Grimlock</a>
+			<div class="article-subtitle">One shall stand, many shall fall.</div>
+			<div class="article-author">Darryn Bonthuys</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_heres-how-much-xbox-series-x-s-extra-storage-costs_1100-6482455_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-how-much-xbox-series-x-s-extra-storage-costs/1100-6482455/" class="article-title">Here's How Much Xbox Series X/S Extra Storage Costs</a>
+			<div class="article-subtitle">You may be paying a pretty penny to double or triple your Xbox Series X and Series S storage capacity.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_hulu-reveals-new-york-comic-con-panels-and-event-times_1100-6482550_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hulu-reveals-new-york-comic-con-panels-and-event-times/1100-6482550/" class="article-title">Hulu Reveals New York Comic-Con Panels And Event Times</a>
+			<div class="article-subtitle">From a new horror shows to a Marvel series, here''s what you can expect at NYCC this year from Hulu.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_as-epics-apple-fight-continues-it-joins-spotify-and-more-to-launch-coalition-for-app-fairness_1100-6482555_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/as-epics-apple-fight-continues-it-joins-spotify-and-more-to-launch-coalition-for-app-fairness/1100-6482555/" class="article-title">As Epic's Apple Fight Continues, It Joins Spotify And More To Launch "Coalition For App Fairness"</a>
+			<div class="article-subtitle">A group of app developers has launched with value statements that sound allied with Epic''s current legal woes against Apple and Google.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_shudders-creepshow-gets-surprise-halloween-special-from-stephen-king-and-joe-hill_1100-6482554_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/shudders-creepshow-gets-surprise-halloween-special-from-stephen-king-and-joe-hill/1100-6482554/" class="article-title">Shudder's Creepshow Gets Surprise Halloween Special From Stephen King And Joe Hill</a>
+			<div class="article-subtitle">The animated special features new stories from King and Hill and arrives next month.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_new-nioh-2-dlc-launches-next-month_1100-6482557_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-nioh-2-dlc-launches-next-month/1100-6482557/" class="article-title">New Nioh 2 DLC Launches Next Month</a>
+			<div class="article-subtitle">Darkness in the Capital is Nioh 2''s second DLC following The Tengu Disciple.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_among-us-is-even-more-popular-than-you-think-right-now_1100-6482376_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/among-us-is-even-more-popular-than-you-think-right-now/1100-6482376/" class="article-title">Among Us Is Even More Popular Than You Think Right Now</a>
+			<div class="article-subtitle">Downloads on Steam and mobile are soaring for the 2-year-old indie game.</div>
+			<div class="article-author">Jenny Zheng</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_among-us-ps4-xbox-one-console-ports-are-more-complicated-than-you-think_1100-6482373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/among-us-ps4-xbox-one-console-ports-are-more-complicated-than-you-think/1100-6482373/" class="article-title">Among Us PS4, Xbox One Console Ports Are More Complicated Than You Think</a>
+			<div class="article-subtitle">Porting Among Us to PS4 and Xbox One requires a bit of sophistication.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_xbox-series-x-giveaway-from-taco-bell-is-live_1100-6481983_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-series-x-giveaway-from-taco-bell-is-live/1100-6481983/" class="article-title">Xbox Series X Giveaway From Taco Bell Is Live</a>
+			<div class="article-subtitle">The fast-food chain Taco Bell is giving away the Xbox Series X, before you can even buy one.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_amazon-partners-with-ubisoft-on-a-luna-game-streaming-channel_1100-6482563_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazon-partners-with-ubisoft-on-a-luna-game-streaming-channel/1100-6482563/" class="article-title">Amazon Partners With Ubisoft On A Luna Game-Streaming Channel</a>
+			<div class="article-subtitle">The company says this is just one of many gaming channels it has in development.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_stunning-chadwick-boseman-art-piece-revealed-at-disney_1100-6482568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stunning-chadwick-boseman-art-piece-revealed-at-disney/1100-6482568/" class="article-title">Stunning Chadwick Boseman Art Piece Revealed At Disney</a>
+			<div class="article-subtitle">Los Angeles artist Nikkolas Smith unveiled the art piece which now lives at Downtown Disney.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_dragon-ball-z-kakarots-next-dlc-makes-you-fight-golden-frieza_1100-6482443_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-ball-z-kakarots-next-dlc-makes-you-fight-golden-frieza/1100-6482443/" class="article-title">Dragon Ball Z Kakarot's Next DLC Makes You Fight Golden Frieza</a>
+			<div class="article-subtitle">A major villain returns in the next Dragon Ball Z Kakarot DLC in his form from Dragon Ball Super.</div>
+			<div class="article-author">James O'Connor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_microsoft-wont-announce-any-studio-acquisitions-at-tgs-sega-or-otherwise-update_1100-6482531_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-wont-announce-any-studio-acquisitions-at-tgs-sega-or-otherwise-update/1100-6482531/" class="article-title">Microsoft Won't Announce Any Studio Acquisitions At TGS, Sega Or Otherwise [Update]</a>
+			<div class="article-subtitle">Despite rumors suggesting another big acquisition was on the way, Microsoft has stated that it has no such announcement to make.</div>
+			<div class="article-author">Alessandro Barbosa</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_fortnite-coral-castle-ring-locations-where-to-find-all-floating-rings-week-5_1100-6482565_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-coral-castle-ring-locations-where-to-find-all-floating-rings-week-5/1100-6482565/" class="article-title">Fortnite Coral Castle Ring Locations: Where To Find All Floating Rings (Week 5)</a>
+			<div class="article-subtitle">You''ll need to grab four rings from the watery location.</div>
+			<div class="article-author">Aron Garst</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_life-is-strange-dev-dontnod-opens-new-studio-to-work-on-brand-new-ip_1100-6482572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/life-is-strange-dev-dontnod-opens-new-studio-to-work-on-brand-new-ip/1100-6482572/" class="article-title">Life Is Strange Dev Dontnod Opens New Studio To Work On "Brand-New IP"</a>
+			<div class="article-subtitle">The new team is being led by several Life is Strange creators and will begin development on an unannounced, narrative-driven game.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_how-star-wars-squadrons-handles-in-game-rewards-ranks-and-challenges_1100-6482562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-star-wars-squadrons-handles-in-game-rewards-ranks-and-challenges/1100-6482562/" class="article-title">How Star Wars: Squadrons Handles In-Game Rewards, Ranks, And Challenges</a>
+			<div class="article-subtitle">If you''ve played Respawn''s Apex Legends, you already have a pretty good idea of how in-game rewards work in Motive Studios'' Star Wars: Squadrons.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_how-to-get-a-free-call-of-duty-warzone-skin-from-the-ongoing-cold-war-arg_1100-6482574_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-to-get-a-free-call-of-duty-warzone-skin-from-the-ongoing-cold-war-arg/1100-6482574/" class="article-title">How To Get A Free Call Of Duty: Warzone Skin From The Ongoing Cold War ARG</a>
+			<div class="article-subtitle">Just enter six keycodes and get this free Call of Duty: Warzone cargo truck skin.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_harrison-ford-has-been-cleared-to-fly-again-for-now_1100-6482575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harrison-ford-has-been-cleared-to-fly-again-for-now/1100-6482575/" class="article-title">Harrison Ford Has Been Cleared To Fly Again, For Now</a>
+			<div class="article-subtitle">After a brief investigation, Ford has been cleared to take to the skies once more.</div>
+			<div class="article-author">Mason Downey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_new-to-hbo-max-in-october-2020-more-anime-batman-and-cats_1100-6482580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-to-hbo-max-in-october-2020-more-anime-batman-and-cats/1100-6482580/" class="article-title">New To HBO Max In October 2020: More Anime, Batman, And Cats</a>
+			<div class="article-subtitle">HBO Max has a lot coming to the streaming service in the upcoming month.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_snyder-cut-henry-cavill-isnt-shooting-more-superman-footage-after-all_1100-6482581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/snyder-cut-henry-cavill-isnt-shooting-more-superman-footage-after-all/1100-6482581/" class="article-title">Snyder Cut: Henry Cavill Isn't Shooting More Superman Footage After All</a>
+			<div class="article-subtitle">Despite reports suggesting otherwise, Cavill says his work on Justice League is done.</div>
+			<div class="article-author">Mason Downey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_new-to-netflix-in-october-2020-bly-manor-and-more-horror-movies-tv-shows-and-original_1100-6482549_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-to-netflix-in-october-2020-bly-manor-and-more-horror-movies-tv-shows-and-original/1100-6482549/" class="article-title">New To Netflix In October 2020: Bly Manor And More Horror Movies, TV Shows, And Original</a>
+			<div class="article-subtitle">Check out everything coming to the streaming service for the month of October.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_does-among-us-have-crossplay_1100-6482560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/does-among-us-have-crossplay/1100-6482560/" class="article-title">Does Among Us Have Crossplay?</a>
+			<div class="article-subtitle">Among Us supports crossplay on PC and mobile in both local and online multiplayer. Here''s how it works.</div>
+			<div class="article-author">Lonnie Rad</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_netflixs-cobra-kai-season-3-star-ralph-macchio-reveals-plot-details_1100-6482191_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netflixs-cobra-kai-season-3-star-ralph-macchio-reveals-plot-details/1100-6482191/" class="article-title">Netflix's Cobra Kai Season 3: Star Ralph Macchio Reveals Plot Details</a>
+			<div class="article-subtitle">Ralph Macchio talked to Conan O''Brien about where the next season of the hit show is headed.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_rocket-league-passes-1-million-concurrent-players-after-free-to-play-switch_1100-6482584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocket-league-passes-1-million-concurrent-players-after-free-to-play-switch/1100-6482584/" class="article-title">Rocket League Passes 1 Million Concurrent Players After Free-To-Play Switch</a>
+			<div class="article-subtitle">For the first time ever, Rocket League has surpassed 1 million people playing at the same time.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_black-widow-delayed-there-will-be-no-mcu-movies-in-2020_1100-6482526_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-widow-delayed-there-will-be-no-mcu-movies-in-2020/1100-6482526/" class="article-title">Black Widow Delayed, There Will be No MCU Movies In 2020</a>
+			<div class="article-subtitle">The Marvel Cinematic Universe is facing even more delays. Black Widow won''t be in theaters until 2021 now.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_if-you-believe-microsoft-buying-bethesda-isnt-all-about-exclusivity_1100-6482479_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/if-you-believe-microsoft-buying-bethesda-isnt-all-about-exclusivity/1100-6482479/" class="article-title">If You Believe Microsoft, Buying Bethesda Isn't All About Exclusivity</a>
+			<div class="article-subtitle">The strategy for Xbox goes beyond locking off big games on specific platforms--at least, according to Xbox boss Phil Spencer.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_madden-21-player-ratings-updated-for-week-2_1100-6482585_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/madden-21-player-ratings-updated-for-week-2/1100-6482585/" class="article-title">Madden 21 Player Ratings Updated For Week 2</a>
+			<div class="article-subtitle">The player ratings in Madden NFL 21 have been updated based on real-world performance after week two.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_enormous-marvels-avengers-update-patches-literally-a-thousand-issues_1100-6482379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enormous-marvels-avengers-update-patches-literally-a-thousand-issues/1100-6482379/" class="article-title">Enormous Marvel's Avengers Update Patches Literally A Thousand Issues</a>
+			<div class="article-subtitle">Crashes, graphical bugs, and progression blockers are among the bugs Crystal Dynamics says it has fixed in patch notes for Update 1.3.0 for Marvel''s Avengers.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_heres-when-halo-4-on-pc-beta-tests-begin_1100-6482587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-when-halo-4-on-pc-beta-tests-begin/1100-6482587/" class="article-title">Here's When Halo 4 On PC Beta Tests Begin</a>
+			<div class="article-subtitle">Microsoft announces when testing will begin for Halo 4 on PC in The Master Chief Collection.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_destiny-2-is-changing-its-face-customization-options-for-greater-diversity_1100-6482589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-2-is-changing-its-face-customization-options-for-greater-diversity/1100-6482589/" class="article-title">Destiny 2 Is Changing Its Face Customization Options For Greater Diversity</a>
+			<div class="article-subtitle">Bungie is making some changes to the character creation tools in Destiny 2.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2020/09/24_marvels-avengers-update-131-patch-notes-heres-everything-thats-changed_1100-6482591_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/marvels-avengers-update-131-patch-notes-heres-everything-thats-changed/1100-6482591/" class="article-title">Marvel's Avengers Update 1.3.1 Patch Notes -- Here's Everything That's Changed</a>
+			<div class="article-subtitle">Another patch is available now for the superhero game on PS4, Xbox One, and PC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_yakuzas-getting-a-new-live-action-movie-adaptation_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/yakuzas-getting-a-new-live-action-movie-adaptation" class="article-title">Yakuza's getting a new live-action movie adaptation</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_amazon-unveils-cloud-gaming-service-luna_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/amazon-unveils-cloud-gaming-service-luna" class="article-title">Amazon unveils cloud gaming service Luna</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_flight-simulators-first-world-update-out-next-week-gives-japan-a-gorgeous-overhaul_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/flight-simulators-first-world-update-out-next-week-gives-japan-a-gorgeous-overhaul" class="article-title">Flight Simulator's first World Update out next week, gives Japan a gorgeous overhaul</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_almost-two-decades-after-launch-runescape-is-heading-to-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/almost-two-decades-after-launch-runescape-is-heading-to-steam" class="article-title">Almost two decades after launch, RuneScape is heading to Steam</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_xbox-series-ssd-expansion-card-size-speed-price-6300_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-series-ssd-expansion-card-size-speed-price-6300" class="article-title">Xbox Series SSD hard drive storage explained, from Storage Expansion Cards to speed and size</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_xbox-series-x-s-1tb-expandable-storage-costs-usd220_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-series-x-s-1tb-expandable-storage-costs-usd220" class="article-title">Xbox Series X/S 1TB expandable storage costs $220</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_digitalfoundry-2020-nvidia-geforce-rtx-3090-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2020-nvidia-geforce-rtx-3090-review" class="article-title">Nvidia GeForce RTX 3090 review: a Titan in all but name</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_left-4-dead-2-gets-its-first-major-dlc-in-eight-years-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/left-4-dead-2-gets-its-first-major-dlc-in-eight-years-today" class="article-title">Left 4 Dead 2 gets its first major DLC in eight years today</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_fall-guys-reveals-the-disgusting-internal-anatomy-of-its-bean-like-characters_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fall-guys-reveals-the-disgusting-internal-anatomy-of-its-bean-like-characters" class="article-title">Fall Guys reveals the disgusting internal anatomy of its bean-like characters</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_stylish-strategy-game-brigandine-is-coming-to-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/stylish-strategy-game-brigandine-is-coming-to-ps4" class="article-title">Stylish strategy game Brigandine is coming to PS4</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_among-us-2-cancelled-as-devs-focus-on-original-title_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/among-us-2-cancelled-as-devs-focus-on-original-title" class="article-title">Among Us 2 cancelled as devs focus on original title</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_nintendo-lists-unannounced-kirby-fighters-2-for-nintendo-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-lists-unannounced-kirby-fighters-2-for-nintendo-switch" class="article-title">Nintendo lists unannounced Kirby Fighters 2 for Switch</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2020/09/24_the-falconeer-is-the-birdiest-game-ever_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-falconeer-is-the-birdiest-game-ever" class="article-title">The Falconeer is the birdiest game ever</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
