@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 15, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/pes-2016-review/1900-6416240/" class="article-title">PES 2016 Review</a>
+			<div class="article-subtitle">Return of the king.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-16-review/1900-6416243/" class="article-title">NHL 16 Review</a>
+			<div class="article-subtitle">The gloves are off</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_yakuza-6-announced-for-ps4_1100-6430562_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yakuza-6-announced-for-ps4/1100-6430562/" class="article-title">Yakuza 6 Announced For PS4</a>
+			<div class="article-subtitle">Original PS2 title also being remade and re-released as Yakuza: Kiwami.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_playstation-4-price-drop-announced-for-japan_1100-6430569_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-4-price-drop-announced-for-japan/1100-6430569/" class="article-title">PlayStation 4 Price Drop Announced for Japan</a>
+			<div class="article-subtitle">However, no indication yet that the price cut will extend to North America and Europe.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_bloodborne-the-old-hunters-expansion-detailed-trai_1100-6430560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bloodborne-the-old-hunters-expansion-detailed-trai/1100-6430560/" class="article-title">Bloodborne: The Old Hunters Expansion Detailed, Trailer Release</a>
+			<div class="article-subtitle">Sony also announces launch date and price for From Software''s first expansion.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_playstation-vr-is-sonys-official-name-for-project-_1100-6430567_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/playstation-vr-is-sonys-official-name-for-project-/1100-6430567/" class="article-title">PlayStation VR is Sony's Official Name For Project Morpheus</a>
+			<div class="article-subtitle">PS4''s virtual reality headset gets a new name, but still not a release date.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_resident-evil-umbrella-corps-is-a-new-competitive-_1100-6430565_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/resident-evil-umbrella-corps-is-a-new-competitive-/1100-6430565/" class="article-title">Resident Evil: Umbrella Corps is a New Competitive Shooter For PS4</a>
+			<div class="article-subtitle">Capcom reveals new team-based shooter set in Resident Evil universe.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_destiny-the-taken-king-patch-detailed_1100-6430570_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-the-taken-king-patch-detailed/1100-6430570/" class="article-title">Destiny: The Taken King Patch Detailed</a>
+			<div class="article-subtitle">Here''s everything happening to prepare for the arrival of Oryx.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_the-king-of-fighters-14-announced-for-ps4_1100-6430564_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/the-king-of-fighters-14-announced-for-ps4/1100-6430564/" class="article-title">The King of Fighters 14 Announced for PS4</a>
+			<div class="article-subtitle">Next edition of SNK Playmore’s cult fighting series will render in full 3D.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_listen-to-gary-oldmans-latest-video-game-character_1100-6430530_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/listen-to-gary-oldmans-latest-video-game-character/1100-6430530/" class="article-title">Listen to Gary Oldman's Latest Video Game Character</a>
+			<div class="article-subtitle">The veteran actor plays the bad guy, Lord Vortech, in Warner Bros.'' upcoming LEGO Dimensions.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_super-smash-bros-wii-u3ds-getting-super-mario-make_1100-6430571_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-smash-bros-wii-u3ds-getting-super-mario-make/1100-6430571/" class="article-title">Super Smash Bros. Wii U/3DS Getting Super Mario Maker Stage</a>
+			<div class="article-subtitle">The stage layout changes every time you play.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_ps4s-bloodborne-sells-2-million_1100-6430572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4s-bloodborne-sells-2-million/1100-6430572/" class="article-title">PS4's Bloodborne Sells 2 Million</a>
+			<div class="article-subtitle">From Software''s RPG reaches new sales milestone.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_need-for-speed-is-30fps-on-xbox-oneps4-and-lots-mo_1100-6430573_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/need-for-speed-is-30fps-on-xbox-oneps4-and-lots-mo/1100-6430573/" class="article-title">Need for Speed Is 30fps on Xbox One/PS4 and Lots More Info Revealed</a>
+			<div class="article-subtitle">EA also confirms it has no plans for paid DLC or microtransactions; currently investigating split-screen.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_witcher-3-dev-we-are-not-in-buyout-talks-with-anyo_1100-6430575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/witcher-3-dev-we-are-not-in-buyout-talks-with-anyo/1100-6430575/" class="article-title">Witcher 3 Dev: We Are Not in Buyout Talks With Anyone</a>
+			<div class="article-subtitle">"Period."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_get-ps4s-driveclub-for-just-15_1100-6430576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/get-ps4s-driveclub-for-just-15/1100-6430576/" class="article-title">Get PS4's Driveclub for Just $15</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_resident-evil-stunt-double-badly-injured-in-filmin_1100-6430578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-stunt-double-badly-injured-in-filmin/1100-6430578/" class="article-title">Resident Evil Stunt Double Badly Injured in Filming Accident</a>
+			<div class="article-subtitle">"It''s a miracle that she survived."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_this-weeks-xbox-one-and-xbox-360-deals-with-gold-r_1100-6430577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-xbox-one-and-xbox-360-deals-with-gold-r/1100-6430577/" class="article-title">This Week's Xbox One and Xbox 360 Deals With Gold Revealed</a>
+			<div class="article-subtitle">Now through September 21, save on GTA V, The Elder Scrolls Online, Darksiders II, and more.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_live-action-akira-movie-may-become-trilogy-christo_1100-6430579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/live-action-akira-movie-may-become-trilogy-christo/1100-6430579/" class="article-title">Live-Action Akira Movie May Become Trilogy, Christopher Nolan Involved</a>
+			<div class="article-subtitle">Adaptation of the classic anime back in development.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_watch-the-lightsaber-vs-halo-energy-sword-fight-fi_1100-6430580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-the-lightsaber-vs-halo-energy-sword-fight-fi/1100-6430580/" class="article-title">Watch the Lightsaber vs Halo Energy Sword Fight Finally Get Settled</a>
+			<div class="article-subtitle">"Ultimate Gun Game."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_25-just-cause-3-dlc-pass-revealed_1100-6430581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/25-just-cause-3-dlc-pass-revealed/1100-6430581/" class="article-title">$25 Just Cause 3 DLC Pass Revealed</a>
+			<div class="article-subtitle">The Air, Land, and Sea Expansion Pass comes with new missions, weapons, vehicles, and more.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_sequel-to-upcoming-deadpool-movie-is-under-discuss_1100-6430583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sequel-to-upcoming-deadpool-movie-is-under-discuss/1100-6430583/" class="article-title">Sequel to Upcoming Deadpool Movie is Under Discussion</a>
+			<div class="article-subtitle">"You hope that it''s the first of many."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_gta-5s-next-big-update-out-now-on-ps4-and-xbox-one_1100-6430582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5s-next-big-update-out-now-on-ps4-and-xbox-one/1100-6430582/" class="article-title">GTA 5's Next Big Update Out Now on PS4 and Xbox One, Here's What's New</a>
+			<div class="article-subtitle">Open-world game adds Freemode Events, while Rockstar Editor finally comes to console.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_watch-an-epic-9-minute-madden-16-fumble-glitch_1100-6430585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-an-epic-9-minute-madden-16-fumble-glitch/1100-6430585/" class="article-title">Watch an Epic 9-Minute Madden 16 Fumble Glitch</a>
+			<div class="article-subtitle">Whoops.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_this-new-star-wars-battlefront-gameplay-video-look_1100-6430514_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-new-star-wars-battlefront-gameplay-video-look/1100-6430514/" class="article-title">This New Star Wars Battlefront Gameplay Video Looks Amazing</a>
+			<div class="article-subtitle">[UPDATE] The video has been pulled.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_nintendos-new-president-warned-wii-u-was-too-simil_1100-6430584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendos-new-president-warned-wii-u-was-too-simil/1100-6430584/" class="article-title">Nintendo's New President Warned Wii U Was Too Similar to Wii</a>
+			<div class="article-subtitle">Tatsumi Kimishima also reveals he has only been elected for one year.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_rocky-spinoff-creed-gets-hard-hitting-new-trailer_1100-6430588_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocky-spinoff-creed-gets-hard-hitting-new-trailer/1100-6430588/" class="article-title">Rocky Spinoff Creed Gets Hard-Hitting New Trailer</a>
+			<div class="article-subtitle">"You are Apollo Creed''s son. So use the name."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_new-sonic-boom-for-3ds-delayed-to-2016_1100-6430587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-sonic-boom-for-3ds-delayed-to-2016/1100-6430587/" class="article-title">New Sonic Boom for 3DS Delayed to 2016</a>
+			<div class="article-subtitle">Fire & Ice is staying on ice.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_ps4-getting-new-hot-shots-golf_1100-6430589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-getting-new-hot-shots-golf/1100-6430589/" class="article-title">PS4 Getting New Hot Shots Golf</a>
+			<div class="article-subtitle">The game is slated to launch in Japan next year.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_watch-first-trailer-for-disneys-live-action-jungle_1100-6430590_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-first-trailer-for-disneys-live-action-jungle/1100-6430590/" class="article-title">Watch First Trailer for Disney's Live-Action Jungle Book Movie</a>
+			<div class="article-subtitle">This looks good.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_heres-what-youll-need-to-run-nvidias-geforce-exper_1100-6430592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-what-youll-need-to-run-nvidias-geforce-exper/1100-6430592/" class="article-title">Here's What You'll Need to Run Nvidia's GeForce Experience Share Beta</a>
+			<div class="article-subtitle">Sharing means caring.</div>
+			<div class="article-author">Seth Macy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_ubisofts-ps4xbox-onepc-swordfighting-game-gets-new_1100-6430591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisofts-ps4xbox-onepc-swordfighting-game-gets-new/1100-6430591/" class="article-title">Ubisoft's PS4/Xbox One/PC Swordfighting Game Gets New Trailer</a>
+			<div class="article-subtitle">See the Samurai''s lethal moves in action.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_forza-series-reaches-7-million-players-on-xbox-one_1100-6430586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/forza-series-reaches-7-million-players-on-xbox-one/1100-6430586/" class="article-title">Forza Series Reaches 7 Million Players on Xbox One</a>
+			<div class="article-subtitle">That''s split between Forza 5 and Horizon 2; watch first trailer for Forza 6''s Fast & Furious DLC pack.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_nintendo-directs-will-continue-but-no-word-on-who-_1100-6430593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-directs-will-continue-but-no-word-on-who-/1100-6430593/" class="article-title">Nintendo Directs Will Continue, But No Word on Who Will Host</a>
+			<div class="article-subtitle">Following Satoru Iwata''s death, Nintendo confirms its video series is not ending.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_destiny-voice-actor-teases-hes-working-on-big-big-_1100-6430594_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-voice-actor-teases-hes-working-on-big-big-/1100-6430594/" class="article-title">Destiny Voice Actor Teases He's Working on "Big, Big" Project at Warner Bros.</a>
+			<div class="article-subtitle">Nolan North says, "That''ll be another 10 years of my life."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_black-swan-director-signs-on-for-channing-tatum-ev_1100-6430596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-swan-director-signs-on-for-channing-tatum-ev/1100-6430596/" class="article-title">Black Swan Director Signs on for Channing Tatum Evel Knievel Biopoic - Report</a>
+			<div class="article-subtitle">Darren Aronofsky is reportedly in discussions with Sony for a movie about the American stuntman.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_the-complete-wwe-2k16-wrestler-roster_1100-6430597_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-complete-wwe-2k16-wrestler-roster/1100-6430597/" class="article-title">The Complete WWE 2K16 Wrestler Roster</a>
+			<div class="article-subtitle">See all 120 characters here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_this-130-star-wars-battlefront-bundle-comes-with-h_1100-6430598_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-130-star-wars-battlefront-bundle-comes-with-h/1100-6430598/" class="article-title">This $130 Star Wars Battlefront Bundle Comes With Han Solo Mini-Fridge</a>
+			<div class="article-subtitle">Following Call of Duty: Black Ops 3, now EA''s new Star Wars game gets its own mini-fridge edition.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_star-wars-battlefront-reveals-new-fighter-squadron_1100-6429488_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-battlefront-reveals-new-fighter-squadron/1100-6429488/" class="article-title">Star Wars Battlefront Reveals New Fighter Squadron Mode</a>
+			<div class="article-subtitle">Use the Force.</div>
+			<div class="article-author">Mike Mahardy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_new-league-of-legends-champion-is-both-creepy-and-_1100-6430599_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-league-of-legends-champion-is-both-creepy-and-/1100-6430599/" class="article-title">New League of Legends Champion is Both Creepy and Cute</a>
+			<div class="article-subtitle">A cross between a grim reaper and a cuddly lamb.</div>
+			<div class="article-author">Rachel Gu</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/15_five-nights-at-freddys-world-rpg-announced_1100-6430600_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/five-nights-at-freddys-world-rpg-announced/1100-6430600/" class="article-title">Five Nights At Freddy's World RPG Announced</a>
+			<div class="article-subtitle">Coming to PC, iOS, and Android.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_five-nights-at-freddys-world-is-an-rpg-spin-off_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/five-nights-at-freddys-world-is-an-rpg-spin-off" class="article-title">Five Nights at Freddy's World is an RPG spin-off</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_square-enixs-mysterious-rpg-project-setsuna-debuts-gameplay-footage_thumbnail.png">
+			<a href="https://www.eurogamer.net/square-enixs-mysterious-rpg-project-setsuna-debuts-gameplay-footage" class="article-title">Square Enix's mysterious RPG Project Setsuna debuts gameplay footage</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_just-cause-3-expansion-pass-adds-3-dlc-packs_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/just-cause-3-expansion-pass-adds-3-dlc-packs" class="article-title">Just Cause 3 Expansion Pass adds three DLC packs</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_need-for-speed-will-be-locked-at-30fps-on-consoles_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/need-for-speed-will-be-locked-at-30fps-on-consoles" class="article-title">Need for Speed will be locked at 30fps on consoles</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_amnesia-the-dark-descent-is-free-today-on-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/amnesia-the-dark-descent-is-free-today-on-steam" class="article-title">Amnesia: The Dark Descent is free today on Steam</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_video-sony-conference-roundup-tokyo-games-show-2015_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-sony-conference-roundup-tokyo-games-show-2015" class="article-title">Video: Sony conference roundup - Tokyo Games Show 2015</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_mariah-carey-makes-her-fleeting-appearance-in-the-new-game-of-war-ad_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mariah-carey-makes-her-fleeting-appearance-in-the-new-game-of-war-ad" class="article-title">Mariah Carey makes her fleeting appearance in the new Game of War ad</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_hide-the-frozen-bejeweled-xbox-one-game-from-your-children_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hide-the-frozen-bejeweled-xbox-one-game-from-your-children" class="article-title">Hide the new Frozen Bejeweled console game from your children</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_playstation-4-is-getting-changeable-colour-plates_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/playstation-4-is-getting-changeable-colour-plates" class="article-title">PlayStation 4 is getting changeable colour plates</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_more-than-an-expansion-destiny-the-taken-king-is-a-relaunch-of-bungies-vision_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/more-than-an-expansion-destiny-the-taken-king-is-a-relaunch-of-bungies-vision" class="article-title">More than an expansion, Destiny: The Taken King is a relaunch of Bungie's vision</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_project-morpheus-renamed-playstation-vr_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/project-morpheus-renamed-playstation-vr" class="article-title">Project Morpheus renamed PlayStation VR</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_capcom-announces-first-person-shooter-resident-evil-umbrella-corps_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/capcom-announces-first-person-shooter-resident-evil-umbrella-corps" class="article-title">Capcom announces first-person shooter Resident Evil Umbrella Corps</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_i-think-i-just-fell-in-love-with-japanese-arcades-again_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/i-think-i-just-fell-in-love-with-japanese-arcades-again" class="article-title">I think I just fell in love with Japanese arcades again</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_super-mario-maker-headed-to-super-smash-bros_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/super-mario-maker-headed-to-super-smash-bros" class="article-title">Super Mario Maker headed to Super Smash Bros.</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_we-are-not-talking-with-anyone-regarding-selling-cd-projekt-red-or-gog-period_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/we-are-not-talking-with-anyone-regarding-selling-cd-projekt-red-or-gog-period" class="article-title">"We are not talking with anyone regarding selling CD Projekt Red or GOG. Period."</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_koei-tecmos-samurai-game-nioh-resurfaces-on-ps4-10-years-later_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/koei-tecmos-samurai-game-nioh-resurfaces-on-ps4-10-years-later" class="article-title">Koei Tecmo's samurai game Nioh resurfaces on PS4 10 years later</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_sony-tokyo-game-show-2015-conference-live-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sony-tokyo-game-show-2015-conference-live-report" class="article-title">Sony Tokyo Game Show 2015 conference live report</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_destinys-most-powerful-gun-may-return-but-not-before-year-three_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destinys-most-powerful-gun-may-return-but-not-before-year-three" class="article-title">Destiny's most powerful gun may return, but not before Year Three</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_gravity-rush-2-announced-exclusively-for-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gravity-rush-2-announced-exclusively-for-ps4" class="article-title">Gravity Rush 2 announced exclusively for PS4</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_bloodborne-the-old-hunters-expansion-revealed-coming-november_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bloodborne-the-old-hunters-expansion-revealed-coming-november" class="article-title">Bloodborne: The Old Hunters expansion revealed, coming November</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/15_lego-dimensions-voice-cast-includes-michael-j-fox_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/lego-dimensions-voice-cast-includes-michael-j-fox" class="article-title">Michael J. Fox reprises his role as Marty McFly in Lego Dimensions</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55f73bd475b4c/Give-us-the-Half-Life-license-Naughty-Dog-creative-director/" class="article-title">"Give us the Half-Life license" – Naughty Dog creative director</a>
+			<div class="article-subtitle">A good fit?</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55f735db77c1e/Nintendo-announces-a-new-president/" class="article-title">Nintendo announces a new president</a>
+			<div class="article-subtitle">And it's not Miyamoto.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g55f790162aa92/Heres-how-we-are-reviewing-Destiny-The-Taken-King/" class="article-title">Here's how we are reviewing Destiny: The Taken King</a>
+			<div class="article-subtitle">A preliminary review tonight, more later.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g55f75b939ab1a/Heres-all-60-songs-that-come-with-Rock-Band-4/" class="article-title">Here's all 60 songs that come with Rock Band 4</a>
+			<div class="article-subtitle">Decent variety.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g55f752b3cc3c2/Lego-Dimensions-impressive-cast-now-includes-Michael-J.-Fox-and-Gary-Oldman/" class="article-title">Lego Dimensions' impressive cast now includes Michael J. Fox and Gary Oldman</a>
+			<div class="article-subtitle">Great line-up.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g55f7402460869/Need-for-Speed-PC-release-pushed-to-2016/" class="article-title">Need for Speed PC release pushed to 2016</a>
+			<div class="article-subtitle">For frame rate and graphics upgrades.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/red-amazon.php" class="article-title">RED AMAZON</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/animal-crackers.php" class="article-title">Animal Crackers</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

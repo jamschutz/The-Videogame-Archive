@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 18, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shadowrun-hong-kong-review/1900-6416246/" class="article-title">Shadowrun: Hong Kong Review</a>
+			<div class="article-subtitle">Big trouble in future China</div>
+			<div class="article-author">Justin Clark</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/act-of-aggression-review/1900-6416248/" class="article-title">Act of Aggression Review</a>
+			<div class="article-subtitle">Drop the bomb</div>
+			<div class="article-author">Daniel Starkey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_big-changes-coming-to-new-starcraft-ii-expansion_1100-6430680_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/big-changes-coming-to-new-starcraft-ii-expansion/1100-6430680/" class="article-title">Big Changes Coming to New StarCraft II Expansion</a>
+			<div class="article-subtitle">GameSpot sits down with the lead producer of Legacy of the Void to discuss the new features in the expansion.</div>
+			<div class="article-author">Travis Gafford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_dark-souls-3-network-stress-test-begins-in-october_1100-6430685_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-souls-3-network-stress-test-begins-in-october/1100-6430685/" class="article-title">Dark Souls 3 Network Stress Test Begins in October</a>
+			<div class="article-subtitle">Find out how to get access here.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_star-fox-zero-delayed-until-spring-2016_1100-6430684_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-fox-zero-delayed-until-spring-2016/1100-6430684/" class="article-title">Star Fox Zero Delayed Until Spring 2016</a>
+			<div class="article-subtitle">Shigeru Miyamoto issues apology via Facebook.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_ghost-recon-wildlands-dev-diary-explores-authentic_1100-6430687_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ghost-recon-wildlands-dev-diary-explores-authentic/1100-6430687/" class="article-title">Ghost Recon Wildlands Dev Diary Explores Authenticity</a>
+			<div class="article-subtitle">Old developers and new talk about what makes a good Ghost Recon.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_minecraft-in-communist-russia-would-be-the-tomorro_1100-6430686_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/minecraft-in-communist-russia-would-be-the-tomorro/1100-6430686/" class="article-title">Minecraft in Communist Russia Would Be The Tomorrow Children</a>
+			<div class="article-subtitle">For the land of tomorrow.</div>
+			<div class="article-author">Alexa Ray Corriea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_star-wars-battlefront-details-reveal-how-luke-skyw_1100-6430689_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-battlefront-details-reveal-how-luke-skyw/1100-6430689/" class="article-title">Star Wars Battlefront Details Reveal How Luke Skywalker and Darth Vader Are Accessed</a>
+			<div class="article-subtitle">DICE also explains how it''s keeping Force users from overwhelming the battlefield.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_metal-gear-solid-5-adding-human-and-horse-costume-_1100-6430691_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-solid-5-adding-human-and-horse-costume-/1100-6430691/" class="article-title">Metal Gear Solid 5 Adding Human and Horse Costume DLC</a>
+			<div class="article-subtitle">Check out some images of the new DLC coming to The Phantom Pain.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_destinys-biggest-ever-raid-out-today-heres-when-it_1100-6430692_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destinys-biggest-ever-raid-out-today-heres-when-it/1100-6430692/" class="article-title">Destiny's Biggest-Ever Raid Out Today, Here's When It Unlocks</a>
+			<div class="article-subtitle">King''s Fall arrives very soon.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_nintendos-next-controller-may-have-scrolling-wheel_1100-6430694_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nintendos-next-controller-may-have-scrolling-wheel/1100-6430694/" class="article-title">Nintendo's Next Controller May Have Scrolling Wheels Instead of Shoulder Buttons</a>
+			<div class="article-subtitle">New patent also indicates it will have a touch screen, only two face buttons.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_watch-5-minutes-of-new-plants-vs-zombies-garden-wa_1100-6430695_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-5-minutes-of-new-plants-vs-zombies-garden-wa/1100-6430695/" class="article-title">Watch 5 Minutes of New Plants vs Zombies Garden Warfare 2 Gameplay</a>
+			<div class="article-subtitle">EA''s wacky shooter gets a new trailer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_pacific-rim-2-will-still-happen-says-director-del-_1100-6430698_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pacific-rim-2-will-still-happen-says-director-del-/1100-6430698/" class="article-title">Pacific Rim 2 Will Still Happen, Says Director Del Toro</a>
+			<div class="article-subtitle">"As far as I''m concerned, it''s not gone."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_konami-ceases-triple-a-console-game-development-re_1100-6430690_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/konami-ceases-triple-a-console-game-development-re/1100-6430690/" class="article-title">Konami Ceases Triple-A Console Game Development, Reports Claim</a>
+			<div class="article-subtitle">Unverified rumours suggest no big projects in the pipeline other than PES.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_no-plans-for-more-bloodborne-dlc-after-the-old-hun_1100-6430696_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-plans-for-more-bloodborne-dlc-after-the-old-hun/1100-6430696/" class="article-title">No Plans for More Bloodborne DLC After The Old Hunters</a>
+			<div class="article-subtitle">"As of right now, we have no plans for any more DLC."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_activision-made-a-downton-abbey-game-and-you-can-p_1100-6430697_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-made-a-downton-abbey-game-and-you-can-p/1100-6430697/" class="article-title">Activision Made a Downton Abbey Game and You Can Play It Right Now</a>
+			<div class="article-subtitle">Mysteries of the Manor.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_1-tb-ps4-assassins-creed-syndicate-bundle-announce_1100-6430699_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1-tb-ps4-assassins-creed-syndicate-bundle-announce/1100-6430699/" class="article-title">1 TB PS4 Assassin's Creed Syndicate Bundle Announced for Europe</a>
+			<div class="article-subtitle">It also comes with a copy of Watch Dogs, but no word on a release in the United States.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_watch-the-dramatic-new-trailer-for-steve-jobs_1100-6430700_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-the-dramatic-new-trailer-for-steve-jobs/1100-6430700/" class="article-title">Watch the Dramatic New Trailer for Steve Jobs</a>
+			<div class="article-subtitle">"I sat in a garage and invented the future."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_the-4-best-jrpgs-at-tokyo-game-show_1100-6430652_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-4-best-jrpgs-at-tokyo-game-show/1100-6430652/" class="article-title">The 4 Best JRPGs at Tokyo Game Show</a>
+			<div class="article-subtitle">The cream of the crop.</div>
+			<div class="article-author">Alexa Ray Corriea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_ps4-vr-headset-to-be-priced-as-a-new-gaming-platfo_1100-6430703_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-vr-headset-to-be-priced-as-a-new-gaming-platfo/1100-6430703/" class="article-title">PS4 VR Headset to Be Priced "As a New Gaming Platform," Sony Boss Says</a>
+			<div class="article-subtitle">Plus, Sony says it will have more than 10 titles ready for launch in 2016.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_final-fantasy-agito-playstation-vita-port-cancelle_1100-6430688_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-agito-playstation-vita-port-cancelle/1100-6430688/" class="article-title">Final Fantasy Agito PlayStation Vita Port Cancelled</a>
+			<div class="article-subtitle">Square Enix issues an apology on Twitter</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_microsoft-patents-wearable-smart-bracelet-hints-at_1100-6430705_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-patents-wearable-smart-bracelet-hints-at/1100-6430705/" class="article-title">Microsoft Patents Wearable Smart Bracelet, Hints at Toys-To-Life Gaming on Xbox</a>
+			<div class="article-subtitle">Device enables Skylanders, Disney Infinity, and Amiibo-like experiences</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_warhammer-40k-deathwatch-coming-to-pc-with-high-qu_1100-6430707_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warhammer-40k-deathwatch-coming-to-pc-with-high-qu/1100-6430707/" class="article-title">Warhammer 40k Deathwatch Coming to PC With "High-Quality" Graphics</a>
+			<div class="article-subtitle">Rodeo Games'' turn-based strategy game will launch for PC in October.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_gaming-deals-madden-xbox-one-bundle-50-gc-10-titan_1100-6430704_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-deals-madden-xbox-one-bundle-50-gc-10-titan/1100-6430704/" class="article-title">Gaming Deals: Madden Xbox One Bundle + $50 GC, $10 Titanfall, $10 StarCraft 2</a>
+			<div class="article-subtitle">Free Shovel Knight expansion, $6 Banner Saga, $22 Code Name: Steam, $20 Civilization: Beyond Earth, and more.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_check-out-xbox-ones-new-totally-revamped-interface_1100-6430710_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/check-out-xbox-ones-new-totally-revamped-interface/1100-6430710/" class="article-title">Check Out Xbox One's New, Totally Revamped Interface in Action</a>
+			<div class="article-subtitle">See the new guide, Home screen, and more.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_divinity-original-sin-2-adds-new-area-after-toppin_1100-6430711_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/divinity-original-sin-2-adds-new-area-after-toppin/1100-6430711/" class="article-title">Divinity: Original Sin 2 Adds New Area After Topping $1.5 Million</a>
+			<div class="article-subtitle">Original Sin II expands even further.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_watch-trailer-for-ps4-exclusive-assassins-creed-sy_1100-6430701_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-trailer-for-ps4-exclusive-assassins-creed-sy/1100-6430701/" class="article-title">Watch Trailer for PS4-Exclusive Assassin's Creed Syndicate DLC Missions</a>
+			<div class="article-subtitle">The Dreadful Crimes Mission Pack is inspired by the 19th century Penny Dreadful pocket novels.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_rocket-leagues-next-dlc-revealed-heres-what-it-add_1100-6430702_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rocket-leagues-next-dlc-revealed-heres-what-it-add/1100-6430702/" class="article-title">Rocket League's Next DLC Revealed, Here's What It Adds</a>
+			<div class="article-subtitle">Get the scoop on the PS4 and PC game''s Revenge of the Battle-Cars expansion, which is inspired by its predecessor.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_gta-5-weekend-event-offers-free-cash-discounts-and_1100-6430713_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5-weekend-event-offers-free-cash-discounts-and/1100-6430713/" class="article-title">GTA 5 Weekend Event Offers Free Cash, Discounts, and More</a>
+			<div class="article-subtitle">You can finally get your hands on that "I Married My Dad" shirt you''ve been yearning for.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_there-we-were-killing-everybody-supreme-court-just_1100-6430712_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/there-we-were-killing-everybody-supreme-court-just/1100-6430712/" class="article-title">"There We Were, Killing Everybody," Supreme Court Justice Recalls About Playing Games Before Decision</a>
+			<div class="article-subtitle">Elena Kagan also says case was a "really hard case; super hard case."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_top-20-twitch-games-for-august-2015-revealed_1100-6430717_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-20-twitch-games-for-august-2015-revealed/1100-6430717/" class="article-title">Top 20 Twitch Games for August 2015 Revealed</a>
+			<div class="article-subtitle">Plus, Rocket League is the month''s biggest loser.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_new-nba-2k16-video-highlights-career-modes-many-di_1100-6430719_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-nba-2k16-video-highlights-career-modes-many-di/1100-6430719/" class="article-title">New NBA 2K16 Video Highlights Career Mode's Many Distractions</a>
+			<div class="article-subtitle">MyCareer offers a number of ways to spend your off-days.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_new-unreal-tournament-trailer-is-pure-nostalgia-fo_1100-6430716_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-unreal-tournament-trailer-is-pure-nostalgia-fo/1100-6430716/" class="article-title">New Unreal Tournament Trailer Is Pure Nostalgia for Series Fans</a>
+			<div class="article-subtitle">CTF-Face is back.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_best-trailers-and-gameplay-from-tokyo-game-show-20_1100-6430715_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/best-trailers-and-gameplay-from-tokyo-game-show-20/1100-6430715/" class="article-title">Best Trailers and Gameplay from Tokyo Game Show 2015</a>
+			<div class="article-subtitle">Top picks from the show!</div>
+			<div class="article-author">Matt Espineli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_check-out-new-ps4-hardware-colors-and-designs-from_1100-6430722_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/check-out-new-ps4-hardware-colors-and-designs-from/1100-6430722/" class="article-title">Check Out New PS4 Hardware Colors and Designs From TGS 2015</a>
+			<div class="article-subtitle">Colors!</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_how-destinys-xur-is-changing-with-the-taken-king_1100-6430681_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-destinys-xur-is-changing-with-the-taken-king/1100-6430681/" class="article-title">How Destiny's Xur Is Changing With The Taken King</a>
+			<div class="article-subtitle">The Exotics merchant won''t operate the way he used to.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_destinys-new-raid-the-games-biggest-ever-has-been-_1100-6430723_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destinys-new-raid-the-games-biggest-ever-has-been-/1100-6430723/" class="article-title">Destiny's New Raid, the Game's Biggest Ever, Has Been Beaten</a>
+			<div class="article-subtitle">That didn''t take long.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/09/18_playstation-4-hdd-edition-with-colour-faceplates-c_1100-6430568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-4-hdd-edition-with-colour-faceplates-c/1100-6430568/" class="article-title">PlayStation 4 HDD Edition With Colour Faceplates Coming to Japan</a>
+			<div class="article-subtitle">Four new controller colours to also be released, including gold and silver.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_dark-souls-3-stress-test-registration-is-live-for-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dark-souls-3-stress-test-registration-is-live-for-ps4" class="article-title">Dark Souls 3 stress test registration is live for PS4</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_monster-hunter-x-will-let-you-play-as-a-cat_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/monster-hunter-x-will-let-you-play-as-a-cat" class="article-title">Monster Hunter X will let you play as a cat</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_more-rocket-league-dlc-on-its-way_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/more-rocket-league-dlc-on-its-way" class="article-title">More Rocket League DLC on its way</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_pre-order-assassins-creed-syndicate-to-get-dickens-and-darwin-missions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pre-order-assassins-creed-syndicate-to-get-dickens-and-darwin-missions" class="article-title">Assassin's Creed Syndicate Dickens and Darwin missions are pre-order bonuses</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_assassins-creed-syndicate-has-a-jack-the-ripper-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/assassins-creed-syndicate-has-a-jack-the-ripper-dlc" class="article-title">Assassin's Creed Syndicate has a Jack the Ripper DLC</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_konami-ceases-triple-a-console-production-on-all-but-pes-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/konami-ceases-triple-a-console-production-on-all-but-pes-report" class="article-title">Konami ceases triple-A console production on all but PES - report</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_nintendo-patents-controller-with-shoulder-scroll-wheels_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-patents-controller-with-shoulder-scroll-wheels" class="article-title">Nintendo patents controller with shoulder scroll wheels</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_free-to-play-downtown-abbey-game-debuts_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/free-to-play-downtown-abbey-game-debuts" class="article-title">Free-to-play Downton Abbey game debuts</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_nintendo-delays-star-fox-zero-until-2016_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-delays-star-fox-zero-until-2016" class="article-title">Nintendo delays Star Fox Zero until 2016</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/09/18_pes-2016-vs-fifa-16-a-friendly-comparison_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pes-2016-vs-fifa-16-a-friendly-comparison" class="article-title">PES 2016 vs FIFA 16: a friendly comparison</a>
+			<div class="article-author">Jack Arnott</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55fb541f8cfd5/Nintendo-patent-could-be-first-glimpse-of-NX/" class="article-title">Nintendo patent could be first glimpse of NX</a>
+			<div class="article-subtitle">Click, Click, Scroll.</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g55fb4f04ef964/World-of-Warships-sails-out-of-open-beta/" class="article-title">World of Warships sails out of open beta</a>
+			<div class="article-subtitle">Ships, Ahoy!</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55fb470a8abb0/The-Witness-gets-a-release-date/" class="article-title">The Witness gets a release date</a>
+			<div class="article-subtitle">...Again.</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55fb3ebc62a30/Persona-5-delayed-until-2016/" class="article-title">Persona 5 delayed until 2016</a>
+			<div class="article-subtitle">Not super Kawaii.</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g55fb367acc83c/Darks-Soul-3-gets-beta-launch-dates/" class="article-title">Darks Soul 3 gets beta, launch dates</a>
+			<div class="article-subtitle">Get ready to die... again.</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g55fb2870a6749/Is-The-Last-of-Us-2-in-development/" class="article-title">Is The Last of Us 2 in development?</a>
+			<div class="article-subtitle">Up for interpretation.</div>
+			<div class="article-author">Baz Macdonald</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/league-of-light-silent-mountain.php" class="article-title">League of Light: Silent Mountain</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/loot-heroes-2.php" class="article-title">Loot Heroes 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/room-9-autumn.php" class="article-title">Room 9 Autumn</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

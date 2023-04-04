@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 29, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragons-crown-review/1900-6412299/" class="article-title">Dragon's Crown Review</a>
+			<div class="article-subtitle">Dragon's Crown presents itself as a simple beat-'em-up, but it's actually a surprisingly deep and action-packed role-playing game.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shadowrun-returns-review/1900-6412261/" class="article-title">Shadowrun Returns Review</a>
+			<div class="article-subtitle">Shadowrun Returns is a pleasant role-playing game with a potent setting.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/killer-is-dead-review/1900-6413067/" class="article-title">Killer Is Dead Review</a>
+			<div class="article-subtitle">Killer Is Dead is filled with Suda 51 eccentricity, but it struggles to stay relevant with inconsistent combat, a poorly told story, and some awkwardly sleazy moments.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-and-luigi-dream-team-review/1900-6411220/" class="article-title">Mario & Luigi: Dream Team Review</a>
+			<div class="article-subtitle">Charming, witty, and with a great combat system, Mario & Luigi: Dream Team is a thoroughly entertaining mashup of platformer and RPG.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rise-of-the-triad-review/1900-6412408/" class="article-title">Rise of the Triad Review</a>
+			<div class="article-subtitle">Poor optimization and a slog of a single-player campaign hobble this fast-paced shooter.</div>
+			<div class="article-author">Daniel Shannon</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/spelunky-review/1900-6412988/" class="article-title">Spelunky Review</a>
+			<div class="article-subtitle">As Spelunky makes its way to the PC, the rewards and dangers are just as alluring as they were one year ago.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dead-space-3-awakened-review/1900-6405673/" class="article-title">Dead Space 3: Awakened Review</a>
+			<div class="article-subtitle">With an unsatisfying story and rehashed gameplay, Dead Space 3: Awakened makes a strong case for letting sleeping dogs lie.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dead-space-3-review/1900-6403380/" class="article-title">Dead Space 3 Review</a>
+			<div class="article-subtitle">Dead Space 3 carries the series' standard admirably, thanks to deep weapon crafting and a wealth of exploratory possibilities.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dead-space-3-review/1900-6403319/" class="article-title">Dead Space 3 Review</a>
+			<div class="article-subtitle">Dead Space 3 carries the series' standard admirably, thanks to deep weapon crafting and a wealth of exploratory possibilities.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/injustice-gods-among-us-review/1900-6407011/" class="article-title">Injustice: Gods Among Us Review</a>
+			<div class="article-subtitle">Injustice provides a complex fighter with some unique twists, but is found wanting in features that have become commonplace in its contemporaries.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/injustice-gods-among-us-review/1900-6407055/" class="article-title">Injustice: Gods Among Us Review</a>
+			<div class="article-subtitle">Injustice provides a complex fighter with some unique twists, but is found wanting in features that have become commonplace in its contemporaries.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/monster-hunter-3-ultimate-review/1900-6405360/" class="article-title">Monster Hunter 3 Ultimate Review</a>
+			<div class="article-subtitle">Control issues and a lack of online play hamper what's otherwise an outstanding Monster Hunter game.</div>
+			<div class="article-author">Ashton Raze</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/monster-hunter-3-ultimate-review/1900-6405362/" class="article-title">Monster Hunter 3 Ultimate Review</a>
+			<div class="article-subtitle">A lick of HD paint, a more robust online component, and a bunch of new content make Monster Hunter 3 Ultimate the best hunt yet.</div>
+			<div class="article-author">Ashton Raze</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/state-of-decay-review/1900-6410413/" class="article-title">State of Decay Review</a>
+			<div class="article-subtitle">State of Decay is an immersive and suspenseful open-world zombie adventure that shouldn't be missed.</div>
+			<div class="article-author">Leif Johnson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/company-of-heroes-2-review/1900-6410716/" class="article-title">Company of Heroes 2 Review</a>
+			<div class="article-subtitle">Company of Heroes 2 is an entertaining strategy game that excels when it pulls out all the stops.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shin-megami-tensei-iv-review/1900-6411458/" class="article-title">Shin Megami Tensei IV Review</a>
+			<div class="article-subtitle">Dealing with demons and forging a winning party make Shin Megami Tensei IV a great portable role-playing game, despite having a lukewarm cast.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/strike-suit-zero-review/1900-6402806/" class="article-title">Strike Suit Zero Review</a>
+			<div class="article-subtitle">Strike Suit Zero's thrilling combat and awe-inspiring world make space combat feel like a relevant genre after years of stagnation.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ni-no-kuni-wrath-of-the-white-witch-review/1900-6402702/" class="article-title">Ni no Kuni: Wrath of the White Witch Review</a>
+			<div class="article-subtitle">The witty, beautiful, and endlessly creative Ni no Kuni is a treasure not to be missed.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mortal-kombat-komplete-edition-review/1900-6411497/" class="article-title">Mortal Kombat Komplete Edition Review</a>
+			<div class="article-subtitle">Over-the-top, bloody, and bursting with even more content, Mortal Kombat Komplete Edition on PC is far and away the best version of this excellent fighting game.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-review/1900-6397794/" class="article-title">Dishonored Review</a>
+			<div class="article-subtitle">Dishonored's engrossing world and intoxicating interplay of supernatural powers make it a game you'll want to play more than once.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-review/1900-6397798/" class="article-title">Dishonored Review</a>
+			<div class="article-subtitle">Dishonored's engrossing world and intoxicating interplay of supernatural powers make it a game you'll want to play more than once.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-review/1900-6397799/" class="article-title">Dishonored Review</a>
+			<div class="article-subtitle">Dishonored's engrossing world and intoxicating interplay of supernatural powers make it a game you'll want to play more than once.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-the-knife-of-dunwall-review/1900-6407364/" class="article-title">Dishonored: The Knife of Dunwall Review</a>
+			<div class="article-subtitle">The Knife of Dunwall changes protagonists with panache, delivering a compelling new chapter in the Dishonored saga.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-the-knife-of-dunwall-review/1900-6407365/" class="article-title">Dishonored: The Knife of Dunwall Review</a>
+			<div class="article-subtitle">The Knife of Dunwall changes protagonists with panache, delivering a compelling new chapter in the Dishonored saga.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dishonored-the-knife-of-dunwall-review/1900-6407367/" class="article-title">Dishonored: The Knife of Dunwall Review</a>
+			<div class="article-subtitle">The Knife of Dunwall changes protagonists with panache, delivering a compelling new chapter in the Dishonored saga.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/devil-summoner-soul-hackers-review/1900-6407296/" class="article-title">Devil Summoner: Soul Hackers Review</a>
+			<div class="article-subtitle">This first-ever English release of Soul Hackers shows its age, but the patient player will find a deep and rewarding experience.</div>
+			<div class="article-author">Heidi Kemps</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lego-city-undercover-review/1900-6405211/" class="article-title">LEGO City Undercover Review</a>
+			<div class="article-subtitle">Lego City Undercover is a joyful open-world romp for players of all ages.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/grid-2-review/1900-6408978/" class="article-title">Grid 2 Review</a>
+			<div class="article-subtitle">With a variety of driving disciplines pulled from all corners of the globe, Grid 2 is an exciting blend of arcade and simulation racing.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/god-of-war-ascension-review/1900-6404941/" class="article-title">God of War: Ascension Review</a>
+			<div class="article-subtitle">The multiplayer's a bust, but God of War: Ascension's campaign is a gloriously bloody adventure filled with exhilarating combat.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dmc-devil-may-cry-vergils-downfall-review/1900-6405751/" class="article-title">DmC: Devil May Cry - Vergil's Downfall Review</a>
+			<div class="article-subtitle">Fresh combat and stylish visuals make Vergil's Downfall a fun addition to DmC: Devil May Cry, despite a less-than-stellar story.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dmc-devil-may-cry-review/1900-6402476/" class="article-title">DmC: Devil May Cry Review</a>
+			<div class="article-subtitle">With assured storytelling, great combat, and imaginative design, DmC: Devil May Cry is a fun reboot, despite some frame rate issues and audio bugs.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dmc-devil-may-cry-review/1900-6402276/" class="article-title">DmC: Devil May Cry Review</a>
+			<div class="article-subtitle">With assured storytelling, great combat, and imaginative design, DmC: Devil May Cry is a more-than-worthy reboot for a classic franchise.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crysis-3-review/1900-6404063/" class="article-title">Crysis 3 Review</a>
+			<div class="article-subtitle">Crysis 3's amazing visuals are a pleasure to behold, and the game is plenty of fun, though not up to the high standards of its forebears.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crysis-3-review/1900-6404074/" class="article-title">Crysis 3 Review</a>
+			<div class="article-subtitle">Its attractive visuals make Crysis 3 a pleasure to look at, and the game is plenty of fun, though not up to the high standards of its forebears.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/crysis-3-review/1900-6404083/" class="article-title">Crysis 3 Review</a>
+			<div class="article-subtitle">Its attractive visuals make Crysis 3 a pleasure to look at, and the game is plenty of fun, though not up to the high standards of its forebears.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/starcraft-ii-heart-of-the-swarm-review/1900-6405683/" class="article-title">StarCraft II: Heart of the Swarm Review</a>
+			<div class="article-subtitle">StarCraft II: Heart of the Swarm's fantastically diverse campaign and entertaining online play make up for its lackluster writing.</div>
+			<div class="article-author">Daniel Shannon</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-shippuden-ultimate-ninja-storm-3-review/1900-6405027/" class="article-title">Naruto Shippuden: Ultimate Ninja Storm 3 Review</a>
+			<div class="article-subtitle">Naruto Shippuden: Ultimate Ninja Storm 3 retains the series' impressive visuals and its accessible combat, but gets bogged down by its focus on storytelling.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/naruto-shippuden-ultimate-ninja-storm-3-review/1900-6405034/" class="article-title">Naruto Shippuden: Ultimate Ninja Storm 3 Review</a>
+			<div class="article-subtitle">Naruto Shippuden: Ultimate Ninja Storm 3 retains the series' impressive visuals and its accessible combat, but gets bogged down by its focus on storytelling.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/remember-me-review/1900-6409148/" class="article-title">Remember Me Review</a>
+			<div class="article-subtitle">Remember Me never comes into its own, but it's an entertaining and attractive adventure all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/remember-me-review/1900-6409150/" class="article-title">Remember Me Review</a>
+			<div class="article-subtitle">Remember Me never comes into its own, but it's an entertaining and attractive adventure all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/remember-me-review/1900-6409154/" class="article-title">Remember Me Review</a>
+			<div class="article-subtitle">Remember Me never comes into its own, but it's an entertaining and attractive adventure all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deadpool-review/1900-6410731/" class="article-title">Deadpool Review</a>
+			<div class="article-subtitle">Deadpool tries to hide its many faults behind the protagonist's buoyant personality, but it doesn't take long for the bigger problems to surface.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/far-cry-3-blood-dragon-review/1900-6407627/" class="article-title">Far Cry 3: Blood Dragon Review</a>
+			<div class="article-subtitle">Packed with entertaining action and hysterical writing, Far Cry 3: Blood Dragon is an '80s-inspired blast.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/far-cry-3-blood-dragon-review/1900-6407642/" class="article-title">Far Cry 3: Blood Dragon Review</a>
+			<div class="article-subtitle">Packed with entertaining action and hysterical writing, Far Cry 3: Blood Dragon is an '80s-inspired blast.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dark-review/1900-6412133/" class="article-title">DARK Review</a>
+			<div class="article-subtitle">Like the guards you must sneak past in this vampire stealth game, it's best to avoid Dark entirely.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragons-dogma-review/1900-6379027/" class="article-title">Dragon's Dogma Review</a>
+			<div class="article-subtitle">Engrossing and frustrating, Dragon's Dogma is a flawed and unique gem.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragons-dogma-dark-arisen-review/1900-6407493/" class="article-title">Dragon's Dogma: Dark Arisen Review</a>
+			<div class="article-subtitle">Dark Arisen adds some great new content to the excellent Dragon's Dogma, though the new dungeon's unbalanced difficulty turns fun into frustration.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dragons-dogma-review/1900-6379024/" class="article-title">Dragon's Dogma Review</a>
+			<div class="article-subtitle">Engrossing and frustrating, Dragon's Dogma is a flawed and unique gem.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/defiance-review/1900-6407168/" class="article-title">Defiance Review</a>
+			<div class="article-subtitle">Defiance is the B movie of massively multiplayer games: rickety and unrefined, yet a good time all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/defiance-review/1900-6407240/" class="article-title">Defiance Review</a>
+			<div class="article-subtitle">Defiance is the B movie of massively multiplayer games: rickety and unrefined, yet a good time all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/defiance-review/1900-6407242/" class="article-title">Defiance Review</a>
+			<div class="article-subtitle">Defiance is the B movie of massively multiplayer games: rickety and unrefined, yet a good time all the same.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/counter-strike-global-offensive-review/1900-6394405/" class="article-title">Counter-Strike: Global Offensive Review</a>
+			<div class="article-subtitle">Counter-Strike: Global Offensive is a solid update to a classic shooter.</div>
+			<div class="article-author">Eric Neigher</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/counter-strike-global-offensive-review/1900-6394451/" class="article-title">Counter-Strike: Global Offensive Review</a>
+			<div class="article-subtitle">Counter-Strike: Global Offensive is a solid update to a classic shooter.</div>
+			<div class="article-author">Eric Neigher</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/counter-strike-global-offensive-review/1900-6394097/" class="article-title">Counter-Strike: Global Offensive Review</a>
+			<div class="article-subtitle">Counter-Strike: Global Offensive is a solid update to a classic shooter.</div>
+			<div class="article-author">Eric Neigher</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_egx-2013-eurogamer-net-editors-choice_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/egx-2013-eurogamer-net-editors-choice" class="article-title">EGX 2013: Eurogamer.net editor's choice</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_letter-from-america-13_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/letter-from-america-13" class="article-title">Letter from America</a>
+			<div class="article-author">Jaz Rignall</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_shadow-of-the-eternals-dev-precursor-games-disbands_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/shadow-of-the-eternals-dev-precursor-games-disbands" class="article-title">Shadow of the Eternals dev Precursor Games disbands</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_live-eurogamer-expo-developer-sessions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/live-eurogamer-expo-developer-sessions" class="article-title">Live: Eurogamer Expo developer sessions</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_digitalfoundry-final-fantasy-14-face-off_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-final-fantasy-14-face-off" class="article-title">Face-Off: Final Fantasy 14</a>
+			<div class="article-author">David Bierton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/09/29_star-wars-rogue-squadron-2-rogue-leader-retrospective_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/star-wars-rogue-squadron-2-rogue-leader-retrospective" class="article-title">Star Wars Rogue Squadron 2: Rogue Leader retrospective</a>
+			<div class="article-author">Graeme Virtue</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/alice-in-clumsy-land.php" class="article-title">Alice in Clumsy Land</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/space-is-key-hell.php" class="article-title">Space is Key Hell</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

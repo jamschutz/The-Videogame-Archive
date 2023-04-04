@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 13, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/resogun-review/1900-6415541/" class="article-title">Resogun Review</a>
+			<div class="article-subtitle">Chaotic euphoria.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sound-shapes-review/1900-6415535/" class="article-title">Sound Shapes Review</a>
+			<div class="article-subtitle">Do you feel the people sing?</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_looking-for-more-extraordinary-people_1100-6436332_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/looking-for-more-extraordinary-people/1100-6436332/" class="article-title">Looking for (more) extraordinary people</a>
+			<div class="article-subtitle">onGamers recruiting more (full time & freelance) positions soon: writers, video production, community management</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_assassin-s-creed-movie-delayed_1100-6416146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassin-s-creed-movie-delayed/1100-6416146/" class="article-title">Assassin's Creed movie delayed</a>
+			<div class="article-subtitle">Fox shifts upcoming movie based on popular game series from June to August 2015.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_playstation-4-companion-app-out-now_1100-6416147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-4-companion-app-out-now/1100-6416147/" class="article-title">PlayStation 4 companion app out now</a>
+			<div class="article-subtitle">Free app available today for iOS and Android ahead of system's launch on Friday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_xbox-one-launch-parties-will-feature-macklemore-ryan-lewis-deadmau5_1100-6416148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-launch-parties-will-feature-macklemore-ryan-lewis-deadmau5/1100-6416148/" class="article-title">Xbox One launch parties will feature Macklemore & Ryan Lewis, Deadmau5</a>
+			<div class="article-subtitle">Microsoft announces performers for New York City and Los Angeles launch events to be held next week; will be broadcast on Spike, streamed on Xbox Live.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_444-more-playstation-4-systems-available-in-nyc_1100-6416149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/444-more-playstation-4-systems-available-in-nyc/1100-6416149/" class="article-title">444 more PlayStation 4 systems available in NYC</a>
+			<div class="article-subtitle">Sony making hundreds of additional units available for purchase starting at 12:01 on November 15 at New York City hotel.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_first-xbox-one-guarded-by-sharks_1100-6416150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-xbox-one-guarded-by-sharks/1100-6416150/" class="article-title">First Xbox One guarded by sharks</a>
+			<div class="article-subtitle">First official system being guarded by 20 sand tiger sharks in New Zealand ahead of launch next week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_team-dk-wins-the-chinese-ems-one-qualifiers-will-t_1100-6436324_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/team-dk-wins-the-chinese-ems-one-qualifiers-will-t/1100-6436324/" class="article-title">Team DK wins the Chinese EMS One qualifiers, will travel to Poland in December</a>
+			<div class="article-subtitle">In a match played behind private doors Team DK successfully beat Vici Gaming 2-1 to gain themselves a spot in the EMS One Fall 2013 LAN finals in Tychy, Poland.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_ps4-game-war-thunder-supports-keyboard-and-mouse-head-tracking_1100-6416152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-game-war-thunder-supports-keyboard-and-mouse-head-tracking/1100-6416152/" class="article-title">PS4 game War Thunder supports keyboard and mouse, head-tracking</a>
+			<div class="article-subtitle">Gaijin Entertainment confirms upcoming flight combat game supports variety of PC inputs and head-tracking.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_sigma-int-confirmed-as-the-ninth-team-for-mlg-colu_1100-6436325_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/sigma-int-confirmed-as-the-ninth-team-for-mlg-colu/1100-6436325/" class="article-title">SIGMA.int confirmed as the ninth team for MLG Columbus</a>
+			<div class="article-subtitle">In a last minute change we now have confirmation that SIGMA.int will be taking the last slot for the Dota 2 MLG Columbus event after Team Dignitas dropped out.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_xbox-one-ps4-too-limited-for-oculus-rift-says-creator_1100-6416153_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-ps4-too-limited-for-oculus-rift-says-creator/1100-6416153/" class="article-title">Xbox One, PS4 "too limited" for Oculus Rift, says creator</a>
+			<div class="article-subtitle">Palmer Luckey says problem with consoles is that their specifications are locked in for too long.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_playstation-4-beats-xbox-one-in-pre-launch-survey_1100-6416154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-4-beats-xbox-one-in-pre-launch-survey/1100-6416154/" class="article-title">PlayStation 4 beats Xbox One in pre-launch survey</a>
+			<div class="article-subtitle">New study finds 58 percent plan to buy PlayStation 4, followed by 39 percent for Xbox One, and 1 percent for Wii U.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_grand-theft-auto-online-dlc-launching-november-19_1100-6416155_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/grand-theft-auto-online-dlc-launching-november-19/1100-6416155/" class="article-title">Grand Theft Auto Online DLC launching November 19</a>
+			<div class="article-subtitle">Beach Bum expansion will add new weapons, vehicles, Jobs, and customization options.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_rockstar-teases-exciting-grand-theft-auto-v-reveal_1100-6416156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-teases-exciting-grand-theft-auto-v-reveal/1100-6416156/" class="article-title">Rockstar teases "exciting" Grand Theft Auto V reveal</a>
+			<div class="article-subtitle">Developer suggests news about game's main story mode will be announced "very soon."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_combine-wii-u-and-3ds-eshop-balances-through-new-update_1100-6416157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/combine-wii-u-and-3ds-eshop-balances-through-new-update/1100-6416157/" class="article-title">Combine Wii U and 3DS eShop balances through new update</a>
+			<div class="article-subtitle">New update coming to 3DS adds Nintendo Network IDs and ability to combine eShop balances.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_machinima-vs-producing-live-esports-show-with-chri_1100-6436326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/machinima-vs-producing-live-esports-show-with-chri/1100-6436326/" class="article-title">Machinima VS producing live esports show with Christopher 'MonteCristo' Mykles starting today</a>
+			<div class="article-subtitle">Two hours of programming will be split between Machinima and Mykles.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_bravely-default-flying-fairy-hitting-3ds-february-7_1100-6416158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bravely-default-flying-fairy-hitting-3ds-february-7/1100-6416158/" class="article-title">Bravely Default: Flying Fairy hitting 3DS February 7</a>
+			<div class="article-subtitle">Nintendo confirms launch date for Square Enix game; Professor Layton and the Azran Legacy arriving February 28.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_ubisoft-actively-investigating-assassin-s-creed-4-connection-issues_1100-6416159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-actively-investigating-assassin-s-creed-4-connection-issues/1100-6416159/" class="article-title">Ubisoft "actively investigating" Assassin's Creed 4 connection issues</a>
+			<div class="article-subtitle">Developer says it is aware of reports about connectivity problems and working to resolve them.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_nintendo-confirms-fifth-playable-character-for-super-mario-3d-world_1100-6416160_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-confirms-fifth-playable-character-for-super-mario-3d-world/1100-6416160/" class="article-title">Nintendo confirms fifth playable character for Super Mario 3D World</a>
+			<div class="article-subtitle">Spoiler alert: don't read on if you don't want to know who it is.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_grand-theft-auto-parent-company-ceo-sleeping-outside-for-charity_1100-6416161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grand-theft-auto-parent-company-ceo-sleeping-outside-for-charity/1100-6416161/" class="article-title">Grand Theft Auto parent company CEO sleeping outside for charity</a>
+			<div class="article-subtitle">Strauss Zelnick to sleep outside in New York City on November 21 to support child homelessness charity Covenant House.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_nyjohn-retires-from-casting_1100-6436321_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nyjohn-retires-from-casting/1100-6436321/" class="article-title">NYJohn retires from casting</a>
+			<div class="article-subtitle">After two years of commentating Dota 2, John 'NYJohn' Hogan retires from casting.</div>
+			<div class="article-author">Aaron Stern</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_former-roster-of-gaminggear-eu-creates-team-ultra-_1100-6436328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-roster-of-gaminggear-eu-creates-team-ultra-/1100-6436328/" class="article-title">Former roster of GamingGear.eu creates Team Ultra Vires</a>
+			<div class="article-subtitle">Tomas 'Karalius' Špiliauskas will be replacing Mykolas 'Inspirro' Morkūnas at support.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_mike-wickd-petersen-states-he-s-still-with-evil-ge_1100-6436329_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mike-wickd-petersen-states-he-s-still-with-evil-ge/1100-6436329/" class="article-title">Mike 'Wickd' Petersen states he's still with Evil Geniuses for Season 4</a>
+			<div class="article-subtitle">Amidst a flurry of league-wide roster changes, Petersen confirms on stream he's still with the team.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_travis-and-doublelift-vs-the-world-episode-1_1100-6436327_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/travis-and-doublelift-vs-the-world-episode-1/1100-6436327/" class="article-title">Travis and Doublelift vs the World: Episode 1</a>
+			<div class="article-subtitle">onGamers' own Travis teams up with Peter 'Doublelift' Peng, one of the most popular League of Legends players in North America, to take on the world.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_metal-gear-creator-teases-shocking-ps4-announcement_1100-6416164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-creator-teases-shocking-ps4-announcement/1100-6416164/" class="article-title">Metal Gear creator teases "shocking" PS4 announcement</a>
+			<div class="article-subtitle">Announcement will "blow your mind," says Hideo Kojima; Ground Zeroes announcement slated for Friday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_testing-the-limit-of-ps-vita-s-remote-play-on-the-ps4-using-battlefield-4_1100-6416165_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/testing-the-limit-of-ps-vita-s-remote-play-on-the-ps4-using-battlefield-4/1100-6416165/" class="article-title">Testing the limit of PS Vita's Remote Play on the PS4 using Battlefield 4</a>
+			<div class="article-subtitle">Remote Play has a roughly 50 foot limit but provides a quick, painless reconnection process.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_ps4-hardware-overview_1100-6416166_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-hardware-overview/1100-6416166/" class="article-title">PS4 hardware overview</a>
+			<div class="article-subtitle">We break down what you need to know about Sony's new hardware.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_all-ea-online-functionality-returns-to-operation_1100-6416151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-ea-online-functionality-returns-to-operation/1100-6416151/" class="article-title">All EA online functionality returns to operation</a>
+			<div class="article-subtitle">[UPDATE] Service now restored, EA confirms.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_call-of-duty-ghosts-on-ps4-is-720p-without-day-one-patch_1100-6416167_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-ghosts-on-ps4-is-720p-without-day-one-patch/1100-6416167/" class="article-title">Call of Duty: Ghosts on PS4 is 720p without day-one patch</a>
+			<div class="article-subtitle">Activision to release day-one patch for retail version of Infinity Ward's latest shooter that improves native resolution.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_dead-rising-3-gets-unlockable-mega-man-x-costume_1100-6416168_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-3-gets-unlockable-mega-man-x-costume/1100-6416168/" class="article-title">Dead Rising 3 gets unlockable Mega Man X costume</a>
+			<div class="article-subtitle">Live out your Halloween fantasies of dressing up as Mega Man and killing zombies.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_wrecking-balls-into-polystrene-walls_1100-6436333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wrecking-balls-into-polystrene-walls/1100-6436333/" class="article-title">Wrecking Balls into Polystrene Walls</a>
+			<div class="article-subtitle">In two year's time, will you be proud?</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_dice-battlefield-s-main-competitor-not-call-of-duty-but-time_1100-6416172_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dice-battlefield-s-main-competitor-not-call-of-duty-but-time/1100-6416172/" class="article-title">DICE: Battlefield's main competitor not Call of Duty, but time</a>
+			<div class="article-subtitle">Call of Duty series not Battlefield's main competitor, DICE LA general manager says.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/13_nexus-gaming-reports-being-denied-the-ability-to-r_1100-6436335_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nexus-gaming-reports-being-denied-the-ability-to-r/1100-6436335/" class="article-title">Nexus Gaming reports being denied the ability to represent Canada at WCG, rules state otherwise</a>
+			<div class="article-subtitle">The Canadian Challenger team is in contact with Riot, but the situation looks to be a misunderstanding.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_point-and-click-cult-classic-the-shivah-gets-remastered-kosher-edition_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/point-and-click-cult-classic-the-shivah-gets-remastered-kosher-edition" class="article-title">Point-and-click cult classic The Shivah gets remastered Kosher Edition</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_playstation-4-doesnt-support-3d-blu-rays_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/playstation-4-doesnt-support-3d-blu-rays" class="article-title">PlayStation 4 doesn't support 3D Blu-rays</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_day-one-patch-makes-call-of-duty-ghosts-single-player-1080p-on-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/day-one-patch-makes-call-of-duty-ghosts-single-player-1080p-on-ps4" class="article-title">Day one patch makes Call of Duty: Ghosts single-player 1080p on PS4</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_myst-creators-latest-adventure-obduction-reaches-its-usd1-1m-kickstarter-goal_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/myst-creators-latest-adventure-obduction-reaches-its-usd1-1m-kickstarter-goal" class="article-title">Myst creator's latest adventure, Obduction, reaches its $1.1m Kickstarter goal</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_need-for-speed-rivals-runs-at-1080p-on-xbox-one-and-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/need-for-speed-rivals-runs-at-1080p-on-xbox-one-and-ps4" class="article-title">Need for Speed Rivals runs at 1080p on Xbox One and PS4</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_dark-souls-2-uk-pre-order-bonuses-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dark-souls-2-uk-pre-order-bonuses-announced" class="article-title">Dark Souls 2 UK pre-order bonuses announced</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_miiverse-cross-platform-account-system-headed-to-3ds_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/miiverse-cross-platform-account-system-headed-to-3ds" class="article-title">Miiverse, cross-platform account system headed to 3DS</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_ps4-launch-title-resogun-free-for-plus-subscribers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ps4-launch-title-resogun-free-for-plus-subscribers" class="article-title">PS4 launch title Resogun free for Plus subscribers</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_all-the-ps4-launch-games-and-their-install-sizes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/all-the-ps4-launch-games-and-their-install-sizes" class="article-title">All the PS4 launch games and their install sizes</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_ps4-what-you-get-for-plus-and-what-you-get-without-it_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ps4-what-you-get-for-plus-and-what-you-get-without-it" class="article-title">PS4: what you get for Plus - and what you get without it</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_the-eurogamer-net-playstation-4-podcast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-eurogamer-net-playstation-4-podcast" class="article-title">The Eurogamer.net PlayStation 4 Podcast</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_digitalfoundry-carmack-sweeney-andersson-interview_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-carmack-sweeney-andersson-interview" class="article-title">Carmack, Sweeney and Andersson Unplugged</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_man-makes-spelunky-history-by-recording-the-first-successful-solo-eggplant-run_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/man-makes-spelunky-history-by-recording-the-first-successful-solo-eggplant-run" class="article-title">Man makes Spelunky history by recording the first successful solo eggplant run</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_harry-potter-producer-making-temple-run-film_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/harry-potter-producer-making-temple-run-film" class="article-title">Harry Potter producer making Temple Run film</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_will-my-expensive-headset-work-on-ps4-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/will-my-expensive-headset-work-on-ps4-xbox-one" class="article-title">Will my expensive gaming headset work on PS4/Xbox One?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_worms-house-team17-to-be-a-publisher-again_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/worms-house-team17-to-be-a-publisher-again" class="article-title">Worms house Team17 to be a publisher again</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_rayman-legends-is-coming-to-ps4-and-xbox-one-in-february_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rayman-legends-is-coming-to-ps4-and-xbox-one-in-february" class="article-title">Rayman Legends is coming to PS4 and Xbox One in February</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_lord-of-the-rings-middle-earth-shadow-of-mordor-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/lord-of-the-rings-middle-earth-shadow-of-mordor-announced" class="article-title">Middle-earth: Shadow of Mordor announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_the-return-of-the-eurogamer-net-podcast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-return-of-the-eurogamer-net-podcast" class="article-title">The return of the Eurogamer.net Podcast</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_the-eurogamer-net-podcast-batman-assassins-creed-and-a-happy-dontember_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-eurogamer-net-podcast-batman-assassins-creed-and-a-happy-dontember" class="article-title">The Eurogamer.net Podcast: Batman, Assassin's Creed, and a happy Dontember!</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_planetside-2-patch-shoots-for-30-percent-frame-rate-improvement_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/planetside-2-patch-shoots-for-30-percent-frame-rate-improvement" class="article-title">PlanetSide 2 patch shoots for 30% frame-rate improvement</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_now-tv-for-xbox-one-out-summer-2014_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/now-tv-for-xbox-one-out-summer-2014" class="article-title">Now TV for Xbox One out summer 2014</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_the-binding-of-isaac-rebirth-dont-starve-and-secret-ponchos-will-be-free-on-ps_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-binding-of-isaac-rebirth-dont-starve-and-secret-ponchos-will-be-free-on-ps" class="article-title">The Binding of Isaac: Rebirth, Don't Starve and Secret Ponchos will be free on PS+</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/13_kojima-inadvertently-teases-playstation-exclusive-content-for-mgs-ground-zeroes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/kojima-inadvertently-teases-playstation-exclusive-content-for-mgs-ground-zeroes" class="article-title">Kojima inadvertently teases PlayStation-exclusive content for MGS: Ground Zeroes</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g52833a7a9cfb9/Kickstarter-projects-from-Australia-and-NZ-now-live/" class="article-title">Kickstarter projects from Australia and NZ now live</a>
+			<div class="article-subtitle">Time to crowd-test that game idea.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g528329391f68d/Assassins-Creed-movie-pegged-for-August-2015/" class="article-title">Assassin's Creed movie pegged for August 2015</a>
+			<div class="article-subtitle">Ahead of Warcraft, Star Wars in December.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g52829be2e5729/Rayman-Legends-confirmed-for-next-gen/" class="article-title">Rayman Legends confirmed for next-gen</a>
+			<div class="article-subtitle">Don't forget Invasion levels for the Vita, Ubi.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g5282943ccf346/A-half-hour-of-Dragon-Age-Inquisition-footage-leaks/" class="article-title">A half-hour of Dragon Age: Inquisition footage leaks</a>
+			<div class="article-subtitle">Full PAX 2013 demo.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/crystal-story-2.php" class="article-title">Crystal Story 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/rose-temple.php" class="article-title">Rose Temple</a>
+			<div class="article-author">elle</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

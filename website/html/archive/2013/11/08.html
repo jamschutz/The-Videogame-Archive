@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 8, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warface-review/1900-6415526/" class="article-title">Warface Review</a>
+			<div class="article-subtitle">It's plastic surgery time.</div>
+			<div class="article-author">Nathan Meunier</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/journey-of-a-roach-review/1900-6415534/" class="article-title">Journey of a Roach Review</a>
+			<div class="article-subtitle">A bug's life.</div>
+			<div class="article-author">Britton Peele</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_dr-who-eternity-clock-trilogy-canceled-future-games-coming-to-mobile_1100-6416045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dr-who-eternity-clock-trilogy-canceled-future-games-coming-to-mobile/1100-6416045/" class="article-title">Dr. Who Eternity Clock trilogy canceled, future games coming to mobile</a>
+			<div class="article-subtitle">The BBC confirmed that they will not publish any console adventures with the Doctor, and any future games will go to mobile.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_pokemon-art-director-wants-to-take-series-back-to-basics_1100-6416046_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/pokemon-art-director-wants-to-take-series-back-to-basics/1100-6416046/" class="article-title">Pokemon art director wants to take series back to basics</a>
+			<div class="article-subtitle">Ken Sugimori feels that cutting back on the number attacks, abilities, and items would be in the series' best interests.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_microsoft-reveals-the-xbox-one-apps-available-during-system-s-launch-window_1100-6416043_thumbnail.jpeg">
+			<a href="https://www.gamespot.com/articles/microsoft-reveals-the-xbox-one-apps-available-during-system-s-launch-window/1100-6416043/" class="article-title">Microsoft reveals the Xbox One apps available during system's "launch window"</a>
+			<div class="article-subtitle">The first wave of apps is slated to appear on Xbox One between November 22 and spring 2014.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_xbox-one-dashboard-shown-off-in-new-video_1100-6416050_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-dashboard-shown-off-in-new-video/1100-6416050/" class="article-title">Xbox One dashboard shown off in new video</a>
+			<div class="article-subtitle">12-minute live demo introduces players to next-generation console's user interface and various features.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_age-of-empires-2-hd-gets-new-expansion-pack_1100-6416048_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/age-of-empires-2-hd-gets-new-expansion-pack/1100-6416048/" class="article-title">Age of Empires 2 HD gets new expansion pack</a>
+			<div class="article-subtitle">Age of Empires 2 HD: The Forgotten on sale now for $9.99.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_killzone-shadow-fall-trophy-list-surfaces-online_1100-6416049_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/killzone-shadow-fall-trophy-list-surfaces-online/1100-6416049/" class="article-title">Killzone: Shadow Fall Trophy list surfaces online</a>
+			<div class="article-subtitle">Killzone: Shadow Fall Trophies split across single-player and multiplayer.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_disney-infinity-starter-pack-sales-top-1-million_1100-6416051_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/disney-infinity-starter-pack-sales-top-1-million/1100-6416051/" class="article-title">Disney Infinity starter pack sales top 1 million</a>
+			<div class="article-subtitle">Toys-to-life franchise reaches sales milestone, helping Disney's game unit swing to a profit.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_microsoft-ceo-candidate-may-consider-selling-xbox-killing-bing-report_1100-6416052_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/microsoft-ceo-candidate-may-consider-selling-xbox-killing-bing-report/1100-6416052/" class="article-title">Microsoft CEO candidate may consider selling Xbox, killing Bing - Report</a>
+			<div class="article-subtitle">If Stephen Elop gets the job to replace Steve Ballmer, he may sell or close businesses that are not critical to company's performance, report says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_xbox-one-cloud-streaming-both-really-cool-and-really-problematic_1100-6416053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-cloud-streaming-both-really-cool-and-really-problematic/1100-6416053/" class="article-title">Xbox One cloud streaming both "really cool and really problematic"</a>
+			<div class="article-subtitle">Previous Halo 4 streaming demo "was a grand experiment," says product planning chief Albert Penello.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_microsoft-promises-more-core-first-party-pc-games_1100-6416054_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/microsoft-promises-more-core-first-party-pc-games/1100-6416054/" class="article-title">Microsoft promises more core first-party PC games</a>
+			<div class="article-subtitle">Corporate VP Phil Spencer says Microsoft has more Windows games in development now than it has in the past 10 years.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_earn-achievements-by-watching-media-on-xbox-one_1100-6416055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/earn-achievements-by-watching-media-on-xbox-one/1100-6416055/" class="article-title">Earn achievements by watching media on Xbox One</a>
+			<div class="article-subtitle">Users will be able to participate in time-based challenges to earn achievements through services like Amazon Instant Video.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_microsoft-on-xbox-one-there-is-not-a-better-experience-you-can-buy-this-holiday_1100-6416031_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/microsoft-on-xbox-one-there-is-not-a-better-experience-you-can-buy-this-holiday/1100-6416031/" class="article-title">Microsoft on Xbox One -- "There is not a better experience you can buy this holiday"</a>
+			<div class="article-subtitle">Director of marketing downplays competition from Sony's next-generation console, Wii U this holiday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_xbox-one-playable-at-microsoft-stores-ahead-of-launch_1100-6416056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-playable-at-microsoft-stores-ahead-of-launch/1100-6416056/" class="article-title">Xbox One playable at Microsoft Stores ahead of launch</a>
+			<div class="article-subtitle">More than 75 locations across North America will host next-gen console leading up to launch; shoppers can try out Forza 5.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_sony-bundling-10-psn-credit-with-playstation-4-at-launch_1100-6416058_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-bundling-10-psn-credit-with-playstation-4-at-launch/1100-6416058/" class="article-title">Sony bundling $10 PSN credit with PlayStation 4 at launch</a>
+			<div class="article-subtitle">The $10 credit can be used towards anything in the PlayStation Store, says Sony.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_crytek-all-hardware-has-limitations_1100-6416057_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crytek-all-hardware-has-limitations/1100-6416057/" class="article-title">Crytek: All hardware has limitations</a>
+			<div class="article-subtitle">In wake of 1080p vs. 720p Call of Duty: Ghosts story, Ryse: Son of Rome developer says "every project has their own cross to bear."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_xbox-one-can-t-do-much-without-day-one-update_1100-6416059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-can-t-do-much-without-day-one-update/1100-6416059/" class="article-title">Xbox One can't do much without day-one update</a>
+			<div class="article-subtitle">Director of product planning says "Functionally, you will be able to do very little without" the patch.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_7-eleven-giving-away-xbox-ones_1100-6416061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/7-eleven-giving-away-xbox-ones/1100-6416061/" class="article-title">7-Eleven giving away Xbox Ones</a>
+			<div class="article-subtitle">Shoppers can purchase Slurpee drinks for a chance to win a next-generation console.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_call-of-duty-ghosts-double-xp-weekend-live-for-all-platforms_1100-6416062_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-ghosts-double-xp-weekend-live-for-all-platforms/1100-6416062/" class="article-title">Call of Duty: Ghosts double XP weekend live for all platforms</a>
+			<div class="article-subtitle">Activision says "stay tuned" for news of a double XP weekend for Xbox One and PlayStation 4.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_borderlands-animated-short-revealed_1100-6416060_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/borderlands-animated-short-revealed/1100-6416060/" class="article-title">Borderlands animated short revealed</a>
+			<div class="article-subtitle">Student-produced Borderlands - Tales From The HQ three-part series to debut next month on YouTube.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_skype-on-xbox-one-features-six-months-of-free-calling_1100-6416063_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/skype-on-xbox-one-features-six-months-of-free-calling/1100-6416063/" class="article-title">Skype on Xbox One features six months of free calling</a>
+			<div class="article-subtitle">Promotion limited to Xbox Live Gold subscribers, Microsoft confirms.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_riot-korea-blocks-fan-art-page-in-response-to-kore_1100-6436285_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/riot-korea-blocks-fan-art-page-in-response-to-kore/1100-6436285/" class="article-title">Riot Korea blocks fan art page in response to Korean government inquisition</a>
+			<div class="article-subtitle">In an ongoing story, Riot Korea has taken down their fan art page.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_dota-2-7th-november-patch-content-analysis_1100-6436284_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dota-2-7th-november-patch-content-analysis/1100-6436284/" class="article-title">Dota 2 7th November Patch – Content Analysis</a>
+			<div class="article-subtitle">This week's Dota 2 patch has arrived bringing the much anticipated MLG bundle along with more hidden Spirit goodies.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_lawyer-interest-greater-than-expected-for-38-studios-ip_1100-6415998_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/lawyer-interest-greater-than-expected-for-38-studios-ip/1100-6415998/" class="article-title">Lawyer: Interest greater than expected for 38 Studios IP</a>
+			<div class="article-subtitle">Lawyer for state of Rhode Island seeking to delay upcoming online auction to accommodate interest.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_38-studios-kingdoms-of-amalur-auction-moved-to-december_1100-6416065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/38-studios-kingdoms-of-amalur-auction-moved-to-december/1100-6416065/" class="article-title">38 Studios' Kingdoms of Amalur auction moved to December</a>
+			<div class="article-subtitle">Pending court approval, online auction for various 38 Studios and Big Huge games IP to take place next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_sons-of-starcraft-premieres-11-14-13_1100-6436286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sons-of-starcraft-premieres-11-14-13/1100-6436286/" class="article-title">Sons of StarCraft premieres 11/14/13</a>
+			<div class="article-subtitle">Sons of Starcraft documentary to debut on onGamers, will be available as feature length movie next year.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_top-lane-gaming-holding-a-league-of-legends-tourna_1100-6436287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-lane-gaming-holding-a-league-of-legends-tourna/1100-6436287/" class="article-title">Top Lane Gaming holding a League of Legends tournament with $2,000 on the line</a>
+			<div class="article-subtitle">Any team, any rank can participate in the online tournament.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_minecraft-creator-eats-chocolate-talks-mario-kart-on-late-night-tv_1100-6416066_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/minecraft-creator-eats-chocolate-talks-mario-kart-on-late-night-tv/1100-6416066/" class="article-title">Minecraft creator eats chocolate, talks Mario Kart on late night TV</a>
+			<div class="article-subtitle">Markus "Notch" Persson appears as guest on Late Late Show with Craig Ferguson for a ten-minute interview.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_heroes-of-the-storm-beta-sign-ups-available-today_1100-6416068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heroes-of-the-storm-beta-sign-ups-available-today/1100-6416068/" class="article-title">Heroes of the Storm beta sign-ups available today</a>
+			<div class="article-subtitle">Gamers can sign up beginning today to play upcoming free-to-play Blizzard MOBA ahead of launch.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_crimson-dragon-an-underdog-with-wings_1100-6415984_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crimson-dragon-an-underdog-with-wings/1100-6415984/" class="article-title">Crimson Dragon: An Underdog With Wings</a>
+			<div class="article-subtitle">How to train your dragoon.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_ps4-and-vita-friends-list-update-on-psn-increases-limit-to-2-000-today-ps3-remains-at-100_1100-6416070_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-and-vita-friends-list-update-on-psn-increases-limit-to-2-000-today-ps3-remains-at-100/1100-6416070/" class="article-title">PS4 and Vita friends list update on PSN increases limit to 2,000 today, PS3 remains at 100</a>
+			<div class="article-subtitle">Updates made to the PlayStation Network today will allow users to add up to 2,000 online friends, but PS3 can only display 100.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_valve-apologises-for-the-lack-of-diretide-promises_1100-6436290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-apologises-for-the-lack-of-diretide-promises/1100-6436290/" class="article-title">Valve apologises for the lack of Diretide, promises to deliver it in the next patch</a>
+			<div class="article-subtitle">A new post on the official Dota 2 blog goes into detail on the reasoning behind the lack of Diretide and makes promises to amend the situation.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_transformers-age-of-extinction-game-trademark-revealed_1100-6416074_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/transformers-age-of-extinction-game-trademark-revealed/1100-6416074/" class="article-title">Transformers: Age of Extinction game trademark revealed</a>
+			<div class="article-subtitle">New game tied to upcoming film may be in the works, according to trademark from Hasbro.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_win-an-xbox-one-or-ps4-from-gamespot_1100-6416072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/win-an-xbox-one-or-ps4-from-gamespot/1100-6416072/" class="article-title">Win an Xbox One or PS4 from GameSpot</a>
+			<div class="article-subtitle">We're giving away next-generation consoles this holiday, and one lucky winner will take home a grand prize featuring five games and a yearlong multiplayer subscription.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_everything-you-need-to-know-about-world-of-warcraft-warlords-of-draenor_1100-6416073_thumbnail.jpeg">
+			<a href="https://www.gamespot.com/articles/everything-you-need-to-know-about-world-of-warcraft-warlords-of-draenor/1100-6416073/" class="article-title">Everything you need to know about World of Warcraft: Warlords of Draenor</a>
+			<div class="article-subtitle">We collected all of the data from Blizzcon and distilled the good parts for you to read.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_bomber-moves-on-innovation-knocked-out-to-start-wc_1100-6436293_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/bomber-moves-on-innovation-knocked-out-to-start-wc/1100-6436293/" class="article-title">Bomber moves on, Innovation knocked out to start WCS Finals</a>
+			<div class="article-subtitle">WCS Global Finals favorite Lee "INnoVation" Shin Hyung eliminated in the first round</div>
+			<div class="article-author">Rod Breslau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_how-xbox-one-will-reinvent-the-living-room_1100-6416064_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/how-xbox-one-will-reinvent-the-living-room/1100-6416064/" class="article-title">How Xbox One Will Reinvent the Living Room</a>
+			<div class="article-subtitle">Kinect, open my eyes.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_jaedong-polt-among-the-final-eight-players-at-bliz_1100-6436294_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jaedong-polt-among-the-final-eight-players-at-bliz/1100-6436294/" class="article-title">Jaedong, Polt among the final eight players at BlizzCon</a>
+			<div class="article-subtitle">Only eight players remain at the WCS Global Finals, vying for $100,000 and the title of best StarCraft 2 player in the world.</div>
+			<div class="article-author">Rod Breslau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_blizzard-world-of-warcraft-is-not-built-to-be-free-to-play_1100-6416076_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-world-of-warcraft-is-not-built-to-be-free-to-play/1100-6416076/" class="article-title">Blizzard: "World of Warcraft is not built to be free-to-play"</a>
+			<div class="article-subtitle">Senior game producer says "We're happy with the business model we have now. It's very successful."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_blizzard-has-experimented-with-world-of-warcraft-for-mobiles_1100-6416077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-has-experimented-with-world-of-warcraft-for-mobiles/1100-6416077/" class="article-title">Blizzard has "experimented" with World of Warcraft for mobiles</a>
+			<div class="article-subtitle">Developer says, "We've experimented with different things with tablet," but explains user interface is "very challenging" for mobiles.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_blizzard-avoids-talk-of-titan-mmo-but-remains-open-to-new-ip_1100-6416075_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-avoids-talk-of-titan-mmo-but-remains-open-to-new-ip/1100-6416075/" class="article-title">Blizzard avoids talk of Titan MMO but remains open to new IP</a>
+			<div class="article-subtitle">The leaked Titan MMO project was missing from this year's Blizzcon, but Blizzard isn't averse to creating new worlds.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_blizzard-s-hearthstone-ccg-coming-to-iphone-and-android-next-year_1100-6416069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-s-hearthstone-ccg-coming-to-iphone-and-android-next-year/1100-6416069/" class="article-title">Blizzard's Hearthstone CCG coming to iPhone and Android next year</a>
+			<div class="article-subtitle">You'll be able to take Hearthstone with you on the go as soon as next year.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_blizzard-on-warcraft-movie-we-didn-t-rush-it_1100-6416078_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-on-warcraft-movie-we-didn-t-rush-it/1100-6416078/" class="article-title">Blizzard on Warcraft movie -- "We didn't rush it"</a>
+			<div class="article-subtitle">COO Paul Sams says upcoming movie aiming to be "great fantasy movie" that happens to be based on an established franchise.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_world-of-warcraft-warlords-of-draenor-expansion-confirmed_1100-6416067_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/world-of-warcraft-warlords-of-draenor-expansion-confirmed/1100-6416067/" class="article-title">World of Warcraft Warlords of Draenor expansion confirmed</a>
+			<div class="article-subtitle">[UPDATE] Blizzard confirms next expansion for MMO; raises level cap to 100, adds new character models.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_the-lost-vikings-have-a-good-chance-of-coming-to-blizzard-s-heroes-of-the-storm_1100-6416080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-lost-vikings-have-a-good-chance-of-coming-to-blizzard-s-heroes-of-the-storm/1100-6416080/" class="article-title">The Lost Vikings have a "good chance" of coming to Blizzard's Heroes of the Storm</a>
+			<div class="article-subtitle">The stars of Blizzard's puzzle/platformer from the '90s may be making their way to the upcoming action RTS Heroes of the Storm.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_xbox-one-may-have-shipped-early-for-some-through-target_1100-6416079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-may-have-shipped-early-for-some-through-target/1100-6416079/" class="article-title">Xbox One may have shipped early for some through Target</a>
+			<div class="article-subtitle">UPDATE: And both the ebay listing and the unboxing video have been taken down.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/08_community-news-update-friday-11-8_1100-6416071_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/community-news-update-friday-11-8/1100-6416071/" class="article-title">Community News Update: Friday 11/8</a>
+			<div class="article-subtitle">Time for a short and sweet Friday update with Frances and Synthia as they talk about some slight changes to your regularly scheduled Community News.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_blizzard-announces-iphone-and-android-versions-of-hearthstone_thumbnail.png">
+			<a href="https://www.eurogamer.net/blizzard-announces-iphone-and-android-versions-of-hearthstone" class="article-title">Blizzard announces iPhone and Android versions of Hearthstone</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_beta-sign-ups-for-heroes-of-the-storm-go-live_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/beta-sign-ups-for-heroes-of-the-storm-go-live" class="article-title">Beta sign-ups for Heroes of the Storm go live</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_beautiful-viking-adventure-the-banner-saga-out-in-january_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/beautiful-viking-adventure-the-banner-saga-out-in-january" class="article-title">Beautiful Viking adventure The Banner Saga out in January</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_microsoft-confirms-xbox-one-apps-for-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/microsoft-confirms-xbox-one-apps-for-launch" class="article-title">Microsoft confirms Xbox One apps for launch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_making-call-of-duty-ghosts_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/making-call-of-duty-ghosts" class="article-title">Making Call of Duty: Ghosts</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_quake-live-out-of-browser-and-standalone-by-years-end_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/quake-live-out-of-browser-and-standalone-by-years-end" class="article-title">Quake Live out of browser and standalone by year's end</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_turn-based-strategy-rpg-blackguards-hits-steam-early-access_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/turn-based-strategy-rpg-blackguards-hits-steam-early-access" class="article-title">Turn-based strategy RPG Blackguards hits Steam Early Access</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_typing-of-the-dead-overkill-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/typing-of-the-dead-overkill-review" class="article-title">The Typing of the Dead: Overkill review</a>
+			<div class="article-author">Cara Ellison</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_video-a-quick-look-at-xcom-enemy-within-and-a-chat-with-its-lead-designer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-a-quick-look-at-xcom-enemy-within-and-a-chat-with-its-lead-designer" class="article-title">Video: A quick look at XCOM: Enemy Within and a chat with its lead designer</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_12-minute-video-shows-us-what-its-like-to-use-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/12-minute-video-shows-us-what-its-like-to-use-xbox-one" class="article-title">12 minute video shows us what it's like to use Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_the-story-of-playstation-home_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-story-of-playstation-home" class="article-title">The story of PlayStation Home</a>
+			<div class="article-author">James Nouch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_mass-effect-4-teaser-images-released-by-bioware_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mass-effect-4-teaser-images-released-by-bioware" class="article-title">Mass Effect 4 teaser images released by BioWare</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_age-of-empires-2-gets-first-official-expansion-in-over-10-years_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/age-of-empires-2-gets-first-official-expansion-in-over-10-years" class="article-title">Age of Empires 2 gets first official expansion in over 10 years</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_2d-fighting-game-legend-of-raven-confirmed-for-ps4-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/2d-fighting-game-legend-of-raven-confirmed-for-ps4-xbox-one" class="article-title">2D fighting game Legend of Raven confirmed for PS4, Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_total-war-rome-2-confirmed-for-steam-machines_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/total-war-rome-2-confirmed-for-steam-machines" class="article-title">Total War: Rome 2 confirmed for Steam Machines</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_disney-has-released-its-first-star-wars-game-and-its-adorable_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/disney-has-released-its-first-star-wars-game-and-its-adorable" class="article-title">Disney has released its first Star Wars game and it's adorable</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_hyper-light-drifter-details-its-combat-in-new-trailer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hyper-light-drifter-details-its-combat-in-new-trailer" class="article-title">Hyper Light Drifter details its combat in new trailer</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/08_diablo-3-reaper-of-souls-trailer-details-its-features_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/diablo-3-reaper-of-souls-trailer-details-its-features" class="article-title">Diablo 3: Reaper of Souls trailer details its features</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g527c05835879b/Analyst-claims-Microsofts-Xbox-business-loses-billions-each-year/" class="article-title">Analyst claims Microsoft's Xbox business loses billions each year</a>
+			<div class="article-subtitle">Losses hidden by Android patent fees.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g527bfdd966cad/Sony-patents-more-VR-headset-systems/" class="article-title">Sony patents more VR headset systems</a>
+			<div class="article-subtitle">Probably for the PS4.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g527bf64fd4069/South-Australian-Attorney-General-insists-12-games-be-re-classified/" class="article-title">South Australian Attorney-General insists 12 games be re-classified</a>
+			<div class="article-subtitle">At a cost of NZ$381,700.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g527bee8c1be72/Sony-pulls-a-PlayStation-4-apart-so-you-dont-have-to/" class="article-title">Sony pulls a PlayStation 4 apart so you don't have to</a>
+			<div class="article-subtitle">Reveals mousewheel, flux capacitor.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/desktop-dungeons.php" class="article-title">Desktop Dungeons</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/blitzy-blitz.php" class="article-title">Blitzy Blitz</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/drawfender.php" class="article-title">Drawfender</a>
+			<div class="article-author">Kimberly</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/link-dump-friday-344.php" class="article-title">Link Dump Friday №345</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

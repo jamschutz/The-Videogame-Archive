@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 11, 2012</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-13-review/1900-6396299/" class="article-title">NHL 13 Review</a>
+			<div class="article-subtitle">NHL 13 adds some great new skating physics and smarter AI, although you've already seen a lot of what the game has to offer.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nhl-13-review/1900-6396304/" class="article-title">NHL 13 Review</a>
+			<div class="article-subtitle">NHL 13 adds some great new skating physics and smarter AI, although you've already seen a lot of what the game has to offer.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tekken-tag-tournament-2-review/1900-6396294/" class="article-title">Tekken Tag Tournament 2 Review</a>
+			<div class="article-subtitle">The King of Iron Fist tournament returns in Tekken Tag Tournament 2, a well-executed and punishing fighter.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_resident-evil-6-getting-timed-exclusive-modes-for-xbox-360_1100-6396244_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-6-getting-timed-exclusive-modes-for-xbox-360/1100-6396244/" class="article-title">Resident Evil 6 getting timed-exclusive modes for Xbox 360</a>
+			<div class="article-subtitle">Microsoft console version of Capcom's zombie shooter adding three modes called Survivors, Predator, and Siege sometime after launch next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_medal-of-honor-warfighter-adding-bin-laden-hunt-dlc_1100-6394882_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/medal-of-honor-warfighter-adding-bin-laden-hunt-dlc/1100-6394882/" class="article-title">Medal of Honor Warfighter adding Bin Laden hunt DLC</a>
+			<div class="article-subtitle">EA partners with Sony Pictures for DLC based on upcoming Zero Dark Thirty movie; at least $1 million from sales to be donated to army charities.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_ea-sought-to-buy-valve-for-1-billion-report_1100-6394880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-sought-to-buy-valve-for-1-billion-report/1100-6394880/" class="article-title">EA sought to buy Valve for $1 billion - Report</a>
+			<div class="article-subtitle">Half-Life house supposedly courted for purchase by Battlefield publisher; Gabe Newell says company would rather "disintegrate" than sell out.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_sony-working-closely-with-bethesda-for-skyrim-dlc-on-ps3_1100-6394884_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-working-closely-with-bethesda-for-skyrim-dlc-on-ps3/1100-6394884/" class="article-title">Sony 'working closely' with Bethesda for Skyrim DLC on PS3</a>
+			<div class="article-subtitle">Company rep confirms "big, broad dev support team" working with Elder Scrolls studio to remedy issues keeping content from platform; no resolution timeline offered.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_steam-big-picture-enters-beta-today_1100-6394891_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steam-big-picture-enters-beta-today/1100-6394891/" class="article-title">Steam Big Picture enters beta today</a>
+			<div class="article-subtitle">Valve launching free TV service this afternoon for Windows machines with controller compatibility; includes Web browser, new "Daisywheel" typing interface; Steam crosses 50 million users.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_the-ozspot-11-09-12-ea-wants-to-buy-valve-aaa-games-dying-out_1100-6396229_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-ozspot-11-09-12-ea-wants-to-buy-valve-aaa-games-dying-out/1100-6396229/" class="article-title">The OzSpot 11/09/12: EA wants to buy Valve, AAA games dying out</a>
+			<div class="article-subtitle">On this week's show we look at reports that EA has been trying to buy Valve for years, what developers think about the future of triple-A games, and more!</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_fallout-dev-teases-new-rpg_1100-6396242_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-dev-teases-new-rpg/1100-6396242/" class="article-title">Fallout dev teases new RPG</a>
+			<div class="article-subtitle">Obsidian Entertainment reveals mysterious role-playing game "Project X"; number 4, dragon image shown in logo.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_sony-bringing-updated-3d-headset-to-tgs_1100-6396249_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-bringing-updated-3d-headset-to-tgs/1100-6396249/" class="article-title">Sony bringing updated 3D headset to TGS</a>
+			<div class="article-subtitle">Publisher reveals reworked version of HMZ 3D headset with front-facing camera; poised for debut at this month's Tokyo Game Show.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_professor-layton-vs-ace-attorney-in-session-this-november_1100-6396303_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/professor-layton-vs-ace-attorney-in-session-this-november/1100-6396303/" class="article-title">Professor Layton vs. Ace Attorney in session this November</a>
+			<div class="article-subtitle">There is currently no word on an English release date for the game.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_keiji-inafune-teases-new-zombie-action-title_1100-6396305_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/keiji-inafune-teases-new-zombie-action-title/1100-6396305/" class="article-title">Keiji Inafune teases new zombie action title</a>
+			<div class="article-subtitle">Former Capcom producer's new game is called Yaiba, and will feature ninja and mecha elements; platforms are unconfirmed.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_terraria-sells-16m-coming-to-consoles_1100-6396311_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/terraria-sells-16m-coming-to-consoles/1100-6396311/" class="article-title">Terraria sells 1.6M, coming to consoles</a>
+			<div class="article-subtitle">PC indie hit coming to XBLA, PSN early 2013; the 505 Games-published title has sold 1.6 million copies since its release in 2011.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/09/11_bin-laden-operative-reportedly-consulted-on-moh-warfighter_1100-6396312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bin-laden-operative-reportedly-consulted-on-moh-warfighter/1100-6396312/" class="article-title">Bin Laden operative reportedly consulted on MoH: Warfighter</a>
+			<div class="article-subtitle">A <i>Los Angeles Times</i> report claims former Navy SEAL Matt Bissonnette worked closely with Danger Close to consult on upcoming EA-published shooter.</div>
+			<div class="article-author">Laura Parker</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_arma-dev-confirms-staff-arrested-accused-of-spying-by-greek-authorities_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/arma-dev-confirms-staff-arrested-accused-of-spying-by-greek-authorities" class="article-title">ArmA dev confirms: staff arrested, accused of spying by Greek authorities</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_gearbox-shows-off-borderlands-2-mechromancer-final-design-reveals-her-name_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gearbox-shows-off-borderlands-2-mechromancer-final-design-reveals-her-name" class="article-title">Gearbox shows off Borderlands 2 Mechromancer final design, reveals her name</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_american-mcgees-upcoming-resembles-an-isometric-okami_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/american-mcgees-upcoming-resembles-an-isometric-okami" class="article-title">American McGee's upcoming Akaneiro: Demon Hunters resembles an isometric Okami</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_grand-theft-auto-4-elephant-mod-adds-wild-tokyo-jungle-flavour_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/grand-theft-auto-4-elephant-mod-adds-wild-tokyo-jungle-flavour" class="article-title">Grand Theft Auto 4 elephant mod adds wild Tokyo Jungle flavour</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_man-of-adventure-ron-gilbert-profile_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/man-of-adventure-ron-gilbert-profile" class="article-title">Man of Adventure: Ron Gilbert Profile</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_breaking-television-borders-microsofts-wacky-idea-to-project-scenes-on-living-room-walls_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/breaking-television-borders-microsofts-wacky-idea-to-project-scenes-on-living-room-walls" class="article-title">Breaking television borders: Microsoft's wacky idea to project scenes on living room walls</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_wing-commander-creator-chris-roberts-returns-to-games-after-decade-absence_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wing-commander-creator-chris-roberts-returns-to-games-after-decade-absence" class="article-title">Wing Commander creator Chris Roberts returns to games after decade absence</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_resident-evil-6-timed-exclusive-xbox-360-dlc-includes-game-modes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-6-timed-exclusive-xbox-360-dlc-includes-game-modes" class="article-title">Resident Evil 6 timed-exclusive Xbox 360 DLC includes game modes</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_tekken-tag-tournament-2-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tekken-tag-tournament-2-review" class="article-title">Tekken Tag Tournament 2 Review</a>
+			<div class="article-author">Matt Edwards</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_qrth-phyl-is-like-a-randomised-3d-version-of-snake-out-now_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/qrth-phyl-is-like-a-randomised-3d-version-of-snake-out-now" class="article-title">Qrth-phyl is like a randomised 3D version of Snake, out now</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_rihanna-gets-dressed-up-in-hitman-absolution-clothing_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rihanna-gets-dressed-up-in-hitman-absolution-clothing" class="article-title">Rihanna gets dressed in Hitman: Absolution clothing</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_exo-is-a-free-psychadelic-first-person-interactive-music-video_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/exo-is-a-free-psychadelic-first-person-interactive-music-video" class="article-title">Exo is a free psychedelic first-person interactive music video</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_pc-fifa-13-demo-kicks-off-on-origin_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pc-fifa-13-demo-kicks-off-on-origin" class="article-title">FIFA 13 demo kicks off on PC via Origin</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_european-wii-u-launch-details-due-thursday-in-nintendo-direct-conference-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/european-wii-u-launch-details-due-thursday-in-nintendo-direct-conference-report" class="article-title">Nintendo confirms: European Wii U launch details due Thursday in Nintendo Direct conference</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_real-life-formula-one-car-at-eurogamer-expo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/real-life-formula-one-car-at-eurogamer-expo" class="article-title">Real-life Formula One car at Eurogamer Expo</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_app-of-the-day-super-hexagon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-super-hexagon" class="article-title">App of the Day: Super Hexagon</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_tomb-raider-and-hitman-absolution-developer-sessions-at-eurogamer-expo-2012_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tomb-raider-and-hitman-absolution-developer-sessions-at-eurogamer-expo-2012" class="article-title">Tomb Raider and Hitman: Absolution developer sessions at Eurogamer Expo 2012</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_the-entire-final-fantasy-7-story-recreated-in-littlebigplanet-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-entire-final-fantasy-7-story-recreated-in-littlebigplanet-2" class="article-title">The entire Final Fantasy 7 story recreated in LittleBigPlanet 2</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_eurogamer-expo-announces-valve-developer-session_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/eurogamer-expo-announces-valve-developer-session" class="article-title">Eurogamer Expo announces Valve developer session</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_fake-dayz-sleeping-dogs-bioshock-secret-world-lollipop-chainsaw-videos_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fake-dayz-sleeping-dogs-bioshock-secret-world-lollipop-chainsaw-videos" class="article-title">Impressive fake DayZ, Sleeping Dogs, BioShock, Secret World, Lollipop Chainsaw movie trailers</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_app-of-the-day-zookeeper-battle_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-zookeeper-battle" class="article-title">App of the Day: Zookeeper Battle</a>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_app-of-the-day-organ-trail-directors-cut_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-organ-trail-directors-cut" class="article-title">App of the Day: Organ Trail: Director's Cut</a>
+			<div class="article-author">Rich Stanton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_amnesia-has-sold-roughly-a-million-units_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/amnesia-has-sold-roughly-a-million-units" class="article-title">Amnesia has earned over 10 times what it cost to make</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_sound-shapes-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sound-shapes-review" class="article-title">Sound Shapes Review</a>
+			<div class="article-author">Johnny Minkley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_molyneux-studio-22cans-needs-curiosity-beta-testers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/molyneux-studio-22cans-needs-curiosity-beta-testers" class="article-title">Molyneux studio 22Cans needs you to be a Curiosity beta tester</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_battlefield-3-armored-kill-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-3-armored-kill-review" class="article-title">Battlefield 3: Armored Kill Review</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_guild-wars-2-a-dramatic-live-action-trailer-by-director-of-v-for-vendetta_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/guild-wars-2-a-dramatic-live-action-trailer-by-director-of-v-for-vendetta" class="article-title">Guild Wars 2: a dramatic live action trailer by director of V for Vendetta</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/09/11_the-mighty-quest-for-epic-loot-deadly-rooms-of-debt_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-mighty-quest-for-epic-loot-deadly-rooms-of-debt" class="article-title">The Mighty Quest for Epic Loot: Deadly Rooms of Debt?</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/g504eaa2869387/Six-hidden-characters-found-on-Tekken-Tag-Tournament-2-disc/" class="article-title">Six hidden characters found on Tekken Tag Tournament 2 disc</a>
+			<div class="article-subtitle">No Gon, thank god.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g504ea2b90a33a/Football-Manager-2013-to-feature-stripped-down-classic-mode/" class="article-title">Football Manager 2013 to feature stripped-down classic mode</a>
+			<div class="article-subtitle">Challenge mode also added.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g504e9b38434c1/Path-of-Exile-public-beta-this-weekend/" class="article-title">Path of Exile public beta this weekend</a>
+			<div class="article-subtitle">ARPG open to all.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g504e66e9e1744/We-get-too-much-crap-for-not-being-innovative---DICE-GM/" class="article-title">"We get too much crap for not being innovative" - DICE GM</a>
+			<div class="article-subtitle">Small changes go unnoticed.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g504e5e06368e4/Amnesia-developer-working-on-new-first-person-horror-title/" class="article-title">Amnesia developer working on new first-person horror title</a>
+			<div class="article-subtitle">"Deeper themes, more disturbing."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/petri-lab.php" class="article-title">Petri Lab</a>
+			<div class="article-author">Steve</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/georganism-2.php" class="article-title">Georganism 2</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/alone-in-the-light.php" class="article-title">Alone in the Light</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-101.php" class="article-title">The Vault №102</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.tigsource.com/2012/09/11/kickstarter-stretch-goals/" class="article-title">Kickstarter: Stretch Goals</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

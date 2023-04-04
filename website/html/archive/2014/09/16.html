@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 16, 2014</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/minimum-review/1900-6415872/" class="article-title">Minimum Review</a>
+			<div class="article-subtitle">Iron giants.</div>
+			<div class="article-author">Cameron Woolsey</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/lichdom-battlemage-review/1900-6415873/" class="article-title">Lichdom: Battlemage Review</a>
+			<div class="article-subtitle">You have to believe we are magic.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_with-minecraft-microsoft-can-build-broader-horizon_1100-6422330_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/with-minecraft-microsoft-can-build-broader-horizon/1100-6422330/" class="article-title">With Minecraft, Microsoft Can Build Broader Horizons</a>
+			<div class="article-subtitle">Opinion: For $2.5bn, the Windows empire has found an ideal way to reach new audiences, writes Rob Crossley</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_is-this-the-master-chief-in-destiny_1100-6422325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/is-this-the-master-chief-in-destiny/1100-6422325/" class="article-title">Is This the Master Chief in Destiny?</a>
+			<div class="article-subtitle">Unofficial cameo from Halo''s hero may have been discovered.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_super-smash-bros-3ds-hits-one-million-sales-in-two_1100-6422338_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-smash-bros-3ds-hits-one-million-sales-in-two/1100-6422338/" class="article-title">Super Smash Bros 3DS Hits One Million Sales in Two Days</a>
+			<div class="article-subtitle">Combined retail and download sales makes Smash Bros the fourth 3DS game to hit a million in Japan after just one weekend.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_iphone-6-breaks-pre-order-record_1100-6422340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/iphone-6-breaks-pre-order-record/1100-6422340/" class="article-title">iPhone 6 Breaks Pre-Order Record</a>
+			<div class="article-subtitle">More than four million orders placed for the enlarged Apple smartphones.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_project-morpheus-bloodborne-minecraft-vita-set-for_1100-6422179_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/project-morpheus-bloodborne-minecraft-vita-set-for/1100-6422179/" class="article-title">Project Morpheus, Bloodborne, Minecraft Vita Set for TGS Showcase</a>
+			<div class="article-subtitle">Sony to also demonstrate Driveclub, Destiny, and The Order: 1886 at September event.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_mortal-kombat-x-controllers-spotted_1100-6422341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-x-controllers-spotted/1100-6422341/" class="article-title">Mortal Kombat X Controllers Spotted</a>
+			<div class="article-subtitle">New Xbox One and PS4 pads on display at GameStop expo, though publisher Warner Bros has yet to announce them.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_xbox-exclusive-forza-horizon-2-goes-gold-xbox-one-_1100-6422342_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-exclusive-forza-horizon-2-goes-gold-xbox-one-/1100-6422342/" class="article-title">Xbox-Exclusive Forza Horizon 2 Goes Gold, Xbox One Gets Demo Today</a>
+			<div class="article-subtitle">Development on Microsoft''s upcoming racing game is finished ahead of its September 30 release; try a demo today on Xbox One.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_call-of-duty-advanced-warfare-dev-responds-to-tita_1100-6422343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-advanced-warfare-dev-responds-to-tita/1100-6422343/" class="article-title">Call of Duty: Advanced Warfare Dev Responds to Titanfall "Ripoff" Claims</a>
+			<div class="article-subtitle">"Not worried about it. When people play it in November, it will speak for itself."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_gran-turismo-6-updated-with-new-cars-tracks-and-mo_1100-6422344_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-6-updated-with-new-cars-tracks-and-mo/1100-6422344/" class="article-title">Gran Turismo 6 Updated With New Cars, Tracks, and Modes</a>
+			<div class="article-subtitle">Update 1.12 now available to download on PS3.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_esrb-turns-20-former-us-senator-praises-the-group_1100-6422346_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/esrb-turns-20-former-us-senator-praises-the-group/1100-6422346/" class="article-title">ESRB Turns 20, Former US Senator Praises the Group</a>
+			<div class="article-subtitle">Joseph Lieberman says, "I''m proud that today the ESRB ratings are so widely accepted and reaffirm the belief that industry self-regulation is not only possible, but can be highly effective."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_delay-for-xbox-one-ps4-versions-of-wwe-2k15_1100-6422348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/delay-for-xbox-one-ps4-versions-of-wwe-2k15/1100-6422348/" class="article-title">Delay for Xbox One/PS4 Versions of WWE 2K15</a>
+			<div class="article-subtitle">Current-generation versions arriving November 18, while Xbox 360 and PS3 versions still scheduled for October 28.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_ea-axes-player-trading-from-fifa-15-ultimate-team_1100-6422347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-axes-player-trading-from-fifa-15-ultimate-team/1100-6422347/" class="article-title">EA Axes Player Trading From FIFA 15 Ultimate Team</a>
+			<div class="article-subtitle">Publisher continues clamp-down on cheaters and coin sellers as it prepares for FIFA 15 release.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_halo-reach-is-free-on-xbox-360-through-games-with-_1100-6422349_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-reach-is-free-on-xbox-360-through-games-with-/1100-6422349/" class="article-title">Halo: Reach Is Free on Xbox 360 Through Games With Gold</a>
+			<div class="article-subtitle">Xbox Live subscribers can pick up their free copy of Bungie''s final Halo title starting today.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_intel-extreme-masters-heads-to-california_1100-6438391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/intel-extreme-masters-heads-to-california/1100-6438391/" class="article-title">Intel Extreme Masters heads to California</a>
+			<div class="article-subtitle">ESL brings esports to San Jose’s SAP Center with Intel® Extreme Masters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_microsoft-minecraft-deal-gets-a-skit-on-conan-obri_1100-6422350_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-minecraft-deal-gets-a-skit-on-conan-obri/1100-6422350/" class="article-title">Microsoft/Minecraft Deal Gets a Skit On Conan O'Brien's Show</a>
+			<div class="article-subtitle">What would you do with $2.5 billion?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_this-far-cry-4-trailer-asks-are-elephants-natures-_1100-6422345_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-far-cry-4-trailer-asks-are-elephants-natures-/1100-6422345/" class="article-title">This Far Cry 4 Trailer Asks, Are Elephants Nature's War Tanks?</a>
+			<div class="article-subtitle">Ubisoft releases new footage of the tusked titans in action.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_sk-svenskeren-provokes-taiwanese-media-with-offens_1100-6438392_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sk-svenskeren-provokes-taiwanese-media-with-offens/1100-6438392/" class="article-title">SK Svenskeren provokes Taiwanese media with offensive summoner name, Fined and Suspended by Riot Games</a>
+			<div class="article-subtitle">Svenskeren, SK Gaming''s jungler, has been fined by Riot Games after gaining attention from Taiwanese news media, Apple Daily, for registering on the Taiwan LoL servers with a disrespectful summoner name.</div>
+			<div class="article-author">Kelsey Moser</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_forza-horizon-2-gets-free-dlc-cars-on-launch-day-w_1100-6422351_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/forza-horizon-2-gets-free-dlc-cars-on-launch-day-w/1100-6422351/" class="article-title">Forza Horizon 2 Gets Free DLC Cars on Launch Day, With Paid DLC to Follow</a>
+			<div class="article-subtitle">Microsoft details the VIP membership and Car Pass DLC for its upcoming racer.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_listen-to-fifa-15s-soundtrack_1100-6422353_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/listen-to-fifa-15s-soundtrack/1100-6422353/" class="article-title">Listen to FIFA 15's Soundtrack</a>
+			<div class="article-subtitle">Check out 25 music tracks you''ll get to hear in FIFA 15.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_gamespot-community-giveaway-destiny_1100-6422354_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-community-giveaway-destiny/1100-6422354/" class="article-title">GameSpot Community Giveaway - Destiny</a>
+			<div class="article-subtitle">We''re giving away copies of Destiny for the PS3 and Xbox 360! (US and Canada Only)</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_xbox-one-exclusive-scalebound-is-unlike-anything-t_1100-6422355_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-exclusive-scalebound-is-unlike-anything-t/1100-6422355/" class="article-title">Xbox One Exclusive Scalebound Is Unlike Anything the Bayonetta Studio Has Made Before</a>
+			<div class="article-subtitle">Platinum Games director says, "We''ve never made a game like Scalebound."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_rust-creator-on-minecraft-sale-id-have-done-the-sa_1100-6422356_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/rust-creator-on-minecraft-sale-id-have-done-the-sa/1100-6422356/" class="article-title">Rust Creator on Minecraft Sale: "I'd Have Done the Same Thing"</a>
+			<div class="article-subtitle">"Once you start hiring people your whole attitude changes," says Garry Newman.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_borderlands-multiplayer-returns-on-pc-following-ga_1100-6422357_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/borderlands-multiplayer-returns-on-pc-following-ga/1100-6422357/" class="article-title">Borderlands Multiplayer Returns on PC Following GameSpy Shutdown</a>
+			<div class="article-subtitle">2K migrates the first game in Gearbox''s shooter series from GameSpy to Steamworks.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_5-metro-2033-and-eternal-sonata-in-xbox-one-360-we_1100-6422359_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/5-metro-2033-and-eternal-sonata-in-xbox-one-360-we/1100-6422359/" class="article-title">$5 Metro 2033 and Eternal Sonata in Xbox One/360 Weekly Deals</a>
+			<div class="article-subtitle">Valiant Hearts is just $10 on Xbox One, while the first two Monkey Island games are $2.50 each on 360.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_games-are-far-more-powerful-than-movies-for-storyt_1100-6422358_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/games-are-far-more-powerful-than-movies-for-storyt/1100-6422358/" class="article-title">Games Are "Far More Powerful" Than Movies for Storytelling, EA CEO Says</a>
+			<div class="article-subtitle">Andrew Wilson says the power of the Xbox One and PS4 will allow for "much more believable characters."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_ninja-theorys-collaboration-with-disney-infinity-i_1100-6422335_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ninja-theorys-collaboration-with-disney-infinity-i/1100-6422335/" class="article-title">Ninja Theory's Collaboration with Disney Infinity is Just the Start</a>
+			<div class="article-subtitle">With the impending release of Infinity 2.0, Disney reveals plans to expand partnerships with developers.</div>
+			<div class="article-author">Giancarlo Varanini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_capturing-monsters-with-monsters-in-skylanders-tra_1100-6422331_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capturing-monsters-with-monsters-in-skylanders-tra/1100-6422331/" class="article-title">Capturing Monsters With Monsters in Skylanders Trap Team</a>
+			<div class="article-subtitle">Gotta catch ''em all!</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_the-12-defining-games-of-the-season-3-world-champi_1100-6438393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-12-defining-games-of-the-season-3-world-champi/1100-6438393/" class="article-title">The 12 defining games of the Season 3 World Championship</a>
+			<div class="article-subtitle">Remember and rediscover the 12 defining games of the S3 World Championship.</div>
+			<div class="article-author">Duncan 'Thorin' Shields</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_battlefield-hardline-delayed-so-ea-could-add-more-_1100-6422361_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-delayed-so-ea-could-add-more-/1100-6422361/" class="article-title">Battlefield Hardline Delayed So EA Could Add "More Innovation," CEO Says</a>
+			<div class="article-subtitle">"We moved it because we thought that more innovation could go in the game," Andrew Wilson explains.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_1080p-oculus-rift-alternative-vr-headset-totem-has_1100-6422319_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/1080p-oculus-rift-alternative-vr-headset-totem-has/1100-6422319/" class="article-title">1080p Oculus Rift Alternative VR Headset "Totem" Has Bold Plans, Launches Crowdfunding Campaign</a>
+			<div class="article-subtitle">"The only thing that''s limiting you in virtual reality is your creativity."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_first-photo-of-playstation-exclusive-superhero-tv-_1100-6422363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-photo-of-playstation-exclusive-superhero-tv-/1100-6422363/" class="article-title">First Photo of PlayStation-Exclusive Superhero TV Series "Powers" Released</a>
+			<div class="article-subtitle">Powers stars District 9''s Sharlto Copley and combines the genres of superhero fantasy, crime noir, and police procedural.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_team-curse-and-cop-part-ways_1100-6438395_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-curse-and-cop-part-ways/1100-6438395/" class="article-title">Team Curse and Cop part ways</a>
+			<div class="article-subtitle">Team Curse has parted ways with their long time AD carry  David “Cop” Roberson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/09/16_piglet-poohmandu-and-horo-no-longer-with-skt_1100-6438396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/piglet-poohmandu-and-horo-no-longer-with-skt/1100-6438396/" class="article-title">Piglet, Poohmandu and Horo no longer with SKT</a>
+			<div class="article-subtitle">Offseason League of Legends Roster changes in Korea have just started</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_ea-is-giving-away-bejeweled-3-on-origin_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-is-giving-away-bejeweled-3-on-origin" class="article-title">EA is giving away Bejeweled 3 on Origin</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_pac-man-championship-edition-dx-is-coming-to-ios-as-a-f2p-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pac-man-championship-edition-dx-is-coming-to-ios-as-a-f2p-game" class="article-title">Pac-Man Championship Edition DX is coming to iOS</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_killzone-shadow-fall-gets-three-free-maps-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/killzone-shadow-fall-gets-three-free-maps-today" class="article-title">Killzone Shadow Fall gets three free maps today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_thomas-was-alone-outed-for-wii-u-and-xbox-one-on-german-ratings-board_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/thomas-was-alone-outed-for-wii-u-and-xbox-one-on-german-ratings-board" class="article-title">Thomas Was Alone outed for Wii U and Xbox One on German ratings board</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_steamworld-heist-follows-up-dig-with-a-turn-based-strategy-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/steamworld-heist-follows-up-dig-with-a-turn-based-strategy-game" class="article-title">SteamWorld Heist follows up Dig with a turn-based strategy game</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_gaymerx-convention-will-return-following-developer-donations_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gaymerx-convention-will-return-following-developer-donations" class="article-title">GaymerX convention will return following developer donations</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_forza-horizon-2-has-eight-free-day-one-dlc-cars_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/forza-horizon-2-has-eight-free-day-one-dlc-cars" class="article-title">Forza Horizon 2 has eight free day-one DLC cars</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_wwe-2k15-for-ps4-and-xbox-one-delayed-to-november_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wwe-2k15-for-ps4-and-xbox-one-delayed-to-november" class="article-title">WWE 2K15 for PS4 and Xbox One delayed to November</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_sony-website-mentions-resident-evil-revelations-2-for-vita_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sony-website-mentions-resident-evil-revelations-2-for-vita" class="article-title">Sony website mentions Resident Evil Revelations 2 for Vita</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_ea-removes-trade-offers-from-fifa-15-ultimate-team_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-removes-trade-offers-from-fifa-15-ultimate-team" class="article-title">EA removes trade offers from FIFA 15 Ultimate Team</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_egx-rezzed-heads-to-london-for-2015_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/egx-rezzed-heads-to-london-for-2015" class="article-title">EGX Rezzed heads to London for 2015</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_free-divinity-original-sin-update-adds-two-new-companions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/free-divinity-original-sin-update-adds-two-new-companions" class="article-title">Free Divinity: Original Sin update adds two new companions</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_video-the-final-release-version-of-wasteland-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-the-final-release-version-of-wasteland-2" class="article-title">Video: The final release version of Wasteland 2</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_borderlands-updated-with-steamworks-multiplayer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/borderlands-updated-with-steamworks-multiplayer" class="article-title">Borderlands updated with Steamworks multiplayer</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_load-runner-creator-douglas-e-smith-passed-away-at-53_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/load-runner-creator-douglas-e-smith-passed-away-at-53" class="article-title">Lode Runner creator Douglas E. Smith passes away at 53</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/09/16_planetary-annihilation-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/planetary-annihilation-review" class="article-title">Planetary Annihilation review</a>
+			<div class="article-author">Quintin Smith</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g5417d2f3e9d19/Hearthstone-surpasses-20-million-players/" class="article-title">Hearthstone surpasses 20 million players</a>
+			<div class="article-subtitle">Digital CCG passes milestone.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/nintendo-3ds/news/g5417a884110b1/Super-Smash-Bros.-demo-only-allows-30-matches-in-total/" class="article-title">Super Smash Bros. demo only allows 30 matches in total</a>
+			<div class="article-subtitle">Unless you're special.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54179fe925a8f/EA-vows-to-re-establish-a-player-first-culture/" class="article-title">EA vows to "re-establish a player-first culture"</a>
+			<div class="article-subtitle">Okay, now walk the walk.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g541765784c396/Notch-on-Minecraft-sale-Its-not-about-the-money.-It-s-about-my-sanity./" class="article-title">Notch on Minecraft sale: "It's not about the money. It’s about my sanity."</a>
+			<div class="article-subtitle">Seeks lower profile.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g54175ffc210fa/Microsoft-acquires-Minecraft-and-Mojang-for-US-2.5b/" class="article-title">Microsoft acquires Minecraft and Mojang for US$2.5b</a>
+			<div class="article-subtitle">Notch leaves Mojang.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/gemini-strike.php" class="article-title">Gemini Strike</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/vilesteel.php" class="article-title">Vilesteel</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/schrdinghost.php" class="article-title">Schrödinghost</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/snoring-before-time.php" class="article-title">Snoring Before Time</a>
+			<div class="article-author">Ally</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

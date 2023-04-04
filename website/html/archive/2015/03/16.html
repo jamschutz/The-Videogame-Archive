@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 16, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-party-10-review/1900-6416064/" class="article-title">Mario Party 10 Review</a>
+			<div class="article-subtitle">Party pooper.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tales-from-the-borderlands-episode-two-atlas-mugge/1900-6416067/" class="article-title">Tales from the Borderlands: Episode Two — Atlas Mugged Review</a>
+			<div class="article-subtitle">Jack attack.</div>
+			<div class="article-author">Alexa Ray Corriea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/battlefield-hardline-review/1900-6416066/" class="article-title">Battlefield: Hardline Review</a>
+			<div class="article-subtitle">Serialized killers.</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_uk-games-chart-grand-theft-auto-5-returns-to-top_1100-6425930_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-games-chart-grand-theft-auto-5-returns-to-top/1100-6425930/" class="article-title">UK Games Chart: Grand Theft Auto 5 Returns to Top</a>
+			<div class="article-subtitle">Rockstar title edging closer to all-time record; DMC Definitive Edition enters at fifth.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_steam-hits-new-heights-with-9m-concurrent-players_1100-6425931_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steam-hits-new-heights-with-9m-concurrent-players/1100-6425931/" class="article-title">Steam Hits New Heights With 9m Concurrent Players</a>
+			<div class="article-subtitle">Valve''s games platform breaks user record for forth month.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_pc-mech-shooter-hawken-acquired-by-apb-publisher_1100-6425932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-mech-shooter-hawken-acquired-by-apb-publisher/1100-6425932/" class="article-title">PC Mech Shooter Hawken Acquired by APB Publisher</a>
+			<div class="article-subtitle">Hawken is "here to stay," producer says as new deal is announced with Reloaded Games.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_rare-s-n64-team-offer-new-details-on-banjo-kazooie_1100-6425934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rare-s-n64-team-offer-new-details-on-banjo-kazooie/1100-6425934/" class="article-title">Rare's N64 Team Offer New Details on Banjo Kazooie Spiritual Successor</a>
+			<div class="article-subtitle">UK indie studio Playtonic offers new images of Project Ukulele; Confirms Kickstarter will launch soon.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_gamestop-responds-to-dumpster-video_1100-6425933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-responds-to-dumpster-video/1100-6425933/" class="article-title">GameStop Responds to Dumpster Video</a>
+			<div class="article-subtitle">Video game retailer says it routinely donates games to charity, but does discard or destroy certain damaged or defective products.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_celebrity-chef-paula-deen-just-released-a-video-ga_1100-6425935_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/celebrity-chef-paula-deen-just-released-a-video-ga/1100-6425935/" class="article-title">Celebrity Chef Paula Deen Just Released a Video Game</a>
+			<div class="article-subtitle">The announcement trailer is all kinds of crazy.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_we-have-to-do-better-valve-says-after-f-grade-for-_1100-6425936_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/we-have-to-do-better-valve-says-after-f-grade-for-/1100-6425936/" class="article-title">"We Have to do Better," Valve Says After "F" Grade for Customer Service</a>
+			<div class="article-subtitle">"That''s gonna be a big focus for us throughout the year. We have a lot of work to do there."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_lego-jurassic-world-trailer-features-famous-scenes_1100-6425937_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-jurassic-world-trailer-features-famous-scenes/1100-6425937/" class="article-title">LEGO Jurassic World Trailer Features Famous Scenes With a Twist</a>
+			<div class="article-subtitle">First gameplay trailer shows some of the movie franchise''s most memorable scenes recreated in LEGO form.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_in-pictures-gamespot-s-glorious-night-of-skyrim-mo_1100-6425794_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/in-pictures-gamespot-s-glorious-night-of-skyrim-mo/1100-6425794/" class="article-title">In Pictures: GameSpot's Glorious Night of Skyrim Mods Live!</a>
+			<div class="article-subtitle">Thank you to everyone who came to London to watch Cam and Seb explode chickens in a pub.</div>
+			<div class="article-author">Sarah Lynch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_bioshock-infinite-now-free-on-xbox-360-for-gold-me_1100-6425939_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bioshock-infinite-now-free-on-xbox-360-for-gold-me/1100-6425939/" class="article-title">BioShock Infinite Now Free on Xbox 360 for Gold Members</a>
+			<div class="article-subtitle">Xbox 360 owners with a paid subscription can pick up the 2013 first-person shooter today at no cost.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_final-fantasy-15-s-product-placement-shown-off-in-_1100-6425940_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-15-s-product-placement-shown-off-in-/1100-6425940/" class="article-title">Final Fantasy 15's Product Placement Shown Off in New Images</a>
+			<div class="article-subtitle">Square Enix teams up with Coleman Company to bring branded tents, tables, chairs, and more to the upcoming RPG.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_ea-attending-star-wars-event-next-month-but-why_1100-6425941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-attending-star-wars-event-next-month-but-why/1100-6425941/" class="article-title">EA Attending Star Wars Event Next Month, But Why?</a>
+			<div class="article-subtitle">Publisher is listed as an exhibitor for the Star Wars Celebration in April, but will we get to see Battlefront in action?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_oreshika-tainted-bloodlines-giveaway_1100-6425661_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oreshika-tainted-bloodlines-giveaway/1100-6425661/" class="article-title">Oreshika: Tainted Bloodlines Giveaway</a>
+			<div class="article-subtitle">[UPDATE] - We have now emailed all of the winners for this giveaway. Check your email to see if you won!</div>
+			<div class="article-author">Evan Howard</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_ps4-free-online-multiplayer-weekend-starts-friday_1100-6425942_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-free-online-multiplayer-weekend-starts-friday/1100-6425942/" class="article-title">PS4 Free Online Multiplayer Weekend Starts Friday</a>
+			<div class="article-subtitle">Play Battlefield Hardline or anything else without a PlayStation Plus membership Friday through Sunday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_sen-spring-fever-giveaway_1100-6425832_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sen-spring-fever-giveaway/1100-6425832/" class="article-title">SEN Spring Fever Giveaway</a>
+			<div class="article-subtitle">It''s Spring time, and that means deals on SEN games! Want to win a $50 gift card to the PlayStation Store? Tweet @gamespot with #SENSweeps anytime between March 17 and March 23 for your chance to win. See rules and regulations below for details.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_pre-order-gta-5-on-pc-for-47_1100-6425925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pre-order-gta-5-on-pc-for-47/1100-6425925/" class="article-title">Pre-Order GTA 5 on PC for $47</a>
+			<div class="article-subtitle">Get Wolfenstein: The Old Blood for $15.59, Battlefield Hardline for $50, and more.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_minecraft-documentary-making-tv-debut-this-weekend_1100-6425943_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/minecraft-documentary-making-tv-debut-this-weekend/1100-6425943/" class="article-title">Minecraft Documentary Making TV Debut This Weekend</a>
+			<div class="article-subtitle">"The Story of Mojang" will make its TV debut March 22 on Fusion; "Talking Minecraft" episode to air immediately after.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_wwe-2k15-dlc-now-free_1100-6425946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wwe-2k15-dlc-now-free/1100-6425946/" class="article-title">WWE 2K15 DLC Now Free</a>
+			<div class="article-subtitle">The professional wrestling game''s Showcase Season Pass is now free when you buy the game, but only for a limited time.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_simcity-inspired-cities-skylines-hits-another-sale_1100-6425938_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/simcity-inspired-cities-skylines-hits-another-sale/1100-6425938/" class="article-title">SimCity-Inspired Cities: Skylines Hits Another Sales Milestone</a>
+			<div class="article-subtitle">The world-builder has now shifted more than 500,000 copies since its release last week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_artist-arcade-metal-gear_1100-6425950_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/artist-arcade-metal-gear/1100-6425950/" class="article-title">Artist Arcade: Metal Gear</a>
+			<div class="article-subtitle">Snake? Snake!? Snaaaaaaaake!!!</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_ps4-mlb-15-the-show-pre-orders-come-with-custom-co_1100-6425912_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-mlb-15-the-show-pre-orders-come-with-custom-co/1100-6425912/" class="article-title">PS4 MLB 15: The Show Pre-Orders Come With Custom Controller Skins</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_longtime-call-of-duty-producer-leaves-infinity-war_1100-6425953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/longtime-call-of-duty-producer-leaves-infinity-war/1100-6425953/" class="article-title">Longtime Call of Duty Producer Leaves Infinity Ward, While Another Veteran Returns</a>
+			<div class="article-subtitle">Mark Rubin exits the Call of Duty studio while Todd Alderman, who was part of the group that sued Activision, comes back.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_check-out-new-elder-scrolls-online-features-and-ar_1100-6425954_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/check-out-new-elder-scrolls-online-features-and-ar/1100-6425954/" class="article-title">Check out New Elder Scrolls Online Features and Areas Ahead of Relaunch</a>
+			<div class="article-subtitle">As Elder Scrolls Online transitions to a one-time payment system, several new features get folded in.</div>
+			<div class="article-author">Daniel Starkey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_watch-battlefield-hardline-s-live-action-heist-tra_1100-6425949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-battlefield-hardline-s-live-action-heist-tra/1100-6425949/" class="article-title">Watch Battlefield Hardline's Live-Action Heist Trailer</a>
+			<div class="article-subtitle">On eve of the shooter''s release, EA launches a new live-action trailer for the cops-and-robbers game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_five-nights-at-freddy-s-creator-donates-250k-to-st_1100-6425948_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/five-nights-at-freddy-s-creator-donates-250k-to-st/1100-6425948/" class="article-title">Five Nights at Freddy's Creator Donates $250k to St. Jude's Children Hospital</a>
+			<div class="article-subtitle">During a Five Nights at Freddy’s marathon, creator Scott Cawthon donated a record-setting sum.</div>
+			<div class="article-author">Daniel Starkey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_this-team-completed-gta-5-heists-difficult-masterm_1100-6425955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-team-completed-gta-5-heists-difficult-masterm/1100-6425955/" class="article-title">This Team Completed GTA 5 Heists' Difficult Mastermind Challenge</a>
+			<div class="article-subtitle">This group proves that it''s possible to earn the $12,000,000 prize for completing every Heist, in order, with the same team, and without dying.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/03/16_goat-simulator-studio-makes-an-entry-into-dota-2_1100-6425956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/goat-simulator-studio-makes-an-entry-into-dota-2/1100-6425956/" class="article-title">Goat Simulator Studio Makes An Entry Into Dota 2</a>
+			<div class="article-subtitle">Goata 2.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_borderlands-2-writer-regrets-nearly-silent-protagonists_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/borderlands-2-writer-regrets-nearly-silent-protagonists" class="article-title">Borderlands 2 writer regrets nearly silent protagonists</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_gog-com-giving-away-rise-of-the-triad-free_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gog-com-giving-away-rise-of-the-triad-free" class="article-title">GOG.com giving away Rise of the Triad free</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_dead-rising-2-and-off-the-record-arrive-on-steamworks-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dead-rising-2-and-off-the-record-arrive-on-steamworks-tomorrow" class="article-title">Dead Rising 2 and Off the Record arrive on Steamworks tomorrow</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_goat-simulator-lead-could-be-coming-to-dota-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/goat-simulator-lead-could-be-coming-to-dota-2" class="article-title">Goat Simulator lead could be coming to Dota 2</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_hotline-miami-2-gets-windows-xp-support_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hotline-miami-2-gets-windows-xp-support" class="article-title">Hotline Miami 2 gets Windows XP support</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_ea-replaces-tiger-woods-with-rory-mcilroy-in-its-next-golf-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-replaces-tiger-woods-with-rory-mcilroy-in-its-next-golf-game" class="article-title">EA replaces Tiger Woods with Rory McIlroy in its next golf game</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_video-gamings-creepiest-children_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-gamings-creepiest-children" class="article-title">Video: Gaming's creepiest children</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_video-not-a-hero-is-colourful-and-violent-and-the-next-game-from-the-developer-of-olliolli_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-not-a-hero-is-colourful-and-violent-and-the-next-game-from-the-developer-of-olliolli" class="article-title">Video: Not A Hero is colourful, violent and the next game from the team behind OlliOlli</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_mario-party-10-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mario-party-10-review" class="article-title">Mario Party 10 review</a>
+			<div class="article-subtitle">Mostly safe, sometimes inventive, infrequently amusing. If you're after dependable, inclusive four-player fun, you could do a lot worse.</div>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_a-new-rare-approved-banjo-kazooie-game-was-shown-off-at-the-weekend_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/a-new-rare-approved-banjo-kazooie-game-was-shown-off-at-the-weekend" class="article-title">A new, Rare-approved Banjo-Kazooie game was shown off at the weekend</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_whats-the-latest-with-the-xbox-one-parity-clause_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/whats-the-latest-with-the-xbox-one-parity-clause" class="article-title">Microsoft: any game can come to Xbox One, despite parity clause</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_ironcast-release-date-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ironcast-release-date-announced" class="article-title">Ironcast release date announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_game-takes-on-amazon-with-third-party-marketplace_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-takes-on-amazon-with-third-party-marketplace" class="article-title">GAME Marketplace lets third-parties sell their products</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_laid-off-simcity-dev-launches-patreon-for-creation-of-cities-skylines-buildings_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/laid-off-simcity-dev-launches-patreon-for-creation-of-cities-skylines-buildings" class="article-title">Laid-off SimCity dev launches Patreon for creation of Cities: Skylines buildings</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_lego-jurassic-world-is-another-slight-evolution-for-the-series_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/lego-jurassic-world-is-another-slight-evolution-for-the-series" class="article-title">Lego Jurassic World is another slight evolution for the series</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_resident-evil-revelations-2s-raid-mode-gets-online-co-op-later-this-month_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-revelations-2s-raid-mode-gets-online-co-op-later-this-month" class="article-title">Resident Evil Revelations 2's Raid mode gets online co-op later this month</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_cute-speedrunning-fps-lovely-planet-takes-aim-at-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cute-speedrunning-fps-lovely-planet-takes-aim-at-xbox-one" class="article-title">Cute speedrunning FPS Lovely Planet takes aim at Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_valves-astounding-steamvr-solves-big-problems-and-poses-bigger-questions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valves-astounding-steamvr-solves-big-problems-and-poses-bigger-questions" class="article-title">Valve's astounding SteamVR solves big problems - and poses bigger questions</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_bloodbornes-combat-proves-we-dont-need-a-sword-and-shield_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bloodbornes-combat-proves-we-dont-need-a-sword-and-shield" class="article-title">Bloodborne's combat convinced me I don't need a sword and shield any more</a>
+			<div class="article-author">Aoife Wilson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_driveclub-lamborghini-expansion-due-later-this-month_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/driveclub-lamborghini-expansion-due-later-this-month" class="article-title">DriveClub Lamborghini expansion due later this month</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/03/16_people-behind-apb-reloaded-buy-hawken_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/people-behind-apb-reloaded-buy-hawken" class="article-title">People behind APB Reloaded buy Hawken</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g5506087a0f712/Life-is-Strange-episode-2-finally-dated/" class="article-title">Life is Strange episode 2 finally dated</a>
+			<div class="article-subtitle">Coming next week.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5505fcea90833/Microsoft-in-no-rush-to-enter-VR-race/" class="article-title">Microsoft in no rush to enter VR race</a>
+			<div class="article-subtitle">"I don't think we've locked ourselves out."</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g5505e97ccc36d/Mortal-Kombat-X-last-gen-delayed-Jason-announced-gameplay-within/" class="article-title">Mortal Kombat X last-gen delayed, Jason announced, gameplay within</a>
+			<div class="article-subtitle">High Voltage once again on port duty.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55062e391b6a4/Steam-customer-support-not-where-it-needs-to-be-recognises-Valve/" class="article-title">Steam customer support not "where it needs to be", recognises Valve</a>
+			<div class="article-subtitle">Improvements incoming.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g550629837456c/Valiant-Hearts-director-departs-Ubisoft/" class="article-title">Valiant Hearts director departs Ubisoft</a>
+			<div class="article-subtitle">Tired of being labelled a 'fake indie'.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g55060cc10170c/Conquer-the-galaxy-in-Sid-Meier-s-Starships-out-now-on-PC-and-iPad/" class="article-title">Conquer the galaxy in Sid Meier’s Starships, out now on PC and iPad</a>
+			<div class="article-subtitle">Beyond Beyond Earth.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/locked-in.php" class="article-title">Locked In</a>
+			<div class="article-author">Lori.h</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/clash_of_clans/troops-spotlight.php" class="article-title">Clash of Clans: Troops Spotlight</a>
+			<div class="article-author">Ekann</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/clash_of_clans/farming-strategies.php" class="article-title">Clash of Clans: Farming Strategies</a>
+			<div class="article-author">Ekann</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/clash_of_clans/free-gems-myth-or-reality.php" class="article-title">Clash of Clans: Free Gems Myth or Reality?</a>
+			<div class="article-author">Ekann</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/find-10-cookies.php" class="article-title">Find 10 Cookies</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/clash_of_clans/how-to-win-without-spending-money.php" class="article-title">Clash of Clans: How to Win without spending money</a>
+			<div class="article-author">Ekann</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/clash_of_clans/how-to-get-free-gems.php" class="article-title">Clash of Clans: How to get Free Gems?</a>
+			<div class="article-author">Ekann</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

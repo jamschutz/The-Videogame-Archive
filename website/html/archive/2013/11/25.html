@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 25, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/powerstar-golf-review/1900-6415579/" class="article-title">Powerstar Golf Review</a>
+			<div class="article-subtitle">Par for the course.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/zoo-tycoon-review/1900-6415578/" class="article-title">Zoo Tycoon Review</a>
+			<div class="article-subtitle">Monkey business.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_every-xbox-one-voice-gesture-command_1100-6416375_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/every-xbox-one-voice-gesture-command/1100-6416375/" class="article-title">Every Xbox One voice, gesture command</a>
+			<div class="article-subtitle">Microsoft publishes lists of all voice and gesture commands for new home console.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_lego-the-hobbit-officially-announced-for-2014_1100-6416376_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-the-hobbit-officially-announced-for-2014/1100-6416376/" class="article-title">Lego: The Hobbit officially announced for 2014</a>
+			<div class="article-subtitle">Next Lego game set around the first two chapters of The Hobbit trilogy, An Unexpected Journey and Desolation of Smaug.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_activision-exploring-ways-to-resurrect-crash-bandicoot-series_1100-6416377_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-exploring-ways-to-resurrect-crash-bandicoot-series/1100-6416377/" class="article-title">Activision exploring ways to resurrect Crash Bandicoot series</a>
+			<div class="article-subtitle">Call of Duty publisher confirms it continues to own the "beloved" franchise and is exploring ways to bring it back some day.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_twitch-reiterates-stance-on-non-gaming-videos-after-lewd-behavior-on-ps4-playroom_1100-6416374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/twitch-reiterates-stance-on-non-gaming-videos-after-lewd-behavior-on-ps4-playroom/1100-6416374/" class="article-title">Twitch reiterates stance on non-gaming videos after lewd behavior on PS4 PlayRoom</a>
+			<div class="article-subtitle">Non-gaming PlayRoom streams being taken down, after multiple instances of lewd behavior and inappropriate comments.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_modders-create-diy-xbox-one-headset-adapters_1100-6416378_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/modders-create-diy-xbox-one-headset-adapters/1100-6416378/" class="article-title">Modders create DIY Xbox One headset adapters</a>
+			<div class="article-subtitle">Enterprising gamers create their own adapters for Microsoft's latest console to allow third-party headsets.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_gaming-focused-child-s-play-charity-raises-20-million-in-10-years_1100-6416380_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-focused-child-s-play-charity-raises-20-million-in-10-years/1100-6416380/" class="article-title">Gaming-focused Child's Play charity raises $20 million in 10 years</a>
+			<div class="article-subtitle">Charity celebrates 10 years of giving; $2.5 million donated in 2013 alone.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_assassin-s-creed-pirates-launching-december-5_1100-6416381_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/assassin-s-creed-pirates-launching-december-5/1100-6416381/" class="article-title">Assassin's Creed Pirates launching December 5</a>
+			<div class="article-subtitle">Mobile spinoff launching next month in App Store, Google Play, and Amazon Appstore for $5.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_eefje-sjokz-depoortere-and-mitch-krepo-voorspoels-_1100-6436424_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eefje-sjokz-depoortere-and-mitch-krepo-voorspoels-/1100-6436424/" class="article-title">Eefje 'sjokz' Depoortere and Mitch 'Krepo' Voorspoels to be featured on Belgian T.V.</a>
+			<div class="article-subtitle">The show "Koppen" will be creating a piece on esports, with Depoortere and Krepo as the focal points.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_microtransactions-subscriptions-will-define-next-gen-says-avalanche-boss_1100-6416382_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microtransactions-subscriptions-will-define-next-gen-says-avalanche-boss/1100-6416382/" class="article-title">Microtransactions, subscriptions will define next-gen, says Avalanche boss</a>
+			<div class="article-subtitle">"It is that simple," says Just Cause studio founder Christofer Sundberg.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_hearthstone-beta-survey-mentions-new-features-including-raids-replays-and-paid-tournaments_1100-6416383_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hearthstone-beta-survey-mentions-new-features-including-raids-replays-and-paid-tournaments/1100-6416383/" class="article-title">Hearthstone beta survey mentions new features including raids, replays, and paid tournaments</a>
+			<div class="article-subtitle">Blizzard asks Hearthstone players what features they'd like to see added to the game.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_ea-blows-the-final-whistle-on-fifa-manager_1100-6416379_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-blows-the-final-whistle-on-fifa-manager/1100-6416379/" class="article-title">EA blows the final whistle on FIFA Manager</a>
+			<div class="article-subtitle">Series to end with FIFA Manager 14.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_sony-offering-day-one-playstation-4-stock-for-uk-customers-who-didn-t-preorder_1100-6416385_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/sony-offering-day-one-playstation-4-stock-for-uk-customers-who-didn-t-preorder/1100-6416385/" class="article-title">Sony offering day one PlayStation 4 stock for UK customers who didn't preorder</a>
+			<div class="article-subtitle">You'll need to get to Covent Garden on Thursday, but there's free pizza.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_microsoft-considered-releasing-new-halo-game-as-xbox-one-launch-title_1100-6416386_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-considered-releasing-new-halo-game-as-xbox-one-launch-title/1100-6416386/" class="article-title">Microsoft considered releasing new Halo game as Xbox One launch title</a>
+			<div class="article-subtitle">Corporate VP Phil Spencer says decision was shot down so 343 Industries could release Halo 4 on Xbox 360 last fall.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_diablo-iii-reaper-of-souls-enemies-detailed_1100-6415985_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-reaper-of-souls-enemies-detailed/1100-6415985/" class="article-title">Diablo III: Reaper of Souls enemies detailed</a>
+			<div class="article-subtitle">Blizzard reveals enemies in upcoming Diablo III expansion, Reaper of Souls.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_blizzard-open-to-more-console-games_1100-6416083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-open-to-more-console-games/1100-6416083/" class="article-title">Blizzard open to more console games</a>
+			<div class="article-subtitle">World of Warcraft, Diablo studio says "As long as our fans like what we make, then there is a future" for more console game support.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_5-biggest-announcements-from-blizzcon-2013_1100-6416118_thumbnail.jpeg">
+			<a href="https://www.gamespot.com/articles/5-biggest-announcements-from-blizzcon-2013/1100-6416118/" class="article-title">5 biggest announcements from Blizzcon 2013</a>
+			<div class="article-subtitle">Big announcements from almost all of Blizzard's in-development titles.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_diablo-iii-storm-of-light-coming-2014_1100-6414361_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-storm-of-light-coming-2014/1100-6414361/" class="article-title">Diablo III: Storm of Light coming 2014</a>
+			<div class="article-subtitle">Blizzard novel bridges gap between Diablo III and Diablo III: Reaper of Souls expansion.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_diablo-iii-reaper-of-souls-confirmed-for-ps4_1100-6415640_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-iii-reaper-of-souls-confirmed-for-ps4/1100-6415640/" class="article-title">Diablo III: Reaper of Souls confirmed for PS4</a>
+			<div class="article-subtitle">Blizzard Entertainment confirms upcoming expansion in development for Sony's next-generation console, will be playable at BlizzCon 2013 next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_duncan-jones-presenting-blizzcon-panel-on-world-of-warcraft-movie_1100-6415647_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/duncan-jones-presenting-blizzcon-panel-on-world-of-warcraft-movie/1100-6415647/" class="article-title">Duncan Jones presenting BlizzCon panel on World of Warcraft movie</a>
+			<div class="article-subtitle">BlizzCon 2013 will also feature the WCS Global Finals, Heroes of the Storm, and Reaper of Souls.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_blizzard-announces-diablo-iii-expansion-reaper-of-souls_1100-6413363_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-announces-diablo-iii-expansion-reaper-of-souls/1100-6413363/" class="article-title">Blizzard announces Diablo III expansion Reaper of Souls</a>
+			<div class="article-subtitle">New Diablo III expansion will include a new character class, a new act, and new loot mechanics.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_blizzard-talks-auction-house-and-pvp-for-diablo-iii-reaper-of-souls_1100-6413437_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-talks-auction-house-and-pvp-for-diablo-iii-reaper-of-souls/1100-6413437/" class="article-title">Blizzard talks auction house and PVP for Diablo III: Reaper of Souls</a>
+			<div class="article-subtitle">Diablo III PVP is "something we're still experimenting with," says Blizzard.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_diablo-3-for-ps4-has-exclusive-features-runs-at-1080p_1100-6416082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-3-for-ps4-has-exclusive-features-runs-at-1080p/1100-6416082/" class="article-title">Diablo 3 for PS4 has exclusive features, runs at 1080p</a>
+			<div class="article-subtitle">In addition to DualShock 4 touchpad features, Blizzard will introduce new social features like Adventure Kills for upcoming next-gen version; no comment on Xbox One version.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_diablo-3-reaper-of-souls-on-ps4-supports-remote-play_1100-6416109_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-3-reaper-of-souls-on-ps4-supports-remote-play/1100-6416109/" class="article-title">Diablo 3: Reaper of Souls on PS4 supports Remote Play</a>
+			<div class="article-subtitle">Lead level designer Matthew Berger confirms game will be playable on PlayStation Vita.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_valve-announces-steam-reviews-lets-you-be-a-critic_1100-6416387_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-announces-steam-reviews-lets-you-be-a-critic/1100-6416387/" class="article-title">Valve announces Steam Reviews, lets you be a critic</a>
+			<div class="article-subtitle">Valve announces beta for new user-review feature that allows you to write reviews, rate others' reviews, and interact with developers.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_xbox-one-uk-launch-outsells-xbox-360-s-two-to-one_1100-6416369_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-uk-launch-outsells-xbox-360-s-two-to-one/1100-6416369/" class="article-title">Xbox One UK launch outsells Xbox 360's two-to-one</a>
+			<div class="article-subtitle">FIFA 14 sales spike over 300 percent, with game being bundled with some Xbox One consoles.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_get-battlefield-4-for-25-at-gamestop-on-black-friday_1100-6416388_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/get-battlefield-4-for-25-at-gamestop-on-black-friday/1100-6416388/" class="article-title">Get Battlefield 4 for $25 at GameStop on Black Friday</a>
+			<div class="article-subtitle">Other deals include Xbox 360 and PS3 hardware bundles for $199; thousands of stores opening at 12:01 a.m. on Friday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_gamestop-will-have-limited-supply-of-xbox-ones-in-stock-on-black-friday_1100-6416390_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestop-will-have-limited-supply-of-xbox-ones-in-stock-on-black-friday/1100-6416390/" class="article-title">GameStop will have "limited" supply of Xbox Ones in stock on Black Friday</a>
+			<div class="article-subtitle">Company confirms more units will be available at stores across the United States this Friday, but supply will be "very limited."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_here-s-where-all-the-xbox-one-games-landed-in-the-uk-charts_1100-6416370_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/here-s-where-all-the-xbox-one-games-landed-in-the-uk-charts/1100-6416370/" class="article-title">Here's where all the Xbox One games landed in the UK charts</a>
+			<div class="article-subtitle">Ten of the 16 physical Xbox One games available made the UK top 40 chart.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_take-two-files-new-bully-trademark-in-europe_1100-6416371_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-files-new-bully-trademark-in-europe/1100-6416371/" class="article-title">Take-Two files new Bully trademark in Europe</a>
+			<div class="article-subtitle">"Bully Bullworth Academy: Canis Canem Edit" trademark filed, though company will not say what it may pertain to.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_apple-buys-kinect-company-for-a-reported-360-million_1100-6416372_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/apple-buys-kinect-company-for-a-reported-360-million/1100-6416372/" class="article-title">Apple buys Kinect company for a reported $360 million</a>
+			<div class="article-subtitle">iPhone maker completes acquisition of Israeli 3D sensor company PrimeSense in deal estimated to be in the hundreds of millions.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_nintendo-reveals-luigi-s-mansion-dark-moon-3ds-bundle_1100-6416373_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-reveals-luigi-s-mansion-dark-moon-3ds-bundle/1100-6416373/" class="article-title">Nintendo reveals Luigi's Mansion: Dark Moon 3DS bundle</a>
+			<div class="article-subtitle">Get a Luigi's Mansion: Dark Moon 3DS bundle for $170 or a 2DS for $100 starting on Black Friday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_pc-space-sim-star-citizen-funding-passes-31-million-updated_1100-6416384_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pc-space-sim-star-citizen-funding-passes-31-million-updated/1100-6416384/" class="article-title">PC space sim Star Citizen funding passes $31 million [Updated]</a>
+			<div class="article-subtitle">Most funded project in crowdfunding history reaches another milestone.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/11/25_how-to-use-xbox-one-and-kinect-as-a-universal-remote_1100-6416392_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-to-use-xbox-one-and-kinect-as-a-universal-remote/1100-6416392/" class="article-title">How to use Xbox One and Kinect as a universal remote</a>
+			<div class="article-subtitle">A simple set-up process for new users.</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_xbox-live-bans-users-from-skype-and-upload-but-why_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-live-bans-users-from-skype-and-upload-but-why" class="article-title">Xbox Live bans users from Skype and Upload. But why?</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_the-typing-of-the-dead-overkill-gets-shakespeare-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-typing-of-the-dead-overkill-gets-shakespeare-dlc" class="article-title">The Typing of The Dead: Overkill gets Shakespeare DLC</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_saints-row-4-announces-how-the-saints-save-christmas-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/saints-row-4-announces-how-the-saints-save-christmas-dlc" class="article-title">Saints Row 4 announces How the Saints Save Christmas DLC</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_steam-adds-a-user-reviews-section_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/steam-adds-a-user-reviews-section" class="article-title">Steam adds a user reviews section</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_vlambeer-clone-tycoon-lets-you-hack-it-as-a-pariah_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/vlambeer-clone-tycoon-lets-you-hack-it-as-a-pariah" class="article-title">Vlambeer Clone Tycoon lets you hack it as a pariah</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_activision-is-exploring-ways-to-resurrect-crash-bandicoot_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/activision-is-exploring-ways-to-resurrect-crash-bandicoot" class="article-title">Activision is "exploring ways" to resurrect Crash Bandicoot</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_ps4-consoles-available-to-buy-at-sonys-london-launch-event_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ps4-consoles-available-to-buy-at-sonys-london-launch-event" class="article-title">PS4 consoles available to buy at Sony's London launch event</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_watch-us-play-xbox-one-launch-title-fighter-within_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-us-play-xbox-one-launch-title-fighter-within" class="article-title">Watch us play Xbox One launch title Fighter Within</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_hearthstone-survey-hints-at-potential-new-features_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hearthstone-survey-hints-at-potential-new-features" class="article-title">Hearthstone survey hints at potential new features</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_lego-the-hobbit-video-game-due-out-next-year-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/lego-the-hobbit-video-game-due-out-next-year-report" class="article-title">Lego The Hobbit video game due out next year</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_star-citizen-raises-an-incredible-usd30m_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/star-citizen-raises-an-incredible-usd30m" class="article-title">Star Citizen raises an incredible $30m</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_ea-admits-defeat-to-football-manager_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ea-admits-defeat-to-football-manager" class="article-title">EA admits defeat to Football Manager</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_rockstar-files-trademark-for-bully-bullworth-academy-canis-canem-edit_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rockstar-files-trademark-for-bully-bullworth-academy-canis-canem-edit" class="article-title">Rockstar files trademark for Bully Bullworth Academy: Canis Canem Edit</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_xbox-one-outsells-xbox-360-two-to-one-in-uk-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-one-outsells-xbox-360-two-to-one-in-uk-launch" class="article-title">Xbox One outsells Xbox 360 two-to-one in UK launch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_bugbear-cancels-failing-next-car-game-kickstarter_thumbnail.png">
+			<a href="https://www.eurogamer.net/bugbear-cancels-failing-next-car-game-kickstarter" class="article-title">Bugbear cancels failing Next Car Game Kickstarter</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_fifa-14-next-gen-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fifa-14-next-gen-review" class="article-title">FIFA 14 Next-Gen review</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_final-fantasy-4-sequel-now-available-for-ios-android_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/final-fantasy-4-sequel-now-available-for-ios-android" class="article-title">Final Fantasy 4 sequel now available for iOS/Android</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_blizzard-dev-apologises-for-poorresponse-to-female-character-design-question_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/blizzard-dev-apologises-for-poorresponse-to-female-character-design-question" class="article-title">Blizzard dev apologises for "poor response" to female character design question</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_twitch-battles-non-gaming-ps4-playroom-streams_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/twitch-battles-non-gaming-ps4-playroom-streams" class="article-title">Twitch battles non-gaming PS4 PlayRoom streams</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_apple-snaps-up-kinect-sensor-company-for-usd360m_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/apple-snaps-up-kinect-sensor-company-for-usd360m" class="article-title">Apple snaps up Kinect sensor company for $360m</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_halo-programmer-corrinne-yu-joins-uncharted-dev-naughty-dog_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/halo-programmer-corrinne-yu-joins-uncharted-dev-naughty-dog" class="article-title">Halo programmer Corrinne Yu joins Uncharted dev Naughty Dog</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_persona-5-a-ps3-exclusive-out-in-2014_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/persona-5-a-ps3-exclusive-out-in-2014" class="article-title">Persona 5 a PS3 exclusive out in 2014</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_ryse-son-of-rome-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ryse-son-of-rome-review" class="article-title">Ryse: Son of Rome review</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_xbox-one-off-to-a-great-start-too_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-one-off-to-a-great-start-too" class="article-title">Xbox One off to a great start, too</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/11/25_wings-of-desire-my-favourite-hearthstone-card_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wings-of-desire-my-favourite-hearthstone-card" class="article-title">Wings of desire: My favourite Hearthstone card</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g5292c622f2332/Xbox-One-clears-a-million-sales-in-first-24-hours/" class="article-title">Xbox One clears a million sales in first 24 hours</a>
+			<div class="article-subtitle">"We are going to be sold out."</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5292855c95ee1/Persona-5-announced-for-PS3-in-Japan/" class="article-title">Persona 5 announced for PS3 in Japan</a>
+			<div class="article-subtitle">Three spin-offs on the way too.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g529281af429b1/NBA-Live-14-not-getting-the-feedback-EA-expected/" class="article-title">NBA Live 14 not getting the feedback EA expected</a>
+			<div class="article-subtitle">"A rough week."</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g5292765197f25/Plants-vs.-Zombies-Garden-Warfare-ships-this-February/" class="article-title">Plants vs. Zombies: Garden Warfare ships this February</a>
+			<div class="article-subtitle">For Xbox One, 360, PC later.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g52926990121c7/John-Carmack-leaves-id-Software-entirely-for-Oculus-role/" class="article-title">John Carmack leaves id Software entirely for Oculus role</a>
+			<div class="article-subtitle">After a half measure in August.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-dark-rumor.php" class="article-title">The Dark Rumor</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/blade-rush.php" class="article-title">Blade Rush</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-246.php" class="article-title">Mobile Monday №246</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

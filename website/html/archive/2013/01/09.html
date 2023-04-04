@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 9, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/chaos-on-deponia-review/1900-6402145/" class="article-title">Chaos on Deponia Review</a>
+			<div class="article-subtitle">Chaos on Deponia is a beautiful and charming point-and-click adventure, despite a few idiosyncratic puzzles.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_pokemon-x-and-y-announced-for-3ds-in-october-2013_1100-6402096_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-x-and-y-announced-for-3ds-in-october-2013/1100-6402096/" class="article-title">Pokemon X and Y announced for 3DS in October 2013</a>
+			<div class="article-subtitle">First full-3D game in the mainline Pokemon series coming to 3DS later this year.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_gabe-newell-discusses-valves-steam-box-intentions_1100-6402156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gabe-newell-discusses-valves-steam-box-intentions/1100-6402156/" class="article-title">Gabe Newell discusses Valve's Steam Box intentions</a>
+			<div class="article-subtitle">Valve's own Steam Box will be based on Linux; company also looking into creating its own low-latency controller with biometric feedback.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_telltales-the-walking-dead-sells-85-million-episodes_1100-6402072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/telltales-the-walking-dead-sells-85-million-episodes/1100-6402072/" class="article-title">Telltale's The Walking Dead sells 8.5 million episodes</a>
+			<div class="article-subtitle">Five-chapter series generates over $40 million in sales for developer Telltale; mobile sales account for 25 per cent of total.</div>
+			<div class="article-author">Pavel Tishakov</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_far-cry-3-sells-850000-in-december-says-analyst_1100-6402161_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/far-cry-3-sells-850000-in-december-says-analyst/1100-6402161/" class="article-title">Far Cry 3 sells 850,000 in December, says analyst</a>
+			<div class="article-subtitle">Cowen & Company industry watcher estimates US sales for Ubisoft's action-shooter, predicts overall industry sales slide 21 percent.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_major-layoffs-at-majesco-uk-report_1100-6402164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/major-layoffs-at-majesco-uk-report/1100-6402164/" class="article-title">Major layoffs at Majesco UK - Report</a>
+			<div class="article-subtitle">Zumba Fitness publisher said to have enacted substantial round of layoffs at Brockhampton, United Kingdom office.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_expect-more-xbox-live-ads_1100-6402159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/expect-more-xbox-live-ads/1100-6402159/" class="article-title">Expect more Xbox Live ads</a>
+			<div class="article-subtitle">Microsoft says first wave of NUads for online platform have been highly successful, "more investment" planned.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_windows-8-sells-60-million-licenses_1100-6402158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/windows-8-sells-60-million-licenses/1100-6402158/" class="article-title">Windows 8 sells 60 million licenses</a>
+			<div class="article-subtitle">Microsoft announces new life-to-date sales milestone for latest operating system, says it is seeing a "similar sales trajectory" to Windows 7.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_connecticut-town-cancels-plans-to-destroy-games_1100-6402166_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/connecticut-town-cancels-plans-to-destroy-games/1100-6402166/" class="article-title">Connecticut town cancels plans to destroy games</a>
+			<div class="article-subtitle">Community leaders in Southington say their aim to promote discussion has proven successful, making physical event unnecessary.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_mlb-2k13-due-march-5_1100-6402162_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-2k13-due-march-5/1100-6402162/" class="article-title">MLB 2K13 due March 5</a>
+			<div class="article-subtitle">2K Sports bringing baseball sim to Xbox 360 and PS3 later this year; $1 million Perfect Game challenge also returning.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_console-business-here-to-stay-says-sony-ceo_1100-6402172_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/console-business-here-to-stay-says-sony-ceo/1100-6402172/" class="article-title">Console business here to stay, says Sony CEO</a>
+			<div class="article-subtitle">Kaz Hirai says market for home-based systems and dedicated portable gaming devices not going away anytime soon.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_microsoft-reveals-new-xbox-illumiroom-concept_1100-6402178_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-reveals-new-xbox-illumiroom-concept/1100-6402178/" class="article-title">Microsoft reveals new Xbox IllumiRoom concept</a>
+			<div class="article-subtitle">Proof-of-concept system from Microsoft Research uses Kinect camera to combine virtual and physical worlds.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_gamespots-paid-subscriptions-services-ending_1100-6402181_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespots-paid-subscriptions-services-ending/1100-6402181/" class="article-title">GameSpot's paid subscriptions services ending</a>
+			<div class="article-subtitle">All good things must come to an end.  here are a few bullet points about what is changing, why we’re ending it, and how this might affect you.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/01/09_gamespot-asia-beat-ep-16-2013-a-geek-odyssey_1100-6402192_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-asia-beat-ep-16-2013-a-geek-odyssey/1100-6402192/" class="article-title">GameSpot Asia Beat Ep. 16: 2013 - A Geek Odyssey</a>
+			<div class="article-subtitle">We start off 2013 with a game-amplified bang, starting with Warframe, BioShock Infinite, Pokemon X and Y, and whole lot more upcoming titles.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_american-mcgees-akaneiro-demon-hunters-enters-open-beta_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/american-mcgees-akaneiro-demon-hunters-enters-open-beta" class="article-title">American McGee's Akaneiro: Demon Hunters enters open beta</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_trends-of-2013-the-real-meets-the-virtual_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/trends-of-2013-the-real-meets-the-virtual" class="article-title">Trends of 2013: The real meets the virtual</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_trends-of-2013-the-last-console-generation_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/trends-of-2013-the-last-console-generation" class="article-title">Trends of 2013: The last console generation</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_what-a-year-kickstarter-had-in-2012_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/what-a-year-kickstarter-had-in-2012" class="article-title">What a year Kickstarter had in 2012</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_devil-may-cry-bloody-palace-mode-comes-with-post-launch-title-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/devil-may-cry-bloody-palace-mode-comes-with-post-launch-title-update" class="article-title">Devil May Cry Bloody Palace mode comes with post-launch title update</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_fantasy-mmo-tera-goes-free-to-play-nine-months-after-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fantasy-mmo-tera-goes-free-to-play-nine-months-after-launch" class="article-title">Fantasy MMO Tera goes free-to-play nine months after launch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_app-of-the-day-super-ox-wars_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-super-ox-wars" class="article-title">App of the Day: Super Ox Wars</a>
+			<div class="article-author">Rich Stanton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_nintendo-handheld-consoles-remain-focus-for-pokemon-rpgs_thumbnail.png">
+			<a href="https://www.eurogamer.net/nintendo-handheld-consoles-remain-focus-for-pokemon-rpgs" class="article-title">Nintendo: handheld consoles remain focus for Pokémon RPGs</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_f2p-action-rpg-mmo-marvel-heroes-out-spring-2013-on-pc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/f2p-action-rpg-mmo-marvel-heroes-out-spring-2013-on-pc" class="article-title">F2P action RPG MMO Marvel Heroes out spring 2013 on PC</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_shaquille-oneal-stars-in-mobile-zombie-basketball-em-up-shaqdown_thumbnail.png">
+			<a href="https://www.eurogamer.net/shaquille-oneal-stars-in-mobile-zombie-basketball-em-up-shaqdown" class="article-title">Shaquille O'Neal stars in mobile zombie basketball-'em-up ShaqDown</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_fan-made-my-little-pony-fighting-game-in-with-a-chance-of-making-it-to-evo-2013_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fan-made-my-little-pony-fighting-game-in-with-a-chance-of-making-it-to-evo-2013" class="article-title">Fan-made My Little Pony fighting game in with a chance of making it to Evo 2013</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_play-com-closing-retail-business-in-march_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/play-com-closing-retail-business-in-march" class="article-title">Play.com closing retail business in March</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_app-of-the-day-middle-manager-of-justice_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-middle-manager-of-justice" class="article-title">App of the Day: Middle Manager of Justice</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_three-dog-tweet-sets-tongues-wagging-on-possible-fallout-4-announcement_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/three-dog-tweet-sets-tongues-wagging-on-possible-fallout-4-announcement" class="article-title">Three Dog tweet sets tongues wagging on possible Fallout 4 announcement</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_play-the-half-life-1997-alpha-preview-build-its-funny_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/play-the-half-life-1997-alpha-preview-build-its-funny" class="article-title">Play the Half-Life 1997 Alpha preview build, it's funny</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_eve-online-dust-514-servers-will-merge-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/eve-online-dust-514-servers-will-merge-tomorrow" class="article-title">EVE Online, Dust 514 servers will merge tomorrow</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_razer-edge-gaming-tablet-transforms-into-pc-console-and-mobile-console_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/razer-edge-gaming-tablet-transforms-into-pc-console-and-mobile-console" class="article-title">Razer Edge gaming tablet transforms into PC, console and mobile console</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_microsoft-delighted-with-xbox-nuads-vows-increased-investment_thumbnail.png">
+			<a href="https://www.eurogamer.net/microsoft-delighted-with-xbox-nuads-vows-increased-investment" class="article-title">Microsoft delighted with Xbox NUads, vows increased investment</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_windows-8-sales-break-60-million-in-10-weeks_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/windows-8-sales-break-60-million-in-10-weeks" class="article-title">Windows 8 sales break 60 million in 10 weeks</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_developer-reflects-on-release-of-ios-lords-of-midnight_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/developer-reflects-on-release-of-ios-lords-of-midnight" class="article-title">Developer reflects on release of iOS Lords of Midnight</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_sonys-fighting-to-get-back-the-wow-factor-says-hirai_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sonys-fighting-to-get-back-the-wow-factor-says-hirai" class="article-title">Sony's fighting to get back the wow factor, says Hirai</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_painkiller-hell-and-damnation-confirmed-for-console-out-april_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/painkiller-hell-and-damnation-confirmed-for-console-out-april" class="article-title">Painkiller Hell & Damnation confirmed for console, out April</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_gabe-newell-lays-out-valves-steam-box-plans_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gabe-newell-lays-out-valves-steam-box-plans" class="article-title">Gabe Newell lays out Valve's Steam Box plans</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_might-and-magic-clash-of-heroes-ios-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/might-and-magic-clash-of-heroes-ios-release-date" class="article-title">Might & Magic Clash of Heroes iOS release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/01/09_call-of-duty-black-ops-2-revolution-dlc-lets-you-play-as-a-zombie_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-black-ops-2-revolution-dlc-lets-you-play-as-a-zombie" class="article-title">Call of Duty: Black Ops 2 Revolution DLC lets you play as a zombie</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/g50ecd3fcbb594/First-Black-Ops-II-DLC-allows-players-to-be-zombies/" class="article-title">First Black Ops II DLC allows players to be zombies</a>
+			<div class="article-subtitle">Only Xbox 360 release confirmed at this stage.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ec94a527d97/No-Castlevania-Lords-of-Shadow-2-or-Crysis-3-for-Wii-U/" class="article-title">No Castlevania: Lords of Shadow 2 or Crysis 3 for Wii U</a>
+			<div class="article-subtitle">Strictly business.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g50ecc68d4ebb0/Sniper-Ghost-Warrior-2-expected-this-March/" class="article-title">Sniper: Ghost Warrior 2 expected this March</a>
+			<div class="article-subtitle">Scope it.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ecb758f1632/Steam-Box-will-be-a-server-that-allows-up-to-eight-simultaneous-users-Newell/" class="article-title">Steam Box will be a server that allows up to eight simultaneous users – Newell</a>
+			<div class="article-subtitle">Valve also researching biometric inputs.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ec944ac5a93/Nintendo-open-to-free-to-play-on-Wii-U/" class="article-title">Nintendo open to free-to-play on Wii U</a>
+			<div class="article-subtitle">Pay-to-win stance unknown.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/g50eca98c835dd/God-of-War-Ascension-multiplayer-beta-hits-PlayStation-Plus/" class="article-title">God of War: Ascension multiplayer beta hits PlayStation Plus</a>
+			<div class="article-subtitle">Playable from today.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ec9104a3d25/Wii-U-sales-hurt-by-Premium-console-shortage---Iwata/" class="article-title">Wii U sales hurt by Premium console shortage - Iwata</a>
+			<div class="article-subtitle">Sales "not bad".</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ec78be62956/Lego-Marvel-Super-Heroes-to-feature-100-unlockable-characters/" class="article-title">Lego Marvel Super Heroes to feature 100 unlockable characters</a>
+			<div class="article-subtitle">Save the earth from Loki and Galactus.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g50ec731e7f4f0/First-Pok-mon-titles-for-3DS-out-this-October/" class="article-title">First Pokémon titles for 3DS out this October</a>
+			<div class="article-subtitle">New platform, new protagonist.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/battle-cats.php" class="article-title">Battle Cats</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/wilt-last-blossom.php" class="article-title">Wilt: Last Blossom</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/best-of-2012.php" class="article-title">Best of 2012!</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/uchino.php" class="article-title">Uchino</a>
+			<div class="article-author">elle</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

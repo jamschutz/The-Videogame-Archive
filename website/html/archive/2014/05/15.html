@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 15, 2014</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-kart-8/1900-6415760/" class="article-title">Mario Kart 8 Review</a>
+			<div class="article-subtitle">Lapping the field.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/nutjitsu-review/1900-6415761/" class="article-title">Nutjitsu Review</a>
+			<div class="article-subtitle">A level playing field.</div>
+			<div class="article-author">Jason Venter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_diablo-3-anniversary-event-will-make-it-easier-for-you-to-get-legendaries_1100-6419646_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/diablo-3-anniversary-event-will-make-it-easier-for-you-to-get-legendaries/1100-6419646/" class="article-title">Diablo 3 anniversary event will make it easier for you to get legendaries</a>
+			<div class="article-subtitle">You might as well call me Old MacDonald because this weekend I'm going to be farming.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_flappy-bird-returning-in-august-with-multiplayer-will-be-less-addictive_1100-6419647_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/flappy-bird-returning-in-august-with-multiplayer-will-be-less-addictive/1100-6419647/" class="article-title">Flappy Bird returning in August with multiplayer, will be "less addictive"</a>
+			<div class="article-subtitle">Creator Dong Nguyen also says he's working on "a lot of games" for the future.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_the-witcher-3-no-more-delays-dev-promises_1100-6419648_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/the-witcher-3-no-more-delays-dev-promises/1100-6419648/" class="article-title">The Witcher 3: "No more delays," dev promises</a>
+			<div class="article-subtitle">CD Projekt Red says, "This is not our first game; we are not newbies."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_dayz-hacked-but-no-user-data-compromised_1100-6419649_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dayz-hacked-but-no-user-data-compromised/1100-6419649/" class="article-title">DayZ hacked, but no user data compromised</a>
+			<div class="article-subtitle">Bohemia says it's investigating the nature and scope of the attack.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_atari-resurrecting-1982-game-haunted-house-for-ios-devices_1100-6419652_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/atari-resurrecting-1982-game-haunted-house-for-ios-devices/1100-6419652/" class="article-title">Atari resurrecting 1982 game Haunted House for iOS devices</a>
+			<div class="article-subtitle">New version of Atari 2600 game available now on iTunes as a free-to-play endless runner.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_square-enix-you-have-to-take-risks_1100-6419653_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-you-have-to-take-risks/1100-6419653/" class="article-title">Square Enix: "You have to take risks"</a>
+			<div class="article-subtitle">Final Fantasy boss Phil Rogers says, "What we won't do is stand still."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_team-liquid-vs-sna-to-kick-off-the-final-day-of-th_1100-6437681_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/team-liquid-vs-sna-to-kick-off-the-final-day-of-th/1100-6437681/" class="article-title">Team Liquid vs. SNA to kick off the final day of the TI4 NA Qualifiers</a>
+			<div class="article-subtitle">Will Team Liquid''s wings have grown big enough, or will the Sneaky Nyx Assassins eek out a victory to reach Seattle?</div>
+			<div class="article-author">Sam 'Wndwrt' Nordmark</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_wolfenstein-the-new-order-launch-trailer-is-here-game-arrives-next-week_1100-6419655_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wolfenstein-the-new-order-launch-trailer-is-here-game-arrives-next-week/1100-6419655/" class="article-title">Wolfenstein: The New Order launch trailer is here, game arrives next week</a>
+			<div class="article-subtitle">Bethesda releases launch trailer for next week's FPS; coming to Xbox 360, Xbox One, PlayStation 3, PlayStation 4, and PC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_7-kirby-facts-you-might-have-missed-over-the-years_1100-6419579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/7-kirby-facts-you-might-have-missed-over-the-years/1100-6419579/" class="article-title">7 Kirby facts you might have missed over the years</a>
+			<div class="article-subtitle">There's way more to Kirby than just sucking and blowing.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ps4-pc-action-rpg-bombshell-revealed-runs-on-unreal-engine_1100-6419651_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-pc-action-rpg-bombshell-revealed-runs-on-unreal-engine/1100-6419651/" class="article-title">PS4, PC action RPG Bombshell revealed, runs on Unreal Engine</a>
+			<div class="article-subtitle">Rise of the Triad developer Interceptor Entertainment reveals new action RPG starring Shelly "Bombshell" Harrison; check out the first trailer here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_sakurai-wants-to-make-a-game-for-vr-but-not-smash-bros_1100-6419656_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sakurai-wants-to-make-a-game-for-vr-but-not-smash-bros/1100-6419656/" class="article-title">Sakurai wants to make a game for VR, but not Smash Bros.</a>
+			<div class="article-subtitle">Masahiro Sakurai says he's excited about the potential for virtual reality for games, but not for this year's Smash Bros. game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_new-2-5d-side-scrolling-beat-em-up-revealed-runs-on-unreal-engine-4_1100-6419657_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-2-5d-side-scrolling-beat-em-up-revealed-runs-on-unreal-engine-4/1100-6419657/" class="article-title">New 2.5D side-scrolling beat 'em up revealed, runs on Unreal Engine 4</a>
+			<div class="article-subtitle">Boston startup studio Rotary Games launches Kickstarter campaign for Rudo Resurrection, featuring wrestlers from Chikara.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-s-open-world-racer-the-crew-has-been-in-development-for-six-years_1100-6419658_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-s-open-world-racer-the-crew-has-been-in-development-for-six-years/1100-6419658/" class="article-title">Ubisoft's open-world racer The Crew has been in development for six years</a>
+			<div class="article-subtitle">That means Ubisoft started development on the Xbox One, PS4, and PC racing game sometime around 2008.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_interview-with-hearthstone-player-amaz-part-3-of-3_1100-6437665_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/interview-with-hearthstone-player-amaz-part-3-of-3/1100-6437665/" class="article-title">Interview with Hearthstone player Amaz - Part 3 of 3</a>
+			<div class="article-subtitle">The epic conclusion of our three part interview with Hearthstone player Amaz! Here we talk about the Naxx update, about his epic sax skills and more!</div>
+			<div class="article-author">Mishaal 'tMK' Syed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-watch-dogs-on-pace-to-become-the-most-successful-new-ip-in-video-game-history_1100-6419660_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-watch-dogs-on-pace-to-become-the-most-successful-new-ip-in-video-game-history/1100-6419660/" class="article-title">Ubisoft: Watch Dogs on pace to become the most successful new IP in video game history</a>
+			<div class="article-subtitle">Open-world game is the most preordered new IP in Ubisoft's history, the company adds.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_the-world-is-ready-for-a-new-dino-crisis_1100-6419643_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-world-is-ready-for-a-new-dino-crisis/1100-6419643/" class="article-title">The World Is Ready for a New Dino Crisis</a>
+			<div class="article-subtitle">Extinct no more.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_assassin-s-creed-4-ships-11-million-units-far-cry-3-hits-9-million_1100-6419661_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassin-s-creed-4-ships-11-million-units-far-cry-3-hits-9-million/1100-6419661/" class="article-title">Assassin's Creed 4 ships 11 million units, Far Cry 3 hits 9 million</a>
+			<div class="article-subtitle">Plus, South Park: The Stick of Truth sees "better-than-expected" sales, 25 percent of which were digital.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-extremely-happy-about-xbox-one-price-cut-says-it-s-a-great-move_1100-6419663_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-extremely-happy-about-xbox-one-price-cut-says-it-s-a-great-move/1100-6419663/" class="article-title">Ubisoft "extremely happy" about Xbox One price cut, says it's a "great move"</a>
+			<div class="article-subtitle">CEO Yves Guillemot says Microsoft's decision to make Kinect optional is a "very positive thing for the industry."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_reflections-with-alex-ich_1100-6437654_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/reflections-with-alex-ich/1100-6437654/" class="article-title">'Reflections' with Alex Ich</a>
+			<div class="article-subtitle">Alex Ich, former Mid laner of Gambit and now Top laner for NiP, is the star of Episode 29.</div>
+			<div class="article-author">Duncan 'Thorin' Shields</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_xbox-one-games-with-gold-kicks-off-in-june-resembles-playstation-plus_1100-6419602_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-games-with-gold-kicks-off-in-june-resembles-playstation-plus/1100-6419602/" class="article-title">Xbox One Games With Gold kicks off in June, resembles PlayStation Plus</a>
+			<div class="article-subtitle">Xbox Live Gold members will begin getting "subscription-based access" to free Xbox One games next month.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_far-cry-4-confirmed-for-xbox-360-xbox-one-ps3-ps4-and-pc_1100-6419659_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/far-cry-4-confirmed-for-xbox-360-xbox-one-ps3-ps4-and-pc/1100-6419659/" class="article-title">Far Cry 4 confirmed for Xbox 360, Xbox One, PS3, PS4, and PC</a>
+			<div class="article-subtitle">Ubisoft officially confirms next entry in action series, launching November 18 and set in the Himalayas.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-s-the-division-delayed-to-2015_1100-6419662_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-s-the-division-delayed-to-2015/1100-6419662/" class="article-title">Ubisoft's The Division delayed to 2015</a>
+			<div class="article-subtitle">Assassin's Creed publisher delays upcoming Xbox One, PlayStation 4, and PC game to 2015.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_10-studios-are-working-on-assassin-s-creed-unity-that-s-three-more-than-ac4_1100-6419664_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/10-studios-are-working-on-assassin-s-creed-unity-that-s-three-more-than-ac4/1100-6419664/" class="article-title">10 studios are working on Assassin's Creed Unity; that's three more than AC4</a>
+			<div class="article-subtitle">Ubisoft teams in Montreal, Toronto, Singapore, Quebec, Annecy, Shanghai, Chengdu, Kiev, Montpellier, and Bucharest are working on this year's game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-s-racer-the-crew-is-the-world-of-warcraft-of-driving-games_1100-6419665_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-s-racer-the-crew-is-the-world-of-warcraft-of-driving-games/1100-6419665/" class="article-title">Ubisoft's racer The Crew is the "World of Warcraft of driving games"</a>
+			<div class="article-subtitle">Publisher likens upcoming Xbox One, PlayStation 4, and PC racing game to Blizzard's genre-defining MMO.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_mass-effect-3-s-most-popular-commander-shepard-names-revealed_1100-6419667_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-3-s-most-popular-commander-shepard-names-revealed/1100-6419667/" class="article-title">Mass Effect 3's most popular Commander Shepard names revealed</a>
+			<div class="article-subtitle">Unsurprisingly, the default names were the ones most commonly used.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_australian-gamespot-readers-can-win-a-trip-to-e3-2014_1100-6419473_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/australian-gamespot-readers-can-win-a-trip-to-e3-2014/1100-6419473/" class="article-title">Australian GameSpot readers can win a trip to E3 2014!</a>
+			<div class="article-subtitle">Win the trip of a lifetime!</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ps4-boss-teases-very-exciting-e3-plans_1100-6419218_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-boss-teases-very-exciting-e3-plans/1100-6419218/" class="article-title">PS4 boss teases "very exciting" E3 plans</a>
+			<div class="article-subtitle">Worldwide Studios boss Shuhei Yoshida says you won't want to miss Sony's briefing this summer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ps4-outsells-xbox-one-in-us-during-april-titanfall-remains-top-seller_1100-6419672_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-outsells-xbox-one-in-us-during-april-titanfall-remains-top-seller/1100-6419672/" class="article-title">PS4 outsells Xbox One in US during April; Titanfall remains top seller</a>
+			<div class="article-subtitle">NPD's April report shows Titanfall coming out on top for the second month running.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_xbox-one-sells-115-000-units-in-the-us-during-april_1100-6419671_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-sells-115-000-units-in-the-us-during-april/1100-6419671/" class="article-title">Xbox One sells 115,000 units in the US during April</a>
+			<div class="article-subtitle">New console outpacing Xbox 360 by 76 percent in the first six months.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ps4-and-xbox-one-combined-sales-will-reach-30-million-units-by-march-2015-ubisoft-says_1100-6419670_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-and-xbox-one-combined-sales-will-reach-30-million-units-by-march-2015-ubisoft-says/1100-6419670/" class="article-title">PS4 and Xbox One combined sales will reach 30 million units by March 2015, Ubisoft says</a>
+			<div class="article-subtitle">CEO Yves Guillemot says total worldwide install base for new consoles expected to more than double by this time next year.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ultra-street-fighter-4-s-15-upgrade-works-with-xbox-live-plus-freebie-ssf4_1100-6419668_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultra-street-fighter-4-s-15-upgrade-works-with-xbox-live-plus-freebie-ssf4/1100-6419668/" class="article-title">Ultra Street Fighter 4's $15 upgrade works with Xbox Live/Plus freebie SSF4</a>
+			<div class="article-subtitle">The latest game in the Street Fighter IV series will be available in early June.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ubisoft-not-ready-to-abandon-xbox-360-ps3-just-yet_1100-6419673_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-not-ready-to-abandon-xbox-360-ps3-just-yet/1100-6419673/" class="article-title">Ubisoft not ready to abandon Xbox 360, PS3 just yet</a>
+			<div class="article-subtitle">CEO Yves Guillemot teases that a version of Assassin's Creed Unity will be released for last-generation consoles.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_the-deciding-game-of-the-ti4-na-qualifiers-to-be-d_1100-6437682_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-deciding-game-of-the-ti4-na-qualifiers-to-be-d/1100-6437682/" class="article-title">The deciding game of the TI4 NA qualifiers to be delayed until May 16th 4PM EDT/22:00 CET</a>
+			<div class="article-subtitle">After having come down to the fifth and final game of the TI4 NA qualifier''s Bo5 grand finals, the game has been delayed.</div>
+			<div class="article-author">Sam 'Wndwrt' Nordmark</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_cj-entus-blaze-vs-samsung-ozone-3rd-place-match-pr_1100-6437683_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cj-entus-blaze-vs-samsung-ozone-3rd-place-match-pr/1100-6437683/" class="article-title">CJ Entus Blaze vs Samsung Ozone - 3rd Place Match Preview</a>
+			<div class="article-subtitle">Circuit points are on the line for these two Korean teams</div>
+			<div class="article-author">William Turton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/05/15_ps4-s-mlb-14-the-show-hits-it-out-of-the-park_1100-6419675_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-s-mlb-14-the-show-hits-it-out-of-the-park/1100-6419675/" class="article-title">PS4's MLB 14: The Show hits it out of the park</a>
+			<div class="article-subtitle">The PlayStation 4 version of the game has established it's success in a record-breaking week for the MLB game series.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_introducing-cleverpet-the-worlds-first-video-game-console-for-dogs_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/introducing-cleverpet-the-worlds-first-video-game-console-for-dogs" class="article-title">Introducing CleverPet: the world's first game console for dogs</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_time-stopping-action-puzzler-superhot-launches-kickstarter_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/time-stopping-action-puzzler-superhot-launches-kickstarter" class="article-title">Time-stopping action puzzler Superhot launches Kickstarter</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_gta-trilogy-comes-to-amazons-fire-tv-and-kindle-fire_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gta-trilogy-comes-to-amazons-fire-tv-and-kindle-fire" class="article-title">GTA Trilogy comes to Amazon's Fire TV and Kindle Fire</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_the-division-delayed-until-at-least-q2-2015_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-division-delayed-until-at-least-q2-2015" class="article-title">The Division delayed until at least Q2 2015</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_the-stanley-parables-narrator-comes-to-dota-2-as-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-stanley-parables-narrator-comes-to-dota-2-as-dlc" class="article-title">The Stanley Parable's narrator comes to Dota 2 as DLC</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_ultra-street-fighter-4-release-dates-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ultra-street-fighter-4-release-dates-announced" class="article-title">Ultra Street Fighter 4 release dates announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_video-watch-us-play-titanfalls-new-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-watch-us-play-titanfalls-new-dlc" class="article-title">Video: Titanfall DLC live stream</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_thomas-was-alone-ipad-launches-today_thumbnail.png">
+			<a href="https://www.eurogamer.net/thomas-was-alone-ipad-launches-today" class="article-title">Thomas Was Alone iPad launches today</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_100-percent-boost-to-finding-legendaries-in-diablo-3-this-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/100-percent-boost-to-finding-legendaries-in-diablo-3-this-week" class="article-title">100% boost to finding Legendaries in Diablo 3 this week</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_there-was-a-canned-third-person-call-of-duty-game-set-in-vietnam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/there-was-a-canned-third-person-call-of-duty-game-set-in-vietnam" class="article-title">There was a canned third-person Call of Duty game set in Vietnam</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_video-see-sunset-overdrive-in-glorious-action_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-see-sunset-overdrive-in-glorious-action" class="article-title">Video: See Sunset Overdrive in glorious action</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_how-the-developers-of-endless-legend-see-the-end-in-sigh_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/how-the-developers-of-endless-legend-see-the-end-in-sigh" class="article-title">How the developers of Endless Legend see the end in sight</a>
+			<div class="article-author">Paul Dean</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_video-see-moody-exploration-game-sunless-sea-in-action_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-see-moody-exploration-game-sunless-sea-in-action" class="article-title">Video: See moody exploration game Sunless Sea in action</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_us-tv-actor-cast-in-halo-digital-feature-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/us-tv-actor-cast-in-halo-digital-feature-report" class="article-title">US TV actor cast in Halo digital feature - report</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_cd-projekt-red-promises-no-more-delays-for-the-witcher-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cd-projekt-red-promises-no-more-delays-for-the-witcher-3" class="article-title">CD Projekt Red promises "no more delays" for The Witcher 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_philips-seeks-to-ban-sale-of-wii-u-consoles_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/philips-seeks-to-ban-sale-of-wii-u-consoles" class="article-title">Philips wants Wii U banned for patent infringement</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_nintendo-announces-free-downloadable-3ds-pokemon-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-announces-free-downloadable-3ds-pokemon-game" class="article-title">Nintendo announces free downloadable 3DS Pokémon game</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/05/15_3d-realms-reveals-pc-and-ps4-action-rpg-bombshell_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/3d-realms-reveals-pc-and-ps4-action-rpg-bombshell" class="article-title">3D Realms reveals PC and PS4 action-RPG Bombshell</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/g537430574e8a0/Grand-Theft-Auto-Onlines-new-Mental-State-stat-identifies-psychotic-players/" class="article-title">Grand Theft Auto Online's new Mental State stat identifies psychotic players</a>
+			<div class="article-subtitle">Are you talkin' to me?</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5373fa1189b9a/Man-who-exposed-mass-internet-surveillance-inspired-by-games/" class="article-title">Man who exposed mass internet surveillance inspired by games</a>
+			<div class="article-subtitle">Snowden's digital heroes.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g5373f111a7320/PS4-launch-pushes-Sonys-games-division-into-the-red/" class="article-title">PS4 launch pushes Sony's games division into the red</a>
+			<div class="article-subtitle">Profit likely over next 12 months, though.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5373e2caad87a/Time-bending-FPS-puzzle-hybrid-Superhot-hits-Kickstarter/" class="article-title">Time-bending FPS puzzle hybrid Superhot hits Kickstarter</a>
+			<div class="article-subtitle">"It's unlike anything you've seen before."</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5373dc487b661/Xbox-Live-Gold-refunds-available-once-apps-go-free-for-all-next-month/" class="article-title">Xbox Live Gold refunds available once apps go free for all next month</a>
+			<div class="article-subtitle">One for all you Skype addicts.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/house-of-fear-revenge.php" class="article-title">House of Fear: Revenge</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/monument-valley.php" class="article-title">Monument Valley</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/madmen-racing.php" class="article-title">Madmen Racing</a>
+			<div class="article-author">Johnny123</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

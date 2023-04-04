@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 6, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/apotheon-review/1900-6416025/" class="article-title">Apotheon Review</a>
+			<div class="article-subtitle">What''s a god to a non-believer?</div>
+			<div class="article-author">Daniel Starkey</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/elite-dangerous-review/1900-6416023/" class="article-title">Elite: Dangerous Review</a>
+			<div class="article-subtitle">Mundanity is from Mars.</div>
+			<div class="article-author">Nick Capozzoli</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/idarb-review/1900-6416024/" class="article-title">#IDARB Review</a>
+			<div class="article-subtitle">#IDDQD</div>
+			<div class="article-author">Tyler Hicks</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_new-hearthstone-adventure-coming-april-report-clai_1100-6424995_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-hearthstone-adventure-coming-april-report-clai/1100-6424995/" class="article-title">New Hearthstone Adventure Coming April, Report Claims</a>
+			<div class="article-subtitle">Plus, Hearthstone team said to be testing 2v2 mode; User numbers allegedly shoot past 75m mark [UPDATE]</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_xbox-one-february-system-update-goes-live_1100-6425142_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-february-system-update-goes-live/1100-6425142/" class="article-title">Xbox One February System Update Goes Live</a>
+			<div class="article-subtitle">Raft of improvements and new features added, affecting the controller, party chat, and Dashboard.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_be-the-first-to-see-olliolli2-s-final-level-titan-_1100-6425125_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/be-the-first-to-see-olliolli2-s-final-level-titan-/1100-6425125/" class="article-title">Be the First to See OlliOlli2's Final Level, Titan Sky</a>
+			<div class="article-subtitle">GameSpot’s exclusive first look at what developer Roll7 is calling the “last voyage of the skater”.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_microsoft-investigating-xbox-live-message-spam-iss_1100-6425145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-investigating-xbox-live-message-spam-iss/1100-6425145/" class="article-title">Microsoft Investigating Xbox Live Message Spam Issue</a>
+			<div class="article-subtitle">"We''re working on it."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_watch-teaser-for-law-order-svu-gamer-harassment-ep_1100-6425146_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-teaser-for-law-order-svu-gamer-harassment-ep/1100-6425146/" class="article-title">Watch Teaser for Law & Order: SVU Gamer Harassment Episode</a>
+			<div class="article-subtitle">"Ripped-from-the-headlines" story about a game developer facing harassment to air next week on popular NBC crime-drama.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_dark-souls-2-ps4-is-1080p-60fps_1100-6425148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-souls-2-ps4-is-1080p-60fps/1100-6425148/" class="article-title">Dark Souls 2 PS4 Is 1080p/60fps</a>
+			<div class="article-subtitle">Native resolution and frame rate confirmed for PlayStation 4 edition of upcoming role-playing game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_dragon-age-inquisition-wins-dice-2015-game-of-the-_1100-6425130_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-inquisition-wins-dice-2015-game-of-the-/1100-6425130/" class="article-title">Dragon Age Inquisition Wins DICE 2015 Game of the Year</a>
+			<div class="article-subtitle">Dragon Age: Inquisition and Middle-earth: Shadow of Mordor win big at annual awards show.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_mlb-15-the-show-ps4-graphics-comparison_1100-6425149_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mlb-15-the-show-ps4-graphics-comparison/1100-6425149/" class="article-title">MLB 15: The Show PS4 Graphics Comparison</a>
+			<div class="article-subtitle">See how this year''s professional baseball game compares to last year''s.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_destiny-dev-it-s-important-we-learn-from-mistakes_1100-6425150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-dev-it-s-important-we-learn-from-mistakes/1100-6425150/" class="article-title">Destiny Dev: It's Important We Learn From Mistakes</a>
+			<div class="article-subtitle">"It''s like when you look back at your teenage years, and you say, why did I do that?"</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_ea-exec-our-games-are-too-hard-to-learn_1100-6425141_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-exec-our-games-are-too-hard-to-learn/1100-6425141/" class="article-title">EA Exec: "Our Games Are Too Hard To Learn"</a>
+			<div class="article-subtitle">Plus, Shadow of Mordor director says he thinks we''ll see more and more games with RPG systems in the future.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_total-war-attila-exclusive-huns-faction-gameplay-l_1100-6425114_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/total-war-attila-exclusive-huns-faction-gameplay-l/1100-6425114/" class="article-title">Total War: Attila - Exclusive Huns Faction Gameplay Live Stream</a>
+			<div class="article-subtitle">Join us live on February 6 at 8AM PST/4PM GMT as we give you your first look at the Huns Faction of Total War: Attila.</div>
+			<div class="article-author">Sarah Lynch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_what-if-destiny-s-ghost-were-voiced-by-samuel-l-ja_1100-6425152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/what-if-destiny-s-ghost-were-voiced-by-samuel-l-ja/1100-6425152/" class="article-title">What If Destiny's Ghost Were Voiced By Samuel L. Jackson?</a>
+			<div class="article-subtitle">New video replaces Ghost''s lines with voiceover from Pulp Fiction actor; the results are hilarious.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_watch-halo-5-player-kill-9-enemies-in-a-row-earnin_1100-6425151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-halo-5-player-kill-9-enemies-in-a-row-earnin/1100-6425151/" class="article-title">Watch Halo 5 Player Kill 9 Enemies In A Row, Earning Super-Rare Medal</a>
+			<div class="article-subtitle">Killpocalypse.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_dragon-age-inquisition-a-return-to-form-bioware-sa_1100-6425154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-age-inquisition-a-return-to-form-bioware-sa/1100-6425154/" class="article-title">Dragon Age: Inquisition A "Return To Form," BioWare Says</a>
+			<div class="article-subtitle">That''s one of the reasons why the game resonated so strongly with gamers and critics alike, developer says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_everything-you-need-to-know-about-evolve-before-la_1100-6425112_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/everything-you-need-to-know-about-evolve-before-la/1100-6425112/" class="article-title">Everything You Need to Know About Evolve Before Launch</a>
+			<div class="article-subtitle">Let''s get Kraken.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_take-two-exec-talks-importance-of-review-scores-ev_1100-6425155_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-exec-talks-importance-of-review-scores-ev/1100-6425155/" class="article-title">Take-Two Exec Talks Importance of Review Scores, Evolve Sales Potential, More</a>
+			<div class="article-subtitle">Review scores can have "meaningful influence on sales," Strauss Zelnick says; Evolve''s innovative 4v1 gameplay resonating strongly with players.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_xenoblade-chronicles-3d-gets-release-date-new-trai_1100-6425156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xenoblade-chronicles-3d-gets-release-date-new-trai/1100-6425156/" class="article-title">Xenoblade Chronicles 3D Gets Release Date, New Trailer</a>
+			<div class="article-subtitle">New Nintendo 3DS game launching this April in the United States; check out a new trailer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_gaming-deals-get-tomb-raider-for-6-in-huge-square-_1100-6425054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-deals-get-tomb-raider-for-6-in-huge-square-/1100-6425054/" class="article-title">Gaming Deals: Get Tomb Raider for $6 in Huge Square Enix Weekend Sale, and More</a>
+			<div class="article-subtitle">Get The Crew for $40, Sleeping Dogs for $7.49, and more.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_star-citizen-hits-72-million-up-2-million-in-two-w_1100-6425157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-citizen-hits-72-million-up-2-million-in-two-w/1100-6425157/" class="article-title">Star Citizen Hits $72 Million, Up $2 Million In Two Weeks</a>
+			<div class="article-subtitle">The crowdfunding campaign for the PC space sim from Chris Roberts just keeps on climbing.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_tropico-dev-reveals-diablo-style-action-rpg-victor_1100-6425147_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tropico-dev-reveals-diablo-style-action-rpg-victor/1100-6425147/" class="article-title">Tropico Dev Reveals Diablo-Style Action-RPG Victor Vran</a>
+			<div class="article-subtitle">Watch a trailer and see some screenshots for Haemimont''s upcoming PC game, launching this summer on Steam.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_persona-5-world-premiere-gameplay-trailer_1100-6425118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/persona-5-world-premiere-gameplay-trailer/1100-6425118/" class="article-title">Persona 5 World Premiere Gameplay Trailer</a>
+			<div class="article-subtitle">[UPDATE] Read a blog post from the game''s director about the trailer and more.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_half-life-3-unannounced-explores-how-gordon-freema_1100-6425159_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/half-life-3-unannounced-explores-how-gordon-freema/1100-6425159/" class="article-title">Half-Life 3: Unannounced Explores How Gordon Freeman Is Handling The Wait</a>
+			<div class="article-subtitle">Fan-made short film Half-Life 3: Unannounced depicts Freeman wasting away from boredom as he waits for his next adventure.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/06_curious-about-jungle-nidalee-after-this-week-s-lcs_1100-6438592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/curious-about-jungle-nidalee-after-this-week-s-lcs/1100-6438592/" class="article-title">Curious about jungle Nidalee after this week's LCS?</a>
+			<div class="article-subtitle">Well we broke down the runes, masteries, items, and jungle path so you can try it out at home (in a normal!)</div>
+			<div class="article-author">Daniel "Spellsy" Biery</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_bloodborne-will-have-shields-after-all_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bloodborne-will-have-shields-after-all" class="article-title">Bloodborne will have shields after all</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_q-bert-rebooted-is-coming-to-playstation-platforms_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/q-bert-rebooted-is-coming-to-playstation-platforms" class="article-title">Q*Bert Rebooted is coming to PlayStation platforms</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_super-stardust-ultra-release-date-set-for-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/super-stardust-ultra-release-date-set-for-next-week" class="article-title">Super Stardust Ultra release date set for next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_video-watch-us-fall-out-of-the-sky-in-grow-home_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-watch-us-fall-out-of-the-sky-in-grow-home" class="article-title">Video: Watch us fall out of the sky in Grow Home</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_nintendo-reveals-25-minutes-of-xenoblade-chronicles-x-footage_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-reveals-25-minutes-of-xenoblade-chronicles-x-footage" class="article-title">Nintendo reveals 25 minutes of Xenoblade Chronicles X footage</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_mortal-kombat-xs-new-living-towers-push-fighting-game-single-player-forward_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mortal-kombat-xs-new-living-towers-push-fighting-game-single-player-forward" class="article-title">Mortal Kombat X's new Living Towers take single-player online</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_video-dying-light-ian-and-johnny-have-an-argument_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-dying-light-ian-and-johnny-have-an-argument" class="article-title">Video: Dying Light - Ian and Johnny have an argument</a>
+			<div class="article-author">Aoife Wilson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_tropico-dev-reveals-diablo-esque-action-rpg-victor-vran_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tropico-dev-reveals-diablo-esque-action-rpg-victor-vran" class="article-title">Tropico dev reveals Diablo-esque action RPG Victor Vran</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_zombie-army-trilogy-release-date-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/zombie-army-trilogy-release-date-announced" class="article-title">Zombie Army Trilogy release date announced</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_prestigious-aias-game-of-the-year-award-goes-to-dragon-age-inquisition_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/prestigious-aias-game-of-the-year-award-goes-to-dragon-age-inquisition" class="article-title">Prestigious AIAS Game of the Year award goes to Dragon Age: Inquisition</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_microsoft-details-xbox-one-february-system-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/microsoft-details-xbox-one-february-system-update" class="article-title">Xbox One gets tile transparency with new update</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_destiny-house-of-wolves-release-date-narrowed-major-expansion-confirmed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-house-of-wolves-release-date-narrowed-major-expansion-confirmed" class="article-title">Destiny: House of Wolves release date narrowed, major expansion this autumn</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_dark-souls-2s-scholar-of-the-first-sin-update-adds-a-new-ending_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dark-souls-2s-scholar-of-the-first-sin-update-adds-a-new-ending" class="article-title">Dark Souls 2's Scholar of the First Sin update adds a new ending</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/06_dark-souls-2-next-gen-will-run-at-60fps-1080p_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dark-souls-2-next-gen-will-run-at-60fps-1080p" class="article-title">Dark Souls 2 next-gen will run at 60fps/1080p</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54d402addc1d4/Warhammer-End-Times---Vermintide-announced/" class="article-title">Warhammer: End Times - Vermintide announced</a>
+			<div class="article-subtitle">Another day, another GW game.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54d3fa33a8bf0/Destiny-and-Hearthstone-headline-Activision-Blizzard-earnings-call/" class="article-title">Destiny and Hearthstone headline Activision-Blizzard earnings call</a>
+			<div class="article-subtitle">Half a billion in revenue.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54d3ebcba382d/343-details-post-beta-changes-coming-to-Halo-5/" class="article-title">343 details post-beta changes coming to Halo 5</a>
+			<div class="article-subtitle">An extensive list.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/shiver-the-lilys-requiem.php" class="article-title">Shiver: The Lily's Requiem</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/ender-story-chapter-1.php" class="article-title">Ender Story: Chapter 1</a>
+			<div class="article-author">Tricky</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

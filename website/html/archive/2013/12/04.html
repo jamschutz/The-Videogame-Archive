@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">December 4, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/world-of-warplanes-review/1900-6415585/" class="article-title">World of Warplanes Review</a>
+			<div class="article-subtitle">Flight of fancy.</div>
+			<div class="article-author">Nathan Meunier</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-wolf-among-us-episode-1-faith-review/1900-6415466/" class="article-title">The Wolf Among Us: Episode 1 - Faith Review</a>
+			<div class="article-subtitle">Grim fairy tale.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_valve-joins-the-linux-foundation_1100-6416533_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-joins-the-linux-foundation/1100-6416533/" class="article-title">Valve joins The Linux Foundation</a>
+			<div class="article-subtitle">After announcing Linux-based SteamOS, developer joins nonprofit consortium that aims to foster the growth of the free operating system.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_microsoft-lists-big-name-indie-studios-coming-to-xbox-one-includes-double-fine-crytek-and-more_1100-6416535_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-lists-big-name-indie-studios-coming-to-xbox-one-includes-double-fine-crytek-and-more/1100-6416535/" class="article-title">Microsoft lists big-name indie studios coming to Xbox One, includes Double Fine, Crytek, and more</a>
+			<div class="article-subtitle">Over 50 developers lined up to bring indie content to the Xbox One in 2014.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_pokemon-x-y-2ds-bundles-launching-december-6_1100-6416534_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-x-y-2ds-bundles-launching-december-6/1100-6416534/" class="article-title">Pokemon X/Y 2DS bundles launching December 6</a>
+			<div class="article-subtitle">$150 bundles coming to United States retailers Target and Toys R Us this week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_just-cause-dev-travels-to-costa-rican-rainforest-for-research_1100-6416536_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/just-cause-dev-travels-to-costa-rican-rainforest-for-research/1100-6416536/" class="article-title">Just Cause dev travels to Costa Rican rainforest for research</a>
+			<div class="article-subtitle">Avalanche Studios gathers reference material for future open-world games during recent trip.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_spec-ops-the-line-dev-working-on-free-to-play-game_1100-6416537_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spec-ops-the-line-dev-working-on-free-to-play-game/1100-6416537/" class="article-title">Spec Ops: The Line dev working on free-to-play game</a>
+			<div class="article-subtitle">Job listings at Yager suggest developer currently at work on "AAA F2P" project.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_microsoft-outlines-how-you-can-find-an-xbox-one-this-holiday_1100-6416538_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-outlines-how-you-can-find-an-xbox-one-this-holiday/1100-6416538/" class="article-title">Microsoft outlines how you can find an Xbox One this holiday</a>
+			<div class="article-subtitle">Major Nelson highlights "tips and tricks" you can use to find an console this holiday season.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_next-arma-3-expansion-launches-january-21_1100-6416539_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/next-arma-3-expansion-launches-january-21/1100-6416539/" class="article-title">Next Arma 3 expansion launches January 21</a>
+			<div class="article-subtitle">Second campaign episode launching in the new year; new sandbox content arriving on December 11 for free.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_carl-forellenlord-luckmann-released-from-team-alte_1100-6436499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/carl-forellenlord-luckmann-released-from-team-alte/1100-6436499/" class="article-title">Carl 'ForellenLord' Lückmann released from Team Alternate</a>
+			<div class="article-subtitle">The mid laner cites misunderstandings and "different dedications."</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_assassin-s-creed-4-single-player-dlc-launching-december-17_1100-6416540_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/assassin-s-creed-4-single-player-dlc-launching-december-17/1100-6416540/" class="article-title">Assassin's Creed 4 single-player DLC launching December 17</a>
+			<div class="article-subtitle">Ubisoft reveals launch date of Freedom Cry expansion for latest Assassin's Creed game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_how-the-fight-creates-the-fighter_1100-6407507_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-the-fight-creates-the-fighter/1100-6407507/" class="article-title">How the Fight Creates the Fighter</a>
+			<div class="article-subtitle">Learn how three fighting game developers are using the data you create to help design, balance, and perfect the art of fighting.</div>
+			<div class="article-author">Maxwell McGee</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_xbox-one-back-in-stock-on-amazon_1100-6416543_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-back-in-stock-on-amazon/1100-6416543/" class="article-title">Xbox One back in stock on Amazon</a>
+			<div class="article-subtitle">$500 console now available through online retailer with one-day shipping option.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_a-look-back-at-2013-s-best-sequels_1100-6416447_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-look-back-at-2013-s-best-sequels/1100-6416447/" class="article-title">A Look Back at 2013's Best Sequels</a>
+			<div class="article-subtitle">Sequel isn't a dirty word.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_gran-turismo-6-microtransaction-pricing-confirmed_1100-6416545_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-6-microtransaction-pricing-confirmed/1100-6416545/" class="article-title">Gran Turismo 6 microtransaction pricing confirmed</a>
+			<div class="article-subtitle">Buy 7.5 million in-game credits for $50.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_ea-on-battlefield-4-issues-we-will-not-stop-until-this-is-right_1100-6416546_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-on-battlefield-4-issues-we-will-not-stop-until-this-is-right/1100-6416546/" class="article-title">EA on Battlefield 4 issues -- "We will not stop until this is right"</a>
+			<div class="article-subtitle">Publisher says work on all future projects and expansions is on hold until DICE can fix the problems that have beset the game so far.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_nintendo-early-wii-u-sales-hurt-by-game-delays_1100-6416547_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-early-wii-u-sales-hurt-by-game-delays/1100-6416547/" class="article-title">Nintendo: Early Wii U sales hurt by game delays</a>
+			<div class="article-subtitle">"We knew we had a great line-up. We wanted it to launch much earlier to drive the system," Reggie Fils-Aime says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_cs-go-20th-and-21st-november-patch-content-analysi_1100-6436498_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/cs-go-20th-and-21st-november-patch-content-analysi/1100-6436498/" class="article-title">CS: GO 20th and 21st November Patch – Content Analysis</a>
+			<div class="article-subtitle">Due to being busy at MLG this week's Counter-Strike: Global Offensive content analysis covers the two patches released on the 20th and 21st of November that were missed earlier in the week.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_some-xbox-owners-struggling-to-download-battlefield-4-dlc_1100-6416531_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/some-xbox-owners-struggling-to-download-battlefield-4-dlc/1100-6416531/" class="article-title">Some Xbox owners struggling to download Battlefield 4 DLC</a>
+			<div class="article-subtitle">Microsoft working with EA to resolve issue relating to problems downloading China Rising DLC on Xbox 360 and Xbox One.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_monster-hunter-series-sales-climb-to-28-million-units_1100-6416532_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/monster-hunter-series-sales-climb-to-28-million-units/1100-6416532/" class="article-title">Monster Hunter series sales climb to 28 million units</a>
+			<div class="article-subtitle">Capcom reveals new lifetime sales milestone for role-playing series; Monster Hunter 4 ships 4 million copies in Japan alone.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_gran-turismo-6-to-include-bathurst-circuit_1100-6415277_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-6-to-include-bathurst-circuit/1100-6415277/" class="article-title">Gran Turismo 6 to include Bathurst circuit</a>
+			<div class="article-subtitle">Sony Computer Entertainment Australia announced the inclusion of the Bathurst track today.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_riot-season-4-lcs-contracts-stipulate-players-cannot-stream-dota-2-blizzard-games_1100-6416550_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/riot-season-4-lcs-contracts-stipulate-players-cannot-stream-dota-2-blizzard-games/1100-6416550/" class="article-title">Riot Season 4 LCS contracts stipulate players cannot stream Dota 2, Blizzard games</a>
+			<div class="article-subtitle">Documents reveal that players competing in Season 4 of the LCS may not stream or advertise a slew of other games including Dota 2, StarCraft 2, Hearthstone, World of WarCraft, and World of Tanks.</div>
+			<div class="article-author">Rod Breslau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_is-crytek-an-indie-developer_1100-6416549_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/is-crytek-an-indie-developer/1100-6416549/" class="article-title">Is Crytek an Indie Developer?</a>
+			<div class="article-subtitle">But you'll never take my freedom!</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_gran-turismo-gets-australian-road-named-in-its-honor_1100-6416551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-gets-australian-road-named-in-its-honor/1100-6416551/" class="article-title">Gran Turismo gets Australian road named in its honor</a>
+			<div class="article-subtitle">Streets in Australia and Spain named after driving simulation game and series creator.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_xbox-one-and-ps4-sales-numbers-don-t-matter-right-now-but-you-don-t-care_1100-6416542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-and-ps4-sales-numbers-don-t-matter-right-now-but-you-don-t-care/1100-6416542/" class="article-title">Xbox One and PS4 sales numbers don't matter right now (but you don't care)</a>
+			<div class="article-subtitle">Editorial: Microsoft and Sony are going to toss out a lot of numbers over the next couple months. They're fun to follow, but they don't mean much (yet).</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/12/04_warcraft-movie-cast-revealed-colin-farrell-not-listed_1100-6416553_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warcraft-movie-cast-revealed-colin-farrell-not-listed/1100-6416553/" class="article-title">Warcraft movie cast revealed, Colin Farrell not listed</a>
+			<div class="article-subtitle">Who's going to play an Orc and who'll be Human?</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_football-manager-spreads-to-typing-of-the-dead-overkill_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/football-manager-spreads-to-typing-of-the-dead-overkill" class="article-title">Football Manager spreads to Typing of the Dead: Overkill</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_saints-row-4-adds-real-life-gaming-celebrities-as-homies_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/saints-row-4-adds-real-life-gaming-celebrities-as-homies" class="article-title">Hey Ash, whatcha doin' in Saints Row 4?</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_dice-has-halted-future-projects-while-it-fixes-battlefield-4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dice-has-halted-future-projects-while-it-fixes-battlefield-4" class="article-title">DICE has halted "future projects" while it fixes Battlefield 4</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_starbound-beta-lands-on-pc-mac-and-linux-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/starbound-beta-lands-on-pc-mac-and-linux-today" class="article-title">Starbound beta lands on PC, Mac and Linux today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_teslagrad-dated-for-pc-mac-and-linux-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/teslagrad-dated-for-pc-mac-and-linux-next-week" class="article-title">Teslagrad dated for PC, Mac and Linux next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_the-wolf-among-us-launches-on-ios-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-wolf-among-us-launches-on-ios-today" class="article-title">The Wolf Among Us launches on iOS today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_flow-now-available-on-playstation-4-and-vita_thumbnail.png">
+			<a href="https://www.eurogamer.net/flow-now-available-on-playstation-4-and-vita" class="article-title">flOw now available on PlayStation 4 and Vita</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_watch-us-play-cannon-fodder-from-5pm-gmt_thumbnail.png">
+			<a href="https://www.eurogamer.net/watch-us-play-cannon-fodder-from-5pm-gmt" class="article-title">Watch us play Cannon Fodder from 5pm GMT</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_bravely-default-sequel-announced-for-3ds-in-japan_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bravely-default-sequel-announced-for-3ds-in-japan" class="article-title">Bravely Default sequel announced for 3DS in Japan</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_arma-3s-campaign-continues-on-21st-january_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/arma-3s-campaign-continues-on-21st-january" class="article-title">Arma 3's campaign continues on 21st January</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_two-button-fighting-game-divekick-coming-to-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/two-button-fighting-game-divekick-coming-to-xbox-one" class="article-title">Two-button fighting game Divekick coming to Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_zen-pinball-2-gets-playstation-4-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/zen-pinball-2-gets-playstation-4-release-date" class="article-title">Zen Pinball 2 gets PlayStation 4 release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_o2-will-offer-xbox-one-with-a-52-per-month-phone-contract_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/o2-will-offer-xbox-one-with-a-52-per-month-phone-contract" class="article-title">O2 will offer Xbox One with a £52 per month phone contract</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_important-gran-turismo-creator-kaz-yamauchi-becomes-a-street_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/important-gran-turismo-creator-kaz-yamauchi-becomes-a-street" class="article-title">IMPORTANT: Gran Turismo creator Kaz Yamauchi becomes a street</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_zeboyds-rpg-cosmic-star-heroine-coming-to-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/zeboyds-rpg-cosmic-star-heroine-coming-to-xbox-one" class="article-title">Zeboyd's RPG Cosmic Star Heroine coming to Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_world-of-warplanes-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/world-of-warplanes-review" class="article-title">World of Warplanes review</a>
+			<div class="article-author">Paul Dean</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_this-is-energy-hook-one-of-the-first-xbox-one-indie-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/this-is-energy-hook-one-of-the-first-xbox-one-indie-games" class="article-title">This is Energy Hook, one of the first Xbox One indie games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_vlambeer-considering-nuclear-throne-for-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/vlambeer-considering-nuclear-throne-for-xbox-one" class="article-title">Vlambeer "considering" Nuclear Throne for Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_never-been-so-much-fun-the-making-of-cannon-fodder_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/never-been-so-much-fun-the-making-of-cannon-fodder" class="article-title">Never Been So Much Fun: The making of Cannon Fodder</a>
+			<div class="article-author">Joel Snape</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_valve-invests-in-linux-foundation-ahead-of-steamos-launch_thumbnail.png">
+			<a href="https://www.eurogamer.net/valve-invests-in-linux-foundation-ahead-of-steamos-launch" class="article-title">Valve invests in Linux Foundation ahead of SteamOS launch</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_digitalfoundry-battlefield-4-face-off-qa_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-battlefield-4-face-off-qa" class="article-title">Editor's blog: Battlefield 4 Face-off Preview Q&A</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_handsome-elder-scrolls-online-video-shows-character-progression_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/handsome-elder-scrolls-online-video-shows-character-progression" class="article-title">Handsome Elder Scrolls Online video shows character progression</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_some-euro-psn-features-switched-off-for-ps4-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/some-euro-psn-features-switched-off-for-ps4-launch" class="article-title">Some Euro PSN features switched off for PS4 launch</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_blacklight-retribution-launches-on-ps4-in-europe-today-after-short-delay_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/blacklight-retribution-launches-on-ps4-in-europe-today-after-short-delay" class="article-title">Blacklight: Retribution launches on PS4 in Europe today after short delay</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_take-two-boss-has-high-hopes-for-ps4-and-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/take-two-boss-has-high-hopes-for-ps4-and-xbox-one" class="article-title">Take-Two boss has high hopes for PS4 and Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_rainbow-moon-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rainbow-moon-review" class="article-title">Rainbow Moon Review</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_battlefield-4-china-rising-launch-adds-fresh-problems_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-4-china-rising-launch-adds-fresh-problems" class="article-title">Battlefield 4 China Rising launch adds fresh problems</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/12/04_digitalfoundry-retina-ipad-mini-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-retina-ipad-mini-review" class="article-title">Retina iPad mini review</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g529ebd2f68260/Epic-yet-to-see-real-value-in-second-screen-functionality/" class="article-title">Epic "yet to see real value" in second screen functionality</a>
+			<div class="article-subtitle">Needs a killer app, says Rein.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g529eb8068e53f/Spec-Ops-The-Line-studio-hiring-for-new-free-to-play-game/" class="article-title">Spec Ops: The Line studio hiring for new free-to-play game</a>
+			<div class="article-subtitle">For next-gen.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g529e931dbb0ef/Apple-Google-to-challenge-MS-Sony-within-five-years-estimates-EA-CEO/" class="article-title">Apple, Google to challenge MS, Sony within five years, estimates EA CEO</a>
+			<div class="article-subtitle">Make hay, reckons Wilson.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g529e7553a9565/BF4-China-Rising-DLC-launches-has-issues/" class="article-title">BF4 China Rising DLC launches, has issues</a>
+			<div class="article-subtitle">Fixes inbound.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g529e6dafa5111/PlayStation-4-surpasses-2.1-million-sales/" class="article-title">PlayStation 4 surpasses 2.1 million sales</a>
+			<div class="article-subtitle">Microsoft quiet on Xbox One performance.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g529e66c16485d/Wii-U-irrelevant---former-THQ-Naughty-Dog-boss/" class="article-title">Wii U "irrelevant" - former THQ, Naughty Dog boss</a>
+			<div class="article-subtitle">But still a "worldwide treasure", says Rubin.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g529e6044d3a32/Wii-U-dead-within-a-year-no-one-gives-a-sh-t-about-Mario---ex-Sony-dev/" class="article-title">Wii U dead within a year, "no one gives a sh*t" about Mario - ex Sony dev</a>
+			<div class="article-subtitle">Whoa.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/monkey-go-happy-elevators-2.php" class="article-title">Monkey GO Happy Elevators 2</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

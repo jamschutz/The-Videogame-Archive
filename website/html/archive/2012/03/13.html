@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">March 13, 2012</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mario-party-9-review/1900-6365698/" class="article-title">Mario Party 9 Review</a>
+			<div class="article-subtitle">Though an enjoyable addition to the series, Mario Party 9 is much too familiar and predictable.</div>
+			<div class="article-author">Ashton Raze</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mlb-12-the-show-review/1900-6365451/" class="article-title">MLB 12: The Show Review</a>
+			<div class="article-subtitle">Issues aside, MLB 12: The Show demonstrates a bright future for portable baseball games.</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/microsoft-flight-review/1900-6365704/" class="article-title">Microsoft Flight Review</a>
+			<div class="article-subtitle">Fly the much friendlier skies with Microsoft Flight, which is more structured than its simulation-heavy predecessors.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/microsoft-flight-hawaiian-adventure-pack-review/1900-6365923/" class="article-title">Microsoft Flight - Hawaiian Adventure Pack Review</a>
+			<div class="article-subtitle">Microsoft Flight's promise as a flight simulator franchise isn't quite realized in the Hawaiian Adventure Pack expansion.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/deep-black-reloaded-review/1900-6365998/" class="article-title">Deep Black: Reloaded Review</a>
+			<div class="article-subtitle">Deep Black: Reloaded squanders its potential on broken cover-based shooting sequences.</div>
+			<div class="article-author">Jason Venter</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/shinobido-2-revenge-of-zen-review/1900-6366002/" class="article-title">Shinobido 2: Revenge of Zen Review</a>
+			<div class="article-subtitle">Exploitable enemy AI and finicky physics spoil Shinobido 2's stealthy aspirations.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_three-tips-for-modern-warfare-3s-next-content-drops_1100-6365282_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/three-tips-for-modern-warfare-3s-next-content-drops/1100-6365282/" class="article-title">Three Tips for Modern Warfare 3's Next Content Drops</a>
+			<div class="article-subtitle">The third expansion to MW3 arrives this week, and it's all about special ops. We buddied up with Sledgehammer Games to get some pro tips.</div>
+			<div class="article-author">Guy Cocker</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_super-monkey-ball-rolling-onto-vita-in-japan_1100-6365928_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/super-monkey-ball-rolling-onto-vita-in-japan/1100-6365928/" class="article-title">Super Monkey Ball rolling onto Vita in Japan</a>
+			<div class="article-subtitle">Sega's puzzle game will feature motion and rear touch controls, slated for release in Japan this June; no word on North American or European release.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_indie-spotlight-pixelry_1100-6365897_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/indie-spotlight-pixelry/1100-6365897/" class="article-title">Indie Spotlight - Pixelry</a>
+			<div class="article-subtitle">The Downloads Blog is back and better than ever. Today on the Indie Spotlight, we have the pixelated medieval adventure game Pixelry.</div>
+			<div class="article-author">Marco Martinez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_the-hotspot-gdc-indies-3-12-12_1100-6365922_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-hotspot-gdc-indies-3-12-12/1100-6365922/" class="article-title">The HotSpot - GDC Indies - 3/12/12</a>
+			<div class="article-subtitle">Independent Games Festival contenders Doug Wilson, Zach Barth, Paul Taylor, and Ian Hardingham discuss making games on the small scale.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_evo-qualifiers-confirmed-for-singapore_1100-6365927_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/evo-qualifiers-confirmed-for-singapore/1100-6365927/" class="article-title">Evo qualifiers confirmed for Singapore</a>
+			<div class="article-subtitle">The event is fully sanctioned and open to international competitors for Evo points acquisition.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_sound-byte-meet-the-composer-jeff-broadbent_1100-6364772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sound-byte-meet-the-composer-jeff-broadbent/1100-6364772/" class="article-title">Sound Byte: Meet the Composer - Jeff Broadbent</a>
+			<div class="article-subtitle">We talk to the composer who recently scored the new survival action title I Am Alive.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_jet-set-radio-and-the-power-of-addition-by-subtraction_1100-6365949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jet-set-radio-and-the-power-of-addition-by-subtraction/1100-6365949/" class="article-title">Jet Set Radio and the Power of Addition by Subtraction</a>
+			<div class="article-subtitle">This is the same game you played on the Dreamcast, with a few notable bonuses and omissions.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_hit-the-ground-running-on-the-newest-battlefield-3-map_1100-6365944_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hit-the-ground-running-on-the-newest-battlefield-3-map/1100-6365944/" class="article-title">Hit the Ground Running on the Newest Battlefield 3 Map</a>
+			<div class="article-subtitle">Battlefield 3 is going close quarters. Here's how to adapt your game.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_blog-bunker-mass-mayhem_1100-6365952_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blog-bunker-mass-mayhem/1100-6365952/" class="article-title">Blog Bunker: Mass Mayhem </a>
+			<div class="article-subtitle">And we're back! We've got some great reads in store for you this week with the hot topic on bloggers' minds obviously being Mass Effect 3.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_original-alan-wake-sales-cross-2-million_1100-6365940_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/original-alan-wake-sales-cross-2-million/1100-6365940/" class="article-title">Original Alan Wake sales cross 2 million</a>
+			<div class="article-subtitle">Remedy's horror action game vaults to double-platinum status from combined sales of Xbox 360 and PC versions.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_dirt-showdown-a-new-breed-of-carnage_1100-6365941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dirt-showdown-a-new-breed-of-carnage/1100-6365941/" class="article-title">Dirt Showdown: A New Breed of Carnage</a>
+			<div class="article-subtitle">Come with us as we hurl our car into oncoming traffic in this exclusive gameplay from Codemasters' forthcoming Dirt Showdown. You might want to bring a helmet.</div>
+			<div class="article-author">Cameron Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_jaffe-couldnt-care-less-about-next-generation_1100-6365942_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jaffe-couldnt-care-less-about-next-generation/1100-6365942/" class="article-title">Jaffe 'couldn't care less' about next generation</a>
+			<div class="article-subtitle">Outspoken Twisted Metal, God of War developer says he's in no rush for next wave of consoles, believes next gen will make "ambitious" projects more difficult.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_former-sony-executive-joining-microsoft-report_1100-6365946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-sony-executive-joining-microsoft-report/1100-6365946/" class="article-title">Former Sony executive joining Microsoft - Report</a>
+			<div class="article-subtitle">[UPDATE] Microsoft confirms that Phil Harrison has been named head of Microsoft Studios Europe in a move "completely unrelated to [Peter Molyneux's] departure."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_dishonored-what-next-from-the-publishers-of-skyrim_1100-6365672_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dishonored-what-next-from-the-publishers-of-skyrim/1100-6365672/" class="article-title">Dishonored: What Next From the Publishers of Skyrim?</a>
+			<div class="article-subtitle">Man-eating rats, prostitutes, and death by steaming. If only all stealth-action games were as exciting as Dishonored.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_donkey-kong-pikmin-super-mario-galaxy-2-cameos-nixed_1100-6365948_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/donkey-kong-pikmin-super-mario-galaxy-2-cameos-nixed/1100-6365948/" class="article-title">Donkey Kong, Pikmin Super Mario Galaxy 2 cameos nixed</a>
+			<div class="article-subtitle">Shigeru Miyamoto shot down guest appearances from iconic Nintendo characters in plaformer sequel, saying they did not have a "functional reason" to be included.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_xbox-live-bug-wiping-achievements_1100-6365950_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-live-bug-wiping-achievements/1100-6365950/" class="article-title">Xbox Live bug wiping achievements</a>
+			<div class="article-subtitle">Microsoft recommending those who have lost emblems, Gamerscore to sign out and back in again, or re-download their profiles.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_guild-wars-2-gets-150-collectors-edition_1100-6365953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guild-wars-2-gets-150-collectors-edition/1100-6365953/" class="article-title">Guild Wars 2 gets $150 Collector's Edition</a>
+			<div class="article-subtitle">Premium bundle to include 10-inch warrior statue, "making of" book, soundtrack CD, and in-game items; early access promotion detailed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_mikamis-next-game-not-coming-this-year-report_1100-6365954_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mikamis-next-game-not-coming-this-year-report/1100-6365954/" class="article-title">Mikami's next game not coming this year - Report</a>
+			<div class="article-subtitle">Bethesda-owned Tango Gameworks remains in hiring mode for first project from Resident Evil creator.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_resident-evil-chronicles-hd-collection-hitting-psn_1100-6365968_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-chronicles-hd-collection-hitting-psn/1100-6365968/" class="article-title">Resident Evil: Chronicles HD Collection hitting PSN</a>
+			<div class="article-subtitle">PS Move-enabled versions of Wii's on-rails Umbrella Chronicles and Darkside Chronicles hit PlayStation 3 storefront this June.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_thq-seeking-1666-trademark_1100-6365980_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/thq-seeking-1666-trademark/1100-6365980/" class="article-title">THQ seeking '1666' trademark</a>
+			<div class="article-subtitle">California-based publisher files application with United States Patent & Trademark Office for "video game software."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_free-for-all-why-both-a-success-and-a-failure-went-free_1100-6365699_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-for-all-why-both-a-success-and-a-failure-went-free/1100-6365699/" class="article-title">Free for All: Why Both a Success and a Failure Went Free  </a>
+			<div class="article-subtitle">How can Team Fortress 2 and APB have anything in common? A story about a hat-based business.</div>
+			<div class="article-author">Kurtis Seid</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_chaos-rings-ii-slated-for-ios-on-march-15_1100-6365932_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/chaos-rings-ii-slated-for-ios-on-march-15/1100-6365932/" class="article-title">Chaos Rings II slated for iOS on March 15</a>
+			<div class="article-subtitle">The sequel to Chaos Rings will cost 2,000 yen and 2,200 yen for the iPhone and the iPad, respectively.</div>
+			<div class="article-author">Jon Leo</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_the-trials-and-tribulations-of-localization_1100-6365993_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-trials-and-tribulations-of-localization/1100-6365993/" class="article-title">The Trials and Tribulations of Localization</a>
+			<div class="article-subtitle">As the world becomes more global, so do the games we play. It's still very much a learning process, but companies are ready to find ways of winning new gamers.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_kara-nothing-to-do-with-quantic-dreams-next-game_1100-6365143_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kara-nothing-to-do-with-quantic-dreams-next-game/1100-6365143/" class="article-title">Kara nothing to do with Quantic Dream's next game</a>
+			<div class="article-subtitle">Heavy Rain developer says tech demo doesn't depict the world, story, or characters of its next project, was intended to showcase performance capture technology.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2012/03/13_heavy-rain-dev-debuts-new-ps3-tech-demo_1100-6365059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heavy-rain-dev-debuts-new-ps3-tech-demo/1100-6365059/" class="article-title">Heavy Rain dev debuts new PS3 tech demo</a>
+			<div class="article-subtitle">Quantic Dream clip "Kara" billed as running in real time on Sony's current-gen console, hints at sex robot Pinocchio tale.</div>
+			<div class="article-author">Brendan Sinclair</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_new-dlc-incoming-for-the-gunstringer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/new-dlc-incoming-for-the-gunstringer" class="article-title">New DLC incoming for The Gunstringer</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_jaffe-i-couldnt-care-less-about-next-gen_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/jaffe-i-couldnt-care-less-about-next-gen" class="article-title">Jaffe: "I couldn't care less about next-gen"</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_star-wars-the-old-republic-is-free-to-play-this-weekend_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/star-wars-the-old-republic-is-free-to-play-this-weekend" class="article-title">Star Wars: The Old Republic is free to play this weekend</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_guerilla-and-crytek-staffing-up-for-next-gen-titles-report_thumbnail.png">
+			<a href="https://www.eurogamer.net/guerilla-and-crytek-staffing-up-for-next-gen-titles-report" class="article-title">Guerrilla and Crytek staffing up for next-gen titles - report</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_uks-first-4g-network-could-launch-this-year_thumbnail.png">
+			<a href="https://www.eurogamer.net/uks-first-4g-network-could-launch-this-year" class="article-title">UK's first 4G network could launch this year</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_former-sony-man-phil-harrison-made-boss-of-microsofts-european-game-studios_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/former-sony-man-phil-harrison-made-boss-of-microsofts-european-game-studios" class="article-title">Former Sony man Phil Harrison made boss of Microsoft's European Game Studios</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_guild-wars-2-pre-order-deals-collectors-and-digital-deluxe-editions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/guild-wars-2-pre-order-deals-collectors-and-digital-deluxe-editions" class="article-title">Guild Wars 2 pre-purchase deals, Collector's and Digital Deluxe Editions</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_wasteland-2-kickstarter-crowdfunding-gets-underway_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wasteland-2-kickstarter-crowdfunding-gets-underway" class="article-title">Wasteland 2 Kickstarter crowdfunding gets underway</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_alan-wake-sells-two-million-on-pc-xbox-360_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/alan-wake-sells-two-million-on-pc-xbox-360" class="article-title">Alan Wake sells two million on PC, Xbox 360</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_widespread-reports-of-xbox-360-achievements-being-wiped_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/widespread-reports-of-xbox-360-achievements-being-wiped" class="article-title">Widespread reports of Xbox 360 Achievements being wiped</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_capcom-announces-resident-evil-chronicles-hd-for-ps3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/capcom-announces-resident-evil-chronicles-hd-for-ps3" class="article-title">Capcom announces Resident Evil: Chronicles HD for PS3</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-modern-warfare-3-our-most-pre-ordered-game-ever_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-modern-warfare-3-our-most-pre-ordered-game-ever" class="article-title">Game: Modern Warfare 3 our most pre-ordered game ever</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-suffers-from-extraordinary-economic-times_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-suffers-from-extraordinary-economic-times" class="article-title">Game Group suffers from "extraordinary" economic times</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-groups-share-price-nose-dives_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-groups-share-price-nose-dives" class="article-title">Game Group's share price nose dives</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-group-interview-is-it-really-that-bad_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-group-interview-is-it-really-that-bad" class="article-title">Game Group interview: is it really that bad?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-outs-new-medal-of-honour-need-for-speed-13_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-outs-new-medal-of-honour-need-for-speed-13" class="article-title">GAME outs new Medal of Honor, Need for Speed 13</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-has-been-hacked-rumour-entirely-false_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-has-been-hacked-rumour-entirely-false" class="article-title">GAME-has-been-hacked rumour "entirely false"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-website-removing-pc-games-is-a-mistake_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-website-removing-pc-games-is-a-mistake" class="article-title">GAME website removing PC games is a mistake</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-in-trouble-as-doubt-cast-on-ability-to-stock-new-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-in-trouble-as-doubt-cast-on-ability-to-stock-new-games" class="article-title">GAME in trouble as doubt cast on ability to stock new games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-confirms-talks-with-lenders-have-begun-hints-at-overseas-sell-off_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-confirms-talks-with-lenders-have-begun-hints-at-overseas-sell-off" class="article-title">GAME confirms talks with lenders have begun, hints at overseas sell-off</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-agrees-new-deal-with-lenders_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-agrees-new-deal-with-lenders" class="article-title">GAME agrees new deal with lenders</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-confirms-layoffs-at-head-office_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-confirms-layoffs-at-head-office" class="article-title">GAME confirms layoffs at head office</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-confirms-its-not-stocking-tekken-3ds_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-confirms-its-not-stocking-tekken-3ds" class="article-title">GAME confirms it's not stocking Tekken 3DS</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-playstation-vita-midnight-launch-plans-announced_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-playstation-vita-midnight-launch-plans-announced" class="article-title">GAME PlayStation Vita midnight launch plans announced</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-wont-stock-ubisoft-vita-launch-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-wont-stock-ubisoft-vita-launch-games" class="article-title">GAME won't stock Ubisoft Vita launch games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-scraps-the-last-story-special-edition-days-before-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-scraps-the-last-story-special-edition-days-before-launch" class="article-title">GAME scraps The Last Story Special Edition days before launch</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-we-cant-stock-absolutely-everything_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-we-cant-stock-absolutely-everything" class="article-title">GAME: "we can't stock absolutely everything"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_free-mass-effect-3-datapad-ios-app-now-live_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/free-mass-effect-3-datapad-ios-app-now-live" class="article-title">Free Mass Effect 3: Datapad iOS app now live</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_codemasters-confirms-f1-console-mobile-online-plans_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/codemasters-confirms-f1-console-mobile-online-plans" class="article-title">Codemasters confirms F1 console, mobile, online plans</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_app-of-the-day-mass-effect-infiltrator_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/app-of-the-day-mass-effect-infiltrator" class="article-title">App of the Day: Mass Effect: Infiltrator</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_video-and-game-renter-choices-uk-enters-administration_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-and-game-renter-choices-uk-enters-administration" class="article-title">Video and game renter Choices UK enters Administration</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_battlefield-3-close-quarters-preview-an-all-encompassing-expansion_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-3-close-quarters-preview-an-all-encompassing-expansion" class="article-title">Battlefield 3: Close Quarters Preview: An All-Encompassing Expansion</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_digitalfoundry-mass-effect-3-face-off_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-mass-effect-3-face-off" class="article-title">Face-Off:  Mass Effect 3</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_mass-effect-3-multiplayer-dlc-spotted_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mass-effect-3-multiplayer-dlc-spotted" class="article-title">Mass Effect 3 multiplayer DLC spotted</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-to-close-35-stores_thumbnail.png">
+			<a href="https://www.eurogamer.net/game-to-close-35-stores" class="article-title">GAME to close 35 stores</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-cancels-the-last-story-preorders-refunds-deposits_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-cancels-the-last-story-preorders-refunds-deposits" class="article-title">GAME cancels The Last Story pre-orders, refunds deposits</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-stocking-ubisofts-vita-launch-titles-from-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-stocking-ubisofts-vita-launch-titles-from-tomorrow" class="article-title">GAME stocking Ubisoft's Vita launch titles from tomorrow</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_what-would-happen-if-game-died_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/what-would-happen-if-game-died" class="article-title">What would happen if GAME died?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-not-stocking-mass-effect-3-or-ea-games-past-ssx_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-not-stocking-mass-effect-3-or-ea-games-past-ssx" class="article-title">GAME not stocking Mass Effect 3 or EA games past SSX</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-group-not-stocking-mario-party-9_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-group-not-stocking-mario-party-9" class="article-title">GAME Group not stocking Mario Party 9</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_revealed-games-memo-to-staff-on-mass-effect-3-cancellation_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/revealed-games-memo-to-staff-on-mass-effect-3-cancellation" class="article-title">Revealed: GAME's memo to staff on Mass Effect 3 cancellation</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-offering-mass-effect-3-cash-refund-today-only_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-offering-mass-effect-3-cash-refund-today-only" class="article-title">GAME Mass Effect 3 cash refund confusion cleared up</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-may-stock-mass-effect-3-in-the-future_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-may-stock-mass-effect-3-in-the-future" class="article-title">GAME "may" stock Mass Effect 3 in the future</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_gamestop-wants-to-buy-game-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gamestop-wants-to-buy-game-report" class="article-title">GameStop wants to buy GAME - report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_capcom-games-woes-wont-impact-resident-evil-operation-raccoon-city_thumbnail.png">
+			<a href="https://www.eurogamer.net/capcom-games-woes-wont-impact-resident-evil-operation-raccoon-city" class="article-title">Capcom: GAME's woes won't impact Resident Evil: Operation Raccoon City</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-could-face-2-5m-of-lost-profit-by-not-stocking-mass-effect-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-could-face-2-5m-of-lost-profit-by-not-stocking-mass-effect-3" class="article-title">GAME could face £2.5m of lost profit by not stocking Mass Effect 3</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_publisher-paradox-game-was-a-bully-this-is-karma_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/publisher-paradox-game-was-a-bully-this-is-karma" class="article-title">Publisher Paradox: GAME was a bully, this is "karma"</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-and-gamestation-having-a-firesale-on-pre-owned-stock_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-and-gamestation-having-a-firesale-on-pre-owned-stock" class="article-title">GAME and Gamestation having a "firesale" on pre-owned stock</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_gamestop-wants-to-buy-games-shops-in-spain-and-portugal-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gamestop-wants-to-buy-games-shops-in-spain-and-portugal-report" class="article-title">GameStop wants to buy GAME's shops in Spain and Portugal - report</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-firesale-extends-to-hardware-spring-clean-promotion-launched_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-firesale-extends-to-hardware-spring-clean-promotion-launched" class="article-title">GAME firesale extends to hardware, "Spring Clean" promotion launched</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-has-two-weeks-to-turn-its-fortunes-around_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-has-two-weeks-to-turn-its-fortunes-around" class="article-title">GAME "has two weeks to turn its fortunes around"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-unsure-over-future-as-it-reportedly-puts-itself-up-for-sale_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-unsure-over-future-as-it-reportedly-puts-itself-up-for-sale" class="article-title">GAME unsure over future as it reportedly puts itself up for sale</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_game-wont-stock-ninja-gaiden-3-or-warriors-orochi-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/game-wont-stock-ninja-gaiden-3-or-warriors-orochi-3" class="article-title">GAME won't stock Ninja Gaiden 3 or Warriors Orochi 3</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_dc-universe-battle-for-earth-dlc-release-date-announced_thumbnail.png">
+			<a href="https://www.eurogamer.net/dc-universe-battle-for-earth-dlc-release-date-announced" class="article-title">DC Universe Battle For Earth DLC release date announced</a>
+			<div class="article-author">Fred Dutton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_sega-unveils-total-war-battles-shogun_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sega-unveils-total-war-battles-shogun" class="article-title">Sega unveils Total War Battles: Shogun</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_sonic-4-episode-2s-new-phyiscs-based-on-mega-drive-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sonic-4-episode-2s-new-phyiscs-based-on-mega-drive-games" class="article-title">Sonic 4 Episode 2's new physics based on Mega Drive games</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2012/03/13_sonic-the-hedgehog-4-episode-2-preview_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sonic-the-hedgehog-4-episode-2-preview" class="article-title">Sonic the Hedgehog 4: Episode 2 Preview: Blue Again?</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/i138700/Ex-Mass-Effect-dev-to-gamers-Stop-thinking-youre-a-producer/" class="article-title">Ex-Mass Effect dev to gamers: "Stop thinking you're a producer"</a>
+			<div class="article-subtitle">"Judge DLC based on what it is."</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/i138699/Bethesda-and-Mojang-settle-Scrolls-dispute/" class="article-title">Bethesda and Mojang settle Scrolls dispute</a>
+			<div class="article-subtitle">UPDATE: Any "Scrolls 2" impossible.</div>
+			<div class="article-author">Gameplanet Staff</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/spikes-tend-to-kill-you-2.php" class="article-title">Spikes Tend To Kill You 2</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/greedy-pirates.php" class="article-title">Greedy Pirates</a>
+			<div class="article-author">joye</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/the-vault-75.php" class="article-title">The Vault №86</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/TIGSource/_thumbnails/2012/03/13_2012_03_13_doomrl-0-9-9-6_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2012/03/13/doomrl-0-9-9-6/" class="article-title">DoomRL 0.9.9.6</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

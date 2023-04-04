@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">January 23, 2014</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/olliolli-review/1900-6415646/" class="article-title">OlliOlli Review</a>
+			<div class="article-subtitle">Skate or die.</div>
+			<div class="article-author">Britton Peele</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/assassin-s-creed-iii-liberation-hd-review/1900-6415643/" class="article-title">Assassin's Creed III: Liberation HD Review</a>
+			<div class="article-subtitle">Small-screen emancipation.</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_alienware-clarifies-steam-machine-upgradability-comments_1100-6417286_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alienware-clarifies-steam-machine-upgradability-comments/1100-6417286/" class="article-title">Alienware clarifies Steam Machine upgradability comments</a>
+			<div class="article-subtitle">PC manufacturer confirms you won't be prevented from upgrading, but says doing so won't be easy.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_xbox-one-ps4-and-pc-golf-sim-features-procedurally-generated-courses-minimal-load-times_1100-6417289_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-ps4-and-pc-golf-sim-features-procedurally-generated-courses-minimal-load-times/1100-6417289/" class="article-title">Xbox One, PS4, and PC golf sim features procedurally generated courses, minimal load times</a>
+			<div class="article-subtitle">HB Studios' The Golf Club launching this spring for Xbox One, PS4, and PC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_capcom-industry-seeing-changes-of-unprecedented-magnitude_1100-6417290_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/capcom-industry-seeing-changes-of-unprecedented-magnitude/1100-6417290/" class="article-title">Capcom: Industry seeing changes of "unprecedented magnitude"</a>
+			<div class="article-subtitle">COO Haruhiro Tsujimoto says rising popularity of smartphones and "increasingly social" nature of games has resulted in "enormous changes."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_lord-of-the-rings-prequel-shadow-of-mordor-is-not-a-movie-game_1100-6417287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lord-of-the-rings-prequel-shadow-of-mordor-is-not-a-movie-game/1100-6417287/" class="article-title">Lord of the Rings prequel Shadow of Mordor is "not a movie game"</a>
+			<div class="article-subtitle">Film director Peter Jackson pushed the studio not to make a movie game but rather something entirely original, Monolith reveals.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_hearts-of-iron-iv-vows-to-be-most-authentic-wwii-rts_1100-6417294_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/hearts-of-iron-iv-vows-to-be-most-authentic-wwii-rts/1100-6417294/" class="article-title">Hearts of Iron IV vows to be "most authentic" WWII RTS</a>
+			<div class="article-subtitle">Paradox announces strategy game sequel and all-new fantasy RPG Runemaster; publisher also says it will bring "new and existing franchises" to Xbox One, PS4.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_here-s-an-nes-style-xbox-one-controller_1100-6417281_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/here-s-an-nes-style-xbox-one-controller/1100-6417281/" class="article-title">Here's an NES-style Xbox One controller</a>
+			<div class="article-subtitle">Reddit user gives Microsoft controller a lovely paint job.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_iem-sau-paulo-releases-brackets-reveals-announcers_1100-6436934_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/iem-sau-paulo-releases-brackets-reveals-announcers/1100-6436934/" class="article-title">IEM Sau Paulo releases brackets, reveals announcers</a>
+			<div class="article-subtitle">Familiar faces and familiar teams will show up on January 28th.</div>
+			<div class="article-author">Darin Kwilinski</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_tomb-raider-ps4-runs-at-60fps-but-what-about-xbox-one_1100-6417296_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tomb-raider-ps4-runs-at-60fps-but-what-about-xbox-one/1100-6417296/" class="article-title">Tomb Raider PS4 runs at 60fps, but what about Xbox One?</a>
+			<div class="article-subtitle">Square Enix says both platforms will offer "the same outstanding experience," but won't confirm frame rate for Xbox One version.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_microsoft-hires-amc-vet-to-lead-xbox-unscripted-programming_1100-6417297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-hires-amc-vet-to-lead-xbox-unscripted-programming/1100-6417297/" class="article-title">Microsoft hires AMC vet to lead Xbox unscripted programming</a>
+			<div class="article-subtitle">Ari Mark joins Xbox Entertainment Studios where he will oversee unscripted content.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_elder-scrolls-online-voice-cast-is-seriously-impressive_1100-6417293_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/elder-scrolls-online-voice-cast-is-seriously-impressive/1100-6417293/" class="article-title">Elder Scrolls Online voice cast is seriously impressive</a>
+			<div class="article-subtitle">Monty Python, Harry Potter, and Spider-Man stars sign on for roles in Bethesda's upcoming MMO.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_dead-rising-collection-coming-to-europe-in-march-how-much-would-you-pay_1100-6417298_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dead-rising-collection-coming-to-europe-in-march-how-much-would-you-pay/1100-6417298/" class="article-title">Dead Rising Collection coming to Europe in March--how much would you pay?</a>
+			<div class="article-subtitle">Comprehensive Xbox 360 bundle includes Dead Rising, Dead Rising 2, Off The Record, Case West, and Case Zero.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_new-world-of-warcraft-female-human-model-looks-like-this_1100-6417299_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-world-of-warcraft-female-human-model-looks-like-this/1100-6417299/" class="article-title">New World of Warcraft female human model looks like this</a>
+			<div class="article-subtitle">Blizzard gives a first look at revamped version of character model.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_16-fascinating-discoveries-from-dayz-creator-s-ama_1100-6417295_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/16-fascinating-discoveries-from-dayz-creator-s-ama/1100-6417295/" class="article-title">16 Fascinating Discoveries From DayZ Creator's AMA</a>
+			<div class="article-subtitle">He drank his own urine and hates Windows 8; who knew?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_social-share-shadow-of-mordor-hype-train-bravely-default-demo-delight-and-nintendo-s-memorable-melodies_1100-6417300_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/social-share-shadow-of-mordor-hype-train-bravely-default-demo-delight-and-nintendo-s-memorable-melodies/1100-6417300/" class="article-title">Social Share: Shadow of Mordor Hype Train, Bravely Default Demo Delight, and Nintendo's Memorable Melodies.</a>
+			<div class="article-subtitle">Find out what all the twitter buzz is this week with the GameSpot staff.</div>
+			<div class="article-author">Synthia Weires</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_these-are-the-best-student-made-games-of-2013-according-to-igf_1100-6417301_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/these-are-the-best-student-made-games-of-2013-according-to-igf/1100-6417301/" class="article-title">These are the best student-made games of 2013, according to IGF</a>
+			<div class="article-subtitle">Independent Games Festival organizers announce the eight winners of 12th annual Student Showcase; one will go on to win Best Student Game during awards show in March.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_mousesports-agrees-to-part-ways-with-their-dota-2-_1100-6436937_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mousesports-agrees-to-part-ways-with-their-dota-2-/1100-6436937/" class="article-title">Mousesports agrees to part ways with their Dota 2 team</a>
+			<div class="article-subtitle">After months of roster issues and changes within the Mousesports Dota 2 team the organisation today confirmed that they have parted ways with the team.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_ea-nintendo-is-not-dead-to-us_1100-6417302_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-nintendo-is-not-dead-to-us/1100-6417302/" class="article-title">EA: Nintendo is not dead to us</a>
+			<div class="article-subtitle">COO Peter Moore responds to recent report, saying, "Nintendo's a great partner."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_why-you-should-buy-a-vita-in-2014_1100-6417203_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/why-you-should-buy-a-vita-in-2014/1100-6417203/" class="article-title">Why You Should Buy a Vita in 2014</a>
+			<div class="article-subtitle">Just buy one already!</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_ea-doesn-t-have-to-pay-madden-creator-millions-after-all-update_1100-6417305_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-doesn-t-have-to-pay-madden-creator-millions-after-all-update/1100-6417305/" class="article-title">EA doesn't have to pay Madden creator millions after all [UPDATE]</a>
+			<div class="article-subtitle">Federal judge reverses ruling that would have paid original programmer Robin Antonick $11 million or more; EA's legal team "thrilled" by the result.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_apex-2014-smash-melee-champion-ppmd-melee-is-a-jou_1100-6436941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/apex-2014-smash-melee-champion-ppmd-melee-is-a-jou/1100-6436941/" class="article-title">Apex 2014 Smash Melee Champion PPMD: "Melee is a journey that's tied to myself"</a>
+			<div class="article-subtitle">Kevin 'PPMD' Nanney defeated Jason 'Mew2King' Zimmerman to win Apex 2014 and become the best Super Smash Bros Melee player in the world. Nanney speaks on getting over his demons.</div>
+			<div class="article-author">Rod Breslau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_former-ubisoft-developer-accuses-shadow-of-mordor-of-using-code-from-assassin-s-creed_1100-6417307_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-ubisoft-developer-accuses-shadow-of-mordor-of-using-code-from-assassin-s-creed/1100-6417307/" class="article-title">Former Ubisoft developer accuses Shadow of Mordor of using code from Assassin's Creed</a>
+			<div class="article-subtitle">"I spent two years staring at AC2. I know it when I see it."</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_900-000-xbox-ones-went-unsold-worldwide-in-2013-update_1100-6417303_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/900-000-xbox-ones-went-unsold-worldwide-in-2013-update/1100-6417303/" class="article-title">900,000 Xbox Ones went unsold worldwide in 2013 [UPDATE]</a>
+			<div class="article-subtitle">Microsoft representative says, "We sold through nearly every unit we could in the holiday period and pulled forward as many units as we could from Q3."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2014/01/23_cs-go-23rd-january-patch-content-analysis_1100-6436939_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cs-go-23rd-january-patch-content-analysis/1100-6436939/" class="article-title">CS: GO 23rd January Patch – Content Analysis</a>
+			<div class="article-subtitle">A new update for Counterstrike: Global Offensive has arrived bringing a batch of bug fixes, UI updates and more.</div>
+			<div class="article-author">Matthew Bailey</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_rain-world-gameplay-video-shows-off-stealth_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rain-world-gameplay-video-shows-off-stealth" class="article-title">Rain World gameplay video shows off stealth</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_ex-cod-and-titanfall-devs-announce-shmup-brawler-hybrid-to-the-death_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ex-cod-and-titanfall-devs-announce-shmup-brawler-hybrid-to-the-death" class="article-title">Ex-CoD and Titanfall devs announce shmup/brawler hybrid To the Death</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_dead-rising-collection-beheading-to-xbox-360-in-march_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dead-rising-collection-beheading-to-xbox-360-in-march" class="article-title">The Dead Rising Collection beheading to Xbox 360 in March</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_tomb-raider-definitive-edition-is-60fps-on-ps4-report_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tomb-raider-definitive-edition-is-60fps-on-ps4-report" class="article-title">Tomb Raider: Definitive Edition is 60fps on PS4 - report</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_its-middle-earth-shadows-of-mordor-in-action_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/its-middle-earth-shadows-of-mordor-in-action" class="article-title">It's Middle-earth: Shadows of Mordor in action</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_should-bioware-give-up-romances_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/should-bioware-give-up-romances" class="article-title">Should BioWare give up romances?</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_bethesda-reveals-starry-elder-scrolls-online-cast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bethesda-reveals-starry-elder-scrolls-online-cast" class="article-title">Bethesda reveals starry Elder Scrolls Online cast</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_earth-defense-force-2025-lands-in-europe-next-month_thumbnail.png">
+			<a href="https://www.eurogamer.net/earth-defense-force-2025-lands-in-europe-next-month" class="article-title">Earth Defense Force 2025 lands in Europe next month</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_whats-next-for-housemarque_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/whats-next-for-housemarque" class="article-title">What's next for Housemarque?</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_yoshis-new-island-gets-3ds-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/yoshis-new-island-gets-3ds-release-date" class="article-title">Yoshi's New Island gets 3DS release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_might-and-magic-10-legacy-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/might-and-magic-10-legacy-review" class="article-title">Might & Magic 10: Legacy review</a>
+			<div class="article-author">Stace Harman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_microsoft-and-bbc-quiet-on-continued-xbox-one-iplayer-absence_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/microsoft-and-bbc-quiet-on-continued-xbox-one-iplayer-absence" class="article-title">Microsoft and BBC quiet on continued Xbox One iPlayer absence</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_tomb-raider-emerges-on-mac-later-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tomb-raider-emerges-on-mac-later-today" class="article-title">Tomb Raider emerges on Mac later today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_hearthstone-heroes-of-warcraft-beta-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hearthstone-heroes-of-warcraft-beta-review" class="article-title">Hearthstone: Heroes of Warcraft beta review</a>
+			<div class="article-author">Tom Bramwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_alienware-wont-prevent-users-from-modding-steam-machine_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/alienware-wont-prevent-users-from-modding-steam-machine" class="article-title">Alienware won't "prevent" users from modding Steam Machine</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_video-shows-hope-for-elder-scrolls-onlines-group-battles_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-shows-hope-for-elder-scrolls-onlines-group-battles" class="article-title">Video shows hope for Elder Scrolls Online's group battles</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_hearthstone-heroes-of-warcraft-enters-open-beta-in-north-america_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hearthstone-heroes-of-warcraft-enters-open-beta-in-north-america" class="article-title">Hearthstone: Heroes of Warcraft enters open beta</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_watch-oculus-rift-virtually-swap-bodies-genders_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-oculus-rift-virtually-swap-bodies-genders" class="article-title">Watch Oculus Rift let people virtually swap bodies, genders</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_the-castle-doctrine-promo-lets-you-win-real-money-weapons_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-castle-doctrine-promo-lets-you-win-real-money-weapons" class="article-title">The Castle Doctrine promo lets you win real money, weaponry</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2014/01/23_shovel-knight-unearths-at-the-end-of-q1_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/shovel-knight-unearths-at-the-end-of-q1" class="article-title">Shovel Knight unearths at the end of Q1</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/g52e09fdd68ec4/Lightning-Returns-Final-Fantasy-XIII-demo-out-now/" class="article-title">Lightning Returns: Final Fantasy XIII demo out now</a>
+			<div class="article-subtitle">It does strike twice.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g52e09bdee8caa/Alienware-Steam-Machines-not-upgradeable-will-release-annually/" class="article-title">Alienware Steam Machines not upgradeable, will release annually</a>
+			<div class="article-subtitle">Might have missed the point there, fellas.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g52e08ad3384af/Stoic-and-Candy-Crush-developer-clash-over-Banner-Saga/" class="article-title">Stoic and Candy Crush developer clash over "Banner Saga"</a>
+			<div class="article-subtitle">The battle so far.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/g52e05fd0a167e/The-Last-of-Us-Left-Behind-story-DLC-out-next-month/" class="article-title">The Last of Us Left Behind story DLC out next month</a>
+			<div class="article-subtitle">Ellie's backstory.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g52e05bb76d87a/BioShock-Infinite-Metro-Last-Light-coming-to-PlayStation-Plus-next-week/" class="article-title">BioShock Infinite, Metro: Last Light coming to PlayStation Plus next week</a>
+			<div class="article-subtitle">PS4 owners get Outlast.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g52e0336717a41/Kingdom-Come-Kickstarter-a-first-person-RPG-with-accurate-melee-Oculus-support/" class="article-title">Kingdom Come Kickstarter a first-person RPG with "accurate melee", Oculus support</a>
+			<div class="article-subtitle">Dungeons and no Dragons.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-3/news/g52e02c2402a7a/Double-Fines-Tim-Schafer-wants-more-Br-tal-Legend/" class="article-title">Double Fine's Tim Schafer wants more Brütal Legend</a>
+			<div class="article-subtitle">Reckons Jack Black will be in.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/doodle-kingdom.php" class="article-title">Doodle Kingdom</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/linkage-draw.php" class="article-title">Linkage Draw</a>
+			<div class="article-author">Kyh</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/deadly-road-trip.php" class="article-title">Deadly Road Trip</a>
+			<div class="article-author">starchild</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

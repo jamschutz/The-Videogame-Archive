@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">April 1, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_new-gears-of-war-not-coming-to-xbox-360_1100-6426312_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-gears-of-war-not-coming-to-xbox-360/1100-6426312/" class="article-title">New Gears of War Not Coming to Xbox 360</a>
+			<div class="article-subtitle">Black Tusk confirms that the upcoming game will not be a cross-generation title.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_star-wars-battlefront-making-so-much-progress_1100-6426313_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-battlefront-making-so-much-progress/1100-6426313/" class="article-title">Star Wars: Battlefront Making "So Much Progress"</a>
+			<div class="article-subtitle">Game''s official reveal to take place in just a couple of weeks during the Star Wars Celebration.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_microsoft-considered-making-original-xbox-free-rep_1100-6426314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-considered-making-original-xbox-free-rep/1100-6426314/" class="article-title">Microsoft Considered Making Original Xbox Free - Report</a>
+			<div class="article-subtitle">It was reportedly an attempt to capture the "casual" market, but of course it didn''t end up happening.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_xbox-free-games-with-gold-april-for-xbox-one-and-3_1100-6426185_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-free-games-with-gold-april-for-xbox-one-and-3/1100-6426185/" class="article-title">Xbox Free Games With Gold April for Xbox One and 360 Revealed</a>
+			<div class="article-subtitle">Microsoft offering double the number of free games next month; see the full list of freebies here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_psa-april-s-free-xbox-games-available-now_1100-6426316_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psa-april-s-free-xbox-games-available-now/1100-6426316/" class="article-title">PSA: April's Free Xbox Games Available Now</a>
+			<div class="article-subtitle">A total of four free games are now available to download on Xbox Live; see the full list here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_virtual-reality-for-dogs-announced_1100-6426318_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/virtual-reality-for-dogs-announced/1100-6426318/" class="article-title">Virtual Reality for Dogs Announced</a>
+			<div class="article-subtitle">Pawculus Rift is "the future of fetch," and is also an April Fools'' Day joke.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_playstation-home-officially-closed_1100-6426320_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-home-officially-closed/1100-6426320/" class="article-title">PlayStation Home Officially Closed</a>
+			<div class="article-subtitle">2008-2015.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_guy-spends-22-500-on-star-citizen-has-no-regrets_1100-6426321_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guy-spends-22-500-on-star-citizen-has-no-regrets/1100-6426321/" class="article-title">Guy Spends $22,500 on Star Citizen, Has No Regrets</a>
+			<div class="article-subtitle">"I''ve got a Pokémon complex. I have to have them all. They put it out there, I buy it."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_ps4-s-spring-fever-week-5-sales-revealed_1100-6426322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-s-spring-fever-week-5-sales-revealed/1100-6426322/" class="article-title">PS4's Spring Fever Week 5 Sales Revealed</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_batman-arkham-knight-is-1080p-on-ps4_1100-6426323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/batman-arkham-knight-is-1080p-on-ps4/1100-6426323/" class="article-title">Batman: Arkham Knight Is 1080p on PS4</a>
+			<div class="article-subtitle">Resolution confirmed for PlayStation 4 edition of upcoming Caped Crusader game; no word yet on Xbox One details.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_introducing-playstation-flow-sony-s-latest-ps4-wea_1100-6426315_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/introducing-playstation-flow-sony-s-latest-ps4-wea/1100-6426315/" class="article-title">Introducing PlayStation Flow, Sony's Latest PS4 Wearable Device</a>
+			<div class="article-subtitle">"We''re taking gaming out of the living room and into the swimming pool," Sony says about this year''s April Fools'' Day prank.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_free-motorstorm-buggy-comes-to-driveclub-as-april-_1100-6426324_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-motorstorm-buggy-comes-to-driveclub-as-april-/1100-6426324/" class="article-title">Free MotorStorm Buggy Comes to Driveclub as April Fools'  Day DLC</a>
+			<div class="article-subtitle">"Drive like a fool."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_nintendo-mobile-games-could-generate-25-million-pe_1100-6426326_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-mobile-games-could-generate-25-million-pe/1100-6426326/" class="article-title">Nintendo Mobile Games Could Generate $25 Million Per Month - Report</a>
+			<div class="article-subtitle">"We want to create games that will be played by hundreds of millions of people," DeNA chief executive says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_arkham-knight-s-ps4-exclusive-content-not-exclusiv_1100-6426325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/arkham-knight-s-ps4-exclusive-content-not-exclusiv/1100-6426325/" class="article-title">Arkham Knight's PS4-Exclusive Content Not Exclusive Forever</a>
+			<div class="article-subtitle">The game''s Scarecrow missions and character skins are exclusive to PlayStation 4 only through fall 2015.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_gaming-deals-20-driveclub-350-xbox-one-with-halo-a_1100-6426327_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-deals-20-driveclub-350-xbox-one-with-halo-a/1100-6426327/" class="article-title">Gaming Deals: $20 Driveclub, $350 Xbox One With Halo and Assassin's Creed</a>
+			<div class="article-subtitle">Battlefield Hardline for $40, Final Fantasy Type-0 HD on Xbox One for $48, Mark of the Ninja for $4, and much more.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_if-the-fast-and-the-furious-were-an-8-bit-game_1100-6426328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/if-the-fast-and-the-furious-were-an-8-bit-game/1100-6426328/" class="article-title">If The Fast and the Furious Were an 8-Bit Game</a>
+			<div class="article-subtitle">We''d play it.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_this-war-of-mine-dlc-charity-campaign-has-done-a-l_1100-6426329_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-war-of-mine-dlc-charity-campaign-has-done-a-l/1100-6426329/" class="article-title">This War of Mine DLC Charity Campaign Has Done a Lot of Good</a>
+			<div class="article-subtitle">Indie game''s charity drive has so far supported 350 Syrian children refugees, and it''s not too late to chip in.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_final-club-nintendo-elite-rewards-have-arrived_1100-6426330_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-club-nintendo-elite-rewards-have-arrived/1100-6426330/" class="article-title">Final Club Nintendo Elite Rewards Have Arrived</a>
+			<div class="article-subtitle">Long list of excellent games to choose from.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_serious-sam-narrates-the-talos-principle-in-free-d_1100-6426333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/serious-sam-narrates-the-talos-principle-in-free-d/1100-6426333/" class="article-title">Serious Sam Narrates The Talos Principle in Free DLC</a>
+			<div class="article-subtitle">You have until April 7 to grab this free DLC.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_just-cause-dev-s-dinosaur-hunting-game-available-n_1100-6426284_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/just-cause-dev-s-dinosaur-hunting-game-available-n/1100-6426284/" class="article-title">Just Cause Dev's Dinosaur-Hunting Game Available Now, Adds Eye-Tracking</a>
+			<div class="article-subtitle">The Hunter: Primal available now on Steam; flying dinosaur Quetzalcoatlus and more weapons added.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_xbox-one-s-sunset-overdrive-gets-permanent-price-d_1100-6426319_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-s-sunset-overdrive-gets-permanent-price-d/1100-6426319/" class="article-title">Xbox One's Sunset Overdrive Gets Permanent Price Drop</a>
+			<div class="article-subtitle">Over-the-top action game now available everywhere for $40; new DLC and April Fools'' Day pranks revealed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_destiny-april-fools-day-prank-is-an-epic-dance-par_1100-6426335_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-april-fools-day-prank-is-an-epic-dance-par/1100-6426335/" class="article-title">Destiny April Fools' Day Prank Is an Epic Dance Party</a>
+			<div class="article-subtitle">Bust a move.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_april-fools-2015-video-game-joke-roundup_1100-6426303_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/april-fools-2015-video-game-joke-roundup/1100-6426303/" class="article-title">April Fools' 2015 Video Game Joke Roundup</a>
+			<div class="article-subtitle">Here are some of the best video game pranks on the Internet today.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_wii-u-virtual-console-getting-n64-and-nintendo-ds-_1100-6426337_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-u-virtual-console-getting-n64-and-nintendo-ds-/1100-6426337/" class="article-title">Wii U Virtual Console Getting N64 and Nintendo DS Games</a>
+			<div class="article-subtitle">Lots of custom control options let you use your Wii U in new ways.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_attack-on-titan-humanity-in-chains-coming-to-3ds-t_1100-6426339_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/attack-on-titan-humanity-in-chains-coming-to-3ds-t/1100-6426339/" class="article-title">Attack on Titan: Humanity in Chains Coming To 3DS This May</a>
+			<div class="article-subtitle">Play as a member of the elite Scout Regiment and defend humanity from Titans.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_new-trailer-for-shin-megami-tensei-x-fire-emblem_1100-6426341_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-trailer-for-shin-megami-tensei-x-fire-emblem/1100-6426341/" class="article-title">New Trailer for Shin Megami Tensei x Fire Emblem</a>
+			<div class="article-subtitle">The Wii U exclusive has been out of the spotlight for over a year. We finally see what this mash-up from the creators of Persona and Fire Emblem has in store.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_mario-kart-8-gets-free-faster-200cc-mode_1100-6426340_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mario-kart-8-gets-free-faster-200cc-mode/1100-6426340/" class="article-title">Mario Kart 8 Gets Free, Faster 200cc Mode</a>
+			<div class="article-subtitle">Second DLC pack coming out a month earlier.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_more-smash-bros-dlc-characters-on-the-way-and-upda_1100-6426336_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-smash-bros-dlc-characters-on-the-way-and-upda/1100-6426336/" class="article-title">More Smash Bros. DLC Characters on the Way, and Update 1.06 Details</a>
+			<div class="article-subtitle">Nintendo confirms Lucas as upcoming Wii U and 3DS DLC, asks fans for more character suggestions.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_next-amiibo-wave-revealed-includes-pokemon-and-fir_1100-6426338_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/next-amiibo-wave-revealed-includes-pokemon-and-fir/1100-6426338/" class="article-title">Next Amiibo Wave Revealed, Includes Pokemon and Fire Emblem Characters</a>
+			<div class="article-subtitle">Check out a preview of the next Amiibo wave, coming this May as well as details about Amiibo Tap.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_nintendo-s-april-3ds-wii-u-direct-news-roundup_1100-6426331_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-s-april-3ds-wii-u-direct-news-roundup/1100-6426331/" class="article-title">Nintendo's April 3DS/Wii U Direct News Roundup</a>
+			<div class="article-subtitle">It might have been April Fools'' Day, but Nintendo had lots of non-joke announcements. Updates for Mario Kart 8, Smash Bros., and more.</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/04/01_seven-advanced-bloodborne-tips-you-may-have-missed_1100-6426309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/seven-advanced-bloodborne-tips-you-may-have-missed/1100-6426309/" class="article-title">Seven Advanced Bloodborne Tips You May Have Missed</a>
+			<div class="article-subtitle">Much Ado About Hunting.</div>
+			<div class="article-author">Daniel Hindes</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_nintendo-announces-animal-crossing-happy-home-designer_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-announces-animal-crossing-happy-home-designer" class="article-title">Nintendo introduces Amiibo Cards with Animal Crossing: Happy Home Designer</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_n64-ds-games-launch-on-wii-u-virtual-console_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/n64-ds-games-launch-on-wii-u-virtual-console" class="article-title">N64, DS games launch on Wii U Virtual Console</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_mario-kart-8s-animal-crossing-dlc-brought-forward_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mario-kart-8s-animal-crossing-dlc-brought-forward" class="article-title">Mario Kart 8's Animal Crossing DLC brought forward</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_splatoon-inks-in-a-may-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/splatoon-inks-in-a-may-release-date" class="article-title">Splatoon inks in a May release date</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_fatal-frame-u-coming-to-wii-u-this-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fatal-frame-u-coming-to-wii-u-this-year" class="article-title">Fatal Frame U coming to Wii U this year</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_yoshi-woolly-world-gets-release-date-wooly-amiibo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/yoshi-woolly-world-gets-release-date-wooly-amiibo" class="article-title">Yoshi Woolly World gets release date, wooly Amiibo</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_advanced-warfares-dlc-has-exploding-hamburgers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/advanced-warfares-dlc-has-exploding-hamburgers" class="article-title">CoD: Advanced Warfare's DLC has exploding hamburgers</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_dena-aims-for-usd25m-a-month-with-nintendo-mobile-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dena-aims-for-usd25m-a-month-with-nintendo-mobile-games" class="article-title">DeNA aims to make $25m a month with Nintendo games</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_how-to-avoid-bloodbornes-game-breaking-glitch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/how-to-avoid-bloodbornes-game-breaking-glitch" class="article-title">How to avoid Bloodborne's game-breaking glitch</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_the-best-and-worst-of-april-fools-day-2015-in-gaming_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-best-and-worst-of-april-fools-day-2015-in-gaming" class="article-title">The best and worst of April Fools' Day 2015 in gaming</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_bloodborne-sells-150k-during-japan-opening-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bloodborne-sells-150k-during-japan-opening-week" class="article-title">Bloodborne tops Japan sales chart</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_starcraft-2-legacy-of-the-void-beta-invites-go-out_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/starcraft-2-legacy-of-the-void-beta-invites-go-out" class="article-title">StarCraft 2: Legacy of the Void beta invites go out</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_nintendo-issues-takedown-notice-for-super-mario-64-hd-project_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-issues-takedown-notice-for-super-mario-64-hd-project" class="article-title">Nintendo issues takedown notice for Super Mario 64 HD project</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_xenoblade-chronicles-3d-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xenoblade-chronicles-3d-review" class="article-title">Xenoblade Chronicles 3D review</a>
+			<div class="article-subtitle">A technically impressive port of a masterly RPG, though the small screen ultimately proves too restrictive for a game of this scope.</div>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_demons-souls-was-a-failure-before-miyazaki-stepped-up_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/demons-souls-was-a-failure-before-miyazaki-stepped-up" class="article-title">Demon's Souls was "a failure" before Miyazaki stepped up</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_batman-arkham-knight-themed-ps4-revealed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/batman-arkham-knight-themed-ps4-revealed" class="article-title">Batman: Arkham Knight-themed PS4 revealed</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_its-over-playstation-home-has-closed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/its-over-playstation-home-has-closed" class="article-title">It's over: PlayStation Home has closed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_microsoft-mulled-idea-of-giving-away-original-xbox-free_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/microsoft-mulled-idea-of-giving-away-original-xbox-free" class="article-title">Microsoft mulled idea of giving away original Xbox free</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/04/01_looks-like-motorstorm-buggies-are-coming-to-driveclub_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/looks-like-motorstorm-buggies-are-coming-to-driveclub" class="article-title">Looks like MotorStorm buggies are coming to DriveClub</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g551b419680485/Sony-Pictures-is-working-on-a-Metal-Gear-Solid-movie/" class="article-title">Sony Pictures is working on a Metal Gear Solid movie</a>
+			<div class="article-subtitle">Cardboard box-office.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g551b282f9274a/League-of-Legends-OPL-semi-finals-start-tonight/" class="article-title">League of Legends OPL semi-finals start tonight</a>
+			<div class="article-subtitle">ANZ's first pro eSports league heats up.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g551b277c43240/Filipino-government-may-attempt-to-correct-Tekken-7-character/" class="article-title">Filipino government may attempt to "correct" Tekken 7 character</a>
+			<div class="article-subtitle">Not Filipino enough.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g551b1fb09f84f/Cancelled-ZombiU-2-wanted-to-do-co-op-survival-horror-right---report/" class="article-title">Cancelled ZombiU 2 wanted to do co-op survival horror right - report</a>
+			<div class="article-subtitle">Right idea, wrong console.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g551b1d0fee088/Just-Cause-dev-releases-dino-survival-title-The-Hunter-Primal/" class="article-title">Just Cause dev releases dino survival title The Hunter: Primal</a>
+			<div class="article-subtitle">A game a few years in the making.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g551b1952379a2/Microsoft-doesnt-need-us-to-be-evil-says-Lionhead/" class="article-title">Microsoft doesn't need us to be evil, says Lionhead</a>
+			<div class="article-subtitle">Fable director on going free-to-play.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g551b0a074ee44/Google-Maps-transforms-into-Pac-Man-for-April-Fools-Day/" class="article-title">Google Maps transforms into Pac-Man for April Fools' Day</a>
+			<div class="article-subtitle">Neat!</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g551b038970453/Three-Assassin-s-Creed-Chronicles-games-announced/" class="article-title">Three Assassin’s Creed Chronicles games announced</a>
+			<div class="article-subtitle">2.5D action in China, India, and Russia.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/three-fourths-home.php" class="article-title">Three Fourths Home</a>
+			<div class="article-author">Tricky</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/lodger.php" class="article-title">Lodger</a>
+			<div class="article-author">SonicLover</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/juicy-bazooka.php" class="article-title">Juicy Bazooka</a>
+			<div class="article-author">Ally</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-escape-n69.php" class="article-title">Weekday Escape N°69</a>
+			<div class="article-author">elle</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

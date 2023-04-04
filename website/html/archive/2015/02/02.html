@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 2, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/grey-goo-review/1900-6416017/" class="article-title">Grey Goo Review</a>
+			<div class="article-subtitle">A real Goo Goo Doll.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/citizens-of-earth-review/1900-6416019/" class="article-title">Citizens of Earth Review</a>
+			<div class="article-subtitle">Shiny, happy people laughing.</div>
+			<div class="article-author">Justin Clark</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/game-of-thrones-episode-two-the-lost-lords-review/1900-6416020/" class="article-title">Game of Thrones: Episode Two - The Lost Lords Review</a>
+			<div class="article-subtitle">Telltale always pays its debts.</div>
+			<div class="article-author">Alexa Ray Corriea</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_uk-chart-advanced-warfare-edges-ahead-amid-sales-t_1100-6425033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uk-chart-advanced-warfare-edges-ahead-amid-sales-t/1100-6425033/" class="article-title">UK Chart: Advanced Warfare Edges Ahead Amid Sales Trudge</a>
+			<div class="article-subtitle">Familiar names populate top ten as Dying Light''s release is delayed.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_watch-street-fighter-5-played-by-two-of-the-world-_1100-6425034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-street-fighter-5-played-by-two-of-the-world-/1100-6425034/" class="article-title">Watch Street Fighter 5 Played by Two of the World's Best Combatants</a>
+			<div class="article-subtitle">Daigo Umehara and GamerBee square off in the latest Ryu vs Chun-Li demonstration.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_this-pixelated-simpsons-intro-is-so-good-you-ll-be_1100-6425036_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-pixelated-simpsons-intro-is-so-good-you-ll-be/1100-6425036/" class="article-title">This Pixelated Simpsons Intro Is So Good You'll Be Amazed It's Not Official</a>
+			<div class="article-subtitle">Check out this creative tribute to the classic TV show.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_crystal-covered-ps4-hits-ebay_1100-6425037_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crystal-covered-ps4-hits-ebay/1100-6425037/" class="article-title">Crystal-Covered PS4 Hits eBay</a>
+			<div class="article-subtitle">Bidding for colorful custom console reaches $1,200; check out some images and a video here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_katy-perry-uses-wii-remote-strap-channels-pokemon-_1100-6425039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/katy-perry-uses-wii-remote-strap-channels-pokemon-/1100-6425039/" class="article-title">Katy Perry Uses Wii Remote Strap, Channels Pokemon At Super Bowl</a>
+			<div class="article-subtitle">Nintendo rejoices, as someone is finally using the Wii Remote strap.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_re-watch-super-bowl-video-game-ads_1100-6425040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/re-watch-super-bowl-video-game-ads/1100-6425040/" class="article-title">Re-Watch Super Bowl Video Game Ads</a>
+			<div class="article-subtitle">Missed the Super Bowl? Here are the commercials for video games shown during the big game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_play-this-really-tough-8-bit-bayonetta-game-right-_1100-6425038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/play-this-really-tough-8-bit-bayonetta-game-right-/1100-6425038/" class="article-title">Play This Really Tough 8-Bit Bayonetta Game Right Now</a>
+			<div class="article-subtitle">The next entry in the series is not Bayonetta 3, but rather this free browser game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_why-you-should-buy-a-gaming-pc-for-your-living-roo_1100-6425012_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/why-you-should-buy-a-gaming-pc-for-your-living-roo/1100-6425012/" class="article-title">Why You Should Buy a Gaming PC for Your Living Room in 2015</a>
+			<div class="article-subtitle">So powerful it hertz.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_400-gets-you-ps4-the-last-of-us-12-months-of-ps-pl_1100-6425042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/400-gets-you-ps4-the-last-of-us-12-months-of-ps-pl/1100-6425042/" class="article-title">$400 Gets You PS4 + The Last of Us + 12 Months Of PS Plus</a>
+			<div class="article-subtitle">Amazon has a pretty nice deal going.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_dying-light-pc-patch-blocks-fan-mods-updated_1100-6425041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dying-light-pc-patch-blocks-fan-mods-updated/1100-6425041/" class="article-title">Dying Light PC Patch Blocks Fan Mods [UPDATED]</a>
+			<div class="article-subtitle">Techland says the company fully supports PC modding; read on for the full statement.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_raspberry-pi-2-is-a-35-pc-that-supports-windows-10_1100-6425044_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/raspberry-pi-2-is-a-35-pc-that-supports-windows-10/1100-6425044/" class="article-title">Raspberry Pi 2 is a $35 PC That Supports Windows 10</a>
+			<div class="article-subtitle">Latest edition of the diminutive home computer packs quad processor and 1 GB of memory.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_battlefield-hardline-could-add-planes-someday-dev-_1100-6425045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-could-add-planes-someday-dev-/1100-6425045/" class="article-title">Battlefield Hardline Could Add Planes Someday, Dev Teases</a>
+			<div class="article-subtitle">"If it fits the themes of any additional content, perhaps."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_minecon-2015-announced-coming-to-london-this-summe_1100-6425051_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/minecon-2015-announced-coming-to-london-this-summe/1100-6425051/" class="article-title">Minecon 2015 Announced, Coming to London This Summer</a>
+			<div class="article-subtitle">After taking 2014 off, the all-things Minecraft show returns this summer July 4-5 in London.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_game-of-thrones-episode-two-out-this-week-watch-la_1100-6425049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-episode-two-out-this-week-watch-la/1100-6425049/" class="article-title">Game of Thrones Episode Two Out This Week, Watch Launch Trailer Now</a>
+			<div class="article-subtitle">The Lost Lords officially launches across PC and console tomorrow, February 3.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_call-of-duty-zombies-presentation-coming-wednesday_1100-6425055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-zombies-presentation-coming-wednesday/1100-6425055/" class="article-title">Call of Duty Zombies Presentation Coming Wednesday</a>
+			<div class="article-subtitle">Treyarch to talk about development process behind popular mode in Vegas this week, but don''t expect a game reveal.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_explosive-just-cause-3-screens-leak-online_1100-6425035_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/explosive-just-cause-3-screens-leak-online/1100-6425035/" class="article-title">Explosive Just Cause 3 Screens Leak Online</a>
+			<div class="article-subtitle">New selection of images showcase more high-octane theatrics.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_watch-new-walkthrough-for-impressive-resident-evil_1100-6425056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-new-walkthrough-for-impressive-resident-evil/1100-6425056/" class="article-title">Watch New Walkthrough For Impressive Resident Evil 2 Fan Remake</a>
+			<div class="article-subtitle">Capcom might want to hire this guy.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_soe-turns-independent-eyes-xbox-support_1100-6425048_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/soe-turns-independent-eyes-xbox-support/1100-6425048/" class="article-title">SOE Turns Independent, Eyes Xbox Support</a>
+			<div class="article-subtitle">Developer of H1Z1 and Planetside 2 ready to build games for multiple formats.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_kojima-wants-open-world-metal-gear-solid-1-remake-_1100-6425043_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kojima-wants-open-world-metal-gear-solid-1-remake-/1100-6425043/" class="article-title">Kojima Wants Open-World Metal Gear Solid 1 Remake for PS4</a>
+			<div class="article-subtitle">But don''t get too excited, as Hideo Kojima explains that he doesn''t have time to work on such a project right now.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_club-nintendo-closure-sale-offers-major-deals-and-_1100-6425052_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/club-nintendo-closure-sale-offers-major-deals-and-/1100-6425052/" class="article-title">Club Nintendo Closure Sale Offers Major Deals and Discounts</a>
+			<div class="article-subtitle">Wonderful 101 just 600 coins; Retro Mario t-shirt available for 700 coins; Dozens of Virtual Console games available.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_battlefield-hardline-s-development-is-being-direct_1100-6425030_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-s-development-is-being-direct/1100-6425030/" class="article-title">Battlefield Hardline's Development Is Being Directly Influenced By YouTubers</a>
+			<div class="article-subtitle">EA''s "Game Changers" program has brought YouTubers and Battlefield community members in to collect feedback before the game''s release.</div>
+			<div class="article-author">Daniel Hindes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_h1z1-early-access-review_1100-6424925_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/h1z1-early-access-review/1100-6424925/" class="article-title">H1Z1 Early Access Review</a>
+			<div class="article-subtitle">Learning from the best.</div>
+			<div class="article-author">Cameron Woolsey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_which-console-should-you-buy-in-2015_1100-6424992_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/which-console-should-you-buy-in-2015/1100-6424992/" class="article-title">Which Console Should You Buy in 2015?</a>
+			<div class="article-subtitle">Decisions, decisions.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_square-enix-s-cloud-platform-shinra-signs-on-its-f_1100-6425058_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/square-enix-s-cloud-platform-shinra-signs-on-its-f/1100-6425058/" class="article-title">Square Enix's Cloud Platform Shinra Signs On Its First Developer</a>
+			<div class="article-subtitle">Independent developer Camoflaj is the first studio to join Shinra Technologies'' new program.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_gamespot-heroes-of-the-storm-anz-beta-key-giveaway_1100-6425059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamespot-heroes-of-the-storm-anz-beta-key-giveaway/1100-6425059/" class="article-title">GameSpot Heroes of the Storm ANZ Beta Key Giveaway</a>
+			<div class="article-subtitle">Enter the storm.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/02_amiibo-can-be-used-with-ace-combat-assault-horizon_1100-6425060_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amiibo-can-be-used-with-ace-combat-assault-horizon/1100-6425060/" class="article-title">Amiibo Can Be Used With Ace Combat Assault Horizon Legacy Plus</a>
+			<div class="article-subtitle">Mario, Bowser, Captain Falcon, Pacman, and Samus Amiibo can be used to unlock exclusive skins.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_watch-bloodbornes-opening-18-minutes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-bloodbornes-opening-18-minutes" class="article-title">Watch Bloodborne's opening 18 minutes</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_minecon-dated-for-july_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/minecon-dated-for-july" class="article-title">MineCon dated for July in London</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_condemned-creator-considering-letting-an-indie-studio-make-a-third-outing_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/condemned-creator-considering-letting-an-indie-studio-make-a-third-outing" class="article-title">Condemned creator considering letting an indie studio make a third outing</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_soe-has-been-sold-off-can-now-develop-multi-platform-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/soe-has-been-sold-off-can-now-develop-multi-platform-games" class="article-title">SOE has been sold off, can now develop multi-platform games</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_just-cause-3-screenshots-show-off-explosions-wingsuits_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/just-cause-3-screenshots-show-off-explosions-wingsuits" class="article-title">Just Cause 3 screenshots show off explosions, wingsuits</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_video-everything-you-need-to-know-about-the-battlefield-hardline-open-beta_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/video-everything-you-need-to-know-about-the-battlefield-hardline-open-beta" class="article-title">Video: Everything you need to know about the Battlefield Hardline open beta</a>
+			<div class="article-author">Aoife Wilson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_battlefield-hardline-is-more-than-just-a-palette-swap_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battlefield-hardline-is-more-than-just-a-palette-swap" class="article-title">Battlefield Hardline is more than just a palette swap</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_stunning-portal-2-fan-mod-may-be-the-closest-well-ever-get-to-a-portal-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/stunning-portal-2-fan-mod-may-be-the-closest-well-ever-get-to-a-portal-3" class="article-title">Stunning-looking Portal 2 mod may be the closest we get to Portal 3</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_resident-evil-2-fan-completes-full-remake_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-2-fan-completes-full-remake" class="article-title">Resident Evil 2 fan remake shown off from start to finish</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_platinum-makes-bayonetta-8-bit-with-fiendishly-tricky-angel-land-browser-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/platinum-makes-bayonetta-8-bit-with-fiendishly-tricky-angel-land-browser-game" class="article-title">Platinum turns Bayonetta 8-bit with fiendishly tricky Angel Land browser game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_watch-two-of-the-worlds-best-fighting-game-pros-play-street-fighter-5_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-two-of-the-worlds-best-fighting-game-pros-play-street-fighter-5" class="article-title">Watch two of the world's best fighting game pros play Street Fighter 5</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/02_meet-monster-boy-the-spiritual-successor-to-wonder-boy_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/meet-monster-boy-the-spiritual-successor-to-wonder-boy" class="article-title">Meet Monster Boy, the spiritual successor to Wonder Boy</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g54cee78d1f0ed/New-Just-Cause-3-screens-leak/" class="article-title">New Just Cause 3 screens leak</a>
+			<div class="article-subtitle">Sandbox mayhem shown.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g54ced7b1658cf/Hearthstone-pro-dropped-by-team-for-alleged-stream-sniping/" class="article-title">Hearthstone pro dropped by team for alleged stream sniping</a>
+			<div class="article-subtitle">Hosty leaves Archon.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ceba4db3deb/Ice-T-to-investigate-anonymous-harassment-of-female-dev-on-SVU-episode/" class="article-title">Ice-T to investigate anonymous harassment of female dev on SVU episode</a>
+			<div class="article-subtitle">Actually it's about TV ratings.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ceaece25c11/Sega-to-offer-300-staff-voluntary-retirement/" class="article-title">Sega to offer 300 staff "voluntary retirement"</a>
+			<div class="article-subtitle">Moving its US HQ to SoCal.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ce9c612a308/Lego-Jurassic-World-and-Lego-Avengers-coming-this-year/" class="article-title">Lego Jurassic World and Lego Avengers coming this year</a>
+			<div class="article-subtitle">No sign of a final Hobbit game.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ce8e057f5b4/Nintendos-revenue-sharing-plan-a-slap-in-the-face/" class="article-title">Nintendo's revenue sharing plan "a slap in the face"</a>
+			<div class="article-subtitle">Prominent YouTubers unimpressed.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ce8582b34fa/Is-a-Metal-Gear-Rising-Revengeance-sequel-in-the-works/" class="article-title">Is a Metal Gear Rising: Revengeance sequel in the works?</a>
+			<div class="article-subtitle">Hope so!</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/dwelp.php" class="article-title">Dwelp</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/one-screen-hero.php" class="article-title">One Screen Hero</a>
+			<div class="article-author">Johnny123</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">October 7, 2013</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/new-super-mario-bros-2/1900-6390636/" class="article-title">New Super Mario Bros. 2 Review</a>
+			<div class="article-subtitle">New Super Mario Bros. 2 is a fun, overly familiar adventure that lacks imagination in its level design.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/giana-sisters-twisted-dreams-review/1900-6405686/" class="article-title">Giana Sisters: Twisted Dreams Review</a>
+			<div class="article-subtitle">Giana Sisters: Twisted Dreams combines satisfying gameplay with dazzling environments to create a worthy platformer.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/uncharted-2-siege-expansion-pack-review/1900-6258789/" class="article-title">Uncharted 2 Siege Expansion Pack Review</a>
+			<div class="article-subtitle">A hectic cooperative mode and two new maps add more fun content for Uncharted 2.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/sly-cooper-thieves-in-time-review/1900-6403394/" class="article-title">Sly Cooper: Thieves in Time Review</a>
+			<div class="article-subtitle">Graceful controls and well-designed levels make Sly Cooper: Thieves in Time another satisfying entry in the series.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/darksiders-ii-review/1900-6391210/" class="article-title">Darksiders II Review</a>
+			<div class="article-subtitle">Darksiders II merges action, exploration, and loot-driven progression into an excellent and sizable adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/darksiders-ii-review/1900-6392103/" class="article-title">Darksiders II Review</a>
+			<div class="article-subtitle">Darksiders II merges action, exploration, and loot-driven progression into an excellent and sizable adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/darksiders-ii-review/1900-6400372/" class="article-title">Darksiders II Review</a>
+			<div class="article-subtitle">Darksiders II comes with a few extra technical foibles on the Wii U, but the fluid action and intriguing exploration are still front and center in this expansive adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/darksiders-ii-review/1900-6391200/" class="article-title">Darksiders II Review</a>
+			<div class="article-subtitle">Darksiders II merges action, exploration, and loot-driven progression into an excellent and sizable adventure.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/alien-rage-review/1900-6415269/" class="article-title">Alien Rage Review</a>
+			<div class="article-subtitle">Bland Rage.</div>
+			<div class="article-author">Daniel Shannon</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/metro-last-light-review/1900-6408419/" class="article-title">Metro: Last Light Review</a>
+			<div class="article-subtitle">Metro: Last Light is an astonishing and moving postapocalyptic journey.</div>
+			<div class="article-author">Kevin VanOrd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/doom-review/1900-2532876/" class="article-title">Doom Review</a>
+			<div class="article-subtitle">The Saturn finally has its own version of Doom, and not only is it about two years too late, but it's also completely worthless.</div>
+			<div class="article-author">Jeff Gerstmann</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/mechwarrior-online-review/1900-6415037/" class="article-title">MechWarrior Online Review</a>
+			<div class="article-subtitle">MechWarrior Online gets the feel of mech combat right, but its lack of variety taints the experience.</div>
+			<div class="article-author">Leif Johnson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/fallen-enchantress-legendary-heroes-review/1900-6409211/" class="article-title">Fallen Enchantress: Legendary Heroes Review</a>
+			<div class="article-subtitle">Fallen Enchantress: Legendary Heroes hits the sweet spot for this continually improving strategy franchise.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ripd-the-game-review/1900-6411921/" class="article-title">R.I.P.D. The Game Review</a>
+			<div class="article-subtitle">R.I.P.D. is a pitiful excuse for a cooperative shooter and a prime example of a disappointing movie tie-in.</div>
+			<div class="article-author">Leif Johnson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/gears-of-war-judgment-review/1900-6405684/" class="article-title">Gears of War: Judgment Review</a>
+			<div class="article-subtitle">A new challenge-based campaign structure and some fresh multiplayer action make Gears of War: Judgment a worthwhile scion of the celebrated franchise.</div>
+			<div class="article-author">Chris Watters</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/ibb-and-obb-review/1900-6412545/" class="article-title">Ibb and Obb Review</a>
+			<div class="article-subtitle">Ibb and Obb is a satisfying cooperative puzzler whose inventive situations are occasionally overshadowed by design misstep.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/the-walking-dead-400-days-a-noble-experiment/1900-6415417/" class="article-title">The Walking Dead: 400 Days - A Noble Experiment Review</a>
+			<div class="article-subtitle">I would walk 400 days and I would walk 400 more.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tomb-raider-review/1900-6405194/" class="article-title">Tomb Raider Review</a>
+			<div class="article-subtitle">Tomb Raider is an exhilarating action adventure that serves as a terrific origin story for the iconic Lara Croft.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rain-review/1900-6415182/" class="article-title">Rain Review</a>
+			<div class="article-subtitle">It was a dark and stormy night.</div>
+			<div class="article-author">Tom Mc Shea</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/tomb-raider-review/1900-6404378/" class="article-title">Tomb Raider Review</a>
+			<div class="article-subtitle">Tomb Raider is an exhilarating action adventure that serves as a terrific origin story for the iconic Lara Croft.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/scribblenauts-unmasked-review/1900-6415220/" class="article-title">Scribblenauts Unmasked Review</a>
+			<div class="article-subtitle">Imagination's Kryptonite.</div>
+			<div class="article-author">Carolyn Petit</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_fifa-14-patch-released-on-360-and-ps3-this-week_1100-6415389_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-14-patch-released-on-360-and-ps3-this-week/1100-6415389/" class="article-title">FIFA 14 patch released on 360 and PS3 this week</a>
+			<div class="article-subtitle">The second title update for FIFA 14 will balance through balls, headers, and finesse shots, EA says.</div>
+			<div class="article-author">Martin Gaston</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_lessons-from-the-wild-what-watch-dogs-learned-from-far-cry-2_1100-6415133_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lessons-from-the-wild-what-watch-dogs-learned-from-far-cry-2/1100-6415133/" class="article-title">Lessons From the Wild: What Watch Dogs Learned From Far Cry 2</a>
+			<div class="article-subtitle">You may not think of music when you think of Watch Dogs, but the game's creative director certainly does.</div>
+			<div class="article-author">Shaun McInnis</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_new-game-in-sleeping-dogs-universe-in-the-works_1100-6415397_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-game-in-sleeping-dogs-universe-in-the-works/1100-6415397/" class="article-title">New game in Sleeping Dogs universe in the works</a>
+			<div class="article-subtitle">United Front Games working on new game called Triad Wars with Square Enix; more information in 2014.</div>
+			<div class="article-author">Gamespot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_black-ops-ii-dlc-sales-to-support-military-veterans_1100-6415396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-ops-ii-dlc-sales-to-support-military-veterans/1100-6415396/" class="article-title">Black Ops II DLC sales to support military veterans</a>
+			<div class="article-subtitle">Activision announces new campaign that will give 100 percent of profits from personalization packs to Call of Duty Endowment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_battlefield-4-second-assault-dlc-out-for-xbox-one-at-launch_1100-6415393_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-4-second-assault-dlc-out-for-xbox-one-at-launch/1100-6415393/" class="article-title">Battlefield 4 Second Assault DLC out for Xbox One at launch</a>
+			<div class="article-subtitle">Expansion will feature four "fan-favorite" maps from Battlefield 3 updated using Frostbite 3 engine; will be available on other platforms later.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_report-ps4-to-outsell-xbox-one-this-holiday_1100-6415284_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/report-ps4-to-outsell-xbox-one-this-holiday/1100-6415284/" class="article-title">Report: PS4 to outsell Xbox One this holiday</a>
+			<div class="article-subtitle">International Data Corporation says PlayStation 4's lower price point will help platform edge out Xbox One; console sales expected to grow in 2013 for the first time in four years.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_sony-reengineering-the-last-guardian_1100-6415289_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-reengineering-the-last-guardian/1100-6415289/" class="article-title">Sony "reengineering" The Last Guardian</a>
+			<div class="article-subtitle">Worldwide Studios president Shuhei Yoshida says team working on long-awaited game is "well-staffed," can't talk about platform just yet.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_plants-vs-zombies-2-nearing-global-android-launch_1100-6415292_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/plants-vs-zombies-2-nearing-global-android-launch/1100-6415292/" class="article-title">Plants vs. Zombies 2 nearing global Android launch</a>
+			<div class="article-subtitle">PopCap confirms game now available in Australia and New Zealand as part of soft launch; worldwide rollout expected "soon."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_rockstar-has-some-ideas-for-gta-vi_1100-6415296_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-has-some-ideas-for-gta-vi/1100-6415296/" class="article-title">Rockstar has "some ideas" for GTA VI</a>
+			<div class="article-subtitle">Rockstar North president Leslie Benzies says developer has thought about where to take the series next, but GTA Online is the focus right now.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_madcatz-releasing-titanfall-branded-accessories_1100-6415299_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/madcatz-releasing-titanfall-branded-accessories/1100-6415299/" class="article-title">MadCatz releasing Titanfall-branded accessories</a>
+			<div class="article-subtitle">Peripheral maker signs deal with Electronic Arts to produce a range of products based on Respawn's upcoming shooter.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_molyneux-on-fable-legends-i-like-the-idea_1100-6415297_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/molyneux-on-fable-legends-i-like-the-idea/1100-6415297/" class="article-title">Molyneux on Fable Legends -- "I like the idea"</a>
+			<div class="article-subtitle">Veteran designer says Lionhead's idea for multiplayer-themed role-playing game is intriguing.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_crytek-making-great-progress-on-homefront-2_1100-6415323_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/crytek-making-great-progress-on-homefront-2/1100-6415323/" class="article-title">Crytek making "great progress" on Homefront 2</a>
+			<div class="article-subtitle">Developer encouraged by progress on shooter so far, says it plans to "reinvent" the franchise.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_gtav-voice-actors-say-game-does-not-glamorize-violence_1100-6415325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gtav-voice-actors-say-game-does-not-glamorize-violence/1100-6415325/" class="article-title">GTAV voice actors say game does not glamorize violence</a>
+			<div class="article-subtitle">Actors behind Michael, Trevor, and Franklin weigh in on role of violence in recently released open-world game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_rockstar-more-than-1000-people-made-gtav_1100-6415330_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-more-than-1000-people-made-gtav/1100-6415330/" class="article-title">Rockstar: More than 1,000 people made GTAV</a>
+			<div class="article-subtitle">Rockstar North president says scale of open-world game required internal studios from around the world to work together to produce open-world game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_xbox-one-facial-data-from-kinect-doesnt-leave-the-console_1100-6415328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-facial-data-from-kinect-doesnt-leave-the-console/1100-6415328/" class="article-title">Xbox One facial data from Kinect doesn't leave the console</a>
+			<div class="article-subtitle">Microsoft says for privacy reasons, data collected from camera never leaves the local console; next-gen Kinect not designed with ad functionality in mind.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_maxis-exploring-offline-mode-for-simcity_1100-6415333_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/maxis-exploring-offline-mode-for-simcity/1100-6415333/" class="article-title">Maxis exploring offline mode for SimCity</a>
+			<div class="article-subtitle">General manager Patrick Buechner confirms developer has formed a special team focused on exploring possibility of offline mode for city-building game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_ri-gov-forced-38-studios-into-bankruptcy-says-former-official_1100-6415337_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ri-gov-forced-38-studios-into-bankruptcy-says-former-official/1100-6415337/" class="article-title">RI gov. forced 38 Studios into bankruptcy, says former official</a>
+			<div class="article-subtitle">Former head of Rhode Island Economic Development Corp. accuses Lincoln Chafee of forcing Curt Schilling's company into financial failure.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_100000-borderlands-2-in-game-event-revealed_1100-6415342_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/100000-borderlands-2-in-game-event-revealed/1100-6415342/" class="article-title">$100,000 Borderlands 2 in-game event revealed</a>
+			<div class="article-subtitle">Loot Hunt event begins October 11 promising cash and physical prizes.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_wb-games-montreal-adding-100-jobs_1100-6415384_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wb-games-montreal-adding-100-jobs/1100-6415384/" class="article-title">WB Games Montreal adding 100 jobs</a>
+			<div class="article-subtitle">Quebec government investing millions into Batman: Arkham Origins developer to allow the company to expand headcount and invest in new equipment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_valve-reveals-specs-for-its-steam-machine-prototype_1100-6415349_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/valve-reveals-specs-for-its-steam-machine-prototype/1100-6415349/" class="article-title">Valve reveals specs for its Steam Machine prototype</a>
+			<div class="article-subtitle">Half-Life company reveals some units will ship with i7-4770 CPU, Nvidia Titan GPU, 16GB DDR3 RAM, and 1TB hard drive.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_injustice-gods-among-us-coming-to-ps4-ps-vita_1100-6415388_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/injustice-gods-among-us-coming-to-ps4-ps-vita/1100-6415388/" class="article-title">Injustice: Gods Among Us coming to PS4, PS Vita</a>
+			<div class="article-subtitle">Ultimate Edition revealed for PS3, PS4, PS Vita, PC, and Xbox 360; launching November 12; no mention of Wii U or Xbox One.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_microsoft-on-xbox-ones-advertising-potential_1100-6415386_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-on-xbox-ones-advertising-potential/1100-6415386/" class="article-title">Microsoft on Xbox One's advertising potential</a>
+			<div class="article-subtitle">[UPDATE] Marketing executive Yusuf Mehdi hints at opportunity for Microsoft to provide Xbox data to marketers; Microsoft provides comment, says "You are fully in control of your personal data."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_all-foliage-in-xbox-one-ps4-aciv-black-flag-has-physics_1100-6415385_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/all-foliage-in-xbox-one-ps4-aciv-black-flag-has-physics/1100-6415385/" class="article-title">All foliage in Xbox One, PS4 ACIV: Black Flag has physics</a>
+			<div class="article-subtitle">Plants and leaves in upcoming Assassin's Creed game will react to weather systems and player interaction, but 99.9 percent of players won't notice, says game director.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_kinect-sports-rivals-could-be-xbox-ones-mario-kart-says-dev_1100-6415391_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kinect-sports-rivals-could-be-xbox-ones-mario-kart-says-dev/1100-6415391/" class="article-title">Kinect Sports Rivals could be Xbox One's Mario Kart, says dev</a>
+			<div class="article-subtitle">Rare creative director says game's visual aesthetic is "quite evergreen" and will continue to appeal to new users years after launch.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_xbox-one-game-dvr-captures-all-achievements_1100-6415390_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-game-dvr-captures-all-achievements/1100-6415390/" class="article-title">Xbox One Game DVR captures all Achievements</a>
+			<div class="article-subtitle">[UPDATE] Next-gen console's DVR functionality will automatically record the moment a player records an in-game Achievement; functionality a component of "Greatest Clips" feature.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_curt-schilling-holding-estate-sale-this-weekend_1100-6415403_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/curt-schilling-holding-estate-sale-this-weekend/1100-6415403/" class="article-title">Curt Schilling holding estate sale this weekend</a>
+			<div class="article-subtitle">Former MLB pitcher and 38 Studios founder to sell home furnishings, including Kingdoms of Amalur items, this weekend; home itself up for sale at $3 million.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_warner-no-fatigue-at-all-for-lego-games_1100-6415392_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warner-no-fatigue-at-all-for-lego-games/1100-6415392/" class="article-title">Warner: "No fatigue at all" for Lego games</a>
+			<div class="article-subtitle">SVP Olivier Wolff says in fact there is demand for new and different experiences within the label.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_rockstar-disables-gta-online-microtransactions_1100-6415267_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-disables-gta-online-microtransactions/1100-6415267/" class="article-title">Rockstar disables GTA Online microtransactions</a>
+			<div class="article-subtitle">Rockstar removes the option to purchase GTA$ with real money, as issues with multiplayer mode continue to persist.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_tom-clancy-dead-at-66_1100-6415233_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tom-clancy-dead-at-66/1100-6415233/" class="article-title">Tom Clancy dead at 66</a>
+			<div class="article-subtitle">Military author and Red Storm Entertainment cofounder dies in Baltimore hospital.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_layoffs-at-sega-of-america_1100-6415163_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/layoffs-at-sega-of-america/1100-6415163/" class="article-title">Layoffs at Sega of America</a>
+			<div class="article-subtitle">Representative confirms company has "undergone a restructure" resulting in unspecified number of job cuts.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_metal-gear-rising-pc-version-looking-good-says-kojima_1100-6415164_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/metal-gear-rising-pc-version-looking-good-says-kojima/1100-6415164/" class="article-title">Metal Gear Rising PC version "looking good" says Kojima</a>
+			<div class="article-subtitle">Hideo Kojima enthusiastic about PC version of action game; no release date announced.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_zynga-cofounder-right-now-i-m-pretty-bored-with-all-games_1100-6415229_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zynga-cofounder-right-now-i-m-pretty-bored-with-all-games/1100-6415229/" class="article-title">Zynga cofounder -- "Right now, I'm pretty bored with all games"</a>
+			<div class="article-subtitle">Mark Pincus says he's looking for a game that captivates him in the way that FarmVille and CityVille did.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_netgear-reveals-router-ideal-for-gamers_1100-6415157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/netgear-reveals-router-ideal-for-gamers/1100-6415157/" class="article-title">Netgear reveals router "ideal" for gamers</a>
+			<div class="article-subtitle">New 802.11ac Wi-Fi Nighthawk router features 1GHz dual-core processor, USB 3.0 port, and speeds of up to AC1900.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_microsoft-investors-calling-for-gates-to-retire-report_1100-6415231_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/microsoft-investors-calling-for-gates-to-retire-report/1100-6415231/" class="article-title">Microsoft investors calling for Gates to retire - Report</a>
+			<div class="article-subtitle">Sources says three of top 20 investors in Microsoft Corp. are pushing the board of directors to press Bill Gates to step down as chairman.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_state-of-decay-sells-1-million_1100-6415347_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/state-of-decay-sells-1-million/1100-6415347/" class="article-title">State of Decay sells 1 million</a>
+			<div class="article-subtitle">Undead Labs reveals new sales milestone for open-world zombie game; DLC news teased.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_first-dlc-for-the-bureau-features-new-character-psychic-government-testing_1100-6415156_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-dlc-for-the-bureau-features-new-character-psychic-government-testing/1100-6415156/" class="article-title">First DLC for The Bureau features new character, psychic government testing</a>
+			<div class="article-subtitle">Hangar 6 R&D expansion arriving exclusively on Xbox 360 October 8 for $5; will feature new playable character Agent DaSilva during period of psychic government testing.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_amazon-gets-assassin-s-creed-iv-black-flag-lethal-pirate-edition_1100-6415154_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/amazon-gets-assassin-s-creed-iv-black-flag-lethal-pirate-edition/1100-6415154/" class="article-title">Amazon gets Assassin's Creed IV: Black Flag Lethal Pirate Edition</a>
+			<div class="article-subtitle">For $10 more, gamers can upgrade to new version of open-ended action game through new promotion at online retailer; bundle includes Black Bart figurine and in-game content.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_mighty-no-9-coming-to-xbox-one-ps4-3ds-ps-vita_1100-6415153_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mighty-no-9-coming-to-xbox-one-ps4-3ds-ps-vita/1100-6415153/" class="article-title">Mighty No. 9 coming to Xbox One, PS4, 3DS, PS Vita</a>
+			<div class="article-subtitle">Kickstarter campaign for Mega Man creator's new platformer surpasses $3.5 million with just hours remaining.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_gtav-title-update-detailed_1100-6415151_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gtav-title-update-detailed/1100-6415151/" class="article-title">GTAV title update detailed</a>
+			<div class="article-subtitle">Released as part of GTA Online patch, Xbox 360 and PS3 update promises fixes for various issues in Story mode.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_wii-production-ending-in-japan-soon_1100-6415152_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wii-production-ending-in-japan-soon/1100-6415152/" class="article-title">Wii production ending in Japan soon</a>
+			<div class="article-subtitle">Nintendo will stop manufacturing aging console in island nation soon; no word on other territories.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_xbox-one-s-day-one-update-takes-15-20-minutes_1100-6415150_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-s-day-one-update-takes-15-20-minutes/1100-6415150/" class="article-title">Xbox One's day-one update takes 15-20 minutes</a>
+			<div class="article-subtitle">Microsoft confirms launch-day patch for next-generation console will take between 15 and 20 minutes "for most users."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_rockstar-apologizes-for-gta-online-issues_1100-6415148_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-apologizes-for-gta-online-issues/1100-6415148/" class="article-title">Rockstar apologizes for GTA Online issues</a>
+			<div class="article-subtitle">Developer acknowledges various issues with just-released multiplayer mode for Grand Theft Auto V, says it is working to resolve all problems.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_sonic-confirmed-for-new-smash-bros_1100-6415144_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sonic-confirmed-for-new-smash-bros/1100-6415144/" class="article-title">Sonic confirmed for new Smash Bros.</a>
+			<div class="article-subtitle">The Blue Blur joins roster for upcoming Wii U and 3DS fighting game; joins Mega Man as second confirmed third-party character.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_valve-needs-a-killer-app-to-drive-interest-in-steam-machines-says-gearbox-ceo_1100-6415166_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-needs-a-killer-app-to-drive-interest-in-steam-machines-says-gearbox-ceo/1100-6415166/" class="article-title">Valve needs a killer app to drive interest in Steam Machines, says Gearbox CEO</a>
+			<div class="article-subtitle">Randy Pitchford says Valve's recent announcements only a curiosity without something compelling like Half-Life 3.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_xi3-s-modular-piston-console-out-nov-29_1100-6415158_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xi3-s-modular-piston-console-out-nov-29/1100-6415158/" class="article-title">Xi3's modular Piston console out Nov. 29</a>
+			<div class="article-subtitle">$1000 grapefruit-sized portable console launching on Black Friday in the United States.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_sony-says-it-can-t-afford-to-ignore-valve_1100-6415155_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-says-it-can-t-afford-to-ignore-valve/1100-6415155/" class="article-title">Sony says it "can't afford" to ignore Valve</a>
+			<div class="article-subtitle">UK managing director Fergal Gara says PlayStation maker not rattled by Valve's recent announcements, but will keep an eye on goings-on at Half-Life studio.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_bungie-on-how-destiny-beta-is-like-a-full-product-launch_1100-6415134_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/bungie-on-how-destiny-beta-is-like-a-full-product-launch/1100-6415134/" class="article-title">Bungie On How Destiny Beta Is Like a Full Product Launch</a>
+			<div class="article-subtitle">Community manager Eric Osborne discusses "massive undertaking" that is beta period for upcoming shared-world shooter.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_new-ip-from-killzone-dev-is-completely-different_1100-6415136_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-ip-from-killzone-dev-is-completely-different/1100-6415136/" class="article-title">New IP from Killzone dev is "completely different"</a>
+			<div class="article-subtitle">Guerrilla Games lead designer Eric Boltjes says studio has begun work on all-new, non-Killzone title; "As a studio, we do want to branch out."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_ouya-hits-25000-registered-developers_1100-6415417_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ouya-hits-25000-registered-developers/1100-6415417/" class="article-title">Ouya hits 25,000 registered developers</a>
+			<div class="article-subtitle">Platform reaches "major milestone"; store now have more than 465 games and apps available to download.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2013/10/07_activision-countersues-worlds-inc_1100-6415401_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/activision-countersues-worlds-inc/1100-6415401/" class="article-title">Activision countersues Worlds Inc.</a>
+			<div class="article-subtitle">Call of Duty publisher files patent infringement lawsuit against Worlds Inc. and Worlds Online Inc. over "Worlds Player" software.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_injustice-gods-among-us-confirmed-for-ps4-but-not-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/injustice-gods-among-us-confirmed-for-ps4-but-not-xbox-one" class="article-title">Injustice: Gods Among Us confirmed for PS4 - but not Xbox One</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_meet-daylight-randomised-horror-for-the-youtube-generation_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/meet-daylight-randomised-horror-for-the-youtube-generation" class="article-title">Meet Daylight: randomised horror for the YouTube generation</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_first-the-long-dark-gameplay-footage-released_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/first-the-long-dark-gameplay-footage-released" class="article-title">First The Long Dark gameplay footage released</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_egx-2013-game-of-the-show_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/egx-2013-game-of-the-show" class="article-title">EGX 2013: Game of the Show</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_basic-functions-of-ps4-controller-will-work-with-pc-by-default_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/basic-functions-of-ps4-controller-will-work-with-pc-by-default" class="article-title">"Basic functions" of PS4 controller will work with PC by default</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_rebuilding-rapture_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rebuilding-rapture" class="article-title">Rebuilding Rapture</a>
+			<div class="article-author">Richard Cobbett</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_valve-registers-trademark-for-half-life-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valve-registers-trademark-for-half-life-3" class="article-title">Valve registers trademark for Half-Life 3</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_xbox-live-achievements-hit-android-with-wordament_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-live-achievements-hit-android-with-wordament" class="article-title">Xbox Live Achievements hit Android with Wordament</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_valve-reveals-specs-of-its-steam-machine-prototype_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valve-reveals-specs-of-its-steam-machine-prototype" class="article-title">Valve reveals specs of its Steam Machine prototype</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2013/10/07_friends-in-high-places_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/friends-in-high-places" class="article-title">Friends in high places</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g525215e0b80b1/Path-of-Exile-gets-endgame-new-character-new-areas/" class="article-title">Path of Exile gets endgame, new character, new areas</a>
+			<div class="article-subtitle">Leaving open beta this month.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-360/news/g5251eff82c03d/BioShock-Infinites-Burial-at-Sea-will-resemble-survival-horror/" class="article-title">BioShock Infinite's Burial at Sea will resemble survival horror</a>
+			<div class="article-subtitle">Elizabeth not a "guns blazing" type.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5251e27d4e516/Sony-Nobody-gains-from-exclusivity/" class="article-title">Sony: "Nobody gains from exclusivity"</a>
+			<div class="article-subtitle">Multiplatform the path to developer growth.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g5251dbc34543c/Offline-mode-coming-to-SimCity-but-larger-cities-are-not/" class="article-title">Offline mode coming to SimCity, but larger cities are not</a>
+			<div class="article-subtitle">System performance challenges prevent city expansion.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5251c8da808e7/Steam-Machine-prototype-specs-detailed/" class="article-title">Steam Machine prototype specs detailed</a>
+			<div class="article-subtitle">Built from off-the-shelf parts.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/chick-hide-and-seek-12.php" class="article-title">Chick Hide and Seek 12</a>
+			<div class="article-author">elle</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/subway-surfers.php" class="article-title">Subway Surfers</a>
+			<div class="article-author">JohnB</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/mobile-monday-239.php" class="article-title">Mobile Monday №239</a>
+			<div class="article-author">JohnB</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

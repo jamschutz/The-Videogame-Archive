@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">February 27, 2015</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/republique-review/1900-6416041/" class="article-title">Republique Review</a>
+			<div class="article-subtitle">Paranoid, but not an android.</div>
+			<div class="article-author">Justin Clark</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/oblitus-review/1900-6416040/" class="article-title">Oblitus Review</a>
+			<div class="article-subtitle">Jump softly and carry a big stick.</div>
+			<div class="article-author">Leif Johnson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_witch-hunt-against-fake-female-hearthstone-player-_1100-6425551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/witch-hunt-against-fake-female-hearthstone-player-/1100-6425551/" class="article-title">Witch-Hunt Against "Fake" Female Hearthstone Player Discredited</a>
+			<div class="article-subtitle">"It''s probably the biggest setback to getting women in eSports that I can recall happening in the past year or two."</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_evolve-patch-fixes-lost-progress-bug-improves-matc_1100-6425566_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/evolve-patch-fixes-lost-progress-bug-improves-matc/1100-6425566/" class="article-title">Evolve Patch Fixes Lost Progress Bug, Improves Matchmaking</a>
+			<div class="article-subtitle">Turtle Rock releases update 1.1 for recently released monster-hunting game; see the full patch notes here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_future-assassin-s-creed-games-could-have-more-mode_1100-6425567_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/future-assassin-s-creed-games-could-have-more-mode/1100-6425567/" class="article-title">Future Assassin's Creed Games Could Have More Modern Day Sections</a>
+			<div class="article-subtitle">"We always plan to have more modern day but we have to be really smart about how we do it," writer Darby McDevitt says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_free-loot-for-call-of-duty-advanced-warfare-pc-pla_1100-6425569_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-loot-for-call-of-duty-advanced-warfare-pc-pla/1100-6425569/" class="article-title">Free Loot For Call of Duty: Advanced Warfare PC Players</a>
+			<div class="article-subtitle">Sledgehammer offering a new Exo Suit for PC players to make up for the recent DLC delay.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_twitch-plays-halo-not-very-well_1100-6425570_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/twitch-plays-halo-not-very-well/1100-6425570/" class="article-title">Twitch Plays Halo (Not Very Well)</a>
+			<div class="article-subtitle">Watch as users virtually control Master Chief through the classic shooter...with a limited degree of success.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_top-digital-playstation-games-generate-twice-the-r_1100-6425560_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-digital-playstation-games-generate-twice-the-r/1100-6425560/" class="article-title">Top Digital PlayStation Games Generate Twice the Revenue of Xbox Games</a>
+			<div class="article-subtitle">Sales data from January''s shows that PlayStation versions of top 10 best-selling digital games are nearly twice as popular as their Xbox counterparts.</div>
+			<div class="article-author">Daniel Starkey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_brutalities-confirmed-for-mortal-kombat-x-next-cha_1100-6425507_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/brutalities-confirmed-for-mortal-kombat-x-next-cha/1100-6425507/" class="article-title">Brutalities Confirmed For Mortal Kombat X, Next Character Reveal Coming "Very Soon"</a>
+			<div class="article-subtitle">[UPDATE] There will be more than 100 Brutalities in the game, while NetherRealm teases its next character reveal.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_blizzard-teases-new-bionic-grade-overwatch-charact_1100-6425572_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-teases-new-bionic-grade-overwatch-charact/1100-6425572/" class="article-title">Blizzard Teases New "Bionic-Grade" Overwatch Character</a>
+			<div class="article-subtitle">"Together we are strong," reads a message from Blizzard''s cryptic teaser about the new character.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_battlefield-hardline-premium-details-leak-early_1100-6425574_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-premium-details-leak-early/1100-6425574/" class="article-title">Battlefield Hardline Premium Details Leak Early</a>
+			<div class="article-subtitle">Four expansions coming to EA''s shooter; Premium members get two weeks early access.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_gta-5-pc-pictures-flaunt-new-graphical-peak_1100-6425575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5-pc-pictures-flaunt-new-graphical-peak/1100-6425575/" class="article-title">GTA 5 PC Pictures Flaunt New Graphical Peak</a>
+			<div class="article-subtitle">Rockstar releases new batch of high-resolution screens ahead of delayed release date.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_just-cause-dev-s-hunting-game-adds-kangaroo-filled_1100-6425573_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/just-cause-dev-s-hunting-game-adds-kangaroo-filled/1100-6425573/" class="article-title">Just Cause Dev's Hunting Game Adds Kangaroo-Filled Australian Expansion</a>
+			<div class="article-subtitle">As The Hunter reaches 5 million registered users, free-to-play game adds Australian reserve with new animals to hunt.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_life-is-strange-episode-2-delayed-correction_1100-6425568_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/life-is-strange-episode-2-delayed-correction/1100-6425568/" class="article-title">Life Is Strange Episode 2 Delayed [Correction]</a>
+			<div class="article-subtitle">Square Enix''s time-shifting adventure believed to be held back.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_hearthstone-patch-points-to-blackrock-mountain-adv_1100-6425564_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hearthstone-patch-points-to-blackrock-mountain-adv/1100-6425564/" class="article-title">Hearthstone Patch Points to "Blackrock Mountain" Adventure</a>
+			<div class="article-subtitle">Ahead of Blizzard announcement at PAX East, fans find cryptic data in latest game build.</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_battlefield-hardline-is-far-more-than-a-battlefiel_1100-6425576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-is-far-more-than-a-battlefiel/1100-6425576/" class="article-title">Battlefield Hardline is Far More Than a Battlefield 4 Re-Skin, Dev Assures</a>
+			<div class="article-subtitle">Visceral''s upcoming cops-and-robbers shooter deserves to be called a Battlefield game, developer says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_battlefield-hardline-pc-we-re-not-just-porting-it-_1100-6425577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-hardline-pc-we-re-not-just-porting-it-/1100-6425577/" class="article-title">Battlefield Hardline PC -- "We're Not Just Porting It Over"</a>
+			<div class="article-subtitle">"Battlefield started on the PC ... and we know we have a passionate fan base on this platform."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_ultima-underworld-spiritual-successor-hits-funding_1100-6425578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ultima-underworld-spiritual-successor-hits-funding/1100-6425578/" class="article-title">Ultima Underworld Spiritual Successor Hits Funding Goal</a>
+			<div class="article-subtitle">Underworld Ascendant passes $600,000 Kickstarter target; stretch goals revealed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_sony-accidentally-erases-list-of-anniversary-ps4-w_1100-6425579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-accidentally-erases-list-of-anniversary-ps4-w/1100-6425579/" class="article-title">Sony Accidentally Erases List of Anniversary PS4 Winners</a>
+			<div class="article-subtitle">Competition starts again from scratch; Sony offers "deepest apologies."</div>
+			<div class="article-author">Rob Crossley</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_leonard-nimoy-passes-away-at-83_1100-6425580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/leonard-nimoy-passes-away-at-83/1100-6425580/" class="article-title">Leonard Nimoy Passes Away at 83</a>
+			<div class="article-subtitle">Iconic Star Trek actor dies after being hospitalized for end-stage chronic obstructive pulmonary disease.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_directx-12-can-combine-nvidia-and-amd-cards_1100-6425565_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/directx-12-can-combine-nvidia-and-amd-cards/1100-6425565/" class="article-title">DirectX 12 Can Combine Nvidia and AMD Cards</a>
+			<div class="article-subtitle">Microsoft poised to announce breakthrough feature at GDC, GameSpot understands; GeForce and Radeon cards can unite under same PC and combine VRAM.</div>
+			<div class="article-author">Mark Walton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_gran-turismo-6-update-returns-a-classic-mode-and-t_1100-6425584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gran-turismo-6-update-returns-a-classic-mode-and-t/1100-6425584/" class="article-title">Gran Turismo 6 Update Returns a Classic Mode and Track</a>
+			<div class="article-subtitle">More than a year after launch, Sony updates GT6 with a new mode, car, track, and more.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_mortal-kombat-x-trailer-reveals-new-characters_1100-6425571_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-x-trailer-reveals-new-characters/1100-6425571/" class="article-title">Mortal Kombat X Trailer Reveals New Characters</a>
+			<div class="article-subtitle">Check out a new trailer for NetherRealm''s upcoming fighting game; new playable characters revealed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_360-ps4-bundle-includes-one-of-four-games-and-play_1100-6425587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/360-ps4-bundle-includes-one-of-four-games-and-play/1100-6425587/" class="article-title">$360 PS4 Bundle Includes One of Four Games and PlayStation Plus for 6 Months</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_march-s-free-playstation-plus-games-not-ready-to-b_1100-6425588_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/march-s-free-playstation-plus-games-not-ready-to-b/1100-6425588/" class="article-title">March's Free PlayStation Plus Games Not Ready to Be Announced</a>
+			<div class="article-subtitle">Sony''s usual monthly announcement may not come until next week.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_the-simpsons-come-to-minecraft-today-on-xbox-possi_1100-6425583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-simpsons-come-to-minecraft-today-on-xbox-possi/1100-6425583/" class="article-title">The Simpsons Come to Minecraft Today on Xbox, Possibly Later for PlayStation</a>
+			<div class="article-subtitle">Character skins for Homer, Marge, Bart, Lisa, Maggie, and more now available on Xbox 360 and Xbox One for $3.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_nintendo-isn-t-the-only-one-making-use-of-wii-u-3d_1100-6425589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-isn-t-the-only-one-making-use-of-wii-u-3d/1100-6425589/" class="article-title">Nintendo Isn't the Only One Making Use of Wii U/3DS Cross-Buy Support</a>
+			<div class="article-subtitle">Buy OlliOlli on Wii U or 3DS and get access to it on both systems.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_the-division-s-pvp-dark-zones-detailed_1100-6425586_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-division-s-pvp-dark-zones-detailed/1100-6425586/" class="article-title">The Division's PvP "Dark Zones" Detailed</a>
+			<div class="article-subtitle">"It''s another one of the great ways that we''re really changing up what''s been done previously in this genre."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_gaming-deals-get-a-ps4-a-free-game-and-6-months-of_1100-6425469_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gaming-deals-get-a-ps4-a-free-game-and-6-months-of/1100-6425469/" class="article-title">Gaming Deals: Get a PS4, a Free Game, and 6 Months of PlayStation Plus for $360</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_five-nights-at-freddy-s-doesn-t-scare-these-old-pe_1100-6425591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/five-nights-at-freddy-s-doesn-t-scare-these-old-pe/1100-6425591/" class="article-title">Five Nights at Freddy's Doesn't Scare These Old People</a>
+			<div class="article-subtitle">Watch as a series of elderly people play through the horror game.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_what-we-would-like-to-see-in-persona-5_1100-6425506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/what-we-would-like-to-see-in-persona-5/1100-6425506/" class="article-title">What We Would Like to See in Persona 5</a>
+			<div class="article-subtitle">It''s time for an all-out attack!</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_watch-resident-evil-revelations-2-s-episode-2-teas_1100-6425582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-resident-evil-revelations-2-s-episode-2-teas/1100-6425582/" class="article-title">Watch Resident Evil: Revelations 2's Episode 2 Teaser</a>
+			<div class="article-subtitle">There''s not long to wait before the story continues.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_ff14-welcomes-back-old-players-with-free-time-as-i_1100-6425593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ff14-welcomes-back-old-players-with-free-time-as-i/1100-6425593/" class="article-title">FF14 Welcomes Back Old Players With Free Time as it Hits 4 Million Accounts</a>
+			<div class="article-subtitle">Square Enix celebrates its latest milestone by letting former players log in for free for 10 days.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2015/02/27_weekly-recap-gta-5-pc-delayed-again-people-buy-ps4_1100-6425558_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/weekly-recap-gta-5-pc-delayed-again-people-buy-ps4/1100-6425558/" class="article-title">Weekly Recap: GTA 5 PC Delayed Again, People Buy PS4 For Graphics</a>
+			<div class="article-subtitle">Did you step away from the Internet this week? Check out a roundup of some of the week''s biggest stories here.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_vvvvvv-dev-releases-free-game-about-selling-street-food_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/vvvvvv-dev-releases-free-game-about-selling-street-food" class="article-title">VVVVVV dev releases free game about selling street food</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_newly-revealed-bloodborne-boss-bring-back-old-bones_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/newly-revealed-bloodborne-boss-bring-back-old-bones" class="article-title">Newly revealed Bloodborne boss brings back old bones</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_contrast-developer-reveals-psychedelic-sci-fi-story-we-happy-few_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/contrast-developer-reveals-psychedelic-sci-fi-story-we-happy-few" class="article-title">Contrast dev reveals psychedelic sci-fi story We Happy Few</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_leonard-nimoy-passes-away-at-83_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/leonard-nimoy-passes-away-at-83" class="article-title">Leonard Nimoy passes away at 83</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_excrutiatingly-difficult-2d-adventure-la-mulana-ex-dated-for-vita-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/excrutiatingly-difficult-2d-adventure-la-mulana-ex-dated-for-vita-next-week" class="article-title">Excruciatingly difficult 2D adventure La-Mulana EX dated for Vita next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_life-is-strange-dev-promises-second-episode-in-march_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/life-is-strange-dev-promises-second-episode-in-march" class="article-title">Life is Strange dev promises second episode in March</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_ridge-racer-unbounded-servers-shut-down-in-europe_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ridge-racer-unbounded-servers-shut-down-in-europe" class="article-title">Ridge Racer Unbounded servers shut down in Europe</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_early-access-games-done-right_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/early-access-games-done-right" class="article-title">Early Access games done right</a>
+			<div class="article-author">Eurogamer staff</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_fruit-ninja-kinect-2-for-xbox-one-in-march_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fruit-ninja-kinect-2-for-xbox-one-in-march" class="article-title">Fruit Ninja Kinect 2 for Xbox One in March</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_pokemon-shuffle-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-shuffle-review" class="article-title">Pokémon Shuffle review</a>
+			<div class="article-subtitle">A dull puzzler, undermined by the grasping philosophy behind its business model as much as the actual amount of money it could cost you.</div>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_future-assassins-creed-games-will-have-more-robust-modern-day-than-unity_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/future-assassins-creed-games-will-have-more-robust-modern-day-than-unity" class="article-title">Future Assassin's Creed games will have "more robust modern day" than Unity</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_digitalfoundry-2015-dark-souls-2-shadow-of-the-first-sin-tech-analysis_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2015-dark-souls-2-shadow-of-the-first-sin-tech-analysis" class="article-title">Tech Analysis: Dark Souls 2: Scholar of the First Sin</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_monster-hunter-4-ultimate-guide-3687_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/monster-hunter-4-ultimate-guide-3687" class="article-title">Monster Hunter 4 Ultimate guide</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_dying-light-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dying-light-review" class="article-title">Dying Light review</a>
+			<div class="article-author">Dan Whitehead</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_hearthstone-pre-release-patch-hints-at-molten-core-expansion_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hearthstone-pre-release-patch-hints-at-molten-core-expansion" class="article-title">Hearthstone pre-release patch hints at Molten Core expansion</a>
+			<div class="article-author">John Bedford</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_destiny-companion-app-update-grants-mobile-access-to-your-vault_thumbnail.png">
+			<a href="https://www.eurogamer.net/destiny-companion-app-update-grants-mobile-access-to-your-vault" class="article-title">Destiny app update grants mobile access to your vault</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_top-factor-driving-ps4-purchases-is-better-resolution-survey_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/top-factor-driving-ps4-purchases-is-better-resolution-survey" class="article-title">Top factor driving PS4 purchases is "better resolution" - survey</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_pneuma-breath-of-life-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pneuma-breath-of-life-review" class="article-title">Pneuma: Breath of Life review</a>
+			<div class="article-subtitle">A serene yet unnerving first-person adventure born of sustained philosophical inquiry, let down by inconsistent puzzle design.</div>
+			<div class="article-author">Edwin Evans-Thirlwell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_dead-or-alive-last-round-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dead-or-alive-last-round-review" class="article-title">Dead or Alive 5: Last Round review</a>
+			<div class="article-subtitle">Accessible yet deep, this is the definitive version of the lascivious fighter - but Xbox One owners should beware a buggy release.</div>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_shadowrun-online-now-being-published-by-nordic-games_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/shadowrun-online-now-being-published-by-nordic-games" class="article-title">Shadowrun Online now being published by Nordic Games</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2015/02/27_far-cry-4s-valley-of-the-yetis-dlc-gets-a-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-4s-valley-of-the-yetis-dlc-gets-a-release-date" class="article-title">Far Cry 4's Valley of the Yetis DLC gets a March release date</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54efec9321324/Capcom-refunds-those-expecting-co-op-in-Resident-Evil-Revelations-2-on-PC/" class="article-title">Capcom refunds those expecting co-op in Resident Evil Revelations 2 on PC</a>
+			<div class="article-subtitle">Co-op is present on console.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54efa24fe7495/Its-getting-harder-to-be-an-indie---Fat-Princess-boss/" class="article-title">"It's getting harder to be an indie" - Fat Princess boss</a>
+			<div class="article-subtitle">Processing power calls for more scale.</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g54ef9e8999a96/New-gen-Payday-2-arrives-June-will-include-most-DLC/" class="article-title">New-gen Payday 2 arrives June, will include most DLC</a>
+			<div class="article-subtitle">Upgrade discount a possibility.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g54ef9bab50629/Far-Cry-4-Valley-of-the-Yetis-lands-in-two-weeks/" class="article-title">Far Cry 4: Valley of the Yetis lands in two weeks</a>
+			<div class="article-subtitle">Fight a "mystical evil".</div>
+			<div class="article-author">James Cullinane</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g54ef876e08077/Darksiders-creator-announces-Battle-Chasers-an-RPG-based-on-the-comic/" class="article-title">Darksiders creator announces Battle Chasers, an RPG based on the comic</a>
+			<div class="article-subtitle">Comic is returning, too.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/xbox-one/news/g54ef7fd4f0438/Fable-Legends-adopts-free-to-play-business-model/" class="article-title">Fable Legends adopts free-to-play business model</a>
+			<div class="article-subtitle">Will be open, fair, and generous, apparently.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/runefall.php" class="article-title">Runefall</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/tap-heroes.php" class="article-title">Tap Heroes</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/grab-them-by-the-eyes.php" class="article-title">Grab Them By The Eyes</a>
+			<div class="article-author">Dora</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/find-the-escape-men-part-140-snow-shovel.php" class="article-title">Find the Escape-Men Part 140: Snow Shovel</a>
+			<div class="article-author">Dora</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
