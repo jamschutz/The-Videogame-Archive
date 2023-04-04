@@ -11,7 +11,7 @@ namespace WebsiteBuilder
         public static string DatabaseFile = "/_database/VideogamesDatabase.db";
         public static string ArchiveFolder = "/_website_backups";
         public static string StaticWebsiteFolder = "/The Videogame Archive/website/html/archive";
-        public static string FileHostBaseUrl = "http://localhost:5000";
+        public static string FileHostBaseUrl = "/archive";
 
 
         public static string GetWebsiteName(int id)
