@@ -14,8 +14,8 @@ namespace WebsiteBuilder
     {
         static void Main(string[] args)
         {
-            int startYear = 1996;
-            int endYear = 2000;
+            int startYear = 2001;
+            int endYear = 2007;
 
             DbManager dbManager = new DbManager();
             List<string> publications = dbManager.GetAllPublicationNames();
