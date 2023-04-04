@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 23, 2017</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/metroid-ii-samus-returns-european-special-edition-/1100-6451131/" class="article-title">Metroid II: Samus Returns' European Special Edition Looks Fantastic</a>
+			<div class="article-subtitle">Must. Have.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/monster-hunter-stories-has-a-release-date-in-europ/1100-6451132/" class="article-title">Monster Hunter Stories Has A Release Date In Europe</a>
+			<div class="article-subtitle">A US release date for Monster Hunter Stories has not been announced yet.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/final-fantasy-14-director-wants-switch-and-xbox-on/1100-6451129/" class="article-title">Final Fantasy 14 Director Wants Switch And Xbox One Version, But Has One Condition</a>
+			<div class="article-subtitle">Cross-platform or bust.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/conans-clueless-gamer-takes-on-its-first-nintendo-/1100-6451134/" class="article-title">Conan's Clueless Gamer Takes On Its First Nintendo Switch Game</a>
+			<div class="article-subtitle">Conan O''Brien vs. Will Arnett in Arms.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/opening-hearthstone-card-packs-is-about-to-get-mor/1100-6451124/" class="article-title">Opening Hearthstone Card Packs Is About To Get More Pleasant</a>
+			<div class="article-subtitle">Duplicates are on the decline.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/epics-ps4pc-game-paragon-adds-free-recon-focused-c/1100-6451113/" class="article-title">Epic's PS4/PC Game Paragon Adds Free, Recon-Focused Character Next Week</a>
+			<div class="article-subtitle">A new Hero enters the ring.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/twitchs-next-tv-show-marathon-features-the-excelle/1100-6451135/" class="article-title">Twitch's Next TV Show Marathon Features The Excellent MST3K</a>
+			<div class="article-subtitle">38 episodes of the classic movie-riffing show will air next week.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/a-peek-inside-the-mind-of-xenoblade-devs-legendary/1100-6451138/" class="article-title">A Peek Inside The Mind Of Xenoblade Dev's Legendary Leader</a>
+			<div class="article-subtitle">One good turn deserves another.</div>
+			<div class="article-author">Peter Brown</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/you-can-now-get-arma-3-dlc-and-new-game-argo-for-f/1100-6451139/" class="article-title">You Can Now Get Arma 3 DLC And New Game Argo For Free</a>
+			<div class="article-subtitle">Grab some new content for $0.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/top-down-martian-shooter-solstice-chronicles-mia-g/1100-6451136/" class="article-title">Top-Down Martian Shooter Solstice Chronicles: MIA Gets New Trailer And Release Date</a>
+			<div class="article-subtitle">"Shotgun-induced survival" against the Martian Horde.</div>
+			<div class="article-author">Patrick Faller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/symphony-of-the-night-designer-iga-talks-bloodstai/1100-6451091/" class="article-title">Symphony Of The Night Designer IGA Talks Bloodstained's Delay And His Favorite Castlevania</a>
+			<div class="article-subtitle">"We''re trying to speed up the development."</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/xbox-one-gets-broken-age-more-than-three-years-aft/1100-6451141/" class="article-title">Xbox One Gets Broken Age More Than Three Years After Its Original Release</a>
+			<div class="article-subtitle">It''s been over five years since its Kickstarter, too.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/super-mario-bros-adapted-for-hololens-then-played-/1100-6451142/" class="article-title">Super Mario Bros. Adapted For Hololens, Then Played In Central Park</a>
+			<div class="article-subtitle">He''s dressed as Mario, of course.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/playerunknowns-battlegrounds-passes-4-million-copi/1100-6451125/" class="article-title">Playerunknown's Battlegrounds Passes 4 Million Copies Sold</a>
+			<div class="article-subtitle">Battlegrounds has sold a lot of copies.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/gran-turismo-creator-on-vr-once-we-get-to-dual-8ks/1100-6451145/" class="article-title">Gran Turismo Creator On VR: "Once We Get To Dual 8Ks, It'll Be Pretty Nice"</a>
+			<div class="article-subtitle">Maybe one day, VR headsets will get there.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/glow-is-the-delightful-weird-wrestling-series-netf/1100-6451143/" class="article-title">GLOW Is The Delightful, Weird Wrestling Series Netflix Needed</a>
+			<div class="article-subtitle">The first episode of the new series is an entertaining slobber-knocker.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/call-of-duty-4-modern-warfare-remastered-standalon/1100-6451137/" class="article-title">Call Of Duty 4: Modern Warfare Remastered Standalone Release Confirmed</a>
+			<div class="article-subtitle">Infinite Warfare is no longer a requirement.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/new-psn-flash-sale-on-ps4-ps3-and-vita-games-has-b/1100-6451148/" class="article-title">New PSN Flash Sale On PS4, PS3, And Vita Games Has Begun</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/danganronpa-v3s-demo-shows-off-its-totally-weird-n/1100-6451149/" class="article-title">Danganronpa V3's Demo Shows Off Its Totally Weird New Minigames And Characters</a>
+			<div class="article-subtitle">Upupupupu.</div>
+			<div class="article-author">Kallie Plagge</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/gta-5-players-are-angry-about-mod-tools-shutdown-a/1100-6451038/" class="article-title">GTA 5 Players Are Angry About Mod Tool's Shutdown, And They're Taking It Out On Steam Reviews</a>
+			<div class="article-subtitle">Recent reviews of GTA V on Steam are now "overwhelmingly negative."</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/steam-summer-sales-best-anime-game-deals/1100-6451123/" class="article-title">Steam Summer Sale's Best Anime Game Deals</a>
+			<div class="article-subtitle">From fighting games to visual novels.</div>
+			<div class="article-author">Kallie Plagge</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/super-mario-odysseys-hat-possession-ability-modded/1100-6451152/" class="article-title">Super Mario Odyssey's Hat Possession Ability Modded Into Super Mario 64</a>
+			<div class="article-subtitle">Hat beats everything.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/injustice-2s-sub-zero-dlc-release-date-set-for-jul/1100-6451154/" class="article-title">Injustice 2's Sub-Zero DLC Release Date Set For July</a>
+			<div class="article-subtitle">After Red Hood comes Sub-Zero.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/for-the-second-time-ever-a-rocket-has-been-reused-/1100-6451155/" class="article-title">For The Second Time Ever, A Rocket Has Been Reused--And It Was Still Able To Land</a>
+			<div class="article-subtitle">Only two rockets ever have flown twice, both from SpaceX.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/dragon-ball-fighterz-adds-fan-favorite-character-t/1100-6451130/" class="article-title">Dragon Ball FighterZ Adds Fan-Favorite Character To Its Roster</a>
+			<div class="article-subtitle">Mirai no Trunks!</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/new-overwatch-ptr-update-out-now-brings-big-change/1100-6451157/" class="article-title">New Overwatch PTR Update Out Now, Brings Big Changes To Loot Boxes and Highlights</a>
+			<div class="article-subtitle">Go try it out for yourself now.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/after-angering-gta-5-fans-rockstar-releases-new-st/1100-6451151/" class="article-title">After Angering GTA 5 Fans, Rockstar Releases New Statement On PC Mods [UPDATE]</a>
+			<div class="article-subtitle">Rockstar and Take-Two won''t take action against single-player mods, but it''s not quite that simple.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/five-free-mega-stones-in-pokemon-sun-and-moon-avai/1100-6451147/" class="article-title">Five Free Mega Stones In Pokemon Sun And Moon Available Now</a>
+			<div class="article-subtitle">Now''s your chance to get Mega Stones for five Hoenn Pokemon.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_playerunknowns-battlegrounds-makes-usd100m_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/playerunknowns-battlegrounds-makes-usd100m" class="article-title">PlayerUnknown's Battlegrounds made $100m in 13 weeks</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_leaked-images-reveal-call-of-duty-modern-warfare-remastered-standalone_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/leaked-images-reveal-call-of-duty-modern-warfare-remastered-standalone" class="article-title">Leaked images reveal Call of Duty: Modern Warfare Remastered standalone</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_monster-hunter-stories-sets-september-release-date-in-europe_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/monster-hunter-stories-sets-september-release-date-in-europe" class="article-title">Monster Hunter Stories sets September release date in Europe</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_hitmans-penultimate-elusive-target-launches-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hitmans-penultimate-elusive-target-launches-today" class="article-title">Hitman's penultimate Elusive Target launches today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_watch-chris-plays-the-binding-of-isaac-for-the-first-time_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-chris-plays-the-binding-of-isaac-for-the-first-time" class="article-title">Watch: Chris plays The Binding of Isaac for the first time</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_titanfall-2-still-getting-free-dlc_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/titanfall-2-still-getting-free-dlc" class="article-title">Titanfall 2 still getting free DLC</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_ron-gilbert-explains-thimbleweed-parks-character-dialogue-hint-system-additions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ron-gilbert-explains-thimbleweed-parks-character-dialogue-hint-system-additions" class="article-title">Ron Gilbert explains Thimbleweed Park's character dialogue, hint system additions</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_pes-2018-is-definitely-not-coming-to-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pes-2018-is-definitely-not-coming-to-switch" class="article-title">PES 2018 is definitely not coming to Switch</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_paradox-performs-u-turn-on-price-rises-followingr-fan-backlash_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/paradox-performs-u-turn-on-price-rises-followingr-fan-backlash" class="article-title">Paradox performs price rise U-turn following fan backlash</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_meet-the-developer-making-a-switch-game-in-a-hounslow-costa-coffee_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/meet-the-developer-making-a-switch-game-in-a-hounslow-costa-coffee" class="article-title">Meet the dev making a Switch game in a Hounslow Costa Coffee</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_pokemon-sun-and-moon-starters-legendaries-new-pokemon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-sun-and-moon-starters-legendaries-new-pokemon" class="article-title">Pokémon Sun and Moon: Starters, Legendaries, other new Pokémon and everything we know</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_beyond-good-and-evil-2-reveals-awe-inspiring-in-engine-demo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/beyond-good-and-evil-2-reveals-awe-inspiring-in-engine-demo" class="article-title">Beyond Good & Evil 2 reveals awe-inspiring in-engine demo</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_hey-pikmin-and-miitopia-now-have-demos_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hey-pikmin-and-miitopia-now-have-demos" class="article-title">Hey! Pikmin and Miitopia now have demos</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_overwatch-is-decreasing-duplicate-loot-and-adding-new-highlight-options_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/overwatch-is-decreasing-duplicate-loot-and-adding-new-highlight-options" class="article-title">Overwatch is decreasing duplicate loot and adding new highlight options</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/06/23_hearthstones-next-expansion-will-make-acquiring-new-cards-easier_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hearthstones-next-expansion-will-make-acquiring-new-cards-easier" class="article-title">Hearthstone's next expansion will make acquiring new cards a lot easier</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g594c36afceb3b/Beyond-Good-Evil-2-gameplay-shows-insane-scope-vaporware-potential/" class="article-title">Beyond Good & Evil 2 gameplay shows insane scope, vaporware potential</a>
+			<div class="article-subtitle">No Monkey's Sky.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

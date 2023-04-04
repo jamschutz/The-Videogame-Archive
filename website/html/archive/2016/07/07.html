@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 7, 2016</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/7th-dragon-iii-code-vfd-review/1900-6416468/" class="article-title">7th Dragon III Code: VFD Review</a>
+			<div class="article-subtitle">Rock the dragon.</div>
+			<div class="article-author">Heidi Kemps</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/asemblance-review/1900-6416469/" class="article-title">Asemblance Review</a>
+			<div class="article-subtitle">A walking game that stumbles.</div>
+			<div class="article-author">Jason D'Aprile</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/7-days-to-die-review/1900-6416470/" class="article-title">7 Days to Die Review</a>
+			<div class="article-subtitle">7 Days to Load.</div>
+			<div class="article-author">Joab Gilroy</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_youtuber-exposed-for-misleading-viewers-releases-a_1100-6441573_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/youtuber-exposed-for-misleading-viewers-releases-a/1100-6441573/" class="article-title">YouTuber Exposed for Misleading Viewers Releases Apology Video, Deletes It After Negative Response</a>
+			<div class="article-subtitle">Martin says he wasn''t happy with it and deleted it.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_new-lawbreakers-alpha-test-dates-announced_1100-6441575_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-lawbreakers-alpha-test-dates-announced/1100-6441575/" class="article-title">New LawBreakers Alpha Test Dates Announced</a>
+			<div class="article-subtitle">Here''s when you can play the Lawbreakers alpha.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_new-transformers-5-photos-reveal-epic-explosions_1100-6441576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-transformers-5-photos-reveal-epic-explosions/1100-6441576/" class="article-title">New Transformers 5 Photos Reveal Epic Explosions</a>
+			<div class="article-subtitle">A Hard Bay''s Work.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_pikmin-4-still-happening-miyamoto-assures_1100-6441577_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pikmin-4-still-happening-miyamoto-assures/1100-6441577/" class="article-title">Pikmin 4 Still Happening, Miyamoto Assures</a>
+			<div class="article-subtitle">"When we''re in development we have to create a list of priorities and it has been hard to kind of fit [Pikmin 4] into that list."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_xbox-ones-terraria-facing-this-serious-issue_1100-6441579_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-ones-terraria-facing-this-serious-issue/1100-6441579/" class="article-title">Xbox One's Terraria Facing This "Serious Issue"</a>
+			<div class="article-subtitle">"Online multiplayer is broken."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_see-pokemon-go-spoofed-by-square-enix_1100-6441581_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/see-pokemon-go-spoofed-by-square-enix/1100-6441581/" class="article-title">See Pokemon Go Spoofed by Square Enix</a>
+			<div class="article-subtitle">This is a good tweet.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_next-free-ubisoft-pc-game-revealed-heres-when-and-_1100-6441582_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/next-free-ubisoft-pc-game-revealed-heres-when-and-/1100-6441582/" class="article-title">Next Free Ubisoft PC Game Revealed, Here's When and How You Can Get It</a>
+			<div class="article-subtitle">First Splinter Cell game can be yours for free next week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_today-only-lord-of-the-rings-extended-blu-ray-tril_1100-6441580_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/today-only-lord-of-the-rings-extended-blu-ray-tril/1100-6441580/" class="article-title">Today Only: Lord of the Rings Extended Blu-Ray Trilogy Discounted to $27</a>
+			<div class="article-subtitle">The deal expires at 11:59 PM.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_ea-on-star-wars-battlefront-franchise-were-just-ge_1100-6441583_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ea-on-star-wars-battlefront-franchise-were-just-ge/1100-6441583/" class="article-title">EA on Star Wars Battlefront Franchise -- "We're Just Getting Started"</a>
+			<div class="article-subtitle">"We''re really proud of how this panned out."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_top-selling-ps4-ps3-and-ps-vita-games-on-psn-in-ju_1100-6441586_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/top-selling-ps4-ps3-and-ps-vita-games-on-psn-in-ju/1100-6441586/" class="article-title">Top-Selling PS4, PS3, and PS Vita Games on PSN in June 2016 Revealed</a>
+			<div class="article-subtitle">Battlefield 4--yes, really--leads the way on PS4.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_more-powerful-ps4-and-xbox-one-consoles-praised-by_1100-6441587_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-powerful-ps4-and-xbox-one-consoles-praised-by/1100-6441587/" class="article-title">More Powerful PS4 and Xbox One Consoles Praised by Epic Games Boss</a>
+			<div class="article-subtitle">Tim Sweeney is "absolutely thrilled."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_fallout-4-mod-tools-update-includes-these-fixes_1100-6441588_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-4-mod-tools-update-includes-these-fixes/1100-6441588/" class="article-title">Fallout 4 Mod Tools Update Includes These Fixes</a>
+			<div class="article-subtitle">Patched up.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_star-trek-has-its-first-openly-gay-character_1100-6441590_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-trek-has-its-first-openly-gay-character/1100-6441590/" class="article-title">Star Trek Has Its First Openly Gay Character</a>
+			<div class="article-subtitle">"I liked the approach."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_resident-evil-4-ps4xbox-one-release-date-announced_1100-6441589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/resident-evil-4-ps4xbox-one-release-date-announced/1100-6441589/" class="article-title">Resident Evil 4 PS4/Xbox One Release Date Announced</a>
+			<div class="article-subtitle">Capcom already re-released Resident Evil 5 and 6.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_watch-final-fantasy-15-universe-trailer-that-cover_1100-6441585_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-final-fantasy-15-universe-trailer-that-cover/1100-6441585/" class="article-title">Watch Final Fantasy 15 "Universe" Trailer That Covers Game, Movie, and More</a>
+			<div class="article-subtitle">Final Fantasy XV launches in September.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_gta-5s-next-update-looks-completely-crazy-see-it-i_1100-6441584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5s-next-update-looks-completely-crazy-see-it-i/1100-6441584/" class="article-title">GTA 5's Next Update Looks Completely Crazy, See It in Action Here</a>
+			<div class="article-subtitle">Cunning Stunts launches on July 12.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_roman-call-of-duty-game-was-never-seriously-consid_1100-6441522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/roman-call-of-duty-game-was-never-seriously-consid/1100-6441522/" class="article-title">Roman Call of Duty Game Was Never Seriously Considered, Activision Says [UPDATE]</a>
+			<div class="article-subtitle">According to Activision, Call of Duty: Roman Wars wasn''t as close to being a game as we originally thought.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_kirby-getting-his-own-cafe-in-japan_1100-6441592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kirby-getting-his-own-cafe-in-japan/1100-6441592/" class="article-title">Kirby Getting His Own Cafe in Japan</a>
+			<div class="article-subtitle">The Kirby-themed cafe is set to open this summer.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_original-ghostbusters-director-responds-to-haters-_1100-6441593_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/original-ghostbusters-director-responds-to-haters-/1100-6441593/" class="article-title">Original Ghostbusters Director Responds to Haters of New Movie</a>
+			<div class="article-subtitle">Wait and see, Ivan Reitman says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_destiny-year-two-moments-of-triumph-now-available_1100-6441594_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-year-two-moments-of-triumph-now-available/1100-6441594/" class="article-title">Destiny Year Two Moments of Triumph Now Available</a>
+			<div class="article-subtitle">Complete tasks and earn rewards.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_zubat-is-the-worst-our-first-day-with-pokemon-go_1100-6441596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zubat-is-the-worst-our-first-day-with-pokemon-go/1100-6441596/" class="article-title">Zubat Is The Worst: Our First Day With Pokemon Go</a>
+			<div class="article-subtitle">Oh, another Zubat? How great.</div>
+			<div class="article-author">Randolph Ramsay</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_final-fantasy-7-mobile-version-which-lets-you-chea_1100-6441598_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-7-mobile-version-which-lets-you-chea/1100-6441598/" class="article-title">Final Fantasy 7 Mobile Version, Which Lets You Cheat and Skip Battles, Comes to Android Today</a>
+			<div class="article-subtitle">It''s already out on iPhone.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_overwatch-image-appears-to-tease-new-healing-snipe_1100-6441551_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overwatch-image-appears-to-tease-new-healing-snipe/1100-6441551/" class="article-title">Overwatch Image Appears to Tease New Healing Sniper Hero</a>
+			<div class="article-subtitle">The image features a sniper rifle surrounded by a couple of Overwatch''s support items.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_gta-5-graphics-upgrade-mod-looks-incredible_1100-6441600_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5-graphics-upgrade-mod-looks-incredible/1100-6441600/" class="article-title">GTA 5 Graphics Upgrade Mod Looks Incredible</a>
+			<div class="article-subtitle">The GTA 5 Redux mod makes Los Santos look amazing, especially in the rain.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_the-next-tomb-raider-movies-release-date-set-for-2_1100-6441602_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-next-tomb-raider-movies-release-date-set-for-2/1100-6441602/" class="article-title">The Next Tomb Raider Movie's Release Date Set for 2018</a>
+			<div class="article-subtitle">We''ll be waiting another two years to see Alicia Vikander as Lara Croft.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_3-highly-detailed-amiibo-revealed-for-monster-hunt_1100-6441603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/3-highly-detailed-amiibo-revealed-for-monster-hunt/1100-6441603/" class="article-title">3 Highly-Detailed Amiibo Revealed for Monster Hunter Stories, See Them All Here</a>
+			<div class="article-subtitle">The Monster Hunter Amiibo feature characters riding monsters.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_these-33-movies-are-coming-to-amazon-prime-video_1100-6441601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/these-33-movies-are-coming-to-amazon-prime-video/1100-6441601/" class="article-title">These 33 Movies Are Coming to Amazon Prime Video</a>
+			<div class="article-subtitle">Ocean''s 11, The Matrix trilogy, and Mystic River are among them.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_you-can-see-batman-the-killing-joke-in-theaters-fo_1100-6441604_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/you-can-see-batman-the-killing-joke-in-theaters-fo/1100-6441604/" class="article-title">You Can See Batman: The Killing Joke in Theaters for One Night Only</a>
+			<div class="article-subtitle">Seriously!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_new-pokemon-for-sunmoon-revealed-can-poison-all-ty_1100-6441595_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-pokemon-for-sunmoon-revealed-can-poison-all-ty/1100-6441595/" class="article-title">New Pokemon for Sun/Moon Revealed, Can Poison All Types</a>
+			<div class="article-subtitle">Salandit is a toxic fire Pokemon that can poison any type, including those immune like Poison and Steel.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_nvidia-reveals-impressive-sounding-250-gpu-the-gtx_1100-6441591_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nvidia-reveals-impressive-sounding-250-gpu-the-gtx/1100-6441591/" class="article-title">Nvidia Reveals Impressive-Sounding $250 GPU, the GTX 1060</a>
+			<div class="article-subtitle">An even cheaper Pascal card.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_no-mans-sky-dev-celebrates-milestone-with-group-se_1100-6441605_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/no-mans-sky-dev-celebrates-milestone-with-group-se/1100-6441605/" class="article-title">No Man's Sky Dev Celebrates Milestone With Group Selfie and Champagne</a>
+			<div class="article-subtitle">"Four years of emotions."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_the-new-free-version-of-evolve-is-out-now-on-steam_1100-6441597_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-new-free-version-of-evolve-is-out-now-on-steam/1100-6441597/" class="article-title">The New Free Version of Evolve Is Out Now on Steam</a>
+			<div class="article-subtitle">The game is being overhauled in a number of ways on PC.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_grab-elite-dangerous-dogfighting-game-for-free-rig_1100-6441606_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/grab-elite-dangerous-dogfighting-game-for-free-rig/1100-6441606/" class="article-title">Grab Elite Dangerous' Dogfighting Game for Free Right Now on PC</a>
+			<div class="article-subtitle">Get into a dogfight for free.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_pokemon-go-makes-a-strong-start-tops-the-app-store_1100-6441608_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-makes-a-strong-start-tops-the-app-store/1100-6441608/" class="article-title">Pokemon Go Makes a Strong Start, Tops the App Store Charts</a>
+			<div class="article-subtitle">The big question is: How long will it stay there?</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_how-to-get-dragon-ball-z-season-1-for-free_1100-6441609_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/how-to-get-dragon-ball-z-season-1-for-free/1100-6441609/" class="article-title">How to Get Dragon Ball Z Season 1 for Free</a>
+			<div class="article-subtitle">The Microsoft Store''s holding a Dragon Ball Z sale, and you can get the first season for free.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_xbox-play-anywhere-lets-you-buy-xbox-one-game-play_1100-6440767_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-play-anywhere-lets-you-buy-xbox-one-game-play/1100-6440767/" class="article-title">Xbox Play Anywhere Lets You Buy Xbox One Game, Play on PC for Free</a>
+			<div class="article-subtitle">Buy it once, play it on PC and Xbox One.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_playstation-executive-leaving-to-become-game-devel_1100-6441611_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-executive-leaving-to-become-game-devel/1100-6441611/" class="article-title">PlayStation Executive Leaving To Become Game Developer</a>
+			<div class="article-subtitle">Prior to working at PlayStation, Boyes built a team from the ground up at Capcom USA.</div>
+			<div class="article-author">Zorine Te</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/07/07_pokemon-go-devs-still-exploring-multiplayer-say-pl_1100-6441610_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-devs-still-exploring-multiplayer-say-pl/1100-6441610/" class="article-title">Pokemon GO Devs Still Exploring Multiplayer, Say Players Will Shape The Game</a>
+			<div class="article-subtitle">Like no-one ever was.</div>
+			<div class="article-author">Edmond Tran</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_next-tomb-raider-movie-sets-2018-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/next-tomb-raider-movie-sets-2018-release-date" class="article-title">Next Tomb Raider movie sets 2018 release date</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_paper-mario-color-splash-sheds-its-rpg-roots-for-action-adventure-with-charm_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/paper-mario-color-splash-sheds-its-rpg-roots-for-action-adventure-with-charm" class="article-title">Paper Mario: Color Splash sheds its RPG roots for an action-adventure with charm</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_prey-for-the-gods-reimagines-shadow-of-the-colossus-as-a-survival-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/prey-for-the-gods-reimagines-shadow-of-the-colossus-as-a-survival-game" class="article-title">Prey for the Gods reimagines Shadow of the Colossus as a wintry survival game</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_did-overwatch-just-tease-its-next-hero_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/did-overwatch-just-tease-its-next-hero" class="article-title">Overwatch teases its next hero, probably a support sniper</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_destiny-the-taken-king-pvp-crucible-maps-tactics-4015_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-the-taken-king-pvp-crucible-maps-tactics-4015" class="article-title">Destiny: The Taken King - PVP, Crucible, maps, tactics</a>
+			<div class="article-author">Paul Davies</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_monster-hunter-stories-to-receive-three-additional-amiibo_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/monster-hunter-stories-to-receive-three-additional-amiibo" class="article-title">Monster Hunter Stories to receive three additional Amiibo</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_resident-evil-4-finally-has-a-playstation-4-xbox-one-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/resident-evil-4-finally-has-a-playstation-4-xbox-one-release-date" class="article-title">Resident Evil 4 finally has a PlayStation 4, Xbox One release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_watch-90-minutes-of-battlefield-1s-closed-alpha-on-ps4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-90-minutes-of-battlefield-1s-closed-alpha-on-ps4" class="article-title">Watch: 90 minutes of Battlefield 1's closed alpha on PS4</a>
+			<div class="article-author">Ian Higton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_so-long-mrs-white-cluedos-housekeeper-is-no-more_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/so-long-mrs-white-cluedos-housekeeper-is-no-more" class="article-title">So long, Mrs White: Cluedo's housekeeper is no more</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_pc-game-security-company-denuvo-downplays-alleged-rise-of-the-tomb-raider-crack_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pc-game-security-company-denuvo-downplays-alleged-rise-of-the-tomb-raider-crack" class="article-title">PC game-security company Denuvo downplays alleged Rise of the Tomb Raider crack</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_evolve-has-been-removed-from-sale-on-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/evolve-has-been-removed-from-sale-on-steam" class="article-title">Evolve has been removed from sale on Steam</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_overwatch-patch-fixes-zarya-winston-and-mercy-bugs_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/overwatch-patch-fixes-zarya-winston-and-mercy-bugs" class="article-title">Overwatch patch fixes Zarya, Winston and Mercy bugs</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_what-you-need-to-know-about-overwatch-competitive-play_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/what-you-need-to-know-about-overwatch-competitive-play" class="article-title">What you need to know about Overwatch Competitive Play</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_dirt-rally-gets-official-oculus-support-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dirt-rally-gets-official-oculus-support-next-week" class="article-title">Dirt Rally gets official Oculus Rift support next week</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_dont-worry-nintendos-still-making-pikmin-4_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dont-worry-nintendos-still-making-pikmin-4" class="article-title">Don't worry, Nintendo's still making Pikmin 4</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_youtube-stars-criticised-after-it-emerges-they-owned-gambling-site-they-promoted_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/youtube-stars-criticised-after-it-emerges-they-owned-gambling-site-they-promoted" class="article-title">Steam warns users against gambling site after YouTube stars discovered as owners</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/07/07_boxboxboy-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/boxboxboy-review" class="article-title">BoxBoxBoy! review</a>
+			<div class="article-subtitle">One of the 3DS's sweetest stars gets a typically ingenious sequel.</div>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g577d890a9756f/Closed-alpha-leak-reveals-extensive-Battlefield-1-details/" class="article-title">Closed alpha leak reveals extensive Battlefield 1 details</a>
+			<div class="article-subtitle">Raises questions about potential "Pigeon" mode</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577dc18b7f9d3/Why-StarCraft-Ghost-will-only-ever-haunt-your-memories/" class="article-title">Why StarCraft: Ghost will only ever haunt your memories</a>
+			<div class="article-subtitle">No-one knew what it was.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577d9de60ed54/Aussie-police-vow-to-protect-rare-Pok-mon/" class="article-title">Aussie police vow to protect rare Pokémon</a>
+			<div class="article-subtitle">One solution: get arrested.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577d95227a55e/Monster-huntin-FPS-Evolve-is-going-free-to-play-on-PC/" class="article-title">Monster huntin' FPS Evolve is going free-to-play on PC</a>
+			<div class="article-subtitle">Playerbase problems.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577dbb9bbdb71/Steam-Summer-Sales-revenue-up-50-percent/" class="article-title">Steam Summer Sales revenue up 50 percent</a>
+			<div class="article-subtitle">Because "not enough hours in the day" means nothing to gamers.</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577db348debc1/Create-your-dream-spaceship-then-blow-it-up-in-Defect/" class="article-title">Create your dream spaceship then blow it up in Defect</a>
+			<div class="article-subtitle">New from Aussie studio, Three Phase Interactive.</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g577da3030ef3b/Xboxs-Major-Nelson-heading-down-under-for-PAX-Aus/" class="article-title">Xbox's Major Nelson heading down under for PAX Aus</a>
+			<div class="article-subtitle">Will deliver opening Keynote.</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/TIGSource/_thumbnails/2016/07/07_2016_07_07_momodora-reverie-under-the-moonlight_thumbnail.jpg">
+			<a href="https://www.tigsource.com/2016/07/07/momodora-reverie-under-the-moonlight/" class="article-title">Momodora: Reverie Under the Moonlight</a>
+			<div class="article-author">Derek Yu</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

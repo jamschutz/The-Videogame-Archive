@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 13, 2019</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_gears-tactics-still-in-development-despite-e3-2019_1100-6467774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gears-tactics-still-in-development-despite-e3-2019/1100-6467774/" class="article-title">Gears Tactics Still In Development, Despite E3 2019 No-Show, Microsoft Says</a>
+			<div class="article-subtitle">"We''ll talk about Gears Tactics later."</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_fifa-20-release-date-confirmed-at-e3-2019_1100-6467461_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/fifa-20-release-date-confirmed-at-e3-2019/1100-6467461/" class="article-title">FIFA 20 Release Date Confirmed At E3 2019</a>
+			<div class="article-subtitle">Kick off is fast approaching.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_sale-ends-soon-get-10-off-any-15-game-save-on-pre-_1100-6466955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sale-ends-soon-get-10-off-any-15-game-save-on-pre-/1100-6466955/" class="article-title">Sale Ends Soon: Get $10 Off Any $15+ Game, Save On Pre-Orders At Epic</a>
+			<div class="article-subtitle">Plus, a new free game is available.</div>
+			<div class="article-author">Jenae Sitzes</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_xbox-e3-2019-microsoft-went-to-extreme-lengths-to-_1100-6467739_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/xbox-e3-2019-microsoft-went-to-extreme-lengths-to-/1100-6467739/" class="article-title">Xbox E3 2019: Microsoft Went To Extreme Lengths To Keep Keanu Reeves A Secret At Its Press Conference</a>
+			<div class="article-subtitle">Amazingly, it didn''t leak.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-kingdom-hearts-3s-dlc-remind-releases-this_1100-6467748_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-kingdom-hearts-3s-dlc-remind-releases-this/1100-6467748/" class="article-title">E3 2019: Kingdom Hearts 3's DLC, Re:Mind, Releases This Winter</a>
+			<div class="article-subtitle">Sora isn''t the only playable keyblade wielder.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-halo-ship-available-now-in-sea-of-thieves-_1100-6467770_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-2019-halo-ship-available-now-in-sea-of-thieves-/1100-6467770/" class="article-title">E3 2019: Halo Ship Available Now In Sea Of Thieves For A Limited Time</a>
+			<div class="article-subtitle">You got Halo in my Sea of Thieves.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-why-going-epic-store-exclusive-was-the-rig_1100-6467769_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-2019-why-going-epic-store-exclusive-was-the-rig/1100-6467769/" class="article-title">E3 2019: Why Going Epic Store-Exclusive Was The Right Choice For Untitled Goose Game Devs</a>
+			<div class="article-subtitle">"In an industry like ours, this kind of stability is huge."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_fortnite-studio-epic-given-special-bafta-award-at-_1100-6467777_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-studio-epic-given-special-bafta-award-at-/1100-6467777/" class="article-title">Fortnite Studio Epic Given Special BAFTA Award At E3 2019</a>
+			<div class="article-subtitle">Fortnite''s success knows no limits.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_stephen-kings-shining-sequel-doctor-sleep-gets-sca_1100-6467782_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stephen-kings-shining-sequel-doctor-sleep-gets-sca/1100-6467782/" class="article-title">Stephen King's Shining Sequel Doctor Sleep Gets Scary First Trailer</a>
+			<div class="article-subtitle">Redrum time again.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-the-sims-4-island-living-expansion-announc_1100-6467499_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-the-sims-4-island-living-expansion-announc/1100-6467499/" class="article-title">E3 2019: The Sims 4 "Island Living" Expansion Announced</a>
+			<div class="article-subtitle">Make a splash.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-battlefield-5s-new-maps-revealed_1100-6467494_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-battlefield-5s-new-maps-revealed/1100-6467494/" class="article-title">E3 2019: Battlefield 5's New Maps Revealed</a>
+			<div class="article-subtitle">Close-quarter combat and wide open spaces.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-anthem-dev-admits-we-have-some-work-to-do_1100-6467497_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-anthem-dev-admits-we-have-some-work-to-do/1100-6467497/" class="article-title">E3 2019: Anthem Dev Admits "We Have Some Work To Do"</a>
+			<div class="article-subtitle">Anthem made a surprise appearance at EA Play.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_you-get-an-full-size-helmet-with-doom-eternal-coll_1100-6467584_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/you-get-an-full-size-helmet-with-doom-eternal-coll/1100-6467584/" class="article-title">You Get An Full-Size Helmet With Doom Eternal Collector's Edition - Bethesda E3 2019</a>
+			<div class="article-subtitle">Coming this November.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-star-wars-jedi-fallen-order-every-force-po_1100-6467489_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-star-wars-jedi-fallen-order-every-force-po/1100-6467489/" class="article-title">E3 2019: Star Wars Jedi Fallen Order -- Every Force Power (So Far)</a>
+			<div class="article-subtitle">Use the Force, Cal.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-apex-legends-season-2-begins-next-month-he_1100-6467492_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-2019-apex-legends-season-2-begins-next-month-he/1100-6467492/" class="article-title">E3 2019: Apex Legends' Season 2 Begins Next Month, Here's Everything It Adds</a>
+			<div class="article-subtitle">A new weapon, a new Legend, and a better Battle Pass.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_rockstar-games-confirmed-as-google-stadia-develope_1100-6467366_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rockstar-games-confirmed-as-google-stadia-develope/1100-6467366/" class="article-title">Rockstar Games Confirmed As Google Stadia Developer</a>
+			<div class="article-subtitle">But which games?</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_google-stadia-how-fast-does-your-internet-connecti_1100-6467406_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/google-stadia-how-fast-does-your-internet-connecti/1100-6467406/" class="article-title">Google Stadia: How Fast Does Your Internet Connection Need To Be?</a>
+			<div class="article-subtitle">Check your speed before you stream.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-rage-2-expansion-rise-of-the-ghosts-announ_1100-6467576_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-rage-2-expansion-rise-of-the-ghosts-announ/1100-6467576/" class="article-title">E3 2019: Rage 2 Expansion Rise Of The Ghosts Announced</a>
+			<div class="article-subtitle">It''s a rager.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_google-stadia-coming-in-november-with-hardware-bun_1100-6467361_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/google-stadia-coming-in-november-with-hardware-bun/1100-6467361/" class="article-title">Google Stadia Coming In November With Hardware Bundle</a>
+			<div class="article-subtitle">Get your wallets ready.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_six-ubisoft-games-confirmed-for-google-stadia_1100-6467407_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/six-ubisoft-games-confirmed-for-google-stadia/1100-6467407/" class="article-title">Six Ubisoft Games Confirmed For Google Stadia</a>
+			<div class="article-subtitle">Ubisoft''s Wolves, Agents, Assassins and more coming to Google Stadia.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-contra-anniversary-collection-available-no_1100-6467690_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-contra-anniversary-collection-available-no/1100-6467690/" class="article-title">E3 2019: Contra Anniversary Collection Available Now For Nintendo Switch</a>
+			<div class="article-subtitle">Join the corps again.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-the-witcher-3-for-nintendo-switch-releases_1100-6467684_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-the-witcher-3-for-nintendo-switch-releases/1100-6467684/" class="article-title">E3 2019: The Witcher 3 For Nintendo Switch Releases This Year, Here's Everything We Know</a>
+			<div class="article-subtitle">Geralt comes to Switch with the Complete edition later this year.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-all-the-trailers-from-the-nintendo-direct-_1100-6467704_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-all-the-trailers-from-the-nintendo-direct-/1100-6467704/" class="article-title">E3 2019: All The Trailers From The Nintendo Direct Presentation</a>
+			<div class="article-subtitle">Every game trailer from Tuesday''s conference, including Breath of the Wild 2.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-new-luigis-mansion-3-trailer-shows-tons-of_1100-6467682_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-new-luigis-mansion-3-trailer-shows-tons-of/1100-6467682/" class="article-title">E3 2019: New Luigi's Mansion 3 Trailer Shows Tons Of Gameplay Details</a>
+			<div class="article-subtitle">Just me and goo.</div>
+			<div class="article-author">Edmond Tran</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-dying-light-2-gets-moody-new-trailer_1100-6467658_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-dying-light-2-gets-moody-new-trailer/1100-6467658/" class="article-title">E3 2019: Dying Light 2 Gets Moody New Trailer</a>
+			<div class="article-subtitle">Bounding the rooftops.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-marvels-avengers-coming-in-2020-heres-a-fi_1100-6467666_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-marvels-avengers-coming-in-2020-heres-a-fi/1100-6467666/" class="article-title">E3 2019: Marvel's Avengers Coming In 2020, Here's A First Look</a>
+			<div class="article-subtitle">You can Hulk out in 2020.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-ghost-recon-breakpoint-shown-with-very-goo_1100-6467629_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-ghost-recon-breakpoint-shown-with-very-goo/1100-6467629/" class="article-title">E3 2019: Ghost Recon Breakpoint Shown With Very Good Boy</a>
+			<div class="article-subtitle">Ghost Recon: Barkpoint.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-tom-clancys-elite-squad-is-ubisoft-mash-up_1100-6467631_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-tom-clancys-elite-squad-is-ubisoft-mash-up/1100-6467631/" class="article-title">E3 2019: Tom Clancy's Elite Squad Is Ubisoft Mash-Up</a>
+			<div class="article-subtitle">Sam, meet a Ghost. Ghost, Sam.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-assassins-creed-odyssey-story-creator-mode_1100-6467623_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-assassins-creed-odyssey-story-creator-mode/1100-6467623/" class="article-title">E3 2019: Assassin's Creed Odyssey Story Creator Mode Out Now, Discovery Mode Coming This Fall</a>
+			<div class="article-subtitle">You know what Assassin''s Creed Odyssey needs? More content.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-pve-spin-off-rainbow-six-quarantine-coming_1100-6467634_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-pve-spin-off-rainbow-six-quarantine-coming/1100-6467634/" class="article-title">E3 2019: PvE Spin-Off Rainbow Six Quarantine Coming In 2020</a>
+			<div class="article-subtitle">Another Rainbow Six game incoming.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-uplay-is-ubisoft-subscription-with-new-rel_1100-6467606_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-uplay-is-ubisoft-subscription-with-new-rel/1100-6467606/" class="article-title">E3 2019: Uplay+ Is Ubisoft Subscription, With New Releases Like Ghost Recon Breakpoint And Watch Dogs Legion</a>
+			<div class="article-subtitle">Plus, premium versions and DLC all included.</div>
+			<div class="article-author">Steve Watts</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_xbox-e3-2019-new-minecraft-dungeons-trailer-and-de_1100-6467523_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-e3-2019-new-minecraft-dungeons-trailer-and-de/1100-6467523/" class="article-title">Xbox E3 2019: New Minecraft Dungeons Trailer And Details Announced</a>
+			<div class="article-subtitle">Delve into the mine.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-zelda-spin-off-game-cadence-of-hyrule-is-o_1100-6467693_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-zelda-spin-off-game-cadence-of-hyrule-is-o/1100-6467693/" class="article-title">E3 2019: Zelda Spin-Off Game Cadence Of Hyrule Is Out Now</a>
+			<div class="article-subtitle">Like this week soon.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-wolfenstein-youngblood-microtransactions-d_1100-6467768_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-wolfenstein-youngblood-microtransactions-d/1100-6467768/" class="article-title">E3 2019: Wolfenstein: Youngblood Microtransactions Don't Let You Buy Upgrades</a>
+			<div class="article-subtitle">Setting the record straight.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-two-classic-square-enix-rpgs-headed-to-the_1100-6467784_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-two-classic-square-enix-rpgs-headed-to-the/1100-6467784/" class="article-title">E3 2019: Two Classic Square Enix RPGs Headed To The West</a>
+			<div class="article-subtitle">The SaGa continues.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_a-closer-look-at-star-wars-jedi-fallen-orders-thou_1100-6467734_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/a-closer-look-at-star-wars-jedi-fallen-orders-thou/1100-6467734/" class="article-title">A Closer Look At Star Wars: Jedi Fallen Order's "Thoughtful" Combat - E3 2019</a>
+			<div class="article-subtitle">The Souls is strong with this one.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-you-can-complete-cyberpunk-2077-without-ki_1100-6467750_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-you-can-complete-cyberpunk-2077-without-ki/1100-6467750/" class="article-title">E3 2019: You Can Complete Cyberpunk 2077 Without Killing Anyone</a>
+			<div class="article-subtitle">The most punk thing of all is being nice.</div>
+			<div class="article-author">Kallie Plagge</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-seeing-the-avengers-game-in-action-left-us_1100-6467752_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-2019-seeing-the-avengers-game-in-action-left-us/1100-6467752/" class="article-title">E3 2019: Seeing The Avengers Game In Action Left Us With Big Questions</a>
+			<div class="article-subtitle">The Avengers, sans Hawkeye.</div>
+			<div class="article-author">Alessandro Fillari</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-big-halo-infinite-showing-coming-at-e3-202_1100-6467771_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-big-halo-infinite-showing-coming-at-e3-202/1100-6467771/" class="article-title">E3 2019 - Big Halo Infinite Showing Coming At E3 2020, Microsoft Says</a>
+			<div class="article-subtitle">Sit tight.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_jedi-fallen-order-didnt-start-out-as-a-star-wars-g_1100-6467511_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jedi-fallen-order-didnt-start-out-as-a-star-wars-g/1100-6467511/" class="article-title">Jedi Fallen Order Didn't Start Out As A Star Wars Game - E3 2019</a>
+			<div class="article-subtitle">Different but the same.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_new-star-wars-jedi-fallen-order-e3-2019-gameplay-t_1100-6467542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-star-wars-jedi-fallen-order-e3-2019-gameplay-t/1100-6467542/" class="article-title">New Star Wars: Jedi Fallen Order E3 2019 Gameplay Trailer Released During Xbox Press Conference</a>
+			<div class="article-subtitle">Pilot an AT-AT.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_jedi-fallen-order-director-talks-bringing-a-bit-of_1100-6467508_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jedi-fallen-order-director-talks-bringing-a-bit-of/1100-6467508/" class="article-title">Jedi Fallen Order Director Talks Bringing A Bit Of Bloodborne To Star Wars - E3 2019</a>
+			<div class="article-subtitle">Bring balance to the Force.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_x-men-dark-phoenixs-most-unexpected-cameo-explaine_1100-6467465_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/x-men-dark-phoenixs-most-unexpected-cameo-explaine/1100-6467465/" class="article-title">X-Men: Dark Phoenix's Most Unexpected Cameo Explained</a>
+			<div class="article-subtitle">Prepare to be dazzled!</div>
+			<div class="article-author">Mason Downey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-keanu-reeves-plays-an-big-role-in-cyberpun_1100-6467728_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-keanu-reeves-plays-an-big-role-in-cyberpun/1100-6467728/" class="article-title">E3 2019: Keanu Reeves Plays An Big Role In Cyberpunk 2077's Story</a>
+			<div class="article-subtitle">The best companion character in games, probably.</div>
+			<div class="article-author">Kallie Plagge</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-reveals-first-call-of-duty-modern-warfare-multi_1100-6467732_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-reveals-first-call-of-duty-modern-warfare-multi/1100-6467732/" class="article-title">E3 Reveals First Call Of Duty: Modern Warfare Multiplayer Screenshots; Co-op Spec Ops Mode Confirmed</a>
+			<div class="article-subtitle">Get a first look at Modern Warfare''s multiplayer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_xboxs-matt-booty-on-studio-acquisitions-and-making_1100-6467793_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/xboxs-matt-booty-on-studio-acquisitions-and-making/1100-6467793/" class="article-title">Xbox's Matt Booty On Studio Acquisitions And Making Game Pass Valuable</a>
+			<div class="article-subtitle">Pass it on.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-how-keanu-reeves-became-involved-in-cyberp_1100-6467722_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-2019-how-keanu-reeves-became-involved-in-cyberp/1100-6467722/" class="article-title">E3 2019: How Keanu Reeves Became Involved In Cyberpunk 2077</a>
+			<div class="article-subtitle">It was a "match made in heaven."</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_psn-is-down-causing-ps4-server-issues-and-errors-f_1100-6467791_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/psn-is-down-causing-ps4-server-issues-and-errors-f/1100-6467791/" class="article-title">PSN Is Down, Causing PS4 Server Issues And Errors For Games During E3 [Update]</a>
+			<div class="article-subtitle">E3 is almost over, but hopefully you weren''t planning to pass the time with something that requires PSN.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-schedule-all-events-live-streams-games-and_1100-6465962_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-schedule-all-events-live-streams-games-and/1100-6465962/" class="article-title">E3 2019 Schedule: All Events, Live Streams, Games, And More</a>
+			<div class="article-subtitle">A roundup of the full slate of events happening at E3.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019s-most-important-news_1100-6467726_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019s-most-important-news/1100-6467726/" class="article-title">E3 2019's Most Important News</a>
+			<div class="article-subtitle">The important pieces of E3 2019 news.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/06/13_e3-2019-cd-projekt-red-thought-it-would-be-impossi_1100-6467799_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2019-cd-projekt-red-thought-it-would-be-impossi/1100-6467799/" class="article-title">E3 2019: CD Projekt Red Thought It Would Be Impossible To Get Keanu Reeves For Cyberpunk 2077</a>
+			<div class="article-subtitle">A perfect fit.</div>
+			<div class="article-author">Jordan Ramée</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_in-case-you-missed-it-fallout-76-is-currently-free-to-try-for-a-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/in-case-you-missed-it-fallout-76-is-currently-free-to-try-for-a-week" class="article-title">In case you missed it, Fallout 76 is currently free to try for a week</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_digitalfoundry-2019-the-witcher-3-switch-trailer-analysis_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2019-the-witcher-3-switch-trailer-analysis" class="article-title">Here's how The Witcher 3 on Switch compares to PlayStation 4</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_nintendo-announces-splatoon-2s-last-ever-splatfest_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-announces-splatoon-2s-last-ever-splatfest" class="article-title">Nintendo details Splatoon 2's last-ever Splatfest, coming in July</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_life-is-strange-dev-dontnod-delays-psychological-thriller-twin-mirror-into-next-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/life-is-strange-dev-dontnod-delays-psychological-thriller-twin-mirror-into-next-year" class="article-title">Life is Strange dev delays psychological thriller Twin Mirror into next year</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_digitalfoundry-2019-06-13-amazon-coms-daily-deal-is-pny-storage-at-up-to-60-per-cent-off-7006_thumbnail.png">
+			<a href="https://www.eurogamer.net/digitalfoundry-2019-06-13-amazon-coms-daily-deal-is-pny-storage-at-up-to-60-per-cent-off-7006" class="article-title">Amazon.com's daily deal is memory cards, SSDs and flash drives at up to 60 per cent off</a>
+			<div class="article-author">Will Judd</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_xbox-boss-phil-spencer-were-not-planning-for-scarlett-to-be-our-last-console_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-boss-phil-spencer-were-not-planning-for-scarlett-to-be-our-last-console" class="article-title">Xbox boss Phil Spencer: "We're not planning for Scarlett to be our last console"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_horis-new-switch-controller-is-seriously-hardcore_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/horis-new-switch-controller-is-seriously-hardcore" class="article-title">Hori's new Switch controller is seriously hardcore</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_almost-two-decades-on-fans-have-unearthed-a-secret-move-in-the-original-shenmue_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/almost-two-decades-on-fans-have-unearthed-a-secret-move-in-the-original-shenmue" class="article-title">Almost two decades on, fans have unearthed a secret move in the original Shenmue</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_the-star-control-feud-is-over-and-bees-have-a-lot-to-do-with-it_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-star-control-feud-is-over-and-bees-have-a-lot-to-do-with-it" class="article-title">The Star Control feud is over and bees have a lot to do with it</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_square-enix-development-of-second-game-in-the-final-fantasy-7-remake-project-will-be-more-efficient_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/square-enix-development-of-second-game-in-the-final-fantasy-7-remake-project-will-be-more-efficient" class="article-title">Square Enix: development of second game in the Final Fantasy 7 remake project will be "more efficient"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_after-an-hour-of-playing-it-control-seems-extraordinary_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/after-an-hour-of-playing-it-control-seems-extraordinary" class="article-title">After an hour playing it, Control seems extraordinary</a>
+			<div class="article-author">Chris Tapsell</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_the-big-cyberpunk-2077-interview-multiplayer-next-gen-and-working-with-keanu_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-big-cyberpunk-2077-interview-multiplayer-next-gen-and-working-with-keanu" class="article-title">The big Cyberpunk 2077 interview: multiplayer, next-gen, and Keanu Reeves</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_hands-on-with-final-fantasy-7-remake_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hands-on-with-final-fantasy-7-remake" class="article-title">Final Fantasy 7 Remake plays as elegantly as it looks</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_hellblade-senuas-sacrifice-and-moonlighter-headline-the-july-humble-monthly-bundle_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hellblade-senuas-sacrifice-and-moonlighter-headline-the-july-humble-monthly-bundle" class="article-title">Hellblade: Senua's Sacrifice and Moonlighter headline the July Humble Monthly bundle</a>
+			<div class="article-author">James Pickard</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_netflix-is-making-a-pokemon-go-style-stranger-things-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/netflix-is-making-a-pokemon-go-style-stranger-things-game" class="article-title">Netflix is making a Pokemon Go-style Stranger Things game</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_is-your-broadband-good-enough-for-google-stadia_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/is-your-broadband-good-enough-for-google-stadia" class="article-title">Is your broadband good enough for Google Stadia?</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/06/13_a-conversation-with-the-artist-behind-that-cyberpunk-2077-poster_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/a-conversation-with-the-artist-behind-that-cyberpunk-2077-poster" class="article-title">A conversation with the artist behind that Cyberpunk 2077 poster</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5d015f7933526/New-Stranger-Things-mobile-game-a-location-based-RPG/" class="article-title">New Stranger Things mobile game a location-based RPG</a>
+			<div class="article-subtitle">Explore the Upside Down</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5d015c44ab14d/Torchlight-II-coming-to-consoles-this-September/" class="article-title">Torchlight II coming to consoles this September</a>
+			<div class="article-subtitle">Diablo is about to get some more competition.</div>
+			<div class="article-author">Dan Grayson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

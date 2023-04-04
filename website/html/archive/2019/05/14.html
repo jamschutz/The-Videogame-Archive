@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">May 14, 2019</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/rage-2-review-wasted-land/1900-6417138/" class="article-title">Rage 2 Review - Wasted Land</a>
+			<div class="article-subtitle">Seize the means of destruction.</div>
+			<div class="article-author">Michael Higham</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/darkwood-review-welcome-to-the-forest-meat/1900-6417141/" class="article-title">Darkwood Review - Welcome To The Forest, Meat</a>
+			<div class="article-subtitle">Around here, all roads lead to nowhere.</div>
+			<div class="article-author">Cian Maher</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_pubg-shut-down-in-china-replaced-with-strange-alte_1100-6466731_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pubg-shut-down-in-china-replaced-with-strange-alte/1100-6466731/" class="article-title">PUBG Shut Down In China, Replaced With Strange Alternative</a>
+			<div class="article-subtitle">PUBG for peace.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_new-rainbow-six-siege-operators-teased_1100-6466874_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-rainbow-six-siege-operators-teased/1100-6466874/" class="article-title">New Rainbow Six Siege Operators Teased</a>
+			<div class="article-subtitle">Here we go again.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_e3-group-announces-new-leadership-after-report-of-_1100-6466867_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/e3-group-announces-new-leadership-after-report-of-/1100-6466867/" class="article-title">E3 Group Announces New Leadership After Report Of Disarray At The Organization</a>
+			<div class="article-subtitle">The Entertainment Software Association announces Stanley Pierre-Louis as its next president and CEO.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_latest-x-men-dark-phoenix-trailer-is-the-end-of-an_1100-6466852_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/latest-x-men-dark-phoenix-trailer-is-the-end-of-an/1100-6466852/" class="article-title">Latest X-Men Dark Phoenix Trailer Is The End Of An Era</a>
+			<div class="article-subtitle">X-men exit?</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_rage-2-reviews-here-are-all-the-scores_1100-6466845_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rage-2-reviews-here-are-all-the-scores/1100-6466845/" class="article-title">Rage 2 Reviews: Here Are All The Scores</a>
+			<div class="article-subtitle">Rage against the hype machine.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_this-weeks-new-movie-releases-in-stores-and-digita_1100-6466881_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-new-movie-releases-in-stores-and-digita/1100-6466881/" class="article-title">This Week's New Movie Releases In Stores And Digitally</a>
+			<div class="article-subtitle">More movies about wrestling, please.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_gta-red-dead-borderlands-parent-company-has-unanno_1100-6466873_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-red-dead-borderlands-parent-company-has-unanno/1100-6466873/" class="article-title">GTA, Red Dead, Borderlands Parent Company Has Unannounced Games Coming Before 2020</a>
+			<div class="article-subtitle">What games would you like to see?</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_the-most-influential-games-of-the-21st-century-dar_1100-6466811_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-most-influential-games-of-the-21st-century-dar/1100-6466811/" class="article-title">The Most Influential Games Of The 21st Century: Dark Souls</a>
+			<div class="article-subtitle">Grossly incandescent.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_fortnite-week-1-season-9-challenges-visit-sky-plat_1100-6466771_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fortnite-week-1-season-9-challenges-visit-sky-plat/1100-6466771/" class="article-title">Fortnite Week 1, Season 9 Challenges: Visit Sky Platforms, Scoped Eliminations, And More</a>
+			<div class="article-subtitle">Challenges. Challenges never change.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_new-final-fantasy-7-remake-trailer-revealed-during_1100-6466784_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-final-fantasy-7-remake-trailer-revealed-during/1100-6466784/" class="article-title">New Final Fantasy 7 Remake Trailer Revealed During PS4's State Of Play Presentation</a>
+			<div class="article-subtitle">Here''s another look at the long-awaited remake.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_final-fantasy-7-remake-still-releasing-in-multiple_1100-6466803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-7-remake-still-releasing-in-multiple/1100-6466803/" class="article-title">Final Fantasy 7 Remake Still Releasing In Multiple Parts</a>
+			<div class="article-subtitle">More info about the remake is on the way next month.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_more-than-1-million-people-still-play-2012s-border_1100-6466864_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-than-1-million-people-still-play-2012s-border/1100-6466864/" class="article-title">More Than 1 Million People Still Play 2012's Borderlands 2 Every Month</a>
+			<div class="article-subtitle">Take-Two also confirms the entire Borderlands franchise has now reached 43 million copies shipped.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_george-clooney-gave-advice-to-ben-affleck-on-playi_1100-6466868_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/george-clooney-gave-advice-to-ben-affleck-on-playi/1100-6466868/" class="article-title">George Clooney Gave Advice To Ben Affleck On Playing Batman: “Don't Do It”</a>
+			<div class="article-subtitle">Affleck didn''t listen.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_game-of-thrones-recap-and-review-episode-5-the-bel_1100-6466840_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-recap-and-review-episode-5-the-bel/1100-6466840/" class="article-title">Game Of Thrones Recap And Review (Episode 5): The Bells Are Tolling In Season 8</a>
+			<div class="article-subtitle">Game of Thrones Season 8 spoilers ahead!</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_game-of-thrones-episode-5-smashes-more-viewing-rec_1100-6466883_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-episode-5-smashes-more-viewing-rec/1100-6466883/" class="article-title">Game Of Thrones Episode 5 Smashes More Viewing Records</a>
+			<div class="article-subtitle">Big Bells.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_does-detective-pikachu-have-an-after-credits-scene_1100-6466829_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/does-detective-pikachu-have-an-after-credits-scene/1100-6466829/" class="article-title">Does Detective Pikachu Have An After-Credits Scene?</a>
+			<div class="article-subtitle">We''ve got the lowdown on any Pokemon cinematic universe teases.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_next-star-wars-movie-coming-from-game-of-thrones-b_1100-6466880_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/next-star-wars-movie-coming-from-game-of-thrones-b/1100-6466880/" class="article-title">Next Star Wars Movie Coming From Game Of Thrones' Benioff And Weiss</a>
+			<div class="article-subtitle">Weiss move.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_enter-to-win-a-longboard-inspired-by-playstation_1100-6466893_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/enter-to-win-a-longboard-inspired-by-playstation/1100-6466893/" class="article-title">Enter To Win* a Longboard Inspired by PlayStation</a>
+			<div class="article-subtitle">We partnered with Sony to give away this longboard made with 7-ply cold-pressed Canadian maple. This sweepstakes ends on May 28.</div>
+			<div class="article-author">Tania Gonzalez</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_wwes-brand-split-between-raw-and-smackdown-doesnt-_1100-6466715_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wwes-brand-split-between-raw-and-smackdown-doesnt-/1100-6466715/" class="article-title">WWE's Brand Split Between Raw And Smackdown Doesn't Matter Anymore</a>
+			<div class="article-subtitle">Keep the shows separate, please.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_george-rr-martin-no-game-of-thrones-last-two-books_1100-6466841_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/george-rr-martin-no-game-of-thrones-last-two-books/1100-6466841/" class="article-title">George RR Martin: No, Game Of Thrones' Last Two Books Aren't Done</a>
+			<div class="article-subtitle">Maybe it''s time to let yourself dream of spring. Or not.</div>
+			<div class="article-author">Phil Hornshaw</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_machamps-speedo-is-actually-skin-and-other-facts-f_1100-6466897_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/machamps-speedo-is-actually-skin-and-other-facts-f/1100-6466897/" class="article-title">Machamp's Speedo Is Actually Skin, & Other Facts From Detective Pikachu's Pokemon Designers</a>
+			<div class="article-subtitle">Detective Pikachu spoilers ahead!</div>
+			<div class="article-author">Rafael Motamayor</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_marvels-x-men-are-getting-a-full-reboot-care-of-jo_1100-6466898_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/marvels-x-men-are-getting-a-full-reboot-care-of-jo/1100-6466898/" class="article-title">Marvel's X-Men Are Getting A Full Reboot Care Of Jonathan Hickman</a>
+			<div class="article-subtitle">Get ready for "HOX" and "POX"</div>
+			<div class="article-author">Mason Downey</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_the-new-stranger-things-lego-set-literally-turns-e_1100-6466896_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-new-stranger-things-lego-set-literally-turns-e/1100-6466896/" class="article-title">The New Stranger Things Lego Set Literally Turns Everything Upside Down</a>
+			<div class="article-subtitle">This may be the weirdest Lego set of all time.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_game-of-thrones-the-battle-of-winterfells-deaths-l_1100-6466578_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-the-battle-of-winterfells-deaths-l/1100-6466578/" class="article-title">Game Of Thrones: The Battle Of Winterfell's Deaths Left Me Cold (Season 8, Episode 3)</a>
+			<div class="article-subtitle">Game of Thrones Season 8 spoilers ahead!</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_last-of-us-2-dev-looking-to-close-out-development_1100-6466899_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/last-of-us-2-dev-looking-to-close-out-development/1100-6466899/" class="article-title">Last Of Us 2 Dev Looking To "Close Out" Development</a>
+			<div class="article-subtitle">Is Naughty Dog almost finished developing The Last of Us: Part II?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_this-game-of-thrones-metallica-mashup-is-a-great-s_1100-6466901_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/this-game-of-thrones-metallica-mashup-is-a-great-s/1100-6466901/" class="article-title">This Game Of Thrones / Metallica Mashup Is A Great Soundtrack To Episode 5</a>
+			<div class="article-subtitle">"For Whom The Bell Tolls."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_game-of-thrones-season-8-ratings-reveal-how-immens_1100-6466730_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/game-of-thrones-season-8-ratings-reveal-how-immens/1100-6466730/" class="article-title">Game Of Thrones Season 8 Ratings Reveal How Immensely Popular The Show Is</a>
+			<div class="article-subtitle">Game of Thrones is very popular.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_movie-where-ryan-reynolds-discovers-hes-a-characte_1100-6466903_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/movie-where-ryan-reynolds-discovers-hes-a-characte/1100-6466903/" class="article-title">Movie Where Ryan Reynolds Discovers He's A Character In A Video Game Has Started Filming</a>
+			<div class="article-subtitle">Reynolds plays a bank teller who realizes he is actually a character in a video game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_pubg-mobile-update-adds-new-feature-to-help-promot_1100-6466904_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/pubg-mobile-update-adds-new-feature-to-help-promot/1100-6466904/" class="article-title">PUBG Mobile Update Adds New Feature To Help Promote "Healthy Gaming"</a>
+			<div class="article-subtitle">Introducing the PUBG Management System.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2019/05/14_there-are-now-three-star-wars-tv-shows-in-developm_1100-6466905_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/there-are-now-three-star-wars-tv-shows-in-developm/1100-6466905/" class="article-title">There Are Now Three Star Wars TV Shows In Development</a>
+			<div class="article-subtitle">There are no details about the third one yet, though.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_vr-rhythm-phenomenon-beat-saber-leaving-pc-early-access-next-week-with-a-price-increase_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/vr-rhythm-phenomenon-beat-saber-leaving-pc-early-access-next-week-with-a-price-increase" class="article-title">VR rhythm phenomenon Beat Saber leaving PC early access next week with price increase</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_ubisoft-creative-director-appears-to-confirm-new-splinter-cell-in-random-tweet_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ubisoft-creative-director-appears-to-confirm-new-splinter-cell-in-random-tweet" class="article-title">Ubisoft creative director appears to confirm new Splinter Cell in random tweet</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_acclaimed-rpg-card-battler-steamworld-quest-is-heading-to-pc-later-this-month_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/acclaimed-rpg-card-battler-steamworld-quest-is-heading-to-pc-later-this-month" class="article-title">Acclaimed RPG card-battler SteamWorld Quest is heading to PC later this month</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_adorable-vr-mouse-adventure-moss-is-getting-a-free-dlc-chapter-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/adorable-vr-mouse-adventure-moss-is-getting-a-free-dlc-chapter-next-week" class="article-title">Adorable VR mouse adventure Moss is getting a free DLC chapter next week</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_world-of-warcraft-classic-gets-a-release-date-and-a-beta-tomorrow_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/world-of-warcraft-classic-gets-a-release-date-and-a-beta-tomorrow" class="article-title">World of Warcraft Classic gets a release date, and a beta tomorrow</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_nintendo-direct-broadcast-dated-for-thursday_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-direct-broadcast-dated-for-thursday" class="article-title">Nintendo Direct broadcast dated for this week</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_fanaticals-may-madness-sale-slashes-up-to-93-percent-off-loads-of-pc-games_thumbnail.png">
+			<a href="https://www.eurogamer.net/fanaticals-may-madness-sale-slashes-up-to-93-percent-off-loads-of-pc-games" class="article-title">Fanatical's 'May Madness' sale slashes up to 93% off loads of PC games</a>
+			<div class="article-author">James Pickard</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_digitalfoundry-2019-saints-row-the-third-switch-analysis_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2019-saints-row-the-third-switch-analysis" class="article-title">Saints Row: The Third on Switch is a great idea that's poorly executed</a>
+			<div class="article-author">John Linneman</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_fantastic-fetus-is-a-tamagotchi-style-pregnancy-simulator-and-a-protest_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fantastic-fetus-is-a-tamagotchi-style-pregnancy-simulator-and-a-protest" class="article-title">Fantastic Fetus is a Tamagotchi-style pregnancy simulator and a protest</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_borderlands-2-current-player-numbers-show-borderlands-3-is-going-to-be-huge_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/borderlands-2-current-player-numbers-show-borderlands-3-is-going-to-be-huge" class="article-title">Borderlands 2 current player numbers suggest Borderlands 3 is going to be huge</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_mini-metro-plays-with-the-tube-map-in-fascinating-ways_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mini-metro-plays-with-the-tube-map-in-fascinating-ways" class="article-title">Mini Metro plays with the tube map in fascinating ways</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_fifa-19-gets-a-unique-war-child-fc-kit-in-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fifa-19-gets-a-unique-war-child-fc-kit-in-game" class="article-title">FIFA 19 gets a unique War Child FC kit in-game</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_shooters-how-video-games-fund-arms-manufacturers_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/shooters-how-video-games-fund-arms-manufacturers" class="article-title">Shooters: How Video Games Fund Arms Manufacturers</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_the-boy-who-stole-half-life-2-article_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-boy-who-stole-half-life-2-article" class="article-title">The boy who stole Half-Life 2</a>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_night-and-the-city_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/night-and-the-city" class="article-title">Night and the City</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_the-human-cost-of-red-dead-redemption-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-human-cost-of-red-dead-redemption-2" class="article-title">The human cost of Red Dead Redemption 2</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_the-fall-of-swedish-game-wonder-starbreeze_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-fall-of-swedish-game-wonder-starbreeze" class="article-title">The fall of Starbreeze</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_starbreeze-sells-subsidiary-to-rockstar-as-its-battle-for-survival-continues_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/starbreeze-sells-subsidiary-to-rockstar-as-its-battle-for-survival-continues" class="article-title">Starbreeze sells subsidiary to Rockstar as its battle for survival continues</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2019/05/14_ghostbusters-the-video-game-remaster-listed-on-taiwanese-ratings-board_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ghostbusters-the-video-game-remaster-listed-on-taiwanese-ratings-board" class="article-title">Ghostbusters: The Video Game remaster listed by Taiwanese ratings board</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5cda2771c460c/Oddworld-Soulstorm-will-continue-Abes-journey/" class="article-title">Oddworld Soulstorm will continue Abe's journey</a>
+			<div class="article-subtitle">That's how you make a comeback</div>
+			<div class="article-author">Dan Grayson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5cd9d7f030af6/Dauntless-gets-full-release-next-week/" class="article-title">Dauntless gets full release next week</a>
+			<div class="article-subtitle">Goes exclusive to Epic Games Store on PC</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

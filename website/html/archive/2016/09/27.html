@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">September 27, 2016</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/xcom-2-review/1900-6416347/" class="article-title">XCOM 2 Review</a>
+			<div class="article-subtitle">Survival of the fittest.</div>
+			<div class="article-author">Mike Mahardy</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/forza-horizon-3-review/1900-6416521/" class="article-title">Forza Horizon 3 Review</a>
+			<div class="article-subtitle">Quickly Down Under</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_ben-afflecks-batman-movie-is-a-year-and-a-half-out_1100-6443939_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ben-afflecks-batman-movie-is-a-year-and-a-half-out/1100-6443939/" class="article-title">Ben Affleck's Batman Movie is "a Year and a Half Out"</a>
+			<div class="article-subtitle">"The strategy worked."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_stranger-things-season-2-promises-next-level-crazy_1100-6443933_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/stranger-things-season-2-promises-next-level-crazy/1100-6443933/" class="article-title">Stranger Things Season 2 Promises "Next-Level Crazy Stuff"</a>
+			<div class="article-subtitle">"It''s scary to have people love something this much."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_windows-10-reaches-at-least-400-million-installs-a_1100-6443943_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/windows-10-reaches-at-least-400-million-installs-a/1100-6443943/" class="article-title">Windows 10 Reaches at Least 400 Million Installs Across All Devices</a>
+			<div class="article-subtitle">400 million "active devices" and counting.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-plot-details-for-jumanji-sequel-revealed-kids-_1100-6443941_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-plot-details-for-jumanji-sequel-revealed-kids-/1100-6443941/" class="article-title">New Plot Details for Jumanji Sequel Revealed, Kids Will be Controlling Adults</a>
+			<div class="article-subtitle">The follow-up to the ''90s fantasy adventure favorite is currently filming in Hawaii.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_fifa-17-review-roundup_1100-6443944_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fifa-17-review-roundup/1100-6443944/" class="article-title">FIFA 17 Review Roundup</a>
+			<div class="article-subtitle">The reviews are in.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_the-last-of-us-remastered-is-50-off-right-now_1100-6443945_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-last-of-us-remastered-is-50-off-right-now/1100-6443945/" class="article-title">The Last of Us Remastered Is 50% Off Right Now</a>
+			<div class="article-subtitle">Get the PS4 game for only $10, while multiplayer DLC is also on sale.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_look-at-this-gorgeous-xbox-one-s-lamborghini-custo_1100-6443947_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/look-at-this-gorgeous-xbox-one-s-lamborghini-custo/1100-6443947/" class="article-title">Look at This Gorgeous Xbox One S Lamborghini Custom Console</a>
+			<div class="article-subtitle">One of the more striking custom console designs we''ve seen.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_witcher-dev-invites-players-to-kill-gwents-servers_1100-6443948_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/witcher-dev-invites-players-to-kill-gwents-servers/1100-6443948/" class="article-title">Witcher Dev Invites Players to "Kill" Gwent's Servers Yet Again</a>
+			<div class="article-subtitle">The second server stress test kicks off today.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_marvel-legend-stan-lee-has-filmed-several-cameos-f_1100-6443950_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-legend-stan-lee-has-filmed-several-cameos-f/1100-6443950/" class="article-title">Marvel Legend Stan Lee Has Filmed Several Cameos for Future Movies</a>
+			<div class="article-subtitle">"They''re all totally different."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-battlefield-1-single-player-campaign-details-e_1100-6443949_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-battlefield-1-single-player-campaign-details-e/1100-6443949/" class="article-title">New Battlefield 1 Single-Player Campaign Details Emerge</a>
+			<div class="article-subtitle">ESRB rating spills the beans.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_gta-5s-biker-dlc-arrives-october-4-new-screenshots_1100-6443953_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5s-biker-dlc-arrives-october-4-new-screenshots/1100-6443953/" class="article-title">GTA 5's Biker DLC Arrives October 4, New Screenshots Released</a>
+			<div class="article-subtitle">New GTA Online content update will let you put together a biker gang and do missions.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_first-trailer-for-denzel-washingtons-fences-is-pow_1100-6443952_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-trailer-for-denzel-washingtons-fences-is-pow/1100-6443952/" class="article-title">First Trailer for Denzel Washington's "Fences" Is Powerful and Moving</a>
+			<div class="article-subtitle">Fences comes out on Christmas Day.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-assassins-creed-movie-images-show-action-in-15_1100-6443954_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-assassins-creed-movie-images-show-action-in-15/1100-6443954/" class="article-title">New Assassin's Creed Movie Images Show Action in 15th Century Spain and Modern Day</a>
+			<div class="article-subtitle">Assassin''s Creed comes to theaters on December 21.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_superhero-spoof-show-the-tick-gets-a-full-season-n_1100-6443956_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/superhero-spoof-show-the-tick-gets-a-full-season-n/1100-6443956/" class="article-title">Superhero Spoof Show The Tick Gets a Full Season Next Year</a>
+			<div class="article-subtitle">Ticking the boxes.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_beyond-good-and-evil-director-teasing-fans-with-ne_1100-6443938_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/beyond-good-and-evil-director-teasing-fans-with-ne/1100-6443938/" class="article-title">Beyond Good & Evil Director Teasing Fans With New Artwork</a>
+			<div class="article-subtitle">Could this be a young Pey''j and the star of Beyond Good & Evil 2?</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_yakuza-0s-business-edition-revealed-pc-version-not_1100-6443955_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/yakuza-0s-business-edition-revealed-pc-version-not/1100-6443955/" class="article-title">Yakuza 0's Business Edition Revealed, PC Version Not in the Works</a>
+			<div class="article-subtitle">Protect your business cards in style.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_dormant-for-2-years-battlefield-2142-made-playable_1100-6443962_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dormant-for-2-years-battlefield-2142-made-playable/1100-6443962/" class="article-title">Dormant for 2 Years, Battlefield 2142 Made Playable Online Again by Fans</a>
+			<div class="article-subtitle">Hundreds of players have been online over the past few days.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_the-ps3s-launch-price-was-way-too-much-former-exec_1100-6443959_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-ps3s-launch-price-was-way-too-much-former-exec/1100-6443959/" class="article-title">The PS3's Launch Price Was Way Too Much, Former Exec Says</a>
+			<div class="article-subtitle">Jack Tretton was named CEO right before the PS3 launch, which was "like being made the captain of the Titanic just before it hit the iceberg."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_see-battlefield-1s-single-player-in-impressive-new_1100-6443946_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/see-battlefield-1s-single-player-in-impressive-new/1100-6443946/" class="article-title">See Battlefield 1's Single-Player in Impressive New Trailer</a>
+			<div class="article-subtitle">Shining a light on the WWI shooter''s campaign.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_dragon-quest-builders-ps4vita-demo-available-now_1100-6443963_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dragon-quest-builders-ps4vita-demo-available-now/1100-6443963/" class="article-title">Dragon Quest Builders PS4/Vita Demo Available Now</a>
+			<div class="article-subtitle">Dragon Quest Builders releases for PS4 and Vita on October 11.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_future-overwatch-changes-will-improve-symmetra_1100-6443940_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/future-overwatch-changes-will-improve-symmetra/1100-6443940/" class="article-title">Future Overwatch Changes Will Improve Symmetra</a>
+			<div class="article-subtitle">Tweaks to Symmetra will likely be released around November.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-video-shows-how-well-travel-to-mars-according-_1100-6443965_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-video-shows-how-well-travel-to-mars-according-/1100-6443965/" class="article-title">New Video Shows How We'll Travel to Mars, According to Elon Musk</a>
+			<div class="article-subtitle">This is how an "interplanetary transport system" might work</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_hitmans-most-challenging-episode-out-now-watch-tra_1100-6443957_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hitmans-most-challenging-episode-out-now-watch-tra/1100-6443957/" class="article-title">Hitman's Most Challenging Episode Out Now, Watch Trailer Here</a>
+			<div class="article-subtitle">"Freedom Fighters" is set in Colorado.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-nba-2k17-patch-releases-on-ps4-xbox-one-coming_1100-6443966_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-nba-2k17-patch-releases-on-ps4-xbox-one-coming/1100-6443966/" class="article-title">New NBA 2K17 Patch Releases on PS4; Xbox One Coming Soon</a>
+			<div class="article-subtitle">Your coach won''t hassle you while you''re injured now.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-westworld-trailer-is-explosive-and-mysterious_1100-6443951_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-westworld-trailer-is-explosive-and-mysterious/1100-6443951/" class="article-title">New Westworld Trailer Is Explosive and Mysterious</a>
+			<div class="article-subtitle">Westworld comes to TV on October 2.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_big-heroes-of-the-storm-patch-adds-a-new-map-and-a_1100-6443968_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/big-heroes-of-the-storm-patch-adds-a-new-map-and-a/1100-6443968/" class="article-title">Big Heroes of the Storm Patch Adds a New Map and an Overwatch Character</a>
+			<div class="article-subtitle">Nazeebo, Chen, and others also receive some significant balance changes.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_60-fps-patch-available-in-beta-now-for-hyper-light_1100-6443969_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/60-fps-patch-available-in-beta-now-for-hyper-light/1100-6443969/" class="article-title">60 FPS Patch Available in Beta Now for Hyper Light Drifter on PC</a>
+			<div class="article-subtitle">Hyper Light Drifter''s 60 FPS beta patch comes with a Boss Rush mode with new achievements.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_sunset-overdrive-dev-wants-to-bring-game-to-pc-but_1100-6443970_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sunset-overdrive-dev-wants-to-bring-game-to-pc-but/1100-6443970/" class="article-title">Sunset Overdrive Dev Wants to Bring Game to PC, But Microsoft Gets to Make the Call</a>
+			<div class="article-subtitle">"We''d love for it to come to PC, though it''s up to Xbox on that one."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_former-pc-exclusive-xcom-2-is-available-now-on-ps4_1100-6443971_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/former-pc-exclusive-xcom-2-is-available-now-on-ps4/1100-6443971/" class="article-title">Former PC-Exclusive XCOM 2 Is Available Now on PS4 and Xbox One</a>
+			<div class="article-subtitle">XCOM 2''s DLC Reinforcement Pack is also available on consoles.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_destinys-nightfall-strike-changed-for-this-week-af_1100-6443972_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destinys-nightfall-strike-changed-for-this-week-af/1100-6443972/" class="article-title">Destiny's Nightfall Strike Changed for This Week After Issues Arise</a>
+			<div class="article-subtitle">Skeleton Keys to blame.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_gta-5-and-more-discounted-in-this-weeks-xbox-deals_1100-6443960_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gta-5-and-more-discounted-in-this-weeks-xbox-deals/1100-6443960/" class="article-title">GTA 5 and More Discounted in This Week's Xbox Deals</a>
+			<div class="article-subtitle">Mirror''s Edge Catalyst, Lovers in a Dangerous Spacetime, and Dad Beat Dads are also a part of this week''s sales.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_forza-horizon-3-xbox-onepc-versions-compared-in-ne_1100-6443974_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/forza-horizon-3-xbox-onepc-versions-compared-in-ne/1100-6443974/" class="article-title">Forza Horizon 3 Xbox One/PC Versions Compared in New Video; PC's 60 FPS Very Demanding</a>
+			<div class="article-subtitle">60 FPS on PC may be out of reach for many players.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_battlefield-1-xbox-one-file-size-revealed_1100-6443975_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-1-xbox-one-file-size-revealed/1100-6443975/" class="article-title">Battlefield 1 Xbox One File Size Revealed</a>
+			<div class="article-subtitle">Some players have reported pre-loading is available on Battlefield 1 on Xbox One.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_new-jumanji-2-image-shows-the-rock-hanging-out-wit_1100-6443977_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-jumanji-2-image-shows-the-rock-hanging-out-wit/1100-6443977/" class="article-title">New Jumanji 2 Image Shows The Rock Hanging Out With Jonas Brother</a>
+			<div class="article-subtitle">"He''s gonna kill this role like I kill things with my bare hands," said The Rock, noted strong man.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_this-weeks-ps4-ps3-and-vita-deals-revealed_1100-6443973_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weeks-ps4-ps3-and-vita-deals-revealed/1100-6443973/" class="article-title">This Week's PS4, PS3, and Vita Deals Revealed</a>
+			<div class="article-subtitle">The Last of Us, NHL 17, and Final Fantasy 14 are just a few of the games discounted on PlayStation platforms this week.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_fired-walking-dead-tv-show-co-creator-seeking-280-_1100-6443979_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fired-walking-dead-tv-show-co-creator-seeking-280-/1100-6443979/" class="article-title">Fired Walking Dead TV Show Co-Creator Seeking $280 Million in Lawsuit</a>
+			<div class="article-subtitle">AMC contends that Frank Darabont''s lawsuit has "no basis in reality."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_warcraft-movie-is-the-worlds-most-unskippable-cuts_1100-6443982_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warcraft-movie-is-the-worlds-most-unskippable-cuts/1100-6443982/" class="article-title">Warcraft Movie Is the "World's Most Unskippable Cutscene," According to "Honest Trailer"</a>
+			<div class="article-subtitle">Warcraft gets the Honest Trailer treatment.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_n64-emulator-removed-from-xbox-one_1100-6443942_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/n64-emulator-removed-from-xbox-one/1100-6443942/" class="article-title">N64 Emulator Removed From Xbox One</a>
+			<div class="article-subtitle">That didn''t take long.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/09/27_5-developments-from-agents-of-shield-season-4-epis_1100-6443961_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/5-developments-from-agents-of-shield-season-4-epis/1100-6443961/" class="article-title">5 Developments From Agents of SHIELD: Season 4, Episode 2 [Spoilers]</a>
+			<div class="article-subtitle">Daisy has to avoid getting burned as she digs deeper into Robbie Reyes'' past.</div>
+			<div class="article-author">Tony Guerrero</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_how-does-xcom-2-perform-on-consoles_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/how-does-xcom-2-perform-on-consoles" class="article-title">How does XCOM 2 perform on consoles?</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_the-push-and-pull-of-destinys-microtransactions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-push-and-pull-of-destinys-microtransactions" class="article-title">The push and pull of Destiny's microtransactions</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_gta-online-bikers-update-lets-you-form-a-motorbike-crew_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gta-online-bikers-update-lets-you-form-a-motorbike-crew" class="article-title">GTA Online Bikers update lets you form a motorbike crew</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_endless-space-2-launches-on-steam-early-access-6th-october_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/endless-space-2-launches-on-steam-early-access-6th-october" class="article-title">Endless Space 2 launches on Steam Early Access next week</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_digitalfoundry-2016-what-does-it-take-to-run-forza-horizon-3-at-1080p60_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2016-what-does-it-take-to-run-forza-horizon-3-at-1080p60" class="article-title">What does it take to run Forza Horizon 3 at 1080p60?</a>
+			<div class="article-author">Richard Leadbetter</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_elite-dangerous-has-a-heat-meta-and-frontier-just-poured-cold-water-over-it_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/elite-dangerous-has-a-heat-meta-and-frontier-just-poured-cold-water-over-it" class="article-title">Elite Dangerous has a "heat meta" and Frontier just poured cold water over it</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_how-ea-determines-fifa-17-player-ratings_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/how-ea-determines-fifa-17-player-ratings" class="article-title">How EA works out FIFA 17 player ratings</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_street-fighter-5s-urien-is-making-people-knock-themselves-out_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/street-fighter-5s-urien-is-making-people-knock-themselves-out" class="article-title">Street Fighter 5's Urien is making people knock themselves out</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_watch-how-similar-is-paladins-to-overwatch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-how-similar-is-paladins-to-overwatch" class="article-title">How similar is Paladins to Overwatch?</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_forza-horizon-3-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/forza-horizon-3-review" class="article-title">Forza Horizon 3 review</a>
+			<div class="article-subtitle">Playground Games' series has never been a more triumphant standard-bearer for racing games as pure, escapist entertainment.</div>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_n64-emulator-pulled-from-xbox-one-store_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/n64-emulator-pulled-from-xbox-one-store" class="article-title">N64 emulator pulled from Xbox One store</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_castlevania-turns-30_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/castlevania-turns-30" class="article-title">Castlevania turns 30</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_nintendo-hardware-sales-in-the-americas-are-worse-than-youd-expect_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-hardware-sales-in-the-americas-are-worse-than-youd-expect" class="article-title">Nintendo hardware sales in the Americas are worse than you'd expect</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/09/27_fans-revive-battlefield-2142_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fans-revive-battlefield-2142" class="article-title">Fans revive Battlefield 2142</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57e9ae43378dd/Nintendo-64-emulator-appears-for-Xbox-One-somehow/" class="article-title">Nintendo 64 emulator appears for Xbox One, somehow</a>
+			<div class="article-subtitle">Get it while it's hot.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g57e9977e20bff/League-of-Legends-comes-to-console---in-China-only/" class="article-title">League of Legends comes to console - in China only</a>
+			<div class="article-subtitle">Tencent's TGP Box doesn't cost ten cents.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/pc/news/g57e990a26b27d/Firewatch-to-be-adapted-into-feature-film/" class="article-title">Firewatch to be adapted into feature film</a>
+			<div class="article-subtitle">Part of an ongoing production deal.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57e984d1171e0/Philadelphia-76ers-forming-dominant-e-sports-franchise/" class="article-title">Philadelphia 76ers forming "dominant" e-sports franchise</a>
+			<div class="article-subtitle">Buying into the game.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

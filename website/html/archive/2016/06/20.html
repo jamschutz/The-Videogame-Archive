@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">June 20, 2016</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/dropsy-review/1900-6416256/" class="article-title">Dropsy Review</a>
+			<div class="article-subtitle">Sweet embrace.</div>
+			<div class="article-author">Matt Espineli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_allison-road-publisher-addresses-cancellation-does_1100-6441027_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/allison-road-publisher-addresses-cancellation-does/1100-6441027/" class="article-title">Allison Road Publisher Addresses Cancellation, Doesn't Explain What Happened</a>
+			<div class="article-subtitle">"Sometimes things pan out differently than expected."</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_watch-chilling-trailer-for-westworld-the-new-sci-f_1100-6441026_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-chilling-trailer-for-westworld-the-new-sci-f/1100-6441026/" class="article-title">Watch Chilling Trailer for Westworld, The New Sci-fi TV Show from Star Wars Director</a>
+			<div class="article-subtitle">"Are you real?"</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_zelda-breath-of-the-wilds-hylian-text-has-been-tra_1100-6441029_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/zelda-breath-of-the-wilds-hylian-text-has-been-tra/1100-6441029/" class="article-title">Zelda: Breath of the Wild's Hylian Text Has Been Translated, Here's What it Says</a>
+			<div class="article-subtitle">"SHUTOUT!"</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_fallout-4-ps4-mods-have-some-serious-beta-issues_1100-6441030_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fallout-4-ps4-mods-have-some-serious-beta-issues/1100-6441030/" class="article-title">Fallout 4 PS4 Mods Have Some Serious Beta Issues</a>
+			<div class="article-subtitle">The problems right now include no sound file support and a storage cap of 900 MB; Bethesda also warns of memory and performance problems.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_new-suicide-squad-poster-is-crazy-and-eye-popping_1100-6441031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-suicide-squad-poster-is-crazy-and-eye-popping/1100-6441031/" class="article-title">New Suicide Squad Poster Is Crazy and Eye-Popping</a>
+			<div class="article-subtitle">Worst heroes, best poster.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_warcraft-passes-prince-of-persia-to-become-no-1-vi_1100-6441033_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/warcraft-passes-prince-of-persia-to-become-no-1-vi/1100-6441033/" class="article-title">Warcraft Passes Prince of Persia to Become No. 1 Video Game Movie Ever at Box Office</a>
+			<div class="article-subtitle">$377 million and counting.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_valve-boss-thinks-vr-exclusives-are-bad-for-gamers_1100-6441034_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/valve-boss-thinks-vr-exclusives-are-bad-for-gamers/1100-6441034/" class="article-title">Valve Boss Thinks VR Exclusives Are Bad for Gamers and Developers Alike</a>
+			<div class="article-subtitle">Valve is giving developers funds to make VR games--no strings attached.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_halo-branded-sunglasses-pajamas-greeting-cards-fac_1100-6441035_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/halo-branded-sunglasses-pajamas-greeting-cards-fac/1100-6441035/" class="article-title">Halo-Branded Sunglasses, Pajamas, Greeting Cards, Face Masks, and More Coming</a>
+			<div class="article-subtitle">As of February, non-gaming Halo products have generated $1.5 billion in sales.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_mighty-no-9-review-roundup_1100-6441032_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mighty-no-9-review-roundup/1100-6441032/" class="article-title">Mighty No. 9 Review Roundup</a>
+			<div class="article-subtitle">Here''s what the critics are saying about Keiji Inafune''s Kickstarter-funded platformer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_heres-the-final-trailer-for-new-tarzan-movie_1100-6441036_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-the-final-trailer-for-new-tarzan-movie/1100-6441036/" class="article-title">Here's the Final Trailer for New Tarzan Movie</a>
+			<div class="article-subtitle">The Legend of Tarzan opens on July 1.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_kojima-says-death-stranding-trailer-representative_1100-6441038_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kojima-says-death-stranding-trailer-representative/1100-6441038/" class="article-title">Kojima Says Death Stranding Trailer "Representative" of Final Game, Isn't a Dig at Konami</a>
+			<div class="article-subtitle">"There are a lot of hints in there, hidden."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_mass-effect-3s-ending-wont-impact-andromeda-heres-_1100-6441040_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mass-effect-3s-ending-wont-impact-andromeda-heres-/1100-6441040/" class="article-title">Mass Effect 3's Ending Won't Impact Andromeda, Here's Why</a>
+			<div class="article-subtitle">Aaryn Flynn talks about creating a new, standalone story.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_new-trailer-miss-peregrines-home-for-peculiar-chil_1100-6441041_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-trailer-miss-peregrines-home-for-peculiar-chil/1100-6441041/" class="article-title">New Trailer: Miss Peregrine's Home for Peculiar Children Features Monsters and Magic</a>
+			<div class="article-subtitle">"It''s time for you to learn what you can do."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_play-as-overwatchs-tracer-in-street-fighter-5-with_1100-6441043_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/play-as-overwatchs-tracer-in-street-fighter-5-with/1100-6441043/" class="article-title">Play as Overwatch's Tracer in Street Fighter 5 With This Mod</a>
+			<div class="article-subtitle">Cammy gets a new look.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_final-fantasy-15-director-on-ps4xbox-one-upgrades-_1100-6441042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/final-fantasy-15-director-on-ps4xbox-one-upgrades-/1100-6441042/" class="article-title">Final Fantasy 15 Director on PS4/Xbox One Upgrades, Possibility of PC Release</a>
+			<div class="article-subtitle">Hajime Tabata says he likes the idea of making the RPG available on the new, more-powerful systems.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_xbox-one-scorpio-wont-make-4k-mandatory-devs-could_1100-6441045_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-one-scorpio-wont-make-4k-mandatory-devs-could/1100-6441045/" class="article-title">Xbox One Scorpio Won't Make 4K Mandatory, Devs Could Make Performance Better Instead</a>
+			<div class="article-subtitle">Xbox head Phil Spencer has said that he won''t mandate games to be 4K on Scorpio.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_independence-day-director-criticizes-marvel-movies_1100-6441044_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/independence-day-director-criticizes-marvel-movies/1100-6441044/" class="article-title">Independence Day Director Criticizes Marvel Movies, Talks About Gaming's Impact on Film</a>
+			<div class="article-subtitle">"I don''t like people in capes."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_blizzard-has-made-it-easier-to-protect-your-battle_1100-6441046_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blizzard-has-made-it-easier-to-protect-your-battle/1100-6441046/" class="article-title">Blizzard Has Made It Easier to Protect Your Battle.net Account</a>
+			<div class="article-subtitle">The Battle.net mobile authenticator doesn''t require you to enter a code anymore.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_witcher-3-patch-notes-heres-whats-fixedaddedtweake_1100-6441047_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/witcher-3-patch-notes-heres-whats-fixedaddedtweake/1100-6441047/" class="article-title">Witcher 3 Patch Notes: Here's What's Fixed/Added/Tweaked in 1.22 Update</a>
+			<div class="article-subtitle">Among the fixes is one for when a "noblewoman in red" would follow Geralt everywhere he went.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_rainbow-six-siege-patch-improves-weak-characters-p_1100-6441050_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rainbow-six-siege-patch-improves-weak-characters-p/1100-6441050/" class="article-title">Rainbow Six Siege Patch Improves Weak Characters, Punishes Team Killers</a>
+			<div class="article-subtitle">Patch 3.3 launches on June 21.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_see-how-civilization-6-unstacks-its-cities_1100-6441039_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/see-how-civilization-6-unstacks-its-cities/1100-6441039/" class="article-title">See How Civilization 6 Unstacks Its Cities</a>
+			<div class="article-subtitle">Check out one of Civilization VI''s key new features.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_heres-exactly-when-fallout-4s-next-dlc-unlocks_1100-6441049_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-exactly-when-fallout-4s-next-dlc-unlocks/1100-6441049/" class="article-title">Here's Exactly When Fallout 4's Next DLC Unlocks</a>
+			<div class="article-subtitle">Contraptions Workshop adds things like conveyor belts, scaffolding kits, track kits, and logic gates.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_epic-games-sues-gamer-behind-paragon-hack-update_1100-6441048_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/epic-games-sues-gamer-behind-paragon-hack-update/1100-6441048/" class="article-title">Epic Games Sues Gamer Behind Paragon Hack [UPDATE]</a>
+			<div class="article-subtitle">The gamer, who allegedly created the "world''s most powerful hack for Paragon," is in a legal battle with Epic Games.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_new-god-of-war-why-kratos-is-in-norse-mythology-no_1100-6441051_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-god-of-war-why-kratos-is-in-norse-mythology-no/1100-6441051/" class="article-title">New God of War: Why Kratos Is in Norse Mythology Now</a>
+			<div class="article-subtitle">It''s the same Kratos, he''s just moved to Scandinavia.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_the-division-patch-bringing-significant-weapon-bal_1100-6441052_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-division-patch-bringing-significant-weapon-bal/1100-6441052/" class="article-title">The Division Patch Bringing "Significant" Weapon Balance Changes</a>
+			<div class="article-subtitle">Major changes to weapon balance and more coming later this month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_after-13-years-the-original-planetside-shuts-down-_1100-6441053_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/after-13-years-the-original-planetside-shuts-down-/1100-6441053/" class="article-title">After 13 Years, the Original Planetside Shuts Down This Summer</a>
+			<div class="article-subtitle">The day for two former Sony Online Entertainment games are numbered.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_mafia-3s-underbosses-can-turn-on-you-if-theyre-neg_1100-6441054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mafia-3s-underbosses-can-turn-on-you-if-theyre-neg/1100-6441054/" class="article-title">Mafia 3's Underbosses Can Turn on You if They're Neglected</a>
+			<div class="article-subtitle">The underbosses can turn against you if you don''t assign them any districts</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_horizon-zero-dawn-dev-talks-delay-and-why-it-chose_1100-6441055_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/horizon-zero-dawn-dev-talks-delay-and-why-it-chose/1100-6441055/" class="article-title">Horizon: Zero Dawn Dev Talks Delay and Why It Chose a Female Hero</a>
+			<div class="article-subtitle">"It''s all polish. We have this open world. It''s very big."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_e3-2016-all-the-best-ubisoft-conference-trailers_1100-6440809_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/e3-2016-all-the-best-ubisoft-conference-trailers/1100-6440809/" class="article-title">E3 2016: All the Best Ubisoft Conference Trailers</a>
+			<div class="article-subtitle">Vikings killing samurais, raids on drug dealers'' compounds, and one very lewd South Park demo.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_if-overwatch-heroes-were-pokemon-trainers_1100-6441056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/if-overwatch-heroes-were-pokemon-trainers/1100-6441056/" class="article-title">If Overwatch Heroes Were Pokemon Trainers</a>
+			<div class="article-subtitle">An artist has drawn Overwatch heroes with the Pokemon that fit them best.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_lego-movie-2-delayed-heres-when-its-coming-out_1100-6441037_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/lego-movie-2-delayed-heres-when-its-coming-out/1100-6441037/" class="article-title">Lego Movie 2 Delayed, Here's When It's Coming Out</a>
+			<div class="article-subtitle">Not Awesome.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_it-sounds-like-injustice-2-will-have-plenty-of-dlc_1100-6441057_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/it-sounds-like-injustice-2-will-have-plenty-of-dlc/1100-6441057/" class="article-title">It Sounds Like Injustice 2 Will Have Plenty of DLC Characters</a>
+			<div class="article-subtitle">NetherRealm will be "more aggressive" than in the past when it comes to DLC.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_free-doom-demo-extended-heres-how-to-play-it-right_1100-6441058_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-doom-demo-extended-heres-how-to-play-it-right/1100-6441058/" class="article-title">Free Doom Demo Extended, Here's How to Play It Right Now</a>
+			<div class="article-subtitle">More time with Doom.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_new-south-park-game-lets-you-play-as-a-girl-game-r_1100-6441059_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-south-park-game-lets-you-play-as-a-girl-game-r/1100-6441059/" class="article-title">New South Park Game Lets You Play as a Girl, Game Reacts to You Differently</a>
+			<div class="article-subtitle">The Fractured But Whole comes out in December.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_ps4xbox-one-versions-of-marvel-ultimate-alliance-g_1100-6441061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4xbox-one-versions-of-marvel-ultimate-alliance-g/1100-6441061/" class="article-title">PS4/Xbox One Versions of Marvel: Ultimate Alliance Games May Be Coming</a>
+			<div class="article-subtitle">Transformers: Fall of Cybertron also could be on the way.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_the-biggest-moments-from-game-of-thrones-season-6-_1100-6441025_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-biggest-moments-from-game-of-thrones-season-6-/1100-6441025/" class="article-title">The Biggest Moments from Game of Thrones Season 6, Episode 9 [SPOILERS]</a>
+			<div class="article-subtitle">War is hell.</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_mortal-kombat-x-dev-adds-50000-to-evo-championship_1100-6441063_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/mortal-kombat-x-dev-adds-50000-to-evo-championship/1100-6441063/" class="article-title">Mortal Kombat X Dev Adds $50,000 to Evo Championship Pot [UPDATE]</a>
+			<div class="article-subtitle">It sounds like we could hear more about Mortal Kombat X next month.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_destinys-iron-banner-tournament-canceled-this-week_1100-6440998_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destinys-iron-banner-tournament-canceled-this-week/1100-6440998/" class="article-title">Destiny's Iron Banner Tournament Canceled This Week [UPDATE]</a>
+			<div class="article-subtitle">The popular game mode in Destiny was planned to come back tomorrow, but was canceled.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_three-pokemon-games-coming-to-wii-u-virtual-consol_1100-6441067_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/three-pokemon-games-coming-to-wii-u-virtual-consol/1100-6441067/" class="article-title">Three Pokemon Games Coming to Wii U Virtual Console This Week</a>
+			<div class="article-subtitle">Pokemon Mystery Dungeon: Red Rescue Team, Blue Rescue Team, and Explorers of Sky are set to release on the Wii U.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_dark-souls-inspired-absolver-meshes-customizable-c_1100-6441066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-souls-inspired-absolver-meshes-customizable-c/1100-6441066/" class="article-title">Dark Souls-Inspired Absolver Meshes Customizable Combat With Exploration</a>
+			<div class="article-subtitle">Change that stance.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_the-best-trailers-from-e3-2016_1100-6441065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-best-trailers-from-e3-2016/1100-6441065/" class="article-title">The Best Trailers From E3 2016</a>
+			<div class="article-subtitle">Below you can find our top trailer picks from this year''s show.</div>
+			<div class="article-author">Matt Espineli</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_eve-valkyrie-update-adds-star-wars-like-trench-run_1100-6441068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/eve-valkyrie-update-adds-star-wars-like-trench-run/1100-6441068/" class="article-title">Eve: Valkyrie Update Adds Star Wars-Like Trench Run Mode</a>
+			<div class="article-subtitle">Eve: Valkyrie''s Carrier Assault is a three-stage match that ends with a Star Wars-like trench run.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/06/20_independence-day-resurgence-review_1100-6441069_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/independence-day-resurgence-review/1100-6441069/" class="article-title">Independence Day: Resurgence Review</a>
+			<div class="article-subtitle">Welcome back to Earth.</div>
+			<div class="article-author">Luke Lancaster</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_south-park-the-fractured-but-whole-will-let-you-play-as-a-girl_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/south-park-the-fractured-but-whole-will-let-you-play-as-a-girl" class="article-title">South Park: The Fractured But Whole lets you play as a girl</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_ex-ubisoft-devs-crowdfunded-rpg-reroll-has-been-cancelled_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ex-ubisoft-devs-crowdfunded-rpg-reroll-has-been-cancelled" class="article-title">Ex-Ubisoft devs' crowdfunded RPG ReRoll has been cancelled</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_allison-road-cancelled-under-mysterious-circumstances_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/allison-road-cancelled-under-mysterious-circumstances" class="article-title">Allison Road cancelled under mysterious circumstances</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_zelda-breath-of-the-wild-is-being-co-developed-by-monolith-soft_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/zelda-breath-of-the-wild-is-being-co-developed-by-monolith-soft" class="article-title">Zelda: Breath Of The Wild is being co-developed by Monolith Soft</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_watch-mighty-no-9-doesnt-look-like-wed-hoped_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-mighty-no-9-doesnt-look-like-wed-hoped" class="article-title">Watch: Mighty No. 9 doesn't look like we'd hoped</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_mighty-no-9-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mighty-no-9-review" class="article-title">Mighty No. 9 review</a>
+			<div class="article-subtitle">A tribute to and evolution of Keiji Infaune's Mega Man, Mighty No. 9's moments of brilliance are tempered by its preposterous challenge.</div>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_watch-ian-goes-hands-on-with-serious-sam-vr_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-ian-goes-hands-on-with-serious-sam-vr" class="article-title">Watch: Ian goes hands on with Serious Sam VR</a>
+			<div class="article-author">Ian Higton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_hideo-kojima-on-going-with-sony-and-what-death-stranding-could-possibly-mean_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hideo-kojima-on-going-with-sony-and-what-death-stranding-could-possibly-mean" class="article-title">Hideo Kojima on going with Sony - and what Death Stranding could possibly mean</a>
+			<div class="article-author">Dan Silver</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_warcraft-most-successful-game-film-duncan-jones-up-for-a-sequel_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/warcraft-most-successful-game-film-duncan-jones-up-for-a-sequel" class="article-title">Warcraft most successful game-film, Duncan Jones up for a sequel</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_no-mans-sky-studio-settles-secret-stupid-three-year-sky-lawsuit_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/no-mans-sky-studio-settles-secret-stupid-three-year-sky-lawsuit" class="article-title">No Man's Sky studio settles "secret, stupid" three-year Sky lawsuit</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/06/20_kirby-planet-robobot-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/kirby-planet-robobot-review" class="article-title">Kirby: Planet Robobot review</a>
+			<div class="article-subtitle">An accomplished follow-up to Triple Deluxe that is energetic and tactile enough to compensate for a handful of rehashed ideas.</div>
+			<div class="article-author">Chris Schilling</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57672acad8759/Aussie-ARPG-Hand-of-Fate-2-confirmed-for-Xbox-One/" class="article-title">Aussie ARPG Hand of Fate 2 confirmed for Xbox One</a>
+			<div class="article-subtitle">Games With Gold bolsters original.</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57674dc457ce1/Hardware-add-on-turns-Android-smartphones-into-Game-Boys/" class="article-title">Hardware add-on turns Android smartphones into Game Boys</a>
+			<div class="article-subtitle">No pirated ROMS required.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57674318991c2/Nintendo-boss-VR-needs-to-grow-beyond-short-snacks/" class="article-title">Nintendo boss: VR needs to grow beyond "short snacks"</a>
+			<div class="article-subtitle">No matter how tasty the snack.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g576738cd96d5d/Platinum-Games-cofounder-teases-notion-of-Bayonetta-3/" class="article-title">Platinum Games cofounder teases notion of Bayonetta 3</a>
+			<div class="article-subtitle">Maybe after Scalebound.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g576710d764068/PT-inspired-Allison-Road-cancelled-due-to-dev-pub-split/" class="article-title">PT-inspired Allison Road cancelled due to dev/pub split</a>
+			<div class="article-subtitle">Allison Cul-De-Sac.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g57670f302c31c/Secret-stupid-suit-sought-to-scuttle-No-Mans-Sky/" class="article-title">"Secret, stupid" suit sought to scuttle No Man's Sky</a>
+			<div class="article-subtitle">No man's Sky but Sky's.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 18, 2017</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/splatoon-2-review/1900-6416716/" class="article-title">Splatoon 2 Review</a>
+			<div class="article-subtitle">Not squidding around.</div>
+			<div class="article-author">Kallie Plagge</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/hilarious-trailer-for-the-disaster-artist-recounts/1100-6451775/" class="article-title">Hilarious Trailer For The Disaster Artist Recounts Making The Worst Movie Of All Time</a>
+			<div class="article-subtitle">Oh hai Disaster Artist teaser!</div>
+			<div class="article-author">Mat Elfring</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/kingsman-2s-amazing-cast-showcased-on-new-posters/1100-6451776/" class="article-title">Kingsman 2's Amazing Cast Showcased On New Posters</a>
+			<div class="article-subtitle">The action sequel will feature at San Diego Comic-Con this weekend.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/following-switchs-splatoon-2-release-the-series-wi/1100-6451755/" class="article-title">Following Switch's Splatoon 2 Release, The Series Will Receive An Online Anime Series</a>
+			<div class="article-subtitle">The series will air on Japanese magazine CoroCoro''s YouTube channel.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/gta-5-update-brings-an-upgraded-gun-equipped-truck/1100-6451778/" class="article-title">GTA 5 Update Brings An Upgraded Gun-Equipped Truck, Bonuses, And More</a>
+			<div class="article-subtitle">Here''s what GTA Online has in store this week.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/two-more-dragon-ball-fighterz-characters-revealed/1100-6451777/" class="article-title">Two More Dragon Ball FighterZ Characters Revealed</a>
+			<div class="article-subtitle">Piccolo and Krillin join the battle.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/playerunknowns-battlegrounds-like-gameplay-might-c/1100-6451783/" class="article-title">Playerunknown's Battlegrounds-Like Gameplay Might Come To Future Ubisoft DLCs, CEO Says</a>
+			<div class="article-subtitle">Could we see an Ubisoft version of Battlegrounds in the future?</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/heres-when-overwatchs-doomfist-is-being-released/1100-6451784/" class="article-title">Here's When Overwatch's Doomfist Is Being Released</a>
+			<div class="article-subtitle">Prepare to be Doomfisted.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/next-free-titanfall-2-dlc-includes-4-player-horde-/1100-6451785/" class="article-title">Next Free Titanfall 2 DLC Includes 4-Player Horde Mode, Two New Maps</a>
+			<div class="article-subtitle">Check out Frontier Defense, Titanfall 2''s upcoming horde mode.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/terry-crews-still-loves-overwatch-but-his-new-favo/1100-6451786/" class="article-title">Terry Crews Still Loves Overwatch, But His New Favorite Game Is PUBG</a>
+			<div class="article-subtitle">Terry "Not Doomfist" Crews is a fan of Battlegrounds.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/destiny-2-beta-when-it-starts-whats-in-it-and-all-/1100-6451725/" class="article-title">Destiny 2 Beta: When It Starts, What's In It, And All The Known Issues</a>
+			<div class="article-subtitle">It''s almost time.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/rick-and-morty-creators-on-season-3-delays-and-the/1100-6451788/" class="article-title">Rick And Morty Creators On Season 3, Delays, And The April Fools' Premiere</a>
+			<div class="article-subtitle">Dan Harmon and Justin Roiland tell all ahead of Rick and Morty season 3.</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/this-weeks-ps4-ps3-and-vita-deals-announced/1100-6451790/" class="article-title">This Week's PS4, PS3, And Vita Deals Announced</a>
+			<div class="article-subtitle">Check out this week''s best PlayStation deals for PS4 and PS5, including Demon''s Souls, It Takes Two, and Resident Evil Village.</div>
+			<div class="article-author">GameSpot Staff</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/mass-effect-director-returns-to-head-up-bioware-as/1100-6451781/" class="article-title">Mass Effect Director Returns To Head Up BioWare, As Current Boss Departs</a>
+			<div class="article-subtitle">Casey Hudson''s return follows the reveal of BioWare''s new IP, Anthem.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/well-known-pubg-streamer-banned-for-team-killing-g/1100-6451789/" class="article-title">Well-Known PUBG Streamer Banned For Team Killing, Gets Into Argument With Dev</a>
+			<div class="article-subtitle">Don''t joke about violence with Playerunknown.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_new-sniper-elite-4-update-out-now-adds-final-chapt_1100-6451774_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-sniper-elite-4-update-out-now-adds-final-chapt/1100-6451774/" class="article-title">New Sniper Elite 4 Update Out Now, Adds Final Chapter Of Deathstorm Campaign</a>
+			<div class="article-subtitle">Two new maps and another weapon expansion pack are also available.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/ghost-recon-wildlands-is-the-years-best-seller-so-/1100-6451779/" class="article-title">Ghost Recon: Wildlands Is The Year's Best Seller So Far As Ubisoft Enjoys A Positive Quarter</a>
+			<div class="article-subtitle">Ubisoft reports its first quarter earnings.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/you-can-now-pre-order-a-gorgeous-snes-history-book/1100-6451792/" class="article-title">You Can Now Pre-Order A Gorgeous SNES History Book Releasing Alongside The SNES Classic</a>
+			<div class="article-subtitle">The book releases the same day as the micro console on September 29.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_superhots-ps4-release-date-revealed-and-its-sooner_1100-6451772_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/superhots-ps4-release-date-revealed-and-its-sooner/1100-6451772/" class="article-title">Superhot's PS4 Release Date Revealed, And It's Sooner Than You Think</a>
+			<div class="article-subtitle">Super. Hot.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_life-is-strange-before-the-storm-video-reveals-mor_1100-6451780_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/life-is-strange-before-the-storm-video-reveals-mor/1100-6451780/" class="article-title">Life Is Strange: Before The Storm Video Reveals More About Chloe Price</a>
+			<div class="article-subtitle">Deck Nine takes an in-depth look at the prequel''s lead character.</div>
+			<div class="article-author">Patrick Faller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_first-ps4-gameplay-video-for-sudden-strike-4-relea_1100-6451794_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-ps4-gameplay-video-for-sudden-strike-4-relea/1100-6451794/" class="article-title">First PS4 Gameplay Video For Sudden Strike 4 Released</a>
+			<div class="article-subtitle">The series makes its console debut.</div>
+			<div class="article-author">Patrick Faller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_wacky-ar-headset-google-glass-is-back-but-this-tim_1100-6451795_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/wacky-ar-headset-google-glass-is-back-but-this-tim/1100-6451795/" class="article-title">Wacky AR Headset Google Glass Is Back--But This Time It's Meant For Workers</a>
+			<div class="article-subtitle">It still sounds bizarre when you say "Google Glass" five times fast.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_classic-style-ps4pc-tactical-rpg-children-of-zodia_1100-6451791_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/classic-style-ps4pc-tactical-rpg-children-of-zodia/1100-6451791/" class="article-title">Classic-Style PS4/PC Tactical RPG Children Of Zodiarcs Out Now</a>
+			<div class="article-subtitle">The indie RPG combines turn-based tactical gameplay with deck-building and dice-rolling.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_fantastic-rpg-undertale-dated-on-ps4vita-special-e_1100-6451797_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fantastic-rpg-undertale-dated-on-ps4vita-special-e/1100-6451797/" class="article-title">Fantastic RPG Undertale Dated On PS4/Vita; Special Edition Detailed</a>
+			<div class="article-subtitle">Undertale''s coming to PS4 and Vita very soon.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_the-simpsons-next-celebrity-cameo-revealed_1100-6451796_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/the-simpsons-next-celebrity-cameo-revealed/1100-6451796/" class="article-title">The Simpsons: Next Celebrity Cameo Revealed</a>
+			<div class="article-subtitle">Ed Sheeran comes to Springfield.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_ubisoft-responds-to-red-dead-redemption-2s-delay_1100-6451798_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-responds-to-red-dead-redemption-2s-delay/1100-6451798/" class="article-title">Ubisoft Responds To Red Dead Redemption 2's Delay</a>
+			<div class="article-subtitle">It is "clearly" a positive that Red Dead Redemption 2 was delayed, executive says.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_awesome-ps4pc-brawler-absolver-will-have-a-cool-bu_1100-6451787_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/awesome-ps4pc-brawler-absolver-will-have-a-cool-bu/1100-6451787/" class="article-title">Awesome PS4/PC Brawler Absolver Will Have A Cool But Very Limited Special Edition</a>
+			<div class="article-subtitle">That''s a pretty cool mask.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_mlb-thinks-logo-for-overwatchs-pro-league-could-be_1100-6451799_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/mlb-thinks-logo-for-overwatchs-pro-league-could-be/1100-6451799/" class="article-title">MLB Thinks Logo For Overwatch's Pro League Could Be Too Similar To Its Own</a>
+			<div class="article-subtitle">What do you think?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_marvel-powers-united-vr-is-a-100-full-size-game-sa_1100-6451801_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/marvel-powers-united-vr-is-a-100-full-size-game-sa/1100-6451801/" class="article-title">Marvel Powers United VR is a ‘100% full-size game,' says dev</a>
+			<div class="article-subtitle">The developers didn''t skimp for the first Marvel VR game.</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_forza-7s-first-167-cars-revealed_1100-6451800_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/forza-7s-first-167-cars-revealed/1100-6451800/" class="article-title">Forza 7's First 167 Cars Revealed</a>
+			<div class="article-subtitle">And this is just the beginning.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/18_free-nintendo-switch-online-app-out-now-heres-what_1100-6451803_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/free-nintendo-switch-online-app-out-now-heres-what/1100-6451803/" class="article-title">Free Nintendo Switch Online App Out Now, Here's What It Does</a>
+			<div class="article-subtitle">The app is available for iOS and Android right now.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_telltale-humble-bundle-offers-almost-studios-entire-catalog-for-usd15_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/telltale-humble-bundle-offers-almost-studios-entire-catalog-for-usd15" class="article-title">Telltale Humble Bundle offers almost studio's entire catalog for $15</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_bioware-boss-aaryn-flynn-quits-just-months-after-mass-effect-andromeda-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/bioware-boss-aaryn-flynn-quits-just-months-after-mass-effect-andromeda-launch" class="article-title">BioWare boss Aaryn Flynn quits, just months after Mass Effect Andromeda launch</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_watch-90-minutes-of-destiny-2-beta-gameplay_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-90-minutes-of-destiny-2-beta-gameplay" class="article-title">Watch: 90 minutes of Destiny 2 beta gameplay</a>
+			<div class="article-author">Ian Higton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_sounds-like-telltales-not-making-more-wolf-among-us-or-borderlands-anytime-soon_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sounds-like-telltales-not-making-more-wolf-among-us-or-borderlands-anytime-soon" class="article-title">Sounds like Telltale's not making more Wolf Among Us or Borderlands any time soon</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_square-enix-really-wants-you-to-know-ashly-burch-is-involved-with-life-is-strange-before-the-storm_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/square-enix-really-wants-you-to-know-ashly-burch-is-involved-with-life-is-strange-before-the-storm" class="article-title">Square Enix really wants you to know Ashly Burch is involved with Life is Strange: Before the Storm</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_new-world-of-warcraft-fan-server-recreates-the-burning-crusade-as-it-was-a-decade-ago_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/new-world-of-warcraft-fan-server-recreates-the-burning-crusade-as-it-was-a-decade-ago" class="article-title">New World of Warcraft fan server recreates The Burning Crusade - as it was a decade ago</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_pre-order-total-war-warhammer-2-get-previous-game-dlc-instead_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pre-order-total-war-warhammer-2-get-previous-game-dlc-instead" class="article-title">Pre-order Total War: Warhammer 2, get DLC for the previous game</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_yonder-the-cloud-catcher-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/yonder-the-cloud-catcher-review" class="article-title">Yonder: The Cloud Catcher review</a>
+			<div class="article-subtitle">An open world adventure that does away with combat, Yonder's beauty is ultimately undone by its mundanity.</div>
+			<div class="article-author">Vic Hood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_digitalfoundry-2017-sfans-portable-dock-for-switch-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/digitalfoundry-2017-sfans-portable-dock-for-switch-review" class="article-title">SFANS portable dock for Nintendo Switch review</a>
+			<div class="article-author">Thomas Morgan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_we-followed-real-world-coordinates-we-found-in-get-even_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/we-followed-real-world-coordinates-we-found-in-get-even" class="article-title">Watch: We followed real world coordinates we found in Get Even</a>
+			<div class="article-author">Ian Higton</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_the-eurogamer-podcast-29-the-streets-of-tom-francisco_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-eurogamer-podcast-29-the-streets-of-tom-francisco" class="article-title">The Eurogamer Podcast #29: The Streets of Tom Francisco</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_brink-dev-splash-damage-making-games-in-the-wargaming-universe_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/brink-dev-splash-damage-making-games-in-the-wargaming-universe" class="article-title">Brink dev Splash Damage making games in the "Wargaming universe"</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_the-eurogamer-podcast-28-the-return-of-the-p-cast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-eurogamer-podcast-28-the-return-of-the-p-cast" class="article-title">The Eurogamer Podcast #28: The return of the P-cast!</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_dev-confirms-crash-bandicoot-is-harder-you-arent-imagining-it_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dev-confirms-crash-bandicoot-is-harder-you-arent-imagining-it" class="article-title">Dev confirms the Crash Bandicoot remaster is harder than the original</a>
+			<div class="article-author">Vic Hood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_destiny-2-beta-client-just-got-an-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-2-beta-client-just-got-an-update" class="article-title">Destiny 2 beta client just got an update</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_american-mcgees-had-enough-of-your-alice-3-questions_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/american-mcgees-had-enough-of-your-alice-3-questions" class="article-title">American McGee's had enough of your Alice 3 questions</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_final-fantasy-12-the-zodiac-age-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/final-fantasy-12-the-zodiac-age-review" class="article-title">Final Fantasy 12 The Zodiac Age review</a>
+			<div class="article-subtitle">Final Fantasy's weirdest, most wonderful curio is a bright reminder of the power of crisp invention in high-risk blockbuster development.</div>
+			<div class="article-author">Simon Parkin</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_smash-bros-project-m-modders-unveil-full-game-icons-combat-arena_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/smash-bros-project-m-modders-unveil-full-game-icons-combat-arena" class="article-title">Smash Bros fans unveil full game Icons: Combat Arena</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/18_superhot-flares-up-on-ps4-this-wednesday_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/superhot-flares-up-on-ps4-this-wednesday" class="article-title">Superhot flares up on PS4 this Wednesday</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g596d5c0f03f74/IDGA-calls-Aussie-Greens-senators-resignation-devastating/" class="article-title">IDGA calls Aussie Greens senator's resignation "devastating"</a>
+			<div class="article-subtitle">AU's biggest industry advocate exits.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g596d368fd685c/Ataribox-design-revealed-will-be-crowdfunded/" class="article-title">Ataribox design revealed, will be crowdfunded</a>
+			<div class="article-subtitle">Oooh yaaah.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

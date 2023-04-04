@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 17, 2016</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/here-they-lie-review/1900-6416547/" class="article-title">Here They Lie Review</a>
+			<div class="article-subtitle">Art of Darkness.</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_ubisoft-chief-creative-has-had-enough-of-linear-na_1100-6445500_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-chief-creative-has-had-enough-of-linear-na/1100-6445500/" class="article-title">Ubisoft Chief Creative Has Had Enough of Linear Narratives</a>
+			<div class="article-subtitle">Before you read this one, watch the Watch Dogs 2 *story* trailer below.</div>
+			<div class="article-author">Jason Imms</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_watch-the-loud-and-exciting-kong-skull-island-trai_1100-6445501_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-the-loud-and-exciting-kong-skull-island-trai/1100-6445501/" class="article-title">Watch the Loud and Exciting Kong: Skull Island Trailer</a>
+			<div class="article-subtitle">"You knew that thing was out here?"</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_ps4-update-406-out-now-heres-what-it-does-not-much_1100-6445503_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-update-406-out-now-heres-what-it-does-not-much/1100-6445503/" class="article-title">PS4 Update 4.06 Out Now, Here's What It Does (Not Much)</a>
+			<div class="article-subtitle">4.06 has landed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_nintendo-ships-10-million-pokemon-sun-moon-copies-for-launch_1100-6445504_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-ships-10-million-pokemon-sun-moon-copies-for-launch/1100-6445504/" class="article-title">Nintendo Ships 10 Million Pokemon Sun/Moon Copies for Launch</a>
+			<div class="article-subtitle">Sun and Moon debut on November 18.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_spectacular-transformers-5-action-teased-in-new-vi_1100-6445502_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spectacular-transformers-5-action-teased-in-new-vi/1100-6445502/" class="article-title">Spectacular Transformers 5 Action Teased in New Video</a>
+			<div class="article-subtitle">"It really is mind-boggling."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_titanfall-3-not-guaranteed-respawn-ceo-says_1100-6445506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/titanfall-3-not-guaranteed-respawn-ceo-says/1100-6445506/" class="article-title">Titanfall 3 Not Guaranteed, Respawn CEO Says</a>
+			<div class="article-subtitle">"We don''t know yet."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_conan-obrien-plays-final-fantasy-15-calls-it-an-ep_1100-6445425_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/conan-obrien-plays-final-fantasy-15-calls-it-an-ep/1100-6445425/" class="article-title">Conan O'Brien Plays Final Fantasy 15, Calls it an "Epic Waste of Time"</a>
+			<div class="article-subtitle">"This is like Middle-earth Entourage."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_new-final-fantasy-15-artwork-looks-stunning_1100-6445507_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-final-fantasy-15-artwork-looks-stunning/1100-6445507/" class="article-title">New Final Fantasy 15 Artwork Looks Stunning</a>
+			<div class="article-subtitle">Final Fantasy XV finally arrives on November 29.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_rock-band-4-dlc-adds-three-avril-lavigne-songs_1100-6445508_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/rock-band-4-dlc-adds-three-avril-lavigne-songs/1100-6445508/" class="article-title">Rock Band 4 DLC Adds Three Avril Lavigne Songs</a>
+			<div class="article-subtitle">Some of the pop singer''s biggest hits come to Rock Band 4.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_watch-dogs-2s-explicit-genitalia-will-be-removed-u_1100-6445458_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-dogs-2s-explicit-genitalia-will-be-removed-u/1100-6445458/" class="article-title">Watch Dogs 2's Explicit Genitalia Will Be Removed, Ubisoft Says</a>
+			<div class="article-subtitle">A Watch Dogs 2 player who shared an image of the in-game genitalia was banned for a month by Sony.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_watch-dogs-2-myths-tested-in-new-video_1100-6445509_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-dogs-2-myths-tested-in-new-video/1100-6445509/" class="article-title">Watch Dogs 2 Myths Tested in New Video</a>
+			<div class="article-subtitle">Does jumping into water save you from fall damage?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_controversial-reality-tv-show-duck-dynasty-is-endi_1100-6445510_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/controversial-reality-tv-show-duck-dynasty-is-endi/1100-6445510/" class="article-title">Controversial Reality TV Show Duck Dynasty Is Ending</a>
+			<div class="article-subtitle">"We''ve decided as a family for this to be the final chapter of the Duck Dynasty series."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_fantastic-beasts-mobile-game-out-now-from-fable-fo_1100-6445511_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/fantastic-beasts-mobile-game-out-now-from-fable-fo/1100-6445511/" class="article-title">Fantastic Beasts Mobile Game Out Now From Fable Fortune Developer</a>
+			<div class="article-subtitle">Fantastic Beasts: Cases From the Wizarding World is a free-to-play hidden object game.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_look-at-lord-of-the-rings-directors-incredible-mov_1100-6445512_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/look-at-lord-of-the-rings-directors-incredible-mov/1100-6445512/" class="article-title">Look at Lord of the Rings Director's Incredible Movie Prop Collection</a>
+			<div class="article-subtitle">Mythbusters alum Adam Savage tours Peter Jackson''s amazing collection.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_hunger-games-studios-new-robin-hood-movie-gets-a-r_1100-6445513_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hunger-games-studios-new-robin-hood-movie-gets-a-r/1100-6445513/" class="article-title">Hunger Games Studio's New Robin Hood Movie Gets a Release Date</a>
+			<div class="article-subtitle">Robin Hood: Origins lands on March 23, 2018.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_new-fallout-shelter-update-out-now-heres-what-it-d_1100-6445516_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-fallout-shelter-update-out-now-heres-what-it-d/1100-6445516/" class="article-title">New Fallout Shelter Update Out Now, Here's What It Does</a>
+			<div class="article-subtitle">Thanksgiving comes to Fallout Shelter.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_jennifer-lawrence-goes-for-a-terrifying-space-swim_1100-6445518_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/jennifer-lawrence-goes-for-a-terrifying-space-swim/1100-6445518/" class="article-title">Jennifer Lawrence Goes for a Terrifying Space Swim in New Passengers Clip</a>
+			<div class="article-subtitle">Gravitational pool!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_psa-multiplayer-for-batman-arkham-origins-shutting_1100-6445519_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/psa-multiplayer-for-batman-arkham-origins-shutting/1100-6445519/" class="article-title">PSA: Multiplayer for Batman: Arkham Origins Shutting Down Soon</a>
+			<div class="article-subtitle">The game''s single-player campaign is unaffected.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_next-xbox-one-backwards-compatible-games-arrive_1100-6445521_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/next-xbox-one-backwards-compatible-games-arrive/1100-6445521/" class="article-title">Next Xbox One Backwards-Compatible Games Arrive</a>
+			<div class="article-subtitle">November has been a big month for the Xbox One''s backwards compatibility program.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_skyrim-fallout-and-doom-go-pinball-next-month_1100-6445520_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skyrim-fallout-and-doom-go-pinball-next-month/1100-6445520/" class="article-title">Skyrim, Fallout, and Doom Go Pinball Next Month</a>
+			<div class="article-subtitle">Bethesda Pinball releases for PS4, Xbox One, PC, and many more platforms on December 6.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_take-two-our-competitors-burn-off-their-franchises_1100-6445522_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/take-two-our-competitors-burn-off-their-franchises/1100-6445522/" class="article-title">Take Two: "Our Competitors Burn Off Their Franchises" by Annualizing Them</a>
+			<div class="article-subtitle">"One of the things that''s best about Take-Two is our franchises seem to be permanent."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_playstation-vue-expands-again-now-available-on-app_1100-6445524_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/playstation-vue-expands-again-now-available-on-app/1100-6445524/" class="article-title">PlayStation Vue Expands Again, Now Available on Apple TV</a>
+			<div class="article-subtitle">Apple TV joins the mix.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_why-one-of-blizzards-most-veteran-devs-retired_1100-6445525_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/why-one-of-blizzards-most-veteran-devs-retired/1100-6445525/" class="article-title">Why One of Blizzard's Most Veteran Devs Retired</a>
+			<div class="article-subtitle">Chris Metzen helped create many of Blizzard''s popular franchises.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_heres-when-mass-effect-andromedas-theme-music-will_1100-6445529_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/heres-when-mass-effect-andromedas-theme-music-will/1100-6445529/" class="article-title">Here's When Mass Effect: Andromeda's Theme Music Will be Revealed</a>
+			<div class="article-subtitle">The music will debut at the 2016: A Video Game Musical Odyssey concert next month.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_red-dead-redemption-2-will-offer-big-sprawling-opt_1100-6445515_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/red-dead-redemption-2-will-offer-big-sprawling-opt/1100-6445515/" class="article-title">Red Dead Redemption 2 Will Offer "Big, Sprawling, Optimistic View of America"</a>
+			<div class="article-subtitle">"I think the times are right for a big, sprawling, optimistic view of America again."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_watch-the-funny-first-trailer-for-netflixs-a-serie_1100-6445531_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-the-funny-first-trailer-for-netflixs-a-serie/1100-6445531/" class="article-title">Watch the Funny First Trailer for Netflix's A Series of Unfortunate Events</a>
+			<div class="article-subtitle">Neil Patrick Harris stars as Count Olaf in the Netflix Original Series.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_more-xbox-one-s-deals-and-xbox-live-black-friday-p_1100-6445396_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-xbox-one-s-deals-and-xbox-live-black-friday-p/1100-6445396/" class="article-title">More Xbox One S Deals and Xbox Live Black Friday Promotion Revealed</a>
+			<div class="article-subtitle">Deals incoming.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_xbox-lives-black-friday-sale-begins-tomorrow-offer_1100-6445505_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/xbox-lives-black-friday-sale-begins-tomorrow-offer/1100-6445505/" class="article-title">Xbox Live's Black Friday Sale Begins Tomorrow, Offers 250-Plus Deals</a>
+			<div class="article-subtitle">It''s almost time.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_walmarts-black-friday-2016-gaming-deals-revealed_1100-6445322_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/walmarts-black-friday-2016-gaming-deals-revealed/1100-6445322/" class="article-title">Walmart's Black Friday 2016 Gaming Deals Revealed</a>
+			<div class="article-subtitle">The deals begin at 12:01 AM on Thanksgiving Day online.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_gamestops-black-friday-ad-revealed_1100-6445366_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/gamestops-black-friday-ad-revealed/1100-6445366/" class="article-title">GameStop's Black Friday Ad Revealed</a>
+			<div class="article-subtitle">$40 Battlefield 1 and Titanfall 2, $20 Doom and No Man''s Sky, and much more.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_toys-r-us-black-friday-2016-deals-revealed_1100-6445367_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/toys-r-us-black-friday-2016-deals-revealed/1100-6445367/" class="article-title">Toys R Us Black Friday 2016 Deals Revealed</a>
+			<div class="article-subtitle">Deals incoming.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_xbox-one-goes-cheap-as-black-friday-deals-begin-ea_1100-6445238_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/xbox-one-goes-cheap-as-black-friday-deals-begin-ea/1100-6445238/" class="article-title">Xbox One Goes Cheap as Black Friday Deals Begin Early in UK</a>
+			<div class="article-subtitle">Not picked up an Xbox One yet? Now might be the time.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_targets-black-friday-gaming-deals-revealed-and-the_1100-6445305_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/targets-black-friday-gaming-deals-revealed-and-the/1100-6445305/" class="article-title">Target's Black Friday Gaming Deals Revealed and They're Really Good</a>
+			<div class="article-subtitle">Get your wallets ready.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_get-a-limited-edition-new-3ds-for-100-on-black-fri_1100-6445188_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/get-a-limited-edition-new-3ds-for-100-on-black-fri/1100-6445188/" class="article-title">Get a Limited-Edition New 3DS for $100 on Black Friday</a>
+			<div class="article-subtitle">Black and white models featuring Mushroom Kingdom characters will be available.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_dells-black-friday-ad-leaks-includes-really-good-x_1100-6444996_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dells-black-friday-ad-leaks-includes-really-good-x/1100-6444996/" class="article-title">Dell's Black Friday Ad Leaks, Includes Really Good Xbox One S Deal</a>
+			<div class="article-subtitle">This is one of the better offers we have ever seen on the Xbox One S.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_sniper-ghost-warrior-3-expands-its-open-world-with_1100-6445145_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sniper-ghost-warrior-3-expands-its-open-world-with/1100-6445145/" class="article-title">Sniper: Ghost Warrior 3 Expands Its Open World With Multiplayer</a>
+			<div class="article-subtitle">Open scope, open world.</div>
+			<div class="article-author">Miguel Concepcion</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_more-black-friday-ps4-and-xbox-one-console-deals-r_1100-6445054_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-black-friday-ps4-and-xbox-one-console-deals-r/1100-6445054/" class="article-title">More Black Friday PS4 and Xbox One Console Deals Revealed</a>
+			<div class="article-subtitle">Black Friday approaches.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_kohls-black-friday-ad-leaks-reveals-ps4-and-xbox-o_1100-6445068_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kohls-black-friday-ad-leaks-reveals-ps4-and-xbox-o/1100-6445068/" class="article-title">Kohl's Black Friday Ad Leaks, Reveals PS4 and Xbox One Deals</a>
+			<div class="article-subtitle">Prepare your wallets.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_black-friday-ps4-and-xbox-one-deals-revealed-for-c_1100-6445120_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/black-friday-ps4-and-xbox-one-deals-revealed-for-c/1100-6445120/" class="article-title">Black Friday PS4 and Xbox One Deals Revealed for Costco</a>
+			<div class="article-subtitle">Black Friday approaches.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_smites-next-patch-adds-holiday-skins-and-an-update_1100-6445532_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/smites-next-patch-adds-holiday-skins-and-an-update/1100-6445532/" class="article-title">Smite's Next Patch Adds Holiday Skins and an Updated Co-Op Mode</a>
+			<div class="article-subtitle">Xing Tian''s Mountain makes a return with new difficulty modes and a Christmas twist.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_watch-dogs-2s-disabled-multiplayer-mode-may-return_1100-6445533_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-dogs-2s-disabled-multiplayer-mode-may-return/1100-6445533/" class="article-title">Watch Dogs 2's Disabled Multiplayer Mode May Return This Weekend</a>
+			<div class="article-subtitle">Watch Dogs 2''s seamless multiplayer was removed from the game right before the game launched due to issues.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_star-wars-battlefronts-rogue-one-expansion-vr-mode_1100-6445535_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-battlefronts-rogue-one-expansion-vr-mode/1100-6445535/" class="article-title">Star Wars Battlefront's Rogue One Expansion, VR Mode Dated</a>
+			<div class="article-subtitle">Only a few weeks to go.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_blocked-from-attending-last-year-hideo-kojima-to-r_1100-6445534_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/blocked-from-attending-last-year-hideo-kojima-to-r/1100-6445534/" class="article-title">Blocked From Attending Last Year, Hideo Kojima to Receive Award Next Month</a>
+			<div class="article-subtitle">The Metal Gear Solid creator was reportedly prevented from attending by Konami''s lawyers.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_new-star-wars-rogue-one-poster-shows-rebels-and-th_1100-6445429_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-star-wars-rogue-one-poster-shows-rebels-and-th/1100-6445429/" class="article-title">New Star Wars: Rogue One Poster Shows Rebels and the Death Star</a>
+			<div class="article-subtitle">Rogue One comes to theaters on December 16.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_dishonored-2-pc-update-out-now-attempts-to-fix-per_1100-6445537_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dishonored-2-pc-update-out-now-attempts-to-fix-per/1100-6445537/" class="article-title">Dishonored 2 PC Update Out Now, Attempts to Fix Performance and Mouse Problems</a>
+			<div class="article-subtitle">It''s only available in beta for now.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_voice-actor-union-pickets-ratchet-and-clank-dev-as_1100-6445467_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/voice-actor-union-pickets-ratchet-and-clank-dev-as/1100-6445467/" class="article-title">Voice Actor Union Pickets Ratchet & Clank Dev, as Strike Continues</a>
+			<div class="article-subtitle">[UPDATE] 400+ people picketed at Insomniac Games today.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_best-buys-black-friday-2016-deals-revealed-lots-of_1100-6445314_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/best-buys-black-friday-2016-deals-revealed-lots-of/1100-6445314/" class="article-title">Best Buy's Black Friday 2016 Deals Revealed; Lots of Good Offers Available</a>
+			<div class="article-subtitle">Black Friday approaches.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_play-nba-2k17-for-free-on-xbox-one-this-weekend_1100-6445539_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/play-nba-2k17-for-free-on-xbox-one-this-weekend/1100-6445539/" class="article-title">Play NBA 2K17 for Free on Xbox One This Weekend</a>
+			<div class="article-subtitle">It''ll be available at a discount, too.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_new-star-wars-rogue-one-video-delves-into-the-movi_1100-6445540_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-star-wars-rogue-one-video-delves-into-the-movi/1100-6445540/" class="article-title">New Star Wars: Rogue One Video Delves Into the Movie's Story</a>
+			<div class="article-subtitle">The cast and crew of Rogue One talk about what it''s like to work on the set of a Star Wars movie.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_destiny-dev-issues-more-bans-teases-psx-news_1100-6445541_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/destiny-dev-issues-more-bans-teases-psx-news/1100-6445541/" class="article-title">Destiny Dev Issues More Bans, Teases PSX News</a>
+			<div class="article-subtitle">"Cheaters, beware."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_top-10-best-selling-games-in-the-us-for-october-20_1100-6445542_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/top-10-best-selling-games-in-the-us-for-october-20/1100-6445542/" class="article-title">Top 10 Best-Selling Games in the US for October 2016</a>
+			<div class="article-subtitle">Battlefield 1 took the top spot for October.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/17_ubisoft-announces-new-serbian-production-studio_1100-6445543_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-announces-new-serbian-production-studio/1100-6445543/" class="article-title">Ubisoft Announces New Serbian Production Studio</a>
+			<div class="article-subtitle">Now more than 2000 Ubisoft staff work in Eastern Europe.</div>
+			<div class="article-author">Jason Imms</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_the-best-video-game-ive-ever-played-about-la-is-out-now_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-best-video-game-ive-ever-played-about-la-is-out-now" class="article-title">"The best video game I've ever played about LA" is out now</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_genital-jousting-is-the-new-game-by-broforce-developer-now-on-steam-early-access_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/genital-jousting-is-the-new-game-by-broforce-developer-now-on-steam-early-access" class="article-title">Genital Jousting is the new game by the Broforce dev, now on Steam Early Access</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_beat-the-beat-rhythm-paradise-is-coming-to-the-wii-u-eshop-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/beat-the-beat-rhythm-paradise-is-coming-to-the-wii-u-eshop-next-week" class="article-title">Beat the Beat: Rhythm Paradise is coming to the Wii U eShop next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_nintendo-classic-mini-has-been-selling-on-ebay-for-an-average-of-185-since-launch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-classic-mini-has-been-selling-on-ebay-for-an-average-of-185-since-launch" class="article-title">Nintendo Classic Mini is selling on eBay for an average of £185</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_telltales-batman-episode-4-due-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/telltales-batman-episode-4-due-next-week" class="article-title">Telltale's Batman Episode 4 due next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_the-3d-printed-nintendo-switch-is-a-brilliant-fake_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-3d-printed-nintendo-switch-is-a-brilliant-fake" class="article-title">The 3D-printed Nintendo Switch is one of the best video game fakes we've seen</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_the-story-of-an-elite-dangerous-rescue-on-the-edge-of-known-space_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-story-of-an-elite-dangerous-rescue-on-the-edge-of-known-space" class="article-title">The 48-hour Elite Dangerous rescue mission to the edge of the galaxy</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_batman-arkham-origins-online-portion-to-shut-down_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/batman-arkham-origins-online-portion-to-shut-down" class="article-title">Batman Arkham Origins multiplayer will shut down</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_chris-metzen-on-why-he-needed-to-leave-blizzard_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/chris-metzen-on-why-he-needed-to-leave-blizzard" class="article-title">Chris Metzen on why he needed to leave Blizzard</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_respawn-doesnt-know-yet-whether-it-will-make-titanfall-3_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/respawn-doesnt-know-yet-whether-it-will-make-titanfall-3" class="article-title">Respawn "doesn't know yet" whether it will make Titanfall 3</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_hands-on-with-total-war-warhammers-newest-race-the-wood-elves_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/hands-on-with-total-war-warhammers-newest-race-the-wood-elves" class="article-title">Total War: Warhammer's DLC gets a bit more ambition with the Wood Elves</a>
+			<div class="article-author">Chris Bratt</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_nintendo-launches-new-3ds-messaging-app-swapdoodle_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-launches-new-3ds-messaging-app-swapdoodle" class="article-title">Nintendo launches new 3DS messaging app Swapdoodle</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_fifa-coin-hacker-convicted-of-defrauding-ea-out-of-usd16m_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fifa-coin-hacker-convicted-of-defrauding-ea-out-of-usd16m" class="article-title">FIFA coin hacker convicted of defrauding EA out of $16m</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_one-of-titanfall-2s-nastiest-enemies-seems-really-counter-productive_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/one-of-titanfall-2s-nastiest-enemies-seems-really-counter-productive" class="article-title">One of Titanfall 2's nastiest enemies seems really counter-productive</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_xbox-360-games-are-getting-xbox-one-boxes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/xbox-360-games-are-getting-xbox-one-boxes" class="article-title">Xbox 360 games are getting Xbox One boxes</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_assassins-creed-will-resolve-one-of-its-biggest-plotlines-in-a-comic_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/assassins-creed-will-resolve-one-of-its-biggest-plotlines-in-a-comic" class="article-title">Assassin's Creed will resolve one of its biggest plotlines in a comic</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_heres-what-dead-rising-4s-four-player-co-op-looks-like_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/heres-what-dead-rising-4s-four-player-co-op-looks-like" class="article-title">Here's what Dead Rising 4's four-player co-op looks like</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_firewatch-is-getting-a-retail-release-this-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/firewatch-is-getting-a-retail-release-this-year" class="article-title">Firewatch is getting a retail release this year</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/17_obduction-is-coming-to-ps4-with-psvr-support_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/obduction-is-coming-to-ps4-with-psvr-support" class="article-title">Obduction is coming to PS4 with PSVR support</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/playstation-4/news/g582ced0b15949/Battlefield-1-on-PS4-Pro-has-a-game-changing-FPS-bump/" class="article-title">Battlefield 1 on PS4 Pro has a game-changing FPS bump</a>
+			<div class="article-subtitle">If you're that good, that is.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g582cc0c62896b/Super-Mario-Run-hits-iOS-next-month-for-US-10/" class="article-title">Super Mario Run hits iOS next month for US$10</a>
+			<div class="article-subtitle">Portable pogoing plumber.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g582cb781ed1f6/Heres-the-full-list-of-2016-Game-Awards-nominations/" class="article-title">Here's the full list of 2016 Game Awards nominations</a>
+			<div class="article-subtitle">Uncharted 4 leads the field.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

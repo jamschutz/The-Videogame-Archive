@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">July 11, 2017</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/diablo-3-rise-of-the-necromancer-review/1900-6416715/" class="article-title">Diablo 3: Rise Of The Necromancer Review</a>
+			<div class="article-subtitle">Raising hell.</div>
+			<div class="article-author">Brett Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/stranger-things-season-2-release-date-confirmed-in/1100-6451583/" class="article-title">Stranger Things Season 2 Release Date Confirmed In New Teaser</a>
+			<div class="article-subtitle">Some doors can''t be closed.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/wonder-woman-2-might-be-set-during-the-1980s/1100-6451585/" class="article-title">Wonder Woman 2 Might Be Set During The 1980s</a>
+			<div class="article-subtitle">Cold War Hero.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/rainbow-six-siege-update-introduces-loot-boxes-bal/1100-6451582/" class="article-title">Rainbow Six Siege Update Introduces Loot Boxes, Balance Changes, More</a>
+			<div class="article-subtitle">Here''s what''s in Rainbow Six Siege''s title update 2.1.1.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/3ds-system-update-out-now-heres-what-it-does-not-m/1100-6451588/" class="article-title">3DS System Update Out Now, Here's What It Does (Not Much)</a>
+			<div class="article-subtitle">Here''s what''s in the most recent Nintendo 3DS update.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/amazon-prime-day-2017-uk-best-ps4-xbox-one-and-gam/1100-6451580/" class="article-title">Amazon Prime Day 2017 UK: Best PS4, Xbox One, And Game Deals [Update 2]</a>
+			<div class="article-subtitle">Prime cuts.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/ps4-update-472-out-now-heres-what-it-does-not-much/1100-6451581/" class="article-title">PS4 Update 4.72 Out Now, Here's What It Does (Not Much)</a>
+			<div class="article-subtitle">Sony''s latest PS4 patch promises to improve system performance.</div>
+			<div class="article-author">Oscar Dayus</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/sub-zero-now-available-in-injustice-2/1100-6451590/" class="article-title">Sub-Zero Now Available In Injustice 2</a>
+			<div class="article-subtitle">The standalone release comes next week.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/star-wars-new-han-solo-movie-images-leak-from-set/1100-6451574/" class="article-title">Star Wars: New Han Solo Movie Images Leak From Set</a>
+			<div class="article-subtitle">Get a closer look at next year''s big Star Wars movie.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/devil-may-cry-dead-rising-resident-evil-hd-discoun/1100-6451594/" class="article-title">Devil May Cry, Dead Rising, Resident Evil HD Discounted In New Humble Bundle</a>
+			<div class="article-subtitle">Get a bunch of great games on the cheap.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/tony-hawks-pro-skater-hd-getting-removed-from-stea/1100-6451578/" class="article-title">Tony Hawk's Pro Skater HD Getting Removed From Steam Very Soon</a>
+			<div class="article-subtitle">The skateboarding game is down to $2 until the delisting happens.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/ex-bioshock-devs-take-inspiration-from-past-games-/1100-6451586/" class="article-title">Ex-Bioshock Devs Take Inspiration From Past Games To Make Arabian Nights Inspired City Of Brass</a>
+			<div class="article-subtitle">Scimitar in one hand, whip in the other, ghouls in your way.</div>
+			<div class="article-author">Patrick Faller</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/articles/blizzard-talks-starcraft-remastered-and-why-it-des/1100-6451524/" class="article-title">Blizzard Talks StarCraft Remastered, And Why It Deserves A Re-release After 20 Years</a>
+			<div class="article-subtitle">For the fans.</div>
+			<div class="article-author">Michael Higham</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_what-netflixs-castlevania-show-gets-right-as-a-vid_1100-6451593_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/what-netflixs-castlevania-show-gets-right-as-a-vid/1100-6451593/" class="article-title">What Netflix's Castlevania Show Gets Right As A Video Game Adaptation</a>
+			<div class="article-subtitle">Other adaptations can learn a thing or two from Castlevania.</div>
+			<div class="article-author">Michael Rougeau</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_overwatch-50-off-later-today-grab-free-golden-loot_1100-6451596_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/overwatch-50-off-later-today-grab-free-golden-loot/1100-6451596/" class="article-title">Overwatch 50% Off Later Today; Grab Free Golden Loot Box Through Twitch Prime</a>
+			<div class="article-subtitle">Grab some free loot.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_new-gta-5-online-bonuses-and-discounts-revealed_1100-6451592_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-gta-5-online-bonuses-and-discounts-revealed/1100-6451592/" class="article-title">New GTA 5 Online Bonuses And Discounts Revealed</a>
+			<div class="article-subtitle">Hit the road in style with the Grotti Cheetah Classic.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_nier-automata-creator-shares-his-favorite-ps4-game_1100-6451597_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nier-automata-creator-shares-his-favorite-ps4-game/1100-6451597/" class="article-title">Nier: Automata Creator Shares His Favorite PS4 Games</a>
+			<div class="article-subtitle">Yoko Taro gives his thoughts on some of his favorite titles to come out on PS4.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_pokemon-ultra-sunultra-moon-getting-steelbook-dual_1100-6451598_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-ultra-sunultra-moon-getting-steelbook-dual/1100-6451598/" class="article-title">Pokemon Ultra Sun/Ultra Moon Getting Steelbook Dual Pack</a>
+			<div class="article-subtitle">Amazon reveals the special bundle.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_the-escapists-2-release-date-revealed-nintendo-swi_1100-6451589_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-escapists-2-release-date-revealed-nintendo-swi/1100-6451589/" class="article-title">The Escapists 2 Release Date Revealed, Nintendo Switch Version Coming Later</a>
+			<div class="article-subtitle">PC, PlayStation 4, and Xbox One versions will be released this summer.</div>
+			<div class="article-author">Patrick Faller</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_two-more-xbox-one-backwards-compatibility-games-ar_1100-6451600_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/two-more-xbox-one-backwards-compatibility-games-ar/1100-6451600/" class="article-title">Two More Xbox One Backwards Compatibility Games Arrive</a>
+			<div class="article-subtitle">The backwards compatibility catalog is closing in on 400 games.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_gerard-ways-umbrella-academy-getting-live-action-s_1100-6451602_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/gerard-ways-umbrella-academy-getting-live-action-s/1100-6451602/" class="article-title">Gerard Way's Umbrella Academy Getting Live-Action Series On Netflix</a>
+			<div class="article-subtitle">The 10-episode series will debut in 2018.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_street-fighter-5-evo-finals-will-be-broadcast-on-e_1100-6451603_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/street-fighter-5-evo-finals-will-be-broadcast-on-e/1100-6451603/" class="article-title">Street Fighter 5 EVO Finals Will Be Broadcast On ESPN 2 Again</a>
+			<div class="article-subtitle">Another esports tournament is coming to TV.</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_cards-against-humanity-for-her-is-exact-same-game-_1100-6451605_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/cards-against-humanity-for-her-is-exact-same-game-/1100-6451605/" class="article-title">Cards Against Humanity For Her Is Exact Same Game, Comes In Pink Box, And Is $5 More</a>
+			<div class="article-subtitle">"Pairs nicely with a glass of chilled wine."</div>
+			<div class="article-author">Alex Newhouse</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_destiny-2-i-hope-people-complain-about-how-much-st_1100-6451604_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/destiny-2-i-hope-people-complain-about-how-much-st/1100-6451604/" class="article-title">Destiny 2: "I Hope People Complain About How Much Story We Have"</a>
+			<div class="article-subtitle">"We''re learning from and listening to all the feedback we got on Destiny 1, and we''re applying it."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_logitech-to-acquire-gaming-headset-maker-astro-for_1100-6451601_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/logitech-to-acquire-gaming-headset-maker-astro-for/1100-6451601/" class="article-title">Logitech To Acquire Gaming Headset Maker Astro For $85 Million</a>
+			<div class="article-subtitle">Two gaming hardware manufacturers unite.</div>
+			<div class="article-author">Michael Higham</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_tarantino-says-again-hes-retiring-after-next-two-m_1100-6445099_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/tarantino-says-again-hes-retiring-after-next-two-m/1100-6445099/" class="article-title">Tarantino Says Again He's Retiring After Next Two Movies</a>
+			<div class="article-subtitle">The Hateful Eight director says he wants to be known as "one of the greatest filmmakers that ever lived."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2017/07/11_suicide-squad-2-may-not-be-directed-by-mel-gibson_1100-6451608_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/suicide-squad-2-may-not-be-directed-by-mel-gibson/1100-6451608/" class="article-title">Suicide Squad 2 May Not Be Directed By Mel Gibson</a>
+			<div class="article-subtitle">The Shallows director Jaume Collet-Serra is now reportedly the frontrunner.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_mafia-3s-third-dlc-expansion-slated-for-this-month_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mafia-3s-third-dlc-expansion-slated-for-this-month" class="article-title">Mafia 3's third DLC expansion, Sign of the Times, launches in two weeks</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_broforce-and-genital-jousting-dev-just-released-a-vr-game_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/broforce-and-genital-jousting-dev-just-released-a-vr-game" class="article-title">BroForce and Genital Jousting dev just released a VR game</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_cave-story-on-switch-getting-classic-graphics-option-in-august_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/cave-story-on-switch-getting-classic-graphics-option-in-august" class="article-title">Cave Story+ on Switch getting "classic graphics" option in August</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_zeldas-trial-of-the-sword-speedrunner-blazes-through-gauntlet-in-under-44-minutes_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/zeldas-trial-of-the-sword-speedrunner-blazes-through-gauntlet-in-under-44-minutes" class="article-title">Zelda: Breath of the Wild speedrunner blazes through Trial of the Sword in under 44 minutes</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_sub-zero-hits-injustice-2-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/sub-zero-hits-injustice-2-today" class="article-title">Sub-Zero hits Injustice 2 today</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_pokemon-gos-battery-life-draining-problem-a-known-issue_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pokemon-gos-battery-life-draining-problem-a-known-issue" class="article-title">Pokémon GO's battery life draining problem a "known issue"</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_splatoon-2-single-player-review_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/splatoon-2-single-player-review" class="article-title">Splatoon 2's single-player is an enjoyable if familiar encore</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_the-escapists-2-carves-out-a-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-escapists-2-carves-out-a-release-date" class="article-title">The Escapists 2 carves out a release date</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_arms-new-mode-allows-you-to-play-as-hedlok_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/arms-new-mode-allows-you-to-play-as-hedlok" class="article-title">Arms' new mode lets you play as an even tougher enemy than Max Brass</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_you-can-study-the-business-of-esports-at-university-now_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/you-can-study-the-business-of-esports-at-university-now" class="article-title">You can study the business of esports at university now</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_destiny-2-crucible-control-changes-detailed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/destiny-2-crucible-control-changes-detailed" class="article-title">Destiny 2's Control mode is getting some big changes</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_tony-hawks-pro-skater-hd-is-being-removed-from-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/tony-hawks-pro-skater-hd-is-being-removed-from-steam" class="article-title">Tony Hawk's Pro Skater HD to be removed from Steam next week</a>
+			<div class="article-author">Vic Hood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_fantasy-strike-is-a-fighting-game-for-everyone_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fantasy-strike-is-a-fighting-game-for-everyone" class="article-title">Fantasy Strike is a fighting game for everyone</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_ultra-rare-mega-drive-game-goes-for-3380-on-ebay_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ultra-rare-mega-drive-game-goes-for-3380-on-ebay" class="article-title">Ultra rare Mega Drive game goes for £3380 on eBay</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_could-playerunknowns-battlegrounds-be-getting-new-skins_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/could-playerunknowns-battlegrounds-be-getting-new-skins" class="article-title">PlayerUnknown's Battlegrounds fan unearths work in progress items</a>
+			<div class="article-author">Vic Hood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_get-a-playstation-4-crash-trilogy-overwatch-and-spare-controller-for-180_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/get-a-playstation-4-crash-trilogy-overwatch-and-spare-controller-for-180" class="article-title">Get a PlayStation 4, Crash Trilogy, Overwatch and spare controller for £180</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_ex-bioshock-devs-reveal-city-of-brass_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/ex-bioshock-devs-reveal-city-of-brass" class="article-title">City of Brass looks like Prince of Persia meets BioShock</a>
+			<div class="article-author">Vic Hood</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_wwe-2k18-is-coming-to-nintendo-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/wwe-2k18-is-coming-to-nintendo-switch" class="article-title">WWE 2K18 for Switch marks series' return to Nintendo after five years</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_switch-just-got-a-game-that-channels-the-spirit-of-smash-bros-and-warioware_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/switch-just-got-a-game-that-channels-the-spirit-of-smash-bros-and-warioware" class="article-title">The Switch just got a game that channels the spirit of Smash Bros and WarioWare</a>
+			<div class="article-author">Christian Donlan</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_half-life-has-a-new-patch-19-years-after-release_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/half-life-has-a-new-patch-19-years-after-release" class="article-title">Half-Life has a new patch, 19 years after launch</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_strike-vector-ex-open-beta-now-available-on-steam_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/strike-vector-ex-open-beta-now-available-on-steam" class="article-title">Strike Vector EX open beta now available on Steam</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2017/07/11_valve-bans-over-40k-accounts-following-steam-summer-sale_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/valve-bans-over-40k-accounts-following-steam-summer-sale" class="article-title">Valve issued its biggest banhammer in history following Steam Summer Sale</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g59641075eff95/Get-mixed-up-in-a-wintry-castle-siege-in-the-next-Nioh-DLC/" class="article-title">Get mixed up in a wintry castle siege in the next Nioh DLC</a>
+			<div class="article-subtitle">Out July 25.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5963fc79e4bc9/Star-Wars-Battlefront-II-beta-announced/" class="article-title">Star Wars Battlefront II beta announced</a>
+			<div class="article-subtitle">On the streets, in the stars.</div>
+			<div class="article-author">Matt Maguire</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

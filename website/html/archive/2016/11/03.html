@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">November 3, 2016</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/batman-the-telltale-series-new-world-order-episode/1900-6416568/" class="article-title">Batman - The Telltale Series: New World Order - Episode 3 Review</a>
+			<div class="article-subtitle">Bruce wane.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/warhammer-end-times-vermintide-review/1900-6416308/" class="article-title">Warhammer: End Times -- Vermintide Review</a>
+			<div class="article-subtitle">Rat pack.</div>
+			<div class="article-author">Scott Butterworth</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/firewatch-review/1900-6416353/" class="article-title">Firewatch Review</a>
+			<div class="article-subtitle">A walk in the woods.</div>
+			<div class="article-author">Scott Butterworth</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gamespot.com/reviews/skyshines-bedlam-review/1900-6416320/" class="article-title">Skyshine's Bedlam Review</a>
+			<div class="article-subtitle">Sad Max</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_call-of-duty-infinite-warfares-yolo-mode-will-test_1100-6445060_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/call-of-duty-infinite-warfares-yolo-mode-will-test/1100-6445060/" class="article-title">Call of Duty: Infinite Warfare's YOLO Mode Will Test Your Skills</a>
+			<div class="article-subtitle">And you thought Mile High Club was tricky.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_rainbow-six-siege-teaser-shows-new-japan-map_1100-6445063_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/rainbow-six-siege-teaser-shows-new-japan-map/1100-6445063/" class="article-title">Rainbow Six Siege Teaser Shows New Japan Map</a>
+			<div class="article-subtitle">Full reveal of Operation Red Crow scheduled for November 12.</div>
+			<div class="article-author">Tamoor Hussain</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_new-van-helsing-movie-will-feature-a-modern-day-mo_1100-6445061_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-van-helsing-movie-will-feature-a-modern-day-mo/1100-6445061/" class="article-title">New Van Helsing Movie Will Feature a Modern Day "Monster Hunter"</a>
+			<div class="article-subtitle">"It doesn''t owe much of a debt to prior films."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_big-drm-free-pc-sale-begins-on-gog_1100-6445062_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/big-drm-free-pc-sale-begins-on-gog/1100-6445062/" class="article-title">Big DRM-Free PC Sale Begins on GOG</a>
+			<div class="article-subtitle">The 10-day sale runs through November 13.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_battlefield-1-like-dogfighting-comes-to-halo-5-in-_1100-6445064_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-1-like-dogfighting-comes-to-halo-5-in-/1100-6445064/" class="article-title">Battlefield 1-Like Dogfighting Comes to Halo 5 in New Fan Creation</a>
+			<div class="article-subtitle">Dedicated fan melds together a Warthog and a Banshee to create a flying machine of death.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_harry-potter-spinoff-sequel-fantastic-beasts-2-wil_1100-6445065_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harry-potter-spinoff-sequel-fantastic-beasts-2-wil/1100-6445065/" class="article-title">Harry Potter Spinoff Sequel Fantastic Beasts 2 Will Be Set in Paris</a>
+			<div class="article-subtitle">Fantastique!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_new-westworld-episode-6-images-tease-whats-to-come_1100-6445066_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-westworld-episode-6-images-tease-whats-to-come/1100-6445066/" class="article-title">New Westworld Episode 6 Images Tease What's to Come</a>
+			<div class="article-subtitle">"The Adversary" airs this Sunday, November 6.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_the-dark-tower-movie-has-been-postponed_1100-6445072_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-dark-tower-movie-has-been-postponed/1100-6445072/" class="article-title">The Dark Tower Movie Has Been Postponed</a>
+			<div class="article-subtitle">Dark Delay.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_watch-explosive-scandal-season-6-trailer-and-find-_1100-6445073_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-explosive-scandal-season-6-trailer-and-find-/1100-6445073/" class="article-title">Watch Explosive Scandal Season 6 Trailer and Find out the Premiere Date</a>
+			<div class="article-subtitle">Scandal Season 6 premieres on January 19.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_after-a-delay-dragon-quest-8-remake-for-3ds-gets-n_1100-6445075_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/after-a-delay-dragon-quest-8-remake-for-3ds-gets-n/1100-6445075/" class="article-title">After a Delay, Dragon Quest 8 Remake for 3DS Gets New Release Date</a>
+			<div class="article-subtitle">Nintendo announces the release date and talks about new features.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_doctor-strange-movie-projected-to-have-no-1-us-ope_1100-6445076_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/doctor-strange-movie-projected-to-have-no-1-us-ope/1100-6445076/" class="article-title">Doctor Strange Movie Projected to Have No. 1 US Opening, Match Captain America/Thor Success</a>
+			<div class="article-subtitle">The newest Marvel movie opens on Friday.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_new-wonder-woman-trailer-sees-her-prepare-for-war_1100-6444505_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-wonder-woman-trailer-sees-her-prepare-for-war/1100-6444505/" class="article-title">New Wonder Woman Trailer Sees Her Prepare for War</a>
+			<div class="article-subtitle">Go Gadot Go!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_smite-patch-introduces-a-new-god-adds-some-delight_1100-6445078_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/smite-patch-introduces-a-new-god-adds-some-delight/1100-6445078/" class="article-title">Smite Patch Introduces a New God, Adds Some Delightful Skins</a>
+			<div class="article-subtitle">Dress Sylvanus like a cowboy and his tree like a cactus.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_limbo-added-to-xbox-one-backwards-compatibility-ca_1100-6445080_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/limbo-added-to-xbox-one-backwards-compatibility-ca/1100-6445080/" class="article-title">Limbo Added to Xbox One Backwards Compatibility Catalog</a>
+			<div class="article-subtitle">Limbo has landed.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_hows-ubisoft-doing-here-are-the-key-takeaways-from_1100-6445079_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/hows-ubisoft-doing-here-are-the-key-takeaways-from/1100-6445079/" class="article-title">How's Ubisoft Doing? Here Are the Key Takeaways From Latest Earnings Report</a>
+			<div class="article-subtitle">The numbers are in.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_battlefield-1-hardcover-servers-map-changes-and-ne_1100-6445082_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/battlefield-1-hardcover-servers-map-changes-and-ne/1100-6445082/" class="article-title">Battlefield 1: Hardcover Servers, Map Changes, and New Custom Game Coming</a>
+			<div class="article-subtitle">The future of Battlefield 1 is coming into focus.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_one-of-xbox-360s-best-games-bastion-heads-to-xbox-_1100-6445085_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/one-of-xbox-360s-best-games-bastion-heads-to-xbox-/1100-6445085/" class="article-title">One of Xbox 360's Best Games, Bastion, Heads to Xbox One; Will Be Free for Some</a>
+			<div class="article-subtitle">Bastion arrives on Xbox One in December.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_pokemon-go-daily-bonuses-hope-to-get-you-playing-e_1100-6445056_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-daily-bonuses-hope-to-get-you-playing-e/1100-6445056/" class="article-title">Pokemon Go Daily Bonuses Hope to Get You Playing Every Day</a>
+			<div class="article-subtitle">Niantic will soon provide players with a new reason to play regularly.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_watch-dogs-2-video-compares-virtual-san-francisco-_1100-6445077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-dogs-2-video-compares-virtual-san-francisco-/1100-6445077/" class="article-title">Watch Dogs 2 Video Compares Virtual San Francisco to the Real One</a>
+			<div class="article-subtitle">Ubisoft walked the streets and spoke with locals to capture the "soul" of key areas.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_watch-dogs-2-dlc-and-season-pass-detailed-comes-to_1100-6445042_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-dogs-2-dlc-and-season-pass-detailed-comes-to/1100-6445042/" class="article-title">Watch Dogs 2 DLC and Season Pass Detailed; Comes to PS4 First</a>
+			<div class="article-subtitle">Here''s what the $40 season pass comes with.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_sony-holding-ps4-pro-launch-party-in-nyc_1100-6445086_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/sony-holding-ps4-pro-launch-party-in-nyc/1100-6445086/" class="article-title">Sony Holding PS4 Pro Launch Party in NYC</a>
+			<div class="article-subtitle">And you''re invited.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_after-a-month-on-ps4-darkest-dungeon-pc-sales-stil_1100-6445087_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/after-a-month-on-ps4-darkest-dungeon-pc-sales-stil/1100-6445087/" class="article-title">After a Month on PS4, Darkest Dungeon PC Sales Still Lead by a Huge Margin</a>
+			<div class="article-subtitle">Darkest Dungeon sells one million copies, and official modding support is still on the way.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_deadpool-sequel-loses-composer-following-directors_1100-6445088_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/deadpool-sequel-loses-composer-following-directors/1100-6445088/" class="article-title">Deadpool Sequel Loses Composer, Following Director's Exit</a>
+			<div class="article-subtitle">"It''s hard to walk away from something so unique, but it also has to feel right."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_ps4-gets-remastered-ps2-game-destroy-all-humans_1100-6445083_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-gets-remastered-ps2-game-destroy-all-humans/1100-6445083/" class="article-title">PS4 Gets Remastered PS2 Game Destroy All Humans</a>
+			<div class="article-subtitle">The remastered PS2 game costs $20 and is available now.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_skyrim-remaster-patch-fixes-audio-downgrade-and-mo_1100-6445093_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/skyrim-remaster-patch-fixes-audio-downgrade-and-mo/1100-6445093/" class="article-title">Skyrim Remaster Patch Fixes Audio Downgrade and More</a>
+			<div class="article-subtitle">The patch is out now in beta for PC.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_ubisoft-talks-watch-dogs-2-preorders-teases-next-a_1100-6445091_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ubisoft-talks-watch-dogs-2-preorders-teases-next-a/1100-6445091/" class="article-title">Ubisoft Talks Watch Dogs 2 Preorders, Teases Next Assassin's Creed</a>
+			<div class="article-subtitle">The next Assassin''s Creed is "looking good."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_more-overwatch-events-teased-as-game-hits-20m-play_1100-6445095_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/more-overwatch-events-teased-as-game-hits-20m-play/1100-6445095/" class="article-title">More Overwatch Events Teased, as Game Hits 20M Players Fastest Ever for Blizzard</a>
+			<div class="article-subtitle">"We''re very excited about the prospects for the future."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_new-destiny-iron-banner-begins-next-week-offers-th_1100-6445100_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-destiny-iron-banner-begins-next-week-offers-th/1100-6445100/" class="article-title">New Destiny Iron Banner Begins Next Week, Offers These Rewards</a>
+			<div class="article-subtitle">The action kicks off next week.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_this-weekends-free-steam-game-revealed-alongside-s_1100-6445101_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/this-weekends-free-steam-game-revealed-alongside-s/1100-6445101/" class="article-title">This Weekend's Free Steam Game Revealed, Alongside Some Discounts</a>
+			<div class="article-subtitle">Vermintide is also discounted by 50 percent, if you want to keep playing.</div>
+			<div class="article-author">Mat Paget</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2016/11/03_uncharted-4-classic-mode-available-now-in-new-beta_1100-6445102_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/uncharted-4-classic-mode-available-now-in-new-beta/1100-6445102/" class="article-title">Uncharted 4 Classic Mode Available Now in New Beta Playlist</a>
+			<div class="article-subtitle">"Back-to-basics."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_let-it-die-is-like-a-reunion-for-the-original-star-wars-trilogy-cast_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/let-it-die-is-like-a-reunion-for-the-original-star-wars-trilogy-cast" class="article-title">Let it Die is like a reunion for the original Star Wars trilogy cast</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_niohs-ps4-pro-perks-outlined_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/niohs-ps4-pro-perks-outlined" class="article-title">Nioh's PS4 Pro perks outlined</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_peter-molyneux-released-a-new-game-today_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/peter-molyneux-released-a-new-game-today" class="article-title">Peter Molyneux released a new game today</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_mirrors-edge-catalyst-is-coming-to-ea-access-next-week_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mirrors-edge-catalyst-is-coming-to-ea-access-next-week" class="article-title">Mirror's Edge Catalyst is coming to EA Access next week</a>
+			<div class="article-author">Jeffrey Matulef</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_eve-online-community-rallies-around-family-left-by-passing-of-37-year-old-player_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/eve-online-community-rallies-around-family-left-by-passing-of-37-year-old-player" class="article-title">Eve Online community rallies around family left by passing of popular 37 year-old player</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_dragon-quest-8-3ds-remake-out-january-2017_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/dragon-quest-8-3ds-remake-out-january-2017" class="article-title">Dragon Quest 8 3DS remake out January 2017</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_gran-turismo-might-have-fixed-its-long-standing-sound-problem_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gran-turismo-might-have-fixed-its-long-standing-sound-problem" class="article-title">Gran Turismo may have fixed its long-standing sound problem</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_gt-sport-on-pro-will-be-the-first-gran-turismo-to-accurately-show-ferrari-red_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gt-sport-on-pro-will-be-the-first-gran-turismo-to-accurately-show-ferrari-red" class="article-title">GT Sport on PS4 Pro will be the first Gran Turismo to accurately show Ferrari red</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_watch-infinite-warfares-campaign-and-zombies-modes-in-action_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/watch-infinite-warfares-campaign-and-zombies-modes-in-action" class="article-title">Watch Infinite Warfare's campaign and zombies modes in action</a>
+			<div class="article-author">Johnny Chiodini</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_the-witcher-3-game-of-the-year-edition-only-21-in-gog-monstrous-fall-sale_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-witcher-3-game-of-the-year-edition-only-21-in-gog-monstrous-fall-sale" class="article-title">The Witcher 3 Game of the Year Edition only £21 in GOG Monstrous Fall Sale</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_far-cry-3-blood-dragon-free-on-pc-for-a-month_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/far-cry-3-blood-dragon-free-on-pc-for-a-month" class="article-title">Far Cry 3: Blood Dragon free on PC for a month</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_call-of-duty-infinite-warfare-has-a-yolo-mode_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/call-of-duty-infinite-warfare-has-a-yolo-mode" class="article-title">Call of Duty: Infinite Warfare has a YOLO mode</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_mafia-3-is-2ks-fastest-selling-game-ever_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/mafia-3-is-2ks-fastest-selling-game-ever" class="article-title">Mafia 3 is 2K's fastest-selling game ever</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2016/11/03_farewell-to-driveclub-the-faltering-racer-that-became-one-of-the-generations-greats_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/farewell-to-driveclub-the-faltering-racer-that-became-one-of-the-generations-greats" class="article-title">Farewell to DriveClub, the PS4 launch disaster that became a racing great</a>
+			<div class="article-author">Martin Robinson</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g581a8b8942c54/Titanfall-series-will-continue-for-many-years-to-come/" class="article-title">Titanfall series will continue for "many years to come"</a>
+			<div class="article-subtitle">Not wall-runnin' anywhere just yet.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g581a7298b63b8/Bohemia-debuts-Incubator-initiative-and-two-new-games/" class="article-title">Bohemia debuts Incubator initiative and two new games</a>
+			<div class="article-subtitle">Guns and voxels.</div>
+			<div class="article-author">Andrew Todd</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            

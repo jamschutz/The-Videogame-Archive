@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+
+
+                <head>
+                    <link rel="stylesheet" type="text/css" href="/css/main.css">
+                    <link rel="stylesheet" type="text/css" href="/css/theme.css">
+                    <link rel="stylesheet" type="text/css" href="/css/archiveStatic.css">
+                    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
+                    
+                    <script src="/code/js/entities/CalendarDate.js"></script>
+
+                    <script src="/code/js/responses/GetArticleCountResponse.js"></script>
+
+                    <script src="/code/js/shared/UrlParser.js"></script>
+                    <script src="/code/js/shared/DataManager.js"></script>
+                    <script src="/code/js/shared/Config.js"></script>
+                    <script src="/code/js/shared/Utils.js"></script>
+
+                    <script src="/code/js/ui/Calendar.js"></script>
+
+                    <script src="/code/js/archiveStatic.js"></script>
+
+                    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&amp;display=swap" rel="stylesheet">
+                </head>
+            
+
+<html>
+
+<body>
+    <div>
+        <div id="calendar-month">
+        </div>
+    
+        <div class="container">
+            <div class="date-header">
+                <button onclick="goToPreviousDay()" >&lt;</button>
+                <span id="date-display">August 22, 2018</span>
+                <button onclick="goToNextDay()" >&gt;</button>
+                <input id="search-bar" type="search" placeholder="Search..." >
+            </div>
+
+            <div id="articles" class="article-container">
+                <div class="publication-column">
+	<span class="publication-column-header">GameSpot</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_alien-covenant-will-be-a-dark-horror-movie_1100-6441754_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/alien-covenant-will-be-a-dark-horror-movie/1100-6441754/" class="article-title">Alien: Covenant Will Be a "Dark Horror Movie"</a>
+			<div class="article-subtitle">"There is no comic relief in this at all."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_bond-villain-actor-in-talks-to-play-frankenstein-i_1100-6441719_thumbnail.gif">
+			<a href="https://www.gamespot.com/articles/bond-villain-actor-in-talks-to-play-frankenstein-i/1100-6441719/" class="article-title">Bond Villain Actor in Talks to Play Frankenstein in Monster Movie Universe</a>
+			<div class="article-subtitle">Javier Bardem is one of several big names in talks for roles in the classic monster series.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_kingsman-the-golden-circle-image-confirms-return-o_1100-6441714_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/kingsman-the-golden-circle-image-confirms-return-o/1100-6441714/" class="article-title">Kingsman: The Golden Circle Image Confirms Return of Key Character [SPOILERS]</a>
+			<div class="article-subtitle">May the Firth Be With You</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_quentin-tarantino-says-he-will-only-make-two-more-_1100-6441763_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/quentin-tarantino-says-he-will-only-make-two-more-/1100-6441763/" class="article-title">Quentin Tarantino Says He Will Only Make Two More Films</a>
+			<div class="article-subtitle">QT to quit?</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_young-han-solo-actor-is-confirmed-star-and-directo_1100-6441901_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/young-han-solo-actor-is-confirmed-star-and-directo/1100-6441901/" class="article-title">Young Han Solo Actor Is Confirmed, Star and Directors Discuss Star Wars Spinoff</a>
+			<div class="article-subtitle">Alden Ehrenreich is Han Solo.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-alien-covenant-picture-puts-danny-mcbride-at-t_1100-6442077_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-alien-covenant-picture-puts-danny-mcbride-at-t/1100-6442077/" class="article-title">New Alien: Covenant Picture Puts Danny McBride at the Controls of Ship</a>
+			<div class="article-subtitle">Flyboy.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-thor-movie-production-update-suggests-there-ma_1100-6442349_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-thor-movie-production-update-suggests-there-ma/1100-6442349/" class="article-title">New Thor Movie Production Update Suggests There May Be More Hulk Than Banner</a>
+			<div class="article-subtitle">Mark Ruffalo has finished work on Thor: Ragnarok.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_acclaimed-manga-series-death-note-adds-willem-dafo_1100-6442325_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/acclaimed-manga-series-death-note-adds-willem-dafo/1100-6442325/" class="article-title">Acclaimed Manga Series Death Note Adds Willem Dafoe to Film Adaptation</a>
+			<div class="article-subtitle">Uncle Ryuk.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-thor-ragnarok-image-reveals-return-of-key-vill_1100-6442506_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-thor-ragnarok-image-reveals-return-of-key-vill/1100-6442506/" class="article-title">New Thor: Ragnarok Image Reveals Return of Key Villain</a>
+			<div class="article-subtitle">Loki Who''s Talking.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-rogue-one-director-talks-about-the-movie_1100-6442454_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-rogue-one-director-talks-about-the-movie/1100-6442454/" class="article-title">Star Wars Rogue One Director Talks About the Movie's New Planet</a>
+			<div class="article-subtitle">"It''s an occupied territory."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_oceans-eleven-reboot-cast-revealed-includes-sandra_1100-6442518_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/oceans-eleven-reboot-cast-revealed-includes-sandra/1100-6442518/" class="article-title">Ocean's Eleven Reboot Cast Revealed, Includes Sandra Bullock and Anne Hathaway</a>
+			<div class="article-subtitle">An all-female team assembles for Ocean''s Eight.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_world-war-z-sequel-brad-pitt-wants-this-director-t_1100-6442541_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/world-war-z-sequel-brad-pitt-wants-this-director-t/1100-6442541/" class="article-title">World War Z Sequel: Brad Pitt Wants This Director to Make It</a>
+			<div class="article-subtitle">Pitt wants Gone Girl director David Fincher to helm the zombie sequel.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_aquaman-star-to-play-the-crow-in-movie-reboot-repo_1100-6442537_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aquaman-star-to-play-the-crow-in-movie-reboot-repo/1100-6442537/" class="article-title">Aquaman Star to Play The Crow in Movie Reboot - Report</a>
+			<div class="article-subtitle">Crowzy!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-jumanji-movie-will-be-a-sequel-not-a-remake_1100-6442862_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-jumanji-movie-will-be-a-sequel-not-a-remake/1100-6442862/" class="article-title">New Jumanji Movie Will Be a Sequel, Not a Remake</a>
+			<div class="article-subtitle">Dwayne Johnson will star in the update of the Robin Williams classic.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_guardians-of-the-galaxy-will-be-in-next-avengers-m_1100-6442859_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/guardians-of-the-galaxy-will-be-in-next-avengers-m/1100-6442859/" class="article-title">Guardians of the Galaxy Will Be in Next Avengers Movie</a>
+			<div class="article-subtitle">Groot news!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_amazons-new-jack-ryan-show-confirmed-for-10-part-f_1100-6442676_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/amazons-new-jack-ryan-show-confirmed-for-10-part-f/1100-6442676/" class="article-title">Amazon's New Jack Ryan Show Confirmed for 10-Part First Season</a>
+			<div class="article-subtitle">Jack''s back.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_james-camerons-battle-angel-alita-could-star-bond-_1100-6442999_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/james-camerons-battle-angel-alita-could-star-bond-/1100-6442999/" class="article-title">James Cameron's Battle Angel Alita Could Star Bond Villain</a>
+			<div class="article-subtitle">Christoph Waltz is in talks to star in the upcoming manga adaptation.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_ghost-in-the-shell-movie-cast-revealed-in-characte_1100-6443001_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ghost-in-the-shell-movie-cast-revealed-in-characte/1100-6443001/" class="article-title">Ghost in the Shell Movie Cast Revealed in Character Images - Report</a>
+			<div class="article-subtitle">Meet the Major.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_harry-potter-could-return-for-cursed-child-movie-r_1100-6443171_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/harry-potter-could-return-for-cursed-child-movie-r/1100-6443171/" class="article-title">Harry Potter Could Return for Cursed Child Movie - Report</a>
+			<div class="article-subtitle">[Update] Warner Bros. says there are no plans to adapt Harry Potter and the Cursed Child for the big screen.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-spider-man-homecoming-pictures-reveal-a-key-vi_1100-6443320_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-spider-man-homecoming-pictures-reveal-a-key-vi/1100-6443320/" class="article-title">New Spider-Man Homecoming Pictures Reveal a Key Villain [SPOILERS]</a>
+			<div class="article-subtitle">Shocking!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_ready-player-one-images-reveal-apocalyptic-world-o_1100-6443337_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ready-player-one-images-reveal-apocalyptic-world-o/1100-6443337/" class="article-title">Ready Player One Images Reveal Apocalyptic World of Steven Spielberg's New Sci-fi Movie</a>
+			<div class="article-subtitle">Ready Player Brum.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_dark-souls-trilogy-is-not-coming-to-europe_1100-6461328_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dark-souls-trilogy-is-not-coming-to-europe/1100-6461328/" class="article-title">Dark Souls Trilogy Is Not Coming To Europe</a>
+			<div class="article-subtitle">At least Dark Souls: Remastered on Switch is still coming.</div>
+			<div class="article-author">Chris Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_dying-lights-battle-royale-style-mode-bad-blood-re_1100-6461236_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dying-lights-battle-royale-style-mode-bad-blood-re/1100-6461236/" class="article-title">Dying Light's Battle Royale-Style Mode, Bad Blood, Release Window Announced</a>
+			<div class="article-subtitle">The "brutal royale" game launches in Steam Early Access next month.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_nba-2k19-is-making-lots-of-changes-to-myteam-mode_1100-6461218_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/nba-2k19-is-making-lots-of-changes-to-myteam-mode/1100-6461218/" class="article-title">NBA 2K19 Is Making Lots Of Changes To MyTeam Mode</a>
+			<div class="article-subtitle">Visual Concepts outlines the major changes in this year''s iteration of MyTeam.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_pokemon-go-celebi-special-research-quests-now-avai_1100-6461207_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-celebi-special-research-quests-now-avai/1100-6461207/" class="article-title">Pokemon Go: Celebi Special Research Quests Now Available</a>
+			<div class="article-subtitle">The Mythical Pokemon will be the topic of a new Special Research quest.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_pokemon-go-new-legendary-regirock-now-available-fo_1100-6461213_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-new-legendary-regirock-now-available-fo/1100-6461213/" class="article-title">Pokemon Go: New Legendary, Regirock, Now Available For A Limited Time</a>
+			<div class="article-subtitle">Another Legendary has arrived.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-pokemon-go-move-discovered-in-games-code_1100-6461278_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-pokemon-go-move-discovered-in-games-code/1100-6461278/" class="article-title">New Pokemon Go Move Discovered In Game's Code</a>
+			<div class="article-subtitle">It looks like Metagross''s signature attack, Meteor Mash, could be coming to the mobile game.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_pokemon-go-adding-a-new-kind-of-berry-through-cele_1100-6461294_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pokemon-go-adding-a-new-kind-of-berry-through-cele/1100-6461294/" class="article-title">Pokemon Go Adding A New Kind Of Berry Through Celebi Quest</a>
+			<div class="article-subtitle">Get your hands on the new Silver Pinap Berry by completing Special Research tasks.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_the-crow-movie-reboot-will-start-shooting-very-soo_1100-6443365_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/the-crow-movie-reboot-will-start-shooting-very-soo/1100-6443365/" class="article-title">The Crow Movie Reboot Will Start Shooting Very Soon</a>
+			<div class="article-subtitle">Momoa''s a goer.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-spider-man-homecoming-video-showcases-mocap-br_1100-6443471_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-spider-man-homecoming-video-showcases-mocap-br/1100-6443471/" class="article-title">New Spider-Man: Homecoming Video Showcases Mocap Breakdancing</a>
+			<div class="article-subtitle">Spidey spins!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_first-avengers-infinity-war-shoot-image-shows-than_1100-6443437_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/first-avengers-infinity-war-shoot-image-shows-than/1100-6443437/" class="article-title">First Avengers: Infinity War Shoot Image Shows Thanos Actor Doing Mocap</a>
+			<div class="article-subtitle">Mo-Cap Magic.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_spider-man-creator-stan-lees-life-is-being-turned-_1100-6443565_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-creator-stan-lees-life-is-being-turned-/1100-6443565/" class="article-title">Spider-Man Creator Stan Lee's Life Is Being Turned into an Action Movie--Report</a>
+			<div class="article-subtitle">Excelsior!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-spider-man-homecoming-pictures-showcase-scary-_1100-6443728_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/new-spider-man-homecoming-pictures-showcase-scary-/1100-6443728/" class="article-title">New Spider-Man Homecoming Pictures Showcase Scary-looking Helicopter Stunts</a>
+			<div class="article-subtitle">Hanging around.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_god-of-war-ps4s-new-game-plus-update-is-now-availa_1100-6461266_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/god-of-war-ps4s-new-game-plus-update-is-now-availa/1100-6461266/" class="article-title">God Of War PS4's New Game Plus Update Is Now Available</a>
+			<div class="article-subtitle">Keep your weapons, abilities, and unlocks for a second playthrough.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_nintendos-surprise-direct-style-video-reveals-new-_1100-6461260_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/nintendos-surprise-direct-style-video-reveals-new-/1100-6461260/" class="article-title">Nintendo's Surprise Direct-Style Video Reveals New Switch Games, Including Some Out Now</a>
+			<div class="article-subtitle">Even more games to play on Switch are on the way.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_pubg-xbox-one-exits-early-access-with-10-release-s_1100-6461287_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pubg-xbox-one-exits-early-access-with-10-release-s/1100-6461287/" class="article-title">PUBG Xbox One Exits Early Access With 1.0 Release Soon; Here's What It Includes</a>
+			<div class="article-subtitle">Here''s everything new coming to PUBG on Xbox One next month.</div>
+			<div class="article-author">Chris Pereira</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_new-law-to-stop-commercial-movie-sites-from-listin_1100-6443916_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/new-law-to-stop-commercial-movie-sites-from-listin/1100-6443916/" class="article-title">New Law to Stop Commercial Movie Sites From Listing Actors' Ages</a>
+			<div class="article-subtitle">Subscription sites such as IMDB Pro will have to remove the age of actors upon request.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_transformers-5-director-michael-bay-comments-on-na_1100-6443908_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/transformers-5-director-michael-bay-comments-on-na/1100-6443908/" class="article-title">Transformers 5: Director Michael Bay Comments on Nazi Flag Controversy</a>
+			<div class="article-subtitle">"Churchill would be smiling about Last Knight."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_supergirl-and-arrow-team-up-in-new-image-from-dc-t_1100-6444031_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/supergirl-and-arrow-team-up-in-new-image-from-dc-t/1100-6444031/" class="article-title">Supergirl and Arrow Team Up in New Image from DC TV Show Crossover</a>
+			<div class="article-subtitle">Arrow star Stephen Amell tweets on-set image.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_dcs-justice-league-movie-finishes-london-shoot-aqu_1100-6444118_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/dcs-justice-league-movie-finishes-london-shoot-aqu/1100-6444118/" class="article-title">DC's Justice League Movie Finishes London Shoot, Aquaman Star Missed Wrap Party</a>
+			<div class="article-subtitle">"I''m a huge fan of the food and merriment!"</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_wolverine-3-star-reveals-films-new-title-update_1100-6444202_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wolverine-3-star-reveals-films-new-title-update/1100-6444202/" class="article-title">Wolverine 3 Star Reveals Film's New Title [UPDATE]</a>
+			<div class="article-subtitle">It''s now called Logan.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_wolverine-3-director-reveals-a-striking-new-profes_1100-6444281_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/wolverine-3-director-reveals-a-striking-new-profes/1100-6444281/" class="article-title">Wolverine 3 Director Reveals a Striking New Professor X Image</a>
+			<div class="article-subtitle">"Nothing like the Charles Xavier you''ve seen in the past."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_female-led-oceans-11-reboot-gets-release-date-and-_1100-6444240_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/female-led-oceans-11-reboot-gets-release-date-and-/1100-6444240/" class="article-title">Female-led Ocean's 11 Reboot Gets Release Date and Final Cast</a>
+			<div class="article-subtitle">Ocean''s Eight will hit theaters in June 2018.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_aladdin-live-action-movie-planned-snatch-director-_1100-6444348_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/aladdin-live-action-movie-planned-snatch-director-/1100-6444348/" class="article-title">Aladdin Live-Action Movie Planned, Snatch Director Could Be Attached</a>
+			<div class="article-subtitle">Genie-ous!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_avengers-director-wants-to-make-a-star-wars-movie_1100-6444678_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/avengers-director-wants-to-make-a-star-wars-movie/1100-6444678/" class="article-title">Avengers Director Wants to Make a Star Wars Movie</a>
+			<div class="article-subtitle">"I want to do that."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_spider-man-homecoming-star-confirms-sequel-is-in-d_1100-6444517_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/spider-man-homecoming-star-confirms-sequel-is-in-d/1100-6444517/" class="article-title">Spider-Man Homecoming Star Confirms Sequel Is in Discussions</a>
+			<div class="article-subtitle">"I''m the luckiest kid alive."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_x-men-apocalypse-director-and-mr-robot-star-line-u_1100-6445170_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/x-men-apocalypse-director-and-mr-robot-star-line-u/1100-6445170/" class="article-title">X-Men Apocalypse Director and Mr. Robot Star Line Up for Freddie Mercury Movie</a>
+			<div class="article-subtitle">It''s a Kind of Malek.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_watch-the-mysterious-and-thrilling-ghost-in-the-sh_1100-6445374_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/watch-the-mysterious-and-thrilling-ghost-in-the-sh/1100-6445374/" class="article-title">Watch the Mysterious and Thrilling Ghost in the Shell Movie Trailer</a>
+			<div class="article-subtitle">"Everything they told you was a lie."</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_avengers-infinity-war-directors-share-trippy-stair_1100-6445276_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/avengers-infinity-war-directors-share-trippy-stair/1100-6445276/" class="article-title">Avengers Infinity War Directors Share Trippy Staircase Image</a>
+			<div class="article-subtitle">Strange stairs?</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_johnny-depps-role-in-fantastic-beasts-2-confirmed-_1100-6445269_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/johnny-depps-role-in-fantastic-beasts-2-confirmed-/1100-6445269/" class="article-title">Johnny Depp's Role in Fantastic Beasts 2 Confirmed by Director</a>
+			<div class="article-subtitle">Depp is Grindelwald!</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_steve-carell-in-talks-to-join-minecraft-movie-repo_1100-6445471_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/steve-carell-in-talks-to-join-minecraft-movie-repo/1100-6445471/" class="article-title">Steve Carell in Talks to Join Minecraft Movie - Report</a>
+			<div class="article-subtitle">Carell gets Crafty.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_kevin-spaceys-new-movie-made-only-126-on-its-first_1100-6461251_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/kevin-spaceys-new-movie-made-only-126-on-its-first/1100-6461251/" class="article-title">Kevin Spacey's New Movie Made Only $126 On Its First Day In Theatres</a>
+			<div class="article-subtitle">That''s the lowest ever for Spacey.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_moviepass-now-only-lets-you-see-certain-movies-on-_1100-6461268_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/moviepass-now-only-lets-you-see-certain-movies-on-/1100-6461268/" class="article-title">MoviePass Now Only Lets You See Certain Movies On Any Given Day</a>
+			<div class="article-subtitle">It''s likely you won''t see the movie you want through MoviePass.</div>
+			<div class="article-author">jeremy winslow</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_riverdale-season-3-casts-breakfast-club-star-for-f_1100-6461309_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/riverdale-season-3-casts-breakfast-club-star-for-f/1100-6461309/" class="article-title">Riverdale Season 3 Casts Breakfast Club Star For Flashback Episode</a>
+			<div class="article-subtitle">Sincerely yours, the Breakfast Club.</div>
+			<div class="article-author">Chris E. Hayner</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_ps4-and-xbox-one-game-deals-this-week-at-gamestop-_1100-6461335_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/ps4-and-xbox-one-game-deals-this-week-at-gamestop-/1100-6461335/" class="article-title">PS4 And Xbox One Game Deals This Week At GameStop In The US</a>
+			<div class="article-subtitle">All the week''s best deals.</div>
+			<div class="article-author">Chris Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_some-great-nintendo-switch-games-are-on-sale-right_1100-6461157_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/some-great-nintendo-switch-games-are-on-sale-right/1100-6461157/" class="article-title">Some Great Nintendo Switch Games Are On Sale Right Now In The US</a>
+			<div class="article-subtitle">Long live the Switch.</div>
+			<div class="article-author">Chris Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_nintendo-switch-eshop-sale-highlights-some-fine-ga_1100-6461313_thumbnail..jpg">
+			<a href="https://www.gamespot.com/articles/nintendo-switch-eshop-sale-highlights-some-fine-ga/1100-6461313/" class="article-title">Nintendo Switch Eshop Sale Highlights Some Fine Games (US Only)</a>
+			<div class="article-subtitle">Something for everyone.</div>
+			<div class="article-author">Chris Reed</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_pubg-adds-training-mode-on-pc-next-month_1100-6461343_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/pubg-adds-training-mode-on-pc-next-month/1100-6461343/" class="article-title">PUBG Adds Training Mode On PC Next Month</a>
+			<div class="article-subtitle">Try out weapons and practice skills on a new dedicated map.</div>
+			<div class="article-author">Kevin Knezevic</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_vermont-authorities-use-star-wars-to-combat-drunk-_1100-6433324_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/vermont-authorities-use-star-wars-to-combat-drunk-/1100-6433324/" class="article-title">Vermont Authorities Use Star Wars to Combat Drunk Driving</a>
+			<div class="article-subtitle">"Drink and drive? Path to dark side, it is."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_this-westworld-chatbot-answers-your-questions-abou_1100-6444059_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/this-westworld-chatbot-answers-your-questions-abou/1100-6444059/" class="article-title">This Westworld Chatbot Answers Your Questions About the Virtual Reality Park</a>
+			<div class="article-subtitle">Westworld debuts on October 2.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_this-action-movie-star-makes-a-surprising-star-war_1100-6433231_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/this-action-movie-star-makes-a-surprising-star-war/1100-6433231/" class="article-title">This Action Movie Star Makes a Surprising Star Wars 7 Cameo</a>
+			<div class="article-subtitle">[POTENTIAL SPOILERS] The action movie star''s role, revealed.</div>
+			<div class="article-author">Dan Auty</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_this-is-what-star-wars-7-the-force-awakens-was-ori_1100-6433384_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/this-is-what-star-wars-7-the-force-awakens-was-ori/1100-6433384/" class="article-title">This Is What Star Wars 7: The Force Awakens Was Originally Titled</a>
+			<div class="article-subtitle">Name change.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_suicide-squad-actor-confirms-reshoots-denies-theyr_1100-6438637_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/suicide-squad-actor-confirms-reshoots-denies-theyr/1100-6438637/" class="article-title">Suicide Squad Actor Confirms Reshoots, Denies They're to Make the Movie Funnier</a>
+			<div class="article-subtitle">"You can''t believe everything you read."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_suicide-squad-could-break-august-box-office-record_1100-6441823_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/suicide-squad-could-break-august-box-office-record/1100-6441823/" class="article-title">Suicide Squad Could Break August Box Office Record With as Much as $140 Million</a>
+			<div class="article-subtitle">It could also become Will Smith''s best opening ever, surpassing 2007''s I Am Legend.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_stranger-things-season-2-sees-this-major-character_1100-6445009_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/stranger-things-season-2-sees-this-major-character/1100-6445009/" class="article-title">Stranger Things Season 2 Sees This Major Character Return</a>
+			<div class="article-subtitle">Season 2 is said to be "darker and weirder."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-the-last-jedis-title-is-plural-report_1100-6447984_thumbnail.jpg">
+			<a href="https://www.gamespot.com/articles/star-wars-the-last-jedis-title-is-plural-report/1100-6447984/" class="article-title">Star Wars: The Last Jedi's Title Is Plural - Report</a>
+			<div class="article-subtitle">But what does that mean?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-the-last-jedi-disney-ceo-has-seen-it-alr_1100-6447654_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/star-wars-the-last-jedi-disney-ceo-has-seen-it-alr/1100-6447654/" class="article-title">Star Wars: The Last Jedi -- Disney CEO Has Seen It Already And Weighs In</a>
+			<div class="article-subtitle">''It''s a great next chapter in the iconic Skywalker family saga."</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-the-last-jedi-director-says-you-should-c_1100-6453878_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/star-wars-the-last-jedi-director-says-you-should-c/1100-6453878/" class="article-title">Star Wars: The Last Jedi Director Says You Should Consider Skipping The New Trailer [Update: Nevermind]</a>
+			<div class="article-subtitle">Rian Johnson says he is "legitimately torn" about the trailer.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-the-force-awakens-latest-poster-focuses-_1100-6432940_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/star-wars-the-force-awakens-latest-poster-focuses-/1100-6432940/" class="article-title">Star Wars: The Force Awakens' Latest Poster Focuses on BB-8</a>
+			<div class="article-subtitle">It''s your time, BB-8.</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/GameSpot/_thumbnails/2018/08/22_star-wars-episode-8-and-han-solo-movie-details-com_1100-6441401_thumbnail.png">
+			<a href="https://www.gamespot.com/articles/star-wars-episode-8-and-han-solo-movie-details-com/1100-6441401/" class="article-title">Star Wars Episode 8 and Han Solo Movie Details Coming Next Month</a>
+			<div class="article-subtitle">What are you hoping to see?</div>
+			<div class="article-author">Eddie Makuch</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Eurogamer</span>
+	<hr>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_theres-a-dark-souls-trilogy-collection-coming-to-ps4-and-xbox-one_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/theres-a-dark-souls-trilogy-collection-coming-to-ps4-and-xbox-one" class="article-title">There's a Dark Souls Trilogy collection coming to PS4 and Xbox One</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_for-honor-is-currently-free-on-steam-and-with-xbox-live-gold_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/for-honor-is-currently-free-on-steam-and-with-xbox-live-gold" class="article-title">For Honor is currently free on Steam and with Xbox Live Gold</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_pubg-is-getting-an-elaborate-training-mode-complete-with-its-very-own-2x2km-map_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/pubg-is-getting-an-elaborate-training-mode-complete-with-its-very-own-2x2km-map" class="article-title">PUBG is getting an elaborate Training Mode, complete with its very own 2x2km map</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_fifa-19-producers-open-to-adding-fortnite-celebrations-but-sounds-like-not-this-year_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/fifa-19-producers-open-to-adding-fortnite-celebrations-but-sounds-like-not-this-year" class="article-title">FIFA 19 may add Fortnite celebrations - but probably not this year</a>
+			<div class="article-author">Emma Kent</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_rare-dates-and-details-sea-of-thieves-big-forsaken-shores-content-update_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/rare-dates-and-details-sea-of-thieves-big-forsaken-shores-content-update" class="article-title">Rare dates and details Sea of Thieves' big Forsaken Shores content update</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_trials-rising-gets-a-release-date-and-beta-details_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/trials-rising-gets-a-release-date-and-beta-details" class="article-title">Trials Rising gets a release date and beta details</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_the-crew-2s-free-hovercraft-themed-gator-rush-update-gets-a-september-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-crew-2s-free-hovercraft-themed-gator-rush-update-gets-a-september-release-date" class="article-title">The Crew 2's free hovercraft-themed Gator Rush update gets a September release date</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_gabe-newell-dota-2-voice-over_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/gabe-newell-dota-2-voice-over" class="article-title">Gabe Newell refuses to say the number 3 in surprisingly funny Dota 2 voice recording</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_four-minutes-of-the-resident-evil-2-remake-gameplay-starring-claire_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/four-minutes-of-the-resident-evil-2-remake-gameplay-starring-claire" class="article-title">Four minutes of the Resident Evil 2 remake gameplay starring Claire</a>
+			<div class="article-author">Wesley Yin-Poole</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_nintendo-switch-version-of-football-manager-2019-touch-confirmed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/nintendo-switch-version-of-football-manager-2019-touch-confirmed" class="article-title">Nintendo Switch version of Football Manager 2019 Touch confirmed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_get-six-months-xbox-live-gold-for-the-price-of-three-today-only_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/get-six-months-xbox-live-gold-for-the-price-of-three-today-only" class="article-title">Get six months Xbox Live Gold for the price of three - today only</a>
+			<div class="article-author">Jamie Wallace</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_overwatch-d-va-animated-short-and-korean-busan-map-revealed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/overwatch-d-va-animated-short-and-korean-busan-map-revealed" class="article-title">Overwatch D. Va animated short and Korean Busan map revealed</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_graveyard-keeper-review-a-management-sim-hampered-by-its-own-complexities_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/graveyard-keeper-review-a-management-sim-hampered-by-its-own-complexities" class="article-title">Graveyard Keeper review - a management sim hampered by its own complexities</a>
+			<div class="article-subtitle">Arcane busywork leaves little room for genuine pleasure in this fascinating and frustrating genre oddity.</div>
+			<div class="article-author">Malindy Hetfeld</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_assassins-creed-will-take-a-year-off-in-2019_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/assassins-creed-will-take-a-year-off-in-2019" class="article-title">Assassin's Creed will take a year off in 2019</a>
+			<div class="article-author">Tom Phillips</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_life-is-strange-2_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/life-is-strange-2" class="article-title">Why Life is Strange 2 is ditching Arcadia Bay for its radically different roadtrip</a>
+			<div class="article-author">Aoife Wilson</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_grandia-i-and-ii-remasters-coming-to-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/grandia-i-and-ii-remasters-coming-to-switch" class="article-title">Grandia I and II remasters coming to Nintendo Switch</a>
+			<div class="article-author">Matthew Reynolds</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_funcoms-promising-xcom-like-mutant-year-zero-road-to-eden-gets-a-release-date_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/funcoms-promising-xcom-like-mutant-year-zero-road-to-eden-gets-a-release-date" class="article-title">Funcom's promising XCOM-like Mutant Year Zero: Road to Eden gets a release date</a>
+			<div class="article-author">Robert Purchese</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_battle-for-azeroth-recaptures-something-world-of-warcraft-has-long-missed_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/battle-for-azeroth-recaptures-something-world-of-warcraft-has-long-missed" class="article-title">Battle for Azeroth recaptures something World of Warcraft has long missed</a>
+			<div class="article-author">Oli Welsh</div>
+		</div>
+		<div class="article">
+			<img class="article-thumbnail" src ="/archive/Eurogamer/_thumbnails/2018/08/22_the-walking-dead-the-complete-first-season-launches-next-week-on-switch_thumbnail.jpg">
+			<a href="https://www.eurogamer.net/the-walking-dead-the-complete-first-season-launches-next-week-on-switch" class="article-title">The Walking Dead: The Complete First Season launches next week on Switch</a>
+			<div class="article-author">Matt Wales</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Gameplanet</span>
+	<hr>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5b7c745f253cc/Until-Dawn-devs-announce-new-horror-anthology/" class="article-title">Until Dawn devs announce new horror anthology</a>
+			<div class="article-subtitle">Horror + under water = I wont be playing</div>
+			<div class="article-author">Dan Grayson</div>
+		</div>
+		<div class="article">
+			<a href="https://www.gameplanet.co.nz/news/g5b7c8375891e8/Hitman-2-will-include-all-levels-from-the-previous-game/" class="article-title">Hitman 2 will include all levels from the previous game</a>
+			<div class="article-subtitle">"Remastered and Enhanced"</div>
+			<div class="article-author">Andi Garnett</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">JayIsGames</span>
+	<hr>
+		<div class="article">
+			<a href="https://jayisgames.com/review/weekday-escape---retro-edition-n16.php" class="article-title">Weekday Escape - Retro Edition N°16</a>
+			<div class="article-author">chrpa</div>
+		</div>
+		<div class="article">
+			<a href="https://jayisgames.com/review/monkey-go-happy-roundup-20.php" class="article-title">Monkey GO Happy Roundup 20</a>
+			<div class="article-author">Arceus</div>
+		</div>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">TIGSource</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+<div class="publication-column">
+	<span class="publication-column-header">Indygamer</span>
+	<hr>
+	<p class="no-article-msg">No articles found for this date.</p>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+            
