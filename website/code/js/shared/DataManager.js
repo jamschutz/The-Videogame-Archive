@@ -96,7 +96,7 @@ var DataManager = /** @class */ (function () {
             var response, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Search?title=").concat(searchRequest.searchTerms.join('+'), "&subtitle=").concat(searchRequest.searchTerms.join('+')), {
+                    case 0: return [4 /*yield*/, fetch("".concat(Config.API_BASE_URL, "/Search?term=").concat(searchRequest.searchTerms.join('+')), {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json'

@@ -1,6 +1,6 @@
 # change these values
 $websiteName = "GameSpot"
-$startDate = '2000/04'
+$startDate = '2022/09'
 $endDate = '2023/03'
 
 $storageAccountName = "vgastorageaccountdev"

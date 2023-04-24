@@ -209,7 +209,7 @@ var Calendar = /** @class */ (function () {
                         dayClass = dayHasArticles ? Calendar.DAY_LINK_ACTIVE : Calendar.DAY_LINK_INACTIVE;
                         day.classList.add(dayClass);
                         day.innerText = dateNumber.toString();
-                        day.href = "/html/archive.html?date=".concat(this.date.year).concat(Utils.getTwoCharNum(this.date.month)).concat(Utils.getTwoCharNum(dateNumber.toString()));
+                        day.href = "/html/archive/".concat(this.date.year, "/").concat(Utils.getTwoCharNum(this.date.month), "/").concat(Utils.getTwoCharNum(dateNumber.toString()), ".html");
                     }
                     // if this is the current date, highlight it
                     if (dateNumber == this.date.day) {

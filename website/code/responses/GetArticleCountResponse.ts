@@ -1,11 +1,11 @@
 class GetArticleCountResponse {
     public data : ArticleCountData[]
 
-    constructor(jsonData: []) {
+    constructor(jsonData: JSON) {
         this.data = [];
-        jsonData.forEach(d => {
-            this.data.push(new ArticleCountData(d));
-        });
+        for(const key in jsonData) {
+            this.data.push(new ArticleCountData(key, jsonData[key]));
+        }
     }
 }
 
@@ -14,8 +14,8 @@ class ArticleCountData {
     public count : number;
     public date : CalendarDate;
 
-    constructor(data: JSON) {
-        this.count = data['count'];
-        this.date = CalendarDate.fromDateString(data['date']);
+    constructor(date: string, count: number) {
+        this.count = count;
+        this.date = CalendarDate.fromDateString(date);
     }
 }
