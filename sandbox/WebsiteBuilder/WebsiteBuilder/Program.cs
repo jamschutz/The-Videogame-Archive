@@ -91,9 +91,9 @@ namespace WebsiteBuilder
 
             Console.WriteLine("writing to file...");
             // make sure folder exists
-            Directory.CreateDirectory($"{Config.StaticWebsiteFolder}/{year}/{Utils.Utils.GetTwoCharInt(month)}");
+            Directory.CreateDirectory($"{Config.StaticWebsiteFolder}/{year}/{month}");
             // and write to file
-            File.WriteAllText($"{Config.StaticWebsiteFolder}/{year}/{Utils.Utils.GetTwoCharInt(month)}/{Utils.Utils.GetTwoCharInt(day)}.html", html);
+            File.WriteAllText($"{Config.StaticWebsiteFolder}/{year}/{month}/{day}.html", html);
         }
 
 
