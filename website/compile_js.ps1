@@ -24,7 +24,7 @@ $storageAccountName = "vgastorageaccountdev"
 $containerName = "`$web"
 Write-Output "uploading to azure..."
 # az storage blob upload -f "code/js/vga_archive.js" -c "${containerName}/code/js" -n "vga_archive.js"
-az storage blob upload --account-name $storageAccountName --container-name "${containerName}/code/js" --file "code/js/vga_archive.js" --name "vga_archive.js" --content-type "text/javascript"
+az storage blob upload --overwrite --account-name $storageAccountName --container-name "${containerName}/code/js" --file "code/js/vga_archive.js" --name "vga_archive.js" --content-type "text/javascript"
 
 
 Write-Output "done"

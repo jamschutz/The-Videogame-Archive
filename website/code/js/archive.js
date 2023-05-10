@@ -130,7 +130,7 @@ function goToPreviousDay() {
     goToTargetDate(targetDate);
 }
 function goToTargetDate(targetDate) {
-    window.location.href = "/html/archive.html?date=".concat(targetDate.year).concat(Utils.getTwoCharNum(targetDate.month)).concat(Utils.getTwoCharNum(targetDate.day));
+    window.location.href = "/html/archive/".concat(targetDate.year, "/").concat(targetDate.month, "/").concat(targetDate.day, ".html");
 }
 // calendar button functions
 function goToNextCalendarMonth() {
