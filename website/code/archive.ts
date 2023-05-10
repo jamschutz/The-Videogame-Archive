@@ -44,36 +44,36 @@ async function appendMagazinePOC() {
 }
 
 
-async function initPage() {
-    let articles = await dataManager.getArticlesForDayAsync(UrlParser.getDate());
+// async function initPage() {
+//     let articles = await dataManager.getArticlesForDayAsync(UrlParser.getDate());
 
-    let websites = {
-        'GameSpot': [],
-        'Eurogamer': [],
-        'Gameplanet': [], 
-        'JayIsGames': [],
-        'TIGSource': [],
-        'Indygamer': []
-    };
+//     let websites = {
+//         'GameSpot': [],
+//         'Eurogamer': [],
+//         'Gameplanet': [], 
+//         'JayIsGames': [],
+//         'TIGSource': [],
+//         'Indygamer': []
+//     };
 
-    for(let i = 0; i < articles.length; i++) {
-        websites[articles[i].website].push(articles[i]);
-    }
+//     for(let i = 0; i < articles.length; i++) {
+//         websites[articles[i].website].push(articles[i]);
+//     }
 
-    let articlesDiv = document.getElementById('articles');
-    for(let i = 0; i < NUM_WEBSITES; i++) {
-        let websiteName = Config.websiteIdToName(i + 1);
-        let paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
-        let websiteArticles = websites[websiteName];
+//     let articlesDiv = document.getElementById('articles');
+//     for(let i = 0; i < NUM_WEBSITES; i++) {
+//         let websiteName = Config.websiteIdToName(i + 1);
+//         let paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
+//         let websiteArticles = websites[websiteName];
 
-        let websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
-        articlesDiv.appendChild(websiteColumn.toHtml());
-    }
+//         let websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
+//         articlesDiv.appendChild(websiteColumn.toHtml());
+//     }
 
-    await appendMagazinePOC();
+//     await appendMagazinePOC();
 
 
-}
+// }
 
 // buttons for the day
 function goToNextDay() {
@@ -105,7 +105,7 @@ function goToPreviousCalendarYear() {
 }
 
 
-initPage();
+// initPage();
 
 // on window load
 (function(window, document, undefined) {  

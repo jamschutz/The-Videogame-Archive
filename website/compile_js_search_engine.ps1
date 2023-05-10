@@ -23,7 +23,16 @@ $containerName = "`$web"
 Write-Output "uploading to azure..."
 
 Foreach ($file in $files) {
-    az storage blob upload --overwrite --account-name $storageAccountName --container-name "${containerName}/code/js" --file $file --name "vga_archive.js" --content-type "text/javascript"
+    $filenameStartIndex = $file.IndexOf("/", 8) + 1
+    if($filenameStartIndex -eq 0) {
+        $filenameStartIndex = 8
+    }
+    $folderPath = $file.Substring(0, $filenameStartIndex - 1)
+    $filename = $file.Substring($filenameStartIndex)
+    # Write-Output $folderPath
+    # Write-Output $filename
+    # Write-Output "--container-name $($containerName)/$($folderPath) --file $($filename)"
+    az storage blob upload --account-name $storageAccountName --container-name "${containerName}/${folderPath}" --file $file --name $filename --content-type "text/javascript"
 }
 
 

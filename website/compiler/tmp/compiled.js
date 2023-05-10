@@ -954,41 +954,29 @@ function appendMagazinePOC() {
         });
     });
 }
-function initPage() {
-    return __awaiter(this, void 0, void 0, function () {
-        var articles, websites, i, articlesDiv, i, websiteName, paddingLeft, websiteArticles, websiteColumn;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, dataManager.getArticlesForDayAsync(UrlParser.getDate())];
-                case 1:
-                    articles = _a.sent();
-                    websites = {
-                        'GameSpot': [],
-                        'Eurogamer': [],
-                        'Gameplanet': [],
-                        'JayIsGames': [],
-                        'TIGSource': [],
-                        'Indygamer': []
-                    };
-                    for (i = 0; i < articles.length; i++) {
-                        websites[articles[i].website].push(articles[i]);
-                    }
-                    articlesDiv = document.getElementById('articles');
-                    for (i = 0; i < NUM_WEBSITES; i++) {
-                        websiteName = Config.websiteIdToName(i + 1);
-                        paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
-                        websiteArticles = websites[websiteName];
-                        websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
-                        articlesDiv.appendChild(websiteColumn.toHtml());
-                    }
-                    return [4 /*yield*/, appendMagazinePOC()];
-                case 2:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
+// async function initPage() {
+//     let articles = await dataManager.getArticlesForDayAsync(UrlParser.getDate());
+//     let websites = {
+//         'GameSpot': [],
+//         'Eurogamer': [],
+//         'Gameplanet': [], 
+//         'JayIsGames': [],
+//         'TIGSource': [],
+//         'Indygamer': []
+//     };
+//     for(let i = 0; i < articles.length; i++) {
+//         websites[articles[i].website].push(articles[i]);
+//     }
+//     let articlesDiv = document.getElementById('articles');
+//     for(let i = 0; i < NUM_WEBSITES; i++) {
+//         let websiteName = Config.websiteIdToName(i + 1);
+//         let paddingLeft = PADDING_BETWEEN_WEBSITE_COLUMNS * i;
+//         let websiteArticles = websites[websiteName];
+//         let websiteColumn = new WebsiteColumn(websiteName, websiteArticles, paddingLeft);
+//         articlesDiv.appendChild(websiteColumn.toHtml());
+//     }
+//     await appendMagazinePOC();
+// }
 // buttons for the day
 function goToNextDay() {
     var targetDate = UrlParser.getDate();
@@ -1016,7 +1004,7 @@ function goToPreviousCalendarMonth() {
 function goToPreviousCalendarYear() {
     calendar.goToPreviousYear();
 }
-initPage();
+// initPage();
 // on window load
 (function (window, document, undefined) {
     window.onload = init;

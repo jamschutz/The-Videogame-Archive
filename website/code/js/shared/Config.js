@@ -54,6 +54,6 @@ var Config = /** @class */ (function () {
         return filename;
     };
     Config.API_BASE_URL = " https://vga-functionapp-dev.azurewebsites.net/api";
-    Config.LOCAL_FILE_BASE_URL = "http://localhost:5000";
+    Config.LOCAL_FILE_BASE_URL = "/archive";
     return Config;
 }());
