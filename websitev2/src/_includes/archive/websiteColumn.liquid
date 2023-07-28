@@ -1,0 +1,31 @@
+<div class="news-site-column" style="margin-left: 500px;">
+    <!-- header -->
+    <span class="news-site-column-header">{{ website.data.name }}</span>
+    <br><hr/>    
+    
+    <!-- articles -->
+    {% if articles.size == 0 %}
+        <p class="no-article-msg">No articles found for this date.</p>
+    {% else %}
+        {%- for article in articles %}
+            <!-- thumbnail -->
+            {% if article.thumbnail != null %}
+                <img class="article-thumbnail" src="{{ article.thumbnail }}"/>
+            {% endif %}
+
+            <!-- title -->
+            <a href="{{ article.url }}"  class="article-title">{{ article.title }}</a>
+            <br>        
+
+            <!-- subtitle -->
+            {% if article.subtitle != null %}
+                <div class="article-subtitle">{{ article.subtitle }}</div>
+            {% endif %} 
+
+            <!-- author -->
+            {% if article.author != null %}
+                <span class="article-author">{{ article.author }}</span>
+            {% endif %}
+        {% endfor -%}
+    {% endif %}
+</div>

@@ -1,0 +1,36 @@
+---
+layout: 'base.liquid'
+websites:
+- Eurogamer
+- Gameplanet
+- GameSpot
+- Indygamer
+- JayIsGames
+- TIGSource
+pagination:
+    data: collections.articleArchives
+    size: 1
+    alias: date
+permalink: "{{ date.year }}/{{ date.month }}/{{ date.day }}/index.html"
+# permalink: "2000/10/13/index.html"
+title: "Archive - {{ date.year }}/{{ date.month }}/{{ date.day }}"
+---
+
+<div class="container">
+    {% render "calendar.liquid" %}
+
+    <div class="article-container">
+        <div class="date-header">
+            <button onclick="goToPreviousDay()">&lt;</button>
+            <span id="date-display">August 31, 2001</span>
+            <button onclick="goToNextDay()">&gt;</button>
+        </div>
+        <div id="articles">
+            <div class="news-site-column" style="margin-left: 0px;">
+                {% for website in collections.websites %}
+                    {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name] %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
