@@ -1,3 +1,5 @@
+const PostCSSPlugin = require("eleventy-plugin-postcss")
+
 module.exports = function(eleventyConfig) {
     // ---- config ---- //
     const config = {
@@ -8,8 +10,8 @@ module.exports = function(eleventyConfig) {
     };
     
 
-    // ---- set up css ---- //
-    eleventyConfig.addPassthroughCopy('./src/css');
+    // -- assets --
+    eleventyConfig.addPlugin(PostCSSPlugin);
 
 
     // ---- handle article injection ---- //
