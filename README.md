@@ -123,3 +123,8 @@ https://distractionware.com/blog/page/70/
 
 think everything before "Welcome to the Lounge" does not need to be archived (they're all empty pages) <br/>
 https://www.escapistmagazine.com/category/news/page/3951/
+
+
+### Reference sites
+https://superfamicom.org/
+http://snescentral.com/

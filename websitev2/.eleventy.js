@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
 
     // -- assets --
     eleventyConfig.addPlugin(PostCSSPlugin);
+    eleventyConfig.addPassthroughCopy('img');
 
 
     // ---- handle article injection ---- //
