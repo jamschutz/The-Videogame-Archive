@@ -1,18 +1,16 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss")
+const { rm } = require("fs/promises")
 
 module.exports = function(eleventyConfig) {
-    // ---- config ---- //
-    const config = {
-        dir: {
-            input: "src",
-            output: "_site"
-        }
-    };
+    // -- constants --
+    const srcDir = "src"
+    const dstDir = "_site"
     
 
     // -- assets --
     eleventyConfig.addPlugin(PostCSSPlugin);
     eleventyConfig.addPassthroughCopy('img');
+    eleventyConfig.addPassthroughCopy('src/css');
 
 
     // ---- handle article injection ---- //
@@ -38,8 +36,20 @@ module.exports = function(eleventyConfig) {
             break;
     }
 
+    
+    // -- build --
+    // remove the _collections dir from the site output
+    eleventyConfig.on("eleventy.after", async () => {
+        await rm(`${dstDir}/_collections`, { recursive: true, force: true })
+    })
 
-    return config;
+
+    return {
+        dir: {
+            input: srcDir,
+            output: dstDir
+        }
+    };
 }
 
 
