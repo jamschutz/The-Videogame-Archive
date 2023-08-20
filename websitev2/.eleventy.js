@@ -3,8 +3,9 @@ const { rm } = require("fs/promises")
 
 module.exports = function(eleventyConfig) {
     // -- constants --
-    const srcDir = "src"
-    const dstDir = "_site"
+    const buildEnvironment = process.env.ENVIRONMENT.trim();
+    const srcDir = "src";
+    const dstDir = "_site";
     
 
     // -- assets --
@@ -14,7 +15,7 @@ module.exports = function(eleventyConfig) {
 
 
     // ---- handle article injection ---- //
-    switch(process.env.ENVIRONMENT.trim()) {
+    switch(buildEnvironment) {
         case "dev":
             // handle dev...
             console.log("DEV BUILD");
