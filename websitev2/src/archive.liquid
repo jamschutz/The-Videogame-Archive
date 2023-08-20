@@ -17,8 +17,11 @@ title: "Archive - {{ date.year }}/{{ date.month }}/{{ date.day }}"
         {% render "archive/articleDateHeader.liquid", date: date %}
 
         <div class="Archive-websiteColumnContainer">
-            ARTICLES
+            {% for website in collections.websites %}
+                {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name] %}
+            {% endfor %}
         </div>
+        
     </div>
 
 </div>

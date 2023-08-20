@@ -1,31 +1,35 @@
-<div class="news-site-column" style="margin-left: 500px;">
+<div class="Archive-websiteColumn">
     <!-- header -->
-    <span class="news-site-column-header">{{ website.data.name }}</span>
+    <span class="Archive-websiteColumnHeader">{{ website.data.name }}</span>
     <br><hr/>    
     
     <!-- articles -->
     {% if articles.size == 0 %}
-        <p class="no-article-msg">No articles found for this date.</p>
+        <p class="Archive-noArticleMsg">No articles found for this date.</p>
     {% else %}
-        {%- for article in articles %}
-            <!-- thumbnail -->
-            {% if article.thumbnail != null %}
-                <img class="article-thumbnail" src="{{ article.thumbnail }}"/>
-            {% endif %}
+        {% for article in articles %}
+            <div class="Archive-article">
 
-            <!-- title -->
-            <a href="{{ article.url }}"  class="article-title">{{ article.title }}</a>
-            <br>        
+                <!-- thumbnail -->
+                {% if article.thumbnail != null %}
+                    <img class="Archive-articleThumbnail" src="{{ article.thumbnail }}"/>
+                {% endif %}
 
-            <!-- subtitle -->
-            {% if article.subtitle != null %}
-                <div class="article-subtitle">{{ article.subtitle }}</div>
-            {% endif %} 
+                <!-- title -->
+                <a href="{{ article.url }}"  class="Archive-articleTitle">{{ article.title }}</a>
+                <br>        
 
-            <!-- author -->
-            {% if article.author != null %}
-                <span class="article-author">{{ article.author }}</span>
-            {% endif %}
-        {% endfor -%}
+                <!-- subtitle -->
+                {% if article.subtitle != null %}
+                    <div class="Archive-articleSubtitle">{{ article.subtitle }}</div>
+                {% endif %} 
+
+                <!-- author -->
+                {% if article.author != null %}
+                    <span class="Archive-articleAuthor">{{ article.author }}</span>
+                {% endif %}
+                
+            </div>
+        {% endfor %}
     {% endif %}
 </div>
