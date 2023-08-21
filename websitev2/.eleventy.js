@@ -4,14 +4,17 @@ const { rm } = require("fs/promises")
 module.exports = function(eleventyConfig) {
     // -- constants --
     const buildEnvironment = process.env.ENVIRONMENT.trim();
-    const srcDir = "src";
-    const dstDir = "_site";
+    const srcDir = "src"
+    const dstDir = "_site"
     
 
     // -- assets --
     eleventyConfig.addPlugin(PostCSSPlugin);
     eleventyConfig.addPassthroughCopy('img');
     eleventyConfig.addPassthroughCopy('src/css');
+
+    // watch typescript files
+    eleventyConfig.addWatchTarget(`${srcDir}/code/`);
 
 
     // ---- handle article injection ---- //
