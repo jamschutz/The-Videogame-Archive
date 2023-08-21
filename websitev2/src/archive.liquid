@@ -6,22 +6,23 @@ pagination:
     alias: date
 permalink: "{{ date.year }}/{{ date.month }}/{{ date.day }}/index.html"
 title: "Archive - {{ date.year }}/{{ date.month }}/{{ date.day }}"
+includeScript: /code/archive.js
 ---
 <div class="Archive-container">
 
-    {% render "components/calendar.liquid" %}
+  {% render "components/calendar.liquid" %}
 
-    <hr class="Global-vertical">
+  <hr class="Global-vertical">
 
-    <div class="Archive-articleContainer">
-        {% render "archive/articleDateHeader.liquid", date: date %}
+  <div class="Archive-articleContainer">
+    {% render "archive/articleDateHeader.liquid", date: date %}
 
-        <div class="Archive-websiteColumnContainer">
-            {% for website in collections.websites %}
-                {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name] %}
-            {% endfor %}
-        </div>
-        
+    <div class="Archive-websiteColumnContainer">
+      {% for website in collections.websites %}
+        {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name] %}
+      {% endfor %}
     </div>
+
+  </div>
 
 </div>
