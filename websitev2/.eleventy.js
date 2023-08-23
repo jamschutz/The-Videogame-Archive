@@ -12,10 +12,6 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(PostCSSPlugin);
     eleventyConfig.addPassthroughCopy('img');
     eleventyConfig.addPassthroughCopy('src/css');
-    
-
-    // watch typescript files
-    eleventyConfig.addWatchTarget(`${srcDir}/code/`);
 
 
     // ---- handle article injection ---- //
@@ -101,36 +97,4 @@ async function getDevArticles() {
         ];
         resolve(results);
     })
-}
-
-
-function compileArchiveJs()
-{
-    files = [
-        // entities
-        "entities/CalendarDate.js",
-        "entities/Article.js",
-
-        // shared
-        "shared/Utils.js",
-        "shared/Config.js",
-        "shared/DataManager.js",
-        "shared/UrlParser.js",
-
-        // responses / requests
-        "responses/GetArticleCountResponse.js",
-        "responses/SearchResponse.js",
-        "requests/SearchRequest.js",
-
-        // components
-        "ui/WebsiteColumn.js",
-        "ui/Calendar.js",
-        "ui/DateHeader.js",
-        "ui/SearchBar.js",
-
-        // main
-        "archive.js"
-    ];
-
-    let compiledJs = "";
 }
