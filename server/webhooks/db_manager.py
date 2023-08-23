@@ -88,4 +88,4 @@ def get_search_results():
     return jsonify(response)
 
 
-app.run()
+app.run(host="localhost", port=7070, debug=True)

@@ -1,5 +1,6 @@
 // --- declare components --- //
 var searchBar = new SearchBar();
+var calendar = new Calendar();
 
 
 
@@ -31,6 +32,7 @@ function goToTargetDate(targetDate: CalendarDate) {
     function init() {
         // init components
         searchBar.init();
+        calendar.updateHtml();
 
         // bind forward / backward 
         let backButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;
