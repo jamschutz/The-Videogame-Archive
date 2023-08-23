@@ -24,7 +24,7 @@ files = [
     # "ui\\WebsiteColumn.js",
     # "ui\\Calendar.js",
     # "ui\\DateHeader.js",
-    # "ui\\SearchBar.js",
+    "components\\SearchBar.js",
 
     # main
     "archive.js"
