@@ -9,11 +9,11 @@ class UrlParser {
         let url = new URL(window.location.href);
         let rawDate = url.searchParams.get("date");
         if(rawDate === null) {
-            // parse instead from url: http://SOME_PATH/archive/2003/10/13.html
+            // parse instead from url: http://SOME_PATH/archive/2003/10/13/index.html
             let urlParts = window.location.href.split('/');
-            let year = urlParts[urlParts.length - 3];
-            let month = urlParts[urlParts.length - 2];
-            let day = urlParts[urlParts.length - 1].split('.')[0];
+            let year = urlParts[urlParts.length - 4];
+            let month = urlParts[urlParts.length - 3];
+            let day = urlParts[urlParts.length - 2].split('.')[0];
             return new CalendarDate(year, month, day);
         }
 
