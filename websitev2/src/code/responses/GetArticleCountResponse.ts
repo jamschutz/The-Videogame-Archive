@@ -4,7 +4,8 @@ class GetArticleCountResponse {
     constructor(jsonData: JSON) {
         this.data = [];
         for(const key in jsonData) {
-            this.data.push(new ArticleCountData(key, jsonData[key]));
+            let articleCount = jsonData[key];
+            this.data.push(new ArticleCountData(articleCount['date'], articleCount['count']));
         }
     }
 }
