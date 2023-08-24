@@ -7,23 +7,20 @@ current_dir = os.getcwd()
 files = [
     # entities
     "entities\\CalendarDate.js",
-    # "entities\\Article.js",
+    "entities\\Article.js",
 
     # utils
     "utils\\Utils.js",
-    # "shared\\Config.js",
-    # "shared\\DataManager.js",
+    "utils\\Config.js",
+    "utils\\DataManager.js",
     "utils\\UrlParser.js",
 
     # responses / requests
-    # "responses\\GetArticleCountResponse.js",
-    # "responses\\SearchResponse.js",
+    "responses\\GetArticleCountResponse.js",
     "requests\\SearchRequest.js",
 
     # components
-    # "ui\\WebsiteColumn.js",
-    # "ui\\Calendar.js",
-    # "ui\\DateHeader.js",
+    "components\\Calendar.js",
     "components\\SearchBar.js",
 
     # main

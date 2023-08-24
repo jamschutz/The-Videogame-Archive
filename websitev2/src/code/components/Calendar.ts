@@ -1,5 +1,5 @@
 class Calendar {
-    private date: CalendarDate;
+    public date: CalendarDate;
 
     constructor() {
         this.date = UrlParser.getDate();
@@ -26,37 +26,44 @@ class Calendar {
 
     public async updateHtml(): Promise<void> {
         // grab container
-        let containerDiv = document.getElementById(Calendar.CONTAINER_ID);
+        let containerDiv = document.getElementById(Calendar.CALENDAR_ID);
         // clear current contents
         containerDiv.innerHTML = "";
 
         // build elements
         let header = this.getHeader();
-        let border = this.getBorder();
-        let dates = await this.getDates();
-
-        // add to container
         containerDiv.appendChild(header);
-        containerDiv.appendChild(border);
-        containerDiv.appendChild(dates);
+        await this.getDates();
     }
 
 
     // button functions 
     // note: need the 'any' return type for the onclick to work
     public goToNextMonth(): any {
+        if(this.date == undefined) {
+            this.date = UrlParser.getDate();
+        }
         this.date.addMonth();
         this.updateHtml();
     }
     public goToPreviousMonth(): any {
+        if(this.date == undefined) {
+            this.date = UrlParser.getDate();
+        }
         this.date.subtractMonth();
         this.updateHtml();
     }
     public goToNextYear(): any {
+        if(this.date == undefined) {
+            this.date = UrlParser.getDate();
+        }
         this.date.addYear();
         this.updateHtml();
     }
     public goToPreviousYear(): any {
+        if(this.date == undefined) {
+            this.date = UrlParser.getDate();
+        }
         this.date.subtractYear();
         this.updateHtml();
     }
@@ -69,7 +76,7 @@ class Calendar {
 
 
     private async getDates(): Promise<HTMLElement> {
-        let container = document.createElement('div');
+        let container = document.getElementById(Calendar.CALENDAR_ID);
         container.id = Calendar.CALENDAR_ID;
 
         // create weekday header
@@ -98,8 +105,9 @@ class Calendar {
 
     private getHeader(): HTMLElement {
         // create header object
-        let header = document.createElement('h4');
+        let header = document.createElement('div');
         header.classList.add(Calendar.HEADER_CLASS);
+        header.classList.add(Calendar.ROW_CLASS);
 
         // create buttons
         let nextYearButton = document.createElement('button');
@@ -108,10 +116,19 @@ class Calendar {
         let previousMonthButton = document.createElement('button');
 
         // add button events
-        nextYearButton.onclick = this.goToNextYear;
-        nextMonthButton.onclick = this.goToNextMonth;
-        previousYearButton.onclick = this.goToPreviousYear;
-        previousMonthButton.onclick = this.goToPreviousMonth;
+        var calendarSelf = this;
+        nextYearButton.addEventListener('click', function(event) {
+            calendarSelf.goToNextYear();
+        });
+        nextMonthButton.addEventListener('click', function(event) {
+            calendarSelf.goToNextMonth();
+        });
+        previousYearButton.addEventListener('click', function(event) {
+            calendarSelf.goToPreviousYear();
+        });
+        previousMonthButton.addEventListener('click', function(event) {
+            calendarSelf.goToPreviousMonth();
+        });
 
         // add button labels
         nextYearButton.innerText = '>>';
@@ -121,7 +138,7 @@ class Calendar {
 
         // create date header
         let dateHeader = document.createElement('span');
-        dateHeader.id = Calendar.HEADER_DATE_CLASS;
+        dateHeader.classList.add(Calendar.MONTH_YEAR_HEADER_CLASS);
         dateHeader.innerText = this.date.toPrettyString_MonthYear();
 
         // and child everything to the container
@@ -133,24 +150,6 @@ class Calendar {
 
         return header;
     }
-
-
-    // private getBorder(): HTMLElement {
-    //     let border = document.createElement('div');
-    //     border.id = Calendar.BORDER_CLASS;
-
-    //     // figure out how tall it should be...
-    //     let dayOffset = new CalendarDate(this.date.year, this.date.month, 1).getWeekdayInt() - 1;
-    //     let numWeekRows = Math.floor((this.date.getDaysInMonth() + dayOffset - 1) / 7);
-
-    //     if(numWeekRows === 5) {
-    //         border.style.height = '239px';
-    //     }
-    //     else {
-    //         border.style.height = '205px';
-    //     }
-    //     return border;
-    // }
 
 
     private getWeekdayLabel(weekday: string): HTMLElement {

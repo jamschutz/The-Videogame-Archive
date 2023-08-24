@@ -1,7 +1,7 @@
 class CalendarDate {
     public year : number;
     public month : number;
-    public day : number;
+    public day : number; 
 
     constructor(year: number | string, month: number | string, day: number | string) {
         this.year  = (typeof year === 'number')? year : parseInt(year);
