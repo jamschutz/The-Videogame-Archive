@@ -9,6 +9,11 @@ class AzureDbManager:
         self.secrets = Secrets()
 
         self.connection_string = 'DRIVER='+self.secrets.SQL_DRIVER+';SERVER=tcp:'+self.secrets.SQL_SERVER_NAME+';PORT=1433;DATABASE='+self.secrets.SQL_DB_NAME+';UID='+self.secrets.SQL_SERVER_ADMIN_USER+';PWD='+ self.secrets.SQL_SERVER_ADMIN_PASSWORD
+        # self.connection_string = (
+        #     r'Driver={SQL SERVER};'
+        #     f'Server={self.secrets.SQL_SERVER_NAME};'
+        #     f'Database'
+        # )
 
 
     def run_query(self, query):
@@ -288,3 +293,17 @@ class AzureDbManager:
 
         # and run
         self.run_query(query)
+
+
+    def get_article_count_between_dates(self, start, end):
+        # build query
+        query = f"""
+            SELECT
+                Count(*) AS NumArticles, DatePublished
+            FROM
+                Article
+            WHERE
+                DatePublished >= {start} AND DatePublished <= {end}
+            GROUP BY DatePublished
+        """
+        return self.get_query(query)

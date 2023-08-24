@@ -30,6 +30,8 @@ class DataManager {
     }
 
     static async getArticleCountBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<GetArticleCountResponse> {
+        let url = `${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`;
+        console.log('getting article count at url: ' + url);
         let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
             method: 'GET',
             headers: {

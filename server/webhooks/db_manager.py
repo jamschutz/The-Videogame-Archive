@@ -5,6 +5,7 @@ from datetime import datetime
 import sqlite3
 from .._shared.DbManager import DbManager
 from .._shared.Config import Config
+from .._shared.AzureDbManager import AzureDbManager
 
 
 config = Config()
@@ -58,7 +59,7 @@ def get_article_count_for_date():
     end_date = request.args.get('end')
 
     # fetch db data and return
-    db_manager = DbManager()
+    db_manager = AzureDbManager()
     db_result = db_manager.get_article_count_between_dates(start=start_date, end=end_date)
 
     response = []
