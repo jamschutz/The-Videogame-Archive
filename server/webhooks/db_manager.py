@@ -2,6 +2,8 @@ import json
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from datetime import datetime
+from bitarray import bitarray
+from bitarray.util import ba2int
 import sqlite3
 from .._shared.DbManager import DbManager
 from .._shared.Config import Config
@@ -69,9 +71,42 @@ def get_article_count_for_date():
             'date': f'{date[1]}'
         })
 
-    # result = jsonify(response)
-    print(response)
+    return jsonify(response)
 
+
+@app.route('/ArticlesExist', methods=['GET', 'OPTIONS'])
+@cross_origin(origin='*')
+def get_article_exists_for_date():
+    # parse params
+    start_date = request.args.get('start')
+    end_date = request.args.get('end')
+
+    # fetch db data and return
+    db_manager = AzureDbManager()
+    db_result = db_manager.get_article_count_between_dates(start=start_date, end=end_date)
+
+    current_month = int(int(start_date) / 100)
+    current_month_bits = bitarray()
+    response = []
+    for result in db_result:
+        date_month = int(int(result[1]) / 100)
+        article_count = int(result[0])
+
+        if date_month > current_month:
+            response.append(ba2int(current_month_bits))
+            # response.append({
+            #     'month': current_month,
+            #     'bits': ba2int(current_month_bits)
+            # })
+            current_month_bits = bitarray()
+            current_month = date_month
+        
+        current_month_bits.append(article_count > 0)
+
+    # response.append({
+    #     'month': current_month,
+    #     'bits': ba2int(current_month_bits)
+    # })
     return jsonify(response)
 
 
