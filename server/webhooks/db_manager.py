@@ -85,29 +85,60 @@ def get_article_exists_for_date():
     db_manager = AzureDbManager()
     db_result = db_manager.get_article_count_between_dates(start=start_date, end=end_date)
 
-    current_month = int(int(start_date) / 100)
+    # initialize info
     current_month_bits = bitarray()
     response = []
+    debug_info = {}
+
+    # get current date info
+    current_month = int(int(start_date) / 100)
+    next_expected_date = int(start_date)
+    days_in_month = get_days_in_month(next_expected_date)
+
     for result in db_result:
-        date_month = int(int(result[1]) / 100)
+        # parse response
+        date = int(result[1])
         article_count = int(result[0])
 
+        # if date is bigger than our expected next date
+        # fill in NO ARTICLE entries for intervening dates
+        if date > next_expected_date:
+            print(f'date is bigger than expected! date: {date}, next: {next_expected_date}, daysinmonth: {days_in_month}')
+            while next_expected_date != date and (next_expected_date - current_month * 100) <= days_in_month:
+                print('adding 0...')
+                current_month_bits.append(False)
+                next_expected_date += 1
+
+        # if we've moved into the next month...
+        date_month = int(int(result[1]) / 100)
         if date_month > current_month:
-            response.append(ba2int(current_month_bits))
-            # response.append({
-            #     'month': current_month,
-            #     'bits': ba2int(current_month_bits)
-            # })
+            # store this month's bits into a new int
+            # response.append(ba2int(current_month_bits))
+            response.append(current_month_bits.to01())
             current_month_bits = bitarray()
             current_month = date_month
-        
-        current_month_bits.append(article_count > 0)
 
-    response.append(ba2int(current_month_bits))
-    # response.append({
-    #     'month': current_month,
-    #     'bits': ba2int(current_month_bits)
-    # })
+            # and update days in month
+            days_in_month = get_days_in_month(date)
+            # and set next expected date
+            next_expected_date = (date_month * 100) + 1
+
+            # if date is bigger than our expected next date
+            # fill in NO ARTICLE entries for intervening dates
+            if date > next_expected_date:
+                print(f'date is bigger than expected! date: {date}, next: {next_expected_date}, daysinmonth: {days_in_month}')
+                while next_expected_date != date and (next_expected_date - current_month * 100) <= days_in_month:
+                    print('adding 0...')
+                    current_month_bits.append(False)
+                    next_expected_date += 1
+
+        # add this date's bit to our bit string
+        current_month_bits.append(article_count > 0)
+        # and set next expected date
+        next_expected_date = date + 1
+
+    # response.append(ba2int(current_month_bits))
+    response.append(current_month_bits.to01())
     return jsonify(response)
 
 
@@ -126,6 +157,47 @@ def get_search_results():
     db_manager = DbManager()
     response = db_manager.get_search_results(title_query=title_query, subtitle_query=subtitle_query)
     return jsonify(response)
+
+
+
+def get_days_in_month(date_int):
+    year = int(date_int / 10000)
+    month = int((date_int - (year * 10000)) / 100)
+
+    if month == 1: 
+        return 31
+    if month == 2: 
+        return 29 if is_leap_year(year) else 28
+    if month == 3: 
+        return 31
+    if month == 4: 
+        return 30
+    if month == 5: 
+        return 31
+    if month == 6: 
+        return 30
+    if month == 7: 
+        return 31
+    if month == 8: 
+        return 31
+    if month == 9: 
+        return 30
+    if month == 10: 
+        return 31
+    if month == 11: 
+        return 30
+    if month == 12: 
+        return 31
+
+    print('GOT BAD DATE_INT!!!!!!!!')
+    return -1
+
+
+def is_leap_year(year):
+    if((year % 100) == 0):
+        return (year % 400) == 0
+
+    return (year % 4) == 0
 
 
 app.run(host="localhost", port=7070, debug=True)
