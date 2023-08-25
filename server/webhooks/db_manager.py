@@ -113,8 +113,7 @@ def get_article_exists_for_date():
         date_month = int(int(result[1]) / 100)
         if date_month > current_month:
             # store this month's bits into a new int
-            # response.append(ba2int(current_month_bits))
-            response.append(current_month_bits.to01())
+            response.append(ba2int(current_month_bits))
             current_month_bits = bitarray()
             current_month = date_month
 
@@ -137,8 +136,7 @@ def get_article_exists_for_date():
         # and set next expected date
         next_expected_date = date + 1
 
-    # response.append(ba2int(current_month_bits))
-    response.append(current_month_bits.to01())
+    response.append(ba2int(current_month_bits))
     return jsonify(response)
 
 
