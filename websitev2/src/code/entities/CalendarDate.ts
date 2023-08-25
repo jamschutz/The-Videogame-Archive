@@ -40,6 +40,10 @@ class CalendarDate {
         return `${this.getMonthString()} ${this.day}, ${this.year}`;
     }
 
+    public toNumber(): number {
+        return this.year * 10000 + this.month * 100 + this.day;
+    }
+
 
     public addDay(): void {
         this.day++;

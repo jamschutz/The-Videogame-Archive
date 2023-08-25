@@ -103,6 +103,7 @@ def get_article_exists_for_date():
         
         current_month_bits.append(article_count > 0)
 
+    response.append(ba2int(current_month_bits))
     # response.append({
     #     'month': current_month,
     #     'bits': ba2int(current_month_bits)

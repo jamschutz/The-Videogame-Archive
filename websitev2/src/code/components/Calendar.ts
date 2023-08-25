@@ -1,8 +1,11 @@
 class Calendar {
     public date: CalendarDate;
+    public dateHasArticlesLookup: { [id: number] : boolean };
 
     constructor() {
         this.date = UrlParser.getDate();
+        this.dateHasArticlesLookup = {};
+        this.updateDateHasArticlesLookup();
     }
 
     // html class declarations
@@ -66,6 +69,24 @@ class Calendar {
         }
         this.date.subtractYear();
         this.updateHtml();
+    }
+
+
+    public async updateDateHasArticlesLookup(): Promise<void> {
+        let startDate = new CalendarDate(this.date.year - 1, 1, 1); // January 1, a year before current date
+        let endDate = new CalendarDate(this.date.year + 1, 12, 31); // December 31, a year after current date
+        let monthArticlesExist = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
+
+        let currentDate = startDate;
+        for(const key in monthArticlesExist) {
+            let monthBits = monthArticlesExist[key];
+            let monthDate = new CalendarDate(currentDate.year, currentDate.month, 1);
+            
+            this.addMonthBitsToLookup(monthBits, monthDate);
+            currentDate.addMonth();
+        }
+
+        console.log(this.dateHasArticlesLookup);
     }
 
 
@@ -213,5 +234,17 @@ class Calendar {
         }
 
         return week;
+    }
+
+    private async addMonthBitsToLookup(monthBits: number, month: CalendarDate): Promise<void> {
+        let dateMask = 1;
+        for(let i = 0; i < month.getDaysInMonth(); i++) {
+            // store date values
+            this.dateHasArticlesLookup[month.toNumber()] = (monthBits & dateMask) > 0;
+
+            // go to next day (and increment mask)
+            month.addDay();
+            dateMask = dateMask << 1;
+        }
     }
 }
