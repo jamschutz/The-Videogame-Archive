@@ -236,15 +236,13 @@ class Calendar {
         return week;
     }
 
-    private async addMonthBitsToLookup(monthBits: number, month: CalendarDate): Promise<void> {
-        let dateMask = 1;
+    private async addMonthBitsToLookup(monthBits: string, month: CalendarDate): Promise<void> {
         for(let i = 0; i < month.getDaysInMonth(); i++) {
             // store date values
-            this.dateHasArticlesLookup[month.toNumber()] = (monthBits & dateMask) > 0;
+            this.dateHasArticlesLookup[month.toNumber()] = monthBits[i] === '1';
 
             // go to next day (and increment mask)
             month.addDay();
-            dateMask = dateMask << 1;
         }
     }
 }
