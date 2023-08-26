@@ -20,6 +20,25 @@ choco install ghostscript
 You will also need to [install Poppler for Windows](https://blog.alivate.com.au/poppler-windows/) <br/>
 When you install it, place it in this path: `C:\Program Files (x86)\Poppler\poppler-0.68.0\bin\pdftoppm.exe`, and add it to your PATH.
 
+
+## TODO
+- Filters for archive
+    - filter websites
+    - filter article types
+
+- Reorder columns
+- Different archive view types (existing vertical, horizontal, etc)
+
+- Website page
+- Author page
+- Search page
+- About page
+- Home page
+
+- Mobile view
+
+
+
 ## Notes to self
 
 thinking the 3 webcrawler entrypoints should be: `url_indexer`, `archiver`, `search_indexer` <br/>
