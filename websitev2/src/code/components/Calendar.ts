@@ -1,13 +1,15 @@
 class Calendar {
     public date: CalendarDate;
     public datesWithArticles: Set<number>;
+    public minYearCached: number;
+    public maxYearCached: number;
 
     constructor() {
         this.date = UrlParser.getDate();
         this.datesWithArticles = new Set<number>();
         
         console.time('updateDateHasArticlesLookup')
-        this.updateDatesWithArticles();
+        this.updateDatesWithArticles(this.date.year - 1, this.date.year + 1);
         console.timeEnd('updateDateHasArticlesLookup')
     }
 
@@ -46,42 +48,48 @@ class Calendar {
     // button functions 
     // note: need the 'any' return type for the onclick to work
     public goToNextMonth(): any {
-        if(this.date == undefined) {
-            this.date = UrlParser.getDate();
-        }
         this.date.addMonth();
         this.updateHtml();
+        this.checkToUpdateDatesWithArticles();
     }
     public goToPreviousMonth(): any {
-        if(this.date == undefined) {
-            this.date = UrlParser.getDate();
-        }
         this.date.subtractMonth();
         this.updateHtml();
+        this.checkToUpdateDatesWithArticles();
     }
     public goToNextYear(): any {
-        if(this.date == undefined) {
-            this.date = UrlParser.getDate();
-        }
         this.date.addYear();
         this.updateHtml();
+        this.checkToUpdateDatesWithArticles();
     }
     public goToPreviousYear(): any {
-        if(this.date == undefined) {
-            this.date = UrlParser.getDate();
-        }
         this.date.subtractYear();
         this.updateHtml();
+        this.checkToUpdateDatesWithArticles();
     }
 
 
-    public async updateDatesWithArticles(): Promise<void> {
-        let startDate = new CalendarDate(this.date.year - 1, 1, 1); // January 1, a year before current date
-        let endDate = new CalendarDate(this.date.year + 1, 12, 31); // December 31, a year after current date
-        console.time('getArticlesExistBetweenDatesAsync')
-        let datesWithArticlesResponse = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
-        console.timeEnd('getArticlesExistBetweenDatesAsync')
+    public checkToUpdateDatesWithArticles() {
+        if(this.date.year >= this.maxYearCached) {
+            console.log('getting next year dates!')
+            this.updateDatesWithArticles(this.maxYearCached + 1, this.date.year + 1);
+        }
+        else if(this.date.year <= this.minYearCached) {
+            console.log('getting previous year dates!');
+            this.updateDatesWithArticles(this.date.year - 1, this.minYearCached);
+        }
+    }
 
+
+    public async updateDatesWithArticles(startYear: number, endYear: number): Promise<void> {
+        // init years as calendar dates
+        let startDate = new CalendarDate(startYear, 1, 1); // January 1, a year before current date
+        let endDate = new CalendarDate(endYear, 12, 31); // December 31, a year after current date
+
+        // get dates with articles
+        let datesWithArticlesResponse = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
+
+        // add to cache
         for(const key in datesWithArticlesResponse) {
             let date = parseInt(key);
             if(!this.datesWithArticles.has(date)) {
@@ -89,6 +97,11 @@ class Calendar {
             }
         }
 
+        // update our cached date range
+        this.minYearCached = startYear;
+        this.maxYearCached = endYear;
+
+        // udpate html
         this.updateHtml();
     }
 
