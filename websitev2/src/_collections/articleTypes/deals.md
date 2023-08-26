@@ -1,0 +1,4 @@
+---
+name: deals
+tags: articleTypes
+---

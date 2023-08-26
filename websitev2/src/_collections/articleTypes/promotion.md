@@ -1,0 +1,4 @@
+---
+name: promotion
+tags: articleTypes
+---
