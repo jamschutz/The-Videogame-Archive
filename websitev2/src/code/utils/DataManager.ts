@@ -40,8 +40,8 @@ class DataManager {
     }
 
     static async getArticlesExistBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<any> {
-        console.log(`fetching url: ${Config.API_BASE_URL}/ArticlesExist?start=${start.toUrlString()}&end=${end.toUrlString()}`)
-        let response = await fetch(`${Config.API_BASE_URL}/ArticlesExist?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
+        console.log(`fetching url: ${Config.API_BASE_URL}/ArticlesExistV2?start=${start.toUrlString()}&end=${end.toUrlString()}`)
+        let response = await fetch(`${Config.API_BASE_URL}/ArticlesExistV2?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

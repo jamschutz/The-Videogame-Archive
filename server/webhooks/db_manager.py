@@ -159,6 +159,31 @@ def get_search_results():
     return jsonify(response)
 
 
+@app.route('/ArticlesExistV2', methods=['GET', 'OPTIONS'])
+@cross_origin(origin='*')
+def get_article_exists_for_date_v2():
+    # parse params
+    start_date = request.args.get('start')
+    end_date = request.args.get('end')
+
+    # fetch db data and return
+    db_manager = AzureDbManager()
+    db_result = db_manager.get_article_count_between_dates(start=start_date, end=end_date)
+
+    # initialize info
+    response = {}
+
+    # get current date info
+    current_month = int(int(start_date) / 100)
+
+    for result in db_result:
+        # parse response
+        date = int(result[1])
+        response[date] = True
+
+    return jsonify(response)
+
+
 
 def get_days_in_month(date_int):
     year = int(date_int / 10000)

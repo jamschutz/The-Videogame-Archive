@@ -1,11 +1,14 @@
 class Calendar {
     public date: CalendarDate;
-    public dateHasArticlesLookup: { [id: number] : boolean };
+    public datesWithArticles: Set<number>;
 
     constructor() {
         this.date = UrlParser.getDate();
-        this.dateHasArticlesLookup = {};
-        this.updateDateHasArticlesLookup();
+        this.datesWithArticles = new Set<number>();
+        
+        console.time('updateDateHasArticlesLookup')
+        this.updateDatesWithArticles();
+        console.timeEnd('updateDateHasArticlesLookup')
     }
 
     // html class declarations
@@ -72,21 +75,21 @@ class Calendar {
     }
 
 
-    public async updateDateHasArticlesLookup(): Promise<void> {
+    public async updateDatesWithArticles(): Promise<void> {
         let startDate = new CalendarDate(this.date.year - 1, 1, 1); // January 1, a year before current date
         let endDate = new CalendarDate(this.date.year + 1, 12, 31); // December 31, a year after current date
-        let monthArticlesExist = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
+        console.time('getArticlesExistBetweenDatesAsync')
+        let datesWithArticlesResponse = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
+        console.timeEnd('getArticlesExistBetweenDatesAsync')
 
-        let currentDate = startDate;
-        for(const key in monthArticlesExist) {
-            let monthBits = monthArticlesExist[key];
-            let monthDate = new CalendarDate(currentDate.year, currentDate.month, 1);
-            
-            this.addMonthBitsToLookup(monthBits, monthDate);
-            currentDate.addMonth();
+        for(const key in datesWithArticlesResponse) {
+            let date = parseInt(key);
+            if(!this.datesWithArticles.has(date)) {
+                this.datesWithArticles.add(date);
+            }
         }
 
-        console.log(this.dateHasArticlesLookup);
+        this.updateHtml();
     }
 
 
@@ -110,13 +113,10 @@ class Calendar {
 
         // create weeks
         let monthStart = new CalendarDate(this.date.year, this.date.month, 1);
-        let monthEnd  = new CalendarDate(this.date.year, this.date.month, this.date.getDaysInMonth());
-        let monthArticleCounts = await DataManager.getArticleCountBetweenDatesAsync(monthStart, monthEnd);
-
         let dayOffset = monthStart.getWeekdayInt() - 1;
         let numWeekRows = (this.date.getDaysInMonth() + dayOffset) / 7;
         for(let i = 0; i < numWeekRows; i++) {
-            let week = await this.getWeek(i, dayOffset, monthArticleCounts);
+            let week = await this.getWeek(i, dayOffset, monthStart);
             container.append(week);
         }
 
@@ -182,24 +182,7 @@ class Calendar {
     }
 
 
-    private dayHasArticles(day: number, articleCounts: GetArticleCountResponse): boolean {
-        let targetDate = `${this.date.month}/${day}/${this.date.year}`;
-
-        for(let i = 0; i < articleCounts.data.length; i++) {
-            let info = articleCounts.data[i];
-            let isTargetDate = info.date.toString() === targetDate;
-            
-            if(isTargetDate) {
-                return info.count > 0;
-            }
-        }
-
-        // no records for this date
-        return false;
-    }
-
-
-    private async getWeek(weekNumber: number, offset: number, articleCounts: GetArticleCountResponse): Promise<HTMLElement> {
+    private async getWeek(weekNumber: number, offset: number, monthStart: CalendarDate): Promise<HTMLElement> {
         let week = document.createElement('div');
         week.classList.add(Calendar.ROW_CLASS);
 
@@ -208,6 +191,7 @@ class Calendar {
             day.classList.add(Calendar.CELL_CLASS);
 
             let dateNumber = (i - offset) + (weekNumber * 7);
+            monthStart.day = dateNumber;
             // not a date, just filler
             if(dateNumber < 1 || dateNumber > this.date.getDaysInMonth()) {
                 day.classList.add(Calendar.EMPTY_CELL_CLASS)
@@ -216,8 +200,7 @@ class Calendar {
             // add date number text
             else {
                 // check if has articles
-                let dayHasArticles = this.dayHasArticles(dateNumber, articleCounts);
-                let dayClass = dayHasArticles? Calendar.LINK_ACTIVE_CLASS : Calendar.LINK_INACTIVE_CLASS;
+                let dayClass = this.datesWithArticles.has(monthStart.toNumber())? Calendar.LINK_ACTIVE_CLASS : Calendar.LINK_INACTIVE_CLASS;
 
                 day.classList.add(dayClass);
                 day.innerText = dateNumber.toString();
@@ -234,15 +217,5 @@ class Calendar {
         }
 
         return week;
-    }
-
-    private async addMonthBitsToLookup(monthBits: string, month: CalendarDate): Promise<void> {
-        for(let i = 0; i < month.getDaysInMonth(); i++) {
-            // store date values
-            this.dateHasArticlesLookup[month.toNumber()] = monthBits[i] === '1';
-
-            // go to next day (and increment mask)
-            month.addDay();
-        }
     }
 }
