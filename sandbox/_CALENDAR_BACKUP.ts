@@ -7,22 +7,18 @@ class Calendar {
     constructor() {
         this.date = UrlParser.getDate();
 
-        // // parse article date info from session storage
-        // this.datesWithArticles = JSON.parse(sessionStorage.getItem("datesWithArticles"));
-        // this.minYearCached = parseInt(sessionStorage.getItem("minYearCached"));
-        // this.maxYearCached = parseInt(sessionStorage.getItem("maxYearCached"));
+        // parse article date info from session storage
+        this.datesWithArticles = JSON.parse(sessionStorage.getItem("datesWithArticles"));
+        this.minYearCached = parseInt(sessionStorage.getItem("minYearCached"));
+        this.maxYearCached = parseInt(sessionStorage.getItem("maxYearCached"));
 
-        // // if no session storage data, init these to new
-        // if(this.datesWithArticles === null || this.datesWithArticles === undefined || 
-        //    isNaN(this.minYearCached) || isNaN(this.maxYearCached)) {
-        //     this.datesWithArticles = {};
-        //     this.minYearCached = null;
-        //     this.maxYearCached = null;
-        // }
-
-        this.minYearCached = null;
-        this.maxYearCached = null;
-        this.datesWithArticles = {};
+        // if no session storage data, init these to new
+        if(this.datesWithArticles === null || this.datesWithArticles === undefined || 
+           isNaN(this.minYearCached) || isNaN(this.maxYearCached)) {
+            this.datesWithArticles = {};
+            this.minYearCached = null;
+            this.maxYearCached = null;
+        }
         
         console.time('updateDateHasArticlesLookup')
         this.checkToUpdateDatesWithArticles();
@@ -122,9 +118,9 @@ class Calendar {
         this.maxYearCached = endYear;
 
         // update session storage
-        // sessionStorage.setItem("datesWithArticles", JSON.stringify(this.datesWithArticles));
-        // sessionStorage.setItem("minYearCached", this.minYearCached.toString());
-        // sessionStorage.setItem("maxYearCached", this.maxYearCached.toString());
+        sessionStorage.setItem("datesWithArticles", JSON.stringify(this.datesWithArticles));
+        sessionStorage.setItem("minYearCached", this.minYearCached.toString());
+        sessionStorage.setItem("maxYearCached", this.maxYearCached.toString());
 
         // udpate html
         this.updateHtml();

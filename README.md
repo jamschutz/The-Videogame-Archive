@@ -22,18 +22,15 @@ When you install it, place it in this path: `C:\Program Files (x86)\Poppler\popp
 
 
 ## TODO
-- Filters for archive
-    - filter websites
-    - filter article types
 
 - Reorder columns
 - Different archive view types (existing vertical, horizontal, etc)
 
-- Website page
-- Author page
 - Search page
 - About page
 - Home page
+- Website page
+- Author page
 
 - Mobile view
 

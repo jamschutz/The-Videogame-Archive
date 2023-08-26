@@ -51,6 +51,29 @@ function applyFilters() {
 }
 
 
+function toggleSelectAllWebsites() {
+    let selectAll = (document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement).checked;
+    let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
+
+    // apply website filters
+    for(let i = 0; i < websiteFilters.length; i++) {
+        let website = websiteFilters.item(i) as HTMLInputElement;
+        website.checked = selectAll;
+    }
+}
+
+function toggleSelectAllArticleTypes() {
+    let selectAll = (document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement).checked;
+    let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
+
+    // apply website filters
+    for(let i = 0; i < articleTypeFilters.length; i++) {
+        let articleType = articleTypeFilters.item(i) as HTMLInputElement;
+        articleType.checked = selectAll;
+    }
+}
+
+
 
 
 // -------------- page init ---------------------- //
@@ -72,5 +95,10 @@ function applyFilters() {
         // bind apply filters button
         let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
         applyFiltersButton.addEventListener("click", applyFilters);
+
+        let selectAllWebsitesCheckbox = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
+        let selectAllArticleTypesCheckbox = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
+        selectAllWebsitesCheckbox.addEventListener('click', toggleSelectAllWebsites);
+        selectAllArticleTypesCheckbox.addEventListener('click', toggleSelectAllArticleTypes);
     }
 })(window, document, undefined)
