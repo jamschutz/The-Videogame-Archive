@@ -28,15 +28,25 @@ def get_epoch(date):
 @cross_origin(origin='*')
 def get_articles_for_date():
     # parse params
-    year = request.args.get('year')
-    month = request.args.get('month')
-    day = request.args.get('day')
+    date = request.args.get('date')
     website_id = int(request.args.get('websiteId')) if request.args.get('websiteId') != None else -1
 
     # fetch db data and return
-    db_manager = DbManager()
-    response = db_manager.get_articles_for_date(year=year, month=month, day=day, website_id=website_id)
-    return jsonify(response)
+    db_manager = AzureDbManager()
+    db_response = db_manager.get_articles_for_date(date=date, website_id=website_id)
+
+    response = []
+    for article in db_response:
+        response.append({
+            'title': article[0],
+            'subtitle': article[1],
+            'url': article[2],
+            'author': article[3],
+            'website': article[4],
+            'type': article[5],
+            'thumbnail': article[6]
+        })
+    return response
 
 
 

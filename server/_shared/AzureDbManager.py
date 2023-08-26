@@ -307,3 +307,39 @@ class AzureDbManager:
             GROUP BY DatePublished
         """
         return self.get_query(query)
+
+
+    def get_articles_for_date(self, date, website_id):
+        # build query
+        query = f"""
+            SELECT 
+                Title, Subtitle, ArticleUrl.Url, Writer.Name as Author, Publication.Name as Website, ArticleType.Name as ArticleType, Thumbnail.Filename
+            FROM 
+                Article
+            INNER JOIN
+                ArticleUrl
+            ON
+                ArticleUrl.Id = Article.UrlId
+            INNER JOIN
+                Writer
+            ON
+                Writer.Id = Article.AuthorId
+            INNER JOIN
+                Publication
+            ON
+                Publication.Id = Article.WebsiteId
+            INNER JOIN
+                ArticleType
+            ON
+                ArticleType.Id = Article.ArticleTypeId
+            INNER JOIN
+                Thumbnail
+            ON
+                Thumbnail.ArticleId = Article.Id
+            WHERE
+                DatePublished = {date}
+        """
+        if website_id >= 0:
+            query += f" AND WebsiteId = {website_id}"
+
+        return self.get_query(query)

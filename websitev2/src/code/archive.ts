@@ -38,7 +38,15 @@ function applyFilters() {
     // apply article type filters
     for(let i = 0; i < articleTypeFilters.length; i++) {
         let articleType = articleTypeFilters.item(i) as HTMLElement;
-        console.log(articleType.getAttribute('name').trim() + ': ' + (articleType as HTMLInputElement).checked);
+        let articleTypeName = articleType.getAttribute('name').trim();
+
+        // hide all articles of type
+        let articlesOfType = document.getElementsByClassName(`Archive-article${articleTypeName}`);
+        let showArticles = (articleType as HTMLInputElement).checked;
+        for(let j = 0; j < articlesOfType.length; j++) {
+            let article = articlesOfType.item(j) as HTMLElement;
+            article.style.display = showArticles? 'block': 'none';
+        }
     }
 }
 
