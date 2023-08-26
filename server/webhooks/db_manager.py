@@ -159,9 +159,9 @@ def get_search_results():
     return jsonify(response)
 
 
-@app.route('/ArticlesExistV2', methods=['GET', 'OPTIONS'])
+@app.route('/DatesWithArticles', methods=['GET', 'OPTIONS'])
 @cross_origin(origin='*')
-def get_article_exists_for_date_v2():
+def get_dates_with_articles():
     # parse params
     start_date = request.args.get('start')
     end_date = request.args.get('end')

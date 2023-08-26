@@ -39,9 +39,8 @@ class DataManager {
         return new GetArticleCountResponse(await response.json());
     }
 
-    static async getArticlesExistBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<any> {
-        console.log(`fetching url: ${Config.API_BASE_URL}/ArticlesExistV2?start=${start.toUrlString()}&end=${end.toUrlString()}`)
-        let response = await fetch(`${Config.API_BASE_URL}/ArticlesExistV2?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
+    static async getDatesWithArticles(start: CalendarDate, end: CalendarDate): Promise<any> {
+        let response = await fetch(`${Config.API_BASE_URL}/DatesWithArticles?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

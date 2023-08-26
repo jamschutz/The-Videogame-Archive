@@ -1,15 +1,27 @@
 class Calendar {
     public date: CalendarDate;
-    public datesWithArticles: Set<number>;
+    public datesWithArticles: { [id: number]: boolean };
     public minYearCached: number;
     public maxYearCached: number;
 
     constructor() {
         this.date = UrlParser.getDate();
-        this.datesWithArticles = new Set<number>();
+
+        // parse article date info from session storage
+        this.datesWithArticles = JSON.parse(sessionStorage.getItem("datesWithArticles"));
+        this.minYearCached = parseInt(sessionStorage.getItem("minYearCached"));
+        this.maxYearCached = parseInt(sessionStorage.getItem("maxYearCached"));
+
+        // if no session storage data, init these to new
+        if(this.datesWithArticles === null || this.datesWithArticles === undefined || 
+           isNaN(this.minYearCached) || isNaN(this.maxYearCached)) {
+            this.datesWithArticles = {};
+            this.minYearCached = null;
+            this.maxYearCached = null;
+        }
         
         console.time('updateDateHasArticlesLookup')
-        this.updateDatesWithArticles(this.date.year - 1, this.date.year + 1);
+        this.checkToUpdateDatesWithArticles();
         console.timeEnd('updateDateHasArticlesLookup')
     }
 
@@ -24,7 +36,7 @@ class Calendar {
     static EMPTY_CELL_CLASS = 'Calendar-empty';
     static LINK_ACTIVE_CLASS = 'Calendar-linkActive';
     static LINK_INACTIVE_CLASS = 'Calendar-linkInactive';
-    static CURRENT_DATE_HIGHLIGHT_ID = 'current-date-highlight';
+    static CURRENT_DATE_HIGHLIGHT_ID = 'Calendar-hightlight';
 
 
 
@@ -70,6 +82,12 @@ class Calendar {
 
 
     public checkToUpdateDatesWithArticles() {
+        // if first check on load and no session storage, get surrounding years
+        if(this.maxYearCached === null || this.minYearCached === null) {
+            this.updateDatesWithArticles(this.date.year - 1, this.date.year + 1);
+            return;
+        }
+
         if(this.date.year >= this.maxYearCached) {
             console.log('getting next year dates!')
             this.updateDatesWithArticles(this.maxYearCached + 1, this.date.year + 1);
@@ -87,19 +105,22 @@ class Calendar {
         let endDate = new CalendarDate(endYear, 12, 31); // December 31, a year after current date
 
         // get dates with articles
-        let datesWithArticlesResponse = await DataManager.getArticlesExistBetweenDatesAsync(startDate, endDate);
+        let datesWithArticlesResponse = await DataManager.getDatesWithArticles(startDate, endDate);
 
         // add to cache
         for(const key in datesWithArticlesResponse) {
             let date = parseInt(key);
-            if(!this.datesWithArticles.has(date)) {
-                this.datesWithArticles.add(date);
-            }
+            this.datesWithArticles[date] = true;
         }
 
         // update our cached date range
         this.minYearCached = startYear;
         this.maxYearCached = endYear;
+
+        // update session storage
+        sessionStorage.setItem("datesWithArticles", JSON.stringify(this.datesWithArticles));
+        sessionStorage.setItem("minYearCached", this.minYearCached.toString());
+        sessionStorage.setItem("maxYearCached", this.maxYearCached.toString());
 
         // udpate html
         this.updateHtml();
@@ -213,7 +234,7 @@ class Calendar {
             // add date number text
             else {
                 // check if has articles
-                let dayClass = this.datesWithArticles.has(monthStart.toNumber())? Calendar.LINK_ACTIVE_CLASS : Calendar.LINK_INACTIVE_CLASS;
+                let dayClass = (monthStart.toNumber() in this.datesWithArticles)? Calendar.LINK_ACTIVE_CLASS : Calendar.LINK_INACTIVE_CLASS;
 
                 day.classList.add(dayClass);
                 day.innerText = dateNumber.toString();
