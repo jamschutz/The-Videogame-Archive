@@ -6,7 +6,8 @@ class SearchBar {
 
     static async onSubmit(e: KeyboardEvent) {
         let searchTerms = (<HTMLTextAreaElement>e.target).value;
-        window.location.href = `/html/searchEngine.html?search=${encodeURIComponent(searchTerms)}`;
+        console.log(`/search/?term=${encodeURIComponent(searchTerms)}`);
+        // window.location.href = `/search?term=${encodeURIComponent(searchTerms)}`;
     }
 
 

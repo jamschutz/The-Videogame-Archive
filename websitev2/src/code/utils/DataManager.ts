@@ -50,13 +50,13 @@ class DataManager {
     }
 
 
-    // static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
-    //     let response = await fetch(`${Config.API_BASE_URL}/Search?term=${searchRequest.searchTerms.join('+')}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     });
-    //     return new SearchResponse(await response.json()).results;
-    // }
+    static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
+        let response = await fetch(`${Config.API_BASE_URL}/Search?term=${searchRequest.searchTerms.join('+')}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return new SearchResponse(await response.json()).results;
+    }
 }

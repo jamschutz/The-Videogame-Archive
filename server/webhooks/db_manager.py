@@ -156,16 +156,29 @@ def get_article_exists_for_date():
 @cross_origin(origin='*')
 def get_search_results():
     # parse params
-    title_query = request.args.get('title')
-    subtitle_query = request.args.get('subtitle')
-
-    # wrap % around search terms, for sql query
-    title_query = f'%{title_query.replace(" ", "%")}%'
-    subtitle_query = f'%{subtitle_query.replace(" ", "%")}%'
+    search_term = request.args.get('term')
+    search_term = search_term.replace(' ', '%')
 
     # fetch db data and return
-    db_manager = DbManager()
-    response = db_manager.get_search_results(title_query=title_query, subtitle_query=subtitle_query)
+    print(f'getting search results for {search_term}...')
+    db_manager = AzureDbManager()
+    db_response = db_manager.get_search_results(terms=search_term)
+    print(f'got {len(db_response)} results')
+
+    response = []
+    for article in db_response:
+        response.append({
+            'title': article[0],
+            'subtitle': article[1],
+            'url': article[2],
+            'date': article[3],
+            'website': article[4],
+            'author': article[5],
+            'thumbnail': article[6],
+            'type': article[7]
+        })
+    return response
+
     return jsonify(response)
 
 

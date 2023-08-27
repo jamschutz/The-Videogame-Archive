@@ -343,3 +343,39 @@ class AzureDbManager:
             query += f" AND WebsiteId = {website_id}"
 
         return self.get_query(query)
+
+
+    def get_search_results(self, terms):
+        # build query
+        query = f"""
+            SELECT
+                Article.Title, Article.Subtitle, ArticleUrl.Url, Article.DatePublished, Publication.Name, Writer.Name AS Author, Thumbnail.Filename AS Thumbnail, ArticleType.Name as ArticleType
+            FROM
+                Article
+            INNER JOIN
+                ArticleUrl
+            ON
+                ArticleUrl.Id = Article.UrlId
+            INNER JOIN
+                Writer
+            ON
+                Article.AuthorId = Writer.Id
+            LEFT JOIN
+                Thumbnail
+            ON
+                Article.Id = Thumbnail.ArticleId
+            LEFT JOIN
+                Publication
+            ON
+                Publication.Id = Article.WebsiteId
+            LEFT JOIN
+                ArticleType
+            ON
+                ArticleType.Id = Article.ArticleTypeId
+            WHERE
+                Article.Title LIKE '%{terms}%' OR Article.Subtitle LIKE '%{terms}%'
+            ORDER BY
+                Article.DatePublished
+        """
+
+        return self.get_query(query)

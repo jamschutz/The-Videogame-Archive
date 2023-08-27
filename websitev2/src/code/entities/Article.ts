@@ -10,4 +10,5 @@ class Article {
     url: string;
     website: string;
     thumbnail: string;
+    type: string;
 }

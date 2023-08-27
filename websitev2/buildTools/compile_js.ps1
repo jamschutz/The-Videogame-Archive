@@ -15,6 +15,11 @@ if($LastExitCode -ne 0) {
     Write-Output "error combining javascript files! bailing"
     Return
 }
+& "python" "${PSScriptRoot}\search_results_compiler.py"
+if($LastExitCode -ne 0) {
+    Write-Output "error combining javascript files! bailing"
+    Return
+}
 
 # Write-Output "minifying js..."
 # & "uglifyjs" "compiler/tmp/compiled.js" "--output" "code/js/vga_archive.js"
