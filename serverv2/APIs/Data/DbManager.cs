@@ -58,6 +58,32 @@ namespace VideoGameArchive.Data
 
             return articles.ToArray();
         }
+
+
+        public List<int> GetDatesWithArticles(string startDate, string endDate)
+        {
+            var dates = new List<int>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {                
+                connection.Open();
+
+                string sql = SQLScripts.GetDatesWithArticles(startDate, endDate);
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // add each date in response to list
+                            dates.Add(reader.GetInt32(0));
+                        }
+                    }
+                }
+            }
+
+            return dates;
+        }
     }
 
 

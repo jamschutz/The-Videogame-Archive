@@ -13,5 +13,19 @@ namespace VideoGameArchive.Data
                     DatePublished = {date}
             ";
         }
+
+
+        public static string GetDatesWithArticles(string start, string end)
+        {
+            return $@"
+                SELECT
+                    DatePublished
+                FROM
+                    Article
+                WHERE
+                    DatePublished >= {start} AND DatePublished <= {end}
+                GROUP BY DatePublished
+            ";
+        }
     }
 }
