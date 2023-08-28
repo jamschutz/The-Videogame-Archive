@@ -1,6 +1,6 @@
 using System;
 
-namespace VGA.Helpers
+namespace VideoGameArchive.Entities
 {
     public class CalendarDate
     {
