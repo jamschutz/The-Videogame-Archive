@@ -23,14 +23,23 @@ When you install it, place it in this path: `C:\Program Files (x86)\Poppler\popp
 
 ## TODO
 
-- Reorder columns
 - Different archive view types (existing vertical, horizontal, etc)
 
-- Search page
+- Create MongoDB for search
+- Protect again SQL injection for search
+
+- Move server to azure functions
+- Add more websites
+- Better search filters (author, website, etc)
+- Actual search indexing
+- Wayback webpages
+
 - About page
 - Home page
 - Website page
 - Author page
+
+- Optimize searching
 
 - Mobile view
 

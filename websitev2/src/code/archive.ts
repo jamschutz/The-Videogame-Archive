@@ -1,6 +1,8 @@
 // --- declare components --- //
 var searchBar = new SearchBar();
 var calendar = new Calendar();
+let websiteColumns: HTMLCollectionOf<Element>;
+let selectedColumn: HTMLElement;
 
 
 
@@ -50,7 +52,7 @@ function applyFilters() {
     }
 }
 
-
+// select all functions for filters
 function toggleSelectAllWebsites() {
     let selectAll = (document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement).checked;
     let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
@@ -72,6 +74,47 @@ function toggleSelectAllArticleTypes() {
         articleType.checked = selectAll;
     }
 }
+
+
+// moveable website columns
+function handleDragStart(e) {
+    console.log('drag start');
+    selectedColumn = this.parentNode;
+    selectedColumn.style.opacity = '0.4';
+
+    e.dataTransfer.effectAllowed = 'move';
+}
+
+function handleDragEnd(e) {
+    selectedColumn.style.opacity = '1';
+}
+
+function handleDragOver(e) {
+    console.log('drag over');
+    e.preventDefault();
+    return false;
+}
+
+function handleDragEnter(e) {
+    console.log('drag enter');
+    if (selectedColumn !== this.parentNode) {
+        // swap flex order of columns
+        let temp = selectedColumn.style.order;
+        selectedColumn.style.order = this.parentNode.style.order;
+        this.parentNode.style.order = temp;
+    }
+}
+
+function handleDragLeave(e) {
+}
+
+function handleDrop(e) {
+    console.log('drag leave');
+    e.stopPropagation(); // stops the browser from redirecting.
+    return false;
+}
+
+
 
 
 
@@ -100,5 +143,17 @@ function toggleSelectAllArticleTypes() {
         let selectAllArticleTypesCheckbox = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
         selectAllWebsitesCheckbox.addEventListener('click', toggleSelectAllWebsites);
         selectAllArticleTypesCheckbox.addEventListener('click', toggleSelectAllArticleTypes);
+
+        // bind website column draggable functions
+        websiteColumns = document.getElementsByClassName('Archive-websiteColumnHeader');
+        for(let i = 0; i < websiteColumns.length; i++) {
+            let websiteColumn = websiteColumns.item(i) as HTMLElement;
+            websiteColumn.addEventListener('dragstart', handleDragStart);
+            websiteColumn.addEventListener('dragover', handleDragOver);
+            websiteColumn.addEventListener('dragenter', handleDragEnter);
+            websiteColumn.addEventListener('dragleave', handleDragLeave);
+            websiteColumn.addEventListener('dragend', handleDragEnd);
+            websiteColumn.addEventListener('drop', handleDrop);
+        }
     }
 })(window, document, undefined)
