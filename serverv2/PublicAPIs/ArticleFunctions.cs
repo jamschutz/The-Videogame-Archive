@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -83,6 +84,25 @@ namespace VideoGameArchive
             var response = JsonConvert.SerializeObject(datesWithArticles);
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
+
+
+        [FunctionName("InsertArticles")]
+        public static async Task<HttpResponseMessage> InsertArticles(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("InsertSearchResults processed a request.");
+
+            var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var articles = JsonConvert.DeserializeObject<List<Article>>(reqBody);
+
+            InitDbManager();
+            ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
+
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent("done", Encoding.UTF8, "application/json")
             };
         }
 

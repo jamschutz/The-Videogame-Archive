@@ -84,6 +84,19 @@ namespace VideoGameArchive.Data
 
             return dates;
         }
+
+
+        public List<Article> GetArticlesNotInDb(List<Article> articles)
+        {
+            // build article lookup
+            var articleLookup = new Dictionary<string, Article>();
+            foreach(var article in articles) {
+                articleLookup[article.url] = article;
+            }
+
+            System.Console.WriteLine(SQLScripts.GetUrlsOnRecordFromList(articles));
+            return articles;
+        }
     }
 
 

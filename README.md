@@ -153,3 +153,18 @@ https://www.escapistmagazine.com/category/news/page/3951/
 ### Reference sites
 https://superfamicom.org/
 http://snescentral.com/
+
+
+### APIs Needed
+- Get Article Urls Not Already Stored
+- Get AUthor not exist
+- Get article type not exist
+
+- Create author
+- Create article type
+- Creat url (throw error if more than 1000 chars!!) (if greater than 500 chars, need to store in overflow -- maybe throw a warning?)
+- Create thumbnail
+- Create article
+- Create publication
+
+- Send email!

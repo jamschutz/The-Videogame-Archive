@@ -1,3 +1,8 @@
+using System.Linq;
+using System.Collections.Generic;
+
+using VideoGameArchive.Entities;
+
 namespace VideoGameArchive.Data
 {
     public static class SQLScripts
@@ -25,6 +30,22 @@ namespace VideoGameArchive.Data
                 WHERE
                     DatePublished >= {start} AND DatePublished <= {end}
                 GROUP BY DatePublished
+            ";
+        }
+
+
+        public static string GetUrlsOnRecordFromList(List<Article> articles)
+        {
+            var articleUrls = articles.Select(a => $"'{a.url}'").ToList();
+            return $@"
+                SELECT
+                    Url
+                FROM
+                    ArticleUrl
+                WHERE
+                    Url
+                IN
+                    ({string.Join(',', articleUrls)})
             ";
         }
     }
