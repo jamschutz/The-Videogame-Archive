@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using Microsoft.Data.SqlClient;
@@ -24,65 +26,31 @@ namespace VideoGameArchive.Data
         }
 
 
-        public Article[] GetArticlesForDate(string date)
+        public List<Article> GetArticlesForDate(string date)
         {
-            var articles = new List<Article>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {                
-                connection.Open();
-
-                string sql = SQLScripts.GetArticlesForDate(date.ToString());
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // parse articles from response
-                            var article = new Article();
-                            article.title = reader.GetString(0);
-                            article.subtitle = reader.GetString(1);
-                            article.datePublished = reader.GetInt32(2);
-                            article.thumbnail = reader.IsDBNull(6) ? null : reader.GetString(3);
-                            article.website = reader.GetString(4);
-                            article.url = reader.GetString(5);
-                            article.articleType = reader.GetString(6);
-                            article.author = reader.GetString(7);
-
-                            articles.Add(article);
-                        }
-                    }
-                }                    
-            }
-
-            return articles.ToArray();
+            string sql = SQLScripts.GetArticlesForDate(date.ToString());
+            return GetQuery<Article>(sql, (reader) => {
+                // parse articles from response
+                var article = new Article();
+                article.title = reader.GetString(0);
+                article.subtitle = reader.GetString(1);
+                article.datePublished = reader.GetInt32(2);
+                article.thumbnail = reader.IsDBNull(6) ? null : reader.GetString(3);
+                article.website = reader.GetString(4);
+                article.url = reader.GetString(5);
+                article.articleType = reader.GetString(6);
+                article.author = reader.GetString(7);
+                return article;
+            });
         }
 
 
         public List<int> GetDatesWithArticles(string startDate, string endDate)
         {
-            var dates = new List<int>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {                
-                connection.Open();
-
-                string sql = SQLScripts.GetDatesWithArticles(startDate, endDate);
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // add each date in response to list
-                            dates.Add(reader.GetInt32(0));
-                        }
-                    }
-                }
-            }
-
-            return dates;
+            string sql = SQLScripts.GetDatesWithArticles(startDate, endDate);
+            return GetQuery<int>(sql, (reader) => {
+                return reader.GetInt32(0);
+            });
         }
 
 
@@ -94,8 +62,43 @@ namespace VideoGameArchive.Data
                 articleLookup[article.url] = article;
             }
 
-            System.Console.WriteLine(SQLScripts.GetUrlsOnRecordFromList(articles));
-            return articles;
+            string sql = SQLScripts.GetUrlsOnRecordFromList(articles);
+            var urlsInDb = GetQuery<string>(sql, (reader) => {
+                return reader.GetString(0);
+            });
+
+            foreach(var url in urlsInDb) {
+                articleLookup.Remove(url);
+            }
+
+            var result = new List<Article>();
+            foreach(var entry in articleLookup) {
+                result.Add(entry.Value);
+            }
+
+            return result;
+        }
+
+
+        private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
+        {
+            var results = new List<T>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {                
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // add each row to results
+                            results.Add(parseRow(reader));
+                        }
+                    }
+                }
+            }
+            return results;
         }
     }
 
