@@ -64,5 +64,21 @@ namespace VideoGameArchive.Data
                     ({string.Join(',', writers)})
             ";
         }
+
+
+        public static string GetArticleTypesOnRecordFromList(List<Article> articles)
+        {
+            var articleTypes = articles.Select(a => $"'{a.articleType}'").ToList();
+            return $@"
+                SELECT
+                    Name
+                FROM
+                    ArticleType
+                WHERE
+                    Name
+                IN
+                    ({string.Join(',', articleTypes)})
+            ";
+        }
     }
 }

@@ -156,7 +156,6 @@ http://snescentral.com/
 
 
 ### APIs Needed
-- Get AUthor not exist
 - Get article type not exist
 
 - Create author

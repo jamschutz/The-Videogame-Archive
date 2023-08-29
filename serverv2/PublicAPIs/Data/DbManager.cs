@@ -106,6 +106,32 @@ namespace VideoGameArchive.Data
         }
 
 
+        public List<string> GetArticleTypesNotInDb(List<Article> articles)
+        {
+            // build author lookup
+            var articleTypeLookup = new HashSet<string>();
+            foreach(var article in articles) {
+                articleTypeLookup.Add(article.articleType);
+            }
+
+            string sql = SQLScripts.GetArticleTypesOnRecordFromList(articles);
+            var articleTypesInDb = GetQuery<string>(sql, (reader) => {
+                return reader.GetString(0);
+            });
+
+            foreach(var articleType in articleTypesInDb) {
+                articleTypeLookup.Remove(articleType);
+            }
+
+            var result = new List<string>();
+            foreach(var entry in articleTypeLookup) {
+                result.Add(entry);
+            }
+
+            return result;
+        }
+
+
         private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
         {
             var results = new List<T>();

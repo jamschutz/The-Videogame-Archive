@@ -99,11 +99,12 @@ namespace VideoGameArchive
             var articles = JsonConvert.DeserializeObject<List<Article>>(reqBody);
 
             InitDbManager();
-            var articlesToInsert = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
-            var authorsToInsert  = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
+            var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
+            var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
+            var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
 
             return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent(string.Join(", ", authorsToInsert), Encoding.UTF8, "application/json")
+                Content = new StringContent(string.Join(", ", articleTypesToInsert), Encoding.UTF8, "application/json")
             };
         }
 
