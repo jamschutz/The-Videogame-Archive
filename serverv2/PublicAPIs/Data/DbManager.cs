@@ -80,6 +80,32 @@ namespace VideoGameArchive.Data
         }
 
 
+        public List<string> GetAuthorsNotInDb(List<Article> articles)
+        {
+            // build author lookup
+            var authorLookup = new HashSet<string>();
+            foreach(var article in articles) {
+                authorLookup.Add(article.author);
+            }
+
+            string sql = SQLScripts.GetWritersOnRecordFromList(articles);
+            var authorsInDb = GetQuery<string>(sql, (reader) => {
+                return reader.GetString(0);
+            });
+
+            foreach(var author in authorsInDb) {
+                authorLookup.Remove(author);
+            }
+
+            var result = new List<string>();
+            foreach(var entry in authorLookup) {
+                result.Add(entry);
+            }
+
+            return result;
+        }
+
+
         private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
         {
             var results = new List<T>();

@@ -48,5 +48,21 @@ namespace VideoGameArchive.Data
                     ({string.Join(',', articleUrls)})
             ";
         }
+
+
+        public static string GetWritersOnRecordFromList(List<Article> articles)
+        {
+            var writers = articles.Select(a => $"'{a.author}'").ToList();
+            return $@"
+                SELECT
+                    Name
+                FROM
+                    Writer
+                WHERE
+                    Name
+                IN
+                    ({string.Join(',', writers)})
+            ";
+        }
     }
 }
