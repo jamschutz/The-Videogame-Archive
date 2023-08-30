@@ -26,6 +26,10 @@ namespace VideoGameArchive.Data
         }
 
 
+        /* =========================================================== */
+        /* ====   Get Methods   ====================================== */
+        /* =========================================================== */
+
         public List<Article> GetArticlesForDate(string date)
         {
             string sql = SQLScripts.GetArticlesForDate(date.ToString());
@@ -132,6 +136,40 @@ namespace VideoGameArchive.Data
         }
 
 
+
+
+
+        /* =========================================================== */
+        /* ====   Insert Methods   =================================== */
+        /* =========================================================== */
+
+        public void InsertAuthors(List<string> authors)
+        {
+            if(authors.Count == 0)
+                return;
+
+            string sql = SQLScripts.InsertAuthors(authors);
+            RunQuery(sql);
+        }
+
+        public void InsertArticleTypes(List<string> articleTypes)
+        {
+            if(articleTypes.Count == 0)
+                return;
+
+            string sql = SQLScripts.InsertArticleTypes(articleTypes);
+            RunQuery(sql);
+        }
+
+
+
+
+
+        /* =========================================================== */
+        /* ====   Main Methods   ===================================== */
+        /* =========================================================== */
+
+
         private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
         {
             var results = new List<T>();
@@ -151,6 +189,19 @@ namespace VideoGameArchive.Data
                 }
             }
             return results;
+        }
+
+
+        private void RunQuery(string query)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {                
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteReader();
+                }
+            }
         }
     }
 

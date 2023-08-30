@@ -90,18 +90,27 @@ namespace VideoGameArchive
 
         [FunctionName("InsertArticles")]
         public static async Task<HttpResponseMessage> InsertArticles(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("InsertSearchResults processed a request.");
 
+            Console.WriteLine("getting params..");
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
             var articles = JsonConvert.DeserializeObject<List<Article>>(reqBody);
 
             InitDbManager();
+
+            Console.WriteLine("getting data from db..");
+            // get list of data we need to insert before the articles
             var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
             var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
             var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
+
+            // insert data articles depend on first
+            Console.WriteLine("at insert..");
+            ArticleFunctions.dbManager.InsertAuthors(authorsToInsert);
+            ArticleFunctions.dbManager.InsertArticleTypes(articleTypesToInsert);
 
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(string.Join(", ", articleTypesToInsert), Encoding.UTF8, "application/json")
@@ -111,7 +120,7 @@ namespace VideoGameArchive
 
         [FunctionName("InsertSearchResults")]
         public static async Task<HttpResponseMessage> InsertSearchResults(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("InsertSearchResults processed a request.");
