@@ -120,6 +120,18 @@ namespace VideoGameArchive.Data
         }
 
 
+        public static string InsertUrls(List<Article> articles)
+        {
+            var urls = articles.Select(a => $"('{GetEscapedChars(a.url)}')").ToList();
+            return $@"
+                INSERT INTO 
+                    ArticleUrl (Url) 
+                VALUES
+                    {string.Join(',', urls)}
+             ";
+        }
+
+
 
 
 

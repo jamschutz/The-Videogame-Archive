@@ -156,8 +156,6 @@ http://snescentral.com/
 
 
 ### APIs Needed
-- Create author
-- Create article type
 - Creat url (throw error if more than 1000 chars!!) (if greater than 500 chars, need to store in overflow -- maybe throw a warning?)
 - Create thumbnail
 - Create article

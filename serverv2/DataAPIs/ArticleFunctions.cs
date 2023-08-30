@@ -17,6 +17,7 @@ using Newtonsoft.Json;
 using VideoGameArchive.Core;
 using VideoGameArchive.Data;
 using VideoGameArchive.Entities;
+using VideoGameArchive.Responses;
 
 namespace VideoGameArchive
 {
@@ -102,19 +103,37 @@ namespace VideoGameArchive
             InitDbManager();
 
             Console.WriteLine("getting data from db..");
-            // get list of data we need to insert before the articles
-            var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
-            var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
-            var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
 
-            // insert data articles depend on first
-            Console.WriteLine("at insert..");
-            ArticleFunctions.dbManager.InsertAuthors(authorsToInsert);
-            ArticleFunctions.dbManager.InsertArticleTypes(articleTypesToInsert);
+            try {
+                // get list of data we need to insert before the articles
+                var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
+                var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
+                var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
 
-            return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent(string.Join(", ", articleTypesToInsert), Encoding.UTF8, "application/json")
-            };
+                // insert data articles depend on first
+                Console.WriteLine("at insert..");
+                ArticleFunctions.dbManager.InsertAuthors(authorsToInsert);
+                ArticleFunctions.dbManager.InsertArticleTypes(articleTypesToInsert);
+                ArticleFunctions.dbManager.InsertUrls(articlesToInsert);
+
+                // create response object
+                var response = new InsertArticlesResponse() {
+                    ArticlesCreated = articlesToInsert,
+                    AuthorsCreated = authorsToInsert,
+                    ArticleTypesCreated = articleTypesToInsert
+                };
+
+                return new HttpResponseMessage(HttpStatusCode.OK) {
+                    Content = new StringContent(JsonConvert.SerializeObject(response), Encoding.UTF8, "application/json")
+                };
+            }
+            catch (Exception ex) {
+                var errorMsg = $"Error inserting articles: {ex.Message}\n\n\nLast SQL query: {DbManager.LastSqlQuery}";
+                Console.WriteLine(errorMsg);
+                return new HttpResponseMessage(HttpStatusCode.InternalServerError) {
+                    Content = new StringContent(errorMsg, Encoding.UTF8, "application/json")
+                };
+            }
         }
 
 

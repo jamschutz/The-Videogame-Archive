@@ -12,7 +12,9 @@ namespace VideoGameArchive.Data
 {
     public class DbManager
     {
-        string connectionString;
+        public static string LastSqlQuery;
+        private string connectionString;
+
         public DbManager()
         {
             var builder = new SqlConnectionStringBuilder();
@@ -161,6 +163,15 @@ namespace VideoGameArchive.Data
             RunQuery(sql);
         }
 
+        public void InsertUrls(List<Article> articles)
+        {
+            if(articles.Count == 0)
+                return;
+
+            string sql = SQLScripts.InsertUrls(articles);
+            RunQuery(sql);
+        }
+
 
 
 
@@ -172,6 +183,8 @@ namespace VideoGameArchive.Data
 
         private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
         {
+            DbManager.LastSqlQuery = query;
+
             var results = new List<T>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {                
@@ -194,6 +207,7 @@ namespace VideoGameArchive.Data
 
         private void RunQuery(string query)
         {
+            DbManager.LastSqlQuery = query;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {                
                 connection.Open();
