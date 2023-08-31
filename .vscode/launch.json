@@ -1,10 +1,20 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Attach to .NET Functions",
             "type": "coreclr",
             "request": "attach",
+            "processId": "${command:azureFunctions.pickProcess}"
+        },
+        {
+            "name": "Run Data API",
+            "type": "dotnet",
+            "request": "attach",
+            "port": 7071,
+            "preLaunchTask": "func: host start",
+            "cwd": "G:\\The Videogame Archive\\serverv2\\DataAPIs",
             "processId": "${command:azureFunctions.pickProcess}"
         }
     ]

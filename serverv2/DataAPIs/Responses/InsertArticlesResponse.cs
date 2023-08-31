@@ -6,8 +6,9 @@ namespace VideoGameArchive.Responses
 {
     public class InsertArticlesResponse
     {
-            public List<Article> ArticlesCreated { get; set; }
-            public List<string> AuthorsCreated { get; set; }
-            public List<string> ArticleTypesCreated { get; set; }
+        public List<Article> ArticlesCreated { get; set; }
+        public List<string> AuthorsCreated { get; set; }
+        public List<string> ArticleTypesCreated { get; set; }
+        public List<string> ThumbnailsCreated { get; set; }
     }
 }

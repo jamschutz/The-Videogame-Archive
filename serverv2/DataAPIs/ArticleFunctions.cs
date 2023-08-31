@@ -96,31 +96,31 @@ namespace VideoGameArchive
         {
             log.LogInformation("InsertSearchResults processed a request.");
 
-            Console.WriteLine("getting params..");
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
             var articles = JsonConvert.DeserializeObject<List<Article>>(reqBody);
 
             InitDbManager();
-
-            Console.WriteLine("getting data from db..");
 
             try {
                 // get list of data we need to insert before the articles
                 var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
                 var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
                 var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
+                var thumbnailsToInsert   = ArticleFunctions.dbManager.GetThumbnailsNotInDb(articles);
 
                 // insert data articles depend on first
-                Console.WriteLine("at insert..");
                 ArticleFunctions.dbManager.InsertAuthors(authorsToInsert);
                 ArticleFunctions.dbManager.InsertArticleTypes(articleTypesToInsert);
                 ArticleFunctions.dbManager.InsertUrls(articlesToInsert);
+                ArticleFunctions.dbManager.InsertArticles(articlesToInsert);
+                ArticleFunctions.dbManager.InsertThumbnails(thumbnailsToInsert, articles);
 
                 // create response object
                 var response = new InsertArticlesResponse() {
                     ArticlesCreated = articlesToInsert,
                     AuthorsCreated = authorsToInsert,
-                    ArticleTypesCreated = articleTypesToInsert
+                    ArticleTypesCreated = articleTypesToInsert,
+                    ThumbnailsCreated = thumbnailsToInsert
                 };
 
                 return new HttpResponseMessage(HttpStatusCode.OK) {

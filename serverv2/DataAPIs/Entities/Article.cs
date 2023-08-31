@@ -4,6 +4,7 @@ namespace VideoGameArchive.Entities
     {
         public Article() {}
 
+        public int? id { get; set; }
         public string title { get; set; }
         public string subtitle { get; set; }
         public string url { get; set; }
