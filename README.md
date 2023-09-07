@@ -156,9 +156,10 @@ http://snescentral.com/
 
 
 ### APIs Needed
-- Create thumbnail
 - Create publication
 
 - Create search key
+
+- Webcrawl function
 
 - Send email!

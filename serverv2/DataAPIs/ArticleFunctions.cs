@@ -137,21 +137,6 @@ namespace VideoGameArchive
         }
 
 
-        [FunctionName("InsertSearchResults")]
-        public static async Task<HttpResponseMessage> InsertSearchResults(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("InsertSearchResults processed a request.");
-
-            var mongo = new MongoDbManager();
-
-            return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent("done", Encoding.UTF8, "application/json")
-            };
-        }
-
-
         private static void InitDbManager()
         {
             if(ArticleFunctions.dbManager == null) {

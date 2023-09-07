@@ -5,29 +5,27 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel eleventyDev typescriptDev",
-    "test":  "npm-run-all --parallel eleventyTest typescriptDev",
+    "test": "npm-run-all --parallel eleventyTest typescriptDev",
     "build": "npm-run-all --parallel eleventyBuild typescriptBuild",
-
     "eleventyDev": "set ENVIRONMENT=dev & eleventy --serve",
     "eleventyTest": "set ENVIRONMENT=test & eleventy --serve",
     "eleventyBuild": "set ENVIRONMENT=prod & eleventy",
-
     "typescriptDev": "python ./buildTools/typeScriptWatcher.py",
     "typescriptBuild": "python ./buildTools/typeScriptWatcher.py",
-
     "clean": "rmdir /s _site"
   },
   "author": "Joey Schutz",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@types/node": "^20.5.1",
+    "autoprefixer": "^10.4.15",
     "eleventy-plugin-postcss": "^1.0.4",
+    "esbuild-register": "^3.3.2",
+    "npm-run-all": "^4.1.5",
     "postcss-import": "^15.1.0",
     "postcss-simple-vars": "^7.0.1",
-    "typescript": "^5.1.6",
-    "esbuild-register": "^3.3.2",
-    "@types/node": "^20.5.1",
-    "npm-run-all": "^4.1.5"
+    "typescript": "^5.1.6"
   },
   "overrides": {
     "semver": ">=7.5.2"

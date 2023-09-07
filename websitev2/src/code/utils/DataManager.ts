@@ -30,7 +30,7 @@ class DataManager {
     }
 
     static async getArticleCountBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<GetArticleCountResponse> {
-        let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
+        let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, { 
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,13 +40,15 @@ class DataManager {
     }
 
     static async getDatesWithArticles(start: CalendarDate, end: CalendarDate): Promise<any> {
-        let response = await fetch(`${Config.API_BASE_URL}/DatesWithArticles?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        return await response.json();
+        // let response = await fetch(`${Config.API_BASE_URL}/DatesWithArticles?start=${start.toUrlString()}&end=${end.toUrlString()}`, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // });
+        // return await response.json();
+        let dates = await fetch('/data/datesWithArticles.json');
+        return await dates.json();
     }
 
 

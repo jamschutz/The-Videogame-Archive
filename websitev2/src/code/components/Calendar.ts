@@ -121,11 +121,6 @@ class Calendar {
         this.minYearCached = startYear;
         this.maxYearCached = endYear;
 
-        // update session storage
-        // sessionStorage.setItem("datesWithArticles", JSON.stringify(this.datesWithArticles));
-        // sessionStorage.setItem("minYearCached", this.minYearCached.toString());
-        // sessionStorage.setItem("maxYearCached", this.maxYearCached.toString());
-
         // udpate html
         this.updateHtml();
     }

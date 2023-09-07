@@ -1,5 +1,6 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss")
 const { rm } = require("fs/promises")
+const fs = require('fs');
 
 module.exports = function(eleventyConfig) {
     // -- constants --
@@ -11,8 +12,6 @@ module.exports = function(eleventyConfig) {
     // -- assets --
     eleventyConfig.addPlugin(PostCSSPlugin);
     eleventyConfig.addPassthroughCopy('img');
-    eleventyConfig.addPassthroughCopy('src/css');
-
 
     // ---- handle article injection ---- //
     switch(buildEnvironment) {
@@ -43,6 +42,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.on("eleventy.after", async () => {
         await rm(`${dstDir}/_collections`, { recursive: true, force: true })
     })
+    
+    // update dates with articles -- don't await
+    updateDatesWithArticles(buildEnvironment, dstDir);
 
 
     return {
@@ -51,6 +53,66 @@ module.exports = function(eleventyConfig) {
             output: dstDir
         }
     };
+}
+
+
+async function updateDatesWithArticles(environment, dstDir) {
+    let apiBaseUrl = "";
+    switch(environment) {
+        case "dev":
+            apiBaseUrl = "http://localhost:7070/api";
+            break;
+        case "test":
+            apiBaseUrl = "http://localhost:7070/api";
+            break;
+        case "prod":
+            apiBaseUrl = "";
+            break;
+        default:
+            console.log("NO ENVIRONMENT SPECIFIED -- updateDatesWithArticles");
+            break;
+    }
+
+    console.log('getting dates with articles...');
+    let today = getTodaysString();
+    let response = await fetch('https://vga-functionapp-dev.azurewebsites.net/api/DatesWithArticles?start=1&end=20230907&code=yYJypBrKMsvMUFpkO106zQlzr8YncjJUvg56RnPtlc25AzFuR1uGLQ==', {
+        method: 'GET'
+    });
+
+    let datesWithArticles = await response.json();
+    if (!fs.existsSync(`${dstDir}/data`)){
+        fs.mkdirSync(`${dstDir}/data`);
+    }
+
+    // create write stream
+    var writeStream = fs.createWriteStream(`${dstDir}/data/datesWithArticles.json`);
+
+    writeStream.write(`[${datesWithArticles.join(',')}]`);
+    
+    // write each value of the array on the file breaking line
+    // datesWithArticles.forEach(value => writeStream.write(`${value},`));
+    // writeStream.write(']');
+
+    // the finish event is emitted when all data has been flushed from the stream
+    writeStream.on('finish', () => {
+        console.log(`wrote all the array dates with articles`);
+    });
+
+    // handle the errors on the write process
+    writeStream.on('error', (err) => {
+        console.error(`There is an error writing dates with articles => ${err}`)
+    });
+
+    // close the stream
+    writeStream.end();
+}
+
+function getTodaysString() {
+    let today = new Date()
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    return `${yyyy}${mm}${dd}`;
 }
 
 
