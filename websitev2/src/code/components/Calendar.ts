@@ -1,31 +1,13 @@
 class Calendar {
     public date: CalendarDate;
     public datesWithArticles: { [id: number]: boolean };
-    public minYearCached: number;
-    public maxYearCached: number;
 
     constructor() {
         this.date = UrlParser.getDate();
-
-        // // parse article date info from session storage
-        // this.datesWithArticles = JSON.parse(sessionStorage.getItem("datesWithArticles"));
-        // this.minYearCached = parseInt(sessionStorage.getItem("minYearCached"));
-        // this.maxYearCached = parseInt(sessionStorage.getItem("maxYearCached"));
-
-        // // if no session storage data, init these to new
-        // if(this.datesWithArticles === null || this.datesWithArticles === undefined || 
-        //    isNaN(this.minYearCached) || isNaN(this.maxYearCached)) {
-        //     this.datesWithArticles = {};
-        //     this.minYearCached = null;
-        //     this.maxYearCached = null;
-        // }
-
-        this.minYearCached = null;
-        this.maxYearCached = null;
         this.datesWithArticles = {};
         
         console.time('updateDateHasArticlesLookup')
-        this.checkToUpdateDatesWithArticles();
+        this.loadDatesWithArticles();
         console.timeEnd('updateDateHasArticlesLookup')
     }
 
@@ -66,60 +48,32 @@ class Calendar {
     public goToNextMonth(): any {
         this.date.addMonth();
         this.updateHtml();
-        this.checkToUpdateDatesWithArticles();
     }
     public goToPreviousMonth(): any {
         this.date.subtractMonth();
         this.updateHtml();
-        this.checkToUpdateDatesWithArticles();
     }
     public goToNextYear(): any {
         this.date.addYear();
         this.updateHtml();
-        this.checkToUpdateDatesWithArticles();
     }
     public goToPreviousYear(): any {
         this.date.subtractYear();
         this.updateHtml();
-        this.checkToUpdateDatesWithArticles();
     }
 
 
-    public checkToUpdateDatesWithArticles() {
-        // if first check on load and no session storage, get surrounding years
-        if(this.maxYearCached === null || this.minYearCached === null) {
-            this.updateDatesWithArticles(this.date.year - 1, this.date.year + 1);
-            return;
-        }
-
-        if(this.date.year >= this.maxYearCached) {
-            console.log('getting next year dates!')
-            this.updateDatesWithArticles(this.maxYearCached + 1, this.date.year + 1);
-        }
-        else if(this.date.year <= this.minYearCached) {
-            console.log('getting previous year dates!');
-            this.updateDatesWithArticles(this.date.year - 1, this.minYearCached);
-        }
-    }
-
-
-    public async updateDatesWithArticles(startYear: number, endYear: number): Promise<void> {
-        // init years as calendar dates
-        let startDate = new CalendarDate(startYear, 1, 1); // January 1, a year before current date
-        let endDate = new CalendarDate(endYear, 12, 31); // December 31, a year after current date
-
+    public async loadDatesWithArticles(): Promise<void> {
         // get dates with articles
-        let datesWithArticlesResponse = await DataManager.getDatesWithArticles(startDate, endDate);
+        let datesWithArticlesResponse = await DataManager.getDatesWithArticles();
 
         // add to cache
-        for(const key in datesWithArticlesResponse) {
-            let date = parseInt(key);
+        for(const i in datesWithArticlesResponse) {
+            let date = datesWithArticlesResponse[i];
             this.datesWithArticles[date] = true;
         }
 
-        // update our cached date range
-        this.minYearCached = startYear;
-        this.maxYearCached = endYear;
+        console.log(this.datesWithArticles);
 
         // udpate html
         this.updateHtml();
