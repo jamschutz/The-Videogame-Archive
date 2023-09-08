@@ -49,7 +49,7 @@ namespace VideoGameArchive.Data
                     articleId = articleIds[i],
                     startPosition = startPositions[i]
                 });
-            }             
+            }
             return results;
         }
 

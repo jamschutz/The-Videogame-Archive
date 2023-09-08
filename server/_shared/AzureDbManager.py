@@ -379,3 +379,33 @@ class AzureDbManager:
         """
 
         return self.get_query(query)
+
+
+    def get_total_article_count(self):
+        # build query
+        query = f"""
+            SELECT
+                Count(Id)
+            FROM
+                Article
+        """
+
+        return self.get_query(query)
+
+
+    def get_top_articles(self, num_to_skip, num_to_take):
+        # build query
+        query = f"""
+            SELECT
+                Id, Title, Subtitle
+            FROM
+                Article
+            ORDER BY 
+                DatePublished
+            OFFSET
+                {num_to_skip} ROWS
+            FETCH NEXT 
+                {num_to_take} ROWS ONLY;
+        """
+
+        return self.get_query(query)
