@@ -163,3 +163,5 @@ http://snescentral.com/
 - Webcrawl function
 
 - Send email!
+
+- Basic search reference: https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/

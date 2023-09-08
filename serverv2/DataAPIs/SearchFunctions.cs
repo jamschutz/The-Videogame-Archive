@@ -23,28 +23,35 @@ namespace VideoGameArchive
 {
     public static class SearchFunctions
     {
-        private static DbManager dbManager;
+        private static SearchTableManager dbManager;
 
 
-        // [FunctionName("InsertSearchResults")]
-        // public static async Task<HttpResponseMessage> InsertSearchResults(
-        //     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("InsertSearchResults processed a request.");
+        [FunctionName("InsertSearchResults")]
+        public static async Task<HttpResponseMessage> InsertSearchResults(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("InsertSearchResults processed a request.");
 
-        //     var mongo = new MongoDbManager();
+            var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var searchResults = JsonConvert.DeserializeObject<List<SearchResult>>(reqBody);
 
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent("done", Encoding.UTF8, "application/json")
-        //     };
-        // }
+            // get articles
+            InitDbManager();
+            dbManager.InsertSearchResults(searchResults);
+
+            // format and return
+            // var response = JsonConvert.SerializeObject(articleIds);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent("success", Encoding.UTF8, "application/json")
+            };
+        }
 
 
         private static void InitDbManager()
         {
             if(SearchFunctions.dbManager == null) {
-                SearchFunctions.dbManager = new DbManager();
+                SearchFunctions.dbManager = new SearchTableManager();
             }
         }
     }
