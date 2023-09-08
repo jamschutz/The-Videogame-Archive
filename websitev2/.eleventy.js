@@ -1,4 +1,5 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss")
+const EleventyFetch = require("@11ty/eleventy-fetch");
 const { rm } = require("fs/promises")
 const fs = require('fs');
 
@@ -60,10 +61,10 @@ async function updateDatesWithArticles(environment, dstDir) {
     let apiBaseUrl = "";
     switch(environment) {
         case "dev":
-            apiBaseUrl = "http://localhost:7070/api";
+            apiBaseUrl = "http://127.0.0.1:7070/api";
             break;
         case "test":
-            apiBaseUrl = "http://localhost:7070/api";
+            apiBaseUrl = "http://127.0.0.1:7070/api";
             break;
         case "prod":
             apiBaseUrl = "";
@@ -75,10 +76,8 @@ async function updateDatesWithArticles(environment, dstDir) {
 
     console.log('getting dates with articles...');
     let today = getTodaysString();
-    let response = await fetch('https://vga-functionapp-dev.azurewebsites.net/api/DatesWithArticles?start=1&end=20230907&code=yYJypBrKMsvMUFpkO106zQlzr8YncjJUvg56RnPtlc25AzFuR1uGLQ==', {
-        method: 'GET'
-    });
-
+    let response = await fetch(`${apiBaseUrl}/DatesWithArticles?start=1&end=${today}`);
+    
     let datesWithArticles = await response.json();
     if (!fs.existsSync(`${dstDir}/data`)){
         fs.mkdirSync(`${dstDir}/data`);
