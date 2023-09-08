@@ -34,16 +34,16 @@ namespace VideoGameArchive
             log.LogInformation("InsertSearchResults processed a request.");
 
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var searchResults = JsonConvert.DeserializeObject<List<SearchResult>>(reqBody);
+            var searchResults = JsonConvert.DeserializeObject<SearchResult>(reqBody);
 
             // get articles
             InitDbManager();
-            dbManager.InsertSearchResults(searchResults);
+            var entriesCreated = dbManager.InsertSearchResult(searchResults);
 
             // format and return
-            // var response = JsonConvert.SerializeObject(articleIds);
+            var response = JsonConvert.SerializeObject(entriesCreated);
             return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent("success", Encoding.UTF8, "application/json")
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
         }
 
