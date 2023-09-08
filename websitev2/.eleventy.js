@@ -1,5 +1,4 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss")
-const EleventyFetch = require("@11ty/eleventy-fetch");
 const { rm } = require("fs/promises")
 const fs = require('fs');
 
@@ -77,7 +76,7 @@ async function updateDatesWithArticles(environment, dstDir) {
     console.log('getting dates with articles...');
     let today = getTodaysString();
     let response = await fetch(`${apiBaseUrl}/DatesWithArticles?start=1&end=${today}`);
-    
+
     let datesWithArticles = await response.json();
     if (!fs.existsSync(`${dstDir}/data`)){
         fs.mkdirSync(`${dstDir}/data`);
@@ -86,11 +85,8 @@ async function updateDatesWithArticles(environment, dstDir) {
     // create write stream
     var writeStream = fs.createWriteStream(`${dstDir}/data/datesWithArticles.json`);
 
+    // and write out the articles
     writeStream.write(`[${datesWithArticles.join(',')}]`);
-    
-    // write each value of the array on the file breaking line
-    // datesWithArticles.forEach(value => writeStream.write(`${value},`));
-    // writeStream.write(']');
 
     // the finish event is emitted when all data has been flushed from the stream
     writeStream.on('finish', () => {
