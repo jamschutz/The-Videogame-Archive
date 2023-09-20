@@ -155,6 +155,21 @@ https://superfamicom.org/
 http://snescentral.com/
 
 
+
+### Table Architecture
+- search term:
+    - PartitionKey: {searchTerm}
+    - RowKey: {searchTerm}{pool}
+
+- search term metadata:
+    - PartitionKey: __metadata
+    - RowKey: {searchTerm}
+
+
+__metadata columns:
+    - Total results
+
+
 ### APIs Needed
 - Create publication
 

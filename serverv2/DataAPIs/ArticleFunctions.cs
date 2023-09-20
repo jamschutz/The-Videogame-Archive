@@ -27,7 +27,7 @@ namespace VideoGameArchive
 
 
         [FunctionName("GetArticles")]
-        public static async Task<HttpResponseMessage> GetArticles(
+        public static HttpResponseMessage GetArticles(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -54,7 +54,7 @@ namespace VideoGameArchive
 
 
         [FunctionName("DatesWithArticles")]
-        public static async Task<HttpResponseMessage> GetDatesWithArticles(
+        public static HttpResponseMessage GetDatesWithArticles(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -69,7 +69,7 @@ namespace VideoGameArchive
                 int test = int.Parse(start);
                 test = int.Parse(end);
             }
-            catch (Exception ex) {
+            catch {
                 // throw error if they aren't, and return
                 log.LogError($"DatesWithArticles got a bad start or end date: {start}, {end}");
                 return new HttpResponseMessage(HttpStatusCode.BadRequest) {

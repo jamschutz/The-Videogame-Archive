@@ -7,6 +7,8 @@ namespace VideoGameArchive.Entities
 {
     public class SearchResult
     {
+        public const int MAX_RESULTS_PER_ROW = 3000;
+
         public string searchTerm { get; set; }
         public List<int> articleIds { get; set; }
         public List<int> startPositions { get; set; }

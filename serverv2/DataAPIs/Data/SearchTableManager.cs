@@ -16,13 +16,50 @@ namespace VideoGameArchive.Data
     public class SearchTableManager
     {
         private TableClient searchTableClient;
-        private TableItem searchTable;
+        private TableClient searchMetadataTableClient;
         private const string SearchTableName = "searchResults";
+        private const string SearchMetadataTableName = "searchResultsMetadata";
 
         public SearchTableManager()
         {
             searchTableClient = new TableClient(Secrets.SearchTableConnectionString, SearchTableName);
+            searchMetadataTableClient = new TableClient(Secrets.SearchTableConnectionString, SearchMetadataTableName);
         }
+
+        // public void DeleteAllEntities()
+        // {
+        //     // Only the PartitionKey & RowKey fields are required for deletion
+        //     Pageable<TableEntity> entities = searchTableClient
+        //         .Query<TableEntity>(select: new List<string>() { "PartitionKey", "RowKey" }, maxPerPage: 1000);
+
+        //     entities.AsPages().ToList().ForEach(page => {
+        //         // Since we don't know how many rows the table has and the results are ordered by PartitonKey+RowKey
+        //         // we'll delete each page immediately and not cache the whole table in memory
+        //         BatchManipulateEntities(searchTableClient, page.Values, TableTransactionActionType.Delete);
+        //     });
+        // }
+
+        // public static List<Response<IReadOnlyList<Response>>> BatchManipulateEntities<T>(TableClient tableClient, IEnumerable<T> entities, TableTransactionActionType tableTransactionActionType) where T : class, ITableEntity, new()
+        // {
+        //     var groups = entities.GroupBy(x => x.PartitionKey);
+        //     var responses = new List<Response<IReadOnlyList<Response>>>();
+        //     foreach (var group in groups)
+        //     {
+        //         List<TableTransactionAction> actions;
+        //         var items = group.AsEnumerable();
+        //         while (items.Any())
+        //         {
+        //             var batch = items.Take(100);
+        //             items = items.Skip(100);
+
+        //             actions = new List<TableTransactionAction>();
+        //             actions.AddRange(batch.Select(e => new TableTransactionAction(tableTransactionActionType, e)));
+        //             var response = tableClient.SubmitTransaction(actions);
+        //             responses.Add(response);
+        //         }
+        //     }
+        //     return responses;
+        // }
 
 
         /* =========================================================== */
@@ -86,6 +123,32 @@ namespace VideoGameArchive.Data
         }
 
 
+        public List<SearchResultMetadata> GetSearchResultsMetadata(List<SearchResult> searchResults)
+        {
+            // build odata query
+            var partitionKeyQueries = searchResults.Select(r => $"PartitionKey eq '{r.searchTerm}'").ToList();
+            string odataQuery = string.Join(" or ", partitionKeyQueries);
+
+            // fetch query results from table
+            Pageable<TableEntity> query = searchMetadataTableClient.Query<TableEntity>(filter: odataQuery);
+            var metadata = new List<SearchResultMetadata>();
+
+            // parse to list
+            foreach (TableEntity entity in query)
+            {
+                string searchTerm = entity.GetString("SearchTerm");
+                long? totalResults = entity.GetInt64("TotalResults");
+                if(totalResults.HasValue)
+                    metadata.Add(new SearchResultMetadata() { 
+                        searchTerm = searchTerm,
+                        totalResults = totalResults.Value 
+                    });
+            }
+
+            return metadata;
+        }
+
+
 
 
 
@@ -95,6 +158,7 @@ namespace VideoGameArchive.Data
 
         public List<SearchResultEntry> InsertSearchResult(SearchResult searchResult)
         {
+            Console.WriteLine($"inserting search results: {searchResult.searchTerm}...");
             // get entries we haven't already stored
             var entriesToAdd = GetSearchResultEntriesToAdd(searchResult);
 
@@ -108,8 +172,6 @@ namespace VideoGameArchive.Data
             foreach(var entry in entriesToAdd) {
                 articleIds.Add(entry.articleId);
                 startPositions.Add(entry.startPosition);
-
-                Console.WriteLine($"creating entry with articleid: {entry.articleId}, and pos: {entry.startPosition}");
             }
 
             // build partition keys
@@ -142,7 +204,7 @@ namespace VideoGameArchive.Data
                     { "StartPositions", startPositionsStr }
                 };
             }
-            UpsertTableEntity(tableEntity);            
+            UpsertTableEntity(tableEntity);
 
             // return entries we created
             return entriesToAdd;
