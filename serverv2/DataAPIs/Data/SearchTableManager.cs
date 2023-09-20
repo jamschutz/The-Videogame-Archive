@@ -156,9 +156,8 @@ namespace VideoGameArchive.Data
         /* ====   Insert Methods   =================================== */
         /* =========================================================== */
 
-        public List<SearchResultEntry> InsertSearchResult(SearchResult searchResult)
+        public List<SearchResultEntry> InsertSearchResult(SearchResult searchResult, SearchResultMetadata metadata)
         {
-            Console.WriteLine($"inserting search results: {searchResult.searchTerm}...");
             // get entries we haven't already stored
             var entriesToAdd = GetSearchResultEntriesToAdd(searchResult);
 
@@ -175,15 +174,16 @@ namespace VideoGameArchive.Data
             }
 
             // build partition keys
-            var partitionKey = searchResult.searchTerm;
-            var rowKey = searchResult.searchTerm;
+            int poolIndex = (int)(metadata.totalResults / (long)SearchResult.MAX_RESULTS_PER_ROW);
+            var partitionKey = $"{searchResult.searchTerm}{poolIndex}";
+            var rowKey = $"{searchResult.searchTerm}{poolIndex}";
 
             // serialize list properties
             string articleIdsStr = string.Join(',', articleIds);
             string startPositionsStr = string.Join(',', startPositions);
 
             // check if entity exists
-            var existingEntity = GetSearchTermEntity(searchResult.searchTerm);
+            var existingEntity = GetSearchTermEntity(partitionKey, rowKey);
 
             // if it exists, update it
             TableEntity tableEntity;
@@ -206,6 +206,12 @@ namespace VideoGameArchive.Data
             }
             UpsertTableEntity(tableEntity);
 
+            // update metadata
+            var updatedMetadata = new TableEntity(searchResult.searchTerm, searchResult.searchTerm) {
+                { "TotalResults", metadata.totalResults + articleIds.Count }
+            };
+            UpsertMetadataEntity(updatedMetadata);
+
             // return entries we created
             return entriesToAdd;
         }
@@ -216,6 +222,14 @@ namespace VideoGameArchive.Data
             foreach(var searchResult in searchResults) {
                 InsertSearchResult(searchResult);
             }
+        }
+
+        public List<SearchResultEntry> InsertSearchResult(SearchResult searchResult)
+        {
+            var list = new List<SearchResult>();
+            list.Add(searchResult);
+            var metadata = GetSearchResultsMetadata(list)[0];
+            return InsertSearchResult(searchResult, metadata);
         }
 
 
@@ -231,9 +245,14 @@ namespace VideoGameArchive.Data
             searchTableClient.UpsertEntity(entity);
         }
 
-        private NullableResponse<TableEntity> GetSearchTermEntity(string searchTerm)
+        private void UpsertMetadataEntity(TableEntity entity)
         {
-            return searchTableClient.GetEntityIfExists<TableEntity>(searchTerm, searchTerm, null, new CancellationToken());
+            searchMetadataTableClient.UpsertEntity(entity);
+        }
+
+        private NullableResponse<TableEntity> GetSearchTermEntity(string partitionKey, string rowKey)
+        {
+            return searchTableClient.GetEntityIfExists<TableEntity>(partitionKey, rowKey, null, new CancellationToken());
         }
 
     }

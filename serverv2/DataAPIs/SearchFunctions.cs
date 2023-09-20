@@ -87,9 +87,8 @@ namespace VideoGameArchive
             int articleId = 100000000;
             int startPos  = 100000;
 
-            // ~17 chars per result
             try {
-                while(true) {
+                for(int j = 0; j < 10000; j++) {
                     var searchResults = new SearchResult() { 
                         searchTerm = "test",
                         articleIds = new List<int>(),
