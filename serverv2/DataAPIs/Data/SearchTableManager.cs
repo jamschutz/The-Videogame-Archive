@@ -73,10 +73,6 @@ namespace VideoGameArchive.Data
 
             var pages = Enumerable.Range(0, (int)(maxPage + 1)).ToList();
             var results = GetSearchResultEntries(searchTerm, pages);
-            // var results = new List<SearchResultEntry>();
-            // for(int page = 0; page <= maxPage; page++) {
-            //     results.AddRange(GetSearchResultEntries(searchTerm, page));
-            // }
             return results;
         }
 

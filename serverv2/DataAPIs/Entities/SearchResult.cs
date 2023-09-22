@@ -14,6 +14,12 @@ namespace VideoGameArchive.Entities
         public List<int> startPositions { get; set; }
     }
 
+    public class SearchResultBin
+    {
+        public string searchTerm { get; set; }
+        public List<SearchResultEntry> entries { get; set; }
+    }
+
 
     public class SearchResultEntry
     {
