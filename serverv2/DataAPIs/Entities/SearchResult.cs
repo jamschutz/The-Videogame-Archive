@@ -26,4 +26,33 @@ namespace VideoGameArchive.Entities
             return Utils.GetTwoIntHash(articleId, startPosition);
         }
     }
+
+
+    public class SearchResultCompressed
+    {
+        public string searchTerm;
+        public Dictionary<int, List<int>> articleIdPositions;
+
+
+        public SearchResultCompressed(string searchTerm, List<SearchResultEntry> results)
+        {
+            this.searchTerm = searchTerm;
+            articleIdPositions = new Dictionary<int, List<int>>();
+            if(results == null || results.Count == 0) {
+                return;
+            }
+
+            foreach(var s in results) {
+                int id = s.articleId;
+                int pos = s.startPosition;
+
+                if(!articleIdPositions.ContainsKey(id)) {
+                    articleIdPositions[id] = new List<int>();
+                }
+
+                articleIdPositions[id].Add(pos);
+            }
+            
+        }
+    }
 }

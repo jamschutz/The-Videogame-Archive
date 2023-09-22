@@ -68,7 +68,49 @@ namespace VideoGameArchive.Data
 
         public List<SearchResultEntry> GetSearchResultEntries(string searchTerm)
         {
-            Pageable<TableEntity> query = searchTableClient.Query<TableEntity>(filter: $"PartitionKey eq '{searchTerm}'");
+            var metadata = GetSearchResultsMetadata(searchTerm);
+            long maxPage = metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
+
+            var pages = Enumerable.Range(0, (int)(maxPage + 1)).ToList();
+            var results = GetSearchResultEntries(searchTerm, pages);
+            // var results = new List<SearchResultEntry>();
+            // for(int page = 0; page <= maxPage; page++) {
+            //     results.AddRange(GetSearchResultEntries(searchTerm, page));
+            // }
+            return results;
+        }
+
+        private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
+        {
+            // build odata query
+            var partitionKeyQueries = pageNumbers.Select(p => $"PartitionKey eq '{searchTerm}{p.ToString()}'").ToList();
+            string odataQuery = string.Join(" or ", partitionKeyQueries);
+
+            Pageable<TableEntity> query = searchTableClient.Query<TableEntity>(filter: odataQuery);
+            var articleIds = new List<int>();
+            var startPositions = new List<int>();
+
+            foreach (TableEntity entity in query)
+            {
+                var ids = entity.GetString("ArticleIds");
+                var positions = entity.GetString("StartPositions");
+                articleIds.AddRange(ids.Split(',').Select(id => int.Parse(id)));
+                startPositions.AddRange(positions.Split(',').Select(pos => int.Parse(pos)));
+            }
+
+            var results = new List<SearchResultEntry>();
+            for(int i = 0; i < articleIds.Count; i++) {
+                results.Add(new SearchResultEntry() {
+                    articleId = articleIds[i],
+                    startPosition = startPositions[i]
+                });
+            }
+            return results;
+        }
+
+        private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, int pageNumber)
+        {
+            Pageable<TableEntity> query = searchTableClient.Query<TableEntity>(filter: $"PartitionKey eq '{searchTerm}{pageNumber.ToString()}'");
             var articleIds = new List<int>();
             var startPositions = new List<int>();
 
@@ -146,6 +188,28 @@ namespace VideoGameArchive.Data
             }
 
             return metadata;
+        }
+
+
+        public SearchResultMetadata GetSearchResultsMetadata(string searchTerm)
+        {
+            // build odata query
+            string odataQuery = $"PartitionKey eq '{searchTerm}'";
+
+            // fetch query results from table
+            var query = searchMetadataTableClient.Query<TableEntity>(filter: odataQuery).ToList();
+            var metadata = new SearchResultMetadata();
+
+            // parse to list
+            if(query == null || query.Count == 0) {
+                return null;
+            }
+
+            var result = query[0];
+            return new SearchResultMetadata() {
+                searchTerm = result.GetString("SearchTerm"),
+                totalResults = result.GetInt64("TotalResults").Value
+            };
         }
 
 

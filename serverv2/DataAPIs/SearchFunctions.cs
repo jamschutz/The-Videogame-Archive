@@ -75,8 +75,30 @@ namespace VideoGameArchive
         }
 
 
+        [FunctionName("GetSearchResults")]
+        public static HttpResponseMessage GetSearchResults(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetSearchResults processed a request.");
+
+            string searchTerm = req.Query["searchTerm"];
+
+            // get articles
+            InitDbManager();
+            var searchResults = dbManager.GetSearchResultEntries(searchTerm);
+            var compressedResults = new SearchResultCompressed(searchTerm, searchResults);
+
+            // format and return
+            var response = JsonConvert.SerializeObject(compressedResults);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
+
+
         [FunctionName("SeedSearchResults")]
-        public static async Task<HttpResponseMessage> SeedSearchResults(
+        public static HttpResponseMessage SeedSearchResults(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
