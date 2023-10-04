@@ -213,33 +213,35 @@ namespace VideoGameArchive.Data
             var partitionKey = $"{searchTerm}{poolIndex}";
             var rowKey = $"{searchTerm}{poolIndex}";
 
-            // serialize list properties
-            var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(entriesToAdd);
-
             // check if entity exists
             var existingEntity = GetSearchTermEntity(partitionKey, rowKey);
 
             // if it exists, update it
             TableEntity tableEntity;
             if(existingEntity.HasValue) {
-                // string existingArticleIds = existingEntity.Value.GetString("ArticleIds");
-                // string existingStartPositions = existingEntity.Value.GetString("StartPositions");
+                var existingEntriesBinary = existingEntity.Value.GetBinary("Entries");
+                var existing = new SearchResult() { 
+                    entries = DeserializeFromByteArray<Dictionary<int, List<int>>>(existingEntriesBinary) 
+                };
+                existing.Extend(entriesToAdd);
 
-                // // update table entity
-                // tableEntity = new TableEntity(partitionKey, rowKey) {
-                //     { "ArticleIds", $"{existingArticleIds},{articleIdsStr}" },
-                //     { "StartPositions", $"{existingStartPositions},{startPositionsStr}" }
-                // };
-            }
-            // otherwise, create a new entry
-            else {
+                // update table entity
+                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
                 tableEntity = new TableEntity(partitionKey, rowKey) {
                     { "SearchTerm", searchTerm },
                     { "Entries", entriesByteArray }
                 };
-                UpsertTableEntity(tableEntity);
             }
-            // UpsertTableEntity(tableEntity);
+            // otherwise, create a new entry
+            else {
+                // serialize list properties
+                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(entriesToAdd);
+                tableEntity = new TableEntity(partitionKey, rowKey) {
+                    { "SearchTerm", searchTerm },
+                    { "Entries", entriesByteArray }
+                };
+            }
+            UpsertTableEntity(tableEntity);
 
             // update metadata
             var updatedMetadata = new TableEntity(searchTerm, searchTerm) {
