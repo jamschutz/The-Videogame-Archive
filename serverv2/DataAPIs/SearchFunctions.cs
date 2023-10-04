@@ -33,19 +33,13 @@ namespace VideoGameArchive
             log.LogInformation("InsertSearchResults processed a request.");
 
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var searchResults = JsonConvert.DeserializeObject<List<SearchResult>>(reqBody);
+            var searchRequest = JsonConvert.DeserializeObject<InsertSearchResultsRequest>(reqBody);
 
             log.LogInformation("got search reuslts :)");
 
             // get articles
             var dbManager = new SearchTableManager(log);
-            var entriesCreated = new List<SearchResultEntry>();
-
-            log.LogInformation("formatting entries");
-            foreach(var result in searchResults) {
-                log.LogInformation("inserting...");
-                entriesCreated.AddRange(dbManager.InsertSearchResult(result));
-            }
+            var entriesCreated = dbManager.InsertSearchResult(searchRequest.searchTerm, searchRequest.entries);
 
             // format and return
             var response = JsonConvert.SerializeObject(entriesCreated);
@@ -67,8 +61,7 @@ namespace VideoGameArchive
 
             // get articles
             var dbManager = new SearchTableManager(log);
-            var searchResults = searchTerms.Select(t => new SearchResult() { searchTerm = t}).ToList();
-            var metadata = dbManager.GetSearchResultsMetadata(searchResults);
+            var metadata = dbManager.GetSearchResultsMetadata(searchTerms);
 
             // format and return
             var response = JsonConvert.SerializeObject(metadata);
@@ -90,56 +83,56 @@ namespace VideoGameArchive
             // get articles
             var dbManager = new SearchTableManager(log);
             var searchResults = dbManager.GetSearchResultEntries(searchTerm);
-            var compressedResults = new SearchResultCompressed(searchTerm, searchResults);
+            // var compressedResults = new SearchResultCompressed(searchTerm, searchResults);
 
             // format and return
-            var response = JsonConvert.SerializeObject(compressedResults);
+            var response = JsonConvert.SerializeObject(searchResults);
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
         }
 
 
-        [FunctionName("SeedSearchResults")]
-        public static HttpResponseMessage SeedSearchResults(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("SeedSearchResults processed a request.");
+        // [FunctionName("SeedSearchResults")]
+        // public static HttpResponseMessage SeedSearchResults(
+        //     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+        //     ILogger log)
+        // {
+        //     log.LogInformation("SeedSearchResults processed a request.");
 
-            // get articles
-            var dbManager = new SearchTableManager(log);
-            int articleId = 100000000;
-            int startPos  = 100000;
+        //     // get articles
+        //     var dbManager = new SearchTableManager(log);
+        //     int articleId = 100000000;
+        //     int startPos  = 100000;
 
-            try {
-                for(int j = 0; j < 10000; j++) {
-                    var searchResults = new SearchResult() { 
-                        searchTerm = "test",
-                        articleIds = new List<int>(),
-                        startPositions = new List<int>()
-                    };
-                    for(int i = 0; i < 100; i++) {
-                        searchResults.articleIds.Add(articleId);
-                        searchResults.startPositions.Add(startPos);
+        //     // try {
+        //     //     for(int j = 0; j < 10000; j++) {
+        //     //         var searchResults = new SearchResult() { 
+        //     //             searchTerm = "test",
+        //     //             articleIds = new List<int>(),
+        //     //             startPositions = new List<int>()
+        //     //         };
+        //     //         for(int i = 0; i < 100; i++) {
+        //     //             searchResults.articleIds.Add(articleId);
+        //     //             searchResults.startPositions.Add(startPos);
 
-                        articleId++;
-                    }
+        //     //             articleId++;
+        //     //         }
 
-                    log.LogInformation($"inserting through articleIds {articleId}...");
-                    dbManager.InsertSearchResult(searchResults);
-                }
-            }
-            catch(Exception ex) {
-                log.LogInformation($"ERROR: {ex.Message}");
-            }
+        //     //         log.LogInformation($"inserting through articleIds {articleId}...");
+        //     //         dbManager.InsertSearchResult(searchResults);
+        //     //     }
+        //     // }
+        //     // catch(Exception ex) {
+        //     //     log.LogInformation($"ERROR: {ex.Message}");
+        //     // }
 
-            // format and return
-            var response = "success :)";
-            return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent(response, Encoding.UTF8, "application/json")
-            };
-        }
+        //     // format and return
+        //     var response = "success :)";
+        //     return new HttpResponseMessage(HttpStatusCode.OK) {
+        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
+        //     };
+        // }
 
 
         // [FunctionName("ClearSearchResults")]
