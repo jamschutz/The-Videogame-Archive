@@ -24,8 +24,6 @@ namespace VideoGameArchive
 {
     public static class SearchFunctions
     {
-        private static SearchTableManager dbManager;
-
 
         [FunctionName("InsertSearchResults")]
         public static async Task<HttpResponseMessage> InsertSearchResults(
@@ -37,10 +35,15 @@ namespace VideoGameArchive
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
             var searchResults = JsonConvert.DeserializeObject<List<SearchResult>>(reqBody);
 
+            log.LogInformation("got search reuslts :)");
+
             // get articles
-            InitDbManager();
+            var dbManager = new SearchTableManager(log);
             var entriesCreated = new List<SearchResultEntry>();
+
+            log.LogInformation("formatting entries");
             foreach(var result in searchResults) {
+                log.LogInformation("inserting...");
                 entriesCreated.AddRange(dbManager.InsertSearchResult(result));
             }
 
@@ -63,7 +66,7 @@ namespace VideoGameArchive
             var searchTerms = JsonConvert.DeserializeObject<List<string>>(reqBody);
 
             // get articles
-            InitDbManager();
+            var dbManager = new SearchTableManager(log);
             var searchResults = searchTerms.Select(t => new SearchResult() { searchTerm = t}).ToList();
             var metadata = dbManager.GetSearchResultsMetadata(searchResults);
 
@@ -85,7 +88,7 @@ namespace VideoGameArchive
             string searchTerm = req.Query["searchTerm"];
 
             // get articles
-            InitDbManager();
+            var dbManager = new SearchTableManager(log);
             var searchResults = dbManager.GetSearchResultEntries(searchTerm);
             var compressedResults = new SearchResultCompressed(searchTerm, searchResults);
 
@@ -105,7 +108,7 @@ namespace VideoGameArchive
             log.LogInformation("SeedSearchResults processed a request.");
 
             // get articles
-            InitDbManager();
+            var dbManager = new SearchTableManager(log);
             int articleId = 100000000;
             int startPos  = 100000;
 
@@ -153,13 +156,5 @@ namespace VideoGameArchive
         //         Content = new StringContent("success!", Encoding.UTF8, "application/json")
         //     };
         // }
-
-
-        private static void InitDbManager()
-        {
-            if(SearchFunctions.dbManager == null) {
-                SearchFunctions.dbManager = new SearchTableManager();
-            }
-        }
     }
 }

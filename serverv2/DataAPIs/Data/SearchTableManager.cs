@@ -1,11 +1,16 @@
 using System;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Collections.Generic;
+
+using Newtonsoft.Json;
 
 using Azure;
 using Azure.Data.Tables;
 using Azure.Data.Tables.Models;
+
+using Microsoft.Extensions.Logging;
 
 using VideoGameArchive.Entities;
 using VideoGameArchive.Core;
@@ -19,9 +24,16 @@ namespace VideoGameArchive.Data
         private TableClient searchMetadataTableClient;
         private const string SearchTableName = "searchResults";
         private const string SearchMetadataTableName = "searchResultsMetadata";
+        private ILogger log;
 
-        public SearchTableManager()
+        private readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
+            TypeNameHandling = TypeNameHandling.Auto,
+        };
+
+        public SearchTableManager(ILogger logger)
+        {
+            log = logger;
             searchTableClient = new TableClient(Secrets.SearchTableConnectionString, SearchTableName);
             searchMetadataTableClient = new TableClient(Secrets.SearchTableConnectionString, SearchMetadataTableName);
         }
@@ -68,6 +80,7 @@ namespace VideoGameArchive.Data
 
         public List<SearchResultEntry> GetSearchResultEntries(string searchTerm)
         {
+            Console.WriteLine("hi");
             var metadata = GetSearchResultsMetadata(searchTerm);
             long maxPage = metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
 
@@ -86,21 +99,24 @@ namespace VideoGameArchive.Data
             var articleIds = new List<int>();
             var startPositions = new List<int>();
 
+            var results = new List<SearchResultEntry>();
             foreach (TableEntity entity in query)
             {
-                var ids = entity.GetString("ArticleIds");
-                var positions = entity.GetString("StartPositions");
-                articleIds.AddRange(ids.Split(',').Select(id => int.Parse(id)));
-                startPositions.AddRange(positions.Split(',').Select(pos => int.Parse(pos)));
+                // var ids = entity.GetString("ArticleIds");
+                var entriesBinary = entity.GetBinary("Entries");
+                var entries = DeserializeFromByteArray<SearchResultBin>(entriesBinary);
+                results.AddRange(entries.entries);
+                // articleIds.AddRange(ids.Split(',').Select(id => int.Parse(id)));
+                // startPositions.AddRange(positions.Split(',').Select(pos => int.Parse(pos)));
             }
 
-            var results = new List<SearchResultEntry>();
-            for(int i = 0; i < articleIds.Count; i++) {
-                results.Add(new SearchResultEntry() {
-                    articleId = articleIds[i],
-                    startPosition = startPositions[i]
-                });
-            }
+            // var results = new List<SearchResultEntry>();
+            // for(int i = 0; i < articleIds.Count; i++) {
+            //     results.Add(new SearchResultEntry() {
+            //         articleId = articleIds[i],
+            //         startPosition = startPositions[i]
+            //     });
+            // }
             return results;
         }
 
@@ -110,21 +126,23 @@ namespace VideoGameArchive.Data
             var articleIds = new List<int>();
             var startPositions = new List<int>();
 
+            var results = new List<SearchResultEntry>();
             foreach (TableEntity entity in query)
             {
-                var ids = entity.GetString("ArticleIds");
-                var positions = entity.GetString("StartPositions");
-                articleIds.AddRange(ids.Split(',').Select(id => int.Parse(id)));
-                startPositions.AddRange(positions.Split(',').Select(pos => int.Parse(pos)));
+                // var ids = entity.GetString("ArticleIds");
+                var entriesBinary = entity.GetBinary("Entries");
+                var entries = DeserializeFromByteArray<SearchResultBin>(entriesBinary);
+                results.AddRange(entries.entries);
+                // articleIds.AddRange(ids.Split(',').Select(id => int.Parse(id)));
+                // startPositions.AddRange(positions.Split(',').Select(pos => int.Parse(pos)));
             }
 
-            var results = new List<SearchResultEntry>();
-            for(int i = 0; i < articleIds.Count; i++) {
-                results.Add(new SearchResultEntry() {
-                    articleId = articleIds[i],
-                    startPosition = startPositions[i]
-                });
-            }
+            // for(int i = 0; i < articleIds.Count; i++) {
+            //     results.Add(new SearchResultEntry() {
+            //         articleId = articleIds[i],
+            //         startPosition = startPositions[i]
+            //     });
+            // }
             return results;
         }
 
@@ -170,17 +188,42 @@ namespace VideoGameArchive.Data
             // fetch query results from table
             Pageable<TableEntity> query = searchMetadataTableClient.Query<TableEntity>(filter: odataQuery);
             var metadata = new List<SearchResultMetadata>();
+            var existingMetadataEntries = new HashSet<string>();
 
             // parse to list
             foreach (TableEntity entity in query)
             {
+                Console.WriteLine("metadata here 1");
                 string searchTerm = entity.GetString("SearchTerm");
                 long? totalResults = entity.GetInt64("TotalResults");
-                if(totalResults.HasValue)
+                
+                Console.WriteLine("metadata here 2");
+                if(totalResults.HasValue) {
                     metadata.Add(new SearchResultMetadata() { 
                         searchTerm = searchTerm,
                         totalResults = totalResults.Value 
                     });
+                    existingMetadataEntries.Add(searchTerm);
+                }
+            }
+
+            // create new metadata entries for terms that don't have one
+            foreach(var searchResult in searchResults) {
+                // if metadata exists, ignore
+                if(existingMetadataEntries.Contains(searchResult.searchTerm)) {
+                    continue;
+                }
+
+                // otherwise, create entry
+                var newMetadataEntry = new TableEntity(searchResult.searchTerm, searchResult.searchTerm) {
+                    { "SearchTerm", searchResult.searchTerm },
+                    { "TotalResults", (long)0 }
+                };
+                UpsertMetadataEntity(newMetadataEntry);
+                metadata.Add(new SearchResultMetadata() {
+                    searchTerm = searchResult.searchTerm,
+                    totalResults = 0
+                });
             }
 
             return metadata;
@@ -225,22 +268,17 @@ namespace VideoGameArchive.Data
             if(entriesToAdd.Count == 0)
                 return entriesToAdd;
 
-            // build separate article id and startposition lists (making sure they line up at equal indices)
-            var articleIds = new List<int>();
-            var startPositions = new List<int>();
-            foreach(var entry in entriesToAdd) {
-                articleIds.Add(entry.articleId);
-                startPositions.Add(entry.startPosition);
-            }
-
             // build partition keys
             int poolIndex = (int)(metadata.totalResults / (long)SearchResult.MAX_RESULTS_PER_ROW);
             var partitionKey = $"{searchResult.searchTerm}{poolIndex}";
             var rowKey = $"{searchResult.searchTerm}{poolIndex}";
 
             // serialize list properties
-            string articleIdsStr = string.Join(',', articleIds);
-            string startPositionsStr = string.Join(',', startPositions);
+            var searchResultEntity = new SearchResultBin() {
+                searchTerm = searchResult.searchTerm,
+                entries = entriesToAdd
+            };
+            var entriesByteArray = SerializeToByteArray<SearchResultBin>(searchResultEntity);
 
             // check if entity exists
             var existingEntity = GetSearchTermEntity(partitionKey, rowKey);
@@ -248,27 +286,27 @@ namespace VideoGameArchive.Data
             // if it exists, update it
             TableEntity tableEntity;
             if(existingEntity.HasValue) {
-                string existingArticleIds = existingEntity.Value.GetString("ArticleIds");
-                string existingStartPositions = existingEntity.Value.GetString("StartPositions");
+                // string existingArticleIds = existingEntity.Value.GetString("ArticleIds");
+                // string existingStartPositions = existingEntity.Value.GetString("StartPositions");
 
-                // update table entity
-                tableEntity = new TableEntity(partitionKey, rowKey) {
-                    { "ArticleIds", $"{existingArticleIds},{articleIdsStr}" },
-                    { "StartPositions", $"{existingStartPositions},{startPositionsStr}" }
-                };
+                // // update table entity
+                // tableEntity = new TableEntity(partitionKey, rowKey) {
+                //     { "ArticleIds", $"{existingArticleIds},{articleIdsStr}" },
+                //     { "StartPositions", $"{existingStartPositions},{startPositionsStr}" }
+                // };
             }
             // otherwise, create a new entry
             else {
                 tableEntity = new TableEntity(partitionKey, rowKey) {
-                    { "ArticleIds", articleIdsStr },
-                    { "StartPositions", startPositionsStr }
+                    { "Entries", entriesByteArray }
                 };
+                UpsertTableEntity(tableEntity);
             }
-            UpsertTableEntity(tableEntity);
+            // UpsertTableEntity(tableEntity);
 
             // update metadata
             var updatedMetadata = new TableEntity(searchResult.searchTerm, searchResult.searchTerm) {
-                { "TotalResults", metadata.totalResults + articleIds.Count }
+                { "TotalResults", metadata.totalResults + (long)entriesToAdd.Count }
             };
             UpsertMetadataEntity(updatedMetadata);
 
@@ -288,7 +326,9 @@ namespace VideoGameArchive.Data
         {
             var list = new List<SearchResult>();
             list.Add(searchResult);
+            log.LogInformation("getting metadata");
             var metadata = GetSearchResultsMetadata(list)[0];
+            log.LogInformation("got metadata");
             return InsertSearchResult(searchResult, metadata);
         }
 
@@ -297,7 +337,7 @@ namespace VideoGameArchive.Data
 
 
         /* =========================================================== */
-        /* ====   Main Methods   ===================================== */
+        /* ====   Helper Methods   ===================================== */
         /* =========================================================== */
 
         private void UpsertTableEntity(TableEntity entity)
@@ -313,6 +353,20 @@ namespace VideoGameArchive.Data
         private NullableResponse<TableEntity> GetSearchTermEntity(string partitionKey, string rowKey)
         {
             return searchTableClient.GetEntityIfExists<TableEntity>(partitionKey, rowKey, null, new CancellationToken());
+        }
+
+
+        // taken from: https://stackoverflow.com/a/66106760
+        public byte[] SerializeToByteArray<T>(T source)
+        {
+            var asString = JsonConvert.SerializeObject(source, SerializerSettings);
+            return Encoding.Unicode.GetBytes(asString);
+        }
+
+        public T DeserializeFromByteArray<T>(byte[] source)
+        {
+            var asString = Encoding.Unicode.GetString(source);
+            return JsonConvert.DeserializeObject<T>(asString);
         }
 
     }
