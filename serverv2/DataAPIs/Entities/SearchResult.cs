@@ -18,7 +18,43 @@ namespace VideoGameArchive.Entities
             entries = new Dictionary<int, List<int>>();
         }
 
+        public Dictionary<int, List<int>> GetEntries(int skip, int take)
+        {
+            var result = new Dictionary<int, List<int>>();
 
+            foreach(var articleEntry in entries.OrderBy(e => e.Key)) {
+                int articleId = articleEntry.Key;
+                var startPositions = articleEntry.Value;
+
+                // skip this entire entry if we have to
+                if(startPositions.Count < skip) {
+                    skip -= startPositions.Count;
+                    continue;
+                }
+
+                // otherwise, skip and take
+                var positionsTaken = startPositions.Skip(skip).Take(take).ToList();
+                result[articleId] = positionsTaken;
+
+                skip = 0;
+                take -= positionsTaken.Count();
+
+                if(take == 0) {
+                    return result;
+                }
+            }
+
+            return result;            
+        }
+
+        public int Count()
+        {
+            int count = 0;
+            foreach(var articleEntry in entries) {
+                count += articleEntry.Value.Count;
+            }
+            return count;
+        }
 
         public void Extend(Dictionary<int, List<int>> newEntries)
         {
@@ -57,6 +93,60 @@ namespace VideoGameArchive.Entities
         public void ExtendFast(SearchResult extraSearchResult)
         {
             Extend(extraSearchResult.entries);
+        }
+    }
+
+
+    public class SearchResultEntries
+    {
+        public Dictionary<int, List<int>> entries { get; set; }
+
+        public SearchResultEntries()
+        {
+            entries = new Dictionary<int, List<int>>();
+        }
+
+        public SearchResultEntries(Dictionary<int, List<int>> e)
+        {
+            entries = e;
+        }
+
+        public int Count()
+        {
+            int count = 0;
+            foreach(var articleEntry in entries) {
+                count += articleEntry.Value.Count;
+            }
+            return count;
+        }
+
+        public Dictionary<int, List<int>> GetEntries(int skip, int take)
+        {
+            var result = new Dictionary<int, List<int>>();
+
+            foreach(var articleEntry in entries.OrderBy(e => e.Key)) {
+                int articleId = articleEntry.Key;
+                var startPositions = articleEntry.Value;
+
+                // skip this entire entry if we have to
+                if(startPositions.Count < skip) {
+                    skip -= startPositions.Count;
+                    continue;
+                }
+
+                // otherwise, skip and take
+                var positionsTaken = startPositions.Skip(skip).Take(take).ToList();
+                result[articleId] = positionsTaken;
+
+                skip = 0;
+                take -= positionsTaken.Count();
+
+                if(take == 0) {
+                    return result;
+                }
+            }
+
+            return result;            
         }
     }
 

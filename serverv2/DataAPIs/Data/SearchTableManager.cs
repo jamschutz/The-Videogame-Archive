@@ -220,17 +220,44 @@ namespace VideoGameArchive.Data
             TableEntity tableEntity;
             if(existingEntity.HasValue) {
                 var existingEntriesBinary = existingEntity.Value.GetBinary("Entries");
-                var existing = new SearchResult() { 
+                var existing = new SearchResult() {
                     entries = DeserializeFromByteArray<Dictionary<int, List<int>>>(existingEntriesBinary) 
                 };
-                existing.Extend(entriesToAdd);
+                var entriesToAddHelper = new SearchResultEntries(entriesToAdd);
 
-                // update table entity
-                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
-                tableEntity = new TableEntity(partitionKey, rowKey) {
-                    { "SearchTerm", searchTerm },
-                    { "Entries", entriesByteArray }
-                };
+                if(existing.Count() + entriesToAddHelper.Count() > SearchResult.MAX_RESULTS_PER_ROW) {
+                    int skip = 0; 
+                    int take = SearchResult.MAX_RESULTS_PER_ROW - existing.entries.Count;
+                    while(skip < entriesToAddHelper.Count()) {
+                        // add to existing
+                        existing.Extend(entriesToAddHelper.GetEntries(skip, take));
+                        // update table entity
+                        var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
+                        tableEntity = new TableEntity(partitionKey, rowKey) {
+                            { "SearchTerm", searchTerm },
+                            { "Entries", entriesByteArray }
+                        };
+                        UpsertTableEntity(tableEntity);
+                        
+                        skip += take;
+                        take = SearchResult.MAX_RESULTS_PER_ROW;
+                        poolIndex++;
+                        partitionKey = $"{searchTerm}{poolIndex}";
+                        rowKey = $"{searchTerm}{poolIndex}";
+                        existing = new SearchResult();
+                    }
+                }
+                else {
+                    existing.Extend(entriesToAdd);
+
+                    // update table entity
+                    var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
+                    tableEntity = new TableEntity(partitionKey, rowKey) {
+                        { "SearchTerm", searchTerm },
+                        { "Entries", entriesByteArray }
+                    };
+                }
+                
             }
             // otherwise, create a new entry
             else {
