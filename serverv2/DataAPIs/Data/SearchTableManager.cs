@@ -218,61 +218,68 @@ namespace VideoGameArchive.Data
 
             // if it exists, update it
             TableEntity tableEntity;
+
+            SearchResult existing;
             if(existingEntity.HasValue) {
                 var existingEntriesBinary = existingEntity.Value.GetBinary("Entries");
-                var existing = new SearchResult() {
+                existing = new SearchResult() {
                     entries = DeserializeFromByteArray<Dictionary<int, List<int>>>(existingEntriesBinary) 
                 };
-                var entriesToAddHelper = new SearchResultEntries(entriesToAdd);
+            }
+            else {
+                existing = new SearchResult();
+            }
+            var entriesToAddHelper = new SearchResultEntries(entriesToAdd);
 
-                if(existing.Count() + entriesToAddHelper.Count() > SearchResult.MAX_RESULTS_PER_ROW) {
-                    int skip = 0; 
-                    int take = SearchResult.MAX_RESULTS_PER_ROW - existing.entries.Count;
-                    while(skip < entriesToAddHelper.Count()) {
-                        // add to existing
-                        existing.Extend(entriesToAddHelper.GetEntries(skip, take));
-                        // update table entity
-                        var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
-                        tableEntity = new TableEntity(partitionKey, rowKey) {
-                            { "SearchTerm", searchTerm },
-                            { "Entries", entriesByteArray }
-                        };
-                        UpsertTableEntity(tableEntity);
-                        
-                        skip += take;
-                        take = SearchResult.MAX_RESULTS_PER_ROW;
-                        poolIndex++;
-                        partitionKey = $"{searchTerm}{poolIndex}";
-                        rowKey = $"{searchTerm}{poolIndex}";
-                        existing = new SearchResult();
-                    }
-                }
-                else {
-                    existing.Extend(entriesToAdd);
-
+            if(existing.Count() + entriesToAddHelper.Count() > SearchResult.MAX_RESULTS_PER_ROW) {
+                int skip = 0; 
+                int take = SearchResult.MAX_RESULTS_PER_ROW - existing.entries.Count();
+                while(skip < entriesToAddHelper.Count()) {
+                    // add to existing
+                    existing.Extend(entriesToAddHelper.GetEntries(skip, take));
                     // update table entity
                     var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
                     tableEntity = new TableEntity(partitionKey, rowKey) {
                         { "SearchTerm", searchTerm },
                         { "Entries", entriesByteArray }
                     };
+                    UpsertTableEntity(tableEntity);
+                    
+                    skip += take;
+                    take = SearchResult.MAX_RESULTS_PER_ROW;
+                    poolIndex++;
+                    partitionKey = $"{searchTerm}{poolIndex}";
+                    rowKey = $"{searchTerm}{poolIndex}";
+                    existing = new SearchResult();
                 }
-                
             }
-            // otherwise, create a new entry
             else {
-                // serialize list properties
-                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(entriesToAdd);
+                existing.Extend(entriesToAdd);
+
+                // update table entity
+                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
                 tableEntity = new TableEntity(partitionKey, rowKey) {
                     { "SearchTerm", searchTerm },
                     { "Entries", entriesByteArray }
                 };
+                UpsertTableEntity(tableEntity);
             }
-            UpsertTableEntity(tableEntity);
+                
+            // }
+            // // otherwise, create a new entry
+            // else {
+            //     // serialize list properties
+            //     var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(entriesToAdd);
+            //     tableEntity = new TableEntity(partitionKey, rowKey) {
+            //         { "SearchTerm", searchTerm },
+            //         { "Entries", entriesByteArray }
+            //     };
+            // }
+            // UpsertTableEntity(tableEntity);
 
             // update metadata
             var updatedMetadata = new TableEntity(searchTerm, searchTerm) {
-                { "TotalResults", metadata.totalResults + entriesToAdd.Count }
+                { "TotalResults", metadata.totalResults + new SearchResultEntries(entriesToAdd).Count() }
             };
             UpsertMetadataEntity(updatedMetadata);
 
