@@ -5,6 +5,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 import requests
 import json
+import yaml
+from pathlib import Path
 
 
 regex = re.compile('[%s]' % re.escape(string.punctuation))
@@ -20,6 +22,8 @@ TITLE_POS_OFFSET = -100
 SUBTITLE_POS_OFFSET = -10000
 
 INSERT_SEARCH_TERMS_URL = 'http://localhost:7070/api/InsertSearchResults'
+
+WORD_DIR = '/The Videogame Archive/server/dbMigration/searchResults'
 
 search_term_indices = {}
 total_article_count = int(db.get_total_article_count()[0][0])
@@ -39,7 +43,8 @@ def stem_filter(tokens):
 def punctuation_filter(tokens):
     for token in tokens:
         token['token'] = regex.sub('', token['token'])
-    # return [regex.sub('', token['token']) for token in tokens]
+
+    tokens = [t for t in tokens if len(t['token']) > 0]
     return tokens
 
 def lowercase_filter(tokens):
@@ -84,13 +89,22 @@ def store_search_term_indices(article_id, text, string_type):
         start_pos = t['start_pos']
         if token not in search_term_indices:
             search_term_indices[token] = {
-                'articleIds': [],
-                'startPositions': []
+                'entries': []
             }
         
-        search_term_indices[token]['articleIds'].append(article_id)
-        search_term_indices[token]['startPositions'].append(start_pos)
+        search_term_indices[token]['entries'].append({
+            'articleId': article_id,
+            'startPosition': start_pos
+        })
 
+
+def save_search_term_results(search_term, results):
+    try:
+        with open(f'{WORD_DIR}/{search_term}.yml', 'a') as f:
+            yaml.dump(results, f, default_flow_style=False)
+    except:
+        with open(f'{WORD_DIR}/{search_term}.yml', 'w') as f:
+            yaml.dump(results, f, default_flow_style=False)
 
 
 def insert_search_terms(request):
@@ -108,26 +122,29 @@ def index_articles_with_offset(skip, take):
 
         store_search_term_indices(article_id, title, STRING_TYPE_TITLE)
 
-    insert_search_request = []
     for search_term in search_term_indices:
-        results = search_term_indices[search_term]
+        # insert_search_request = {
+        #     'searchTerm': search_term,
+        #     'entries': search_term_indices[search_term]['entries']
+        # }
 
-        insert_search_request.append ({
-            'searchTerm': search_term,
-            'articleIds': results['articleIds'],
-            'startPositions': results['startPositions']
-        })
+        save_search_term_results(search_term, search_term_indices[search_term]['entries'])
 
-
-    with open('last_request.json', 'w') as f:
-        json.dump(insert_search_request, f)
-    response = insert_search_terms(insert_search_request)
-    with open('last_response.json', 'w') as f:
-        json.dump(response, f)
+        # with open('last_request.json', 'w') as f:
+        #     json.dump(insert_search_request, f)
+        # response = insert_search_terms(insert_search_request)
+        # with open('last_response.json', 'w') as f:
+        #     json.dump(response, f)
 
 
-current_offset = 47000
+# ------- THIS IS HOW TO LOAD ---------------- #
+# entries = yaml.safe_load(Path(f'{WORD_DIR}/review.yml').read_text())
+# print(entries)
+
+
+current_offset = 0
 num_to_index = 1000
 while current_offset <= TOTAL_ARTICLE_COUNT:
+    search_term_indices = {}
     index_articles_with_offset(current_offset, num_to_index)
     current_offset += num_to_index
