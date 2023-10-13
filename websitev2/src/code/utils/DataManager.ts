@@ -46,12 +46,28 @@ class DataManager {
 
 
     static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
-        let response = await fetch(`${Config.API_BASE_URL}/Search?term=${searchRequest.searchTerms.join('+')}`, {
+        let searchResultsResponse = await fetch(`${Config.API_BASE_URL}/GetSearchResults?searchTerm=${searchRequest.searchTerms.join('+')}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        return new SearchResponse(await response.json()).results;
+
+        let searchResults = await searchResultsResponse.json();
+        let articleIds = [];
+        for(var id in searchResults) {
+            articleIds.push(id);
+        }
+
+        let articlesResponse = await fetch(`${Config.API_BASE_URL}/GetArticlesForIds`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(articleIds)
+        });
+
+        let results = new SearchResponse(await articlesResponse.json()).results;
+        return results;
     }
 }

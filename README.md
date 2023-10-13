@@ -180,3 +180,6 @@ __metadata columns:
 - Send email!
 
 - Basic search reference: https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/
+
+- SEARCH UPDATES:
+    - split tokens by "-" into separate tokens (e.g. "as-yet-contentious" should be split into 3 tokens)

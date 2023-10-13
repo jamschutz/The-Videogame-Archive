@@ -32,17 +32,35 @@ WORD_DIR = '/The Videogame Archive/server/dbMigration/searchResults'
 # print(entries)
 
 
+def insert_search_term(request):
+    response = requests.post(INSERT_SEARCH_TERMS_URL, data=json.dumps(request))
+    return response.json()
+
+
 def get_cleaned_token(filename):
     file_ext_length = len('.yml')
     return ''.join(ch for ch in filename[:-file_ext_length] if ch.isalnum())
 
 
-
+print('loading file list...')
 token_files = [f for f in listdir(WORD_DIR) if isfile(join(WORD_DIR, f))]
 
-for f in token_files[-100:]:
+skip_amount = 10350
+count = 1
+
+for f in token_files[skip_amount:]:
+    print(f'inserting for {f} ({count + skip_amount} of {len(token_files)})...')
+    # clean up token (remove non alphanumerics)
     cleaned_token = get_cleaned_token(f)
     if(len(cleaned_token) == 0):
         print(f'----DELETED: {f}')
-    else:
-        print(f'{f} ---> {cleaned_token}')
+        continue
+
+    entries = yaml.safe_load(Path(f'{WORD_DIR}/{f}').read_text())
+    insert_search_term({
+        'searchTerm': cleaned_token,
+        'entries': entries
+    })
+    count += 1
+    # with open('insertSearchResults.json', 'w', encoding='utf-8') as f:
+    #     json.dump(insert_search_request, f, ensure_ascii=False, indent=4)

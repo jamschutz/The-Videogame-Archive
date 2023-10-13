@@ -56,9 +56,9 @@ namespace VideoGameArchive.Data
         private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
         {
             // build odata query
-            var partitionKeyQueries = pageNumbers.Select(p => $"PartitionKey eq '{searchTerm}{p.ToString()}'").ToList();
-            string odataQuery = string.Join(" or ", partitionKeyQueries);
-            return GetSearchResultEntriesFromQuery(odataQuery);
+            // var partitionKeyQueries = pageNumbers.Select(p => $"PartitionKey eq '{searchTerm}{p.ToString()}'").ToList();
+            // string odataQuery = string.Join(" or ", partitionKeyQueries);
+            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
         }
         // private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, int pageNumber)
         // {
@@ -210,8 +210,8 @@ namespace VideoGameArchive.Data
 
             // build partition keys
             int poolIndex = (int)(metadata.totalResults / (long)SearchResult.MAX_RESULTS_PER_ROW);
-            var partitionKey = $"{searchTerm}{poolIndex}";
-            var rowKey = $"{searchTerm}{poolIndex}";
+            var partitionKey = $"{searchTerm}";
+            var rowKey = $"{poolIndex}";
 
             // check if entity exists
             var existingEntity = GetSearchTermEntity(partitionKey, rowKey);
@@ -246,8 +246,7 @@ namespace VideoGameArchive.Data
                     skip += take;
                     take = SearchResult.MAX_RESULTS_PER_ROW;
                     poolIndex++;
-                    partitionKey = $"{searchTerm}{poolIndex}";
-                    rowKey = $"{searchTerm}{poolIndex}";
+                    rowKey = $"{poolIndex}";
                     existing = new SearchResult();
                 }
             }

@@ -198,6 +198,36 @@ namespace VideoGameArchive.Data
         }
 
 
+        public static string GetArticlesForIds(List<int> ids)
+        {
+            var articleIds = string.Join(",", ids);
+            return $@"
+                SELECT
+                    Article.Title, Article.Subtitle, Writer.Name, Publication.Name, ArticleUrl.Url, Thumbnail.Filename, Article.DatePublished
+                FROM
+                    Article
+                INNER JOIN
+                    ArticleUrl
+                ON
+                    Article.UrlId = ArticleUrl.Id
+                INNER JOIN
+                    Writer
+                ON
+                    Article.AuthorId = Writer.Id
+                INNER JOIN
+                    Publication
+                ON
+                    Article.WebsiteId = Publication.Id
+                LEFT JOIN
+                    Thumbnail
+                ON
+                    Thumbnail.ArticleId = Article.Id
+                WHERE
+                    Article.Id in ({articleIds})
+            ";
+        }
+
+
 
 
 

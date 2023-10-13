@@ -35,7 +35,7 @@ namespace VideoGameArchive
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
             var searchRequest = JsonConvert.DeserializeObject<InsertSearchResultsRequest>(reqBody);
 
-            log.LogInformation("got search reuslts :)");
+            log.LogInformation($"got {searchRequest.entries.Count} search results for '{searchRequest.searchTerm}'");
 
             // get articles
             var dbManager = new SearchTableManager(log);
@@ -73,7 +73,7 @@ namespace VideoGameArchive
 
         [FunctionName("GetSearchResults")]
         public static HttpResponseMessage GetSearchResults(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("GetSearchResults processed a request.");

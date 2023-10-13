@@ -5,7 +5,7 @@ class SearchResponse {
         this.results = [];
         jsonData.forEach(d => {
             let article = new Article();
-            article.date = CalendarDate.fromDateString(d['date']);
+            article.date = CalendarDate.fromDateString(d['datePublished']);
             article.title = d['title'];
             article.subtitle = d['subtitle'];
             article.author = d['author'];
@@ -13,8 +13,6 @@ class SearchResponse {
             article.website = d['website'];
             article.thumbnail = d['thumbnail'];
             article.type = d['type']
-
-            console.log(article);
 
             this.results.push(article);
         });

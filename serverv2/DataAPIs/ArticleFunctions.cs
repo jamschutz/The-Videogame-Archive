@@ -53,6 +53,29 @@ namespace VideoGameArchive
         }
 
 
+        [FunctionName("GetArticlesForIds")]
+        public static async Task<HttpResponseMessage> GetArticleIds(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetArticles processed a request.");
+
+            // read requeust
+            var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var articleIds = JsonConvert.DeserializeObject<List<int>>(reqBody);
+
+            // get articles from db
+            InitDbManager();
+            var articles = ArticleFunctions.dbManager.GetArticlesForIds(articleIds);
+
+            // format and return
+            var response = JsonConvert.SerializeObject(articles);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
+
+
         [FunctionName("DatesWithArticles")]
         public static HttpResponseMessage GetDatesWithArticles(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
