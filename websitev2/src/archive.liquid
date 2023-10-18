@@ -7,6 +7,7 @@ pagination:
 permalink: "{{ date.year }}/{{ date.month }}/{{ date.day }}/index.html"
 title: "Archive"
 includeScript: /code/archive.js
+hideOverflow: true
 ---
 <div class="Archive-container">
 
@@ -28,6 +29,43 @@ includeScript: /code/archive.js
         {% assign websiteColumnOrder = websiteColumnOrder | plus: 1 %}
       {% endfor %}
     </div>
+
+    {% comment %} <div class="Archive-websiteColumnContainer">
+      <div class="Archive-websiteColumn" id="Archive-websiteColumnGameSpot" style="order: {{ columnOrder }}">
+        <!-- header -->
+        <span class="Archive-websiteColumnHeader" draggable="true">GameSpot</span>
+        <br><hr/>
+      </div>
+      <div class="Archive-websiteColumn" id="Archive-websiteColumnGameSpot" style="order: {{ columnOrder }}">
+        <!-- header -->
+        <span class="Archive-websiteColumnHeader" draggable="true">GameSpot</span>
+        <br><hr/>
+      </div>
+      <div class="Archive-websiteColumn" id="Archive-websiteColumnGameSpot" style="order: {{ columnOrder }}">
+        <!-- header -->
+        <span class="Archive-websiteColumnHeader" draggable="true">GameSpot</span>
+        <br><hr/>
+      </div>
+      <div class="Archive-websiteColumn" id="Archive-websiteColumnGameSpot" style="order: {{ columnOrder }}">
+        <!-- header -->
+        <span class="Archive-websiteColumnHeader" draggable="true">GameSpot</span>
+        <br><hr/>
+      </div>
+      <div class="Archive-websiteColumn" id="Archive-websiteColumnGameSpot" style="order: {{ columnOrder }}">
+        <!-- header -->
+        <span class="Archive-websiteColumnHeader" draggable="true">GameSpot</span>
+        <br><hr/>
+      </div>
+
+    </div> {% endcomment %}
+
+    {% comment %} <div class="Archive-websiteColumnContainer-row">
+      {% assign websiteColumnOrder = 1 %}
+      {% for website in collections.websites %}
+        {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name], year: date.year, month: date.month, thumbnailRoot: config.localFileBaseUrl, columnOrder: websiteColumnOrder %}
+        {% assign websiteColumnOrder = websiteColumnOrder | plus: 1 %}
+      {% endfor %}
+    </div> {% endcomment %}
 
   </div>
 

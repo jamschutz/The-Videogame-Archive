@@ -45,7 +45,7 @@ def get_cleaned_token(filename):
 print('loading file list...')
 token_files = [f for f in listdir(WORD_DIR) if isfile(join(WORD_DIR, f))]
 
-skip_amount = 10350
+skip_amount = 58300
 count = 1
 
 for f in token_files[skip_amount:]:

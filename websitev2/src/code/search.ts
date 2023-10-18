@@ -36,8 +36,6 @@ function showSearchResults(results: Article[]) {
         console.log('getting results for: ' + searchRequest.searchTerms);
 
         let results = await DataManager.getSearchResults(searchRequest);
-        console.log('got results!');
-        console.log(results);
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
         document.getElementById('Search-resultCount').innerText = `${results.length} results (${calculationTime.toFixed(2)} seconds)`;
         showSearchResults(results);

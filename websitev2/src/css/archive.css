@@ -1,10 +1,18 @@
+
+/* ----------------------------------------------- */
+/* -----------    main   ------------------------- */
+/* ----------------------------------------------- */
+
 .Archive-container {
     display: flex;
+    height: calc(100% - 100px);
 }
 
 .Archive-sidebarContainer {
     display: flex;
     flex-direction: column;
+    flex: 0 0 345px;
+    overflow-y: auto;
 }
 
 .Archive-sidebarContainer hr {
@@ -15,8 +23,10 @@
 }
 
 .Archive-articleContainer {
-    /* width: 100%; */
+    flex-grow: 1;
+    overflow: auto;
 }
+
 
 .Archive-dateDisplay {
     align-self: center;
@@ -30,22 +40,18 @@
 }
 
 
+/* ----------------------------------------------- */
+/* -----------    column view   ------------------ */
+/* ----------------------------------------------- */
+
+
 .Archive-articleContainer .Archive-websiteColumnContainer {
     display: flex;
 }
-.Archive-articleContainer .Archive-websiteColumnContainer-horizontal {
-    display: flex;
-    flex-direction: column;
-}
 
 .Archive-websiteColumn {
-    width: 250px; 
+    flex: 0 0 250px; 
     margin-right: 75px;
-}
-.Archive-websiteColumn-horizontal {
-    /* width: 250px;  */
-    margin-bottom: 75px;
-    display: flex;
 }
 
 .Archive-websiteColumn hr {
@@ -97,6 +103,85 @@
 }
 
 .Archive-websiteColumn .Archive-articleAuthor {
+    font-weight: 400;
+    font-size: 10px;
+    padding-top: 9px;
+    display: inline-block;
+}
+
+
+
+
+/* ----------------------------------------------- */
+/* -----------    row view   --------------------- */
+/* ----------------------------------------------- */
+
+
+.Archive-articleContainer .Archive-websiteColumnContainer-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.Archive-websiteColumn-row {
+    margin-bottom: 75px;
+}
+
+.Archive-websiteColumn-row hr {
+    display: inline-block;
+    align-self: inline-start;
+    /* width: 100%; */
+}
+
+.Archive-websiteArticleContainer-row {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.Archive-websiteColumnHeader-row {
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--primary-color);
+    cursor: move;
+}
+
+.Archive-websiteColumn-row .Archive-articleThumbnail {
+    width: 100%;
+}
+
+.Archive-websiteColumn-row .Archive-noArticleMsg {
+    margin-top: 0px;
+    padding-top: 6px;
+    font-style: italic;
+}
+
+.Archive-websiteColumn-row .Archive-article {
+    padding-right: 40px;
+    flex: 0 0 300px;
+}
+
+.Archive-websiteColumn-row .Archive-articleTitle {
+    padding-top: 7px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 8px;
+}
+ 
+.Archive-websiteColumn-row .Archive-articleTitle:hover {
+    text-shadow: -3px 2px 2px #c0e1ff;
+}
+
+.Archive-websiteColumn-row .Archive-articleSubtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6;
+    padding-bottom: 3px;
+}
+
+.Archive-websiteColumn-row .Archive-articleAuthor {
     font-weight: 400;
     font-size: 10px;
     padding-top: 9px;

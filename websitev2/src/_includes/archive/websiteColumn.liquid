@@ -7,31 +7,34 @@
     {% if articles.size == 0 %}
         <p class="Archive-noArticleMsg">No articles found for this date.</p>
     {% else %}
-        {% for article in articles %}
-            <div class="Archive-article Archive-article{{ article.type }}">
-
-                <!-- thumbnail -->
-                {% if article.thumbnail != null %}
-                    <a href="{{ article.url }}">
-                        <img class="Archive-articleThumbnail" src="{{ thumbnailRoot }}/{{ website.data.name }}/_thumbnails/{{ year }}/{{ month }}/{{ article.thumbnail }}"/>
-                    </a>
-                {% endif %}
-
-                <!-- title -->
-                <a href="{{ article.url }}"  class="Archive-articleTitle">{{ article.title }}</a>
-                <br>        
-
-                <!-- subtitle -->
-                {% if article.subtitle != null %}
-                    <div class="Archive-articleSubtitle">{{ article.subtitle }}</div>
-                {% endif %} 
-
-                <!-- author -->
-                {% if article.author != null %}
-                    <span class="Archive-articleAuthor">{{ article.author }}</span>
-                {% endif %}
-                
-            </div>
-        {% endfor %}
+        <div class="Archive-websiteArticleContainer">
+            {% for article in articles %}
+                <div class="Archive-article Archive-article{{ article.type }}">
+    
+                    <!-- thumbnail -->
+                    {% if article.thumbnail != null %}
+                        <a href="{{ article.url }}">
+                            <img class="Archive-articleThumbnail" src="{{ thumbnailRoot }}/{{ website.data.name }}/_thumbnails/{{ year }}/{{ month }}/{{ article.thumbnail }}"/>
+                        </a>
+                    {% endif %}
+    
+                    <!-- title -->
+                    <a href="{{ article.url }}"  class="Archive-articleTitle">{{ article.title }}</a>
+                    <br>        
+    
+                    <!-- subtitle -->
+                    {% if article.subtitle != null %}
+                        <div class="Archive-articleSubtitle">{{ article.subtitle }}</div>
+                    {% endif %} 
+    
+                    <!-- author -->
+                    {% if article.author != null %}
+                        <span class="Archive-articleAuthor">{{ article.author }}</span>
+                    {% endif %}
+                    
+                </div>
+            {% endfor %}
+        </div>
+        
     {% endif %}
 </div>
