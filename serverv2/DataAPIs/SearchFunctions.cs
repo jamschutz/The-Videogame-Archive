@@ -19,6 +19,7 @@ using VideoGameArchive.Core;
 using VideoGameArchive.Data;
 using VideoGameArchive.Entities;
 using VideoGameArchive.Responses;
+using Microsoft.WindowsAzure.Storage;
 
 namespace VideoGameArchive
 {
@@ -78,15 +79,48 @@ namespace VideoGameArchive
         {
             log.LogInformation("GetSearchResults processed a request.");
 
-            string searchTerm = req.Query["searchTerm"];
+            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ');
 
             // get articles
             var dbManager = new SearchTableManager(log);
-            var searchResults = dbManager.GetSearchResultEntries(searchTerm);
-            // var compressedResults = new SearchResultCompressed(searchTerm, searchResults);
+            var searchResults = new Dictionary<int, List<int>>();
+
+            // if only one search term, just store the one result
+            if(searchTerms.Length == 1) {
+                searchResults = dbManager.GetSearchResultEntries(searchTerms[0]);
+            }
+
+            // otherwise, get articles that have all search terms
+            else {
+                var allSearchResults = new List<Dictionary<int, List<int>>>();
+                foreach(var searchTerm in searchTerms) {
+                    allSearchResults.Add(dbManager.GetSearchResultEntries(searchTerm));
+                }
+
+                var matchingArticleIds = allSearchResults[0].Keys.ToList();
+                for(int i = 1; i < allSearchResults.Count; i++) {
+                    matchingArticleIds = matchingArticleIds.Intersect(allSearchResults[i].Keys.ToList()).ToList();
+                }
+
+                foreach(var id in matchingArticleIds) {
+                    foreach(var searchResult in allSearchResults) {
+                        if(searchResult.ContainsKey(id)) {
+                            if(!searchResults.ContainsKey(id)) {
+                                searchResults[id] = new List<int>();
+                            }
+
+                            searchResults[id].AddRange(searchResult[id]);
+                        }
+                    }
+                }
+            }
+
+            // get articles
+            var articleDbManager = new DbManager();
+            var articles = articleDbManager.GetArticlesForIds(searchResults.Keys.ToList());            
 
             // format and return
-            var response = JsonConvert.SerializeObject(searchResults);
+            var response = JsonConvert.SerializeObject(articles);
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
