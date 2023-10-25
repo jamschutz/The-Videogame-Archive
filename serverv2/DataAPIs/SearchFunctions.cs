@@ -79,7 +79,10 @@ namespace VideoGameArchive
         {
             log.LogInformation("GetSearchResults processed a request.");
 
-            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ');
+            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ').Select(t => t.ToLower()).ToArray();
+            int resultsPerPage = int.Parse(req.Query["resultsPerPage"]);
+            int pageNumber = int.Parse(req.Query["page"]);
+            if(pageNumber < 1) pageNumber = 1;
 
             // get articles
             var dbManager = new SearchTableManager(log);
@@ -117,10 +120,13 @@ namespace VideoGameArchive
 
             // get articles
             var articleDbManager = new DbManager();
-            var articles = articleDbManager.GetArticlesForIds(searchResults.Keys.ToList());            
+            var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(searchResults.Keys.ToList()) : new List<Article>();
 
             // format and return
-            var response = JsonConvert.SerializeObject(articles);
+            var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
+                TotalResults = articles.Count,
+                Results = articles.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList()
+            });
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };

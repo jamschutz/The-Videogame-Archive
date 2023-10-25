@@ -1,11 +1,12 @@
-// using System.Collections.Generic;
+using System.Collections.Generic;
 
-// using VideoGameArchive.Entities;
+using VideoGameArchive.Entities;
 
-// namespace VideoGameArchive.Responses
-// {
-//     public class GetSearchResultsResponse
-//     {
-//         public List<SearchResultCompressed> Results { get; set; }
-//     }
-// }
+namespace VideoGameArchive.Responses
+{
+    public class GetSearchResultsResponse
+    {
+        public int TotalResults { get; set; }
+        public List<Article> Results { get; set; }
+    }
+}
