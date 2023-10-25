@@ -45,29 +45,17 @@ class DataManager {
     }
 
 
-    static async getSearchResults(searchRequest: SearchRequest): Promise<Article[]> {
-        let searchResultsResponse = await fetch(`${Config.API_BASE_URL}/GetSearchResults?searchTerm=${searchRequest.searchTerms.join('+')}`, {
+    static async getSearchResults(searchRequest: SearchRequest): Promise<SearchResponse> {
+        let resultsPerPage = 25;
+        let page = 1;
+        let searchResultsResponse = await fetch(`${Config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&page=${page}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        let searchResults = await searchResultsResponse.json();
-        let articleIds = [];
-        for(var id in searchResults) {
-            articleIds.push(id);
-        }
-
-        let articlesResponse = await fetch(`${Config.API_BASE_URL}/GetArticlesForIds`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(articleIds)
-        });
-
-        let results = new SearchResponse(await articlesResponse.json()).results;
+        let results = new SearchResponse(await searchResultsResponse.json());
         return results;
     }
 }

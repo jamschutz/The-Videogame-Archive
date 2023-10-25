@@ -1,9 +1,12 @@
 class SearchResponse {
-    public results : Article[]
+    public totalResults : number;
+    public results : Article[];
 
     constructor(jsonData: []) {
+        console.log(jsonData);
+        this.totalResults = jsonData['TotalResults'];
         this.results = [];
-        jsonData.forEach(d => {
+        jsonData['Results'].forEach(d => {
             let article = new Article();
             article.date = CalendarDate.fromDateString(d['datePublished']);
             article.title = d['title'];

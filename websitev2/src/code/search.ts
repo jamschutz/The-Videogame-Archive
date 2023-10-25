@@ -49,12 +49,24 @@ function showSearchResults(results: Article[]) {
 
         let startTime = Date.now();
         let searchRequest = UrlParser.getSearchRequest();
+
+        // if didn't search for anything
+        if(searchRequest.isEmpty()) {
+            // hide progress bar
+            let progressBar = document.getElementById('Search-progressBar');
+            progressBar.style.display = 'none';
+            let containerDiv = document.getElementById('Search-resultsContainer');
+
+            // and bail
+            return;
+        }
+
         console.log('getting results for: ' + searchRequest.searchTerms);
 
         let results = await DataManager.getSearchResults(searchRequest);
         console.log('got results');
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
-        document.getElementById('Search-resultCount').innerText = `${results.length} results (${calculationTime.toFixed(2)} seconds)`;
-        showSearchResults(results);
+        document.getElementById('Search-resultCount').innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+        showSearchResults(results.results);
     }
 })(window, document, undefined);
