@@ -90,7 +90,7 @@ namespace VideoGameArchive
 
             // if only one search term, just store the one result
             if(searchTerms.Length == 1) {
-                searchResults = dbManager.GetSearchResultEntries(searchTerms[0]);
+                searchResults = dbManager.GetSearchResultEntries(searchTerms[0], resultsPerPage, pageNumber);
             }
 
             // otherwise, get articles that have all search terms

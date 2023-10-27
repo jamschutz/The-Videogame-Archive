@@ -29,6 +29,7 @@ module.exports = function(eleventyConfig) {
         case "prod":
             // handle prod...
             console.log("PROD BUILD");
+            getProdArticles();
             break;
         default:
             // do something else..?
@@ -66,7 +67,7 @@ async function updateDatesWithArticles(environment, dstDir) {
             apiBaseUrl = "http://127.0.0.1:7070/api";
             break;
         case "prod":
-            apiBaseUrl = "";
+            apiBaseUrl = "http://127.0.0.1:7070/api";
             break;
         default:
             console.log("NO ENVIRONMENT SPECIFIED -- updateDatesWithArticles");
@@ -108,6 +109,93 @@ function getTodaysString() {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
     return `${yyyy}${mm}${dd}`;
+}
+
+
+
+async function getArticlesForDate(date, websiteId) {
+    let apiBaseUrl = "https://vga-functionapp-dev.azurewebsites.net/api";
+
+    let dateNumber = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+    // console.log(`getting articles: ${apiBaseUrl}/GetArticles?date=${dateNumber}&websiteId=${websiteId}`);
+    let response = await fetch(`${apiBaseUrl}/GetArticles?date=${dateNumber}&websiteId=${websiteId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let json = await response.json();
+    console.log(json);
+
+    // let articles = response.json();
+    // console.log(response)
+}
+
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+function getDates(startDate, stopDate) {
+    var dateArray = new Array();
+    var currentDate = startDate;
+    while (currentDate <= stopDate) {
+        dateArray.push(new Date (currentDate));
+        currentDate = currentDate.addDays(1);
+    }
+    return dateArray;
+}
+async function getProdArticles() {
+    let websites = [
+        {
+            "name": "GameSpot",
+            "id": 1
+        },
+        {
+            "name": "Eurogamer",
+            "id": 2
+        },
+        {
+            "name": "Gameplanet",
+            "id": 3
+        },
+        {
+            "name": "JayIsGames",
+            "id": 4
+        },
+        {
+            "name": "TIGSource",
+            "id": 5
+        },
+        {
+            "name": "Indygamer",
+            "id": 6
+        }
+    ];
+
+    let earliestDate = new Date("1996-05-01");
+    let latestDate = new Date();
+    let allDates = getDates(earliestDate, latestDate);
+
+    let results = [];
+    allDates.forEach(date => {
+        let dateResults = {
+            'year': date.getFullYear(),
+            'month': date.getMonth() + 1,
+            'day': date.getDate(),
+            'articles': {}
+        };
+
+        websites.forEach(async website => {
+            await getArticlesForDate(date, website['id'])
+            dateResults['articles'][website['name']] = []
+        });
+
+        results.push(dateResults);
+    });
+    // console.log(results);
 }
 
 

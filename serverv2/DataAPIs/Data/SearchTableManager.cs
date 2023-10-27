@@ -47,18 +47,29 @@ namespace VideoGameArchive.Data
         public Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm)
         {
             var metadata = GetSearchResultsMetadata(searchTerm);
+            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
+        }
+
+        public Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, int resultsPerPage, int pageNumber)
+        {
+            var metadata = GetSearchResultsMetadata(searchTerm);
             long maxPage = metadata == null? 0 : metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
 
-            var pages = Enumerable.Range(0, (int)(maxPage + 1)).ToList();
+            int start = resultsPerPage * (pageNumber - 1);
+            int end = start + resultsPerPage;
+            int startRow = start / SearchResult.MAX_RESULTS_PER_ROW;
+            int endRow = end / SearchResult.MAX_RESULTS_PER_ROW;
+
+            var pages = Enumerable.Range(startRow, (endRow - startRow) + 1).ToList();
             var results = GetSearchResultEntries(searchTerm, pages);
             return results;
         }
         private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
         {
             // build odata query
-            // var partitionKeyQueries = pageNumbers.Select(p => $"PartitionKey eq '{searchTerm}{p.ToString()}'").ToList();
-            // string odataQuery = string.Join(" or ", partitionKeyQueries);
-            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
+            var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
+            string odataQuery = string.Join(" or ", rowKeyQueries);
+            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
         }
         // private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, int pageNumber)
         // {
