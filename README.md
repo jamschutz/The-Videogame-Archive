@@ -25,6 +25,8 @@ When you install it, place it in this path: `C:\Program Files (x86)\Poppler\popp
 
 - Different archive view types (existing vertical, horizontal, etc)
 
+- Fix Virtual Table, use in getting Articles (right now just using raw Article table and joining)
+
 - Create MongoDB for search
 - Protect again SQL injection for search
 

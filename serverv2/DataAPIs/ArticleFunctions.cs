@@ -36,14 +36,18 @@ namespace VideoGameArchive
             // process parameters
             string rawDate = req.Query["date"];
             string websiteParam = req.Query["websiteId"];
+            string endDateParam = req.Query["endDate"];
 
             // convert to what we want
             var date = new CalendarDate(rawDate);
             var websiteId = string.IsNullOrEmpty(websiteParam)? -1 : int.Parse(websiteParam);
+            var endDate = string.IsNullOrEmpty(endDateParam)? null : new CalendarDate(endDateParam);
 
             // get articles from db
             InitDbManager();
-            var articles = ArticleFunctions.dbManager.GetArticlesForDate(date.ToUrlString());
+            var articles = endDate == null? 
+                            ArticleFunctions.dbManager.GetArticlesForDate(date.ToUrlString()) :
+                            ArticleFunctions.dbManager.GetArticlesBetweenDates(date.ToUrlString(), endDate.ToUrlString());
 
             // format and return
             var response = JsonConvert.SerializeObject(articles);

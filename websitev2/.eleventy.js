@@ -29,7 +29,9 @@ module.exports = function(eleventyConfig) {
         case "prod":
             // handle prod...
             console.log("PROD BUILD");
-            getProdArticles();
+            eleventyConfig.addCollection("articleArchives", async () => 
+                getProdArticles()
+            );
             break;
         default:
             // do something else..?
@@ -113,89 +115,85 @@ function getTodaysString() {
 
 
 
-async function getArticlesForDate(date, websiteId) {
-    let apiBaseUrl = "https://vga-functionapp-dev.azurewebsites.net/api";
-
-    let dateNumber = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-    // console.log(`getting articles: ${apiBaseUrl}/GetArticles?date=${dateNumber}&websiteId=${websiteId}`);
-    let response = await fetch(`${apiBaseUrl}/GetArticles?date=${dateNumber}&websiteId=${websiteId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    let json = await response.json();
-    console.log(json);
-
-    // let articles = response.json();
-    // console.log(response)
+// Month in JavaScript is 0-indexed (January is 0, February is 1, etc), 
+// but by using 0 as the day it will give us the last day of the prior
+// month. So passing in 1 as the month number will return the last day
+// of January, not February
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
 }
+function getArticlesForDate(year, month) {
+    console.log(`getting articles for ${month}/${year}...`);
 
+    let websites = ["GameSpot", "Eurogamer", "Gameplanet", "JayIsGames", "TIGSource", "Indygamer"];
+    let dateFileNumber = year * 10000 + month * 100;
 
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
+    let data = fs.readFileSync(`${__dirname}\\buildTools\\articlesByDate\\${dateFileNumber}.json`, 'utf8');
+    let articles = JSON.parse(data);
 
-function getDates(startDate, stopDate) {
-    var dateArray = new Array();
-    var currentDate = startDate;
-    while (currentDate <= stopDate) {
-        dateArray.push(new Date (currentDate));
-        currentDate = currentDate.addDays(1);
-    }
-    return dateArray;
-}
-async function getProdArticles() {
-    let websites = [
-        {
-            "name": "GameSpot",
-            "id": 1
-        },
-        {
-            "name": "Eurogamer",
-            "id": 2
-        },
-        {
-            "name": "Gameplanet",
-            "id": 3
-        },
-        {
-            "name": "JayIsGames",
-            "id": 4
-        },
-        {
-            "name": "TIGSource",
-            "id": 5
-        },
-        {
-            "name": "Indygamer",
-            "id": 6
-        }
-    ];
-
-    let earliestDate = new Date("1996-05-01");
-    let latestDate = new Date();
-    let allDates = getDates(earliestDate, latestDate);
-
-    let results = [];
-    allDates.forEach(date => {
-        let dateResults = {
-            'year': date.getFullYear(),
-            'month': date.getMonth() + 1,
-            'day': date.getDate(),
-            'articles': {}
-        };
-
-        websites.forEach(async website => {
-            await getArticlesForDate(date, website['id'])
-            dateResults['articles'][website['name']] = []
+    let monthResults = []
+    for(let day = 1; day <= daysInMonth(month, year); day++) {
+        monthResults.push({
+            'year': year,
+            'month': month,
+            'day': day,
+            'articles': {
+                'GameSpot': [],
+                'Eurogamer': [],
+                'Gameplanet': [],
+                'JayIsGames': [],
+                'TIGSource': [],
+                'Indygamer': []
+            }
         });
+    }
 
-        results.push(dateResults);
+    articles.forEach(article => {
+        let dayPublished = article['datePublished'].toString().substring(6);
+        let articleInfo = {
+            'title': article['title'],
+            'subtitle': article['subtitle'],
+            'author': article['author'],
+            'thumbnail': article['thumbnail'],
+            'url': article['url'],
+            'type': article['articleType']
+        };
+        
+        let articleWebsite = article['website'];
+        monthResults[dayPublished - 1]['articles'][articleWebsite].push(articleInfo);
     });
-    // console.log(results);
+
+    return monthResults;
+}
+
+
+async function getProdArticles() {
+    return new Promise(resolve => {
+        let startMonth = 1;
+        let startYear = 2018;
+        let endMonth = 10;
+        let endYear = 2023;
+
+        let month = startMonth;
+        let year = startYear;
+
+        console.log('getting prod articles....');    
+        let results = [];
+        while(year <= endYear) {
+            let maxMonth = year === endYear? endMonth : 12;
+            while(month <= maxMonth) {
+                let articles = getArticlesForDate(year, month);
+                articles.forEach(a => {
+                    results.push(a);
+                });
+                month++;
+            }
+            
+            month = 1;
+            year++;
+        }
+        resolve(results);
+    });
 }
 
 

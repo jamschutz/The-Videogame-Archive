@@ -44,7 +44,25 @@ namespace VideoGameArchive.Data
                 article.title = reader.GetString(0);
                 article.subtitle = reader.GetString(1);
                 article.datePublished = reader.GetInt32(2);
-                article.thumbnail = reader.IsDBNull(6) ? null : reader.GetString(3);
+                article.thumbnail = reader.IsDBNull(3) ? null : reader.GetString(3);
+                article.website = reader.GetString(4);
+                article.url = reader.GetString(5);
+                article.articleType = reader.GetString(6);
+                article.author = reader.GetString(7);
+                return article;
+            });
+        }
+
+        public List<Article> GetArticlesBetweenDates(string start, string end)
+        {
+            string sql = SQLScripts.GetArticlesBetweenDates(start, end);
+            return GetQuery<Article>(sql, (reader) => {
+                // parse articles from response
+                var article = new Article();
+                article.title = reader.GetString(0);
+                article.subtitle = reader.GetString(1);
+                article.datePublished = reader.GetInt32(2);
+                article.thumbnail = reader.IsDBNull(3) ? null : reader.GetString(3);
                 article.website = reader.GetString(4);
                 article.url = reader.GetString(5);
                 article.articleType = reader.GetString(6);

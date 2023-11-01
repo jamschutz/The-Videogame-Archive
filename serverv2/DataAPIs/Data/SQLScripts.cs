@@ -17,11 +17,64 @@ namespace VideoGameArchive.Data
         {
             return $@"
                 SELECT 
-                    Title, Subtitle, DatePublished, Thumbnail, Website, Url, Type, Author
-                FROM 
-                    vArticle
+                    Article.Title, Article.Subtitle, Article.DatePublished, Thumbnail.Filename, Publication.Name, ArticleUrl.Url, ArticleType.Name, Writer.Name
+                FROM
+                    Article
+                INNER JOIN
+                    ArticleUrl
+                ON
+                    Article.UrlId = ArticleUrl.Id
+                INNER JOIN
+                    Writer
+                ON
+                    Article.AuthorId = Writer.Id
+                INNER JOIN
+                    Publication
+                ON
+                    Article.WebsiteId = Publication.Id
+                INNER JOIN
+                    ArticleType
+                ON
+                    Article.ArticleTypeId = ArticleType.Id
+                LEFT JOIN
+                    Thumbnail
+                ON
+                    Thumbnail.ArticleId = Article.Id
                 WHERE
-                    DatePublished = {date}
+                    Article.DatePublished = {date}
+            ";
+        }
+
+
+        public static string GetArticlesBetweenDates(string start, string end)
+        {
+            return $@"
+                SELECT 
+                    Article.Title, Article.Subtitle, Article.DatePublished, Thumbnail.Filename, Publication.Name, ArticleUrl.Url, ArticleType.Name, Writer.Name
+                FROM
+                    Article
+                INNER JOIN
+                    ArticleUrl
+                ON
+                    Article.UrlId = ArticleUrl.Id
+                INNER JOIN
+                    Writer
+                ON
+                    Article.AuthorId = Writer.Id
+                INNER JOIN
+                    Publication
+                ON
+                    Article.WebsiteId = Publication.Id
+                INNER JOIN
+                    ArticleType
+                ON
+                    Article.ArticleTypeId = ArticleType.Id
+                LEFT JOIN
+                    Thumbnail
+                ON
+                    Thumbnail.ArticleId = Article.Id
+                WHERE
+                    Article.DatePublished >= {start} AND Article.DatePublished <= {end}
             ";
         }
 
