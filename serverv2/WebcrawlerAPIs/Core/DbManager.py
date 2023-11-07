@@ -1,9 +1,9 @@
-import sqlite3, pyodbc
+import pyodbc
 from datetime import datetime
-from .._shared.Config import Config
-from .._shared.Secrets import Secrets
+from .Config import Config
+from .Secrets import Secrets
 
-class AzureDbManager:
+class DbManager:
     def __init__(self):
         self.config = Config()
         self.secrets = Secrets()

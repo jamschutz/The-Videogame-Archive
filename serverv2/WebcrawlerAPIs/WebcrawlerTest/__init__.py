@@ -1,4 +1,5 @@
 import logging
+from Webcrawlers.Eurogamer.url_indexer import UrlIndexerEurogamer
 
 import azure.functions as func
 
@@ -16,7 +17,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             name = req_body.get('name')
 
     if name:
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+        eurogamer = UrlIndexerEurogamer()
+        eurogamer.index_target_months()
+        return func.HttpResponse(f"got the eurogamer")
     else:
         return func.HttpResponse(
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",

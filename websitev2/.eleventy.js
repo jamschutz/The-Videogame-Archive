@@ -169,10 +169,10 @@ function getArticlesForDate(year, month) {
 
 async function getProdArticles() {
     return new Promise(resolve => {
-        let startMonth = 1;
-        let startYear = 2018;
-        let endMonth = 10;
-        let endYear = 2023;
+        let startMonth = 5;
+        let startYear = 1996;
+        let endMonth = 12;
+        let endYear = 2015;
 
         let month = startMonth;
         let year = startYear;
