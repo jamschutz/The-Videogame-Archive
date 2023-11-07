@@ -27,6 +27,22 @@ class DbManager:
         return result
 
 
+    def get_most_recent_article_date(self, website_id):
+        query = f"""
+            SELECT TOP(1)
+                DatePublished
+            FROM
+                Article
+            WHERE
+                WebsiteId = {website_id}
+            ORDER BY
+                DatePublished
+            DESC
+        """
+        result = self.get_query(query)
+        return result[0][0]
+
+
 
     def insert_writers(self, writers):
         # wrap writer names in ('NAME')

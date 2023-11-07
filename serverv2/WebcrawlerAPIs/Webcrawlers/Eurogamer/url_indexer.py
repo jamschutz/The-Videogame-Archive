@@ -1,3 +1,4 @@
+from Core.Config import Config
 from Core.DbManager import DbManager
 from .helpers.web_scraper import *
 from .helpers.utils import get_next_month
@@ -12,14 +13,17 @@ import random
 class UrlIndexerEurogamer:
     
     def __init__(self):
-        print('hi')
+        self.website_name = 'Eurogamer'
         self.db_manager = DbManager()
+        self.config = Config()
 
     def index_target_months(self):
-        # TODO: get dates programmatically
-        START_DATE   = '2023/03'
-        STOP_AT_DATE = '2023/03'
-        current_date = START_DATE
+        # get most recent logged article
+        website_id = self.config.website_id_lookup[self.website_name]
+        start_date = str(self.db_manager.get_most_recent_article_date(website_id))
+        # convert YYYYMMDD format to YYYY/MM format
+        current_date = f'{start_date[0:4]}/{start_date[4:6]}'
+        stop_at_date = datetime.utcnow().strftime('%Y/%m')
         articles = []
 
         try:
@@ -48,5 +52,5 @@ class UrlIndexerEurogamer:
 
         print(articles)
 
-        # save articles to database
-        # self.db_manager.save_articles(articles)
+        # # save articles to database
+        # # self.db_manager.save_articles(articles)
