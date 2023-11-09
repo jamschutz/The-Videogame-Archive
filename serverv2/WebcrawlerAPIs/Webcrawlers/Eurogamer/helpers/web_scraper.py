@@ -34,7 +34,7 @@ def get_links_from_archive_month(month, year):
             article_data.append({
                 'title': article_title,
                 'url': article_url,
-                'date': article_date,
+                'date': article_date.strftime('%m/%d/%Y'),
                 'website': WEBSITE_NAME
             })
 

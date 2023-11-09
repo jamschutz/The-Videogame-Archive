@@ -1,13 +1,13 @@
 import requests
-from server._shared.Config import Config
+# from server._shared.Config import Config
 from pathlib import Path
 from url_normalize import url_normalize
 from bs4 import BeautifulSoup
 import re, subprocess
 
 class Utils:
-    def __init__(self):
-        self.config = Config()
+    # def __init__(self):
+    #     self.config = Config()
 
 
     def get_two_char_int_string(self, n):
@@ -41,8 +41,8 @@ class Utils:
             f.write(img_data)
 
 
-    def save_pdf_as_jpg(self, pdf_file):
-        subprocess.Popen('"%s" -jpg "%s" out' % (self.config.PDF_TO_PPM_PATH, pdf_file))
+    # def save_pdf_as_jpg(self, pdf_file):
+    #     subprocess.Popen('"%s" -jpg "%s" out' % (self.config.PDF_TO_PPM_PATH, pdf_file))
 
 
     def inject_css(self, raw_html, base_url):
@@ -100,6 +100,18 @@ class Utils:
         return url
 
 
+    def download_and_save_image(self, img_url, folderpath, filename):
+        # download image
+        img_data = requests.get(img_url).content
+
+        # make sure folder path exists
+        Path(folderpath).mkdir(parents=True, exist_ok=True)
+
+        # and write to disk
+        with open(f'{folderpath}/{filename}', 'wb') as f:
+            f.write(img_data)
+
+
     def download_css_images(self, css, css_url, css_img_folderpath):
         css_host_url = css_url[:css_url.rfind('/')]
         img_urls = []
@@ -129,16 +141,36 @@ class Utils:
 
 
         print(background_url_declarations)
+
+
+    def download_images(self, raw_html, base_url, target_save_dir):
+        soup = BeautifulSoup(raw_html, 'lxml')
+
+        # find all referenced css links
+        imgs = soup.find_all('img')
+        # print(imgs)
+
+        # download each file, and store its contents in a list
+        for img in imgs:
+            img_url = img['src']
+
+            # if not a full url, prepend with base url
+            if img_url is not None and img_url[0] == '/':
+                img_url = f"{base_url}{img['src']}"
+
+            filename = img_url.split('/')[-1].split('?')[0]
+            self.download_and_save_image(img_url, target_save_dir, filename)
         
 
 
 if __name__ == '__main__':
     utils = Utils()
     css = ''
+    url = 'https://www.eurogamer.net/condemned-creator-considering-letting-an-indie-studio-make-a-third-outing'
     # with open('server/_shared/test.css', 'r') as f:
     #     css = f.read().replace('\n', '')
     
     # utils.download_css_images(css, 'TIGSource')
-
-    url = 'http://www.n64.com:80/web/n64_ext_stan_news_archive#go/to/the/end'
-    print(utils.normalize_url(url))
+    source = requests.get(url).text
+    utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
+    

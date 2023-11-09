@@ -21,36 +21,40 @@ class UrlIndexerEurogamer:
         # get most recent logged article
         website_id = self.config.website_id_lookup[self.website_name]
         start_date = str(self.db_manager.get_most_recent_article_date(website_id))
+
         # convert YYYYMMDD format to YYYY/MM format
         current_date = f'{start_date[0:4]}/{start_date[4:6]}'
         stop_at_date = datetime.utcnow().strftime('%Y/%m')
+
         articles = []
+        while True:
+            try:
+                # get articles at page number
+                print(f'fetching date {current_date}.')
+                m = current_date.split('/')[1]
+                y = current_date.split('/')[0]
+                article_links = get_links_from_archive_month(month=m, year=y)
 
-        try:
-            # get articles at page number
-            print(f'fetching date {current_date}.')
-            m = current_date.split('/')[1]
-            y = current_date.split('/')[0]
-            article_links = get_links_from_archive_month(month=m, year=y)
+                # if we got here, proxy worked!
+                articles.extend(article_links)
+            except Exception as e:
+                # show error
+                print(f'{str(e)}\n\n----------unable to get archive month----------')
+                return
 
-            # if we got here, proxy worked!
-            articles.extend(article_links)
-        except Exception as e:
-            # show error
-            print(f'{str(e)}\n\n----------unable to get archive month----------')
-            return
-        
-        # sort by date
-        articles = sorted(articles, key=lambda d: d['date']) 
+            # add / clean up fields    
+            for article in articles:
+                article['year']  = article['date'].split('/')[2]
+                article['month'] = article['date'].split('/')[0]
+                article['day']   = article['date'].split('/')[1]
 
-        # add / clean up fields    
-        for article in articles:
-            article['date'] = article['date'].strftime('%m/%d/%Y')
-            article['year']  = article['date'].split('/')[2]
-            article['month'] = article['date'].split('/')[0]
-            article['day']   = article['date'].split('/')[1]
 
-        print(articles)
+            # # save articles to database
+            # # self.db_manager.save_articles(articles)
 
-        # # save articles to database
-        # # self.db_manager.save_articles(articles)
+            # if we just got the last date, we can stop
+            if current_date == stop_at_date:
+                return
+
+            # otherwise, go to the next month
+            current_date = get_next_month(current_date)
