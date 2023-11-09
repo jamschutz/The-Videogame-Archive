@@ -144,13 +144,11 @@ class Utils:
 
 
     def download_images(self, raw_html, base_url, target_save_dir):
-        soup = BeautifulSoup(raw_html, 'lxml')
-
         # find all referenced css links
+        soup = BeautifulSoup(raw_html, 'lxml')
         imgs = soup.find_all('img')
-        # print(imgs)
 
-        # download each file, and store its contents in a list
+        # download each image file
         for img in imgs:
             img_url = img['src']
 
@@ -158,7 +156,11 @@ class Utils:
             if img_url is not None and img_url[0] == '/':
                 img_url = f"{base_url}{img['src']}"
 
+            # parse filename from url
             filename = img_url.split('/')[-1].split('?')[0]
+
+            # and download
+            print(f'downloading {img_url}')
             self.download_and_save_image(img_url, target_save_dir, filename)
         
 
