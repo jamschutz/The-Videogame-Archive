@@ -146,11 +146,16 @@ class Utils:
     def download_images(self, raw_html, base_url, target_save_dir):
         # find all referenced css links
         soup = BeautifulSoup(raw_html, 'lxml')
-        imgs = soup.find_all('img')
 
         # download each image file
-        for img in imgs:
+        for img in soup.find_all('img'):
             img_url = img['src']
+
+            # if empty src, just continue
+            if img_url is not None and img_url == '':
+                print(f'got empty image...printing below')
+                print(img)
+                continue
 
             # if not a full url, prepend with base url
             if img_url is not None and img_url[0] == '/':
@@ -159,20 +164,30 @@ class Utils:
             # parse filename from url
             filename = img_url.split('/')[-1].split('?')[0]
 
-            # and download
+            # download
             print(f'downloading {img_url}')
             self.download_and_save_image(img_url, target_save_dir, filename)
+
+            # and update image src
+            img['src'] = f'{target_save_dir}/{filename}'
+
+        return soup.prettify('utf-8')
+
+        
         
 
 
 if __name__ == '__main__':
     utils = Utils()
     css = ''
-    url = 'https://www.eurogamer.net/condemned-creator-considering-letting-an-indie-studio-make-a-third-outing'
+    url = 'https://www.eurogamer.net/metroid-prime-remains-one-of-nintendos-finest-games'
     # with open('server/_shared/test.css', 'r') as f:
     #     css = f.read().replace('\n', '')
     
     # utils.download_css_images(css, 'TIGSource')
     source = requests.get(url).text
-    utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
+    html = utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
+
+    with open("F:/_sandbox/Eurogamer/metroid-prime-remains-one-of-nintendos-finest-games.html", "wb") as f_output:
+        f_output.write(html) 
     
