@@ -43,8 +43,99 @@ class DbManager:
         return result[0][0]
 
 
+    def save_articles(self, articles):
+        # get authors and urls for each article
+        authors = []
+        urls = []
+        for article in articles:
+            if article['author'] not in authors:
+                authors.append(article['author'])
+            if article['url'] not in urls:
+                urls.append(article['url'])
+
+        # get existing articles
+        urls_formatted = [f"'{url}'" for url in urls]
+        existing_articles_query = f"""
+            SELECT
+                Url
+            FROM
+                Article
+            WHERE
+                Url IN ({','.join(urls_formatted)})
+        """
+        existing_articles = self.get_query(existing_articles_query)
+        existing_urls = [article[0] for article in existing_articles]
+
+        # remove any articles we already have records for
+        articles = [article for article in articles if article['url'] not in existing_urls]
+        # if no more articles, just return (nothing to save)
+        if len(articles) == 0:
+            return
+
+        # get corresponding ids for each
+        author_ids = self.get_author_id_lookup(authors)
+        type_ids = self.get_article_type_ids_lookup()
+        
+        # create authors / urls / types that aren't already in DB
+        authors_to_insert = []
+        types_to_insert = []
+        for article in articles:
+            if article['author'] not in author_ids and article['author'] not in authors_to_insert:
+                authors_to_insert.append(article['author'])
+            if article['type'] not in type_ids and article['type'] not in type_ids:
+                types_to_insert.append(article['type'])
+
+        self.insert_writers(authors_to_insert)
+        self.insert_article_types(types_to_insert)
+
+        # update id lookups
+        author_ids = self.get_author_id_lookup(authors)
+        type_ids = self.get_article_type_ids_lookup()
+
+
+        # add ids to article info
+        article_urls_added = set()
+        articles_to_add = []
+        for article in articles:
+            # don't add same article twice...
+            if article['url'] in article_urls_added:
+                print('DUPLICATE!!!!')
+                continue
+
+            print(f'adding article: {article["title"]}')
+            article_urls_added.add(article['url'])
+            article['author_id'] = author_ids[article['author']]
+            article['publication_id'] = self.config.website_id_lookup[article['website']]
+            article['type_id'] = type_ids[article['type']]
+            
+            # clean up title and subtitle
+            article['title'] = article['title'].replace("'", "''")
+            article['subtitle'] = article['subtitle'].replace("'", "''")
+
+            # if subtitle is too long, just truncate and slap an ellipses on it
+            if(len(article['subtitle']) > 250):
+                truncate_index = 246
+                # if we're truncating an apostophe, it will cause string parsing issues...back up until we're safe
+                while article['subtitle'][truncate_index] == "'":
+                    truncate_index -= 1
+                # and truncate
+                article['subtitle'] = f"{article['subtitle'][:truncate_index]}..."
+
+            articles_to_add.append(article)
+
+
+        print(articles_to_add)
+
+        # send to azure
+        # self.insert_articles(articles)
+
+
+
 
     def insert_writers(self, writers):
+        if len(writers) == 0:
+            return
+
         # wrap writer names in ('NAME')
         writers_formatted = []
         for writer in writers:
@@ -85,6 +176,9 @@ class DbManager:
 
 
     def insert_article_urls(self, urls):
+        if len(urls) == 0:
+            return
+
         # wrap urls in ('URL')
         urls_formatted = []
         for url in urls:
@@ -104,6 +198,9 @@ class DbManager:
 
 
     def insert_article_types(self, article_types):
+        if len(article_types) == 0:
+            return
+
         # wrap types in ('TYPE')
         types_formatted = []
         for article_type in article_types:
@@ -181,7 +278,7 @@ class DbManager:
 
 
 
-    def insert_articles(self, articles):
+    def insert_articles_PRIVATE(self, articles):
         # wrap writer names in ('NAME')
         articles_formatted = []
         for article in articles:
@@ -268,6 +365,26 @@ class DbManager:
             tag_name = tag[1]
 
             results[tag_name] = tag_id
+
+        return results
+
+
+    def get_article_type_ids_lookup(self):
+        # build query
+        query = f"""
+            SELECT
+                Id, Name
+            FROM
+                ArticleType
+        """
+
+        # and run
+        results = {}
+        for article_type in self.get_query(query):
+            type_id = article_type[0]
+            type_name = article_type[1]
+
+            results[type_name] = type_id
 
         return results
 
@@ -420,3 +537,44 @@ class DbManager:
         """
 
         return self.get_query(query)
+
+
+
+if __name__ == '__main__':
+    articles = [
+        {
+            'url': 'https://www.eurogamer.net/activision-never-had-systemic-issue-with-harassment-says-ceo-bobby-kotick',
+            'author': 'Ed Nightingale',
+            'type': 'news',
+            'title': 'Activision Never Had Systemic Issue With Harrassment Says CEO Bobby Kotick',
+            'subtitle': '',
+            'website': 'Eurogamer'
+        },
+        {
+            'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
+            'author': 'Matt Wales',
+            'type': 'news',
+            'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
+            'subtitle': '',
+            'website': 'Eurogamer'
+        },
+        {
+            'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
+            'author': 'Matt Wales',
+            'type': 'news',
+            'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
+            'subtitle': '',
+            'website': 'Eurogamer'
+        },
+        {
+            'url': 'https://www.gamespot.com/articles/nvidia-sues-s3/1100-2440312/',
+            'author': 'Amer Ajami',
+            'type': 'news',
+            'title': 'Nvidia Sues S3',
+            'subtitle': '',
+            'website': 'GameSpot'
+        }
+    ]
+
+    db_manager = DbManager()
+    db_manager.save_articles(articles)

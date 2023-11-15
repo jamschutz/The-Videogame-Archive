@@ -17,6 +17,7 @@ class UrlIndexerEurogamer:
         self.db_manager = DbManager()
         self.config = Config()
 
+
     def index_target_months(self):
         # get most recent logged article
         website_id = self.config.website_id_lookup[self.website_name]
@@ -47,7 +48,6 @@ class UrlIndexerEurogamer:
                 article['year']  = article['date'].split('/')[2]
                 article['month'] = article['date'].split('/')[0]
                 article['day']   = article['date'].split('/')[1]
-
 
             # # save articles to database
             # # self.db_manager.save_articles(articles)
