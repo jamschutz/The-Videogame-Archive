@@ -538,44 +538,44 @@ class DbManager:
 
 
 
-if __name__ == '__main__':
-    articles = [
-        {
-            'url': 'https://www.eurogamer.net/activision-never-had-systemic-issue-with-harassment-says-ceo-bobby-kotick',
-            'author': 'Ed Nightingale',
-            'type': 'news',
-            'title': 'Activision Never Had Systemic Issue With Harrassment Says CEO Bobby Kotick',
-            'subtitle': '',
-            'website': 'Eurogamer',
-            'date_published': '20230531',
-            'thumbnail': 'test123.jpg'
-        },
-        {
-            'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
-            'author': 'Matt Wales',
-            'type': 'news',
-            'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
-            'subtitle': '',
-            'website': 'Eurogamer',
-            'date_published': '20230531'
-        },
-        {
-            'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
-            'author': 'Matt Wales',
-            'type': 'news',
-            'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
-            'subtitle': '',
-            'website': 'Eurogamer'
-        },
-        {
-            'url': 'https://www.gamespot.com/articles/nvidia-sues-s3/1100-2440312/',
-            'author': 'Amer Ajami',
-            'type': 'news',
-            'title': 'Nvidia Sues S3',
-            'subtitle': '',
-            'website': 'GameSpot'
-        }
-    ]
+# if __name__ == '__main__':
+#     articles = [
+#         {
+#             'url': 'https://www.eurogamer.net/activision-never-had-systemic-issue-with-harassment-says-ceo-bobby-kotick',
+#             'author': 'Ed Nightingale',
+#             'type': 'news',
+#             'title': 'Activision Never Had Systemic Issue With Harrassment Says CEO Bobby Kotick',
+#             'subtitle': '',
+#             'website': 'Eurogamer',
+#             'date_published': '20230531',
+#             'thumbnail': 'test123.jpg'
+#         },
+#         {
+#             'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
+#             'author': 'Matt Wales',
+#             'type': 'news',
+#             'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
+#             'subtitle': '',
+#             'website': 'Eurogamer',
+#             'date_published': '20230531'
+#         },
+#         {
+#             'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
+#             'author': 'Matt Wales',
+#             'type': 'news',
+#             'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
+#             'subtitle': '',
+#             'website': 'Eurogamer'
+#         },
+#         {
+#             'url': 'https://www.gamespot.com/articles/nvidia-sues-s3/1100-2440312/',
+#             'author': 'Amer Ajami',
+#             'type': 'news',
+#             'title': 'Nvidia Sues S3',
+#             'subtitle': '',
+#             'website': 'GameSpot'
+#         }
+#     ]
 
-    db_manager = DbManager()
-    db_manager.save_articles(articles)
+#     db_manager = DbManager()
+#     db_manager.save_articles(articles)

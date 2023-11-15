@@ -7,6 +7,7 @@ import json, time
 from pathlib import Path
 from datetime import datetime
 import random
+import logging
 
 
 
@@ -31,7 +32,7 @@ class UrlIndexerEurogamer:
         while True:
             try:
                 # get articles at page number
-                print(f'fetching date {current_date}.')
+                logging.info(f'fetching date {current_date}.')
                 m = current_date.split('/')[1]
                 y = current_date.split('/')[0]
                 article_links = get_links_from_archive_month(month=m, year=y)
@@ -40,7 +41,7 @@ class UrlIndexerEurogamer:
                 articles.extend(article_links)
             except Exception as e:
                 # show error
-                print(f'{str(e)}\n\n----------unable to get archive month----------')
+                logging.info(f'{str(e)}\n\n----------unable to get archive month----------')
                 return
 
             # add / clean up fields    
