@@ -13,6 +13,10 @@ class Config:
     ARCHIVE_FOLDER = '/_website_backups'
     WAYBACK_MACHINE_DUMP_FOLDER = '/_WaybackMachineDumps'
 
+    # db vars
+    PLACEHOLDER_AUTHOR_ID = 1210
+    PLACEHOLDER_AUTHOR_NAME = '[TODO: Add Writer...!]'
+
     # libary vars
     PDF_TO_PPM_PATH = '/The Videogame Archive/thirdparty/poppler-0.68.9/bin/pdftoppm.exe'
     

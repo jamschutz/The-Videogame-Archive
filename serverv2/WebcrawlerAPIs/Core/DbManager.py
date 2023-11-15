@@ -1,7 +1,11 @@
 import pyodbc
+import logging
 from datetime import datetime
 from .Config import Config
 from .Secrets import Secrets
+
+
+PLACEHOLDER_AUTHOR_ID = 1210
 
 class DbManager:
     def __init__(self):
@@ -101,7 +105,7 @@ class DbManager:
             if article['url'] in article_urls_added:
                 continue
 
-            print(f'adding article: {article["title"]}')
+            logging.info(f'adding article: {article["title"]}')
             article_urls_added.add(article['url'])
             article['author_id'] = author_ids[article['author']]
             article['publication_id'] = self.config.website_id_lookup[article['website']]
@@ -288,7 +292,6 @@ class DbManager:
             VALUES
                 {','.join(articles_formatted)}
         """
-        # print(query)
 
         # and run
         self.run_query(query)

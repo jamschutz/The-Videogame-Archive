@@ -1,4 +1,5 @@
 from Core.Config import Config
+from Core.Utils import Utils
 from Core.DbManager import DbManager
 from .helpers.web_scraper import *
 from .helpers.utils import get_next_month
@@ -17,6 +18,7 @@ class UrlIndexerEurogamer:
         self.website_name = 'Eurogamer'
         self.db_manager = DbManager()
         self.config = Config()
+        self.utils = Utils()
 
 
     def index_target_months(self):
@@ -49,9 +51,14 @@ class UrlIndexerEurogamer:
                 article['year']  = article['date'].split('/')[2]
                 article['month'] = article['date'].split('/')[0]
                 article['day']   = article['date'].split('/')[1]
+                article['date_published'] = f'{article["year"]}{self.utils.get_two_char_int_string(article["month"])}{self.utils.get_two_char_int_string(article["day"])}'
+                # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
+                article['author'] = self.config.PLACEHOLDER_AUTHOR_NAME
+                article['type'] = 'news'
+                article['subtitle'] = ''
 
-            # # save articles to database
-            # # self.db_manager.save_articles(articles)
+            # save articles to database
+            self.db_manager.save_articles(articles)
 
             # if we just got the last date, we can stop
             if current_date == stop_at_date:

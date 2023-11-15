@@ -11,6 +11,7 @@ WEBSITE_NAME = 'Eurogamer'
 DATETIME_FORMAT = '%Y-%m-%d'
 
 
+
 def get_links_from_archive_month(month, year):
     # download webpage
     url = f'{BASE_URL}/{year}/{month}'
