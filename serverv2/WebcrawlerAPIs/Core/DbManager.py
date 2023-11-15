@@ -99,7 +99,6 @@ class DbManager:
         for article in articles:
             # don't add same article twice...
             if article['url'] in article_urls_added:
-                print('DUPLICATE!!!!')
                 continue
 
             print(f'adding article: {article["title"]}')
@@ -123,11 +122,8 @@ class DbManager:
 
             articles_to_add.append(article)
 
-
-        print(articles_to_add)
-
         # send to azure
-        # self.insert_articles(articles)
+        self.__insert_articles(articles_to_add)
 
 
 
@@ -278,19 +274,21 @@ class DbManager:
 
 
 
-    def insert_articles_PRIVATE(self, articles):
+    def __insert_articles(self, articles):
         # wrap writer names in ('NAME')
         articles_formatted = []
         for article in articles:
-            articles_formatted.append(f"('{article['title']}', '{article['subtitle']}', {article['url_id']}, {article['author_id']}, {article['publication_id']}, {article['date_published']}, {article['type_id']}, {article['is_archived']})")
+            thumbnail = f"'{article['thumbnail']}'" if 'thumbnail' in article else 'NULL'
+            articles_formatted.append(f"('{article['title']}', '{article['subtitle']}', '{article['url']}', {article['author_id']}, {article['publication_id']}, {article['date_published']}, {article['type_id']}, {thumbnail}, 0)")
 
         # build query
         query = f"""
             INSERT INTO Article
-                (Title, Subtitle, UrlId, AuthorId, WebsiteId, DatePublished, ArticleTypeId, IsArchived)
+                (Title, Subtitle, Url, AuthorId, WebsiteId, DatePublished, ArticleTypeId, Thumbnail, IsArchived)
             VALUES
                 {','.join(articles_formatted)}
         """
+        # print(query)
 
         # and run
         self.run_query(query)
@@ -548,7 +546,9 @@ if __name__ == '__main__':
             'type': 'news',
             'title': 'Activision Never Had Systemic Issue With Harrassment Says CEO Bobby Kotick',
             'subtitle': '',
-            'website': 'Eurogamer'
+            'website': 'Eurogamer',
+            'date_published': '20230531',
+            'thumbnail': 'test123.jpg'
         },
         {
             'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
@@ -556,7 +556,8 @@ if __name__ == '__main__':
             'type': 'news',
             'title': "Jurassic World Evolution 2 Headlines June's Playstation Plus Essential Games",
             'subtitle': '',
-            'website': 'Eurogamer'
+            'website': 'Eurogamer',
+            'date_published': '20230531'
         },
         {
             'url': 'https://www.eurogamer.net/jurassic-world-evolution-2-headlines-junes-playstation-plus-essential-games',
