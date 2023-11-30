@@ -47,6 +47,19 @@ class DbManager:
         return result[0][0]
 
 
+    def get_urls_to_archive(self, num_urls_to_archive, website_id):
+        query = f"""
+            SELECT TOP({num_urls_to_archive})
+                Url
+            FROM
+                Article
+            WHERE
+                IsArchived = 0 AND WebsiteId = {website_id}
+        """
+        result = self.get_query(query)
+        return [url[0] for url in result]
+
+
     def save_articles(self, articles):
         # get authors and urls for each article
         authors = []

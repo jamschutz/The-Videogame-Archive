@@ -29,6 +29,10 @@ def get_links_from_archive_month(month, year):
             article_title = article.a.text.strip()
             article_url   = article.a['href']
 
+            # bad link! ignore
+            if not article_url.starts_with('https://www.eurogamer.net'):
+                continue
+
             # convert to datetime
             article_date = datetime.strptime(date, DATETIME_FORMAT)
 
