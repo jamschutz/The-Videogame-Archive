@@ -18,6 +18,7 @@ class ArchiverEurogamer:
         self.SUBTITLE_DIV_CLASS = 'synopsis'
         self.AUTHOR_DIV_CLASS = 'author'
         self.ARTICLE_TYPE_DIV_CLASS = 'article_type'
+        self.THUMBNAIL_CLASS = 'headline_image'
 
 
         # initialize helpers
@@ -28,8 +29,8 @@ class ArchiverEurogamer:
         self.ARTICLES_THAT_FAILED_TO_PARSE = []
 
 
-    def get_thumbnail_url(soup):
-        thumbnail_url = soup.find('img', class_='headline_image')
+    def get_thumbnail_url(self, soup):
+        thumbnail_url = soup.find('img', class_=self.THUMBNAIL_CLASS)
 
         # if no image, return Eurogamer's placeholder
         if(thumbnail_url == None):
@@ -49,29 +50,31 @@ class ArchiverEurogamer:
 
 
 
-    def get_article_data(article, raw_html):
+    def get_article_data(self, article, raw_html):
         # parse html
         soup = BeautifulSoup(raw_html, 'lxml')
 
         try:
             # add info we need
             # not all articles have subtitles...
-            article['subtitle'] = soup.find('section', class_=SUBTITLE_DIV_CLASS)
+            article['subtitle'] = soup.find('section', class_=self.SUBTITLE_DIV_CLASS)
             if article['subtitle'] == None:
                 article['subtitle'] = ''
             else:
                 article['subtitle'] = article['subtitle'].text.strip()
 
-            article['author'] = soup.find('div', class_=AUTHOR_DIV_CLASS).find('span', class_='name').a.text.strip()
-            article['type'] = soup.find('span', class_=ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
-            article['thumbnail_url'] = get_thumbnail_url(soup)
+            article['author'] = soup.find('span', class_=self.AUTHOR_DIV_CLASS).a.text.strip()
+            print(f"got author: {article['author']}")
+            article['type'] = soup.find('span', class_=self.ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
+            print(f"got type: {article['type']}")
+            article['thumbnail_url'] = self.get_thumbnail_url(soup)
 
             return article
 
         except Exception as e:
             print(f'ERROR parsing: {article["title"]}: {str(e)}')
-            if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
-                ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
+            if article['url'] not in self.ARTICLES_THAT_FAILED_TO_PARSE:
+                self.ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
             return None
 
 
@@ -128,16 +131,17 @@ class ArchiverEurogamer:
 
         print(articles_to_archive)
 
-        # # and archive each one
-        # counter = 1
-        # for article in articles_to_archive:
-        #     print(f'saving article {article["title"]} ({article["date"]})....[{counter + counter_offset}/{actual_max}]')
+        # and archive each one
+        counter = 1
+        for article in articles_to_archive:
+            print(f'saving article {article["title"]} ({article["date"]})....[{counter + counter_offset}/{actual_max}]')
             
-        #     # download webpage
-        #     raw_html = requests.get(article['url']).text
+            # download webpage
+            raw_html = requests.get(article['url']).text
 
-        #     # get article data
-        #     article = get_article_data(article, raw_html)
+            # get article data
+            article = self.get_article_data(article, raw_html)
+            print(article)
             
         #     # if None, something went wrong, just skip
         #     if article != None:

@@ -50,14 +50,14 @@ class DbManager:
     def get_urls_to_archive(self, num_urls_to_archive, website_id):
         query = f"""
             SELECT TOP({num_urls_to_archive})
-                Url
+                Title, DatePublished, Url
             FROM
                 Article
             WHERE
                 IsArchived = 0 AND WebsiteId = {website_id}
         """
         result = self.get_query(query)
-        return [url[0] for url in result]
+        return [{'title': a[0], 'date': a[1], 'url': a[2]} for a in result]
 
 
     def save_articles(self, articles):
