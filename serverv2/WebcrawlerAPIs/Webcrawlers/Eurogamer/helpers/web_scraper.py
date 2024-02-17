@@ -30,7 +30,7 @@ def get_links_from_archive_month(month, year):
             article_url   = article.a['href']
 
             # bad link! ignore
-            if not article_url.starts_with('https://www.eurogamer.net'):
+            if not article_url.startswith('https://www.eurogamer.net'):
                 continue
 
             # convert to datetime
@@ -44,5 +44,3 @@ def get_links_from_archive_month(month, year):
             })
 
     return article_data
-
-

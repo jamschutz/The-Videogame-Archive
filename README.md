@@ -6,6 +6,7 @@ To use this tool, you'll need the python library `Beautiful Soup` installed. Jus
 You'll also need the html parser `lxml`: `pip install lxml` <br/>
 As well as the url normalizer: `pip install url-normalize` <br/>
 And pyodbc: `pip install pyodbc`<br/>
+And azure: `pip install azure-storage-blob azure-identity`
 NOTE: For `pyodbc`, you also need an ODBC Driver installed on your machine. It comes with SSMS, but there's probably another way to download it...<br/>
 For pdf stuff, you will need the following libraries:<br/>
 ```bash

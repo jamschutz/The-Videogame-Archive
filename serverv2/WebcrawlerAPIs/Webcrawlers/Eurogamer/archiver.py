@@ -4,6 +4,7 @@ import requests, json, time, random
 from Core.Config import Config
 from Core.DbManager import DbManager
 from Core.Utils import Utils
+from Core.AzureStorageManager import AzureStorageManager
 
 
 class ArchiverEurogamer:
@@ -13,6 +14,7 @@ class ArchiverEurogamer:
         self.db_manager = DbManager()
         self.config = Config()
         self.utils = Utils()
+        self.az_storage_manager = AzureStorageManager()
         self.BATCH_SIZE = 500
 
         self.SUBTITLE_DIV_CLASS = 'synopsis'
@@ -111,15 +113,18 @@ class ArchiverEurogamer:
         folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
         filename = config.url_to_filename(url, day, WEBSITE_ID)
 
-        # make sure folder path exists
-        pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
+        print(f'uploading {filename} ...')
+        self.az_storage_manager.save_to_archive(raw_html, folder_path, filename)
 
-        # and save
-        with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
-            html_file.write(raw_html)
+        # # make sure folder path exists
+        # pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
 
-        # and also save the thumbnail
-        send_thumbnail_to_archive(article)
+        # # and save
+        # with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
+        #     html_file.write(raw_html)
+
+        # # and also save the thumbnail
+        # send_thumbnail_to_archive(article)
 
 
 
@@ -143,16 +148,16 @@ class ArchiverEurogamer:
             article = self.get_article_data(article, raw_html)
             print(article)
             
-        #     # if None, something went wrong, just skip
-        #     if article != None:
-        #         # save to filepath
-        #         send_article_to_archive(article, raw_html)
-        #         # and update its info in the DB
-        #         db_manager.update_article(article)
+            # if None, something went wrong, just skip
+            if article != None:
+                # save to filepath
+                send_article_to_archive(article, raw_html)
+                # and update its info in the DB
+                # db_manager.update_article(article)
 
-        #     # don't spam
-        #     time.sleep(random.uniform(0.7, 1.6))
-        #     counter += 1
+            # don't spam
+            time.sleep(random.uniform(0.7, 1.6))
+            counter += 1
 
         # # get list of articles that were succesfully archived
         # articles_archived_successfully = []

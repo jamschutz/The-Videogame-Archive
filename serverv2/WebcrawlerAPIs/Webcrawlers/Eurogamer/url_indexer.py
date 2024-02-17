@@ -46,7 +46,7 @@ class UrlIndexerEurogamer:
                 logging.info(f'{str(e)}\n\n----------unable to get archive month----------')
                 return
 
-            # add / clean up fields    
+            # add / clean up fields
             for article in articles:
                 article['year']  = article['date'].split('/')[2]
                 article['month'] = article['date'].split('/')[0]

@@ -13,6 +13,9 @@ class Config:
     ARCHIVE_FOLDER = '/_website_backups'
     WAYBACK_MACHINE_DUMP_FOLDER = '/_WaybackMachineDumps'
 
+    # azure storage account vars
+    AZ_ARCHIVE_FOLDER = '$web/archive'
+
     # db vars
     PLACEHOLDER_AUTHOR_ID = 1210
     PLACEHOLDER_AUTHOR_NAME = '[TODO: Add Writer...!]'

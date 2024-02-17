@@ -60,6 +60,15 @@ class DbManager:
         return [{'title': a[0], 'date': a[1], 'url': a[2]} for a in result]
 
 
+
+    # expects an article with the following properties:
+    # - author
+    # - url
+    # - type
+    # - title
+    # - subtitle
+    # - publication id
+    # - date published
     def save_articles(self, articles):
         # get authors and urls for each article
         authors = []
