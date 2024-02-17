@@ -66,9 +66,7 @@ class ArchiverEurogamer:
                 article['subtitle'] = article['subtitle'].text.strip()
 
             article['author'] = soup.find('span', class_=self.AUTHOR_DIV_CLASS).a.text.strip()
-            print(f"got author: {article['author']}")
             article['type'] = soup.find('span', class_=self.ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
-            print(f"got type: {article['type']}")
             article['thumbnail_url'] = self.get_thumbnail_url(soup)
 
             return article
@@ -91,14 +89,14 @@ class ArchiverEurogamer:
 
         # if there's no file extension, just slap a .jpg on it
         file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
-        filename = f"{config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
-        filepath = f'{config.ARCHIVE_FOLDER}/Eurogamer/_thumbnails/{year}/{month}'
+        filename = f"{self.config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
+        filepath = f'{self.config.ARCHIVE_FOLDER}/Eurogamer/_thumbnails/{year}/{month}'
 
         utils.save_thumbnail(thumbnail_url, filename, filepath)
 
 
 
-    def send_article_to_archive(article, raw_html):
+    def send_article_to_archive(self, article, raw_html):
         # reset articles failed to parse
         ARTICLES_THAT_FAILED_TO_PARSE = []
 
@@ -110,11 +108,10 @@ class ArchiverEurogamer:
         day = date_published[6:]
 
         # set target folder and filename
-        folder_path = f'{config.ARCHIVE_FOLDER}/{WEBSITE_NAME}/{year}/{month}'
-        filename = config.url_to_filename(url, day, WEBSITE_ID)
+        folder_path = f'{self.website_name}/{year}/{month}'
+        filename = self.config.url_to_filename(url, day, self.website_name)
 
-        print(f'uploading {filename} ...')
-        self.az_storage_manager.save_to_archive(raw_html, folder_path, filename)
+        self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
 
         # # make sure folder path exists
         # pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
@@ -146,12 +143,11 @@ class ArchiverEurogamer:
 
             # get article data
             article = self.get_article_data(article, raw_html)
-            print(article)
             
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
-                send_article_to_archive(article, raw_html)
+                self.send_article_to_archive(article, raw_html)
                 # and update its info in the DB
                 # db_manager.update_article(article)
 
