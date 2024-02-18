@@ -153,6 +153,23 @@ class DbManager:
 
 
 
+    def update_article(self, article):
+        query = """
+            UPDATE
+                Article
+            SET
+                Title = 'did it work?',
+                Subtitle = 'it did!',
+                AuthorId = 1,
+                WebsiteId = 1,
+                DatePublished = 20240218,
+                Thumbnail = ''
+            WHERE
+                Id = 347012
+        """
+
+
+
 
     def insert_writers(self, writers):
         if len(writers) == 0:

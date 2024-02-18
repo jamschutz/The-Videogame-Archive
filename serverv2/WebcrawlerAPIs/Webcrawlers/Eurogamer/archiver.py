@@ -79,7 +79,7 @@ class ArchiverEurogamer:
 
 
         
-    def send_thumbnail_to_archive(article):
+    def send_thumbnail_to_archive(self, article):
         thumbnail_url = article['thumbnail_url']
         article_url = article['url']
         date_published = str(article['date'])
@@ -87,12 +87,20 @@ class ArchiverEurogamer:
         month = date_published[4:6]
         day = date_published[6:]
 
+        # TODO!!!!!!!!!!!!!!!!!!! --- test this adds the right amount of '.'s with other sites...!
         # if there's no file extension, just slap a .jpg on it
-        file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else '.jpg'
-        filename = f"{self.config.url_to_filename(article_url, day, WEBSITE_ID)}_thumbnail.{file_extension}"
-        filepath = f'{self.config.ARCHIVE_FOLDER}/Eurogamer/_thumbnails/{year}/{month}'
+        file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else 'jpg'
+        filename = f"{self.config.url_to_filename(article_url, day, self.website_name)}_thumbnail.{file_extension}"
+        folder_path = f'{self.website_name}/_thumbnails/{year}/{month}'
 
-        utils.save_thumbnail(thumbnail_url, filename, filepath)
+        # download image
+        img_data = requests.get(thumbnail_url).content
+
+        # clean up folder path
+        if folder_path[-1] == '/':
+            folder_path = folder_path[:-1]
+
+        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f'image/{file_extension}')
 
 
 
@@ -111,17 +119,11 @@ class ArchiverEurogamer:
         folder_path = f'{self.website_name}/{year}/{month}'
         filename = self.config.url_to_filename(url, day, self.website_name)
 
+        # save webpage
         self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
 
-        # # make sure folder path exists
-        # pathlib.Path(folder_path).mkdir(parents=True, exist_ok=True)
-
-        # # and save
-        # with open(f'{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
-        #     html_file.write(raw_html)
-
-        # # and also save the thumbnail
-        # send_thumbnail_to_archive(article)
+        # and also save the thumbnail
+        self.send_thumbnail_to_archive(article)
 
 
 
