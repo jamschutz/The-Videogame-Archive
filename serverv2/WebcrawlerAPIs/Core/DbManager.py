@@ -165,7 +165,7 @@ class DbManager:
     # - date
     def update_article(self, article):
         thumbnail = self.utils.get_thumbnail_filename(article, article['publication_id'])
-        author_id = self.get_author_id(article['author'])
+        author_id = self.get_author_id(article['author'])[0][0] if 'author' in article and article['author'] != '' else -1
 
         type_ids = self.get_article_type_ids_lookup()
         type_id = type_ids[article['type']] if 'type' in article else -1
@@ -179,7 +179,7 @@ class DbManager:
 
         query += f"Title = '{article['title']}', " if 'title' in article else ''
         query += f"Subtitle = '{article['subtitle']}', " if 'subtitle' in article else ''
-        query += f"AuthorId = {article['author_id']}, " if 'author_id' in article else ''
+        query += f"AuthorId = {author_id}, " if author_id > 0 else ''
         query += f"WebsiteId = {article['publication_id']}, " if 'publication_id' in article else ''
         query += f"DatePublished = {article['date']}, " if 'date' in article else ''
         query += f"Thumbnail = '{thumbnail}', " if 'subtitle' in article else ''
@@ -192,8 +192,6 @@ class DbManager:
             WHERE
                 Url = '{article['url']}'
         """
-
-        print(query)
 
         # and run
         self.run_query(query)
@@ -629,7 +627,7 @@ if __name__ == '__main__':
     db = DbManager()
     article = {
         'url': 'www.test.com',
-        'author': '',
+        'author': 'Jeffrey Adam',
         'title': 'this is an update',
         'subtitle': 'did it work?',
         'publication_id': 1,
