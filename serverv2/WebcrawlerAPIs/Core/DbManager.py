@@ -3,6 +3,7 @@ import logging
 from datetime import datetime
 from .Config import Config
 from .Secrets import Secrets
+from .Utils import Utils
 
 
 PLACEHOLDER_AUTHOR_ID = 1210
@@ -11,6 +12,7 @@ class DbManager:
     def __init__(self):
         self.config = Config()
         self.secrets = Secrets()
+        self.utils = Utils()
 
         self.connection_string = 'DRIVER='+self.secrets.SQL_DRIVER+';SERVER=tcp:'+self.secrets.SQL_SERVER_NAME+';PORT=1433;DATABASE='+self.secrets.SQL_DB_NAME+';UID='+self.secrets.SQL_SERVER_ADMIN_USER+';PWD='+ self.secrets.SQL_SERVER_ADMIN_PASSWORD
 
@@ -153,20 +155,48 @@ class DbManager:
 
 
 
+    # expects an article with the following properties:
+    # - author
+    # - url
+    # - type
+    # - title
+    # - subtitle
+    # - publication_id
+    # - date
     def update_article(self, article):
-        query = """
+        thumbnail = self.utils.get_thumbnail_filename(article, article['publication_id'])
+        author_id = self.get_author_id(article['author'])
+
+        type_ids = self.get_article_type_ids_lookup()
+        type_id = type_ids[article['type']] if 'type' in article else -1
+
+        query = f"""
             UPDATE
                 Article
             SET
-                Title = 'did it work?',
-                Subtitle = 'it did!',
-                AuthorId = 1,
-                WebsiteId = 1,
-                DatePublished = 20240218,
-                Thumbnail = ''
-            WHERE
-                Id = 347012
+
         """
+
+        query += f"Title = '{article['title']}', " if 'title' in article else ''
+        query += f"Subtitle = '{article['subtitle']}', " if 'subtitle' in article else ''
+        query += f"AuthorId = {article['author_id']}, " if 'author_id' in article else ''
+        query += f"WebsiteId = {article['publication_id']}, " if 'publication_id' in article else ''
+        query += f"DatePublished = {article['date']}, " if 'date' in article else ''
+        query += f"Thumbnail = '{thumbnail}', " if 'subtitle' in article else ''
+        query += f"ArticleTypeId = {type_id}, " if type_id > 0 else ''
+        
+        if query[-2:] == ', ':
+            query = query[:-2]
+
+        query += f"""
+            WHERE
+                Url = '{article['url']}'
+        """
+
+        print(query)
+
+        # and run
+        self.run_query(query)
 
 
 
@@ -285,6 +315,21 @@ class DbManager:
             author_ids[author_name] = author_id
         
         return author_ids
+    
+
+    def get_author_id(self, author):
+        # build query
+        query = f"""
+            SELECT
+                Id
+            FROM
+                Writer
+            WHERE
+                Name = '{author}'
+        """
+
+        # and run
+        return self.get_query(query)
 
 
     def get_url_id_lookup(self, urls):
@@ -577,6 +622,24 @@ class DbManager:
         """
 
         return self.get_query(query)
+
+
+
+if __name__ == '__main__':
+    db = DbManager()
+    article = {
+        'url': 'www.test.com',
+        'author': '',
+        'title': 'this is an update',
+        'subtitle': 'did it work?',
+        'publication_id': 1,
+        'date': '20240218',
+        'thumbnail_url': 'https://example.com/something/example_thumbnail.png',
+        'type': 'news'
+    }
+
+    db.update_article(article)
+
 
 
 

@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 import re, subprocess
 
 class Utils:
-    # def __init__(self):
-    #     self.config = Config()
+    def __init__(self):
+        self.config = Config()
 
 
     def get_two_char_int_string(self, n):
@@ -25,6 +25,22 @@ class Utils:
             return f'0{str(n)}'
         else:
             return str(n)
+        
+
+    def get_thumbnail_extension(self, thumbnail_url):
+        # TODO!!!!!!!!!!!!!!!!!!! --- test this adds the right amount of '.'s with other sites...!
+        # if there's no file extension, just slap a .jpg on it
+        return thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else 'jpg'
+        
+
+    def get_thumbnail_filename(self, article, website_id):
+        thumbnail_url = article['thumbnail_url']
+        article_url = article['url']
+        date_published = str(article['date'])
+        day = date_published[6:]
+
+        file_extension = self.get_thumbnail_extension(thumbnail_url)
+        return f"{self.config.url_to_filename(article_url, day, website_id)}_thumbnail.{file_extension}"
 
 
     def save_thumbnail(self, img_url, filename, folderpath):

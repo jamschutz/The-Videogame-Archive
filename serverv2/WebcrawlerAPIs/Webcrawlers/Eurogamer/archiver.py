@@ -80,27 +80,21 @@ class ArchiverEurogamer:
 
         
     def send_thumbnail_to_archive(self, article):
-        thumbnail_url = article['thumbnail_url']
-        article_url = article['url']
         date_published = str(article['date'])
         year = date_published[:4]
         month = date_published[4:6]
-        day = date_published[6:]
 
-        # TODO!!!!!!!!!!!!!!!!!!! --- test this adds the right amount of '.'s with other sites...!
-        # if there's no file extension, just slap a .jpg on it
-        file_extension = thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else 'jpg'
-        filename = f"{self.config.url_to_filename(article_url, day, self.website_name)}_thumbnail.{file_extension}"
+        filename = self.utils.get_thumbnail_filename(article, self.config.website_id_lookup[self.website_name])
         folder_path = f'{self.website_name}/_thumbnails/{year}/{month}'
 
         # download image
-        img_data = requests.get(thumbnail_url).content
+        img_data = requests.get(article['thumbnail_url']).content
 
         # clean up folder path
         if folder_path[-1] == '/':
             folder_path = folder_path[:-1]
 
-        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f'image/{file_extension}')
+        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f'image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}')
 
 
 
