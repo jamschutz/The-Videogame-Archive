@@ -16,6 +16,7 @@ class ArchiverEurogamer:
         self.utils = Utils()
         self.az_storage_manager = AzureStorageManager()
         self.BATCH_SIZE = 500
+        self.website_id = self.config.website_id_lookup[self.website_name]
 
         self.SUBTITLE_DIV_CLASS = 'synopsis'
         self.AUTHOR_DIV_CLASS = 'author'
@@ -94,7 +95,7 @@ class ArchiverEurogamer:
         if folder_path[-1] == '/':
             folder_path = folder_path[:-1]
 
-        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f'image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}')
+        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}")
 
 
 
@@ -127,8 +128,6 @@ class ArchiverEurogamer:
         website_id = self.config.website_id_lookup[self.website_name]
         articles_to_archive = self.db_manager.get_urls_to_archive(num_urls_to_archive, website_id)
 
-        print(articles_to_archive)
-
         # and archive each one
         counter = 1
         for article in articles_to_archive:
@@ -145,7 +144,7 @@ class ArchiverEurogamer:
                 # save to filepath
                 self.send_article_to_archive(article, raw_html)
                 # and update its info in the DB
-                # db_manager.update_article(article)
+                self.db_manager.update_article(article, self.website_id)
 
             # don't spam
             time.sleep(random.uniform(0.7, 1.6))

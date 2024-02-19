@@ -161,14 +161,33 @@ class DbManager:
     # - type
     # - title
     # - subtitle
-    # - publication_id
     # - date
-    def update_article(self, article):
-        thumbnail = self.utils.get_thumbnail_filename(article, article['publication_id'])
-        author_id = self.get_author_id(article['author'])[0][0] if 'author' in article and article['author'] != '' else -1
+    def update_article(self, article, website_id):
+        thumbnail = self.utils.get_thumbnail_filename(article, website_id)
+        author_id = self.get_author_id(article['author']) if 'author' in article and article['author'] != '' else -1
+
+        # author does not exist in db yet..create!
+        if len(author_id) == 0:
+            self.insert_writers([article['author']])
+            author_id = self.get_author_id(article['author'])[0][0]
+        else:
+            author_id = author_id[0][0]
 
         type_ids = self.get_article_type_ids_lookup()
         type_id = type_ids[article['type']] if 'type' in article else -1
+
+        # clean up title and subtitle
+        article['title'] = article['title'].replace("'", "''")
+        article['subtitle'] = article['subtitle'].replace("'", "''")
+
+        # if subtitle is too long, just truncate and slap an ellipses on it
+        if(len(article['subtitle']) > 250):
+            truncate_index = 246
+            # if we're truncating an apostophe, it will cause string parsing issues...back up until we're safe
+            while article['subtitle'][truncate_index] == "'":
+                truncate_index -= 1
+            # and truncate
+            article['subtitle'] = f"{article['subtitle'][:truncate_index]}..."
 
         query = f"""
             UPDATE
@@ -180,7 +199,6 @@ class DbManager:
         query += f"Title = '{article['title']}', " if 'title' in article else ''
         query += f"Subtitle = '{article['subtitle']}', " if 'subtitle' in article else ''
         query += f"AuthorId = {author_id}, " if author_id > 0 else ''
-        query += f"WebsiteId = {article['publication_id']}, " if 'publication_id' in article else ''
         query += f"DatePublished = {article['date']}, " if 'date' in article else ''
         query += f"Thumbnail = '{thumbnail}', " if 'subtitle' in article else ''
         query += f"ArticleTypeId = {type_id}, " if type_id > 0 else ''
@@ -627,7 +645,7 @@ if __name__ == '__main__':
     db = DbManager()
     article = {
         'url': 'www.test.com',
-        'author': 'Jeffrey Adam',
+        'author': 'this author does not exist',
         'title': 'this is an update',
         'subtitle': 'did it work?',
         'publication_id': 1,
@@ -636,7 +654,7 @@ if __name__ == '__main__':
         'type': 'news'
     }
 
-    db.update_article(article)
+    db.update_article(article, 1)
 
 
 
