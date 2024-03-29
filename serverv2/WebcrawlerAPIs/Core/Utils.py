@@ -191,6 +191,25 @@ class Utils:
 
         return soup.prettify('utf-8')
 
+
+    def trim_punctuation(self, text):
+        if len(text) == 0:
+            return ""
+
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+        start = 0
+        while start < len(text) and text[start] not in allowed_chars:
+            start += 1
+
+        if start == len(text):
+            return ""
+
+        end = len(text) - 1
+        while end > 0 and text[end] not in allowed_chars:
+            end -= 1
+
+        return text[start:end + 1]
+
         
         
 
@@ -198,7 +217,7 @@ class Utils:
 if __name__ == '__main__':
     utils = Utils()
     css = ''
-    url = 'https://www.eurogamer.net/metroid-prime-remains-one-of-nintendos-finest-games'
+    url = 'https://www.eurogamer.net/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights'
     # with open('server/_shared/test.css', 'r') as f:
     #     css = f.read().replace('\n', '')
     
@@ -206,6 +225,6 @@ if __name__ == '__main__':
     source = requests.get(url).text
     html = utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
 
-    with open("F:/_sandbox/Eurogamer/metroid-prime-remains-one-of-nintendos-finest-games.html", "wb") as f_output:
+    with open("F:/_sandbox/Eurogamer/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights.html", "wb") as f_output:
         f_output.write(html)
     
