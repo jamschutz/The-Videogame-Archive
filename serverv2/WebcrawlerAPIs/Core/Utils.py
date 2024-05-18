@@ -26,6 +26,15 @@ class Utils:
         else:
             return str(n)
         
+    def date_to_num(self, date):
+        print(date)
+        date = date.strftime('%m/%d/%Y')
+        print(date)
+        year = int(date.split('/')[2])
+        month = int(date.split('/')[0])
+        day = int(date.split('/')[1])
+        return year * 10000 + month * 100 + day
+        
 
     def get_thumbnail_extension(self, thumbnail_url):
         # TODO!!!!!!!!!!!!!!!!!!! --- test this adds the right amount of '.'s with other sites...!

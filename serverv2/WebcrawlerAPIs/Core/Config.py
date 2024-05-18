@@ -7,6 +7,9 @@ class Config:
     GET_ARTICLES_API = 'Articles'
     GET_URLS_TO_ARCHIVE_API = 'UrlsToArchive'
 
+    SEARCH_API_BASE_URL = 'http://localhost:7070/api'
+    INSERT_SEARCH_ENTRIES_API = 'InsertSearchResults'
+
     # file vars
     DATABASE_FILE = '/_database/VideogamesDatabase.db'
     WAYBACK_DATABASE_FILE = '/_database/WaybackDatabase.db'

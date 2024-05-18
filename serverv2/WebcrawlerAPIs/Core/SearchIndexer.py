@@ -41,7 +41,16 @@ class SearchIndexer:
                 
                 words[word].append(start_index)
 
-        print(words)
+        print(f'num words: {len(words.keys())}')
+        url = f'{self.config.SEARCH_API_BASE_URL}/{self.config.INSERT_SEARCH_ENTRIES_API}'
+        for search_term in words.keys():
+            print(f'inserting entries for: {search_term}')
+            data = {
+                'searchTerm': search_term,
+                'entries': words[search_term]
+            }
+            requests.post(url, json=data)
+            return
 
 
 
@@ -59,5 +68,3 @@ if __name__ == '__main__':
         article_text += f' {paragraph.text}'
 
     search_indexer.index_article(article_text, 0)
-
-    print(article_text[24112:24112 + len('reminds')])
