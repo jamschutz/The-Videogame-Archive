@@ -5,6 +5,7 @@ from Core.Config import Config
 from Core.DbManager import DbManager
 from Core.Utils import Utils
 from Core.AzureStorageManager import AzureStorageManager
+from Core.Archiver import Archiver
 
 
 class ArchiverEurogamer:
@@ -15,6 +16,7 @@ class ArchiverEurogamer:
         self.config = Config()
         self.utils = Utils()
         self.az_storage_manager = AzureStorageManager()
+        self.archiver = Archiver()
         self.BATCH_SIZE = 500
         self.website_id = self.config.website_id_lookup[self.website_name]
 
@@ -80,45 +82,45 @@ class ArchiverEurogamer:
 
 
         
-    def send_thumbnail_to_archive(self, article):
-        date_published = str(article['date'])
-        year = date_published[:4]
-        month = date_published[4:6]
+    # def send_thumbnail_to_archive(self, article):
+    #     date_published = str(article['date'])
+    #     year = date_published[:4]
+    #     month = date_published[4:6]
 
-        filename = self.utils.get_thumbnail_filename(article, self.config.website_id_lookup[self.website_name])
-        folder_path = f'{self.website_name}/_thumbnails/{year}/{month}'
+    #     filename = self.utils.get_thumbnail_filename(article, self.config.website_id_lookup[self.website_name])
+    #     folder_path = f'{self.website_name}/_thumbnails/{year}/{month}'
 
-        # download image
-        img_data = requests.get(article['thumbnail_url']).content
+    #     # download image
+    #     img_data = requests.get(article['thumbnail_url']).content
 
-        # clean up folder path
-        if folder_path[-1] == '/':
-            folder_path = folder_path[:-1]
+    #     # clean up folder path
+    #     if folder_path[-1] == '/':
+    #         folder_path = folder_path[:-1]
 
-        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}")
+    #     self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}")
 
 
 
-    def send_article_to_archive(self, article, raw_html):
-        # reset articles failed to parse
-        ARTICLES_THAT_FAILED_TO_PARSE = []
+    # def send_article_to_archive(self, article, raw_html):
+    #     # reset articles failed to parse
+    #     ARTICLES_THAT_FAILED_TO_PARSE = []
 
-        # parse the bits we need (for folder / filename)
-        url = article['url']
-        date_published = str(article['date'])
-        year = date_published[:4]
-        month = date_published[4:6]
-        day = date_published[6:]
+    #     # parse the bits we need (for folder / filename)
+    #     url = article['url']
+    #     date_published = str(article['date'])
+    #     year = date_published[:4]
+    #     month = date_published[4:6]
+    #     day = date_published[6:]
 
-        # set target folder and filename
-        folder_path = f'{self.website_name}/{year}/{month}'
-        filename = self.config.url_to_filename(url, day, self.website_name)
+    #     # set target folder and filename
+    #     folder_path = f'{self.website_name}/{year}/{month}'
+    #     filename = self.config.url_to_filename(url, day, self.website_name)
 
-        # save webpage
-        self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
+    #     # save webpage
+    #     self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
 
-        # and also save the thumbnail
-        self.send_thumbnail_to_archive(article)
+    #     # and also save the thumbnail
+    #     self.send_thumbnail_to_archive(article)
 
 
 
@@ -142,12 +144,12 @@ class ArchiverEurogamer:
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
-                self.send_article_to_archive(article, raw_html)
+                self.archiver.send_article_to_archive(article, raw_html, 'Eurogamer')
+                self.archiver.send_thumbnail_to_archive(article, 'Eurogamer')
+
                 # and update its info in the DB
                 self.db_manager.update_article(article, self.website_id)
 
-            # don't spam
-            time.sleep(random.uniform(0.7, 1.6))
             counter += 1
 
         # # get list of articles that were succesfully archived

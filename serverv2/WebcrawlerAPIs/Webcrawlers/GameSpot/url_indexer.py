@@ -40,16 +40,22 @@ class UrlIndexerGameSpot:
 
         # add / clean up fields
         for article in articles:
-            article['date_published'] = f'{self.utils.date_to_num(a['date'])}'
+            article['website'] = 'GameSpot'
+            article['date_published'] = str(self.utils.date_to_num(article['date']))
             # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
             article['author'] = self.config.PLACEHOLDER_AUTHOR_NAME
             article['subtitle'] = ''
 
+        # save articles to database in batches of 1000 at a time
+        offset = 0
+        while offset < len(articles):
+            print(f'saving articles {offset}/{len(articles)}')
+            logging.info(f'saving articles {offset}/{len(articles)}')
+            batch = articles[offset:offset + 999]
+            self.db_manager.save_articles(batch)
+            offset += 1000
 
-        print(articles)
-
-        # # save articles to database
-        # self.db_manager.save_articles(articles)
+        print('done')
 
 
     def __get_articles_after_date(self, target_page, target_date):
