@@ -88,6 +88,9 @@ class ArchiverEurogamer:
         website_id = self.config.website_id_lookup[self.website_name]
         articles_to_archive = self.db_manager.get_urls_to_archive(num_urls_to_archive, website_id)
 
+        # track articles that failed to parse
+        articles_that_failed_to_parse = []
+
         # and archive each one
         counter = 1
         for article in articles_to_archive:
@@ -110,15 +113,14 @@ class ArchiverEurogamer:
 
             counter += 1
 
-        # # get list of articles that were succesfully archived
-        # articles_archived_successfully = []
-        # for article in articles_to_archive:
-        #     if article['url'] not in ARTICLES_THAT_FAILED_TO_PARSE:
-        #         articles_archived_successfully.append(article)
+        # get list of articles that were succesfully archived
+        articles_archived_successfully = []
+        for article in articles_to_archive:
+            if article is not None:
+                articles_archived_successfully.append(article)
         
-        # # and mark as archived in the db
-        # db_manager.mark_articles_as_archived(articles_archived_successfully)
-        # print(f'*********************failed to parse the following articles: {",".join(ARTICLES_THAT_FAILED_TO_PARSE)}')
+        # and mark as archived in the db
+        self.db_manager.mark_articles_as_archived(articles_archived_successfully)
 
 
     def archive_all_urls():

@@ -62,6 +62,20 @@ class DbManager:
         return [{'title': a[0], 'date': a[1], 'url': a[2]} for a in result]
 
 
+    def mark_articles_as_archived(self, articles):
+        urls = [f"'{a['url']}'" for a in articles]
+        query = f"""
+            UPDATE
+                Article
+            SET
+                IsArchived = 1
+            WHERE
+                Url IN ({','.join(urls)})
+        """
+        print(query)
+        self.run_query(query)
+
+
 
     # expects an article with the following properties:
     # - author
