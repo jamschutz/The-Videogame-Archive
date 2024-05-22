@@ -27,9 +27,7 @@ class Utils:
             return str(n)
         
     def date_to_num(self, date):
-        print(date)
         date = date.strftime('%m/%d/%Y')
-        print(date)
         year = int(date.split('/')[2])
         month = int(date.split('/')[0])
         day = int(date.split('/')[1])

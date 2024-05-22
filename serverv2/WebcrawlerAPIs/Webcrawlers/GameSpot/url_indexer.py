@@ -23,26 +23,27 @@ class UrlIndexerGameSpot:
         website_id = self.config.website_id_lookup[self.website_name]
         last_archived_article_date = self.db_manager.get_most_recent_article_date(website_id)
 
-        articles = []
+        # get actual articles from site
         news_articles = self.__get_articles_after_date('news', last_archived_article_date)
         reviews_articles = self.__get_articles_after_date('games/reviews', last_archived_article_date)
 
+        # assign types
+        for article in news_articles:
+            article['type'] = 'news'
+        for article in reviews_articles:
+            article['type'] = 'review'
+
+        # build full list of articles
+        articles = []
         articles.extend(news_articles)
-        articles.extend(reviews_articles)
+        articles.extend(reviews_articles)        
 
-
-        
-
-        # # add / clean up fields
-        # for article in articles:
-        #     article['year']  = article['date'].split('/')[2]
-        #     article['month'] = article['date'].split('/')[0]
-        #     article['day']   = article['date'].split('/')[1]
-        #     article['date_published'] = f'{article["year"]}{self.utils.get_two_char_int_string(article["month"])}{self.utils.get_two_char_int_string(article["day"])}'
-        #     # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
-        #     article['author'] = self.config.PLACEHOLDER_AUTHOR_NAME
-        #     article['type'] = 'news'
-        #     article['subtitle'] = ''
+        # add / clean up fields
+        for article in articles:
+            article['date_published'] = f'{self.utils.date_to_num(a['date'])}'
+            # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
+            article['author'] = self.config.PLACEHOLDER_AUTHOR_NAME
+            article['subtitle'] = ''
 
 
         print(articles)
