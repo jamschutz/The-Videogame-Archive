@@ -2,7 +2,7 @@ from Core.Config import Config
 from Core.Utils import Utils
 from Core.AzureStorageManager import AzureStorageManager
 
-import logging
+import logging, requests
 
 
 class Archiver:
