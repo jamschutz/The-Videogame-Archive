@@ -118,14 +118,24 @@ namespace VideoGameArchive
                 }
             }
 
+            var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
+            // var response = JsonConvert.SerializeObject(new {
+            //     TotalResults = articleIdsToFetch.Count,
+            //     Results = articleIdsToFetch
+            // });
+
+            // return new HttpResponseMessage(HttpStatusCode.OK) {
+            //     Content = new StringContent(response, Encoding.UTF8, "application/json")
+            // };
+
             // get articles
             var articleDbManager = new DbManager();
-            var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(searchResults.Keys.ToList()) : new List<Article>();
+            var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(articleIdsToFetch) : new List<Article>();
 
             // format and return
             var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
-                TotalResults = articles.Count,
-                Results = articles.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList()
+                TotalResults = searchResults.Keys.Count,
+                Results = articles
             });
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
