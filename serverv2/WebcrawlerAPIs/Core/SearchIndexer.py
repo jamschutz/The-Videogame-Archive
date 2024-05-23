@@ -49,6 +49,7 @@ class SearchIndexer:
                 'searchTerm': search_term,
                 'entries': words[search_term]
             }
+            print(data)
             requests.post(url, json=data)
             return
 
