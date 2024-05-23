@@ -203,7 +203,7 @@ class Utils:
         if len(text) == 0:
             return ""
 
-        allowed_chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         start = 0
         while start < len(text) and text[start] not in allowed_chars:
             start += 1

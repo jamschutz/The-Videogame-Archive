@@ -18,6 +18,7 @@ class SearchIndexer:
         for c in article_text:
             if c == ' ' or c == '\n':
                 start_index = index - len(word)
+                word = word.lower()
                 word = self.utils.trim_punctuation(word)
                 if len(word) > 0:
                     if word not in words:
@@ -52,9 +53,7 @@ class SearchIndexer:
                 'searchTerm': search_term,
                 'entries': words[search_term]
             }
-            print(data)
             requests.post(url, json=data)
-            return
 
 
 
