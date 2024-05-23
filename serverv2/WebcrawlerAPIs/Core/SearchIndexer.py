@@ -23,7 +23,10 @@ class SearchIndexer:
                     if word not in words:
                         words[word] = []
                     
-                    words[word].append(start_index)
+                    words[word].append({
+                        'articleId': article_id,
+                        'startPosition': start_index
+                    })
                 
                 word = ""
 
@@ -59,7 +62,8 @@ class SearchIndexer:
 if __name__ == '__main__':
     search_indexer = SearchIndexer()
 
-    url = 'https://www.eurogamer.net/the-big-larian-interview-swen-vincke-on-industry-woes-optimism-and-life-after-baldurs-gate-3'
+    url = 'https://www.eurogamer.net/crunch-once-again-in-the-spotlight-after-damning-report-on-the-last-of-us-2-developer-naughty-dog'
+    article_id = 260115
     source = requests.get(url).text
     soup = BeautifulSoup(source, 'lxml')
     paragraphs = soup.find('div', class_="article_body_content").find_all('p')
@@ -68,4 +72,4 @@ if __name__ == '__main__':
     for paragraph in paragraphs:
         article_text += f' {paragraph.text}'
 
-    search_indexer.index_article(article_text, 0)
+    search_indexer.index_article(article_text, article_id)

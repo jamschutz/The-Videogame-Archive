@@ -50,6 +50,8 @@ When you install it, place it in this path: `C:\Program Files (x86)\Poppler\popp
     - I think everything should be archive? And if we decide to dip into a specific website, we can mark that entire folder and its subfolders as Hot
     - just need to make sure to not allow access inside the archive folder!!! (otherwise people will run up my bill an insane amount)
 
+- UPDATE SERVER PASSWORD!
+
 
 
 ## Notes to self
