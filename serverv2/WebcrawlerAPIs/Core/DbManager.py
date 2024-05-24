@@ -52,28 +52,28 @@ class DbManager:
     def get_urls_to_archive(self, num_urls_to_archive, website_id):
         query = f"""
             SELECT TOP({num_urls_to_archive})
-                Title, DatePublished, Url
+                Title, DatePublished, Url, Id
             FROM
                 Article
             WHERE
                 IsArchived = 0 AND WebsiteId = {website_id}
         """
         result = self.get_query(query)
-        return [{'title': a[0], 'date': a[1], 'url': a[2]} for a in result]
+        return [{'title': a[0], 'date': a[1], 'url': a[2], 'id': a[3]} for a in result]
 
 
     def mark_articles_as_archived(self, articles):
-        urls = [f"'{a['url']}'" for a in articles]
+        ids = [str(a['id']) for a in articles]
         query = f"""
             UPDATE
                 Article
             SET
                 IsArchived = 1
             WHERE
-                Url IN ({','.join(urls)})
+                Id IN ({','.join(ids)})
         """
         print(query)
-        self.run_query(query)
+        # self.run_query(query)
 
 
 

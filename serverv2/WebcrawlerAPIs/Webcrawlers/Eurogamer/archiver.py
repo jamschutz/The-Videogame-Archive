@@ -6,6 +6,7 @@ from Core.DbManager import DbManager
 from Core.Utils import Utils
 from Core.AzureStorageManager import AzureStorageManager
 from Core.Archiver import Archiver
+from Core.SearchIndexer import SearchIndexer
 
 
 class ArchiverEurogamer:
@@ -17,6 +18,7 @@ class ArchiverEurogamer:
         self.utils = Utils()
         self.az_storage_manager = AzureStorageManager()
         self.archiver = Archiver()
+        self.search_indexer = SearchIndexer()
         self.BATCH_SIZE = 500
         self.website_id = self.config.website_id_lookup[self.website_name]
 
@@ -79,6 +81,17 @@ class ArchiverEurogamer:
             if article['url'] not in self.ARTICLES_THAT_FAILED_TO_PARSE:
                 self.ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
             return None
+        
+
+    def get_article_content(self, raw_html):
+        soup = BeautifulSoup(raw_html, 'lxml')
+        paragraphs = soup.find('div', class_="article_body_content").find_all('p')
+
+        content = ""
+        for paragraph in paragraphs:
+            content += f' {paragraph.text}'
+        
+        return content
 
 
 
@@ -101,12 +114,14 @@ class ArchiverEurogamer:
 
             # get article data
             article = self.get_article_data(article, raw_html)
+            content = self.get_article_content(raw_html)
             
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
                 self.archiver.send_article_to_archive(article, raw_html, 'Eurogamer')
                 self.archiver.send_thumbnail_to_archive(article, 'Eurogamer')
+                self.search_indexer.index_article(content, article['id'])
 
                 # and update its info in the DB
                 self.db_manager.update_article(article, self.website_id)
