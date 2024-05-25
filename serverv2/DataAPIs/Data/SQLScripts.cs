@@ -256,13 +256,9 @@ namespace VideoGameArchive.Data
             var articleIds = string.Join(",", ids);
             return $@"
                 SELECT
-                    Article.Title, Article.Subtitle, Writer.Name, Publication.Name, ArticleUrl.Url, Thumbnail.Filename, Article.DatePublished
+                    Article.Title, Article.Subtitle, Writer.Name, Publication.Name, Article.Url, Thumbnail.Filename, Article.DatePublished
                 FROM
                     Article
-                INNER JOIN
-                    ArticleUrl
-                ON
-                    Article.UrlId = ArticleUrl.Id
                 INNER JOIN
                     Writer
                 ON

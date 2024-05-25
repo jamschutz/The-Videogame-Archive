@@ -123,6 +123,8 @@ namespace VideoGameArchive
             var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
             var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(articleIdsToFetch) : new List<Article>();
 
+            System.Console.WriteLine(String.Join(",", articleIdsToFetch));
+
             // format and return
             var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
                 TotalResults = searchResults.Keys.Count,
