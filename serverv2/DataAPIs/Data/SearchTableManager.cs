@@ -46,6 +46,7 @@ namespace VideoGameArchive.Data
 
         public Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm)
         {
+            searchTerm = Utils.GetEscapedString(searchTerm);
             var metadata = GetSearchResultsMetadata(searchTerm);
             return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
         }
@@ -67,6 +68,7 @@ namespace VideoGameArchive.Data
         private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
         {
             // build odata query
+            searchTerm = Utils.GetEscapedString(searchTerm);
             var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
             string odataQuery = string.Join(" or ", rowKeyQueries);
             return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
@@ -135,7 +137,7 @@ namespace VideoGameArchive.Data
         public List<SearchResultMetadata> GetSearchResultsMetadata(List<string> searchTerms)
         {
             // build odata query
-            var partitionKeyQueries = searchTerms.Select(s => $"PartitionKey eq '{s}'").ToList();
+            var partitionKeyQueries = searchTerms.Select(s => $"PartitionKey eq '{Utils.GetEscapedString(s)}'").ToList();
             string odataQuery = string.Join(" or ", partitionKeyQueries);
 
             // fetch query results from table
@@ -184,6 +186,7 @@ namespace VideoGameArchive.Data
         public SearchResultMetadata GetSearchResultsMetadata(string searchTerm)
         {
             // build odata query
+            searchTerm = Utils.GetEscapedString(searchTerm);
             string odataQuery = $"PartitionKey eq '{searchTerm}'";
 
             // fetch query results from table

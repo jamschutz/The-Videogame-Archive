@@ -34,8 +34,7 @@ def get_links(page_number, target_page, utils):
 
         article_data.append({
             'title': article_title,
-            'url': article_url,
-            # 'date': utils.date_to_num(article_date)
+            'url': f'{BASE_URL}{article_url}',
             'date': article_date
         })
 

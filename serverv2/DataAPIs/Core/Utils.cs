@@ -9,5 +9,12 @@ namespace VideoGameArchive.Core
             var C = (long)((A >= B ? A * A + A + B : A + B * B) / 2);
             return a < 0 && b < 0 || a >= 0 && b >= 0 ? C : -C - 1;
         }
+
+
+        public static string GetEscapedString(string s)
+        {
+            s = s.Replace("'", "''");
+            return s;
+        }
     }
 }
