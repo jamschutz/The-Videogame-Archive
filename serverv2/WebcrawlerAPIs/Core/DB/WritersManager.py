@@ -10,37 +10,23 @@ class WritersManager:
         self.db = DbManager()
 
 
-
-
-    # ==================================================================== #
-    # ============    GET METHODS    ===================================== #
-    # ==================================================================== #
-
-
     # returns in the format [{'name': 'Joey Schutz', 'authorid': 1234}]
     def get_writers_and_create_if_not_exist(self, articles):
         writers = [a.author for a in articles]
         return self.db.get_ids_and_create_if_not_exists('Writers', writers)
 
 
-
-
-    # ==================================================================== #
-    # ============    INSERT METHODS    ================================== #
-    # ==================================================================== #
-
-
-    def insert_writers(self, writers):
+    def insert(self, writers):
         self.db.insert_values('Writers', writers)
 
-
-
-    # ==================================================================== #
-    # ============    HELPER METHODS    ================================== #
-    # ==================================================================== #
-
-    def get_writer_ids(self, writers):
+    def get_ids(self, writers):
         return self.db.get_ids('Writers', writers)
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
@@ -50,9 +36,10 @@ if __name__ == '__main__':
         Article(author="Trey Walker"),
         Article(author="Hugo Foster"),
         Article(author="dummy test1"),
-        Article(author="dummy test2")
+        Article(author="dummy test3"),
+        Article(author="dummy test3")
     ]
 
     print(writers.get_writers_and_create_if_not_exist(articles))
 
-    print(writers.get_writer_ids(['Chris Kirchgasler', 'Trey Walker']))
+    print(writers.get_ids(['Chris Kirchgasler', 'Trey Walker']))

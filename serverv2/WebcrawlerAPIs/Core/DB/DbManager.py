@@ -85,6 +85,9 @@ class DbManager:
     
 
     def get_ids_and_create_if_not_exists(self, column, values):
+        # ensure values are unique
+        values = list(set(values))
+
         # get authors that currently exist in db
         existing_data = self.get_ids(column, values)
 
@@ -99,6 +102,9 @@ class DbManager:
             new_value_ids = self.get_ids(column, values_to_insert)
 
         # combine existing and new and return
-        results = existing_data
-        results.extend(new_value_ids)
+        results = {}
+        for data in existing_data:
+            results[data['name']] = data['id']
+        for data in new_value_ids:
+            results[data['name']] = data['id']
         return results
