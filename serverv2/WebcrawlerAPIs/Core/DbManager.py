@@ -4,6 +4,7 @@ from datetime import datetime
 from .Config import Config
 from .Secrets import Secrets
 from .Utils import Utils
+from Entities.Article import Article
 
 
 PLACEHOLDER_AUTHOR_ID = 1210
