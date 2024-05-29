@@ -16,6 +16,7 @@ class ArticlesManager:
         self.db = DbManager()
         self.writers = WritersManager()
         self.article_types = ArticleTypesManager()
+        self.utils = Utils()
 
 
 
@@ -101,7 +102,7 @@ class ArticlesManager:
 
         # build query
         articles_formatted = [
-            f"('{a.title}', '{a.subtitle}', '{a.url}', {a.author_id}, {a.website_id}, {a.date}, {a.type_id}, {a.thumbnail if a.thumbnail is not None else 'NULL'}, false)"
+            f"('{a.title}', '{a.subtitle}', '{a.url}', {a.author_id}, {a.website_id}, {a.date}, {a.type_id}, {a.thumbnail_filename if a.thumbnail_filename is not None else 'NULL'}, false)"
             for a in articles_to_insert
         ]
         query = f"""
@@ -134,7 +135,43 @@ class ArticlesManager:
         self.db.run_query(query)
 
 
-    # def update_articles(self, article):
+    def update_article(self, article):
+        # inject db data
+        if article.thumbnail_filename is None and article.thumbnail_url is not None:
+            article.thumbnail_filename = self.utils.get_thumbnail_filename(article)
+        if article.author_id is None and article.author != '':
+            article.author_id = self.writers.get_writer_and_create_if_not_exists(article.author)
+        if article.type_id is None:
+            article.type_id = self.article_types.get_article_type_and_create_if_not_exists(article.type)
+
+        # clean up title and subtitle
+        article.update_title_and_subtitle_for_sql()
+
+        # build query base
+        query = f"""
+            UPDATE
+                "Articles"
+            SET
+
+        """
+
+        # and add to query as needed, depending on what data is in the article
+        query += f"\"Title\" = '{article.title}', " if article.title != '' else ''
+        query += f"\"Subtitle\" = '{article.subtitle}', " if article.subtitle != '' else ''
+        query += f"\"AuthorId\" = {article.author_id}, " if article.author_id is not None else ''
+        query += f"\"DatePublished\" = {article.date}, " if article.date != None else ''
+        query += f"\"Thumbnail\" = '{article.thumbnail_filename}', " if article.thumbnail_filename is not None and article.thumbnail_filename != '' else ''
+        query += f"\"ArticleTypeId\" = {article.type_id}, " if article.type_id > 0 else ''
+        
+        # delete closing comma, and run
+        if query[-2:] == ', ':
+            query = query[:-2]
+
+        query += f"""
+            WHERE
+                "Url" = '{article.url}'
+        """
+        self.db.run_query(query)
 
 
 
@@ -169,20 +206,8 @@ class ArticlesManager:
             article.author_id = author_id_lookup[article.author]
             article.type_id = type_id_lookup[article.type]
 
-            # clean up title and subtitle
-            article.title = article.title.replace("'", "''")
-            article.subtitle = article.subtitle.replace("'", "''")
-
-            # if subtitle is too long, just truncate and slap an ellipses on it
-            if len(article.subtitle) > 250:
-                truncate_index = 246
-
-                # if we're truncating an apostophe, it will cause string parsing issues...back up until we're safe
-                while article.subtitle[truncate_index] == "'":
-                    truncate_index -= 1
-
-                # and truncate
-                article.subtitle = f"{article.subtitle[:truncate_index]}..."
+            # update data for sql (i.e. change ' to '', truncate subtitle if needed, etc)
+            article.update_title_and_subtitle_for_sql()
 
         return articles
 
@@ -231,5 +256,9 @@ if __name__ == '__main__':
             url="www.dummyurl.com"
         )
     ]
-    articles = articles_manager.insert_articles(articles)
-    print(articles)
+    articles_manager.insert_articles(articles)
+    
+    test = articles[-1]
+    test.author = "Eden"
+    test.thumbnail_url = 'https://www.gamespot.com/a/uploads/screen_petite/1837/18375603/4309990-leagueoflegends.jpg'
+    articles_manager.update_article(test)

@@ -15,12 +15,17 @@ class WritersManager:
         writers = [a.author for a in articles]
         return self.db.get_ids_and_create_if_not_exists('Writers', writers)
 
+    def get_writer_and_create_if_not_exists(self, writer):
+        return self.db.get_ids_and_create_if_not_exists('Writers', [writer])[writer]
 
     def insert(self, writers):
         self.db.insert_values('Writers', writers)
 
     def get_ids(self, writers):
         return self.db.get_ids('Writers', writers)
+
+    def get_id(self, writer):
+        return self.db.get_ids('Writers', [writer])[writer]
 
 
 

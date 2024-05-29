@@ -40,14 +40,14 @@ class Utils:
         return thumbnail_url.split('.')[-1] if thumbnail_url[-4] == '.' else 'jpg'
         
 
-    def get_thumbnail_filename(self, article, website_id):
-        thumbnail_url = article['thumbnail_url']
-        article_url = article['url']
-        date_published = str(article['date'])
+    def get_thumbnail_filename(self, article):
+        thumbnail_url = article.thumbnail_url
+        article_url = article.url
+        date_published = str(article.date)
         day = date_published[6:]
 
         file_extension = self.get_thumbnail_extension(thumbnail_url)
-        return f"{self.config.url_to_filename(article_url, day, website_id)}_thumbnail.{file_extension}"
+        return f"{self.config.url_to_filename(article_url, day, article.website_id)}_thumbnail.{file_extension}"
 
 
     def save_thumbnail(self, img_url, filename, folderpath):

@@ -16,6 +16,10 @@ class ArticleTypesManager:
         return self.db.get_ids_and_create_if_not_exists('ArticleTypes', types)
 
 
+    def get_article_type_and_create_if_not_exists(self, article_type):
+        return self.db.get_ids_and_create_if_not_exists('ArticleTypes', [article_type])[article_type]
+
+
     def insert(self, writers):
         self.db.insert_values('Writers', writers)
 
