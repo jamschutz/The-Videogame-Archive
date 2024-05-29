@@ -14,16 +14,21 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
+// delete...!
+using Npgsql;
+
 using VideoGameArchive.Core;
 using VideoGameArchive.Data;
 using VideoGameArchive.Entities;
 using VideoGameArchive.Responses;
+
 
 namespace VideoGameArchive
 {
     public static class ArticleFunctions
     {
         private static DbManager dbManager;
+        private static VideoGameArchive.Data.DB.DbManager postgresDbManager;
 
 
         [FunctionName("GetArticles")]
@@ -164,10 +169,37 @@ namespace VideoGameArchive
         }
 
 
+        [FunctionName("PostgresTest")]
+        public static async Task<HttpResponseMessage> PostgresTest(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("PostgresTest processed a request.");
+
+            // get articles from db
+            InitDbManager();
+            string sql = "select \"Name\" from \"Websites\"";
+            var websites = ArticleFunctions.postgresDbManager.GetQuery<string>(sql, (reader) => {
+                return reader.GetString(0);
+            });
+            foreach(var website in websites) {
+                Console.WriteLine($"got website: {website}");
+            }
+
+            // format and return
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent("okay", Encoding.UTF8, "application/json")
+            };
+        }
+
+
         private static void InitDbManager()
         {
             if(ArticleFunctions.dbManager == null) {
                 ArticleFunctions.dbManager = new DbManager();
+            }
+            if(ArticleFunctions.postgresDbManager == null) {
+                ArticleFunctions.postgresDbManager = new VideoGameArchive.Data.DB.DbManager();
             }
         }
     }
