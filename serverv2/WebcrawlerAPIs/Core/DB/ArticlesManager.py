@@ -134,6 +134,10 @@ class ArticlesManager:
         self.db.run_query(query)
 
 
+    # def update_articles(self, article):
+
+
+
 
 
     # ==================================================================== #
