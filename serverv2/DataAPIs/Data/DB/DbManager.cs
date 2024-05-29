@@ -68,18 +68,32 @@ namespace VideoGameArchive.Data.DB
         }
 
 
-        // private void RunQuery(string query)
-        // {
-        //     DbManager.LastSqlQuery = query;
-        //     using (SqlConnection connection = new SqlConnection(connectionString))
-        //     {                
-        //         connection.Open();
-        //         using (SqlCommand command = new SqlCommand(query, connection))
-        //         {
-        //             command.ExecuteReader();
-        //         }
-        //     }
-        // }
+        public void RunQuery<T>(string query, List<PostgresParameter<T>> parameters)
+        {
+            DbManager.LastSqlQuery = query;
+
+            using(var connection = new NpgsqlConnection(connectionString)) {
+                connection.Open();
+
+                using(var command = new NpgsqlCommand(query, connection)) 
+                {
+                    // add parameters
+                    foreach(var parameter in parameters) {
+                        command.Parameters.AddWithValue(parameter.name, parameter.value);
+                    }
+
+                    // and run
+                    command.ExecuteNonQuery();
+                }
+            }
+            return results;
+        }
+
+        public void RunQuery(string query)
+        {
+            var parameters = new List<PostgresParameter<bool>>();
+            RunQuery(query, parameters);
+        }
     }
 
 
