@@ -41,6 +41,18 @@ class WebsitesManager:
         return websites
 
 
+    def get_id(self, website):
+        query = f"""
+            SELECT
+                "Id"
+            FROM
+                "Websites"
+            WHERE
+                "Name" = '{website}'
+        """
+        return self.db.get_query(query)[0][0]
+
+
 
 
 
@@ -51,4 +63,4 @@ if __name__ == '__main__':
     websites_manager = WebsitesManager()
     websites = websites_manager.get_websites()
 
-    print([w.to_string() for w in websites])
+    print(websites_manager.get_id('Eurogamer'))

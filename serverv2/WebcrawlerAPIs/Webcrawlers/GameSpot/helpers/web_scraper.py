@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import datetime
 
+from Entities.Article import Article
+
 # constants
 BASE_URL = 'https://www.gamespot.com'
 ARTICLE_DIV_CLASS = 'card-item__content'
@@ -32,10 +34,10 @@ def get_links(page_number, target_page, utils):
         # convert to datetime
         article_date = datetime.strptime(article_date, DATETIME_FORMAT)
 
-        article_data.append({
-            'title': article_title,
-            'url': f'{BASE_URL}{article_url}',
-            'date': article_date
-        })
+        article_data.append(Article(
+            title = article_title,
+            url = f'{BASE_URL}{article_url}',
+            date = article_date
+        ))
 
     return article_data

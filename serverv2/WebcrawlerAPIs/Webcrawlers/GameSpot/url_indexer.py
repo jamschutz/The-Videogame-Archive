@@ -1,6 +1,7 @@
 from Core.Config import Config
 from Core.Utils import Utils
-from Core.DbManager import DbManager
+from Core.DB.ArticlesManager import ArticlesManager
+from Core.DB.WebsitesManager import WebsitesManager
 from .helpers.web_scraper import get_links
 
 from pathlib import Path
@@ -13,15 +14,16 @@ class UrlIndexerGameSpot:
     
     def __init__(self):
         self.website_name = 'GameSpot'
-        self.db_manager = DbManager()
+        self.articles_manager = ArticlesManager()
         self.config = Config()
         self.utils = Utils()
+
+        self.website_id = websites_data = WebsitesManager().get_id(self.website_name)
 
 
     def index_target_months(self):
         # get most recent logged article
-        website_id = self.config.website_id_lookup[self.website_name]
-        last_archived_article_date = self.db_manager.get_most_recent_article_date(website_id)
+        last_archived_article_date = self.articles_manager.get_most_recent_article_date(self.website_id)
 
         # get actual articles from site
         news_articles = self.__get_articles_after_date('news', last_archived_article_date)
@@ -29,9 +31,9 @@ class UrlIndexerGameSpot:
 
         # assign types
         for article in news_articles:
-            article['type'] = 'news'
+            article.type = 'news'
         for article in reviews_articles:
-            article['type'] = 'review'
+            article.type = 'review'
 
         # build full list of articles
         articles = []
@@ -40,11 +42,11 @@ class UrlIndexerGameSpot:
 
         # add / clean up fields
         for article in articles:
-            article['website'] = 'GameSpot'
-            article['date_published'] = str(self.utils.date_to_num(article['date']))
+            article.website_id = self.website_id
+            article.date = str(self.utils.date_to_num(article.date))
             # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
-            article['author'] = self.config.PLACEHOLDER_AUTHOR_NAME
-            article['subtitle'] = ''
+            article.author = self.config.PLACEHOLDER_AUTHOR_NAME
+            article.subtitle = ''
 
         # save articles to database in batches of 1000 at a time
         offset = 0
@@ -52,7 +54,7 @@ class UrlIndexerGameSpot:
             print(f'saving articles {offset}/{len(articles)}')
             logging.info(f'saving articles {offset}/{len(articles)}')
             batch = articles[offset:offset + 999]
-            self.db_manager.save_articles(batch)
+            self.articles_manager.insert_articles(batch)
             offset += 1000
 
         print('done')
@@ -73,7 +75,7 @@ class UrlIndexerGameSpot:
                 articles.extend(article_links)
 
                 # if any of the article's dates are older than our last archived date, break
-                if any(self.utils.date_to_num(a['date']) < target_date for a in article_links):
+                if any(self.utils.date_to_num(a.date) < target_date for a in article_links):
                     return articles
 
                 page += 1
