@@ -18,7 +18,7 @@ class UrlIndexerGameSpot:
         self.config = Config()
         self.utils = Utils()
 
-        self.website_id = websites_data = WebsitesManager().get_id(self.website_name)
+        self.website_id = WebsitesManager().get_id(self.website_name)
 
 
     def index_target_months(self):

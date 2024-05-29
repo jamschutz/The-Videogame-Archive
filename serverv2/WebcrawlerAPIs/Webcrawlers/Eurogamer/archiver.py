@@ -2,25 +2,23 @@ import pathlib
 from bs4 import BeautifulSoup
 import requests, json, time, random
 from Core.Config import Config
-from Core.DbManager import DbManager
+from Core.DB.ArticlesManager import ArticlesManager
+from Core.DB.WebsitesManager import WebsitesManager
 from Core.Utils import Utils
 from Core.AzureStorageManager import AzureStorageManager
 from Core.Archiver import Archiver
 from Core.SearchIndexer import SearchIndexer
+from Entities.Article import Article
 
 
 class ArchiverEurogamer:
 
     def __init__(self):
         self.website_name = 'Eurogamer'
-        self.db_manager = DbManager()
-        self.config = Config()
-        self.utils = Utils()
         self.az_storage_manager = AzureStorageManager()
         self.archiver = Archiver()
         self.search_indexer = SearchIndexer()
         self.BATCH_SIZE = 500
-        self.website_id = self.config.website_id_lookup[self.website_name]
 
         self.SUBTITLE_DIV_CLASS = 'synopsis'
         self.AUTHOR_DIV_CLASS = 'author'
@@ -30,8 +28,9 @@ class ArchiverEurogamer:
 
         # initialize helpers
         self.config = Config()
-        self.db_manager = DbManager()
+        self.articles_manager = ArticlesManager()
         self.utils = Utils()
+        self.website_id = WebsitesManager().get_id(self.website_name)
 
         self.ARTICLES_THAT_FAILED_TO_PARSE = []
 
@@ -64,22 +63,22 @@ class ArchiverEurogamer:
         try:
             # add info we need
             # not all articles have subtitles...
-            article['subtitle'] = soup.find('section', class_=self.SUBTITLE_DIV_CLASS)
-            if article['subtitle'] == None:
-                article['subtitle'] = ''
+            article.subtitle = soup.find('section', class_=self.SUBTITLE_DIV_CLASS)
+            if article.subtitle == None:
+                article.subtitle = ''
             else:
-                article['subtitle'] = article['subtitle'].text.strip()
+                article.subtitle = article.subtitle.text.strip()
 
-            article['author'] = soup.find('span', class_=self.AUTHOR_DIV_CLASS).a.text.strip()
-            article['type'] = soup.find('span', class_=self.ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
-            article['thumbnail_url'] = self.get_thumbnail_url(soup)
+            article.author = soup.find('span', class_=self.AUTHOR_DIV_CLASS).a.text.strip()
+            article.type = soup.find('span', class_=self.ARTICLE_TYPE_DIV_CLASS).text.strip().lower()
+            article.thumbnail_url = self.get_thumbnail_url(soup)
 
             return article
 
         except Exception as e:
-            print(f'ERROR parsing: {article["title"]}: {str(e)}')
-            if article['url'] not in self.ARTICLES_THAT_FAILED_TO_PARSE:
-                self.ARTICLES_THAT_FAILED_TO_PARSE.append(article['url'])
+            print(f'ERROR parsing: {article.title}: {str(e)}')
+            if article.url not in self.ARTICLES_THAT_FAILED_TO_PARSE:
+                self.ARTICLES_THAT_FAILED_TO_PARSE.append(article.url)
             return None
         
 
@@ -98,8 +97,7 @@ class ArchiverEurogamer:
     def archive_queued_urls(self, num_urls_to_archive, counter_offset=0, actual_max=-1):
         actual_max = num_urls_to_archive if actual_max < 0 else actual_max
         # get articles to archive
-        website_id = self.config.website_id_lookup[self.website_name]
-        articles_to_archive = self.db_manager.get_urls_to_archive(num_urls_to_archive, website_id)
+        articles_to_archive = self.articles_manager.get_articles_to_archive(num_urls_to_archive, self.website_id)
 
         # track articles that failed to parse
         articles_that_failed_to_parse = []
@@ -107,10 +105,10 @@ class ArchiverEurogamer:
         # and archive each one
         counter = 1
         for article in articles_to_archive:
-            print(f'saving article {article["title"]} ({article["date"]})....[{counter + counter_offset}/{actual_max}]')
+            print(f'saving article {article.title} ({article.date})....[{counter + counter_offset}/{actual_max}]')
             
             # download webpage
-            raw_html = requests.get(article['url']).text
+            raw_html = requests.get(article.url).text
 
             # get article data
             article = self.get_article_data(article, raw_html)
@@ -121,10 +119,10 @@ class ArchiverEurogamer:
                 # save to filepath
                 self.archiver.send_article_to_archive(article, raw_html, 'Eurogamer')
                 self.archiver.send_thumbnail_to_archive(article, 'Eurogamer')
-                self.search_indexer.index_article(content, article['id'])
+                self.search_indexer.index_article(content, article.id)
 
                 # and update its info in the DB
-                self.db_manager.update_article(article, self.website_id)
+                self.articles_manager.update_article(article, self.website_id)
 
             counter += 1
 
@@ -135,7 +133,7 @@ class ArchiverEurogamer:
                 articles_archived_successfully.append(article)
         
         # and mark as archived in the db
-        self.db_manager.mark_articles_as_archived(articles_archived_successfully)
+        self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
 
     def archive_all_urls():

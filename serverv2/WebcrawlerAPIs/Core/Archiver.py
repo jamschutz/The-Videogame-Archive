@@ -18,21 +18,21 @@ class Archiver:
             print('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
             logging.info('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
 
-        date_published = str(article['date'])
+        date_published = str(article.date)
         year = date_published[:4]
         month = date_published[4:6]
 
-        filename = self.utils.get_thumbnail_filename(article, self.config.website_id_lookup[website_name])
+        filename = self.utils.get_thumbnail_filename(article)
         folder_path = f'{website_name}/_thumbnails/{year}/{month}'
 
         # download image
-        img_data = requests.get(article['thumbnail_url']).content
+        img_data = requests.get(article.thumbnail_url).content
 
         # clean up folder path
         if folder_path[-1] == '/':
             folder_path = folder_path[:-1]
 
-        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article['thumbnail_url'])}")
+        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article.thumbnail_url)}")
 
 
 
@@ -45,8 +45,8 @@ class Archiver:
         ARTICLES_THAT_FAILED_TO_PARSE = []
 
         # parse the bits we need (for folder / filename)
-        url = article['url']
-        date_published = str(article['date'])
+        url = article.url
+        date_published = str(article.date)
         year = date_published[:4]
         month = date_published[4:6]
         day = date_published[6:]
