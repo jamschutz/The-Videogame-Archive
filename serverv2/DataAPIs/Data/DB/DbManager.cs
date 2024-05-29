@@ -33,7 +33,7 @@ namespace VideoGameArchive.Data.DB
         /* =========================================================== */
 
 
-        public List<T> GetQuery<T>(string query, Func<NpgsqlDataReader, T> parseRow)
+        public List<T> GetQuery<T, P>(string query, List<PostgresParameter<P>> parameters, Func<NpgsqlDataReader, T> parseRow)
         {
             DbManager.LastSqlQuery = query;
 
@@ -43,6 +43,12 @@ namespace VideoGameArchive.Data.DB
 
                 using(var command = new NpgsqlCommand(query, connection)) 
                 {
+                    // add parameters
+                    foreach(var parameter in parameters) {
+                        command.Parameters.AddWithValue(parameter.name, parameter.value);
+                    }
+
+                    // read line by line
                     var reader = command.ExecuteReader();
                     while(reader.Read())
                     {
@@ -52,26 +58,13 @@ namespace VideoGameArchive.Data.DB
                 }
             }
             return results;
+        }
 
 
-
-            // var results = new List<T>();
-            // using (SqlConnection connection = new SqlConnection(connectionString))
-            // {                
-            //     connection.Open();
-            //     using (SqlCommand command = new SqlCommand(query, connection))
-            //     {
-            //         using (SqlDataReader reader = command.ExecuteReader())
-            //         {
-            //             while (reader.Read())
-            //             {
-            //                 // add each row to results
-            //                 results.Add(parseRow(reader));
-            //             }
-            //         }
-            //     }
-            // }
-            // return results;
+        public List<T> GetQuery<T>(string query, Func<NpgsqlDataReader, T> parseRow)
+        {
+            var parameters = new List<PostgresParameter<bool>>();
+            return GetQuery<T, bool>(query, parameters, parseRow);
         }
 
 

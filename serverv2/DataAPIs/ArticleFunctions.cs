@@ -178,8 +178,12 @@ namespace VideoGameArchive
 
             // get articles from db
             InitDbManager();
-            string sql = "select \"Name\" from \"Websites\"";
-            var websites = ArticleFunctions.postgresDbManager.GetQuery<string>(sql, (reader) => {
+            string sql = "select \"Name\" from \"Websites\" where \"Id\" in (@website1, @website2)";
+            var parameters = new List<VideoGameArchive.Data.DB.PostgresParameter<int>>() {
+                new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website1", value = 1 },
+                new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website2", value = 2 }
+            };
+            var websites = ArticleFunctions.postgresDbManager.GetQuery<string, int>(sql, parameters, (reader) => {
                 return reader.GetString(0);
             });
             foreach(var website in websites) {
