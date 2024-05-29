@@ -4,6 +4,9 @@ from datetime import datetime
 from Core.Config import Config
 from Core.Utils import Utils
 from .DbManager import DbManager
+from .WritersManager import WritersManager
+from .ArticleTypesManager import ArticleTypesManager
+from .TagsManager import TagsManager
 from Entities.Article import Article
 
 
@@ -11,6 +14,8 @@ class ArticlesManager:
 
     def __init__(self):
         self.db = DbManager()
+        self.writers = WritersManager()
+        self.article_types = ArticleTypesManager()
 
 
 
@@ -76,7 +81,8 @@ class ArticlesManager:
                 raise Exception("article is missing one of the following properties: author, url, type, title, subtitle, websiteid, date. bailing!")
             
         # otherwise, get author and url ids for each article
-               
+        author_ids = self.writers.get_writers_and_create_if_not_exist(articles)
+        type_ids = self.article_types.get_article_types_and_create_if_not_exist(articles)
 
 
 
