@@ -28,35 +28,33 @@ namespace VideoGameArchive
 {
     public static class ArticleFunctions
     {
-        // [FunctionName("GetArticles")]
-        // public static HttpResponseMessage GetArticles(
-        //     [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("GetArticles processed a request.");
+        [FunctionName("GetArticles")]
+        public static HttpResponseMessage GetArticles(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetArticles processed a request.");
 
-        //     // process parameters
-        //     string rawDate = req.Query["date"];
-        //     string websiteParam = req.Query["websiteId"];
-        //     string endDateParam = req.Query["endDate"];
+            // process parameters
+            string rawDate = req.Query["date"];
+            string endDateParam = req.Query["endDate"];
 
-        //     // convert to what we want
-        //     var date = new CalendarDate(rawDate);
-        //     var websiteId = string.IsNullOrEmpty(websiteParam)? -1 : int.Parse(websiteParam);
-        //     var endDate = string.IsNullOrEmpty(endDateParam)? null : new CalendarDate(endDateParam);
+            // convert to what we want
+            var date = new CalendarDate(rawDate);
+            var endDate = string.IsNullOrEmpty(endDateParam)? null : new CalendarDate(endDateParam);
 
-        //     // get articles from db
-        //     InitDbManager();
-        //     var articles = endDate == null? 
-        //                     ArticleFunctions.dbManager.GetArticlesForDate(date.ToUrlString()) :
-        //                     ArticleFunctions.dbManager.GetArticlesBetweenDates(date.ToUrlString(), endDate.ToUrlString());
+            // get articles from db
+            var db = new ArticlesManager();
+            var articles = endDate == null? 
+                            db.GetArticlesForDate(date.ToNumber()) :
+                            db.GetArticlesBetweenDates(date.ToNumber(), endDate.ToNumber());
 
-        //     // format and return
-        //     var response = JsonConvert.SerializeObject(articles);
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
-        //     };
-        // }
+            // format and return
+            var response = JsonConvert.SerializeObject(articles);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
 
         [FunctionName("GetArticlesForIds")]
