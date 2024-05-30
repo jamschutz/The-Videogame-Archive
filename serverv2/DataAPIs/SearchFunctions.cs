@@ -17,6 +17,7 @@ using Newtonsoft.Json;
 
 using VideoGameArchive.Core;
 using VideoGameArchive.Data;
+using VideoGameArchive.Data.DB;
 using VideoGameArchive.Entities;
 using VideoGameArchive.Responses;
 using Microsoft.WindowsAzure.Storage;
@@ -26,114 +27,115 @@ namespace VideoGameArchive
     public static class SearchFunctions
     {
 
-        // [FunctionName("InsertSearchResults")]
-        // public static async Task<HttpResponseMessage> InsertSearchResults(
-        //     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("InsertSearchResults processed a request.");
+        [FunctionName("InsertSearchResults")]
+        public static async Task<HttpResponseMessage> InsertSearchResults(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("InsertSearchResults processed a request.");
 
-        //     var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //     var searchRequest = JsonConvert.DeserializeObject<InsertSearchResultsRequest>(reqBody);
+            var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var searchRequest = JsonConvert.DeserializeObject<InsertSearchResultsRequest>(reqBody);
 
-        //     log.LogInformation($"got {searchRequest.entries.Count} search results for '{searchRequest.searchTerm}'");
+            log.LogInformation($"got {searchRequest.entries.Count} search results for '{searchRequest.searchTerm}'");
 
-        //     // get articles
-        //     var dbManager = new SearchTableManager(log);
-        //     var entriesCreated = dbManager.InsertSearchResult(searchRequest.searchTerm, searchRequest.entries);
+            // get articles
+            var dbManager = new SearchTableManager(log);
+            var entriesCreated = dbManager.InsertSearchResult(searchRequest.searchTerm, searchRequest.entries);
 
-        //     // format and return
-        //     var response = JsonConvert.SerializeObject(entriesCreated);
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
-        //     };
-        // }
-
-
-        // [FunctionName("GetSearchResultMetadata")]
-        // public static async Task<HttpResponseMessage> GetSearchResultMetadata(
-        //     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("GetSearchResultMetadata processed a request.");
-
-        //     var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //     var searchTerms = JsonConvert.DeserializeObject<List<string>>(reqBody);
-
-        //     // get articles
-        //     var dbManager = new SearchTableManager(log);
-        //     var metadata = dbManager.GetSearchResultsMetadata(searchTerms);
-
-        //     // format and return
-        //     var response = JsonConvert.SerializeObject(metadata);
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
-        //     };
-        // }
+            // format and return
+            var response = JsonConvert.SerializeObject(entriesCreated);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
 
-        // [FunctionName("GetSearchResults")]
-        // public static HttpResponseMessage GetSearchResults(
-        //     [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("GetSearchResults processed a request.");
+        [FunctionName("GetSearchResultMetadata")]
+        public static async Task<HttpResponseMessage> GetSearchResultMetadata(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetSearchResultMetadata processed a request.");
 
-        //     var searchTerms = ((string)req.Query["searchTerms"]).Split(' ').Select(t => t.ToLower()).ToArray();
-        //     int resultsPerPage = int.Parse(req.Query["resultsPerPage"]);
-        //     int pageNumber = int.Parse(req.Query["page"]);
-        //     if(pageNumber < 1) pageNumber = 1;
+            var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
+            var searchTerms = JsonConvert.DeserializeObject<List<string>>(reqBody);
 
-        //     // get articles
-        //     var dbManager = new SearchTableManager(log);
-        //     var searchResults = new Dictionary<int, List<int>>();
+            // get articles
+            var dbManager = new SearchTableManager(log);
+            var metadata = dbManager.GetSearchResultsMetadata(searchTerms);
 
-        //     // if only one search term, just store the one result
-        //     if(searchTerms.Length == 1) {
-        //         searchResults = dbManager.GetSearchResultEntries(searchTerms[0], resultsPerPage, pageNumber);
-        //     }
+            // format and return
+            var response = JsonConvert.SerializeObject(metadata);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
-        //     // otherwise, get articles that have all search terms
-        //     else {
-        //         var allSearchResults = new List<Dictionary<int, List<int>>>();
-        //         foreach(var searchTerm in searchTerms) {
-        //             allSearchResults.Add(dbManager.GetSearchResultEntries(searchTerm));
-        //         }
 
-        //         var matchingArticleIds = allSearchResults[0].Keys.ToList();
-        //         for(int i = 1; i < allSearchResults.Count; i++) {
-        //             matchingArticleIds = matchingArticleIds.Intersect(allSearchResults[i].Keys.ToList()).ToList();
-        //         }
+        [FunctionName("GetSearchResults")]
+        public static HttpResponseMessage GetSearchResults(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetSearchResults processed a request.");
 
-        //         foreach(var id in matchingArticleIds) {
-        //             foreach(var searchResult in allSearchResults) {
-        //                 if(searchResult.ContainsKey(id)) {
-        //                     if(!searchResults.ContainsKey(id)) {
-        //                         searchResults[id] = new List<int>();
-        //                     }
+            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ').Select(t => t.ToLower()).ToArray();
+            int resultsPerPage = int.Parse(req.Query["resultsPerPage"]);
+            int pageNumber = int.Parse(req.Query["page"]);
+            if(pageNumber < 1) pageNumber = 1;
 
-        //                     searchResults[id].AddRange(searchResult[id]);
-        //                 }
-        //             }
-        //         }
-        //     }
+            // get articles
+            var dbManager = new SearchTableManager(log);
+            var searchResults = new Dictionary<int, List<int>>();
 
-        //     // get articles
-        //     var articleDbManager = new DbManager_OLD();
-        //     var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
-        //     var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(articleIdsToFetch) : new List<Article>();
+            
+            // if only one search term, just store the one result
+            if(searchTerms.Length == 1) {
+                searchResults = dbManager.GetSearchResultEntries(searchTerms[0], resultsPerPage, pageNumber);
+            }
 
-        //     System.Console.WriteLine(String.Join(",", articleIdsToFetch));
+            // otherwise, get articles that have all search terms
+            else {
+                var allSearchResults = new List<Dictionary<int, List<int>>>();
+                foreach(var searchTerm in searchTerms) {
+                    allSearchResults.Add(dbManager.GetSearchResultEntries(searchTerm));
+                }
 
-        //     // format and return
-        //     var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
-        //         TotalResults = searchResults.Keys.Count,
-        //         Results = articles
-        //     });
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
-        //     };
-        // }
+                var matchingArticleIds = allSearchResults[0].Keys.ToList();
+                for(int i = 1; i < allSearchResults.Count; i++) {
+                    matchingArticleIds = matchingArticleIds.Intersect(allSearchResults[i].Keys.ToList()).ToList();
+                }
+
+                foreach(var id in matchingArticleIds) {
+                    foreach(var searchResult in allSearchResults) {
+                        if(searchResult.ContainsKey(id)) {
+                            if(!searchResults.ContainsKey(id)) {
+                                searchResults[id] = new List<int>();
+                            }
+
+                            searchResults[id].AddRange(searchResult[id]);
+                        }
+                    }
+                }
+            }
+
+            // get articles
+            var articleDbManager = new ArticlesManager();
+            var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
+            var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesWithIds(articleIdsToFetch) : new List<Article>();
+
+            System.Console.WriteLine(String.Join(",", articleIdsToFetch));
+
+            // format and return
+            var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
+                TotalResults = searchResults.Keys.Count,
+                Results = articles
+            });
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
 
         // [FunctionName("SeedSearchResults")]

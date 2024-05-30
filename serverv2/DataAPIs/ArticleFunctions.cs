@@ -115,53 +115,5 @@ namespace VideoGameArchive
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
         }
-
-
-        // [FunctionName("InsertArticles")]
-        // public static async Task<HttpResponseMessage> InsertArticles(
-        //     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("InsertSearchResults processed a request.");
-
-        //     var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //     var articles = JsonConvert.DeserializeObject<List<Article>>(reqBody);
-
-        //     InitDbManager();
-
-        //     try {
-        //         // get list of data we need to insert before the articles
-        //         var articlesToInsert     = ArticleFunctions.dbManager.GetArticlesNotInDb(articles);
-        //         var authorsToInsert      = ArticleFunctions.dbManager.GetAuthorsNotInDb(articles);
-        //         var articleTypesToInsert = ArticleFunctions.dbManager.GetArticleTypesNotInDb(articles);
-        //         var thumbnailsToInsert   = ArticleFunctions.dbManager.GetThumbnailsNotInDb(articles);
-
-        //         // insert data articles depend on first
-        //         ArticleFunctions.dbManager.InsertAuthors(authorsToInsert);
-        //         ArticleFunctions.dbManager.InsertArticleTypes(articleTypesToInsert);
-        //         ArticleFunctions.dbManager.InsertUrls(articlesToInsert);
-        //         ArticleFunctions.dbManager.InsertArticles(articlesToInsert);
-        //         ArticleFunctions.dbManager.InsertThumbnails(thumbnailsToInsert, articles);
-
-        //         // create response object
-        //         var response = new InsertArticlesResponse() {
-        //             ArticlesCreated = articlesToInsert,
-        //             AuthorsCreated = authorsToInsert,
-        //             ArticleTypesCreated = articleTypesToInsert,
-        //             ThumbnailsCreated = thumbnailsToInsert
-        //         };
-
-        //         return new HttpResponseMessage(HttpStatusCode.OK) {
-        //             Content = new StringContent(JsonConvert.SerializeObject(response), Encoding.UTF8, "application/json")
-        //         };
-        //     }
-        //     catch (Exception ex) {
-        //         var errorMsg = $"Error inserting articles: {ex.Message}\n\n\nLast SQL query: {DbManager_OLD.LastSqlQuery}";
-        //         Console.WriteLine(errorMsg);
-        //         return new HttpResponseMessage(HttpStatusCode.InternalServerError) {
-        //             Content = new StringContent(errorMsg, Encoding.UTF8, "application/json")
-        //         };
-        //     }
-        // }
     }
 }
