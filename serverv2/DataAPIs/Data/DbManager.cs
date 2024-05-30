@@ -13,12 +13,12 @@ using VideoGameArchive.Core;
 
 namespace VideoGameArchive.Data
 {
-    public class DbManager
+    public class DbManager_OLD
     {
         public static string LastSqlQuery;
         private string connectionString;
 
-        public DbManager()
+        public DbManager_OLD()
         {
             var builder = new SqlConnectionStringBuilder();
 
@@ -391,7 +391,7 @@ namespace VideoGameArchive.Data
 
         private List<T> GetQuery<T>(string query, Func<SqlDataReader, T> parseRow)
         {
-            DbManager.LastSqlQuery = query;
+            DbManager_OLD.LastSqlQuery = query;
 
             var results = new List<T>();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -415,7 +415,7 @@ namespace VideoGameArchive.Data
 
         private void RunQuery(string query)
         {
-            DbManager.LastSqlQuery = query;
+            DbManager_OLD.LastSqlQuery = query;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {                
                 connection.Open();

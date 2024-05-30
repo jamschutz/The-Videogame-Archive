@@ -119,7 +119,7 @@ namespace VideoGameArchive
             }
 
             // get articles
-            var articleDbManager = new DbManager();
+            var articleDbManager = new DbManager_OLD();
             var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
             var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesForIds(articleIdsToFetch) : new List<Article>();
 

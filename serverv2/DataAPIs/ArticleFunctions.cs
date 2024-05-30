@@ -27,7 +27,7 @@ namespace VideoGameArchive
 {
     public static class ArticleFunctions
     {
-        private static DbManager dbManager;
+        private static DbManager_OLD dbManager;
         private static VideoGameArchive.Data.DB.DbManager postgresDbManager;
 
 
@@ -160,7 +160,7 @@ namespace VideoGameArchive
                 };
             }
             catch (Exception ex) {
-                var errorMsg = $"Error inserting articles: {ex.Message}\n\n\nLast SQL query: {DbManager.LastSqlQuery}";
+                var errorMsg = $"Error inserting articles: {ex.Message}\n\n\nLast SQL query: {DbManager_OLD.LastSqlQuery}";
                 Console.WriteLine(errorMsg);
                 return new HttpResponseMessage(HttpStatusCode.InternalServerError) {
                     Content = new StringContent(errorMsg, Encoding.UTF8, "application/json")
@@ -176,31 +176,39 @@ namespace VideoGameArchive
         {
             log.LogInformation("PostgresTest processed a request.");
 
-            // get articles from db
-            InitDbManager();
-            string sql = "select \"Name\" from \"Websites\" where \"Id\" in (@website1, @website2)";
-            var parameters = new List<VideoGameArchive.Data.DB.PostgresParameter<int>>() {
-                new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website1", value = 1 },
-                new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website2", value = 2 }
-            };
-            var websites = ArticleFunctions.postgresDbManager.GetQuery<string, int>(sql, parameters, (reader) => {
-                return reader.GetString(0);
-            });
-            foreach(var website in websites) {
-                Console.WriteLine($"got website: {website}");
-            }
+            // // get articles from db
+            // InitDbManager();
+            // string sql = "select \"Name\" from \"Websites\" where \"Id\" in (@website1, @website2)";
+            // var parameters = new List<VideoGameArchive.Data.DB.PostgresParameter<int>>() {
+            //     new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website1", value = 1 },
+            //     new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website2", value = 2 }
+            // };
+            // var websites = ArticleFunctions.postgresDbManager.GetQuery<string, int>(sql, parameters, (reader) => {
+            //     return reader.GetString(0);
+            // });
+            // foreach(var website in websites) {
+            //     Console.WriteLine($"got website: {website}");
+            // }
 
-            // format and return
+            var db = new VideoGameArchive.Data.DB.ArticlesManager();
+            var ids = new List<int>() {9, 10, 11, 12, 13, 14, 15, 16};
+            var articles = db.GetArticlesWithIds(ids);
+
             return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent("okay", Encoding.UTF8, "application/json")
+                Content = new StringContent(JsonConvert.SerializeObject(articles), Encoding.UTF8, "application/json")
             };
+
+            // // format and return
+            // return new HttpResponseMessage(HttpStatusCode.OK) {
+            //     Content = new StringContent("okay", Encoding.UTF8, "application/json")
+            // };
         }
 
 
         private static void InitDbManager()
         {
             if(ArticleFunctions.dbManager == null) {
-                ArticleFunctions.dbManager = new DbManager();
+                ArticleFunctions.dbManager = new DbManager_OLD();
             }
             if(ArticleFunctions.postgresDbManager == null) {
                 ArticleFunctions.postgresDbManager = new VideoGameArchive.Data.DB.DbManager();

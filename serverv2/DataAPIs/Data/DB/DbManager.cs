@@ -86,7 +86,6 @@ namespace VideoGameArchive.Data.DB
                     command.ExecuteNonQuery();
                 }
             }
-            return results;
         }
 
         public void RunQuery(string query)
