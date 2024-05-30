@@ -80,40 +80,41 @@ namespace VideoGameArchive
         }
 
 
-        // [FunctionName("DatesWithArticles")]
-        // public static HttpResponseMessage GetDatesWithArticles(
-        //     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-        //     ILogger log)
-        // {
-        //     log.LogInformation("DatesWithArticles processed a request.");
+        [FunctionName("DatesWithArticles")]
+        public static HttpResponseMessage GetDatesWithArticles(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("DatesWithArticles processed a request.");
 
-        //     // process parameters
-        //     string start = req.Query["start"];
-        //     string end = req.Query["end"];
+            // process parameters
+            string start = req.Query["start"];
+            string end = req.Query["end"];
 
-        //     // ensure start and end are numbers
-        //     try {
-        //         int test = int.Parse(start);
-        //         test = int.Parse(end);
-        //     }
-        //     catch {
-        //         // throw error if they aren't, and return
-        //         log.LogError($"DatesWithArticles got a bad start or end date: {start}, {end}");
-        //         return new HttpResponseMessage(HttpStatusCode.BadRequest) {
-        //             Content = new StringContent("Bad request: start and end must be numbers", Encoding.UTF8, "application/json")
-        //         };
-        //     }
+            // ensure start and end are numbers
+            int startDate, endDate;
+            try {
+                startDate = int.Parse(start);
+                endDate = int.Parse(end);
+            }
+            catch {
+                // throw error if they aren't, and return
+                log.LogError($"DatesWithArticles got a bad start or end date: {start}, {end}");
+                return new HttpResponseMessage(HttpStatusCode.BadRequest) {
+                    Content = new StringContent("Bad request: start and end must be numbers", Encoding.UTF8, "application/json")
+                };
+            }
 
-        //     // convert to what we want
-        //     InitDbManager();
-        //     var datesWithArticles = ArticleFunctions.dbManager.GetDatesWithArticles(start, end);
+            // convert to what we want
+            var db = new ArticlesManager();
+            var datesWithArticles = db.GetDatesWithArticles(startDate, endDate);
 
-        //     // format and return
-        //     var response = JsonConvert.SerializeObject(datesWithArticles);
-        //     return new HttpResponseMessage(HttpStatusCode.OK) {
-        //         Content = new StringContent(response, Encoding.UTF8, "application/json")
-        //     };
-        // }
+            // format and return
+            var response = JsonConvert.SerializeObject(datesWithArticles);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
 
         // [FunctionName("InsertArticles")]
@@ -162,41 +163,5 @@ namespace VideoGameArchive
         //         };
         //     }
         // }
-
-
-        [FunctionName("PostgresTest")]
-        public static async Task<HttpResponseMessage> PostgresTest(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("PostgresTest processed a request.");
-
-            // // get articles from db
-            // InitDbManager();
-            // string sql = "select \"Name\" from \"Websites\" where \"Id\" in (@website1, @website2)";
-            // var parameters = new List<VideoGameArchive.Data.DB.PostgresParameter<int>>() {
-            //     new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website1", value = 1 },
-            //     new VideoGameArchive.Data.DB.PostgresParameter<int>() { name = "website2", value = 2 }
-            // };
-            // var websites = ArticleFunctions.postgresDbManager.GetQuery<string, int>(sql, parameters, (reader) => {
-            //     return reader.GetString(0);
-            // });
-            // foreach(var website in websites) {
-            //     Console.WriteLine($"got website: {website}");
-            // }
-
-            var db = new VideoGameArchive.Data.DB.ArticlesManager();
-            var ids = new List<int>() {9, 10, 11, 12, 13, 14, 15, 16};
-            var articles = db.GetArticlesWithIds(ids);
-
-            return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent(JsonConvert.SerializeObject(articles), Encoding.UTF8, "application/json")
-            };
-
-            // // format and return
-            // return new HttpResponseMessage(HttpStatusCode.OK) {
-            //     Content = new StringContent("okay", Encoding.UTF8, "application/json")
-            // };
-        }
     }
 }

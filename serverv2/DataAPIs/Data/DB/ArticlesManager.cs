@@ -91,13 +91,27 @@ namespace VideoGameArchive.Data.DB
         }
 
 
-        // public List<int> GetDatesWithArticles(string startDate, string endDate)
-        // {
-        //     string sql = SQLScripts.GetDatesWithArticles(startDate, endDate);
-        //     return GetQuery<int>(sql, (reader) => {
-        //         return reader.GetInt32(0);
-        //     });
-        // }
+        public List<int> GetDatesWithArticles(int startDate, int endDate)
+        {
+            var parameters = new List<PostgresParameter<int>>() { 
+                new PostgresParameter<int>() { name = "start", value = startDate },
+                new PostgresParameter<int>() { name = "end", value = endDate },
+            };
+
+            string sql = $@"
+                SELECT
+                    ""DatePublished""
+                FROM
+                    ""Articles""
+                WHERE
+                    ""DatePublished"" >= @start AND ""DatePublished"" <= @end
+                GROUP BY ""DatePublished""
+            ";
+
+            return dbManager.GetQuery<int, int>(sql, parameters, (reader) => {
+                return reader.GetInt32(0);
+            });
+        }
 
 
         public List<Article> GetArticlesWithIds(List<int> ids)
