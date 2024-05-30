@@ -24,7 +24,8 @@ class Article:
             'author': self.author,
             'author_id': self.author_id,
             'type_id': self.type_id,
-            'website_id': self.website_id
+            'website_id': self.website_id,
+            'thumbnail_url': self.thumbnail_url
         }
 
 

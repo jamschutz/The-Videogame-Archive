@@ -28,11 +28,11 @@ class ArticlesManager:
     def get_articles_to_archive(self, num_articles_to_archive, website_id):
         query = f"""
             SELECT
-                "Title", "DatePublished", "Url", "Id"
+                "Title", "DatePublished", "Url", "Id", "Thumbnail"
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id} AND "Title" LIKE E'%''%'
+                "IsArchived" = false AND "WebsiteId" = {website_id}
             LIMIT
                 {num_articles_to_archive}
         """
@@ -44,7 +44,8 @@ class ArticlesManager:
                 title = article[0],
                 date = article[1],
                 url = article[2],
-                id = article[3]
+                id = article[3],
+                thumbnail_url=article[4]
             ))
         return articles
     

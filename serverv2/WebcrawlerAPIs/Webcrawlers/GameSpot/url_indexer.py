@@ -47,6 +47,8 @@ class UrlIndexerGameSpot:
             # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
             article.author = self.config.PLACEHOLDER_AUTHOR_NAME
             article.subtitle = ''
+            # we'll download this and replace with the actual thumbnail filename during the archive step...
+            article.thumbnail_filename = f"'{article.thumbnail_url}'"
 
         # save articles to database in batches of 1000 at a time
         offset = 0
@@ -69,7 +71,7 @@ class UrlIndexerGameSpot:
                 # get articles at page number
                 logging.info(f'fetching {target_page}, page {page}')
                 print(f'fetching {target_page}, page {page}')
-                article_links = get_links(page, target_page, self.utils)
+                article_links = get_links(page, target_page)
 
                 # add articles on page to global list
                 articles.extend(article_links)
