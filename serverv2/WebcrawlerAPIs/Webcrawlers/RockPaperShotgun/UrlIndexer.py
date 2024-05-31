@@ -23,7 +23,7 @@ class UrlIndexerRockPaperShotgun:
         self.website_id = WebsitesManager().get_id(self.website_name)
 
 
-    def index_target_months(self):
+    def index_latest_articles(self):
         # get most recent logged article
         start_date = str(self.articles_manager.get_most_recent_article_date(self.website_id))
 
@@ -39,7 +39,7 @@ class UrlIndexerRockPaperShotgun:
                 print(f'fetching date {current_date}.')
                 m = current_date.split('/')[1]
                 y = current_date.split('/')[0]
-                article_links = self.get_links_from_archive_month(month=m, year=y, website_id=self.website_id)
+                article_links = self.get_links_from_archive_month(month=m, year=y)
 
                 # if we got here, proxy worked!
                 articles.extend(article_links)
@@ -56,8 +56,8 @@ class UrlIndexerRockPaperShotgun:
                 article.type = 'news'
                 article.subtitle = ''
 
-            # # save articles to database
-            # self.articles_manager.insert_articles(articles)
+            # save articles to database
+            self.articles_manager.insert_articles(articles)
 
             # if we just got the last date, we can stop
             if current_date == stop_at_date:
@@ -104,17 +104,18 @@ class UrlIndexerRockPaperShotgun:
 
 if __name__ == '__main__':
     rps = UrlIndexerRockPaperShotgun()
-    config = Config()
-    articles_manager = ArticlesManager()
+    rps.index_latest_articles()
+    # config = Config()
+    # articles_manager = ArticlesManager()
 
-    # let's just seed the itial articles...
-    articles = rps.get_links_from_archive_month('07', '2007')
+    # # let's just seed the itial articles...
+    # articles = rps.get_links_from_archive_month('07', '2007')
 
-    # add / clean up fields
-    for article in articles:
-        # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
-        article.author = config.PLACEHOLDER_AUTHOR_NAME
-        article.type = 'news'
-        article.subtitle = ''
+    # # add / clean up fields
+    # for article in articles:
+    #     # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
+    #     article.author = config.PLACEHOLDER_AUTHOR_NAME
+    #     article.type = 'news'
+    #     article.subtitle = ''
 
-    articles_manager.insert_articles(articles)
+    # articles_manager.insert_articles(articles)

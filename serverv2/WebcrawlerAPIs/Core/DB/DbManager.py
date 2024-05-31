@@ -53,6 +53,7 @@ class DbManager:
 
     def get_ids(self, column, values):
         # wrap values in single quotes
+        values = [v.replace("'", "''") for v in values]
         values = [f"'{v}'" for v in values]
         query = f"""
             SELECT
@@ -107,4 +108,5 @@ class DbManager:
             results[data['name']] = data['id']
         for data in new_value_ids:
             results[data['name']] = data['id']
+
         return results

@@ -22,6 +22,7 @@ class Article:
             'url': self.url,
             'date': self.date,
             'author': self.author,
+            'type': self.type,
             'author_id': self.author_id,
             'type_id': self.type_id,
             'website_id': self.website_id,
@@ -33,6 +34,7 @@ class Article:
         # update ' --> ''
         self.title = self.title.replace("'", "''")
         self.subtitle = self.subtitle.replace("'", "''")
+        self.author = self.author.replace("'", "''")
 
         # if subtitle is too long, just truncate and slap an ellipses on it
         if len(self.subtitle) > 250:

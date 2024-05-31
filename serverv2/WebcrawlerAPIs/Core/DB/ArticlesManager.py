@@ -32,7 +32,7 @@ class ArticlesManager:
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id}
+                "IsArchived" = false AND "WebsiteId" = {website_id} AND "DatePublished" > 20220000
             LIMIT
                 {num_articles_to_archive}
         """

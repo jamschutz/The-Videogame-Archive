@@ -14,13 +14,13 @@ from Entities.Article import Article
 class ArchiverEurogamer:
 
     def __init__(self):
-        self.website_name = 'Eurogamer'
+        self.website_name = 'Rock Paper Shotgun'
         self.az_storage_manager = AzureStorageManager()
         self.archiver = Archiver()
         self.search_indexer = SearchIndexer()
         self.BATCH_SIZE = 500
 
-        self.SUBTITLE_DIV_CLASS = 'synopsis'
+        self.SUBTITLE_DIV_CLASS = 'strapline'
         self.AUTHOR_DIV_CLASS = 'author'
         self.ARTICLE_TYPE_DIV_CLASS = 'article_type'
         self.THUMBNAIL_CLASS = 'headline_image'
@@ -36,23 +36,13 @@ class ArchiverEurogamer:
 
 
     def get_thumbnail_url(self, soup):
-        thumbnail_url = soup.find('img', class_=self.THUMBNAIL_CLASS)
+        thumbnail_url = soup.find('img', class_=self.THUMBNAIL_CLASS)['src']
 
-        # if no image, return Eurogamer's placeholder
+        # if no image, return Rock Paper Shotgun's placeholder
         if(thumbnail_url == None):
-            return 'https://www.eurogamer.net/static/img/placeholder.png'
+            return 'https://assetsio.gnwcdn.com/rock-paper-shotgun-wallpaper.jpg?width=880&quality=80&format=jpg'
 
-        # otherwise, we want to turn something like this:
-        #               https://img.jpg/resize/690%3E/format/jpg/img.jpg
-        # into this:    https://img.jpg/thumbnail/384x216/format/jpg/img.jpg
-        # e.g.: replace '/resize/690%30E/' with '/thumbnail/384x216/'
-        thumbnail_url = thumbnail_url['src']
-        split_index = thumbnail_url.find('/resize/690%3E/')
-
-        url_part1 = thumbnail_url[:split_index]
-        url_part2 = thumbnail_url[split_index + len('/resize/690%30E/') - 1:]
-
-        return f'{url_part1}/thumbnail/384x216/{url_part2}'
+        return thumbnail_url
 
 
 
@@ -63,7 +53,7 @@ class ArchiverEurogamer:
         try:
             # add info we need
             # not all articles have subtitles...
-            article.subtitle = soup.find('section', class_=self.SUBTITLE_DIV_CLASS)
+            article.subtitle = soup.find('p', class_=self.SUBTITLE_DIV_CLASS)
             if article.subtitle == None:
                 article.subtitle = ''
             else:
@@ -117,9 +107,9 @@ class ArchiverEurogamer:
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
-                self.archiver.send_article_to_archive(article, raw_html, 'Eurogamer')
-                self.archiver.send_thumbnail_to_archive(article, 'Eurogamer')
-                self.search_indexer.index_article(content, article.id)
+                self.archiver.send_article_to_archive(article, raw_html, self.website_name)
+                self.archiver.send_thumbnail_to_archive(article, self.website_name)
+                # self.search_indexer.index_article(content, article.id)
 
                 # and update its info in the DB
                 self.articles_manager.update_article(article)
@@ -136,11 +126,15 @@ class ArchiverEurogamer:
         self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
 
-    def archive_all_urls():
+    def archive_all_urls(self):
         counter = 0
-        while counter < self.MAX_WEBSITES_TO_ARCHIVE:
-            archive_queued_urls(self.BATCH_SIZE, counter, self.MAX_WEBSITES_TO_ARCHIVE)
-            counter += self.BATCH_SIZE
+        batch_size = 10
+        total_articles_to_archive = self.articles_manager.get_num_articles_to_archive(self.website_id)
+
+        while counter < total_articles_to_archive:
+            self.archive_queued_urls(batch_size, counter, total_articles_to_archive)
+            counter += batch_size
+
         print('done')
 
 
