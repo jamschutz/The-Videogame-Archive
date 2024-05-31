@@ -141,4 +141,4 @@ class ArchiverEurogamer:
 
 if __name__ == '__main__':
     archiver = ArchiverEurogamer()
-    archiver.archive_queued_urls(10, 0, 10)
+    archiver.archive_all_urls()
