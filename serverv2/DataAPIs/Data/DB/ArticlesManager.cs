@@ -22,7 +22,7 @@ namespace VideoGameArchive.Data.DB
                 var article = new Article();
                 article.title = reader.GetString(0);
                 article.subtitle = reader.GetString(1);
-                article.author = reader.GetString(2);
+                article.author = reader.IsDBNull(2) ? "" : reader.GetString(2);
                 article.website = reader.GetString(3);
                 article.url = reader.GetString(4);
                 article.thumbnail = reader.IsDBNull(5) ? null : reader.GetString(5);
@@ -141,6 +141,9 @@ namespace VideoGameArchive.Data.DB
                 WHERE
                     ""Articles"".""Id"" in ({parameterNames})
             ";
+
+            System.Console.WriteLine(string.Join(", ", parameters.Select(p => p.value).ToArray()));
+            System.Console.WriteLine(sql);
 
             var articles = dbManager.GetQuery<Article, int>(sql, parameters, parseArticleRow);
             return articles;

@@ -3,10 +3,12 @@ class SearchRequest {
 
     constructor(searchTerms: string | string[]) {
         if(typeof searchTerms === 'string') {
-            searchTerms = searchTerms.split(' ');
+            searchTerms = searchTerms.trim().split(' ');
         }
 
-        this.searchTerms = searchTerms;
+        this.searchTerms = searchTerms.filter((t) => {
+            return t != null && t != ''; 
+        });
     }
 
 

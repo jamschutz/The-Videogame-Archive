@@ -29,7 +29,7 @@ class UrlParser {
         let url = new URL(window.location.href);
         let searchTerms = url.searchParams.get('term');
         if(searchTerms !== null) {
-            return new SearchRequest(searchTerms.split(','));
+            return new SearchRequest(searchTerms.split(' '));
         }
         else {
             return new SearchRequest('');
