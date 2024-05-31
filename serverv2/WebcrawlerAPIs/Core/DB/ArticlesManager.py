@@ -48,6 +48,18 @@ class ArticlesManager:
                 thumbnail_url=article[4]
             ))
         return articles
+
+    def get_num_articles_to_archive(self, website_id):
+        query = f"""
+            SELECT
+                COUNT(*)
+            FROM
+                "Articles"
+            WHERE
+                "IsArchived" = false AND "WebsiteId" = {website_id}
+        """
+
+        return self.db.get_query(query)[0][0]
     
 
     def get_most_recent_article_date(self, website_id):
