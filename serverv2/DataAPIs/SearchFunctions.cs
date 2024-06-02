@@ -52,7 +52,7 @@ namespace VideoGameArchive
 
 
         [FunctionName("GetSearchResultMetadata")]
-        public static async Task<HttpResponseMessage> GetSearchResultMetadata(
+        public static HttpResponseMessage GetSearchResultMetadata(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {

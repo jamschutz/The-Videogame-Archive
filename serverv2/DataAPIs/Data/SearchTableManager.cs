@@ -99,45 +99,7 @@ namespace VideoGameArchive.Data
 
             var existingIdsLookup = new HashSet<int>(existingIds);
             return articleIds.Where(id => !existingIdsLookup.Contains(id)).ToList();
-
-            // // get entries that don't already exist
-            // var entriesToAdd = new Dictionary<int, List<int>>();
-            // foreach(var entry in entries) {
-            //     var articleId = entry.Key;
-            //     var startPositions = entry.Value;
-
-            //     if(existingEntries.ContainsKey(articleId)) {
-            //         var newStartPositions = startPositions.Where(p => existingEntries[articleId].All(x => x != p)).ToList();
-            //         if(newStartPositions.Count > 0) {
-            //             entriesToAdd[articleId] = newStartPositions;
-            //         }
-            //     }
-            //     else {
-            //         entriesToAdd[articleId] = startPositions;
-            //     }
-            // }
-
-            // // and return
-            // return entriesToAdd;
         }
-
-        // private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, List<SearchResultEntry> entries)
-        // {
-        //     var formattedEntries = new Dictionary<int, List<int>>();
-        //     foreach(var e in entries) {
-        //         if(!formattedEntries.ContainsKey(e.articleId)) {
-        //             formattedEntries[e.articleId] = new List<int>();
-        //         }
-        //         formattedEntries[e.articleId].Add(e.startPosition);
-        //     }
-        //     return GetSearchResultEntriesToAdd(searchTerm, formattedEntries);
-        // }
-
-
-        // private List<int> GetArticleIdsToAddForSearchTerm(string searchTerm, List<int> articleIds)
-        // {
-
-        // }
 
 
         public SearchResultMetadata GetSearchResultMetadata(string searchTerm)
@@ -266,12 +228,6 @@ namespace VideoGameArchive.Data
         }
 
 
-        // // public void InsertSearchResults(List<SearchResult> searchResults)
-        // // {
-        // //     foreach(var searchResult in searchResults) {
-        // //         InsertSearchResult(searchResult);
-        // //     }
-        // // }
 
         public List<int> InsertSearchResult(string searchTerm, List<int> articleIds)
         {

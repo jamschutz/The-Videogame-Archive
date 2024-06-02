@@ -142,9 +142,6 @@ namespace VideoGameArchive.Data.DB
                     ""Articles"".""Id"" in ({parameterNames})
             ";
 
-            System.Console.WriteLine(string.Join(", ", parameters.Select(p => p.value).ToArray()));
-            System.Console.WriteLine(sql);
-
             var articles = dbManager.GetQuery<Article, int>(sql, parameters, parseArticleRow);
             return articles;
         }
