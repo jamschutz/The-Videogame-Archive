@@ -109,7 +109,7 @@ class ArchiverEurogamer:
                 # save to filepath
                 self.archiver.send_article_to_archive(article, raw_html, self.website_name)
                 self.archiver.send_thumbnail_to_archive(article, self.website_name)
-                # self.search_indexer.index_article(content, article.id)
+                self.search_indexer.index_article(content, article.id)
 
                 # and update its info in the DB
                 self.articles_manager.update_article(article)

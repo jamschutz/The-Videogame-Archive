@@ -3,15 +3,37 @@ from .Utils import Utils
 
 # for testing
 from bs4 import BeautifulSoup
+from pathlib import Path
 import requests
+import tempfile
+import yaml
+
+from Entities.Article import Article
 
 class SearchIndexer:
     def __init__(self):
         self.config = Config()
         self.utils = Utils()
+        self.tempdir = Path(tempfile.gettempdir()) / 'vga-search'
+        
 
 
-    def index_article(self, article_text, article_id):
+    def stage_article_indexes(self, article, article_text):
+        # get indexes for words
+        words = self.__get_search_entries(article.title, article.id, {}, text_type='title')
+        words = self.__get_search_entries(article.subtitle, article.id, words, text_type='subtitle')
+        words = self.__get_search_entries(article_text, article.id, words, text_type='content')
+
+        # ensure directory exists
+        Path(self.tempdir).mkdir(exist_ok=True)
+
+        # and save search entries to disk
+        for word in words.keys():
+            with open(self.tempdir / f'{word}.yml', 'a') as f:
+                yaml.dump(words[word], f, default_flow_style=False)
+
+
+    def index_article(self, article_text, article):
         index = 0
         word = ""
         words = {}
@@ -56,6 +78,47 @@ class SearchIndexer:
             requests.post(url, json=data)
 
 
+    # text type can be 'content', 'title', or 'subtitle'
+    def __get_search_entries(self, text, article_id, words, text_type='content'):
+        offset = 0
+        if text_type == 'title':
+            offset = -100
+        elif text_type == 'subtitle':
+            offset = -1000
+
+        index = 0
+        word = ""
+        for c in text:
+            if c == ' ' or c == '\n':
+                start_index = index - len(word)
+                words = self.__add_to_words(start_index, offset, word, words)                
+                word = ""
+
+            else:
+                word += c
+
+            index += 1
+
+        words = self.__add_to_words(start_index, offset, word, words)
+        return words
+    
+
+    def __add_to_words(self, start_index, offset, word, words):
+        word = word.lower()
+        word = self.utils.trim_punctuation(word)
+        if len(word) > 0:
+            if word not in words:
+                words[word] = []
+            
+            words[word].append({
+                'articleId': article_id,
+                'startPosition': offset - start_index if offset < 0 else start_index
+            })
+
+        return words
+
+
+
 
 
 if __name__ == '__main__':
@@ -71,4 +134,10 @@ if __name__ == '__main__':
     for paragraph in paragraphs:
         article_text += f' {paragraph.text}'
 
-    search_indexer.index_article(article_text, article_id)
+    article = Article(
+        id=260115,
+        title='Crunch once again in the spotlight after damning report on The Last of Us 2 developer Naughty Dog',
+        subtitle='"One good friend of mine was hospitalised... due to overwork."'
+    )
+
+    search_indexer.stage_article_indexes(article, article_text)
