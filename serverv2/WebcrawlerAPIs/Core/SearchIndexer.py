@@ -10,6 +10,7 @@ import requests
 import tempfile
 import yaml
 import shutil
+from datetime import datetime
 
 from Entities.Article import Article
 
@@ -20,15 +21,16 @@ class SearchIndexer:
         self.tempdir = Path(tempfile.gettempdir()) / 'vga-search'
 
         # just in case there's junk data from a previous session, clear temp dir
-        shutil.rmtree(self.tempdir)
+        if self.tempdir.is_dir():
+            shutil.rmtree(self.tempdir)
         
 
 
     def stage_article_indexes(self, article, article_text):
         # get indexes for words
-        words = self.__get_search_entries(article.title, article.id, {}, text_type='title')
-        words = self.__get_search_entries(article.subtitle, article.id, words, text_type='subtitle')
-        words = self.__get_search_entries(article_text, article.id, words, text_type='content')
+        words = self.__get_search_entries(article.title, article.id, {})
+        words = self.__get_search_entries(article.subtitle, article.id, words)
+        words = self.__get_search_entries(article_text, article.id, words)
 
         # ensure directory exists
         Path(self.tempdir).mkdir(exist_ok=True)
@@ -36,7 +38,7 @@ class SearchIndexer:
         # and save search entries to disk
         for word in words.keys():
             with open(self.tempdir / f'{word}.yml', 'a') as f:
-                yaml.dump(words[word], f, default_flow_style=False)
+                yaml.dump([article.id], f, default_flow_style=False)
 
 
 
@@ -52,12 +54,12 @@ class SearchIndexer:
 
             # parse search term and its entries
             search_term = f[:f.find('.yml')]
-            entries = yaml.safe_load((self.tempdir / f).read_text())
+            article_ids = yaml.safe_load((self.tempdir / f).read_text())
 
             # send to api
             data = {
                 'searchTerm': search_term,
-                'entries': entries
+                'articleIds': article_ids
             }
             requests.post(api_url, json=data)
             counter += 1
@@ -114,42 +116,25 @@ class SearchIndexer:
     #         requests.post(url, json=data)
 
 
-    # text type can be 'content', 'title', or 'subtitle'
-    def __get_search_entries(self, text, article_id, words, text_type='content'):
-        offset = 0
-        if text_type == 'title':
-            offset = -100
-        elif text_type == 'subtitle':
-            offset = -1000
-
-        index = 0
+    def __get_search_entries(self, text, article_id, words):
         word = ""
         for c in text:
             if c == ' ' or c == '\n':
-                start_index = index - len(word)
-                words = self.__add_to_words(start_index, offset, word, words)                
+                words = self.__add_to_words(word, words)                
                 word = ""
-
             else:
                 word += c
 
-            index += 1
-
-        words = self.__add_to_words(start_index, offset, word, words)
+        words = self.__add_to_words(word, words)
         return words
     
 
-    def __add_to_words(self, start_index, offset, word, words):
+    def __add_to_words(self, word, words):
         word = word.lower()
         word = self.utils.trim_punctuation(word)
         if len(word) > 0:
             if word not in words:
-                words[word] = []
-            
-            words[word].append({
-                'articleId': article_id,
-                'startPosition': offset - start_index if offset < 0 else start_index
-            })
+                words[word] = True
 
         return words
 

@@ -35,18 +35,25 @@ namespace VideoGameArchive
             log.LogInformation("InsertSearchResults processed a request.");
 
             var reqBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var searchRequest = JsonConvert.DeserializeObject<InsertSearchResultsRequest>(reqBody);
+            var searchRequest = JsonConvert.DeserializeObject<List<InsertSearchResultsRequest>>(reqBody);
 
-            log.LogInformation($"got {searchRequest.articleIds.Count} search results for '{searchRequest.searchTerm}'");
-
-            // get articles
+            // insert search results
             var dbManager = new SearchTableManager(log);
-            var entriesCreated = dbManager.InsertSearchResult(searchRequest.searchTerm, searchRequest.articleIds);
+            var response = new InsertSearchResultsResponse();
+            foreach(var request in searchRequest) {
+                log.LogInformation($"got {request.articleIds.Count} search results for '{request.searchTerm}'");
+
+                var entriesCreated = dbManager.InsertSearchResult(request.searchTerm, request.articleIds);
+                response.Results.Add(new SearchResultsInserted() {
+                    SearchTerm = request.searchTerm,
+                    ArticleIdsAdded = entriesCreated
+                });
+            }            
 
             // format and return
-            var response = JsonConvert.SerializeObject(entriesCreated);
+            var responseMsg = JsonConvert.SerializeObject(response);
             return new HttpResponseMessage(HttpStatusCode.OK) {
-                Content = new StringContent(response, Encoding.UTF8, "application/json")
+                Content = new StringContent(responseMsg, Encoding.UTF8, "application/json")
             };
         }
 
