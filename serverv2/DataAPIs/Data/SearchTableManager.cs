@@ -91,35 +91,42 @@ namespace VideoGameArchive.Data
             return results;
         }
 
-        // // private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, Dictionary<int, List<int>> entries)
-        // // {
-        // //     // get existing article ids
-        // //     var existingEntries = GetSearchResultEntries(searchTerm);
+        private List<int> GetArticleIdsToAdd(string searchTerm, List<int> articleIds)
+        {
+            // get existing article ids
+            var existingIds = GetSearchResultEntries(searchTerm);
 
-        // //     // if no existing entry, just return all entries to add
-        // //     if(existingEntries == null)
-        // //         return entries;
+            // if no existing entry, just return all entries to add
+            if(existingIds == null)
+                return articleIds;
 
-        // //     // get entries that don't already exist
-        // //     var entriesToAdd = new Dictionary<int, List<int>>();
-        // //     foreach(var entry in entries) {
-        // //         var articleId = entry.Key;
-        // //         var startPositions = entry.Value;
+            var existingIdsLookup = new HashSet<int>();
+            foreach(var id in existingIds) {
+                existingIdsLookup.Add(id);
+            }
 
-        // //         if(existingEntries.ContainsKey(articleId)) {
-        // //             var newStartPositions = startPositions.Where(p => existingEntries[articleId].All(x => x != p)).ToList();
-        // //             if(newStartPositions.Count > 0) {
-        // //                 entriesToAdd[articleId] = newStartPositions;
-        // //             }
-        // //         }
-        // //         else {
-        // //             entriesToAdd[articleId] = startPositions;
-        // //         }
-        // //     }
+            return articleIds.Where(id => !existingIdsLookup.Contains(id)).ToList();
 
-        // //     // and return
-        // //     return entriesToAdd;
-        // // }
+            // // get entries that don't already exist
+            // var entriesToAdd = new Dictionary<int, List<int>>();
+            // foreach(var entry in entries) {
+            //     var articleId = entry.Key;
+            //     var startPositions = entry.Value;
+
+            //     if(existingEntries.ContainsKey(articleId)) {
+            //         var newStartPositions = startPositions.Where(p => existingEntries[articleId].All(x => x != p)).ToList();
+            //         if(newStartPositions.Count > 0) {
+            //             entriesToAdd[articleId] = newStartPositions;
+            //         }
+            //     }
+            //     else {
+            //         entriesToAdd[articleId] = startPositions;
+            //     }
+            // }
+
+            // // and return
+            // return entriesToAdd;
+        }
 
         // private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, List<SearchResultEntry> entries)
         // {
@@ -202,9 +209,8 @@ namespace VideoGameArchive.Data
 
         public List<int> InsertSearchResult(string searchTerm, List<int> articleIds, SearchResultMetadata metadata)
         {
-            // // get entries we haven't already stored
-            // var entriesToAdd = GetSearchResultEntriesToAdd(searchTerm, entries);
-            var articleIdsToAdd = articleIds;
+            // get entries we haven't already stored
+            var articleIdsToAdd = GetArticleIdsToAdd(searchTerm, articleIds);
 
             // if no entries to add, just return
             if(articleIdsToAdd.Count == 0)
