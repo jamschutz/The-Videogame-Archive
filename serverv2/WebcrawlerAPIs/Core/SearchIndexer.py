@@ -49,71 +49,37 @@ class SearchIndexer:
 
         counter = 1
         total_files = len(index_files)
+        batch_size = 50
+        offset = 0
+
+        request = []
         for f in index_files:
-            print(f'sending indexes for {f} [{counter} / {total_files}]...')
+            print(f'sending indexes for {f} [{counter + offset} / {total_files}]...')
 
             # parse search term and its entries
             search_term = f[:f.find('.yml')]
             article_ids = yaml.safe_load((self.tempdir / f).read_text())
 
-            # send to api
-            data = {
+            request.append({
                 'searchTerm': search_term,
                 'articleIds': article_ids
-            }
-            requests.post(api_url, json=data)
+            })
+
+            # send to api
+            if counter > batch_size:
+                requests.post(api_url, json=request)
+                offset += batch_size
+                counter = 0
+                request = []
+
             counter += 1
+
+        # send last bit of data over
+        if len(request) > 0:
+            requests.post(api_url, json=request)
 
         # delete temp directory
         shutil.rmtree(self.tempdir)
-
-        
-
-
-
-    # def index_article(self, article_text, article):
-    #     index = 0
-    #     word = ""
-    #     words = {}
-    #     for c in article_text:
-    #         if c == ' ' or c == '\n':
-    #             start_index = index - len(word)
-    #             word = word.lower()
-    #             word = self.utils.trim_punctuation(word)
-    #             if len(word) > 0:
-    #                 if word not in words:
-    #                     words[word] = []
-                    
-    #                 words[word].append({
-    #                     'articleId': article_id,
-    #                     'startPosition': start_index
-    #                 })
-                
-    #             word = ""
-
-    #         else:
-    #             word += c
-
-    #         index += 1
-
-    #     if len(word) > 0:
-    #         start_index = index - len(word)
-    #         word = self.utils.trim_punctuation(word)
-    #         if len(word) > 0:
-    #             if word not in words:
-    #                 words[word] = []
-                
-    #             words[word].append(start_index)
-
-    #     print(f'num words: {len(words.keys())}')
-    #     url = f'{self.config.SEARCH_API_BASE_URL}/{self.config.INSERT_SEARCH_ENTRIES_API}'
-    #     for search_term in words.keys():
-    #         print(f'inserting entries for: {search_term}')
-    #         data = {
-    #             'searchTerm': search_term,
-    #             'entries': words[search_term]
-    #         }
-    #         requests.post(url, json=data)
 
 
     def __get_search_entries(self, text, article_id, words):
