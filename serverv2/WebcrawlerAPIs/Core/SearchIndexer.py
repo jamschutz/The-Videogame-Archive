@@ -69,49 +69,49 @@ class SearchIndexer:
 
 
 
-    def index_article(self, article_text, article):
-        index = 0
-        word = ""
-        words = {}
-        for c in article_text:
-            if c == ' ' or c == '\n':
-                start_index = index - len(word)
-                word = word.lower()
-                word = self.utils.trim_punctuation(word)
-                if len(word) > 0:
-                    if word not in words:
-                        words[word] = []
+    # def index_article(self, article_text, article):
+    #     index = 0
+    #     word = ""
+    #     words = {}
+    #     for c in article_text:
+    #         if c == ' ' or c == '\n':
+    #             start_index = index - len(word)
+    #             word = word.lower()
+    #             word = self.utils.trim_punctuation(word)
+    #             if len(word) > 0:
+    #                 if word not in words:
+    #                     words[word] = []
                     
-                    words[word].append({
-                        'articleId': article_id,
-                        'startPosition': start_index
-                    })
+    #                 words[word].append({
+    #                     'articleId': article_id,
+    #                     'startPosition': start_index
+    #                 })
                 
-                word = ""
+    #             word = ""
 
-            else:
-                word += c
+    #         else:
+    #             word += c
 
-            index += 1
+    #         index += 1
 
-        if len(word) > 0:
-            start_index = index - len(word)
-            word = self.utils.trim_punctuation(word)
-            if len(word) > 0:
-                if word not in words:
-                    words[word] = []
+    #     if len(word) > 0:
+    #         start_index = index - len(word)
+    #         word = self.utils.trim_punctuation(word)
+    #         if len(word) > 0:
+    #             if word not in words:
+    #                 words[word] = []
                 
-                words[word].append(start_index)
+    #             words[word].append(start_index)
 
-        print(f'num words: {len(words.keys())}')
-        url = f'{self.config.SEARCH_API_BASE_URL}/{self.config.INSERT_SEARCH_ENTRIES_API}'
-        for search_term in words.keys():
-            print(f'inserting entries for: {search_term}')
-            data = {
-                'searchTerm': search_term,
-                'entries': words[search_term]
-            }
-            requests.post(url, json=data)
+    #     print(f'num words: {len(words.keys())}')
+    #     url = f'{self.config.SEARCH_API_BASE_URL}/{self.config.INSERT_SEARCH_ENTRIES_API}'
+    #     for search_term in words.keys():
+    #         print(f'inserting entries for: {search_term}')
+    #         data = {
+    #             'searchTerm': search_term,
+    #             'entries': words[search_term]
+    #         }
+    #         requests.post(url, json=data)
 
 
     # text type can be 'content', 'title', or 'subtitle'

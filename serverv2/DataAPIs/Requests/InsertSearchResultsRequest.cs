@@ -7,6 +7,6 @@ namespace VideoGameArchive.Responses
     public class InsertSearchResultsRequest
     {
         public string searchTerm { get; set; }
-        public List<SearchResultEntry> entries { get; set; }
+        public List<int> articleIds { get; set; }
     }
 }

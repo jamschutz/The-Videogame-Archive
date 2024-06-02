@@ -44,96 +44,106 @@ namespace VideoGameArchive.Data
         /* ====   Get Methods   ====================================== */
         /* =========================================================== */
 
-        public Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm)
+        public List<int> GetSearchResultEntries(string searchTerm)
         {
             searchTerm = Utils.GetEscapedString(searchTerm);
-            var metadata = GetSearchResultsMetadata(searchTerm);
+            var metadata = GetSearchResultMetadata(searchTerm);
             return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
         }
 
-        public Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, int resultsPerPage, int pageNumber)
-        {
-            var metadata = GetSearchResultsMetadata(searchTerm);
-            long maxPage = metadata == null? 0 : metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
+        // public List<int> GetSearchResultEntries(string searchTerm, int resultsPerPage, int pageNumber)
+        // {
+        //     var metadata = GetSearchResultsMetadata(searchTerm);
+        //     long maxPage = metadata == null? 0 : metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
 
-            int start = resultsPerPage * (pageNumber - 1);
-            int end = start + resultsPerPage;
-            int startRow = start / SearchResult.MAX_RESULTS_PER_ROW;
-            int endRow = end / SearchResult.MAX_RESULTS_PER_ROW;
+        //     int start = resultsPerPage * (pageNumber - 1);
+        //     int end = start + resultsPerPage;
+        //     int startRow = start / SearchResult.MAX_RESULTS_PER_ROW;
+        //     int endRow = end / SearchResult.MAX_RESULTS_PER_ROW;
 
-            var pages = Enumerable.Range(startRow, (endRow - startRow) + 1).ToList();
-            var results = GetSearchResultEntries(searchTerm, pages);
-            return results;
-        }
-        private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
-        {
-            // build odata query
-            searchTerm = Utils.GetEscapedString(searchTerm);
-            var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
-            string odataQuery = string.Join(" or ", rowKeyQueries);
-            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
-        }
+        //     var pages = Enumerable.Range(startRow, (endRow - startRow) + 1).ToList();
+        //     var results = GetSearchResultEntries(searchTerm, pages);
+        //     return results;
+        // }
+        // private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
+        // {
+        //     // build odata query
+        //     searchTerm = Utils.GetEscapedString(searchTerm);
+        //     var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
+        //     string odataQuery = string.Join(" or ", rowKeyQueries);
+        //     return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
+        // }
         // private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, int pageNumber)
         // {
         //     return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}{pageNumber.ToString()}'");
         // }
-        private Dictionary<int, List<int>> GetSearchResultEntriesFromQuery(string queryFilter)
+        private List<int> GetSearchResultEntriesFromQuery(string queryFilter)
         {
             Pageable<TableEntity> query = searchTableClient.Query<TableEntity>(filter: queryFilter);
 
-            var results = new SearchResult();
+            var results = new List<int>();
             foreach (TableEntity entity in query)
             {
-                var entriesBinary = entity.GetBinary("Entries");
-                var entries = DeserializeFromByteArray<Dictionary<int, List<int>>>(entriesBinary);
-                results.ExtendFast(entries);
+                var entriesBinary = entity.GetBinary("ArticleIds");
+                var entries = DeserializeFromByteArray<List<int>>(entriesBinary);
+                results.AddRange(entries);
             }
-            return results.entries;
+            return results;
         }
 
-        private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, Dictionary<int, List<int>> entries)
+        // // private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, Dictionary<int, List<int>> entries)
+        // // {
+        // //     // get existing article ids
+        // //     var existingEntries = GetSearchResultEntries(searchTerm);
+
+        // //     // if no existing entry, just return all entries to add
+        // //     if(existingEntries == null)
+        // //         return entries;
+
+        // //     // get entries that don't already exist
+        // //     var entriesToAdd = new Dictionary<int, List<int>>();
+        // //     foreach(var entry in entries) {
+        // //         var articleId = entry.Key;
+        // //         var startPositions = entry.Value;
+
+        // //         if(existingEntries.ContainsKey(articleId)) {
+        // //             var newStartPositions = startPositions.Where(p => existingEntries[articleId].All(x => x != p)).ToList();
+        // //             if(newStartPositions.Count > 0) {
+        // //                 entriesToAdd[articleId] = newStartPositions;
+        // //             }
+        // //         }
+        // //         else {
+        // //             entriesToAdd[articleId] = startPositions;
+        // //         }
+        // //     }
+
+        // //     // and return
+        // //     return entriesToAdd;
+        // // }
+
+        // private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, List<SearchResultEntry> entries)
+        // {
+        //     var formattedEntries = new Dictionary<int, List<int>>();
+        //     foreach(var e in entries) {
+        //         if(!formattedEntries.ContainsKey(e.articleId)) {
+        //             formattedEntries[e.articleId] = new List<int>();
+        //         }
+        //         formattedEntries[e.articleId].Add(e.startPosition);
+        //     }
+        //     return GetSearchResultEntriesToAdd(searchTerm, formattedEntries);
+        // }
+
+
+        // private List<int> GetArticleIdsToAddForSearchTerm(string searchTerm, List<int> articleIds)
+        // {
+
+        // }
+
+
+        public SearchResultMetadata GetSearchResultMetadata(string searchTerm)
         {
-            // get existing article ids
-            var existingEntries = GetSearchResultEntries(searchTerm);
-
-            // if no existing entry, just return all entries to add
-            if(existingEntries == null)
-                return entries;
-
-            // get entries that don't already exist
-            var entriesToAdd = new Dictionary<int, List<int>>();
-            foreach(var entry in entries) {
-                var articleId = entry.Key;
-                var startPositions = entry.Value;
-
-                if(existingEntries.ContainsKey(articleId)) {
-                    var newStartPositions = startPositions.Where(p => existingEntries[articleId].All(x => x != p)).ToList();
-                    if(newStartPositions.Count > 0) {
-                        entriesToAdd[articleId] = newStartPositions;
-                    }
-                }
-                else {
-                    entriesToAdd[articleId] = startPositions;
-                }
-            }
-
-            // and return
-            return entriesToAdd;
+            return GetSearchResultsMetadata(new List<string>() { searchTerm })[0];
         }
-
-        private Dictionary<int, List<int>> GetSearchResultEntriesToAdd(string searchTerm, List<SearchResultEntry> entries)
-        {
-            var formattedEntries = new Dictionary<int, List<int>>();
-            foreach(var e in entries) {
-                if(!formattedEntries.ContainsKey(e.articleId)) {
-                    formattedEntries[e.articleId] = new List<int>();
-                }
-                formattedEntries[e.articleId].Add(e.startPosition);
-            }
-            return GetSearchResultEntriesToAdd(searchTerm, formattedEntries);
-        }
-
-
         public List<SearchResultMetadata> GetSearchResultsMetadata(List<string> searchTerms)
         {
             // build odata query
@@ -183,29 +193,6 @@ namespace VideoGameArchive.Data
         }
 
 
-        public SearchResultMetadata GetSearchResultsMetadata(string searchTerm)
-        {
-            // build odata query
-            searchTerm = Utils.GetEscapedString(searchTerm);
-            string odataQuery = $"PartitionKey eq '{searchTerm}'";
-
-            // fetch query results from table
-            var query = searchMetadataTableClient.Query<TableEntity>(filter: odataQuery).ToList();
-            var metadata = new SearchResultMetadata();
-
-            // parse to list
-            if(query == null || query.Count == 0) {
-                return null;
-            }
-
-            var result = query[0];
-            return new SearchResultMetadata() {
-                searchTerm = result.GetString("SearchTerm"),
-                totalResults = result.GetInt64("TotalResults").Value
-            };
-        }
-
-
 
 
 
@@ -213,14 +200,15 @@ namespace VideoGameArchive.Data
         /* ====   Insert Methods   =================================== */
         /* =========================================================== */
 
-        public SearchResult InsertSearchResult(string searchTerm, List<SearchResultEntry> entries, SearchResultMetadata metadata)
+        public List<int> InsertSearchResult(string searchTerm, List<int> articleIds, SearchResultMetadata metadata)
         {
-            // get entries we haven't already stored
-            var entriesToAdd = GetSearchResultEntriesToAdd(searchTerm, entries);
+            // // get entries we haven't already stored
+            // var entriesToAdd = GetSearchResultEntriesToAdd(searchTerm, entries);
+            var articleIdsToAdd = articleIds;
 
             // if no entries to add, just return
-            if(entriesToAdd.Count == 0)
-                return new SearchResult() { searchTerm = searchTerm, entries = entriesToAdd };
+            if(articleIdsToAdd.Count == 0)
+                return articleIdsToAdd;
 
             // build partition keys
             int poolIndex = (int)(metadata.totalResults / (long)SearchResult.MAX_RESULTS_PER_ROW);
@@ -231,76 +219,65 @@ namespace VideoGameArchive.Data
             var existingEntity = GetSearchTermEntity(partitionKey, rowKey);
 
             // store existing entries (if we have any)
-            SearchResult existing;
+            List<int> existingArticleIds = new List<int>();
             if(existingEntity.HasValue) {
-                var existingEntriesBinary = existingEntity.Value.GetBinary("Entries");
-                existing = new SearchResult() {
-                    entries = DeserializeFromByteArray<Dictionary<int, List<int>>>(existingEntriesBinary) 
-                };
+                var existingArticleIdsBinary = existingEntity.Value.GetBinary("ArticleIds");
+                existingArticleIds = DeserializeFromByteArray<List<int>>(existingArticleIdsBinary);
             }
-            else {
-                existing = new SearchResult();
-            }
-            var entriesToAddHelper = new SearchResultEntries(entriesToAdd);
 
             // if there are more entries to add than we have room in our pool, we'll have to add in batches
-            if(existing.Count() + entriesToAddHelper.Count() > SearchResult.MAX_RESULTS_PER_ROW) {
+            if(existingArticleIds.Count + articleIdsToAdd.Count > SearchResult.MAX_RESULTS_PER_ROW) {
                 int skip = 0; 
-                int take = SearchResult.MAX_RESULTS_PER_ROW - existing.entries.Count();
-                while(skip < entriesToAddHelper.Count()) {
+                int take = SearchResult.MAX_RESULTS_PER_ROW - existingArticleIds.Count();
+                while(skip < articleIdsToAdd.Count()) {
                     // add to existing
-                    existing.Extend(entriesToAddHelper.GetEntries(skip, take));
+                    existingArticleIds.AddRange(articleIdsToAdd.Skip(skip).Take(take).ToArray());
                     // update table entity
-                    var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
+                    var articleIdsByteArray = SerializeToByteArray<List<int>>(existingArticleIds);
                     UpsertTableEntity(new TableEntity(partitionKey, rowKey) {
-                        { "SearchTerm", searchTerm },
-                        { "Entries", entriesByteArray }
+                        { "ArticleIds", articleIdsByteArray }
                     });
                     
                     skip += take;
                     take = SearchResult.MAX_RESULTS_PER_ROW;
                     poolIndex++;
                     rowKey = $"{poolIndex}";
-                    existing = new SearchResult();
+                    existingArticleIds = new List<int>();
                 }
             }
             // otherwise, we can just append all entries to add to our existing list
             else {
-                existing.Extend(entriesToAdd);
+                existingArticleIds.AddRange(articleIdsToAdd);
 
                 // update table entity
-                var entriesByteArray = SerializeToByteArray<Dictionary<int, List<int>>>(existing.entries);
+                var articleIdsByteArray = SerializeToByteArray<List<int>>(existingArticleIds);
                 UpsertTableEntity(new TableEntity(partitionKey, rowKey) {
-                    { "SearchTerm", searchTerm },
-                    { "Entries", entriesByteArray }
+                    { "ArticleIds", articleIdsByteArray }
                 });
             }
 
             // update metadata
             var updatedMetadata = new TableEntity(searchTerm, searchTerm) {
-                { "TotalResults", metadata.totalResults + new SearchResultEntries(entriesToAdd).Count() }
+                { "TotalResults", metadata.totalResults + articleIdsToAdd.Count }
             };
             UpsertMetadataEntity(updatedMetadata);
 
-            // return entries we created
-            return new SearchResult() {
-                searchTerm = searchTerm,
-                entries = entriesToAdd
-            };
+            // return article ids we added
+            return articleIdsToAdd;
         }
 
 
-        // public void InsertSearchResults(List<SearchResult> searchResults)
-        // {
-        //     foreach(var searchResult in searchResults) {
-        //         InsertSearchResult(searchResult);
-        //     }
-        // }
+        // // public void InsertSearchResults(List<SearchResult> searchResults)
+        // // {
+        // //     foreach(var searchResult in searchResults) {
+        // //         InsertSearchResult(searchResult);
+        // //     }
+        // // }
 
-        public SearchResult InsertSearchResult(string searchTerm, List<SearchResultEntry> entries)
+        public List<int> InsertSearchResult(string searchTerm, List<int> articleIds)
         {
             var metadata = GetSearchResultsMetadata(new List<string>() { searchTerm });
-            return InsertSearchResult(searchTerm, entries, metadata[0]);
+            return InsertSearchResult(searchTerm, articleIds, metadata[0]);
         }
 
 
