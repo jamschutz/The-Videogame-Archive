@@ -13,7 +13,7 @@ namespace VideoGameArchive.Entities
         // which means we can store 64k / 8 ==> 8k entries
         // just giving ourselves a little upper buffer (and not sure if it's bad to max out each column...)
         // so going to say each row should only store 5k entries
-        public const int MAX_RESULTS_PER_ROW = 10; //3000;
+        public const int MAX_RESULTS_PER_ROW = 3000;
 
         public string searchTerm { get; set; }        
         public List<int> articleIds { get; set; }

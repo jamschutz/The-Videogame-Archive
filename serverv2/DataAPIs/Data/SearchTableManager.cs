@@ -43,40 +43,37 @@ namespace VideoGameArchive.Data
         /* =========================================================== */
         /* ====   Get Methods   ====================================== */
         /* =========================================================== */
+        
 
-        public List<int> GetSearchResultEntries(string searchTerm)
+        public List<int> GetAllSearchResultEntries(string searchTerm)
         {
             searchTerm = Utils.GetEscapedString(searchTerm);
             var metadata = GetSearchResultMetadata(searchTerm);
             return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}'");
         }
 
-        // public List<int> GetSearchResultEntries(string searchTerm, int resultsPerPage, int pageNumber)
-        // {
-        //     var metadata = GetSearchResultsMetadata(searchTerm);
-        //     long maxPage = metadata == null? 0 : metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
+        public List<int> GetSearchResultEntries(string searchTerm, int resultsPerPage, int pageNumber)
+        {
+            var metadata = GetSearchResultMetadata(searchTerm);
+            long maxPage = metadata == null? 0 : metadata.totalResults / SearchResult.MAX_RESULTS_PER_ROW;
 
-        //     int start = resultsPerPage * (pageNumber - 1);
-        //     int end = start + resultsPerPage;
-        //     int startRow = start / SearchResult.MAX_RESULTS_PER_ROW;
-        //     int endRow = end / SearchResult.MAX_RESULTS_PER_ROW;
+            int start = resultsPerPage * (pageNumber - 1);
+            int end = start + resultsPerPage;
+            int startRow = start / SearchResult.MAX_RESULTS_PER_ROW;
+            int endRow = end / SearchResult.MAX_RESULTS_PER_ROW;
 
-        //     var pages = Enumerable.Range(startRow, (endRow - startRow) + 1).ToList();
-        //     var results = GetSearchResultEntries(searchTerm, pages);
-        //     return results;
-        // }
-        // private Dictionary<int, List<int>> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
-        // {
-        //     // build odata query
-        //     searchTerm = Utils.GetEscapedString(searchTerm);
-        //     var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
-        //     string odataQuery = string.Join(" or ", rowKeyQueries);
-        //     return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
-        // }
-        // private List<SearchResultEntry> GetSearchResultEntries(string searchTerm, int pageNumber)
-        // {
-        //     return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}{pageNumber.ToString()}'");
-        // }
+            var pages = Enumerable.Range(startRow, (endRow - startRow) + 1).ToList();
+            var results = GetSearchResultEntries(searchTerm, pages);
+            return results;
+        }
+        private List<int> GetSearchResultEntries(string searchTerm, List<int> pageNumbers)
+        {
+            // build odata query
+            searchTerm = Utils.GetEscapedString(searchTerm);
+            var rowKeyQueries = pageNumbers.Select(p => $"RowKey eq '{p}'").ToList();
+            string odataQuery = string.Join(" or ", rowKeyQueries);
+            return GetSearchResultEntriesFromQuery($"PartitionKey eq '{searchTerm}' and ({odataQuery})");
+        }
         private List<int> GetSearchResultEntriesFromQuery(string queryFilter)
         {
             Pageable<TableEntity> query = searchTableClient.Query<TableEntity>(filter: queryFilter);
@@ -94,17 +91,13 @@ namespace VideoGameArchive.Data
         private List<int> GetArticleIdsToAdd(string searchTerm, List<int> articleIds)
         {
             // get existing article ids
-            var existingIds = GetSearchResultEntries(searchTerm);
+            var existingIds = GetAllSearchResultEntries(searchTerm);
 
             // if no existing entry, just return all entries to add
             if(existingIds == null)
                 return articleIds;
 
-            var existingIdsLookup = new HashSet<int>();
-            foreach(var id in existingIds) {
-                existingIdsLookup.Add(id);
-            }
-
+            var existingIdsLookup = new HashSet<int>(existingIds);
             return articleIds.Where(id => !existingIdsLookup.Contains(id)).ToList();
 
             // // get entries that don't already exist

@@ -92,61 +92,54 @@ namespace VideoGameArchive
             var dbManager = new SearchTableManager(log);
             var searchResults = new List<int>();
 
-            searchResults = dbManager.GetSearchResultEntries(searchTerms[0]);
+            
+            // if only one search term, just store the one result
+            if(searchTerms.Length == 1) {
+                searchResults = dbManager.GetSearchResultEntries(searchTerms[0], resultsPerPage, pageNumber);
+            }
+
+            // otherwise, get articles that have all search terms
+            else {
+                // init lists
+                var allSearchResults = new Dictionary<string, HashSet<int>>();
+                var allArticleIds = new HashSet<int>();
+
+                // for each search term, track its article ids
+                foreach(var searchTerm in searchTerms) {
+                    // get its article ids
+                    var articleIds = dbManager.GetAllSearchResultEntries(searchTerm);
+
+                    // and add to our search results tracker, and our mega list of article ids
+                    allSearchResults[searchTerm] = new HashSet<int>(articleIds);
+                    foreach(var id in articleIds.Where(id => !allArticleIds.Contains(id))) {
+                        allArticleIds.Add(id);
+                    }
+                }
+
+                // find article ids that exist in ALL search terms
+                HashSet<int> intersection = null;
+                foreach(var searchTerm in allSearchResults.Keys) {
+                    if(intersection == null)
+                        intersection = allSearchResults[searchTerm];
+                    else
+                        intersection.IntersectWith(allSearchResults[searchTerm]);
+                }
+                searchResults = intersection.ToList();
+            }
+
+            // get articles
+            var articleDbManager = new ArticlesManager();
+            var articleIdsToFetch = searchResults.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
+            var articles = searchResults.Count > 0? articleDbManager.GetArticlesWithIds(articleIdsToFetch) : new List<Article>();
 
             // format and return
-            var response = JsonConvert.SerializeObject(new {
+            var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
                 TotalResults = searchResults.Count,
-                Results = searchResults
+                Results = articles
             });
             return new HttpResponseMessage(HttpStatusCode.OK) {
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
-
-            
-            // // if only one search term, just store the one result
-            // if(searchTerms.Length == 1) {
-            //     searchResults = dbManager.GetSearchResultEntries(searchTerms[0], resultsPerPage, pageNumber);
-            // }
-
-            // // otherwise, get articles that have all search terms
-            // else {
-            //     var allSearchResults = new List<Dictionary<int, List<int>>>();
-            //     foreach(var searchTerm in searchTerms) {
-            //         allSearchResults.Add(dbManager.GetSearchResultEntries(searchTerm));
-            //     }
-
-            //     var matchingArticleIds = allSearchResults[0].Keys.ToList();
-            //     for(int i = 1; i < allSearchResults.Count; i++) {
-            //         matchingArticleIds = matchingArticleIds.Intersect(allSearchResults[i].Keys.ToList()).ToList();
-            //     }
-
-            //     foreach(var id in matchingArticleIds) {
-            //         foreach(var searchResult in allSearchResults) {
-            //             if(searchResult.ContainsKey(id)) {
-            //                 if(!searchResults.ContainsKey(id)) {
-            //                     searchResults[id] = new List<int>();
-            //                 }
-
-            //                 searchResults[id].AddRange(searchResult[id]);
-            //             }
-            //         }
-            //     }
-            // }
-
-            // // get articles
-            // var articleDbManager = new ArticlesManager();
-            // var articleIdsToFetch = searchResults.Keys.Skip(resultsPerPage * (pageNumber - 1)).Take(resultsPerPage).ToList();
-            // var articles = searchResults.Keys.Count > 0? articleDbManager.GetArticlesWithIds(articleIdsToFetch) : new List<Article>();
-
-            // // format and return
-            // var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
-            //     TotalResults = searchResults.Keys.Count,
-            //     Results = articles
-            // });
-            // return new HttpResponseMessage(HttpStatusCode.OK) {
-            //     Content = new StringContent(response, Encoding.UTF8, "application/json")
-            // };
         }
 
 
