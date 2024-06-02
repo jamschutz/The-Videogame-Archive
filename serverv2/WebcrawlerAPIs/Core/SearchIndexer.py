@@ -45,7 +45,7 @@ class SearchIndexer:
         counter = 1
         total_files = len(index_files)
         for f in index_files:
-            print(f'sending indexes [{counter} / {total_files}]...')
+            print(f'sending indexes for {f} [{counter} / {total_files}]...')
 
             # parse search term and its entries
             search_term = f[:f.find('.yml')]
@@ -56,7 +56,7 @@ class SearchIndexer:
                 'searchTerm': search_term,
                 'entries': entries
             }
-            # requests.post(api_url, json=data)
+            requests.post(api_url, json=data)
             counter += 1
 
         # delete temp directory
