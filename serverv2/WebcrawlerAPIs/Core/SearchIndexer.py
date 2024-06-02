@@ -4,9 +4,12 @@ from .Utils import Utils
 # for testing
 from bs4 import BeautifulSoup
 from pathlib import Path
+from os import listdir, remove
+from os.path import isfile, join
 import requests
 import tempfile
 import yaml
+import shutil
 
 from Entities.Article import Article
 
@@ -31,6 +34,36 @@ class SearchIndexer:
         for word in words.keys():
             with open(self.tempdir / f'{word}.yml', 'a') as f:
                 yaml.dump(words[word], f, default_flow_style=False)
+
+
+
+    def send_search_indexes_to_storage(self):
+        # get all files (ignore directories) in our temp directory
+        index_files = [f for f in listdir(self.tempdir) if isfile(join(self.tempdir, f))]
+        api_url = f'{self.config.SEARCH_API_BASE_URL}/{self.config.INSERT_SEARCH_ENTRIES_API}'
+
+        counter = 1
+        total_files = len(index_files)
+        for f in index_files:
+            print(f'sending indexes [{counter} / {total_files}]...')
+
+            # parse search term and its entries
+            search_term = f[:f.find('.yml')]
+            entries = yaml.safe_load((self.tempdir / f).read_text())
+
+            # send to api
+            data = {
+                'searchTerm': search_term,
+                'entries': entries
+            }
+            # requests.post(api_url, json=data)
+            counter += 1
+
+        # delete temp directory
+        shutil.rmtree(self.tempdir)
+
+        
+
 
 
     def index_article(self, article_text, article):
@@ -141,3 +174,4 @@ if __name__ == '__main__':
     )
 
     search_indexer.stage_article_indexes(article, article_text)
+    search_indexer.send_search_indexes_to_storage()
