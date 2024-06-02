@@ -18,6 +18,9 @@ class SearchIndexer:
         self.config = Config()
         self.utils = Utils()
         self.tempdir = Path(tempfile.gettempdir()) / 'vga-search'
+
+        # just in case there's junk data from a previous session, clear temp dir
+        shutil.rmtree(self.tempdir)
         
 
 
