@@ -54,8 +54,6 @@ class SearchIndexer:
 
         request = []
         for f in index_files:
-            print(f'sending indexes for {f} [{counter + offset} / {total_files}]...')
-
             # parse search term and its entries
             search_term = f[:f.find('.yml')]
             article_ids = yaml.safe_load((self.tempdir / f).read_text())
@@ -67,6 +65,7 @@ class SearchIndexer:
 
             # send to api
             if counter > batch_size:
+                print(f'sending indexes [{counter + offset} / {total_files}]...')
                 requests.post(api_url, json=request)
                 offset += batch_size
                 counter = 0

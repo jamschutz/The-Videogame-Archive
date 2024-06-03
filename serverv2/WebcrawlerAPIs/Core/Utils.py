@@ -206,19 +206,6 @@ class Utils:
         allowed_chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return ''.join([c for c in text if c in allowed_chars])
 
-        start = 0
-        while start < len(text) and text[start] not in allowed_chars:
-            start += 1
-
-        if start == len(text):
-            return ""
-
-        end = len(text) - 1
-        while end > 0 and text[end] not in allowed_chars:
-            end -= 1
-
-        return text[start:end + 1]
-
         
         
 

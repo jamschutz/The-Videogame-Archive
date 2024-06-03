@@ -40,15 +40,21 @@ namespace VideoGameArchive
             // insert search results
             var dbManager = new SearchTableManager(log);
             var response = new InsertSearchResultsResponse();
+            var insertionTasks = new List<Task>();
             foreach(var request in searchRequest) {
                 log.LogInformation($"got {request.articleIds.Count} search results for '{request.searchTerm}'");
 
-                var entriesCreated = dbManager.InsertSearchResult(request.searchTerm, request.articleIds);
-                response.Results.Add(new SearchResultsInserted() {
-                    SearchTerm = request.searchTerm,
-                    ArticleIdsAdded = entriesCreated
-                });
-            }            
+                insertionTasks.Add(Task.Factory.StartNew(() => {
+                    var entriesCreated = dbManager.InsertSearchResult(request.searchTerm, request.articleIds);
+                    response.Results.Add(new SearchResultsInserted() {
+                        SearchTerm = request.searchTerm,
+                        ArticleIdsAdded = entriesCreated
+                    });
+                    log.LogInformation($"done inserting for {request.searchTerm}");
+                }));
+            }
+            await Task.WhenAll(insertionTasks.ToArray());
+            log.LogInformation($"DONE WAITING");
 
             // format and return
             var responseMsg = JsonConvert.SerializeObject(response);

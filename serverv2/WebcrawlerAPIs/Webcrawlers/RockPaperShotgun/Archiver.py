@@ -102,14 +102,14 @@ class ArchiverEurogamer:
 
             # get article data
             article = self.get_article_data(article, raw_html)
-            content = self.get_article_content(raw_html)
+            # content = self.get_article_content(raw_html)
             
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
                 self.archiver.send_article_to_archive(article, raw_html, self.website_name)
                 self.archiver.send_thumbnail_to_archive(article, self.website_name)
-                self.search_indexer.index_article(content, article.id)
+                # self.search_indexer.stage_article_indexes(article, content)
 
                 # and update its info in the DB
                 self.articles_manager.update_article(article)
@@ -122,6 +122,8 @@ class ArchiverEurogamer:
             if article is not None:
                 articles_archived_successfully.append(article)
         
+        # send search indices up to azure
+        # self.search_indexer.send_search_indexes_to_storage()
         # and mark as archived in the db
         self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
