@@ -46,10 +46,19 @@ class UrlIndexerIGN:
 
             articles.append(Article(
                 url=url,
-                date=date
+                date=date,
+                # we will get the actual values for these when we archive them -- for now, just put down whatever so we can insert non-null values into the db!
+                type = 'news',
+                author =  self.config.PLACEHOLDER_AUTHOR_NAME,
+                website_id = self.website_id
             ))
 
-        return articles
+        skip = 0
+        take = 1000
+        while skip < len(articles):
+            print(f'inserting articles [{skip} / {len(articles)}]...')
+            self.articles_manager.insert_articles(articles[skip:skip + take])
+            skip += take
 
 
     def get_date_from_url(self, url):
@@ -89,9 +98,22 @@ class UrlIndexerIGN:
 if __name__ == '__main__':
     ign = UrlIndexerIGN()
     sitemaps = [
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-current.xml/sitemap-ign-article-current.xml'
+        # '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef8ad72718e6109f96d18.xml/sitemap-ign-article-5deef8ad72718e6109f96d18.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef75a72718e6109f6df4d.xml/sitemap-ign-article-5deef75a72718e6109f6df4d.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef99f72718e6109faf3b7.xml/sitemap-ign-article-5deef99f72718e6109faf3b7.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefaf372718e6109ff6515.xml/sitemap-ign-article-5deefaf372718e6109ff6515.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefb6372718e6109009f7b.xml/sitemap-ign-article-5deefb6372718e6109009f7b.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefc3d72718e61090162cc.xml/sitemap-ign-article-5deefc3d72718e61090162cc.xml',
+        '/_sandbox/ign-sitemaps/sitemap-ign-article-5ebbc03c72718e61090240b2.xml/sitemap-ign-article-5ebbc03c72718e61090240b2.xml'
     ]
 
     for sitemap in sitemaps:
-        articles = ign.add_urls_from_sitemap(sitemap)
-        print([a.to_string() for a in articles])
+        ign.add_urls_from_sitemap(sitemap)
+
+    # arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    # skip = 0
+    # take = 3
+    # while skip < len(arr):
+    #     print(arr[skip:skip + take])
+    #     skip += take

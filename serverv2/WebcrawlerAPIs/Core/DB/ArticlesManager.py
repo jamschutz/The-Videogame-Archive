@@ -86,12 +86,12 @@ class ArticlesManager:
     # ==================================================================== #
 
     def insert_articles(self, articles):
-        # verify info looks correct
-        for article in articles:
-            if article.author == '' or article.url == ''      or article.type == '' or \
-               article.title == ''or article.website_id == None or article.date == None:
+        # # verify info looks correct
+        # for article in articles:
+        #     if article.author == '' or article.url == ''      or article.type == '' or \
+        #        article.title == ''or article.website_id == None or article.date == None:
                 
-                raise Exception("article is missing one of the following properties: author, url, type, title, websiteid, date. bailing!")
+        #         raise Exception("article is missing one of the following properties: author, url, type, title, websiteid, date. bailing!")
             
         # remove articles that already exist in db (ignore duplicates)
         existing_articles = self.__get_existing_article_urls(articles)

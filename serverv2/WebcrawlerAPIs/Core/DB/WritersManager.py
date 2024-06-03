@@ -12,6 +12,7 @@ class WritersManager:
 
     # returns in the format [{'name': 'Joey Schutz', 'authorid': 1234}]
     def get_writers_and_create_if_not_exist(self, articles):
+        writers = [a.author for a in articles]
         return self.db.get_ids_and_create_if_not_exists('Writers', writers)
 
     def get_writer_and_create_if_not_exists(self, writer):
