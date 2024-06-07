@@ -2,7 +2,7 @@ from Core.Config import Config
 from Core.Utils import Utils
 from Core.AzureStorageManager import AzureStorageManager
 
-import logging, requests
+import logging, requests, pathlib
 
 
 class Archiver:
@@ -32,7 +32,13 @@ class Archiver:
         if folder_path[-1] == '/':
             folder_path = folder_path[:-1]
 
-        self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article.thumbnail_url)}")
+        # make sure folder path exists
+        pathlib.Path(f'{self.config.ARCHIVE_FOLDER}/{folder_path}').mkdir(parents=True, exist_ok=True)
+
+        with open(f'{self.config.ARCHIVE_FOLDER}/{folder_path}/{filename}.{self.utils.get_thumbnail_extension(article.thumbnail_url)}', "wb") as f:
+            f.write(img_data)
+
+        # self.az_storage_manager.save_to_archive(img_data, folder_path, filename, f"image/{self.utils.get_thumbnail_extension(article.thumbnail_url)}")
 
 
 
@@ -40,9 +46,6 @@ class Archiver:
         if website_name == None or website_name == '':
             print('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
             logging.info('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
-
-        # reset articles failed to parse
-        ARTICLES_THAT_FAILED_TO_PARSE = []
 
         # parse the bits we need (for folder / filename)
         url = article.url
@@ -55,8 +58,13 @@ class Archiver:
         folder_path = f'{website_name}/{year}/{month}'
         filename = self.config.url_to_filename(url, day, website_name)
 
+        # make sure folder path exists
+        pathlib.Path(f'{self.config.ARCHIVE_FOLDER}/{folder_path}').mkdir(parents=True, exist_ok=True)
+
         # save webpage
-        self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
+        # self.az_storage_manager.save_to_archive(raw_html, folder_path, filename, 'text/html')
+        with open(f'{self.config.ARCHIVE_FOLDER}/{folder_path}/{filename}.html', "w", encoding="utf-8") as html_file:
+            html_file.write(raw_html)
 
         # and also save the thumbnail
         self.send_thumbnail_to_archive(article, website_name)

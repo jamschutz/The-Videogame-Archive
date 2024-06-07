@@ -1,6 +1,8 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss")
 const { rm } = require("fs/promises")
 const fs = require('fs');
+const pg = require('pg');
+const { POSTGRES_CONNECTION } = require("./buildTools/secrets");
 
 module.exports = function(eleventyConfig) {
     // -- constants --
@@ -198,6 +200,25 @@ async function getProdArticles() {
 
 
 async function getDevArticles() {
+    // const postgres = new pg.Pool({
+    //     'user': POSTGRES_CONNECTION.user,
+    //     'password': POSTGRES_CONNECTION.password,
+    //     'host': POSTGRES_CONNECTION.host,
+    //     'db': POSTGRES_CONNECTION.db,
+    //     'port': 5433
+    // });
+
+    // postgres.connect();
+
+    // postgres.on('connect', (client) => {
+    //     client.query('select "Id", "Name", from "Websites"', (err, res) => {
+    //         if(err) 
+    //             throw err;
+
+    //         console.log(res);
+    //     });
+    // });
+
     return new Promise(resolve => {
         const results = [
             {
