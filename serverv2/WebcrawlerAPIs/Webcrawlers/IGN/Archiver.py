@@ -71,7 +71,7 @@ class ArchiverIGN:
     def archive_queued_urls(self, num_urls_to_archive, counter_offset, actual_max = -1):
         actual_max = num_urls_to_archive if actual_max < 0 else actual_max
         # get articles to archive
-        articles_to_archive = self.articles_manager.get_articles_to_archive_IGN_DELETE_ME_LATER(num_urls_to_archive, self.website_id)
+        articles_to_archive = self.articles_manager.get_articles_to_archive(num_urls_to_archive, self.website_id)
 
         # and archive each one
         counter = 1
@@ -91,7 +91,7 @@ class ArchiverIGN:
             # if None, something went wrong, just skip
             if article != None:
                 # save to filepath
-                # self.archiver.send_article_to_archive(article, raw_html, self.website_name)
+                self.archiver.send_article_to_archive(article, raw_html, self.website_name, send_thumbnail=False)
                 # self.archiver.send_thumbnail_to_archive(article, self.website_name)
                 # self.search_indexer.index_article(content, article.id)
 
@@ -100,17 +100,17 @@ class ArchiverIGN:
 
             counter += 1
 
-        # # get list of articles that were succesfully archived
-        # articles_archived_successfully = [a for a in articles_to_archive if a is not None]
+        # get list of articles that were succesfully archived
+        articles_archived_successfully = [a for a in articles_to_archive if a is not None]
         
-        # # and mark as archived in the db
-        # self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
+        # and mark as archived in the db
+        self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
 
     def archive_all_urls(self):
         counter = 0
         batch_size = 10
-        total_articles_to_archive = self.articles_manager.get_num_articles_to_archive_IGN_DELETE_ME(self.website_id)
+        total_articles_to_archive = self.articles_manager.get_num_articles_to_archive(self.website_id)
 
         while counter < total_articles_to_archive:
             self.archive_queued_urls(batch_size, counter, total_articles_to_archive)

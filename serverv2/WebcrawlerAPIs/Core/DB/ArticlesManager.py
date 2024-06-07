@@ -32,7 +32,9 @@ class ArticlesManager:
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id}
+                "IsArchived" = false AND "WebsiteId" = {website_id} AND "DatePublished" >= 20071013 and "DatePublished" <= 20071020
+            ORDER BY
+                "DatePublished"
             LIMIT
                 {num_articles_to_archive}
         """
@@ -49,31 +51,6 @@ class ArticlesManager:
             ))
         return articles
     
-    
-    # DELETE THIS LATER!!!!
-    def get_articles_to_archive_IGN_DELETE_ME_LATER(self, num_articles_to_archive, website_id):
-        query = f"""
-            SELECT
-                "Title", "DatePublished", "Url", "Id", "Thumbnail"
-            FROM
-                "Articles"
-            WHERE
-                "WebsiteId" = {website_id} AND "Title" = ''
-            LIMIT
-                {num_articles_to_archive}
-        """
-
-        results = self.db.get_query(query)
-        articles = []
-        for article in results:
-            articles.append(Article(
-                title = article[0],
-                date = article[1],
-                url = article[2],
-                id = article[3],
-                thumbnail_url=article[4]
-            ))
-        return articles
 
     def get_num_articles_to_archive(self, website_id):
         query = f"""
@@ -82,19 +59,7 @@ class ArticlesManager:
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id}
-        """
-
-        return self.db.get_query(query)[0][0]
-
-    def get_num_articles_to_archive_IGN_DELETE_ME(self, website_id):
-        query = f"""
-            SELECT
-                COUNT(*)
-            FROM
-                "Articles"
-            WHERE
-                "WebsiteId" = {website_id} AND "Title" = ''
+                "IsArchived" = false AND "WebsiteId" = {website_id} AND "DatePublished" >= 20071013 and "DatePublished" <= 20071020
         """
 
         return self.db.get_query(query)[0][0]

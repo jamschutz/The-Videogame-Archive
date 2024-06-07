@@ -42,7 +42,7 @@ class Archiver:
 
 
 
-    def send_article_to_archive(self, article, raw_html, website_name):
+    def send_article_to_archive(self, article, raw_html, website_name, send_thumbnail=True):
         if website_name == None or website_name == '':
             print('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
             logging.info('NOT GOING TO ARCHIVE BECAUSE WEBSITE NAME NOT SET!!!')
@@ -67,4 +67,5 @@ class Archiver:
             html_file.write(raw_html)
 
         # and also save the thumbnail
-        self.send_thumbnail_to_archive(article, website_name)
+        if send_thumbnail:
+            self.send_thumbnail_to_archive(article, website_name)
