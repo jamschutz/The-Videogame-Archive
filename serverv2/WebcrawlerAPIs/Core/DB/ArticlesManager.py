@@ -32,7 +32,7 @@ class ArticlesManager:
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id} AND "DatePublished" >= 20071013 and "DatePublished" <= 20071020
+                "IsArchived" = false AND "WebsiteId" = {website_id}
             ORDER BY
                 "DatePublished"
             LIMIT
@@ -59,7 +59,7 @@ class ArticlesManager:
             FROM
                 "Articles"
             WHERE
-                "IsArchived" = false AND "WebsiteId" = {website_id} AND "DatePublished" >= 20071013 and "DatePublished" <= 20071020
+                "IsArchived" = false AND "WebsiteId" = {website_id}
         """
 
         return self.db.get_query(query)[0][0]
