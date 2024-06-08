@@ -55,7 +55,12 @@ class ArchiverIGN:
             article.author = soup.find('span', class_=self.AUTHOR_DIV_CLASS)
             if article.author is None:
                 article.author = soup.find('a', class_=self.AUTHOR_DIV_CLASS)
-            article.author = article.author.text.strip()
+
+            # a few articles where there's no author...just list as "IGN" and move on
+            if article.author is None:
+                article.author = 'IGN'
+            else:
+                article.author = article.author.text.strip()
             article.type = self.get_article_type(soup)
             # NOTE: not getting thumbnail url because we stored that in the url indexing phase
 
@@ -124,7 +129,7 @@ class ArchiverIGN:
             print(f'waiting for throttle to end...')
             print(web_response.content)
             print(web_response.headers)
-            time.sleep(2)
+            time.sleep(5)
             web_response = requests.get(article.url, headers=headers)
 
             # if webpage is 404, just bail
@@ -165,8 +170,7 @@ class ArchiverIGN:
 
 
 
-    def archive_queued_urls(self, num_urls_to_archive, counter_offset, actual_max = -1):
-        actual_max = num_urls_to_archive if actual_max < 0 else actual_max
+    def archive_queued_urls(self, num_urls_to_archive):
         # get articles to archive
         articles_to_archive = self.articles_manager.get_articles_to_archive(num_urls_to_archive, self.website_id)
 
@@ -179,11 +183,12 @@ class ArchiverIGN:
         pool.join()
 
         # get list of articles that were succesfully archived
-        articles_archived_successfully = [a['article'] for a in results if a['delete'] is False]
+        articles_archived_successfully = [a['article'] for a in results if a['delete'] is False and a['article'] is not None]
         non_games_articles = [a['article'] for a in results if a['delete'] is True]
         
         # mark as archived in the db
-        self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
+        if len(articles_archived_successfully) > 0:
+            self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
         # and delete non-games articles...
         self.delete_non_games_articles(non_games_articles)
@@ -199,7 +204,7 @@ class ArchiverIGN:
         while counter < total_articles_to_archive:
             stats = self.utils.get_articles_per_second_and_time_remaining(start, counter, total_articles_to_archive)
             print(f'------------archiving... [{counter} / {total_articles_to_archive}] | {stats["avg"]}/s  ({stats["remaining"]} remaining)')
-            self.archive_queued_urls(batch_size, counter, total_articles_to_archive)
+            self.archive_queued_urls(batch_size)
             counter += batch_size
 
             # don't flood their server with requests..
