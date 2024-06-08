@@ -44,9 +44,9 @@ class ArchiverIGN:
 
         try:
             # add info we need
-            article.title = soup.find('h1', class_='display-title').text.strip()
+            article.title = soup.find('div', class_='page-header').find('h1', class_='display-title').text.strip()
             # not all articles have subtitles...
-            article.subtitle = soup.find('h2', class_=self.SUBTITLE_DIV_CLASS)
+            article.subtitle = soup.find('div', class_='page-header').find('h2', class_=self.SUBTITLE_DIV_CLASS)
             if article.subtitle == None:
                 article.subtitle = ''
             else:
