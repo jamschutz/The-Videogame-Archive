@@ -3,7 +3,7 @@ from Core.Config import Config
 from pathlib import Path
 from url_normalize import url_normalize
 from bs4 import BeautifulSoup
-import re, subprocess
+import re, subprocess, time, datetime
 
 class Utils:
     def __init__(self):
@@ -205,6 +205,27 @@ class Utils:
 
         allowed_chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return ''.join([c for c in text if c in allowed_chars])
+    
+
+    def get_articles_per_second_and_time_remaining(self, start_time, num_complete, total_to_do):
+        current_time = time.time()
+        time_elapsed = current_time - start_time
+
+        if time_elapsed < 0.1:
+            return {
+                'avg': 0,
+                'remaining': 0
+            }
+
+        avg = num_complete / time_elapsed
+        time_remaining = (total_to_do - num_complete) / avg
+
+        remaining_formatted = str(datetime.timedelta(seconds=round(time_remaining)))
+
+        return {
+            'avg': str(round(avg, 1)),
+            'remaining': remaining_formatted
+        }
 
         
         
@@ -212,15 +233,17 @@ class Utils:
 
 if __name__ == '__main__':
     utils = Utils()
-    css = ''
-    url = 'https://www.eurogamer.net/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights'
-    # with open('server/_shared/test.css', 'r') as f:
-    #     css = f.read().replace('\n', '')
+    # css = ''
+    # url = 'https://www.eurogamer.net/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights'
     
-    # utils.download_css_images(css, 'TIGSource')
-    source = requests.get(url).text
-    html = utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
+    # source = requests.get(url).text
+    # html = utils.download_images(source, 'https://www.eurogamer.net', 'F:/_sandbox/Eurogamer')
 
-    with open("F:/_sandbox/Eurogamer/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights.html", "wb") as f_output:
-        f_output.write(html)
+    # with open("F:/_sandbox/Eurogamer/unicorn-overlord-review-endless-options-propel-this-strategy-rpg-to-epic-heights.html", "wb") as f_output:
+    #     f_output.write(html)
+
+    start = time.time()
+    time.sleep(2)
+
+    print(utils.get_articles_per_second_and_time_remaining(start, 10, 100))
     

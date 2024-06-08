@@ -128,7 +128,7 @@ class ArchiverIGN:
             web_response = requests.get(article.url, headers=headers)
 
             # if webpage is 404, just bail
-            soup = BeautifulSoup(web_response.text)
+            soup = BeautifulSoup(web_response.text, 'lxml')
             if soup.title.string == 'IGN Error 404 - Not Found':
                 return {
                     'article': article,
@@ -194,9 +194,11 @@ class ArchiverIGN:
         counter = 0
         batch_size = 10
         total_articles_to_archive = self.articles_manager.get_num_articles_to_archive(self.website_id)
+        start = time.time()
 
         while counter < total_articles_to_archive:
-            print(f'------------archiving... [{counter} / {total_articles_to_archive}]')
+            stats = self.utils.get_articles_per_second_and_time_remaining(start, counter, total_articles_to_archive)
+            print(f'------------archiving... [{counter} / {total_articles_to_archive}] | {stats["avg"]}/s  ({stats["remaining"]} remaining)')
             self.archive_queued_urls(batch_size, counter, total_articles_to_archive)
             counter += batch_size
 
