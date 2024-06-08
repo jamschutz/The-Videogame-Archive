@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-import requests
+from multiprocessing.dummy import Pool as ThreadPool
+import requests, time
 from Core.DB.ArticlesManager import ArticlesManager
 from Core.DB.WebsitesManager import WebsitesManager
 from Core.Utils import Utils
@@ -25,6 +26,15 @@ class ArchiverIGN:
         # article div info
         self.SUBTITLE_DIV_CLASS = 'title3'
         self.AUTHOR_DIV_CLASS = 'article-author'
+    
+
+    def get_article_type(self, soup):
+        article_section = soup.find('section', class_='article-section')
+
+        if 'review' in article_section['class']:
+            return 'review'
+        else:
+            return 'news'
 
 
 
@@ -46,7 +56,7 @@ class ArchiverIGN:
             if article.author is None:
                 article.author = soup.find('a', class_=self.AUTHOR_DIV_CLASS)
             article.author = article.author.text.strip()
-            article.type = 'review' if article.title.endswith('Review') else 'news'
+            article.type = self.get_article_type(soup)
             # NOTE: not getting thumbnail url because we stored that in the url indexing phase
 
             return article
@@ -82,16 +92,76 @@ class ArchiverIGN:
             
         # if we didn't find any, not a games article
         return False
+        
+    
+    def delete_non_games_articles(self, articles):
+        if len(articles) == 0:
+            return
+
+        print('---------------deleting the following articles...')
+        for article in articles:
+            print(article.url)
+        self.articles_manager.delete_articles(articles)
+        print('---------------done deleting')
     
 
-    def get_article_type(self, raw_html):
-        soup = BeautifulSoup(raw_html, 'lxml')
-        article_section = soup.find('section', class_='article-section')
+    def archive_article(self, article):
+        print(f'saving article {article.url} ({article.date})....')
+            
+        # download webpage
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
+        }
+        web_response = requests.get(article.url, headers=headers)
 
-        if 'review' in article_section['class']:
-            return 'review'
-        else:
-            return 'news'
+        # wait for throttle to end...
+        retry_count = 0
+        while not web_response.ok:
+            if retry_count > 5:
+                raise ValueError(f'unable to get article with url {article.url}...bailing')
+            
+            retry_count += 1
+            print(f'waiting for throttle to end...')
+            print(web_response.content)
+            print(web_response.headers)
+            time.sleep(2)
+            web_response = requests.get(article.url, headers=headers)
+
+            # if webpage is 404, just bail
+            soup = BeautifulSoup(web_response.text)
+            if soup.title.string == 'IGN Error 404 - Not Found':
+                return {
+                    'article': article,
+                    'delete': True
+                }
+
+        raw_html = web_response.text
+
+        # if this is not even a games article, flag for deletion
+        if not self.is_games_articles(raw_html):
+            return {
+                'article': article,
+                'delete': True
+            }
+
+        # get article data
+        article = self.get_article_data(article, raw_html)
+        # content = self.get_article_content(raw_html)
+        
+        # if None, something went wrong, just skip
+        if article != None:
+            # save to filepath
+            self.archiver.send_article_to_archive(article, raw_html, self.website_name, send_thumbnail=False)
+            # self.archiver.send_thumbnail_to_archive(article, self.website_name)
+            # self.search_indexer.index_article(content, article.id)
+
+            # and update its info in the DB
+            self.articles_manager.update_article(article)
+
+        return {
+            'article': article,
+            'delete': False
+        }
 
 
 
@@ -101,48 +171,23 @@ class ArchiverIGN:
         articles_to_archive = self.articles_manager.get_articles_to_archive(num_urls_to_archive, self.website_id)
 
         # and archive each one
-        counter = 1
         non_games_articles = []
-        for article in articles_to_archive:
-            print(f'saving article {article.url} ({article.date})....[{counter + counter_offset}/{actual_max}]')
-            
-            # download webpage
-            headers = {
-                'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
-            }
-            raw_html = requests.get(article.url, headers=headers).text
 
-            # if this is not even a games article, flag for deletion
-            if not self.is_games_articles(raw_html):
-                non_games_articles.append(article)
-                continue
-
-            # get article data
-            article = self.get_article_data(article, raw_html)
-            # content = self.get_article_content(raw_html)
-            
-            # if None, something went wrong, just skip
-            if article != None:
-                # save to filepath
-                self.archiver.send_article_to_archive(article, raw_html, self.website_name, send_thumbnail=False)
-                # self.archiver.send_thumbnail_to_archive(article, self.website_name)
-                # self.search_indexer.index_article(content, article.id)
-
-                # and update its info in the DB
-                self.articles_manager.update_article(article)
-
-            counter += 1
+        pool = ThreadPool(8)
+        results = pool.map(self.archive_article, articles_to_archive)
+        pool.close()
+        pool.join()
 
         # get list of articles that were succesfully archived
-        articles_archived_successfully = [a for a in articles_to_archive if a is not None]
+        articles_archived_successfully = [a['article'] for a in results if a['delete'] is False]
+        non_games_articles = [a['article'] for a in results if a['delete'] is True]
+        
+        # mark as archived in the db
+        self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
-        print('good articles below....')
-        print(articles_archived_successfully)
-        
-        print(f'NON GAMES ARTICLES: {[a.to_string() for a in non_games_articles]}')
-        
-        # # and mark as archived in the db
-        # self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
+        # and delete non-games articles...
+        self.delete_non_games_articles(non_games_articles)
+
 
 
     def archive_all_urls(self):
@@ -151,15 +196,32 @@ class ArchiverIGN:
         total_articles_to_archive = self.articles_manager.get_num_articles_to_archive(self.website_id)
 
         while counter < total_articles_to_archive:
+            print(f'------------archiving... [{counter} / {total_articles_to_archive}]')
             self.archive_queued_urls(batch_size, counter, total_articles_to_archive)
             counter += batch_size
+
+            # don't flood their server with requests..
+            time.sleep(1)
 
         print('done')
     
 if __name__ == '__main__':
     archiver = ArchiverIGN()
-    # archiver.archive_all_urls()
-    archiver.archive_queued_urls(38, 0, 38)
+    archiver.archive_all_urls()
+
+    # article = Article(
+    #     title="Krash Gets Krunched",
+    #     date=19971112,
+    #     url="https://www.ign.com/articles/1997/11/12/krash-gets-krunched",
+    #     id=685635
+    # )
+    # archiver.archive_article(article)
+
+
+    # start = time.time()
+    # archiver.archive_queued_urls(50, 0, 50)
+    # end = time.time()
+    # print(f'fetching articles took: {end - start} seconds')
 
     # urls = [
     #     'https://www.ign.com/articles/1996/10/01/the-history-of-mario',
