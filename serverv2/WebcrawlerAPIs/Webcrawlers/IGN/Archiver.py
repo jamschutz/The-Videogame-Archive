@@ -69,14 +69,19 @@ class ArchiverIGN:
 
     def is_games_articles(self, raw_html):
         soup = BeautifulSoup(raw_html, 'lxml')
-        article_tag = soup.find('a', class_='article-object-link')
+        article_tags = soup.find_all('a', class_='article-object-link')
 
         # if there's no tag, let's just assume it's a games article
-        if article_tag is None:
+        if article_tags is None or len(article_tags) == 0:
             return True
         
-        # otherwise, check the href, and it doesn't start with "/games/" then it's not a games article
-        return article_tag['href'].startswith('/games/')
+        # look for at least one games tag...
+        for tag in article_tags:
+            if tag['href'].startswith('/games/'):
+                return True
+            
+        # if we didn't find any, not a games article
+        return False
     
 
     def get_article_type(self, raw_html):
@@ -97,6 +102,7 @@ class ArchiverIGN:
 
         # and archive each one
         counter = 1
+        non_games_articles = []
         for article in articles_to_archive:
             print(f'saving article {article.url} ({article.date})....[{counter + counter_offset}/{actual_max}]')
             
@@ -105,6 +111,11 @@ class ArchiverIGN:
                 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
             }
             raw_html = requests.get(article.url, headers=headers).text
+
+            # if this is not even a games article, flag for deletion
+            if not self.is_games_articles(raw_html):
+                non_games_articles.append(article)
+                continue
 
             # get article data
             article = self.get_article_data(article, raw_html)
@@ -124,9 +135,14 @@ class ArchiverIGN:
 
         # get list of articles that were succesfully archived
         articles_archived_successfully = [a for a in articles_to_archive if a is not None]
+
+        print('good articles below....')
+        print(articles_archived_successfully)
         
-        # and mark as archived in the db
-        self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
+        print(f'NON GAMES ARTICLES: {[a.to_string() for a in non_games_articles]}')
+        
+        # # and mark as archived in the db
+        # self.articles_manager.mark_articles_as_archived(articles_archived_successfully)
 
 
     def archive_all_urls(self):
@@ -143,20 +159,21 @@ class ArchiverIGN:
 if __name__ == '__main__':
     archiver = ArchiverIGN()
     # archiver.archive_all_urls()
+    archiver.archive_queued_urls(38, 0, 38)
 
-    urls = [
-        'https://www.ign.com/articles/1996/10/01/the-history-of-mario',
-        'https://www.ign.com/articles/1996/09/24/lincoln-recaps-n64-price-drop',
-        'https://www.ign.com/articles/the-lord-of-the-rings-the-rings-of-power-season-2-debuts-a-new-character-that-could-have-major-canon-implications',
-        'https://www.ign.com/articles/wuthering-waves-review'
-    ]
-    headers = {
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
-    }
+    # urls = [
+    #     'https://www.ign.com/articles/1996/10/01/the-history-of-mario',
+    #     'https://www.ign.com/articles/1996/09/24/lincoln-recaps-n64-price-drop',
+    #     'https://www.ign.com/articles/the-lord-of-the-rings-the-rings-of-power-season-2-debuts-a-new-character-that-could-have-major-canon-implications',
+    #     'https://www.ign.com/articles/wuthering-waves-review'
+    # ]
+    # headers = {
+    #     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
+    # }
 
-    for url in urls:
-        html = requests.get(url, headers=headers).text
-        print(archiver.get_article_type(html))
+    # for url in urls:
+    #     html = requests.get(url, headers=headers).text
+    #     print(archiver.get_article_type(html))
     # # download webpage
     # print('getting html...')
     # headers = {
