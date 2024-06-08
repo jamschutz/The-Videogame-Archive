@@ -65,6 +65,28 @@ class ArchiverIGN:
             content += f' {paragraph.text}'
         
         return content
+    
+
+    def is_games_articles(self, raw_html):
+        soup = BeautifulSoup(raw_html, 'lxml')
+        article_tag = soup.find('a', class_='article-object-link')
+
+        # if there's no tag, let's just assume it's a games article
+        if article_tag is None:
+            return True
+        
+        # otherwise, check the href, and it doesn't start with "/games/" then it's not a games article
+        return article_tag['href'].startswith('/games/')
+    
+
+    def get_article_type(self, raw_html):
+        soup = BeautifulSoup(raw_html, 'lxml')
+        article_section = soup.find('section', class_='article-section')
+
+        if 'review' in article_section['class']:
+            return 'review'
+        else:
+            return 'news'
 
 
 
@@ -120,7 +142,21 @@ class ArchiverIGN:
     
 if __name__ == '__main__':
     archiver = ArchiverIGN()
-    archiver.archive_all_urls()
+    # archiver.archive_all_urls()
+
+    urls = [
+        'https://www.ign.com/articles/1996/10/01/the-history-of-mario',
+        'https://www.ign.com/articles/1996/09/24/lincoln-recaps-n64-price-drop',
+        'https://www.ign.com/articles/the-lord-of-the-rings-the-rings-of-power-season-2-debuts-a-new-character-that-could-have-major-canon-implications',
+        'https://www.ign.com/articles/wuthering-waves-review'
+    ]
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
+    }
+
+    for url in urls:
+        html = requests.get(url, headers=headers).text
+        print(archiver.get_article_type(html))
     # # download webpage
     # print('getting html...')
     # headers = {
