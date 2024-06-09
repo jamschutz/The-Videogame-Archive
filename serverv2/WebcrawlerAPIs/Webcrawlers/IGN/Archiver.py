@@ -123,7 +123,11 @@ class ArchiverIGN:
         retry_count = 0
         while not web_response.ok:
             if retry_count > 5:
-                raise ValueError(f'unable to get article with url {article.url}...bailing')
+                # hmm need to look into it further...
+                return {
+                    'article': None,
+                    'delete': False
+                }
             
             retry_count += 1
             print(f'waiting for throttle to end...')
