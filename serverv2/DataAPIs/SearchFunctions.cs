@@ -88,7 +88,7 @@ namespace VideoGameArchive
 
 
         [FunctionName("GetSearchResults")]
-        public static HttpResponseMessage GetSearchResults(
+        public static async Task<HttpResponseMessage> GetSearchResults(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -104,8 +104,17 @@ namespace VideoGameArchive
             // get articles
             var dbManager = new ArticlesManager();
 
+            // get results and total count in parallel
             int skip = (pageNumber - 1) * resultsPerPage;
-            var searchResults = dbManager.GetSearchResults(searchTerms, skip, resultsPerPage);
+            var searchResultsTask = Task.Run(() => dbManager.GetSearchResults(searchTerms, skip, resultsPerPage));
+            var totalCountTask = Task.Run(() => dbManager.GetSearchResultsTotalCount(searchTerms));
+
+            // wait for them to finish
+            await Task.WhenAll(searchResultsTask, totalCountTask);
+            
+            // store results
+            var searchResults = await searchResultsTask;
+            int totalResults = await totalCountTask;
 
             
             // // if only one search term, just store the one result
@@ -149,7 +158,7 @@ namespace VideoGameArchive
 
             // format and return
             var response = JsonConvert.SerializeObject(new GetSearchResultsResponse() {
-                TotalResults = dbManager.GetSearchResultsTotalCount(searchTerms),
+                TotalResults = totalResults,
                 Results = searchResults
             });
             return new HttpResponseMessage(HttpStatusCode.OK) {
