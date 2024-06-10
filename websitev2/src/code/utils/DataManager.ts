@@ -46,7 +46,7 @@ class DataManager {
 
 
     static async getSearchResults(searchRequest: SearchRequest): Promise<SearchResponse> {
-        let resultsPerPage = 250;
+        let resultsPerPage = 25;
         let page = 1;
         console.log(Config.API_BASE_URL);
         let searchResultsResponse = await fetch(`${Config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&page=${page}`, {

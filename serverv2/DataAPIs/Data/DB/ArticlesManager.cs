@@ -155,7 +155,7 @@ namespace VideoGameArchive.Data.DB
 
             for(int i = 0; i < searchTerms.Length; i++) {
                 // clean up search term, and set to lower
-                var token = searchTerms[i].Replace("'", "''").ToLower();
+                var token = searchTerms[i].ToLower();
                 
                 parameters.Add(new PostgresParameter<string>() {
                     name = $"token{i}",
@@ -202,7 +202,7 @@ namespace VideoGameArchive.Data.DB
 
             for(int i = 0; i < searchTerms.Length; i++) {
                 // clean up search term, and set to lower
-                var token = searchTerms[i].Replace("'", "''").ToLower();
+                var token = searchTerms[i].ToLower();
                 
                 parameters.Add(new PostgresParameter<string>() {
                     name = $"token{i}",

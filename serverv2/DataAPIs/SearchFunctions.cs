@@ -94,7 +94,7 @@ namespace VideoGameArchive
         {
             log.LogInformation("GetSearchResults processed a request.");
 
-            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ').Select(t => t.ToLower().StripPunctuation()).ToArray();
+            var searchTerms = ((string)req.Query["searchTerms"]).Split(' ');
             int resultsPerPage = int.Parse(req.Query["resultsPerPage"]);
             int pageNumber = int.Parse(req.Query["page"]);
             if(pageNumber < 1) pageNumber = 1;
