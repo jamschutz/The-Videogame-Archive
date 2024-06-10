@@ -23,6 +23,7 @@ files = [
     # components
     "components\\SearchResult.js",
     "components\\SearchBar.js",
+    "components\\Pager.js",
 
     # main
     "search.js"

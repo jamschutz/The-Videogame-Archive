@@ -1,4 +1,5 @@
 let se_searchBar = new SearchBar();
+let se_pager = new Pager();
 
 function sortByDate(a: Article, b: Article) {
     if (a.date.toNumber() < b.date.toNumber()) {
@@ -68,5 +69,8 @@ function showSearchResults(results: Article[]) {
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
         document.getElementById('Search-resultCount').innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
         showSearchResults(results.results);
+
+        // build pager
+        se_pager.init(Math.ceil(results.totalResults / 25));
     }
 })(window, document, undefined);

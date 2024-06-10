@@ -35,4 +35,15 @@ class UrlParser {
             return new SearchRequest('');
         }        
     }
+
+
+    static getPageNumber(): number {
+        let url = new URL(window.location.href);
+        let page = url.searchParams.get("page");
+
+        if(page == null)
+            return 1;
+
+        return parseInt(page);
+    }
 }
