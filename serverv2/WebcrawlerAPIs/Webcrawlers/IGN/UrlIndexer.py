@@ -8,7 +8,7 @@ from ..Eurogamer.helpers.utils import get_next_month, get_article_date
 import logging
 import requests
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
@@ -94,6 +94,19 @@ class UrlIndexerIGN:
             return None
         
 
+
+    def get_db_date_format(self, date_str):
+        if 'h ago' in date_str:
+            date_str = datetime.today().strftime('%b %d, %Y')
+        elif 'd ago' in date_str:
+            num_days_ago = int(date_str.split('d ago')[0])
+            adjusted_date = datetime.today() - timedelta(days = num_days_ago)
+            date_str = adjusted_date.strftime('%b %d, %Y')
+
+        date = datetime.strptime(date_str, '%b %d, %Y')
+        return date.year * 10000 + date.month * 100 + date.day
+        
+
 # NOTE: last date 5-21-2021
 
     def get_articles_from_html(self, raw_html, article_type):
@@ -115,8 +128,6 @@ class UrlIndexerIGN:
             title = article.find('span', class_='item-title').text.strip()
             subtitle = article.find('div', class_='item-subtitle').text.split(' - ')[1].strip()
             date = article.find('div', class_='item-publish-date').text.strip()
-            if 'ago' in date:
-                date = datetime.today().strftime('%m, %d %Y')
 
             thumbnail = article.find('div', class_='item-thumbnail').find('img')
             thumbnail_url = thumbnail['src']
@@ -126,6 +137,7 @@ class UrlIndexerIGN:
                 url=url,
                 title=title,
                 subtitle=subtitle,
+                date=self.get_db_date_format(date),
                 thumbnail_url=thumbnail_url,
                 thumbnail_alt=thumbnail_alt,
                 type=article_type,
