@@ -7,8 +7,13 @@ from ..Eurogamer.helpers.utils import get_next_month, get_article_date
 
 import logging
 import requests
+import time
 from datetime import datetime
 from bs4 import BeautifulSoup
+
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 
 # for sitemaps
 from dateutil import parser
@@ -88,8 +93,89 @@ class UrlIndexerIGN:
         except:
             return None
         
+
+# NOTE: last date 5-21-2021
+
+    def get_articles_from_html(self, raw_html, article_type):
+        # parse html
+        soup = BeautifulSoup(raw_html, 'lxml')
+
+        # find all article sections (there are multiple...ugh)
+        article_sections = soup.find_all('section', class_='main-content')
+
+        # for each section, get all the articles
+        article_divs = []
+        for section in article_sections:
+            article_divs.extend(section.find_all('a', class_='item-body'))
+
+        # and actually parse the articles
+        articles = []
+        for article in article_divs:
+            url = f"https://ign.com{article['href']}"
+            title = article.find('span', class_='item-title').text.strip()
+            subtitle = article.find('div', class_='item-subtitle').text.split(' - ')[1].strip()
+            date = article.find('div', class_='item-publish-date').text.strip()
+            if 'ago' in date:
+                date = datetime.today().strftime('%m, %d %Y')
+
+            thumbnail = article.find('div', class_='item-thumbnail').find('img')
+            thumbnail_url = thumbnail['src']
+            thumbnail_alt = thumbnail['alt']
+
+            articles.append(Article(
+                url=url,
+                title=title,
+                subtitle=subtitle,
+                thumbnail_url=thumbnail_url,
+                thumbnail_alt=thumbnail_alt,
+                type=article_type,
+                author=self.config.PLACEHOLDER_AUTHOR_ID,
+                website_id=self.website_id
+            ))
+
+        return articles
+
+        
+
             
 
+    def get_latest_articles(self, web_page):
+        # fetch web page
+        driver = webdriver.Firefox()
+        driver.get(f'https://www.ign.com/{web_page}')
+
+        # wait for page to load, give it 2 seconds
+        time.sleep(5)
+
+        # get screen height (so we know how much to scroll)
+        screen_height = driver.execute_script('return window.screen.height;')
+        scroll_amount = 1000
+        scroll_pause_time = 3
+
+        # scroll down page
+        num_scrolls = 1
+        while True:
+            # scroll
+            driver.execute_script(f"window.scrollTo(0, {screen_height}*{num_scrolls});".format(screen_height=scroll_amount, i=num_scrolls))
+
+            # wait to load
+            num_scrolls += 1
+            time.sleep(scroll_pause_time)
+
+            html_source = driver.page_source            
+            articles = self.get_articles_from_html(html_source.encode('utf-8'), web_page.split('/')[0])
+
+            print([a.to_string() for a in articles])
+
+            # # get scroll height
+            # scroll_height = driver.execute_script('return window.screen.height;')
+
+            # # if our predicted scroll height is greater than the actual, we're done scrolling
+            # if screen_height * num_scrolls > scroll_height:
+            #     break
+
+        # close driver
+        driver.quit()
 
         
 
@@ -97,19 +183,21 @@ class UrlIndexerIGN:
 
 if __name__ == '__main__':
     ign = UrlIndexerIGN()
-    sitemaps = [
-        # '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef8ad72718e6109f96d18.xml/sitemap-ign-article-5deef8ad72718e6109f96d18.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef75a72718e6109f6df4d.xml/sitemap-ign-article-5deef75a72718e6109f6df4d.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef99f72718e6109faf3b7.xml/sitemap-ign-article-5deef99f72718e6109faf3b7.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefaf372718e6109ff6515.xml/sitemap-ign-article-5deefaf372718e6109ff6515.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefb6372718e6109009f7b.xml/sitemap-ign-article-5deefb6372718e6109009f7b.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefc3d72718e61090162cc.xml/sitemap-ign-article-5deefc3d72718e61090162cc.xml',
-        '/_sandbox/ign-sitemaps/sitemap-ign-article-5ebbc03c72718e61090240b2.xml/sitemap-ign-article-5ebbc03c72718e61090240b2.xml'
-    ]
+    # sitemaps = [
+    #     # '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef8ad72718e6109f96d18.xml/sitemap-ign-article-5deef8ad72718e6109f96d18.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef75a72718e6109f6df4d.xml/sitemap-ign-article-5deef75a72718e6109f6df4d.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deef99f72718e6109faf3b7.xml/sitemap-ign-article-5deef99f72718e6109faf3b7.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml/sitemap-ign-article-5deefa0a72718e6109fd3da5.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefaf372718e6109ff6515.xml/sitemap-ign-article-5deefaf372718e6109ff6515.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefb6372718e6109009f7b.xml/sitemap-ign-article-5deefb6372718e6109009f7b.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5deefc3d72718e61090162cc.xml/sitemap-ign-article-5deefc3d72718e61090162cc.xml',
+    #     '/_sandbox/ign-sitemaps/sitemap-ign-article-5ebbc03c72718e61090240b2.xml/sitemap-ign-article-5ebbc03c72718e61090240b2.xml'
+    # ]
 
-    for sitemap in sitemaps:
-        ign.add_urls_from_sitemap(sitemap)
+    # for sitemap in sitemaps:
+    #     ign.add_urls_from_sitemap(sitemap)
+
+    ign.get_latest_articles('reviews/games')
 
     # arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # skip = 0

@@ -1,5 +1,5 @@
 class Article:
-    def __init__(self, id=None, author="", url='', type='', title='', subtitle='', website_id=None, date=None, thumbnail_url=None, tags=[], author_id=None, type_id=None, thumbnail_filename=None):
+    def __init__(self, id=None, author="", url='', type='', title='', subtitle='', website_id=None, date=None, thumbnail_url=None, tags=[], author_id=None, type_id=None, thumbnail_filename=None, thumbnail_alt=''):
         self.author = author
         self.url = url
         self.type = type
@@ -13,6 +13,7 @@ class Article:
         self.author_id = author_id
         self.type_id = type_id
         self.thumbnail_filename = thumbnail_filename
+        self.thumbnail_alt = thumbnail_alt
 
 
     def to_string(self):
@@ -23,10 +24,9 @@ class Article:
             'date': self.date,
             'author': self.author,
             'type': self.type,
-            'author_id': self.author_id,
-            'type_id': self.type_id,
             'website_id': self.website_id,
-            'thumbnail_url': self.thumbnail_url
+            'thumbnail_url': self.thumbnail_url,
+            'thumbnail_alt': self.thumbnail_alt
         }
 
 

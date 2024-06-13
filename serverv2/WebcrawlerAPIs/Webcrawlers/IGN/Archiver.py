@@ -31,7 +31,7 @@ class ArchiverIGN:
     def get_article_type(self, soup):
         article_section = soup.find('section', class_='article-section')
 
-        if 'review' in article_section['class']:
+        if article_section is not None and 'review' in article_section['class']:
             return 'review'
         else:
             return 'news'
