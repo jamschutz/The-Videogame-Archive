@@ -1,4 +1,4 @@
-class SearchRequest {
+export class SearchRequest {
     public searchTerms: string[];
 
     constructor(searchTerms: string | string[]) {

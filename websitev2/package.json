@@ -14,7 +14,13 @@
     "eleventyDebugBuild": "set ENVIRONMENT=prod & set DEBUG=Eleventy* & eleventy > debug.txt 2>&1",
     "typescriptDev": "tsc --watch",
     "typescriptBuild": "python ./buildTools/typeScriptWatcher.py",
-    "clean": "rmdir /s _site"
+    "clean": "rmdir /s _site",
+
+    "dev:site": "set ENVIRONMENT=dev & eleventy --serve",
+    "dev:assets": "webpack --config webpack.config.dev.js",
+
+    "prod:site": "set ENVIRONMENT=prod & eleventy",
+    "prod:assets": "webpack --config webpack.config.prod.js"
   },
   "author": "Joey Schutz",
   "license": "ISC",
@@ -32,5 +38,10 @@
   },
   "overrides": {
     "semver": ">=7.5.2"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   }
 }

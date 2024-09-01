@@ -1,4 +1,12 @@
-class DataManager {
+import { Config } from "./Config";
+import { Utils } from "./Utils";
+import { CalendarDate } from "../entities/CalendarDate";
+import { Article } from "../entities/Article";
+import { GetArticleCountResponse } from "../responses/GetArticleCountResponse";
+import { SearchRequest } from "../requests/SearchRequest";
+import { SearchResponse } from "../responses/SearchResponse";
+
+export class DataManager {
     constructor() {
         // do nothing
     }

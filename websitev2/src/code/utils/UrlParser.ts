@@ -1,4 +1,7 @@
-class UrlParser {
+import { CalendarDate } from "../entities/CalendarDate";
+import { SearchRequest } from "../requests/SearchRequest";
+
+export class UrlParser {
     constructor() {
         // do nothing
     }

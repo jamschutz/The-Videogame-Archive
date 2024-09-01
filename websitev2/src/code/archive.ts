@@ -1,3 +1,8 @@
+import { SearchBar } from "./components/SearchBar";
+import { Calendar } from "./components/Calendar";
+import { UrlParser } from "./utils/UrlParser";
+import { CalendarDate } from "./entities/CalendarDate";
+
 // --- declare components --- //
 var searchBar = new SearchBar();
 var calendar = new Calendar();
@@ -31,16 +36,26 @@ function applyFilters() {
     // apply website filters
     for(let i = 0; i < websiteFilters.length; i++) {
         let website = websiteFilters.item(i) as HTMLElement;
-        let websiteName = website.getAttribute('name').trim();
+        let websiteName = website.getAttribute('name');
+        if(websiteName == undefined)
+            continue;
+        websiteName = websiteName.trim();
         
         let websiteColumn = document.getElementById(`Archive-websiteColumn${websiteName}`);
+        if(websiteColumn == undefined) {
+            console.error(`unable to find website column for website: ${websiteName}`);
+            continue;
+        }
         websiteColumn.style.display = (website as HTMLInputElement).checked? 'block' : 'none';
     }
     
     // apply article type filters
     for(let i = 0; i < articleTypeFilters.length; i++) {
         let articleType = articleTypeFilters.item(i) as HTMLElement;
-        let articleTypeName = articleType.getAttribute('name').trim();
+        let articleTypeName = articleType.getAttribute('name');
+        if(articleTypeName == undefined)
+            continue;
+        articleTypeName = articleTypeName.trim();
 
         // hide all articles of type
         let articlesOfType = document.getElementsByClassName(`Archive-article${articleTypeName}`);
@@ -77,7 +92,7 @@ function toggleSelectAllArticleTypes() {
 
 
 // moveable website columns
-function handleDragStart(e) {
+function handleDragStart(this: any, e: any) {
     console.log('drag start');
     selectedColumn = this.parentNode;
     selectedColumn.style.opacity = '0.4';
@@ -85,17 +100,17 @@ function handleDragStart(e) {
     e.dataTransfer.effectAllowed = 'move';
 }
 
-function handleDragEnd(e) {
+function handleDragEnd(e: any) {
     selectedColumn.style.opacity = '1';
 }
 
-function handleDragOver(e) {
+function handleDragOver(e : any) {
     console.log('drag over');
     e.preventDefault();
     return false;
 }
 
-function handleDragEnter(e) {
+function handleDragEnter(this: any, e: any) {
     console.log('drag enter');
     if (selectedColumn !== this.parentNode) {
         // swap flex order of columns
@@ -105,10 +120,10 @@ function handleDragEnter(e) {
     }
 }
 
-function handleDragLeave(e) {
+function handleDragLeave(e: any) {
 }
 
-function handleDrop(e) {
+function handleDrop(e: any) {
     console.log('drag leave');
     e.stopPropagation(); // stops the browser from redirecting.
     return false;

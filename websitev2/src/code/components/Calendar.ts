@@ -1,4 +1,8 @@
-class Calendar {
+import { CalendarDate } from "../entities/CalendarDate";
+import { UrlParser } from "../utils/UrlParser";
+import { DataManager } from "../utils/DataManager";
+
+export class Calendar {
     public date: CalendarDate;
     public datesWithArticles: { [id: number]: boolean };
 
@@ -33,6 +37,9 @@ class Calendar {
     public async updateHtml(): Promise<void> {
         // grab container
         let containerDiv = document.getElementById(Calendar.CALENDAR_ID);
+        if(containerDiv == undefined)
+            return;
+
         // clear current contents
         containerDiv.innerHTML = "";
 
@@ -86,8 +93,12 @@ class Calendar {
     // =================================================== //
 
 
-    private async getDates(): Promise<HTMLElement> {
+    private async getDates(): Promise<HTMLElement | null> {
         let container = document.getElementById(Calendar.CALENDAR_ID);
+        if(container == undefined) {
+            console.error('unable to find calendar by ID in page');
+            return null;
+        }
         container.id = Calendar.CALENDAR_ID;
 
         // create weekday header
