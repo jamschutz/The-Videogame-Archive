@@ -80,31 +80,31 @@ async function updateDatesWithArticles(environment, dstDir) {
 
     console.log('getting dates with articles...');
     let today = getTodaysString();
-    let response = await fetch(`${apiBaseUrl}/DatesWithArticles?start=1&end=${today}`);
+    // let response = await fetch(`${apiBaseUrl}/DatesWithArticles?start=1&end=${today}`);
 
-    let datesWithArticles = await response.json();
-    if (!fs.existsSync(`${dstDir}/data`)){
-        fs.mkdirSync(`${dstDir}/data`);
-    }
+    // let datesWithArticles = await response.json();
+    // if (!fs.existsSync(`${dstDir}/data`)){
+    //     fs.mkdirSync(`${dstDir}/data`);
+    // }
 
-    // create write stream
-    var writeStream = fs.createWriteStream(`${dstDir}/data/datesWithArticles.json`);
+    // // create write stream
+    // var writeStream = fs.createWriteStream(`${dstDir}/data/datesWithArticles.json`);
 
-    // and write out the articles
-    writeStream.write(`[${datesWithArticles.join(',')}]`);
+    // // and write out the articles
+    // writeStream.write(`[${datesWithArticles.join(',')}]`);
 
-    // the finish event is emitted when all data has been flushed from the stream
-    writeStream.on('finish', () => {
-        console.log(`wrote all the array dates with articles`);
-    });
+    // // the finish event is emitted when all data has been flushed from the stream
+    // writeStream.on('finish', () => {
+    //     console.log(`wrote all the array dates with articles`);
+    // });
 
-    // handle the errors on the write process
-    writeStream.on('error', (err) => {
-        console.error(`There is an error writing dates with articles => ${err}`)
-    });
+    // // handle the errors on the write process
+    // writeStream.on('error', (err) => {
+    //     console.error(`There is an error writing dates with articles => ${err}`)
+    // });
 
-    // close the stream
-    writeStream.end();
+    // // close the stream
+    // writeStream.end();
 }
 
 function getTodaysString() {
