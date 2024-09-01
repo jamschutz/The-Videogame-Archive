@@ -108,6 +108,8 @@ class UrlIndexerIGN:
         
 
 # NOTE: last date 5-21-2021
+# last on /playstation: feb 29, 2024
+# last on /xbox: february 8, 2024
 
     def get_articles_from_html(self, raw_html, article_type):
         # parse html
@@ -151,7 +153,7 @@ class UrlIndexerIGN:
 
             
 
-    def get_latest_articles(self, web_page):
+    def get_latest_articles(self, web_page, article_type):
         # fetch web page
         driver = webdriver.Firefox()
         driver.get(f'https://www.ign.com/{web_page}')
@@ -162,7 +164,7 @@ class UrlIndexerIGN:
         # get screen height (so we know how much to scroll)
         screen_height = driver.execute_script('return window.screen.height;')
         scroll_amount = 1000
-        scroll_pause_time = 3
+        scroll_pause_time = 5
 
         # scroll down page
         num_scrolls = 1
@@ -174,10 +176,10 @@ class UrlIndexerIGN:
             num_scrolls += 1
             time.sleep(scroll_pause_time)
 
-            html_source = driver.page_source            
-            articles = self.get_articles_from_html(html_source.encode('utf-8'), web_page.split('/')[0])
+            # html_source = driver.page_source            
+            # articles = self.get_articles_from_html(html_source.encode('utf-8'), article_type)
 
-            print([a.to_string() for a in articles])
+            # print([a.to_string() for a in articles])
 
             # # get scroll height
             # scroll_height = driver.execute_script('return window.screen.height;')
@@ -209,7 +211,7 @@ if __name__ == '__main__':
     # for sitemap in sitemaps:
     #     ign.add_urls_from_sitemap(sitemap)
 
-    ign.get_latest_articles('reviews/games')
+    ign.get_latest_articles('news', 'news')
 
     # arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # skip = 0
