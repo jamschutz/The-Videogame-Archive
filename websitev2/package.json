@@ -4,16 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel eleventyDev typescriptDev",
-    "test": "npm-run-all --parallel eleventyTest typescriptDev",
-    "build": "npm-run-all eleventyBuild typescriptBuild",
-    "debugBuild": "npm-run-all eleventyDebugBuild typescriptBuild",
-    "eleventyDev": "set ENVIRONMENT=dev & eleventy --serve",
-    "eleventyTest": "set ENVIRONMENT=test & eleventy --serve",
-    "eleventyBuild": "set ENVIRONMENT=prod & eleventy",
-    "eleventyDebugBuild": "set ENVIRONMENT=prod & set DEBUG=Eleventy* & eleventy > debug.txt 2>&1",
-    "typescriptDev": "tsc --watch",
-    "typescriptBuild": "python ./buildTools/typeScriptWatcher.py",
+    "start": "npm-run-all --parallel dev:site dev:assets",
+    "build": "npm-run-all prod:site prod:assets",
     "clean": "rmdir /s _site",
 
     "dev:site": "set ENVIRONMENT=dev & eleventy --serve",
