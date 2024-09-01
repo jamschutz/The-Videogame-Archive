@@ -1,4 +1,6 @@
-class Pager {
+import { UrlParser } from "../utils/UrlParser";
+
+export class Pager {
     constructor() {
         
     }
@@ -28,6 +30,10 @@ class Pager {
         }
 
         let container = document.getElementById("Pager-listContainer");
+        if(container == undefined) {
+            console.error('unable to find page container');
+            return;
+        }
         for(let page = smallestPage; page <= largestPage; page++) {
             container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
         }

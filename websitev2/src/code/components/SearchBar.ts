@@ -1,4 +1,6 @@
-class SearchBar {
+import { UrlParser } from "../utils/UrlParser";
+
+export class SearchBar {
     constructor() {
         
     }

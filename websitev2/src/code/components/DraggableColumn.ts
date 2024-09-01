@@ -1,4 +1,4 @@
-class DraggableColumn {
+export class DraggableColumn {
     constructor() {
         
     }

@@ -1,3 +1,10 @@
+import { SearchBar } from "./components/SearchBar";
+import { Pager } from "./components/Pager";
+import { Article } from "./entities/Article";
+import { SearchResult } from "./components/SearchResult";
+import { UrlParser } from "./utils/UrlParser";
+import { DataManager } from "./utils/DataManager";
+
 let se_searchBar = new SearchBar();
 let se_pager = new Pager();
 
@@ -17,8 +24,18 @@ function showSearchResults(results: Article[]) {
 
     // hide progress bar
     let progressBar = document.getElementById('Search-progressBar');
-    progressBar.style.display = 'none';
+    if(progressBar == undefined) {
+        console.error('unable to find progress bar on page...')
+    }
+    else {
+        progressBar.style.display = 'none';
+    }
+    
     let containerDiv = document.getElementById('Search-resultsContainer');
+    if(containerDiv == undefined) {
+        console.error('unable to find search results container...bailing');
+        return;
+    }
         
     // if no articles for this day, just say so
     if(results.length === 0) {
@@ -55,7 +72,13 @@ function showSearchResults(results: Article[]) {
         if(searchRequest.isEmpty()) {
             // hide progress bar
             let progressBar = document.getElementById('Search-progressBar');
-            progressBar.style.display = 'none';
+            if(progressBar == undefined) {
+                console.error('unable to find progress bar');
+            }
+            else {
+                progressBar.style.display = 'none';
+            }
+            
             let containerDiv = document.getElementById('Search-resultsContainer');
 
             // and bail
@@ -67,7 +90,14 @@ function showSearchResults(results: Article[]) {
         let results = await DataManager.getSearchResults(searchRequest);
         console.log('got results');
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
-        document.getElementById('Search-resultCount').innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+        let searchResultTimer = document.getElementById('Search-resultCount');
+        if(searchResultTimer == undefined) {
+            console.error('unable to find Search-resultCount');
+        }
+        else {
+            searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+        }
+        
         showSearchResults(results.results);
 
         // build pager

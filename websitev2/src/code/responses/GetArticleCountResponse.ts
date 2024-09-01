@@ -1,17 +1,19 @@
-class GetArticleCountResponse {
+import { CalendarDate } from "../entities/CalendarDate";
+
+export class GetArticleCountResponse {
     public data : ArticleCountData[]
 
     constructor(jsonData: JSON) {
         this.data = [];
         for(const key in jsonData) {
-            let articleCount = jsonData[key];
-            this.data.push(new ArticleCountData(articleCount['date'], articleCount['count']));
+            let articleCount = jsonData[key as keyof JSON] as unknown as {};
+            this.data.push(new ArticleCountData(articleCount['date' as keyof {}], articleCount['count' as keyof {}]));
         }
     }
 }
 
 
-class ArticleCountData {
+export class ArticleCountData {
     public count : number;
     public date : CalendarDate;
 

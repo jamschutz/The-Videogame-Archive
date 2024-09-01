@@ -1,4 +1,8 @@
-class SearchResult {
+import { Utils } from "../utils/Utils";
+import { Config } from "../utils/Config";
+import { Article } from "../entities/Article";
+
+export class SearchResult {
     public article: Article;
 
     constructor(article: Article) {

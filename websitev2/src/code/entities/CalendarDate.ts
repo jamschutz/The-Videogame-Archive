@@ -1,4 +1,6 @@
-class CalendarDate {
+import { Utils } from "./../utils/Utils"
+
+export class CalendarDate {
     public year : number;
     public month : number;
     public day : number; 
@@ -104,6 +106,8 @@ class CalendarDate {
             case 11: return 30;
             case 12: return 31;
         }
+
+        return 30;
     }
 
 
@@ -151,5 +155,7 @@ class CalendarDate {
             case 11: return 'November';
             case 12: return 'December';
         }
+
+        return "UNKNOWN MONTH";
     }
 }
