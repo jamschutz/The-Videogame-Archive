@@ -1,7 +1,11 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/code/entry.ts',
+    entry: {
+        index: './src/code/index.ts',
+        archive: './src/code/archive.ts',
+        search: './src/code/search.ts'
+    },
     module: {
         rules: [
             {
@@ -15,7 +19,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-        filename: 'webpack.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '_site/code')
     }
 }
