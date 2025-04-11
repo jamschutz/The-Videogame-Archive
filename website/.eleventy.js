@@ -6,7 +6,8 @@ const { POSTGRES_CONNECTION_STRING } = require("./buildTools/secrets");
 
 module.exports = function(eleventyConfig) {
     // -- constants --
-    const buildEnvironment = process.env.ENVIRONMENT.trim();
+    const BUILD_ENVIRONMENT = process.env.ENVIRONMENT.trim();
+    const TARGET_YEAR = BUILD_ENVIRONMENT == 'prod'? process.env.YEAR : null;
     const srcDir = "src"
     const dstDir = "_site"
     
@@ -16,7 +17,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy('img');
 
     // ---- handle article injection ---- //
-    switch(buildEnvironment) {
+    switch(BUILD_ENVIRONMENT) {
         case "dev":
             console.log("DEV BUILD");
             eleventyConfig.addCollection("articleArchives", async () => 
@@ -31,7 +32,7 @@ module.exports = function(eleventyConfig) {
         case "prod":
             console.log("PROD BUILD");
             eleventyConfig.addCollection("articleArchives", async () => 
-                getProdArticles()
+                getProdArticles(TARGET_YEAR)
             );
             break;
 
@@ -49,7 +50,7 @@ module.exports = function(eleventyConfig) {
     })
     
     // update dates with articles -- don't await
-    updateDatesWithArticles(buildEnvironment, dstDir);
+    updateDatesWithArticles(BUILD_ENVIRONMENT, dstDir);
 
 
     return {
@@ -107,6 +108,13 @@ async function updateDatesWithArticles(environment, dstDir) {
     // writeStream.end();
 }
 
+async function getWebsites() {
+    let response = await fetch('http://localhost:7070/api/GetWebsites');
+    let websites = await response.json();
+    console.log(websites);
+    return websites;
+}
+
 function getTodaysString() {
     let today = new Date()
     var dd = String(today.getDate()).padStart(2, '0');
@@ -130,7 +138,6 @@ async function getArticlesForDate(year, month) {
 
     let articleResponse = await fetch(`http://localhost:7070/api/GetArticles?date=${dateNum + 1}&endDate=${dateNum + 31}`);
     let articles = await articleResponse.json();
-    console.log(articles);
 
     let monthResults = []
     for(let day = 1; day <= daysInMonth(month, year); day++) {
@@ -144,7 +151,9 @@ async function getArticlesForDate(year, month) {
                 'Gameplanet': [],
                 'JayIsGames': [],
                 'TIGSource': [],
-                'Indygamer': []
+                'Indygamer': [],
+                "IGN": [],
+                "Rock Paper Shotgun": []
             }
         });
     }
@@ -161,7 +170,6 @@ async function getArticlesForDate(year, month) {
         };
         
         let articleWebsite = article['website'];
-        console.log(article['website']);
         monthResults[dayPublished - 1]['articles'][articleWebsite].push(articleInfo);
     });
 
@@ -169,29 +177,17 @@ async function getArticlesForDate(year, month) {
 }
 
 
-async function getProdArticles() {
-    let startMonth = 9;
-    let startYear = 1996;
-    let endMonth = 9;
-    let endYear = 1996;
+async function getProdArticles(targetYear) {
+    // the earliest date we have for now is 05/1996
+    // TODO: pull this dynamically from the database
+    let startMonth = targetYear == 1996? 5 : 1;
+    // note that getMonth is zero-based, so add 1 to it
+    let endMonth = targetYear == new Date().getFullYear()? new Date().getMonth() + 1 : 12;
 
-    let month = startMonth;
-    let year = startYear;
-
-    console.log('getting prod articles....');    
     let results = [];
-    while(year <= endYear) {
-        let maxMonth = year === endYear? endMonth : 12;
-        while(month <= maxMonth) {
-            let articles = await getArticlesForDate(year, month);
-            console.log('here1');
-            results.push(...articles);
-            console.log('here2');
-            month++;
-        }
-        
-        month = 1;
-        year++;
+    for(let month = startMonth; month <= endMonth; month++) {
+        let articles = await getArticlesForDate(targetYear, month);
+        results.push(...articles);
     }
 
     return results;
