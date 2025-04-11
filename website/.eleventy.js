@@ -18,23 +18,23 @@ module.exports = function(eleventyConfig) {
     // ---- handle article injection ---- //
     switch(buildEnvironment) {
         case "dev":
-            // handle dev...
             console.log("DEV BUILD");
             eleventyConfig.addCollection("articleArchives", async () => 
                 getDevArticles()
             );
             break;
+
         case "test":
-            // handle test...
             console.log("TEST BUILD");
             break;
+
         case "prod":
-            // handle prod...
             console.log("PROD BUILD");
             eleventyConfig.addCollection("articleArchives", async () => 
                 getProdArticles()
             );
             break;
+
         default:
             // do something else..?
             console.log("NO ENVIRONMENT SPECIFIED");
@@ -124,14 +124,13 @@ function getTodaysString() {
 function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
-function getArticlesForDate(year, month) {
+async function getArticlesForDate(year, month) {
     console.log(`getting articles for ${month}/${year}...`);
+    let dateNum = year * 10000 + month * 100;
 
-    let websites = ["GameSpot", "Eurogamer", "Gameplanet", "JayIsGames", "TIGSource", "Indygamer"];
-    let dateFileNumber = year * 10000 + month * 100;
-
-    let data = fs.readFileSync(`${__dirname}\\buildTools\\articlesByDate\\${dateFileNumber}.json`, 'utf8');
-    let articles = JSON.parse(data);
+    let articleResponse = await fetch(`http://localhost:7070/api/GetArticles?date=${dateNum + 1}&endDate=${dateNum + 31}`);
+    let articles = await articleResponse.json();
+    console.log(articles);
 
     let monthResults = []
     for(let day = 1; day <= daysInMonth(month, year); day++) {
@@ -162,6 +161,7 @@ function getArticlesForDate(year, month) {
         };
         
         let articleWebsite = article['website'];
+        console.log(article['website']);
         monthResults[dayPublished - 1]['articles'][articleWebsite].push(articleInfo);
     });
 
@@ -170,32 +170,31 @@ function getArticlesForDate(year, month) {
 
 
 async function getProdArticles() {
-    return new Promise(resolve => {
-        let startMonth = 5;
-        let startYear = 1996;
-        let endMonth = 12;
-        let endYear = 2015;
+    let startMonth = 9;
+    let startYear = 1996;
+    let endMonth = 9;
+    let endYear = 1996;
 
-        let month = startMonth;
-        let year = startYear;
+    let month = startMonth;
+    let year = startYear;
 
-        console.log('getting prod articles....');    
-        let results = [];
-        while(year <= endYear) {
-            let maxMonth = year === endYear? endMonth : 12;
-            while(month <= maxMonth) {
-                let articles = getArticlesForDate(year, month);
-                articles.forEach(a => {
-                    results.push(a);
-                });
-                month++;
-            }
-            
-            month = 1;
-            year++;
+    console.log('getting prod articles....');    
+    let results = [];
+    while(year <= endYear) {
+        let maxMonth = year === endYear? endMonth : 12;
+        while(month <= maxMonth) {
+            let articles = await getArticlesForDate(year, month);
+            console.log('here1');
+            results.push(...articles);
+            console.log('here2');
+            month++;
         }
-        resolve(results);
-    });
+        
+        month = 1;
+        year++;
+    }
+
+    return results;
 }
 
 

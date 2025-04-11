@@ -55,6 +55,23 @@ namespace VideoGameArchive
                 Content = new StringContent(response, Encoding.UTF8, "application/json")
             };
         }
+        [FunctionName("GetWebsites")]
+        public static HttpResponseMessage GetWebsites(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("GetWebsites processed a request.");
+
+            // get articles from db
+            var db = new WebsitesManager();
+            var websites = db.GetWebsites();
+
+            // format and return
+            var response = JsonConvert.SerializeObject(websites);
+            return new HttpResponseMessage(HttpStatusCode.OK) {
+                Content = new StringContent(response, Encoding.UTF8, "application/json")
+            };
+        }
 
 
         [FunctionName("GetArticlesForIds")]
