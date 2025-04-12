@@ -109,7 +109,7 @@ async function updateDatesWithArticles(environment, dstDir) {
 }
 
 async function getWebsites() {
-    let response = await fetch('http://localhost:7070/api/GetWebsites');
+    let response = await fetch('http://localhost:5000/GetWebsites');
     let websites = await response.json();
     console.log(websites);
     return websites;
@@ -136,7 +136,7 @@ async function getArticlesForDate(year, month) {
     console.log(`getting articles for ${month}/${year}...`);
     let dateNum = year * 10000 + month * 100;
 
-    let articleResponse = await fetch(`http://localhost:7070/api/GetArticles?date=${dateNum + 1}&endDate=${dateNum + 31}`);
+    let articleResponse = await fetch(`http://localhost:5000/GetArticles?date=${dateNum + 1}&endDate=${dateNum + 31}`);
     let articles = await articleResponse.json();
 
     let monthResults = []
