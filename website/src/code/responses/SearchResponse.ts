@@ -7,9 +7,9 @@ export class SearchResponse {
 
     constructor(jsonData: {}) {
         console.log(jsonData);
-        this.totalResults = jsonData['TotalResults' as keyof {}];
+        this.totalResults = jsonData['totalResults' as keyof {}];
         this.results = [];
-        (jsonData['Results' as keyof {}] as []).forEach(d => {
+        (jsonData['results' as keyof {}] as []).forEach(d => {
             let article = new Article();
             article.date = CalendarDate.fromDateString(d['datePublished']);
             article.title = d['title'];
