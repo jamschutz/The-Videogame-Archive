@@ -1,3 +1,4 @@
+var AllowLocalConnections = "allowLocalConnections";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// add CORS policy
+builder.Services.AddCors(options => {
+    options.AddPolicy(
+        name: AllowLocalConnections,
+        policy => {
+            policy.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost").AllowAnyHeader().AllowAnyMethod();
+            // policy.WithOrigins("http://localhost:8080");
+        }
+    );
+});
 
 var app = builder.Build();
 
@@ -15,6 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors(AllowLocalConnections);
 
 app.UseAuthorization();
 
