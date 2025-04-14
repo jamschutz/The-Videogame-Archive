@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel dev:site dev:assets",
-    "build": "npm-run-all prod:site prod:assets",
+    "build": "run-script-os",
+    "build:windows": "npm-run-all prod:site:windows prod:assets",
+    "build:nix": "npm-run-all prod:site:nux prod:assets",
     "clean": "rmdir /s _site",
-
+    
     "dev:site": "set ENVIRONMENT=dev & eleventy --serve",
     "dev:assets": "webpack --config webpack.config.dev.js",
 
-    "prod:site": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./buildTools/buildWebsite.ps1",
+    "prod:site:windows": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./buildTools/buildWebsite_windows.ps1",
+    "prod:site:nix": "./buildTools/buildWebsite_linux.sh",
     "prod:assets": "webpack --config webpack.config.prod.js"
   },
   "author": "Joey Schutz",
@@ -26,6 +29,7 @@
     "pg": "^8.12.0",
     "postcss-import": "^15.1.0",
     "postcss-simple-vars": "^7.0.1",
+    "run-script-os": "^1.1.6",
     "typescript": "^5.1.6"
   },
   "overrides": {
