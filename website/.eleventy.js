@@ -9,7 +9,7 @@ module.exports = function(eleventyConfig) {
     const BUILD_ENVIRONMENT = process.env.ENVIRONMENT.trim();
     const TARGET_YEAR = BUILD_ENVIRONMENT == 'prod'? process.env.YEAR : null;
     const srcDir = "src"
-    const dstDir = "_site"
+    const dstDir = BUILD_ENVIRONMENT == 'dev'? '_site' : (process.env.OS.trim() == 'windows'? '_site' : '/srv/www');
     
 
     // -- assets --
