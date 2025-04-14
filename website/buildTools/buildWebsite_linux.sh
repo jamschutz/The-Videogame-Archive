@@ -1,4 +1,4 @@
-export ENVIRONMENT ='prod'
+export ENVIRONMENT='prod'
 export OS='linux'
 export currentYear=$(date +%Y)
 
