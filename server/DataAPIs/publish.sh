@@ -1,2 +1,2 @@
-export DOTNET_BUNDLE_EXTRACT_BASE_DIR='/srv/backend/article-apis/bin'
-dotnet publish --configuration Release -r linux-x64 -o /srv/backend/article-apis
+dotnet publish --configuration Release -r linux-x64
+cp /home/vga/the-videogame-archive/server/DataAPIs/bin/Release/net9.0/linux-x64 /srv/backend/article-apis
