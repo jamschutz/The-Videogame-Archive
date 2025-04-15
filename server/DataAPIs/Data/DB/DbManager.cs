@@ -18,12 +18,12 @@ namespace VideoGameArchive.Data.DB
         public DbManager()
         {
             connectionString = String.Format(
-                "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                "Server={0};Port={1};User Id={2};Password={3};Database={4}",
                 Secrets.PostgresHost,
-                Secrets.PostgresUser,
-                Secrets.PostgresDbName,
                 Secrets.PostgresPort,
-                Secrets.PostgresPassword
+                Secrets.PostgresUser,
+                Secrets.PostgresPassword,
+                Secrets.PostgresDbName
             );
         }
 
