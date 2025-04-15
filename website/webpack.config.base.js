@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     entry: {
         index: './src/code/index.ts',
@@ -17,9 +15,5 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, '_site/code')
     }
 }
