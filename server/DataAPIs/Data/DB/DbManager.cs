@@ -25,6 +25,8 @@ namespace VideoGameArchive.Data.DB
                 Secrets.PostgresPassword,
                 Secrets.PostgresDbName
             );
+
+            Console.WriteLine($"connection string: {connectionString}");
         }
 
 
