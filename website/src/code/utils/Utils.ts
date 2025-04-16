@@ -55,6 +55,8 @@ export class Utils {
         if(websiteId === 4) return 'JayIsGames';
         if(websiteId === 5) return 'TIGSource';
         if(websiteId === 6) return 'Indygamer';
+        if(websiteId === 7) return 'Rock Paper Shotgun';
+        if(websiteId === 8) return 'IGN';
         
         return 'Unknown';
     }
@@ -67,6 +69,8 @@ export class Utils {
         if(websiteName === 'JayIsGames') return 4;
         if(websiteName === 'TIGSource')  return 5;
         if(websiteName === 'Indygamer') return 6;
+        if(websiteName === 'Rock Paper Shotgun') return 7;
+        if(websiteName === 'IGN') return 8;
 
         return -1;
     }

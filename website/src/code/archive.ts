@@ -2,10 +2,13 @@ import { SearchBar } from "./components/SearchBar";
 import { Calendar } from "./components/Calendar";
 import { UrlParser } from "./utils/UrlParser";
 import { CalendarDate } from "./entities/CalendarDate";
+import { WebsiteBitfield } from "./utils/WebsiteBitfield";
+import { Utils } from "./utils/Utils";
 
 // --- declare components --- //
 var searchBar = new SearchBar();
 var calendar = new Calendar();
+var activeWebsiteManager = new WebsiteBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 
@@ -129,6 +132,21 @@ function handleDrop(e: any) {
     return false;
 }
 
+function hideInactiveWebsites() {
+    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
+    for(let i = 1; i <= 8; i++) {
+        if(!activeWebsiteManager.isActive(i)) {
+            let websiteName = Utils.websiteIdToName(i);
+            let websiteColumn = document.getElementById(`Archive-websiteColumn${websiteName}`);
+
+            if(websiteColumn != undefined)
+                websiteColumn.style.display = 'none';
+            else 
+                console.error('could not find column for website name: ' + websiteName);
+        }
+    }
+}
+
 
 
 
@@ -170,5 +188,7 @@ function handleDrop(e: any) {
             websiteColumn.addEventListener('dragend', handleDragEnd);
             websiteColumn.addEventListener('drop', handleDrop);
         }
+
+        hideInactiveWebsites();
     }
 })(window, document, undefined)

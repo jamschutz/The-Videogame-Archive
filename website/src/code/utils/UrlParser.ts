@@ -1,5 +1,6 @@
 import { CalendarDate } from "../entities/CalendarDate";
 import { SearchRequest } from "../requests/SearchRequest";
+import { WebsiteBitfield } from "./WebsiteBitfield";
 
 export class UrlParser {
     constructor() {
@@ -58,5 +59,22 @@ export class UrlParser {
             return 1;
 
         return parseInt(page);
+    }
+
+
+    static getActiveWebsites(): number {
+        let url = new URL(window.location.href);
+        let activeWebsites = url.searchParams.get("websites");
+
+        if(activeWebsites == null) {
+            return WebsiteBitfield.getAllWebsitesInteger();
+        }
+
+        try {
+            return Number.parseInt(activeWebsites);
+        }
+        catch {
+            return WebsiteBitfield.getAllWebsitesInteger();
+        }
     }
 }
