@@ -27,19 +27,6 @@ namespace VideoGameArchive.Data.DB
             );
         }
 
-        public DbManager(ILogger<RestApi.Controllers.GetArticlesController> logger)
-        {
-            connectionString = String.Format(
-                "Server={0};Port={1};User Id={2};Password={3};Database={4}",
-                Secrets.PostgresHost,
-                Secrets.PostgresPort,
-                Secrets.PostgresUser,
-                Secrets.PostgresPassword,
-                Secrets.PostgresDbName
-            );
-            logger.LogInformation($"connection string: {connectionString}");
-        }
-
 
         /* =========================================================== */
         /* ====   Main Methods   ===================================== */

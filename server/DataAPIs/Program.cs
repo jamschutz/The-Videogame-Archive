@@ -1,8 +1,6 @@
 var AllowLocalConnections = "allowLocalConnections";
 var builder = WebApplication.CreateBuilder(args);
 
-Console.WriteLine("can you see me...?");
-
 // Add services to the container.
 
 builder.Services.AddControllers();

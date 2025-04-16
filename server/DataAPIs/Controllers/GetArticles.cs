@@ -32,7 +32,7 @@ public class GetArticlesController : ControllerBase
         var parsedEndDate = string.IsNullOrEmpty(endDate)? null : new CalendarDate(endDate);
 
         // get articles from db
-        var db = new ArticlesManager(log);
+        var db = new ArticlesManager();
         var articles = parsedEndDate == null? 
                         db.GetArticlesForDate(parsedDate.ToNumber()) :
                         db.GetArticlesBetweenDates(parsedDate.ToNumber(), parsedEndDate.ToNumber());
