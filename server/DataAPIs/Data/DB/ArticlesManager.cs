@@ -18,7 +18,25 @@ namespace VideoGameArchive.Data.DB
         public ArticlesManager()
         {
             dbManager = new DbManager();
-            parseArticleRow = (reader) => {
+            parseArticleRow = (reader) =>
+            {
+                var article = new Article();
+                article.title = reader.GetString(0);
+                article.subtitle = reader.GetString(1);
+                article.author = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                article.website = reader.GetString(3);
+                article.url = reader.GetString(4);
+                article.thumbnail = reader.IsDBNull(5) ? null : reader.GetString(5);
+                article.datePublished = reader.GetInt32(6);
+                return article;
+            };
+        }
+
+        public ArticlesManager(ILogger<RestApi.Controllers.GetArticlesController> logger)
+        {
+            dbManager = new DbManager(logger);
+            parseArticleRow = (reader) =>
+            {
                 var article = new Article();
                 article.title = reader.GetString(0);
                 article.subtitle = reader.GetString(1);
