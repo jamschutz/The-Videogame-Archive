@@ -55,9 +55,11 @@ export class DataManager {
 
     static async getSearchResults(searchRequest: SearchRequest): Promise<SearchResponse> {
         let resultsPerPage = 25;
-        let page = 1;
+        let page = searchRequest.pageNumber;
+        let searchUrl = `${Config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
+        console.log(searchUrl);
         console.log(Config.API_BASE_URL);
-        let searchResultsResponse = await fetch(`${Config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&page=${page}`, {
+        let searchResultsResponse = await fetch(searchUrl, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

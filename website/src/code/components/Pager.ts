@@ -34,9 +34,12 @@ export class Pager {
             console.error('unable to find page container');
             return;
         }
+        
+        container.appendChild(this.getStartEndBtn(1, baseUri));
         for(let page = smallestPage; page <= largestPage; page++) {
             container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
         }
+        container.appendChild(this.getStartEndBtn(totalPageCount, baseUri));
     }
 
 
@@ -48,11 +51,27 @@ export class Pager {
         }
 
         // create a object
-        let pageLink = document.createElement('a');
-        pageLink.innerText = pageNumber.toString();
-        pageLink.href = `${baseUri}&page=${pageNumber.toString()}`;
+        listItem.innerText = pageNumber.toString();
+        listItem.onclick = () => {
+            window.location.href = `${baseUri}&page=${pageNumber.toString()}`;
+        }
 
-        listItem.appendChild(pageLink);
+        return listItem;
+    }
+
+    private getStartEndBtn(pageNumber: number, baseUri: string) {
+        let listItem = document.createElement('li');
+        if(pageNumber === 1) {
+            listItem.innerText = '<<';
+        }
+        else {
+            listItem.innerText = '>>';
+        }
+
+        listItem.onclick = () => {
+            window.location.href = `${baseUri}&page=${pageNumber.toString()}`;
+        }
+
         return listItem;
     }
 }

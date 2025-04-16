@@ -31,11 +31,21 @@ export class UrlParser {
     static getSearchRequest(): SearchRequest {
         let url = new URL(window.location.href);
         let searchTerms = url.searchParams.get('term');
+        let pageStr = url.searchParams.get('page');
+        
+        let pageNumber = 1;
+        try {
+            pageNumber = Number.parseInt(pageStr == null? '1' : pageStr);
+        }
+        catch {
+            pageNumber = 1;
+        }
+
         if(searchTerms !== null) {
-            return new SearchRequest(searchTerms.split(' '));
+            return new SearchRequest(searchTerms.split(' '), pageNumber);
         }
         else {
-            return new SearchRequest('');
+            return new SearchRequest('', pageNumber);
         }        
     }
 

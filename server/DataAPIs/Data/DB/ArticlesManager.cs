@@ -182,7 +182,7 @@ namespace VideoGameArchive.Data.DB
                     ({string.Join(" AND ", titleCheckClauses)}) OR 
                     ({string.Join(" AND ", subtitleCheckClauses)})
                 ORDER BY
-                    ""DatePublished""
+                    ""Articles"".""DatePublished"", ""Articles"".""Title""
                 OFFSET
                     {skip}
                 LIMIT

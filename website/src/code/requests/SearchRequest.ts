@@ -1,7 +1,8 @@
 export class SearchRequest {
     public searchTerms: string[];
+    public pageNumber: number;
 
-    constructor(searchTerms: string | string[]) {
+    constructor(searchTerms: string | string[], page: number) {
         if(typeof searchTerms === 'string') {
             searchTerms = searchTerms.trim().split(' ');
         }
@@ -9,6 +10,8 @@ export class SearchRequest {
         this.searchTerms = searchTerms.filter((t) => {
             return t != null && t != ''; 
         });
+
+        this.pageNumber = page;
     }
 
 

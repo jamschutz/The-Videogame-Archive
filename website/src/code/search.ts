@@ -88,7 +88,7 @@ function showSearchResults(results: Article[]) {
         console.log('getting results for: ' + searchRequest.searchTerms);
 
         let results = await DataManager.getSearchResults(searchRequest);
-        console.log('got results');
+        console.log(results);
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
         let searchResultTimer = document.getElementById('Search-resultCount');
         if(searchResultTimer == undefined) {
