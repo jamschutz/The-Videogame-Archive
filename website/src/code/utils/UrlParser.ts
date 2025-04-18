@@ -64,7 +64,7 @@ export class UrlParser {
 
     static getActiveWebsites(): number {
         let url = new URL(window.location.href);
-        let activeWebsites = url.searchParams.get("websites");
+        let activeWebsites = url.searchParams.get("w");
 
         if(activeWebsites == null) {
             return WebsiteBitfield.getAllWebsitesInteger();

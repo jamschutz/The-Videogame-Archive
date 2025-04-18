@@ -10,6 +10,7 @@ export class WebsiteBitfield {
     public updateActiveWebsites(activeWebsites: Array<number>) : void {
         this.activeWebsites = 0;
         for(let websiteId of activeWebsites) {
+            console.log(`adding: ${websiteId}`);
             this.activeWebsites |= 1 << (websiteId - 1);
         }
     }

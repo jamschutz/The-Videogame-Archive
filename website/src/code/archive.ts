@@ -28,7 +28,9 @@ function goToPreviousDay() {
     goToTargetDate(targetDate);
 }
 function goToTargetDate(targetDate: CalendarDate) {
-    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`;
+    let websiteBitfield = UrlParser.getActiveWebsites();
+    console.log(`going to new day! /${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${websiteBitfield}`);
+    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${encodeURIComponent(websiteBitfield)}`;
 }
 
 // buttons for the filters
@@ -37,37 +39,39 @@ function applyFilters() {
     let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
 
     // apply website filters
+    let targetWebsites = [];
     for(let i = 0; i < websiteFilters.length; i++) {
         let website = websiteFilters.item(i) as HTMLElement;
         let websiteName = website.getAttribute('name');
         if(websiteName == undefined)
             continue;
         websiteName = websiteName.trim();
-        
-        let websiteColumn = document.getElementById(`Archive-websiteColumn${websiteName}`);
-        if(websiteColumn == undefined) {
-            console.error(`unable to find website column for website: ${websiteName}`);
-            continue;
-        }
-        websiteColumn.style.display = (website as HTMLInputElement).checked? 'block' : 'none';
-    }
-    
-    // apply article type filters
-    for(let i = 0; i < articleTypeFilters.length; i++) {
-        let articleType = articleTypeFilters.item(i) as HTMLElement;
-        let articleTypeName = articleType.getAttribute('name');
-        if(articleTypeName == undefined)
-            continue;
-        articleTypeName = articleTypeName.trim();
 
-        // hide all articles of type
-        let articlesOfType = document.getElementsByClassName(`Archive-article${articleTypeName}`);
-        let showArticles = (articleType as HTMLInputElement).checked;
-        for(let j = 0; j < articlesOfType.length; j++) {
-            let article = articlesOfType.item(j) as HTMLElement;
-            article.style.display = showArticles? 'block': 'none';
+        if((website as HTMLInputElement).checked) {
+            targetWebsites.push(Utils.websiteNameToId(websiteName));
         }
     }
+    activeWebsiteManager.updateActiveWebsites(targetWebsites);
+    let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toNumber()}`;
+    window.location.href = url;
+    return;
+    
+    // // apply article type filters
+    // for(let i = 0; i < articleTypeFilters.length; i++) {
+    //     let articleType = articleTypeFilters.item(i) as HTMLElement;
+    //     let articleTypeName = articleType.getAttribute('name');
+    //     if(articleTypeName == undefined)
+    //         continue;
+    //     articleTypeName = articleTypeName.trim();
+
+    //     // hide all articles of type
+    //     let articlesOfType = document.getElementsByClassName(`Archive-article${articleTypeName}`);
+    //     let showArticles = (articleType as HTMLInputElement).checked;
+    //     for(let j = 0; j < articlesOfType.length; j++) {
+    //         let article = articlesOfType.item(j) as HTMLElement;
+    //         article.style.display = showArticles? 'block': 'none';
+    //     }
+    // }
 }
 
 // select all functions for filters
@@ -132,15 +136,15 @@ function handleDrop(e: any) {
     return false;
 }
 
-function hideInactiveWebsites() {
+function showActiveWebsites() {
     activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
     for(let i = 1; i <= 8; i++) {
-        if(!activeWebsiteManager.isActive(i)) {
+        if(activeWebsiteManager.isActive(i)) {
             let websiteName = Utils.websiteIdToName(i);
             let websiteColumn = document.getElementById(`Archive-websiteColumn${websiteName}`);
 
             if(websiteColumn != undefined)
-                websiteColumn.style.display = 'none';
+                websiteColumn.style.display = 'block';
             else 
                 console.error('could not find column for website name: ' + websiteName);
         }
@@ -189,6 +193,6 @@ function hideInactiveWebsites() {
             websiteColumn.addEventListener('drop', handleDrop);
         }
 
-        hideInactiveWebsites();
+        showActiveWebsites();
     }
 })(window, document, undefined)
