@@ -27,14 +27,8 @@ module.exports = function (eleventyConfig) {
 
         case "prod":
             console.log("PROD BUILD");
-            eleventyConfig.addCollection("websites", async () => 
-                getWebsites()
-            );
-            eleventyConfig.addCollection("articleTypes", async () => 
-                getArticleTypes()
-            );
             eleventyConfig.addCollection("articleArchives", async () => 
-                getProdArticles(TARGET_YEAR)
+                getProdArticles(TARGET_YEAR, dstDir)
             );
             break;
 
@@ -117,7 +111,7 @@ async function getArticlesForDate(year, month, websites) {
 }
 
 
-async function getProdArticles(targetYear) {
+async function getProdArticles(targetYear, dstDir) {
     // get websites...
     let websites = await getWebsites();
 
@@ -133,6 +127,7 @@ async function getProdArticles(targetYear) {
         results.push(...articles);
     }
 
+    await createDbDataJson(dstDir);
     return results;
 }
 
@@ -200,6 +195,7 @@ async function getDevArticles() {
         articles.push(results);
     }
 
+    await createDbDataJson(dstDir);
     return articles;
 }
 
@@ -216,4 +212,21 @@ function getArticlesStub(websites) {
         stub[website.name] = [];
     }
     return stub;
+}
+
+
+async function createDbDataJson(dstDir) {
+    let websites = await getWebsites();
+    let articleTypes = await getArticleTypes();
+    let dbData = {
+        'websites': websites,
+        'articleTypes': articleTypes
+    }
+
+    fs.writeFile(`${dstDir}/dbData.json`, JSON.stringify(dbData), function(err) {
+        if(err) {
+            return console.error(err);
+        }
+        console.log("db data saved");
+    }); 
 }
