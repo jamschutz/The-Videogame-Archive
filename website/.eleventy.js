@@ -25,12 +25,14 @@ module.exports = function (eleventyConfig) {
             );
             break;
 
-        case "test":
-            console.log("TEST BUILD");
-            break;
-
         case "prod":
             console.log("PROD BUILD");
+            eleventyConfig.addCollection("websites", async () => 
+                getWebsites()
+            );
+            eleventyConfig.addCollection("articleTypes", async () => 
+                getArticleTypes()
+            );
             eleventyConfig.addCollection("articleArchives", async () => 
                 getProdArticles(TARGET_YEAR)
             );
@@ -60,6 +62,12 @@ module.exports = function (eleventyConfig) {
 
 async function getWebsites() {
     let response = await fetch('http://localhost:5000/GetWebsites');
+    let websites = await response.json();
+    return websites;
+}
+
+async function getArticleTypes() {
+    let response = await fetch('http://localhost:5000/GetArticleTypes');
     let websites = await response.json();
     return websites;
 }
