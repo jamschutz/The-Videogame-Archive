@@ -137,6 +137,7 @@ function handleDrop(e: any) {
 }
 
 function showActiveWebsites() {
+    // show website columns
     activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
     for(let i = 1; i <= 8; i++) {
         if(activeWebsiteManager.isActive(i)) {
@@ -148,6 +149,22 @@ function showActiveWebsites() {
             else 
                 console.error('could not find column for website name: ' + websiteName);
         }
+    }
+
+    // update filter checkboxes
+    let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
+    let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
+
+    // apply website filters
+    for(let i = 0; i < websiteFilters.length; i++) {
+        let website = websiteFilters.item(i) as HTMLElement;
+        let websiteName = website.getAttribute('name');
+        if(websiteName == undefined)
+            continue;
+        websiteName = websiteName.trim();
+
+        let checkbox = (website as HTMLInputElement);
+        checkbox.checked = activeWebsiteManager.isActive(Utils.websiteNameToId(websiteName));
     }
 }
 
