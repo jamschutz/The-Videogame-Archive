@@ -13,13 +13,13 @@
     "clean": "rmdir /s _site",
 
     "dev:site": "set ENVIRONMENT=dev & eleventy --serve",
-    "dev:assets": "webpack --config webpack.config.dev.js",
+    "dev:assets": "set ENVIRONMENT=dev & webpack --config webpack.config.dev.js",
 
     "prod:site:windows": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./buildTools/buildWebsite_windows.ps1",
     "prod:site:nix": "./buildTools/buildWebsite_linux.sh",
     
-    "prod:assets:windows": "webpack --config webpack.config.prod.windows.js",
-    "prod:assets:nix": "webpack --config webpack.config.prod.linux.js"
+    "prod:assets:windows": "set ENVIRONMENT=prod & webpack --config webpack.config.prod.windows.js",
+    "prod:assets:nix": "export ENVIRONMENT='prod'; webpack --config webpack.config.prod.linux.js"
   },
   "author": "Joey Schutz",
   "license": "ISC",

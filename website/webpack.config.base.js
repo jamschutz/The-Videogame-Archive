@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     entry: {
         index: './src/code/index.ts',
@@ -14,6 +16,9 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            config: path.join(__dirname, 'config', process.env.ENVIRONMENT.trim())
+        }
     }
 }

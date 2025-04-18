@@ -1,6 +1,6 @@
 import { Utils } from "../utils/Utils";
-import { Config } from "../utils/Config";
 import { Article } from "../entities/Article";
+const config = require('config');
 
 export class SearchResult {
     public article: Article;
@@ -48,6 +48,8 @@ export class SearchResult {
 
 
     private getMainInfo(): HTMLElement {
+        console.log(`api base url: ${config.API_BASE_URL}`)
+
         // create container
         let containerDiv = document.createElement("div");
         containerDiv.classList.add('Search-articleMainInfo');
@@ -61,7 +63,7 @@ export class SearchResult {
             let thumbnailImg = document.createElement("img");
             thumbnailImg.classList.add('Search-articleThumbnail');
             let month = Utils.getTwoCharNum(this.article.date.month);
-            thumbnailImg.src = `${Config.LOCAL_FILE_BASE_URL}/${this.article.website}/_thumbnails/${this.article.date.year}/${month}/${this.article.thumbnail}`;
+            thumbnailImg.src = `${config.IMG_BASE_URL}/${this.article.website}/_thumbnails/${this.article.date.year}/${month}/${this.article.thumbnail}`;
             thumbnail.appendChild(thumbnailImg);
         }
 
@@ -109,6 +111,6 @@ export class SearchResult {
         let websiteId = Utils.websiteNameToId(this.article.website);
 
         let filename = Utils.url_to_filename(this.article.url, day, websiteId) + "_thumbnail";
-        return `${Config.LOCAL_FILE_BASE_URL}/${this.article.website}/_thumbnails/${year}/${month}/${filename}`;
+        return `${config.IMG_BASE_URL}/${this.article.website}/_thumbnails/${year}/${month}/${filename}`;
     }
 }

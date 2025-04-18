@@ -1,10 +1,10 @@
-import { Config } from "./Config";
 import { Utils } from "./Utils";
 import { CalendarDate } from "../entities/CalendarDate";
 import { Article } from "../entities/Article";
 import { GetArticleCountResponse } from "../responses/GetArticleCountResponse";
 import { SearchRequest } from "../requests/SearchRequest";
 import { SearchResponse } from "../responses/SearchResponse";
+const config = require('config');
 
 export class DataManager {
     constructor() {
@@ -12,7 +12,7 @@ export class DataManager {
     }
 
     async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
-        let response = await fetch(`${Config.API_BASE_URL}/Articles?year=${date.year}&month=${date.month}&day=${date.day}`, {
+        let response = await fetch(`${config.API_BASE_URL}/Articles?year=${date.year}&month=${date.month}&day=${date.day}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export class DataManager {
     }
 
     static async getArticleCountBetweenDatesAsync(start: CalendarDate, end: CalendarDate): Promise<GetArticleCountResponse> {
-        let response = await fetch(`${Config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, { 
+        let response = await fetch(`${config.API_BASE_URL}/ArticleCount?start=${start.toUrlString()}&end=${end.toUrlString()}`, { 
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,9 +56,9 @@ export class DataManager {
     static async getSearchResults(searchRequest: SearchRequest): Promise<SearchResponse> {
         let resultsPerPage = 25;
         let page = searchRequest.pageNumber;
-        let searchUrl = `${Config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
+        let searchUrl = `${config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
         console.log(searchUrl);
-        console.log(Config.API_BASE_URL);
+        console.log(config.API_BASE_URL);
         let searchResultsResponse = await fetch(searchUrl, {
             method: 'GET',
             headers: {
