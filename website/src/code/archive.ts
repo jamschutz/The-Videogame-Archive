@@ -2,13 +2,14 @@ import { SearchBar } from "./components/SearchBar";
 import { Calendar } from "./components/Calendar";
 import { UrlParser } from "./utils/UrlParser";
 import { CalendarDate } from "./entities/CalendarDate";
-import { WebsiteBitfield } from "./utils/WebsiteBitfield";
+import { UrlParamBitfield } from "./utils/UrlParamBitfield";
 import { Utils } from "./utils/Utils";
 
 // --- declare components --- //
 var searchBar = new SearchBar();
 var calendar = new Calendar();
-var activeWebsiteManager = new WebsiteBitfield([]);
+var activeWebsiteManager = new UrlParamBitfield([]);
+var articleFilters = new UrlParamBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 
@@ -52,7 +53,6 @@ function applyFilters() {
     activeWebsiteManager.updateActiveWebsites(targetWebsites);
     let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toUrlParam()}`;
     window.location.href = url;
-    return;
     
     // // apply article type filters
     // for(let i = 0; i < articleTypeFilters.length; i++) {

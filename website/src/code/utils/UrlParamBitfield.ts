@@ -1,4 +1,4 @@
-export class WebsiteBitfield {
+export class UrlParamBitfield {
     private MAX_BITS_PER_NUM = 64;
     private activeWebsites : Array<number>;
 
@@ -50,7 +50,7 @@ export class WebsiteBitfield {
         return index;
     }
 
-    static getAllWebsitesInteger() : Array<number> {
+    static getAllMask() : Array<number> {
         return [];
     }
 }

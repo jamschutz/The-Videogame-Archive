@@ -1,6 +1,6 @@
 import { CalendarDate } from "../entities/CalendarDate";
 import { SearchRequest } from "../requests/SearchRequest";
-import { WebsiteBitfield } from "./WebsiteBitfield";
+import { UrlParamBitfield } from "./UrlParamBitfield";
 
 export class UrlParser {
     constructor() {
@@ -63,24 +63,31 @@ export class UrlParser {
 
 
     static getActiveWebsites(): Array<number> {
-        let url = new URL(window.location.href);
-        let activeWebsites = url.searchParams.get("w");
+        return this.getBitfieldData('w');
+    }
 
-        if(activeWebsites == null) {
-            return WebsiteBitfield.getAllWebsitesInteger();
+    static getArticleFilters(): Array<number> {
+        return this.getBitfieldData('a');
+    }
+
+
+    static getBitfieldData(param: string): Array<number> {
+        let url = new URL(window.location.href);
+        let bitField = url.searchParams.get(param);
+
+        if(bitField == null) {
+            return UrlParamBitfield.getAllMask();
         }
 
         try {
             let bitFields = [];
-            for(let fields of activeWebsites.split(',')) {
+            for(let fields of bitField.split(',')) {
                 bitFields.push(Number.parseInt(fields));
             }
-            console.log('bit fields incoming...')
-            console.log(bitFields);
             return bitFields;
         }
         catch {
-            return WebsiteBitfield.getAllWebsitesInteger();
+            return UrlParamBitfield.getAllMask();
         }
     }
 }
