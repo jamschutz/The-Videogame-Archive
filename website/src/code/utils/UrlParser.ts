@@ -62,7 +62,7 @@ export class UrlParser {
     }
 
 
-    static getActiveWebsites(): number {
+    static getActiveWebsites(): Array<number> {
         let url = new URL(window.location.href);
         let activeWebsites = url.searchParams.get("w");
 
@@ -71,7 +71,13 @@ export class UrlParser {
         }
 
         try {
-            return Number.parseInt(activeWebsites);
+            let bitFields = [];
+            for(let fields of activeWebsites.split(',')) {
+                bitFields.push(Number.parseInt(fields));
+            }
+            console.log('bit fields incoming...')
+            console.log(bitFields);
+            return bitFields;
         }
         catch {
             return WebsiteBitfield.getAllWebsitesInteger();

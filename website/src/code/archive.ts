@@ -28,9 +28,7 @@ function goToPreviousDay() {
     goToTargetDate(targetDate);
 }
 function goToTargetDate(targetDate: CalendarDate) {
-    let websiteBitfield = UrlParser.getActiveWebsites();
-    console.log(`going to new day! /${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${websiteBitfield}`);
-    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${encodeURIComponent(websiteBitfield)}`;
+    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${activeWebsiteManager.toUrlParam()}`;
 }
 
 // buttons for the filters
@@ -52,7 +50,7 @@ function applyFilters() {
         }
     }
     activeWebsiteManager.updateActiveWebsites(targetWebsites);
-    let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toNumber()}`;
+    let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toUrlParam()}`;
     window.location.href = url;
     return;
     

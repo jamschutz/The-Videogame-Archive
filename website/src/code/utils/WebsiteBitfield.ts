@@ -1,38 +1,56 @@
 export class WebsiteBitfield {
-    private activeWebsites : number;
+    private MAX_BITS_PER_NUM = 64;
+    private activeWebsites : Array<number>;
 
     constructor(activeWebsites: Array<number>) {
-        this.activeWebsites = 0;
+        this.activeWebsites = [];
         this.updateActiveWebsites(activeWebsites);
     }
 
 
     public updateActiveWebsites(activeWebsites: Array<number>) : void {
-        this.activeWebsites = 0;
         for(let websiteId of activeWebsites) {
-            console.log(`adding: ${websiteId}`);
-            this.activeWebsites |= 1 << (websiteId - 1);
+            let index = this.getIndex(websiteId);
+            this.activeWebsites[index] |= this.getBitMask(index, websiteId);
         }
     }
-    public setActiveWebsites(activeWebsites: number) : void {
+    public setActiveWebsites(activeWebsites: Array<number>) : void {
         this.activeWebsites = activeWebsites;
     }
 
 
     public isActive(websiteId : number) : boolean {
-        return (this.activeWebsites & (1 << websiteId - 1)) != 0;
+        if(this.activeWebsites.length == 0)
+            return true;
+
+        let index = this.getIndex(websiteId);
+        return (this.activeWebsites[index] & this.getBitMask(index, websiteId)) != 0;
     }
 
-    public toNumber() : number {
-        return this.activeWebsites;
+    public toUrlParam() : string {
+        if(this.activeWebsites.length === 0)
+            return '';
+
+        return this.activeWebsites.toString();
     }
 
+    private getBitMask(index: number, websiteId: number) : number {
+        let bitShiftOffset = index * this.MAX_BITS_PER_NUM;
+        return 1 << (websiteId - bitShiftOffset) - 1;
+    }
 
-    static getAllWebsitesInteger() : number {
-        let n = 0;
-        for(let i = 0; i < 64; i++) {
-            n |= 1 << i;
+    private getIndex(websiteId: number) : number {
+        let index = Math.floor(websiteId / this.MAX_BITS_PER_NUM);
+        
+        // make sure index exists...
+        while(this.activeWebsites.length < index) {
+            this.activeWebsites.push(0);
         }
-        return n;
+
+        return index;
+    }
+
+    static getAllWebsitesInteger() : Array<number> {
+        return [];
     }
 }
