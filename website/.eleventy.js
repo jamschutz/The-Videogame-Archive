@@ -223,7 +223,7 @@ async function createDbDataJson(dstDir) {
         'articleTypes': articleTypes
     }
 
-    fs.writeFile(`${dstDir}/dbData.json`, JSON.stringify(dbData), function(err) {
+    fs.writeFile(`${dstDir}/code/dbData.json`, JSON.stringify(dbData), function(err) {
         if(err) {
             return console.error(err);
         }
