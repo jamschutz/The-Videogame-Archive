@@ -1,6 +1,7 @@
 import { SearchBar } from "./components/SearchBar";
 import { Calendar } from "./components/Calendar";
 import { UrlParser } from "./utils/UrlParser";
+import { DataManager } from "./utils/DataManager";
 import { CalendarDate } from "./entities/CalendarDate";
 import { UrlParamBitfield } from "./utils/UrlParamBitfield";
 import { Utils } from "./utils/Utils";
@@ -8,6 +9,7 @@ import { Utils } from "./utils/Utils";
 // --- declare components --- //
 var searchBar = new SearchBar();
 var calendar = new Calendar();
+var dataManager = new DataManager();
 var activeWebsiteManager = new UrlParamBitfield([]);
 var articleFilters = new UrlParamBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;

@@ -1,14 +1,45 @@
 import { Utils } from "./Utils";
 import { CalendarDate } from "../entities/CalendarDate";
 import { Article } from "../entities/Article";
+import { Website } from "../entities/Website";
+import { ArticleType } from "../entities/ArticleType";
 import { GetArticleCountResponse } from "../responses/GetArticleCountResponse";
 import { SearchRequest } from "../requests/SearchRequest";
 import { SearchResponse } from "../responses/SearchResponse";
 const config = require('config');
 
 export class DataManager {
+    private websites : Array<Website>;
+    private articleTypes : Array<ArticleType>;
+
+    private websiteLookup : any = { 'name': {}, 'id': {} };
+    private articleTypeLookup : any = { 'name': {}, 'id': {} };
+
     constructor() {
-        // do nothing
+        this.websites = [];
+        this.articleTypes = [];
+        fetch('/data/dbData.json').then(response => {
+            response.json().then(json => {
+                // load websites
+                for(let index in json['websites']) {
+                    let website = new Website(json['websites'][index]);
+                    this.websites.push(website);
+                    this.websiteLookup['name'][website.name] = website.id;
+                    this.websiteLookup['id'][website.id] = website.name;
+                }
+
+                // load articleTypes
+                for(let index in json['articleTypes']) {
+                    let articleType = new ArticleType(json['articleTypes'][index]);
+                    this.articleTypes.push(articleType);
+                    this.articleTypeLookup['name'][articleType.name] = articleType.id;
+                    this.articleTypeLookup['id'][articleType.id] = articleType.name;
+                }
+
+                console.log(this.websiteLookup);
+                console.log(this.articleTypeLookup);
+            })
+        })
     }
 
     async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
@@ -48,8 +79,9 @@ export class DataManager {
     }
 
     static async getDatesWithArticles(): Promise<any> {
-        let dates = await fetch('/data/datesWithArticles.json');
-        return await dates.json();
+        // let dates = await fetch('/data/datesWithArticles.json');
+        // return await dates.json();
+        return [];
     }
 
 
@@ -68,5 +100,26 @@ export class DataManager {
 
         let results = new SearchResponse(await searchResultsResponse.json());
         return results;
+    }
+
+    public getWebsites() : Array<Website> {
+        return this.websites;
+    }
+
+    public getArticleTypes() : Array<ArticleType> {
+        return this.articleTypes;
+    }
+
+    public getWebsiteName(id: number) : string {
+        return this.websiteLookup['id'][id];
+    }
+    public getWebsiteId(name: string) : number {
+        return this.websiteLookup['name'][name];
+    }
+    public getArticleTypeName(id: number) : string {
+        return this.articleTypeLookup['id'][id];
+    }
+    public getArticleTypeId(name: string) : number {
+        return this.articleTypeLookup['name'][name];
     }
 }

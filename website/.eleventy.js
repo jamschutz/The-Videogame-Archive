@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
         case "dev":
             console.log("DEV BUILD");
             eleventyConfig.addCollection("articleArchives", async () => 
-                getDevArticles()
+                getDevArticles(dstDir)
             );
             break;
 
@@ -132,7 +132,7 @@ async function getProdArticles(targetYear, dstDir) {
 }
 
 
-async function getDevArticles() {
+async function getDevArticles(dstDir) {
     const postgres = new pg.Client(POSTGRES_CONNECTION_STRING);
     await postgres.connect();
 
@@ -194,7 +194,7 @@ async function getDevArticles() {
 
         articles.push(results);
     }
-
+    
     await createDbDataJson(dstDir);
     return articles;
 }
@@ -223,7 +223,12 @@ async function createDbDataJson(dstDir) {
         'articleTypes': articleTypes
     }
 
-    fs.writeFile(`${dstDir}/code/dbData.json`, JSON.stringify(dbData), function(err) {
+    // make sure data dir exists
+    fs.mkdir(`${dstDir}/data`, { recursive: true }, (err) => {
+        if (err) throw err;
+    });
+
+    fs.writeFile(`${dstDir}/data/dbData.json`, JSON.stringify(dbData), function(err) {
         if(err) {
             return console.error(err);
         }
