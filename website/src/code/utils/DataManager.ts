@@ -18,28 +18,27 @@ export class DataManager {
     constructor() {
         this.websites = [];
         this.articleTypes = [];
-        fetch('/data/dbData.json').then(response => {
-            response.json().then(json => {
-                // load websites
-                for(let index in json['websites']) {
-                    let website = new Website(json['websites'][index]);
-                    this.websites.push(website);
-                    this.websiteLookup['name'][website.name] = website.id;
-                    this.websiteLookup['id'][website.id] = website.name;
-                }
+    }
 
-                // load articleTypes
-                for(let index in json['articleTypes']) {
-                    let articleType = new ArticleType(json['articleTypes'][index]);
-                    this.articleTypes.push(articleType);
-                    this.articleTypeLookup['name'][articleType.name] = articleType.id;
-                    this.articleTypeLookup['id'][articleType.id] = articleType.name;
-                }
+    public async loadData() {
+        let response = await fetch('/data/dbData.json');
+        let json = await response.json();
 
-                console.log(this.websiteLookup);
-                console.log(this.articleTypeLookup);
-            })
-        })
+        // load websites
+        for(let index in json['websites']) {
+            let website = new Website(json['websites'][index]);
+            this.websites.push(website);
+            this.websiteLookup['name'][website.name] = website.id;
+            this.websiteLookup['id'][website.id] = website.name;
+        }
+
+        // load articleTypes
+        for(let index in json['articleTypes']) {
+            let articleType = new ArticleType(json['articleTypes'][index]);
+            this.articleTypes.push(articleType);
+            this.articleTypeLookup['name'][articleType.name] = articleType.id;
+            this.articleTypeLookup['id'][articleType.id] = articleType.name;
+        }
     }
 
     async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
@@ -56,7 +55,7 @@ export class DataManager {
             let article = new Article();
             article.title = json[i]['title'];
             article.url = json[i]['url'];
-            article.website = Utils.websiteIdToName(json[i]['website']);
+            article.website = this.getWebsiteName(i);
             article.date = new CalendarDate(date.year, date.month, date.day);
             article.author = json[i]['author'];
             article.subtitle = json[i]['subtitle'];

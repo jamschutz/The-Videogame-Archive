@@ -49,7 +49,7 @@ function applyFilters() {
         websiteName = websiteName.trim();
 
         if((website as HTMLInputElement).checked) {
-            targetWebsites.push(Utils.websiteNameToId(websiteName));
+            targetWebsites.push(dataManager.getWebsiteId(websiteName));
         }
     }
     activeWebsiteManager.updateActiveWebsites(targetWebsites);
@@ -137,19 +137,21 @@ function handleDrop(e: any) {
 }
 
 function showActiveWebsites() {
-    // show website columns
-    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
-    for(let i = 1; i <= 8; i++) {
-        if(activeWebsiteManager.isActive(i)) {
-            let websiteName = Utils.websiteIdToName(i);
-            let websiteColumn = document.getElementById(`Archive-websiteColumn${websiteName}`);
+    // for(let i = 1; i <= 8; i++) {
+    let allWebsites = dataManager.getWebsites();
+    for(let i = 0; i < allWebsites.length; i++) {
+        let website = allWebsites[i];
+        if(activeWebsiteManager.isActive(website.id)) {
+            let websiteColumn = document.getElementById(`Archive-websiteColumn${website.name}`);
 
             if(websiteColumn != undefined)
                 websiteColumn.style.display = 'block';
             else 
-                console.error('could not find column for website name: ' + websiteName);
+                console.error('could not find column for website name: ' + website.name);
         }
     }
+    // show website columns
+    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
 
     // update filter checkboxes
     let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
@@ -164,7 +166,7 @@ function showActiveWebsites() {
         websiteName = websiteName.trim();
 
         let checkbox = (website as HTMLInputElement);
-        checkbox.checked = activeWebsiteManager.isActive(Utils.websiteNameToId(websiteName));
+        checkbox.checked = activeWebsiteManager.isActive(dataManager.getWebsiteId(websiteName));
     }
 }
 
@@ -174,11 +176,12 @@ function showActiveWebsites() {
 
 
 // -------------- page init ---------------------- //
+const dataLoadPromise = dataManager.loadData();
 // on window load
 (function(window, document, undefined) {
     window.onload = init;
 
-    function init() {
+    async function init() {
         // init components
         searchBar.init();
         calendar.updateHtml();
@@ -210,6 +213,7 @@ function showActiveWebsites() {
             websiteColumn.addEventListener('drop', handleDrop);
         }
 
+        await dataLoadPromise;
         showActiveWebsites();
     }
 })(window, document, undefined)

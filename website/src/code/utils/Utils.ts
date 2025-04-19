@@ -48,34 +48,6 @@ export class Utils {
     }
 
 
-    static websiteIdToName(websiteId : number) : string {
-        if(websiteId === 1) return 'GameSpot';
-        if(websiteId === 2) return 'Eurogamer';
-        if(websiteId === 3) return 'Gameplanet';
-        if(websiteId === 4) return 'JayIsGames';
-        if(websiteId === 5) return 'TIGSource';
-        if(websiteId === 6) return 'Indygamer';
-        if(websiteId === 7) return 'Rock Paper Shotgun';
-        if(websiteId === 8) return 'IGN';
-        
-        return 'Unknown';
-    }
-
-
-    static websiteNameToId(websiteName: string) : number {
-        if(websiteName === 'GameSpot')   return 1;
-        if(websiteName === 'Eurogamer')  return 2;
-        if(websiteName === 'Gameplanet') return 3;
-        if(websiteName === 'JayIsGames') return 4;
-        if(websiteName === 'TIGSource')  return 5;
-        if(websiteName === 'Indygamer') return 6;
-        if(websiteName === 'Rock Paper Shotgun') return 7;
-        if(websiteName === 'IGN') return 8;
-
-        return -1;
-    }
-
-
     static url_to_filename(url: string, day: string, websiteId: number): string {
         let filename = '';
 
