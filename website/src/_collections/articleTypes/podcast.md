@@ -1,4 +1,0 @@
----
-name: podcast
-tags: articleTypes
----

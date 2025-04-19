@@ -1,4 +1,0 @@
----
-name: competition
-tags: articleTypes
----

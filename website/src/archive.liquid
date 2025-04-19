@@ -25,7 +25,7 @@ hideOverflow: true
     <div class="Archive-websiteColumnContainer">
       {% assign websiteColumnOrder = 1 %}
       {% for website in collections.websites %}
-        {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.data.name], year: date.year, month: date.month, thumbnailRoot: config.localFileBaseUrl, columnOrder: websiteColumnOrder %}
+        {% render "archive/websiteColumn.liquid", website: website, articles: date.articles[website.name], year: date.year, month: date.month, thumbnailRoot: config[environment].localFileBaseUrl, columnOrder: websiteColumnOrder %}
         {% assign websiteColumnOrder = websiteColumnOrder | plus: 1 %}
       {% endfor %}
     </div>

@@ -1,4 +1,0 @@
----
-name: interview
-tags: articleTypes
----

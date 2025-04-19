@@ -16,6 +16,17 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(PostCSSPlugin);
     eleventyConfig.addPassthroughCopy('img');
 
+    // -- environment data --
+    eleventyConfig.addGlobalData('environment', BUILD_ENVIRONMENT);
+
+    // -- collections --
+    eleventyConfig.addCollection("websites", async () => 
+        getWebsites()
+    );
+    eleventyConfig.addCollection("articleTypes", async () => 
+        getArticleTypes()
+    );
+
     // ---- handle article injection ---- //
     switch(BUILD_ENVIRONMENT) {
         case "dev":

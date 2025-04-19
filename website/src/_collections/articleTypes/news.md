@@ -1,4 +1,0 @@
----
-name: news
-tags: articleTypes
----

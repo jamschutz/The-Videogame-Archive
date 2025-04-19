@@ -1,4 +1,0 @@
----
-name: opinion
-tags: articleTypes
----
