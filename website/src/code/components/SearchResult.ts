@@ -1,12 +1,15 @@
 import { Utils } from "../utils/Utils";
 import { Article } from "../entities/Article";
+import { DataManager } from "../utils/DataManager";
 const config = require('config');
 
 export class SearchResult {
     public article: Article;
+    private dataManager: DataManager;
 
     constructor(article: Article) {
         this.article = article;
+        this.dataManager = new DataManager();
     }
 
     // class declarations
@@ -108,7 +111,7 @@ export class SearchResult {
         let day = Utils.getTwoCharNum(this.article.date.day);
         let month = Utils.getTwoCharNum(this.article.date.month);
         let year = Utils.getTwoCharNum(this.article.date.year);
-        let websiteId = Utils.websiteNameToId(this.article.website);
+        let websiteId = this.dataManager.getWebsiteId(this.article.website);
 
         let filename = Utils.url_to_filename(this.article.url, day, websiteId) + "_thumbnail";
         return `${config.IMG_BASE_URL}/${this.article.website}/_thumbnails/${year}/${month}/${filename}`;
