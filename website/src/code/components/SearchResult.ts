@@ -66,7 +66,7 @@ export class SearchResult {
             let thumbnailImg = document.createElement("img");
             thumbnailImg.classList.add('Search-articleThumbnail');
             let month = Utils.getTwoCharNum(this.article.date.month);
-            thumbnailImg.src = `${config.IMG_BASE_URL}/${this.article.website}/_thumbnails/${this.article.date.year}/${month}/${this.article.thumbnail}`;
+            thumbnailImg.src = `${config.IMG_BASE_URL}/${this.article.website}/thumbnails/${this.article.date.year}/${month}/${this.article.thumbnail}`;
             thumbnail.appendChild(thumbnailImg);
         }
 
@@ -104,16 +104,5 @@ export class SearchResult {
 
         // and return 
         return containerDiv;
-    }
-
-
-    private getThumbnailUrl() {
-        let day = Utils.getTwoCharNum(this.article.date.day);
-        let month = Utils.getTwoCharNum(this.article.date.month);
-        let year = Utils.getTwoCharNum(this.article.date.year);
-        let websiteId = this.dataManager.getWebsiteId(this.article.website);
-
-        let filename = Utils.url_to_filename(this.article.url, day, websiteId) + "_thumbnail";
-        return `${config.IMG_BASE_URL}/${this.article.website}/_thumbnails/${year}/${month}/${filename}`;
     }
 }
