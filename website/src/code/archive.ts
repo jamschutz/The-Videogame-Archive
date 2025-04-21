@@ -137,7 +137,8 @@ function handleDrop(e: any) {
 }
 
 function showActiveWebsites() {
-    // for(let i = 1; i <= 8; i++) {
+    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
+    
     let allWebsites = dataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
         let website = allWebsites[i];
@@ -151,7 +152,6 @@ function showActiveWebsites() {
         }
     }
     // show website columns
-    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
 
     // update filter checkboxes
     let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");

@@ -43,7 +43,7 @@ export class UrlParamBitfield {
         let index = Math.floor(websiteId / this.MAX_BITS_PER_NUM);
         
         // make sure index exists...
-        while(this.activeWebsites.length < index) {
+        while(this.activeWebsites.length <= index) {
             this.activeWebsites.push(0);
         }
 
