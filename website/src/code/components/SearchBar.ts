@@ -17,10 +17,11 @@ export class SearchBar {
     public init() {
         let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
         searchBar.addEventListener("keydown", function (e) {
-            console.log('got key press')
-
             if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
                 SearchBar.onSubmit();
+            }
+            else {
+                console.log(`got key: ${e.key}`);
             }
         });
 

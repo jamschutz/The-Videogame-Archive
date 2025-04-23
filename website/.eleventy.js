@@ -21,10 +21,13 @@ module.exports = function (eleventyConfig) {
 
     // -- collections --
     eleventyConfig.addCollection("websites", async () => 
-        getWebsites()
+        getData('GetWebsites')
     );
     eleventyConfig.addCollection("articleTypes", async () => 
-        getArticleTypes()
+        getData('GetArticleTypes')
+    );
+    eleventyConfig.addCollection("authors", async () => 
+        getAuthors()
     );
 
     // ---- handle article injection ---- //
@@ -65,16 +68,20 @@ module.exports = function (eleventyConfig) {
     };
 }
 
-async function getWebsites() {
-    let response = await fetch('http://localhost:5000/GetWebsites');
-    let websites = await response.json();
-    return websites;
-}
 
-async function getArticleTypes() {
-    let response = await fetch('http://localhost:5000/GetArticleTypes');
-    let websites = await response.json();
-    return websites;
+async function getData(apiEndpoint) {
+    let response = await fetch(`http://localhost:5000/${apiEndpoint}`);
+    let data = await response.json();
+    return data;
+}
+async function getAuthors() {
+    let authors = await getData('GetAuthors');
+    for(let i = 0; i < authors.length; i++) {
+        // authors[i].name = authors[i].name.replaceAll('"', '&quot;');
+        // taken from: https://stackoverflow.com/questions/18749591/encode-html-entities-in-javascript
+        authors[i].name = authors[i].name.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
+    }
+    return authors;
 }
 
 
@@ -227,11 +234,13 @@ function getArticlesStub(websites) {
 
 
 async function createDbDataJson(dstDir) {
-    let websites = await getWebsites();
-    let articleTypes = await getArticleTypes();
+    let websites = await getData('GetWebsites');
+    let articleTypes = await getData('GetArticleTypes');
+    let authors = await getData('GetAuthors');
     let dbData = {
         'websites': websites,
-        'articleTypes': articleTypes
+        'articleTypes': articleTypes,
+        'authors': authors
     }
 
     // make sure data dir exists
