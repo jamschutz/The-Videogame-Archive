@@ -6,8 +6,10 @@ export class SearchBar {
     }
 
 
-    static async onSubmit(e: KeyboardEvent) {
-        let searchTerms = (<HTMLTextAreaElement>e.target).value;
+    static async onSubmit() {
+        console.log('on submit');
+        let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
+        let searchTerms = searchBar.value;
         window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
     }
 
@@ -18,7 +20,7 @@ export class SearchBar {
             console.log('got key press')
 
             if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
-                SearchBar.onSubmit(e);
+                SearchBar.onSubmit();
             }
         });
 
