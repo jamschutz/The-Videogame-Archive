@@ -4,7 +4,8 @@ module.exports = {
     entry: {
         index: './src/code/index.ts',
         archive: './src/code/archive.ts',
-        search: './src/code/search.ts'
+        search: './src/code/search.ts',
+        browse: './src/code/browse.ts'
     },
     module: {
         rules: [

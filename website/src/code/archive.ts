@@ -143,7 +143,7 @@ function showActiveWebsites() {
     for(let i = 0; i < allWebsites.length; i++) {
         let website = allWebsites[i];
         if(activeWebsiteManager.isActive(website.id)) {
-            let websiteColumn = document.getElementById(`Archive-websiteColumn${website.name}`);
+            let websiteColumn = document.querySelector(`[data-id='${website.id}']`) as HTMLElement;
 
             if(websiteColumn != undefined)
                 websiteColumn.style.display = 'block';
