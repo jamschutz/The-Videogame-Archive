@@ -195,17 +195,61 @@ namespace VideoGameArchive.Data.DB
         }
 
 
-        public int GetSearchResultsTotalCount(string[] searchTerms) 
+        public List<int> GetDatesByFilter(ArticleFilter include, ArticleFilter exclude)
+        {
+            if (include.IsEmpty() && exclude.IsEmpty())
+                return new List<int>();
+
+            string includeClause = include.GetFullWhereClause(true);
+            string excludeClause = exclude.GetFullWhereClause(false);
+
+            string whereClause = "";
+            if (includeClause == "") {
+                whereClause = excludeClause;
+            }
+            else if (excludeClause == "") {
+                whereClause = includeClause;
+            }
+            else {
+                whereClause = $"({includeClause}) AND ({excludeClause})"
+            }
+
+            string sql = $@"
+                SELECT
+                    ""DatePublished""
+                FROM
+                    ""Articles""
+                WHERE
+                    {whereClause}
+                GROUP BY
+                    ""DatePublished""
+                ORDER BY
+                    ""DatePublished""
+            ";
+
+            var allParams = include.GetAllParameters();
+            allParams.AddRange(exclude.GetAllParameters());
+
+            return dbManager.dbManager.GetQuery<int, string>(sql, allParams, (reader) =>
+            {
+                return reader.GetInt32(0);
+            });
+        }
+
+
+        public int GetSearchResultsTotalCount(string[] searchTerms)
         {
             var parameters = new List<PostgresParameter<string>>();
             var titleCheckClauses = new List<string>();
             var subtitleCheckClauses = new List<string>();
 
-            for(int i = 0; i < searchTerms.Length; i++) {
+            for (int i = 0; i < searchTerms.Length; i++)
+            {
                 // clean up search term, and set to lower
                 var token = searchTerms[i].ToLower();
-                
-                parameters.Add(new PostgresParameter<string>() {
+
+                parameters.Add(new PostgresParameter<string>()
+                {
                     name = $"token{i}",
                     value = token
                 });
@@ -223,7 +267,8 @@ namespace VideoGameArchive.Data.DB
                     ({string.Join(" AND ", subtitleCheckClauses)})
             ";
 
-            var count = dbManager.GetQuery<int, string>(sql, parameters, (reader) => {
+            var count = dbManager.GetQuery<int, string>(sql, parameters, (reader) =>
+            {
                 return reader.GetInt32(0);
             });
             return count[0];
