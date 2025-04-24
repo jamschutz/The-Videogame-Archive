@@ -23,19 +23,23 @@ public class GetDatesByFilterController : ControllerBase
     }
 
     [HttpGet(Name = "GetDatesByFilter")]
-    public async Task<string> Get()
+    public async Task<List<int>> Get()
     {
         log.LogInformation("GetDatesByFilter processed a request.");
 
-        GetDatesByFilterRequest req;
-        List<int> websites;
+        List<int> dates;
         using (var reader = new StreamReader(Request.Body, encoding: System.Text.Encoding.UTF8, detectEncodingFromByteOrderMarks: false))
         {
+            // parse request
             var json = await reader.ReadToEndAsync();
-            req = JsonConvert.DeserializeObject<GetDatesByFilterRequest>(json);
-            websites = req.include.websites;
+            var req = JsonConvert.DeserializeObject<GetDatesByFilterRequest>(json);
+            
+            
+            // get dates from db
+            var db = new ArticlesManager();
+            dates = db.GetDatesByFilter(req.include, req.exclude);
         }
     
-        return string.Join(",", websites);
+        return dates;
     }
 }

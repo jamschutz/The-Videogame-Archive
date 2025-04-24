@@ -26,17 +26,17 @@ namespace VideoGameArchive.Entities
         }
 
 
-        public List<string> GetWebsiteParameterNames()
+        public string GetWebsiteParameterList()
         {
-            return GetParameterNames(websites, WEBSITE_PARAM_NAME_PREFIX);
+            return GetParameterList(websites, WEBSITE_PARAM_NAME_PREFIX);
         }
-        public List<string> GetAuthorParameterNames()
+        public string GetAuthorParameterList()
         {
-            return GetParameterNames(authors, AUTHOR_PARAM_NAME_PREFIX);
+            return GetParameterList(authors, AUTHOR_PARAM_NAME_PREFIX);
         }
-        public List<string> GetArticleTypeParameterNames()
+        public string GetArticleTypeParameterList()
         {
-            return GetParameterNames(articleTypes, ARTICLE_TYPE_PARAM_NAME_PREFIX);
+            return GetParameterList(articleTypes, ARTICLE_TYPE_PARAM_NAME_PREFIX);
         }
 
         public List<PostgresParameter<int>> GetAllParameters()
@@ -55,7 +55,7 @@ namespace VideoGameArchive.Entities
                 return "";
 
             string inClause = include ? "IN" : "NOT IN";
-            return $@"""WebsiteId"" {inClause} ({GetWebsiteParameterNames()})";
+            return $@"""WebsiteId"" {inClause} ({GetWebsiteParameterList()})";
         }
         public string GetAuthorsClause(bool include)
         {
@@ -63,7 +63,7 @@ namespace VideoGameArchive.Entities
                 return "";
 
             string inClause = include ? "IN" : "NOT IN";
-            return $@"""AuthorId"" {inClause} ({GetAuthorParameterNames()})";
+            return $@"""AuthorId"" {inClause} ({GetAuthorParameterList()})";
         }
         public string GetArticleTypesClause(bool include)
         {
@@ -71,7 +71,7 @@ namespace VideoGameArchive.Entities
                 return "";
 
             string inClause = include ? "IN" : "NOT IN";
-            return $@"""ArticleTypeId"" {inClause} ({GetArticleTypeParameterNames()})";
+            return $@"""ArticleTypeId"" {inClause} ({GetArticleTypeParameterList()})";
         }
 
         public string GetFullWhereClause(bool include)
@@ -117,14 +117,14 @@ namespace VideoGameArchive.Entities
         }
 
 
-        private List<string> GetParameterNames(List<int> list, string paramNamePrefix)
+        private string GetParameterList(List<int> list, string paramNamePrefix)
         {
             var parameters = new List<string>();
             for (int i = 0; i < list.Count; i++)
             {
-                parameters.Add($"{paramNamePrefix}{i}");
+                parameters.Add($"@{paramNamePrefix}{i}");
             }
-            return parameters;
+            return string.Join(",", parameters);
         }
     }
 }
