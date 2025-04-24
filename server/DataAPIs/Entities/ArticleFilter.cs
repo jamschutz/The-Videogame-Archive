@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using Npgsql;
+using VideoGameArchive.Data.DB;
 
 
 namespace VideoGameArchive.Entities
@@ -80,9 +80,9 @@ namespace VideoGameArchive.Entities
                 return "";
 
             List<string> clauses = new List<string>();
-            clauses.Add(GetWebsitesClause());
-            clauses.Add(GetAuthorsClause());
-            clauses.Add(GetArticleTypesClause());
+            clauses.Add(GetWebsitesClause(include));
+            clauses.Add(GetAuthorsClause(include));
+            clauses.Add(GetArticleTypesClause(include));
 
             var result = new List<string>();
             foreach (var clause in clauses)

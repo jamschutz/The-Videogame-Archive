@@ -211,7 +211,7 @@ namespace VideoGameArchive.Data.DB
                 whereClause = includeClause;
             }
             else {
-                whereClause = $"({includeClause}) AND ({excludeClause})"
+                whereClause = $"({includeClause}) AND ({excludeClause})";
             }
 
             string sql = $@"
@@ -230,7 +230,7 @@ namespace VideoGameArchive.Data.DB
             var allParams = include.GetAllParameters();
             allParams.AddRange(exclude.GetAllParameters());
 
-            return dbManager.dbManager.GetQuery<int, string>(sql, allParams, (reader) =>
+            return dbManager.GetQuery<int, int>(sql, allParams, (reader) =>
             {
                 return reader.GetInt32(0);
             });
