@@ -22,8 +22,8 @@ public class GetDatesByFilterController : ControllerBase
         log = logger;
     }
 
-    [HttpGet(Name = "GetDatesByFilter")]
-    public async Task<List<int>> Get()
+    [HttpPost(Name = "GetDatesByFilter")]
+    public async Task<List<int>> Post()
     {
         log.LogInformation("GetDatesByFilter processed a request.");
 

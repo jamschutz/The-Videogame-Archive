@@ -1,8 +1,12 @@
+import { DataManager } from "./utils/DataManager";
+const config = require('config');
+
+var dataManager = new DataManager();
+
 var filterInput: HTMLInputElement;
 var filterTypeSelection: HTMLInputElement;
 var includeExcludeSelection: HTMLInputElement;
 var addFilterButton: HTMLInputElement;
-var submitButton: HTMLInputElement;
 
 var include: any = {
     'websites': [],
@@ -15,8 +19,21 @@ var exclude: any = {
     'articleTypes': []
 }
 
-function onSubmit() {
-    // to do....
+async function onSubmit() {
+    let body = { 
+        'include': include,
+        'exclude': exclude
+    };
+    console.log(JSON.stringify(body));
+    let response = await fetch(`${config.API_BASE_URL}/GetDatesByFilter`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let json = await response.json();
+    console.log(json);
 }
 
 
@@ -29,8 +46,6 @@ function onAddFilter() {
 
     // save data
     saveFilter(isInclude? include : exclude, filterType, filterTerm);
-    console.log(include);
-    console.log(exclude);
 
     // create html element
     let container = document.getElementById('Browse-filterCriteriaContainer');
@@ -38,6 +53,9 @@ function onAddFilter() {
     let criteriaEl = document.createElement('div');
     criteriaEl.classList.add('Browse-filterCriteria');
     criteriaEl.id = id;
+    criteriaEl.setAttribute('data-include', isInclude.toString());
+    criteriaEl.setAttribute('data-type', filterType);
+    criteriaEl.setAttribute('data-value', filterTerm);
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add('Browse-filterCriteriaDeleteBtn');
@@ -70,13 +88,13 @@ function updateBrowseByTypeSelection(selection: string) {
 function saveFilter(d: any, filterType: string, filterTerm: string) {
     filterType = filterType.toLowerCase();
     if(filterType === 'website') {
-        d['websites'].push(filterTerm);
+        d['websites'].push(dataManager.getWebsiteId(filterTerm));
     }
     else if(filterType === 'author') {
-        d['authors'].push(filterTerm);
+        d['authors'].push(dataManager.getAuthorId(filterTerm));
     }
     else if(filterType === 'articleType') {
-        d['articleTypes'].push(filterTerm);
+        d['articleTypes'].push(dataManager.getArticleTypeId(filterTerm));
     }
     else {
         console.error(`unknown filterType: ${filterType}`);
@@ -86,11 +104,41 @@ function saveFilter(d: any, filterType: string, filterTerm: string) {
 
 
 function deleteFilter(elementId: string) {
+    let element = document.getElementById(elementId);
+    let isInclude = element?.getAttribute('data-include') == 'true';
+    let filterType = element?.getAttribute('data-type');
+    let filterValue = element?.getAttribute('data-value');
 
+    document.getElementById(elementId)?.remove();
+
+    let d = isInclude? include : exclude;
+    let target = '';
+    if(filterType === 'website') {
+        target = 'websites';
+    }
+    else if(filterType === 'author') {
+        target = 'authors';
+    }
+    else if(filterType === 'articleType') {
+        target = 'articleTypes';
+    }
+    else {
+        console.error(`unknown filterType: ${filterType}`);
+        return;
+    }
+    
+    let i = d[target].indexOf(filterValue);
+    if(i > -1) {
+        d[target].splice(i, 1);
+    }
+    else {
+        console.log(`didn't find ${filterValue} in ${target}`)
+    }
 }
 
 
 // on window load
+const dataLoadPromise = dataManager.loadData();
 (function(window, document, undefined) {  
     window.onload = init;
   
@@ -100,12 +148,15 @@ function deleteFilter(elementId: string) {
         includeExcludeSelection = document.getElementById('Browse-includeExclude') as HTMLInputElement;        
         filterTypeSelection = document.getElementById("Browse-browseBySelect") as HTMLInputElement;
         addFilterButton = document.getElementById('Browse-addFilter') as HTMLInputElement;
-        // let submitButton = document.getElementById("Browse-submitBtn") as HTMLInputElement;
+        let submitButton = document.getElementById("Browse-submitBtn") as HTMLInputElement;
 
         // add event listeners
         filterTypeSelection.addEventListener("change", function (e: any) {
             updateBrowseByTypeSelection(e.target.value);
         });
         addFilterButton.addEventListener("click", onAddFilter);
+        submitButton.addEventListener("click", onSubmit);
+
+        await dataLoadPromise;
     }
 })(window, document, undefined);

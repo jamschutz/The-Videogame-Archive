@@ -3,6 +3,7 @@ import { CalendarDate } from "../entities/CalendarDate";
 import { Article } from "../entities/Article";
 import { Website } from "../entities/Website";
 import { ArticleType } from "../entities/ArticleType";
+import { Writer } from "../entities/Writer";
 import { GetArticleCountResponse } from "../responses/GetArticleCountResponse";
 import { SearchRequest } from "../requests/SearchRequest";
 import { SearchResponse } from "../responses/SearchResponse";
@@ -14,6 +15,7 @@ export class DataManager {
 
     private websiteLookup : any = { 'name': {}, 'id': {} };
     private articleTypeLookup : any = { 'name': {}, 'id': {} };
+    private authorLookup : any = { 'name': {}, 'id': {} };
 
     constructor() {
         this.websites = [];
@@ -38,6 +40,14 @@ export class DataManager {
             this.articleTypes.push(articleType);
             this.articleTypeLookup['name'][articleType.name] = articleType.id;
             this.articleTypeLookup['id'][articleType.id] = articleType.name;
+        }
+
+        // load authors
+        for(let index in json['authors']) {
+            let author = new Writer(json['authors'][index]);
+            this.articleTypes.push(author);
+            this.authorLookup['name'][author.name] = author.id;
+            this.authorLookup['id'][author.id] = author.name;
         }
     }
 
@@ -120,5 +130,11 @@ export class DataManager {
     }
     public getArticleTypeId(name: string) : number {
         return this.articleTypeLookup['name'][name];
+    }
+    public getAuthorName(id: number) : string {
+        return this.authorLookup['name'][id];
+    }
+    public getAuthorId(name: string) : number {
+        return this.authorLookup['id'][name];
     }
 }

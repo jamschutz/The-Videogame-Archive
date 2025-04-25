@@ -77,7 +77,6 @@ async function getData(apiEndpoint) {
 async function getAuthors() {
     let authors = await getData('GetAuthors');
     for(let i = 0; i < authors.length; i++) {
-        // authors[i].name = authors[i].name.replaceAll('"', '&quot;');
         // taken from: https://stackoverflow.com/questions/18749591/encode-html-entities-in-javascript
         authors[i].name = authors[i].name.replace(/[\u00A0-\u9999<>\&]/g, i => '&#'+i.charCodeAt(0)+';');
     }

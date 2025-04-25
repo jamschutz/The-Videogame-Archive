@@ -33,13 +33,13 @@ includeScript: /code/browse.js
         
         <datalist id="datalist-articleType">        
         {% for type in collections.articleTypes -%}
-            <option value="{{ type.name }}">{{ type.name }}</option>
+            <option value="{{ type.name }}" data-id="{{ type.name }}">{{ type.name }}</option>
         {% endfor %}
         </datalist>
 
-        <datalist id="datalist-author">        
+        <datalist id="datalist-author">
         {% for author in collections.authors -%}
-            <option value="{{ author.name }}">{{ author.name }}</option>
+            <option value="{{ author.name }}" data-id="{{ author.id }}">{{ author.name }}</option>
         {% endfor %}
         </datalist>
     </div>
@@ -47,5 +47,8 @@ includeScript: /code/browse.js
         {% comment %} <div class="Browse-filterCriteria" id="Browse-criteria1">
             <button class="Browse-filterCriteriaDeleteBtn">❌</button><div class="Browse-filterCriteriaDescription"><b>include website</b>: Eurogamer</div>
         </div> {% endcomment %}
+    </div>
+    <div class="Browse-submitBtnContainer">
+        <button id="Browse-submitBtn">Submit</button>
     </div>
 </div>
