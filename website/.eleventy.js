@@ -130,7 +130,7 @@ async function getArticlesForDate(year, month, websites) {
 
 async function getProdArticles(targetYear, dstDir) {
     // get websites...
-    let websites = await getWebsites();
+    let websites = await getData('GetWebsites');
 
     // the earliest date we have for now is 05/1996
     // TODO: pull this dynamically from the database

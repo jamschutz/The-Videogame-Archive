@@ -1,4 +1,5 @@
 import { DataManager } from "./utils/DataManager";
+import { CalendarDate } from './entities/CalendarDate';
 const config = require('config');
 
 var dataManager = new DataManager();
@@ -39,6 +40,11 @@ async function onSubmit() {
     });
     let json = await response.json();
     console.log(json);
+
+    localStorage['targetDates'] = json;
+
+    let targetDate = CalendarDate.fromDateString(json[0]);
+    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`;
 }
 
 
