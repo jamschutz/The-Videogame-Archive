@@ -18,6 +18,11 @@ var exclude: any = {
     'authors': [],
     'articleTypes': []
 }
+var idLookups: any = {
+    'websites': {},
+    'authors': {},
+    'articleTypes': {}
+}
 
 async function onSubmit() {
     let body = { 
@@ -56,6 +61,7 @@ function onAddFilter() {
     criteriaEl.setAttribute('data-include', isInclude.toString());
     criteriaEl.setAttribute('data-type', filterType);
     criteriaEl.setAttribute('data-value', filterTerm);
+    idLookups[filterType][filterTerm] = getDataListItemId(filterType, filterTerm);
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add('Browse-filterCriteriaDeleteBtn');
@@ -87,52 +93,73 @@ function updateBrowseByTypeSelection(selection: string) {
 
 function saveFilter(d: any, filterType: string, filterTerm: string) {
     filterType = filterType.toLowerCase();
-    if(filterType === 'website') {
-        d['websites'].push(dataManager.getWebsiteId(filterTerm));
-    }
-    else if(filterType === 'author') {
-        d['authors'].push(dataManager.getAuthorId(filterTerm));
-    }
-    else if(filterType === 'articleType') {
-        d['articleTypes'].push(dataManager.getArticleTypeId(filterTerm));
-    }
-    else {
-        console.error(`unknown filterType: ${filterType}`);
+    let id = getDataListItemId(filterType, filterTerm);
+    if(id < 0) {
+        console.error(`unable to get for ${filterTerm}`);
         return;
     }
+
+    d[filterType].push(id);
+    
+}
+
+
+function getDataListItemId(category: string, value: string) : number {
+    let datalist = document.getElementById(`datalist-${category}`);
+    if(datalist == undefined || datalist == null) {
+        console.error(`unable to find datalist with id: datalist-${category}`);
+        return -1;
+    }
+
+    let items = datalist.children;
+    for(let i = 0; i < items.length; i++) {
+        let item = items[i] as HTMLInputElement;
+        if(item.value === value) {
+            let id = item.getAttribute('data-id');
+            if(id == null || id == undefined)
+                return -1;
+
+            try {
+                return parseInt(id);
+            }
+            catch {
+                console.error(`got id that is not a number for ${value}: ${id}`);
+                return -1;
+            }
+        }
+    }
+
+    console.error(`unable to find ${value} in ${category} datalist`);
+    return 0;
 }
 
 
 function deleteFilter(elementId: string) {
     let element = document.getElementById(elementId);
-    let isInclude = element?.getAttribute('data-include') == 'true';
-    let filterType = element?.getAttribute('data-type');
-    let filterValue = element?.getAttribute('data-value');
+    if(element == null || element == undefined) {
+        console.error(`unable to find element with id: ${elementId}`);
+        return;
+    }
+
+    let isInclude = element.getAttribute('data-include') == 'true';
+    let filterType = element.getAttribute('data-type');
+    let filterValue = element.getAttribute('data-value');
+    let targetId = idLookups[filterType || ''][filterValue || ''];
+
+    if(filterType == null || filterValue == null) {
+        console.error(`unable to get data from filter element with id ${elementId}`);
+        return;
+    }
 
     document.getElementById(elementId)?.remove();
 
-    let d = isInclude? include : exclude;
-    let target = '';
-    if(filterType === 'website') {
-        target = 'websites';
-    }
-    else if(filterType === 'author') {
-        target = 'authors';
-    }
-    else if(filterType === 'articleType') {
-        target = 'articleTypes';
-    }
-    else {
-        console.error(`unknown filterType: ${filterType}`);
-        return;
-    }
-    
-    let i = d[target].indexOf(filterValue);
+    let d = isInclude? include : exclude;    
+    let i = d[filterType].indexOf(targetId);
     if(i > -1) {
-        d[target].splice(i, 1);
+        d[filterType].splice(i, 1);
     }
     else {
-        console.log(`didn't find ${filterValue} in ${target}`)
+        console.error(`didn't find ${filterValue} in ${filterType}`)
     }
 }
 
