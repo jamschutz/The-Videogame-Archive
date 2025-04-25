@@ -1,0 +1,69 @@
+import { DataManager } from "./DataManager";
+
+export class FilterRules {
+    private websites: Set<number>;
+    private authors: Set<number>;
+    private articleTypes: Set<number>;
+    private dataManager: DataManager;
+
+    constructor(dataManager: DataManager) {
+        this.websites = new Set();
+        this.authors = new Set();
+        this.articleTypes = new Set();
+        this.dataManager = dataManager;
+    }
+
+
+    // --- add methods -------------------------------------
+    // -----------------------------------------------------
+    public addWebsite(website: string | number) {
+        if(typeof website === 'string') {
+            website = this.dataManager.getWebsiteId(website);
+        }
+
+        this.websites.add(website);
+    }
+
+    public addAuthor(author: string | number) {
+        if(typeof author === 'string') {
+            author = this.dataManager.getAuthorId(author);
+        }
+
+        this.authors.add(author);
+    }
+    
+    public addArticleType(articleType: string | number) {
+        if(typeof articleType === 'string') {
+            articleType = this.dataManager.getArticleTypeId(articleType);
+        }
+
+        this.articleTypes.add(articleType);
+    }
+
+
+    // --- delete methods -------------------------------------
+    // --------------------------------------------------------
+    public removeWebsite(website: string | number) {
+        if(typeof website === 'string') {
+            website = this.dataManager.getWebsiteId(website);
+        }
+
+        this.websites.delete(website);
+    }
+
+    public removeAuthor(author: string | number) {
+        if(typeof author === 'string') {
+            author = this.dataManager.getAuthorId(author);
+        }
+
+        this.authors.delete(author);
+    }
+    
+    public removeArticleType(articleType: string | number) {
+        if(typeof articleType === 'string') {
+            articleType = this.dataManager.getArticleTypeId(articleType);
+        }
+
+        this.articleTypes.delete(articleType);
+    }
+}

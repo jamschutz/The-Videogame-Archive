@@ -12,6 +12,7 @@ const config = require('config');
 export class DataManager {
     private websites : Array<Website>;
     private articleTypes : Array<ArticleType>;
+    private authors : Array<Writer>;
 
     private websiteLookup : any = { 'name': {}, 'id': {} };
     private articleTypeLookup : any = { 'name': {}, 'id': {} };
@@ -20,6 +21,7 @@ export class DataManager {
     constructor() {
         this.websites = [];
         this.articleTypes = [];
+        this.authors = [];
     }
 
     public async loadData() {
@@ -45,7 +47,7 @@ export class DataManager {
         // load authors
         for(let index in json['authors']) {
             let author = new Writer(json['authors'][index]);
-            this.articleTypes.push(author);
+            this.authors.push(author);
             this.authorLookup['name'][author.name] = author.id;
             this.authorLookup['id'][author.id] = author.name;
         }
@@ -117,6 +119,10 @@ export class DataManager {
 
     public getArticleTypes() : Array<ArticleType> {
         return this.articleTypes;
+    }
+
+    public getAuthors() : Array<Writer> {
+        return this.authors;
     }
 
     public getWebsiteName(id: number) : string {
