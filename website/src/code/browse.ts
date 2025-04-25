@@ -42,9 +42,7 @@ function onAddFilter() {
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add('Browse-filterCriteriaDeleteBtn');
     deleteBtn.innerText = '🗙';
-    deleteBtn.addEventListener('click', () => {
-        document.getElementById(id)?.remove();
-    });
+    deleteBtn.addEventListener('click', () => deleteFilter(id));
 
     let description = document.createElement('div');
     description.classList.add('Browse-filterCriteriaDescription');
@@ -84,6 +82,11 @@ function saveFilter(d: any, filterType: string, filterTerm: string) {
         console.error(`unknown filterType: ${filterType}`);
         return;
     }
+}
+
+
+function deleteFilter(elementId: string) {
+
 }
 
 
