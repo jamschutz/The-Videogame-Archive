@@ -93,7 +93,11 @@ export class Filter {
                 'authors': this.getAuthorIds(),
                 'articleTypes': this.getAritlceTypeIds()
             },
-            'exclude': []
+            'exclude': {
+                'websites': [],
+                'authors': [],
+                'articleTypes': []
+            }
         }
     }
 
