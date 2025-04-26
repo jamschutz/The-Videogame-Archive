@@ -6,6 +6,7 @@ enum FilterTypes {
     Authors,
     ArticleTypes
 }
+const FILTER_CACHE_ID: string = 'dataFilters';
 
 export class Filter {
     private dataManager: DataManager;
@@ -13,15 +14,22 @@ export class Filter {
     private include: FilterRules;
     private exclude: FilterRules;
 
+    
+
     constructor(loadRulesFromCache: boolean) {
         this.dataManager = new DataManager();
         this.include = new FilterRules(this.dataManager);
         this.exclude = new FilterRules(this.dataManager);
 
-        if(loadRulesFromCache && 'dataFilters' in localStorage) {
+        if(loadRulesFromCache && FILTER_CACHE_ID in sessionStorage) {
             console.log('found rules!');
-            this.include = localStorage['dataFilters'];
-            console.log(this.include);
+            let cache = sessionStorage.getItem(FILTER_CACHE_ID);
+            console.log(cache);
+            this.include.loadFromJson(cache);
+            console.log(this.toJson());
+        }
+        else {
+            console.log('unable to find cache rules');
         }
     }
 
@@ -51,6 +59,17 @@ export class Filter {
     }
     public excludeArticleType(name: string) {
         this.exclude.addArticleType(name);
+    }
+
+
+    public isWebsiteActive(id: number) {
+        return this.include.getWebsites().has(id);
+    }
+    public isAuthorActive(id: number) {
+        return this.include.getAuthors().has(id);
+    }
+    public isArticleTypeActive(id: number) {
+        return this.include.getArticleTypes().has(id);
     }
 
 
@@ -109,7 +128,7 @@ export class Filter {
         this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
         this.getAritlceTypeIds().forEach(a => includeOnlyRules.addArticleType(a));
 
-        localStorage['dataFilters'] = includeOnlyRules;
+        sessionStorage.setItem(FILTER_CACHE_ID, includeOnlyRules.toJson());
     }
 
 

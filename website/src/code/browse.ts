@@ -24,10 +24,12 @@ async function onSubmit() {
     let json = await response.json();
 
     // save data to cache
+    saveAndRedirect(json);
+}
+
+function saveAndRedirect(json: any) {
     localStorage['targetDates'] = json;
     filter.saveRules();
-
-    // and redirect to target page
     let targetDate = CalendarDate.fromDateString(json[0]);
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`;
 }

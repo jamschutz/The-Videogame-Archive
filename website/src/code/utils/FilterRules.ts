@@ -28,6 +28,24 @@ export class FilterRules {
         return this.articleTypes;
     }
 
+    public toJson() : string {
+        return JSON.stringify({
+            'websites': Array.from(this.websites),
+            'authors': Array.from(this.authors),
+            'articleTypes': Array.from(this.articleTypes)
+        })
+    }
+
+    public loadFromJson(json: string | null) {
+        if(json === null)
+            return;
+        
+        let data = JSON.parse(json);
+        this.websites = new Set(data['websites']);
+        this.authors = new Set(data['authors']);
+        this.articleTypes = new Set(data['articleTypes']);
+    }
+
 
     // --- add methods -------------------------------------
     // -----------------------------------------------------

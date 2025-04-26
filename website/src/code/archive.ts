@@ -3,6 +3,7 @@ import { Calendar } from "./components/Calendar";
 import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
 import { CalendarDate } from "./entities/CalendarDate";
+import { Filter } from "./utils/Filter";
 import { UrlParamBitfield } from "./utils/UrlParamBitfield";
 import { Utils } from "./utils/Utils";
 
@@ -10,8 +11,9 @@ import { Utils } from "./utils/Utils";
 var searchBar = new SearchBar();
 var calendar = new Calendar();
 var dataManager = new DataManager();
-var activeWebsiteManager = new UrlParamBitfield([]);
-var articleFilters = new UrlParamBitfield([]);
+var filterSettings = new Filter(true);  // true means to load from cache
+// var activeWebsiteManager = new UrlParamBitfield([]);
+// var articleFilters = new UrlParamBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 
@@ -31,48 +33,31 @@ function goToPreviousDay() {
     goToTargetDate(targetDate);
 }
 function goToTargetDate(targetDate: CalendarDate) {
-    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/?w=${activeWebsiteManager.toUrlParam()}`;
+    window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
 // buttons for the filters
-function applyFilters() {
-    let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
-    let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
+// function applyFilters() {
+//     let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
+//     let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
 
-    // apply website filters
-    let targetWebsites = [];
-    for(let i = 0; i < websiteFilters.length; i++) {
-        let website = websiteFilters.item(i) as HTMLElement;
-        let websiteName = website.getAttribute('name');
-        if(websiteName == undefined)
-            continue;
-        websiteName = websiteName.trim();
+//     // apply website filters
+//     let targetWebsites = [];
+//     for(let i = 0; i < websiteFilters.length; i++) {
+//         let website = websiteFilters.item(i) as HTMLElement;
+//         let websiteName = website.getAttribute('name');
+//         if(websiteName == undefined)
+//             continue;
+//         websiteName = websiteName.trim();
 
-        if((website as HTMLInputElement).checked) {
-            targetWebsites.push(dataManager.getWebsiteId(websiteName));
-        }
-    }
-    activeWebsiteManager.updateActiveWebsites(targetWebsites);
-    let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toUrlParam()}`;
-    window.location.href = url;
-    
-    // // apply article type filters
-    // for(let i = 0; i < articleTypeFilters.length; i++) {
-    //     let articleType = articleTypeFilters.item(i) as HTMLElement;
-    //     let articleTypeName = articleType.getAttribute('name');
-    //     if(articleTypeName == undefined)
-    //         continue;
-    //     articleTypeName = articleTypeName.trim();
-
-    //     // hide all articles of type
-    //     let articlesOfType = document.getElementsByClassName(`Archive-article${articleTypeName}`);
-    //     let showArticles = (articleType as HTMLInputElement).checked;
-    //     for(let j = 0; j < articlesOfType.length; j++) {
-    //         let article = articlesOfType.item(j) as HTMLElement;
-    //         article.style.display = showArticles? 'block': 'none';
-    //     }
-    // }
-}
+//         if((website as HTMLInputElement).checked) {
+//             targetWebsites.push(dataManager.getWebsiteId(websiteName));
+//         }
+//     }
+//     activeWebsiteManager.updateActiveWebsites(targetWebsites);
+//     let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toUrlParam()}`;
+//     window.location.href = url;
+// }
 
 // select all functions for filters
 function toggleSelectAllWebsites() {
@@ -137,12 +122,11 @@ function handleDrop(e: any) {
 }
 
 function showActiveWebsites() {
-    activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
-    
+    // activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
     let allWebsites = dataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
         let website = allWebsites[i];
-        if(activeWebsiteManager.isActive(website.id)) {
+        if(filterSettings.isWebsiteActive(website.id)) {
             let websiteColumn = document.querySelector(`[data-id='${website.id}']`) as HTMLElement;
 
             if(websiteColumn != undefined)
@@ -166,7 +150,7 @@ function showActiveWebsites() {
         websiteName = websiteName.trim();
 
         let checkbox = (website as HTMLInputElement);
-        checkbox.checked = activeWebsiteManager.isActive(dataManager.getWebsiteId(websiteName));
+        checkbox.checked = filterSettings.isWebsiteActive(dataManager.getWebsiteId(websiteName));
     }
 }
 
@@ -193,8 +177,8 @@ const dataLoadPromise = dataManager.loadData();
         forwardButton.addEventListener("click", goToNextDay);
 
         // bind apply filters button
-        let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
-        applyFiltersButton.addEventListener("click", applyFilters);
+        // let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
+        // applyFiltersButton.addEventListener("click", applyFilters);
 
         let selectAllWebsitesCheckbox = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
         let selectAllArticleTypesCheckbox = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
