@@ -27,8 +27,9 @@ async function onSubmit() {
     saveAndRedirect(json);
 }
 
+// separate function for this, so that it's synchonous and waits for storage to update
 function saveAndRedirect(json: any) {
-    localStorage['targetDates'] = json;
+    sessionStorage['targetDates'] = json;
     filter.saveRules();
     let targetDate = CalendarDate.fromDateString(json[0]);
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`;
