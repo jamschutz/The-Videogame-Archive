@@ -2,7 +2,7 @@ import { Filter } from "./utils/Filter";
 import { CalendarDate } from './entities/CalendarDate';
 const config = require('config');
 
-var filter = new Filter();
+var filter = new Filter(false);  // false means don't load rules from cache -- we're rebuilding here!
 
 var filterInput: HTMLInputElement;
 var filterTypeSelection: HTMLInputElement;
@@ -10,8 +10,10 @@ var includeExcludeSelection: HTMLInputElement;
 var addFilterButton: HTMLInputElement;
 
 async function onSubmit() {
+    // build json body
     let body = filter.toJson();
-    console.log(JSON.stringify(body));
+
+    // get dates from api
     let response = await fetch(`${config.API_BASE_URL}/GetDatesByFilter`, {
         method: 'POST',
         body: JSON.stringify(body),
@@ -20,10 +22,12 @@ async function onSubmit() {
         }
     });
     let json = await response.json();
-    console.log(json);
 
+    // save data to cache
     localStorage['targetDates'] = json;
+    filter.saveRules();
 
+    // and redirect to target page
     let targetDate = CalendarDate.fromDateString(json[0]);
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`;
 }

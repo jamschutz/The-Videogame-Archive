@@ -13,15 +13,15 @@ export class Filter {
     private include: FilterRules;
     private exclude: FilterRules;
 
-    constructor() {
+    constructor(loadRulesFromCache: boolean) {
         this.dataManager = new DataManager();
         this.include = new FilterRules(this.dataManager);
         this.exclude = new FilterRules(this.dataManager);
 
-        if('dataFilters' in localStorage) {
+        if(loadRulesFromCache && 'dataFilters' in localStorage) {
             console.log('found rules!');
-            // this.rules = localStorage['dataFilters'];
-            // console.log(this.rules);
+            this.include = localStorage['dataFilters'];
+            console.log(this.include);
         }
     }
 
@@ -103,7 +103,13 @@ export class Filter {
 
 
     public saveRules() {
-        // localStorage['dataFilters'] = this.rules;
+        let includeOnlyRules = new FilterRules(this.dataManager);
+        
+        this.getWebsiteIds().forEach(w => includeOnlyRules.addWebsite(w));
+        this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
+        this.getAritlceTypeIds().forEach(a => includeOnlyRules.addArticleType(a));
+
+        localStorage['dataFilters'] = includeOnlyRules;
     }
 
 
