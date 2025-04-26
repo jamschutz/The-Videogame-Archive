@@ -1,35 +1,16 @@
-import { DataManager } from "./utils/DataManager";
+import { Filter } from "./utils/Filter";
 import { CalendarDate } from './entities/CalendarDate';
 const config = require('config');
 
-var dataManager = new DataManager();
+var filter = new Filter();
 
 var filterInput: HTMLInputElement;
 var filterTypeSelection: HTMLInputElement;
 var includeExcludeSelection: HTMLInputElement;
 var addFilterButton: HTMLInputElement;
 
-var include: any = {
-    'websites': [],
-    'authors': [],
-    'articleTypes': []
-}
-var exclude: any = {
-    'websites': [],
-    'authors': [],
-    'articleTypes': []
-}
-var idLookups: any = {
-    'websites': {},
-    'authors': {},
-    'articleTypes': {}
-}
-
 async function onSubmit() {
-    let body = { 
-        'include': include,
-        'exclude': exclude
-    };
+    let body = filter.toJson();
     console.log(JSON.stringify(body));
     let response = await fetch(`${config.API_BASE_URL}/GetDatesByFilter`, {
         method: 'POST',
@@ -56,7 +37,7 @@ function onAddFilter() {
     let id = `Browse-${filterType}${filterTerm}`;
 
     // save data
-    saveFilter(isInclude? include : exclude, filterType, filterTerm);
+    saveFilter(isInclude, filterType, filterTerm);
 
     // create html element
     let container = document.getElementById('Browse-filterCriteriaContainer');
@@ -67,7 +48,6 @@ function onAddFilter() {
     criteriaEl.setAttribute('data-include', isInclude.toString());
     criteriaEl.setAttribute('data-type', filterType);
     criteriaEl.setAttribute('data-value', filterTerm);
-    idLookups[filterType][filterTerm] = getDataListItemId(filterType, filterTerm);
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList.add('Browse-filterCriteriaDeleteBtn');
@@ -97,46 +77,26 @@ function updateBrowseByTypeSelection(selection: string) {
 }
 
 
-function saveFilter(d: any, filterType: string, filterTerm: string) {
+function saveFilter(isInclude: boolean, filterType: string, filterTerm: string) {
     filterType = filterType.toLowerCase();
-    let id = getDataListItemId(filterType, filterTerm);
-    if(id < 0) {
-        console.error(`unable to get for ${filterTerm}`);
-        return;
+    switch(filterType) {
+        case 'websites':
+            if(isInclude) filter.includeWebsite(filterTerm);
+            else          filter.excludeWebsite(filterTerm);
+            break;
+        case 'authors':
+            if(isInclude) filter.includeAuthor(filterTerm);
+            else          filter.excludeAuthor(filterTerm);
+            break;
+        case 'articleTypes':
+            if(isInclude) filter.includeArticleType(filterTerm);
+            else          filter.excludeArticleType(filterTerm);
+            break;
+        default:
+            console.error(`unknown filter type: ${filterType}`);
+            break;
     }
-
-    d[filterType].push(id);
     
-}
-
-
-function getDataListItemId(category: string, value: string) : number {
-    let datalist = document.getElementById(`datalist-${category}`);
-    if(datalist == undefined || datalist == null) {
-        console.error(`unable to find datalist with id: datalist-${category}`);
-        return -1;
-    }
-
-    let items = datalist.children;
-    for(let i = 0; i < items.length; i++) {
-        let item = items[i] as HTMLInputElement;
-        if(item.value === value) {
-            let id = item.getAttribute('data-id');
-            if(id == null || id == undefined)
-                return -1;
-
-            try {
-                return parseInt(id);
-            }
-            catch {
-                console.error(`got id that is not a number for ${value}: ${id}`);
-                return -1;
-            }
-        }
-    }
-
-    console.error(`unable to find ${value} in ${category} datalist`);
-    return 0;
 }
 
 
@@ -150,7 +110,6 @@ function deleteFilter(elementId: string) {
     let isInclude = element.getAttribute('data-include') == 'true';
     let filterType = element.getAttribute('data-type');
     let filterValue = element.getAttribute('data-value');
-    let targetId = idLookups[filterType || ''][filterValue || ''];
 
     if(filterType == null || filterValue == null) {
         console.error(`unable to get data from filter element with id ${elementId}`);
@@ -158,20 +117,12 @@ function deleteFilter(elementId: string) {
     }
 
     document.getElementById(elementId)?.remove();
-
-    let d = isInclude? include : exclude;    
-    let i = d[filterType].indexOf(targetId);
-    if(i > -1) {
-        d[filterType].splice(i, 1);
-    }
-    else {
-        console.error(`didn't find ${filterValue} in ${filterType}`)
-    }
+    filter.deleteRule(filterValue, filterType, isInclude);
 }
 
 
 // on window load
-const dataLoadPromise = dataManager.loadData();
+const dataLoadPromise = filter.loadData();
 (function(window, document, undefined) {  
     window.onload = init;
   

@@ -138,9 +138,9 @@ export class DataManager {
         return this.articleTypeLookup['name'][name];
     }
     public getAuthorName(id: number) : string {
-        return this.authorLookup['name'][id];
+        return this.authorLookup['id'][id];
     }
     public getAuthorId(name: string) : number {
-        return this.authorLookup['id'][name];
+        return this.authorLookup['name'][name];
     }
 }

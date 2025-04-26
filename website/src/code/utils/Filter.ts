@@ -1,6 +1,12 @@
 import { FilterRules } from './FilterRules';
 import { DataManager } from "./DataManager";
 
+enum FilterTypes {
+    Websites,
+    Authors,
+    ArticleTypes
+}
+
 export class Filter {
     private dataManager: DataManager;
 
@@ -17,6 +23,10 @@ export class Filter {
             // this.rules = localStorage['dataFilters'];
             // console.log(this.rules);
         }
+    }
+
+    public async loadData() {
+        await this.dataManager.loadData();
     }
 
 
@@ -62,12 +72,34 @@ export class Filter {
         }
     }
 
-    public saveRules() {
-        // localStorage['dataFilters'] = this.rules;
+    
+    // ------ get methods ------------------------- //
+    public getWebsiteIds() {
+        return this.getData(this.include.getWebsites(), this.exclude.getWebsites(), FilterTypes.Websites);
     }
 
-    public getWebsiteIds() {
-        
+    public getAuthorIds() {
+        return this.getData(this.include.getAuthors(), this.exclude.getAuthors(), FilterTypes.Authors);
+    }
+
+    public getAritlceTypeIds() {
+        return this.getData(this.include.getArticleTypes(), this.exclude.getArticleTypes(), FilterTypes.ArticleTypes);
+    }
+
+    public toJson() {
+        return {
+            'include': {
+                'websites': this.getWebsiteIds(),
+                'authors': this.getAuthorIds(),
+                'articleTypes': this.getAritlceTypeIds()
+            },
+            'exclude': []
+        }
+    }
+
+
+    public saveRules() {
+        // localStorage['dataFilters'] = this.rules;
     }
 
 
@@ -75,7 +107,7 @@ export class Filter {
 
     // ----- private methods -------------------- //
     // ------------------------------------------ //
-    private getData(includes: Set<number>, excludes: Set<number>, type: string) : Array<number> {
+    private getData(includes: Set<number>, excludes: Set<number>, type: FilterTypes) : Array<number> {
         let data = new Set<number>();
 
         // first, build list by checking includes
@@ -89,13 +121,13 @@ export class Filter {
         else {
             let all = [];
             switch(type) {
-                case 'websites':
+                case FilterTypes.Websites:
                     all = this.dataManager.getWebsites();
                     break;
-                case 'authors':
+                case FilterTypes.Authors:
                     all = this.dataManager.getAuthors();
                     break;
-                case 'articleTypes':
+                case FilterTypes.ArticleTypes:
                     all = this.dataManager.getArticleTypes();
                     break;
                 default:

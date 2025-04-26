@@ -14,6 +14,21 @@ export class FilterRules {
     }
 
 
+    // --- get methods -------------------------------------
+    // -----------------------------------------------------
+    public getWebsites() : Set<number> {
+        return this.websites;
+    }
+
+    public getAuthors() : Set<number> {
+        return this.authors;
+    }
+
+    public getArticleTypes() : Set<number> {
+        return this.articleTypes;
+    }
+
+
     // --- add methods -------------------------------------
     // -----------------------------------------------------
     public addWebsite(website: string | number) {
