@@ -68,9 +68,7 @@ export class Filter {
     }
     public isAuthorActive(id: number | string) {
         if(typeof id === 'string') {
-            let realid = this.dataManager.getAuthorId(id);
-            console.log(`converted ${id} to ${realid}`);
-            id = realid;
+            id = this.dataManager.getAuthorId(id);
         }
         return this.include.getAuthors().has(id);
     }
