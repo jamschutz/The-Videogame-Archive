@@ -6,6 +6,7 @@ import { CalendarDate } from "./entities/CalendarDate";
 import { Filter } from "./utils/Filter";
 import { UrlParamBitfield } from "./utils/UrlParamBitfield";
 import { Utils } from "./utils/Utils";
+import { WebsiteColumn } from "./components/WebsiteColumn";
 
 // --- declare components --- //
 var searchBar = new SearchBar();
@@ -16,6 +17,7 @@ var filterSettings = new Filter(true);  // true means to load from cache
 // var articleFilters = new UrlParamBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
+var websites: Array<WebsiteColumn> = [];
 
 
 
@@ -85,7 +87,6 @@ function toggleSelectAllArticleTypes() {
 
 // moveable website columns
 function handleDragStart(this: any, e: any) {
-    console.log('drag start');
     selectedColumn = this.parentNode;
     selectedColumn.style.opacity = '0.4';
 
@@ -97,13 +98,11 @@ function handleDragEnd(e: any) {
 }
 
 function handleDragOver(e : any) {
-    console.log('drag over');
     e.preventDefault();
     return false;
 }
 
 function handleDragEnter(this: any, e: any) {
-    console.log('drag enter');
     if (selectedColumn !== this.parentNode) {
         // swap flex order of columns
         let temp = selectedColumn.style.order;
@@ -116,41 +115,17 @@ function handleDragLeave(e: any) {
 }
 
 function handleDrop(e: any) {
-    console.log('drag leave');
     e.stopPropagation(); // stops the browser from redirecting.
     return false;
 }
 
 function showActiveWebsites() {
-    // activeWebsiteManager.setActiveWebsites(UrlParser.getActiveWebsites());
+    // show websites
     let allWebsites = dataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
-        let website = allWebsites[i];
-        if(filterSettings.isWebsiteActive(website.id)) {
-            let websiteColumn = document.querySelector(`[data-id='${website.id}']`) as HTMLElement;
-
-            if(websiteColumn != undefined)
-                websiteColumn.style.display = 'block';
-            else 
-                console.error('could not find column for website name: ' + website.name);
-        }
-    }
-    // show website columns
-
-    // update filter checkboxes
-    let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
-    let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
-
-    // apply website filters
-    for(let i = 0; i < websiteFilters.length; i++) {
-        let website = websiteFilters.item(i) as HTMLElement;
-        let websiteName = website.getAttribute('name');
-        if(websiteName == undefined)
-            continue;
-        websiteName = websiteName.trim();
-
-        let checkbox = (website as HTMLInputElement);
-        checkbox.checked = filterSettings.isWebsiteActive(dataManager.getWebsiteId(websiteName));
+        let webColumn = new WebsiteColumn(allWebsites[i]);
+        websites.push(webColumn);
+        webColumn.updateHtml(filterSettings);
     }
 }
 

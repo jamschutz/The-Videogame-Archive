@@ -28,7 +28,7 @@ export class Filter {
             this.include.loadFromJson(cache);
             console.log(this.toJson());
         }
-        else {
+        else if(loadRulesFromCache) {
             console.log('unable to find cache rules');
         }
     }
