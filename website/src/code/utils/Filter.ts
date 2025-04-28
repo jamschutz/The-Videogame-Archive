@@ -22,9 +22,7 @@ export class Filter {
         this.exclude = new FilterRules(this.dataManager);
 
         if(loadRulesFromCache && FILTER_CACHE_ID in sessionStorage) {
-            console.log('found rules!');
             let cache = sessionStorage.getItem(FILTER_CACHE_ID);
-            console.log(cache);
             this.include.loadFromJson(cache);
             console.log(this.toJson());
         }
@@ -62,13 +60,24 @@ export class Filter {
     }
 
 
-    public isWebsiteActive(id: number) {
+    public isWebsiteActive(id: number | string) {
+        if(typeof id === 'string') {
+            id = this.dataManager.getWebsiteId(id);
+        }
         return this.include.getWebsites().has(id);
     }
-    public isAuthorActive(id: number) {
+    public isAuthorActive(id: number | string) {
+        if(typeof id === 'string') {
+            let realid = this.dataManager.getAuthorId(id);
+            console.log(`converted ${id} to ${realid}`);
+            id = realid;
+        }
         return this.include.getAuthors().has(id);
     }
-    public isArticleTypeActive(id: number) {
+    public isArticleTypeActive(id: number | string) {
+        if(typeof id === 'string') {
+            id = this.dataManager.getArticleTypeId(id);
+        }
         return this.include.getArticleTypes().has(id);
     }
 

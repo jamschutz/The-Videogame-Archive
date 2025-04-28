@@ -173,6 +173,7 @@ const dataLoadPromise = dataManager.loadData();
         }
 
         await dataLoadPromise;
+        await filterSettings.loadData();
         showActiveWebsites();
     }
 })(window, document, undefined)

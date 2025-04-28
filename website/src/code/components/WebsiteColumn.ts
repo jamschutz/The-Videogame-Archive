@@ -3,9 +3,14 @@ import { Filter } from "../utils/Filter";
 
 export class WebsiteColumn {
     private data: Website;
+    private webColumn: HTMLElement | undefined;
 
     constructor(website: Website) {
         this.data = website;
+
+        this.webColumn = document.querySelector(`[data-id='${this.data.id}']`) as HTMLElement;
+        if(this.webColumn == undefined)
+            console.error('could not find column for website name: ' + this.data.name);
     }
 
 
@@ -15,17 +20,41 @@ export class WebsiteColumn {
             return;
 
         this.showColumn();
+        this.filterArticles(filter);
     }
 
 
     private showColumn() {
-        // otherwise, activate website
-        let websiteColumn = document.querySelector(`[data-id='${this.data.id}']`) as HTMLElement;
+        if(this.webColumn == undefined)
+            return;
 
-        if(websiteColumn != undefined)
-            websiteColumn.style.display = 'block';
-        else 
-            console.error('could not find column for website name: ' + this.data.name);
+        this.webColumn.style.display = 'block';
+    }
+
+
+    private filterArticles(filter: Filter) {
+        if(this.webColumn == undefined)
+            return;
+
+        // loop over each article
+        this.webColumn.querySelectorAll(`.Archive-article`).forEach(article => {
+            // parse metadata
+            let author = article.getAttribute('data-author');
+            let articleType = article.getAttribute('data-type');
+
+            console.log(`author: ${author}`);
+            console.log(`articleType: ${articleType}`);
+
+            // if anything is disabled, hide it
+            if(author !== null && !filter.isAuthorActive(author))  {
+                console.log(`hiding author: ${author}`);
+                (article as HTMLElement).style.display = 'none';
+            }
+            // if(articleType !== null && !filter.isArticleTypeActive(articleType)) {
+            //     console.log(`hiding articleType: ${articleType}`);
+            //     (article as HTMLElement).style.display = 'none';
+            // }
+        })
     }
 }
 
