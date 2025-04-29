@@ -34,8 +34,7 @@ function goToPreviousDay() {
     goToTargetDate(PREV_DATE == null? targetDate : PREV_DATE);
 }
 function goToTargetDate(targetDate: CalendarDate) {
-    let websiteOrder = getWebsiteOrder();
-    sessionStorage.setItem(config.WEBSITE_ORDER_CACHE_ID, JSON.stringify(websiteOrder));
+    saveWebsiteOrder();
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
@@ -96,6 +95,7 @@ function handleDragStart(this: any, e: any) {
 
 function handleDragEnd(e: any) {
     selectedColumn.style.opacity = '1';
+    saveWebsiteOrder();
 }
 
 function handleDragOver(e : any) {
@@ -136,6 +136,11 @@ function getWebsiteOrder() {
     }
 
     return websiteOrder;
+}
+
+function saveWebsiteOrder() {
+    let websiteOrder = getWebsiteOrder();
+    sessionStorage.setItem(config.WEBSITE_ORDER_CACHE_ID, JSON.stringify(websiteOrder));
 }
 
 function showActiveWebsites() {
