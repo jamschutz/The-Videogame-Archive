@@ -204,10 +204,6 @@ const dataLoadPromise = dataManager.loadData();
         prevDateButton.addEventListener("click", goToPreviousDay);
         nextDateButton.addEventListener("click", goToNextDay);
 
-        // bind apply filters button
-        // let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
-        // applyFiltersButton.addEventListener("click", applyFilters);
-
         let selectAllWebsitesCheckbox = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
         let selectAllArticleTypesCheckbox = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
         selectAllWebsitesCheckbox.addEventListener('click', toggleSelectAllWebsites);
