@@ -17,6 +17,8 @@ let selectedColumn: HTMLElement;
 var websites: Array<WebsiteColumn> = [];
 var NEXT_DATE: CalendarDate | null = null;
 var PREV_DATE: CalendarDate | null = null;
+var nextDateButton: HTMLInputElement;
+var prevDateButton: HTMLInputElement;
 
 
 
@@ -165,6 +167,13 @@ function setNextAndPrevDates() {
             PREV_DATE = i > 0? CalendarDate.fromDateString(targetDates[i - 1]) : null;
             NEXT_DATE = i < targetDates.length - 1? CalendarDate.fromDateString(targetDates[i + 1]) : null;
 
+            if(PREV_DATE === null) {
+                prevDateButton.style.display = 'none';
+            }
+            if(NEXT_DATE === null) {
+                nextDateButton.style.display = 'none';
+            }
+
             console.log(`prev: ${PREV_DATE}, next: ${NEXT_DATE}`);
             return;
         }
@@ -188,10 +197,10 @@ const dataLoadPromise = dataManager.loadData();
         calendar.updateHtml();
 
         // bind forward / backward 
-        let backButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;
-        let forwardButton = document.getElementById("Archive-articleDateForwardBtn") as HTMLInputElement;
-        backButton.addEventListener("click", goToPreviousDay);
-        forwardButton.addEventListener("click", goToNextDay);
+        prevDateButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;
+        nextDateButton = document.getElementById("Archive-articleDateForwardBtn") as HTMLInputElement;
+        prevDateButton.addEventListener("click", goToPreviousDay);
+        nextDateButton.addEventListener("click", goToNextDay);
 
         // bind apply filters button
         // let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
