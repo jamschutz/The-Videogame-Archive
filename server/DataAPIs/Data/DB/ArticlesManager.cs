@@ -28,6 +28,7 @@ namespace VideoGameArchive.Data.DB
                 article.url = reader.GetString(4);
                 article.thumbnail = reader.IsDBNull(5) ? null : reader.GetString(5);
                 article.datePublished = reader.GetInt32(6);
+                article.articleType = reader.GetString(7);
                 return article;
             };
         }
@@ -46,7 +47,7 @@ namespace VideoGameArchive.Data.DB
 
             string sql =  $@"
                 SELECT
-                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished""
+                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished"", ""ArticleTypes"".""Name""
                 FROM
                     ""Articles""
                 INNER JOIN
@@ -57,6 +58,10 @@ namespace VideoGameArchive.Data.DB
                     ""Websites""
                 ON
                     ""Articles"".""WebsiteId"" = ""Websites"".""Id""
+                INNER JOIN
+                    ""ArticleTypes""
+                ON
+                    ""Articles"".""ArticleTypeId"" = ""ArticleTypes"".""Id""
                 WHERE
                     ""Articles"".""DatePublished"" = @date
             ";
@@ -73,7 +78,7 @@ namespace VideoGameArchive.Data.DB
 
             string sql =  $@"
                 SELECT
-                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished""
+                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished"", ""ArticleTypes"".""Name""
                 FROM
                     ""Articles""
                 INNER JOIN
@@ -84,6 +89,10 @@ namespace VideoGameArchive.Data.DB
                     ""Websites""
                 ON
                     ""Articles"".""WebsiteId"" = ""Websites"".""Id""
+                INNER JOIN
+                    ""ArticleTypes""
+                ON
+                    ""Articles"".""ArticleTypeId"" = ""ArticleTypes"".""Id""
                 WHERE
                     ""Articles"".""DatePublished"" >= @start AND ""Articles"".""DatePublished"" <= @end
             ";

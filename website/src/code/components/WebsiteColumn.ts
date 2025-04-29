@@ -42,18 +42,15 @@ export class WebsiteColumn {
             let author = article.getAttribute('data-author');
             let articleType = article.getAttribute('data-type');
 
-            console.log(`author: ${author}`);
-            console.log(`articleType: ${articleType}`);
-
             // if anything is disabled, hide it
             if(author !== null && !filter.isAuthorActive(author))  {
                 console.log(`hiding author: ${author}`);
                 (article as HTMLElement).style.display = 'none';
             }
-            // if(articleType !== null && !filter.isArticleTypeActive(articleType)) {
-            //     console.log(`hiding articleType: ${articleType}`);
-            //     (article as HTMLElement).style.display = 'none';
-            // }
+            if(articleType !== null && !filter.isArticleTypeActive(articleType)) {
+                console.log(`hiding articleType: ${articleType}`);
+                (article as HTMLElement).style.display = 'none';
+            }
         })
     }
 }
