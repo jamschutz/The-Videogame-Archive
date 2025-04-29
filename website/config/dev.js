@@ -1,4 +1,7 @@
 module.exports = {
     API_BASE_URL: "http://localhost:5000",
-    IMG_BASE_URL: "http://localhost:5001/img"
+    IMG_BASE_URL: "http://localhost:5001/img",
+
+    FILTER_CACHE_ID: 'dataFilters',
+    TARGET_DATES_CACHE_ID: 'targetDates'
 };

@@ -4,9 +4,8 @@ import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
 import { CalendarDate } from "./entities/CalendarDate";
 import { Filter } from "./utils/Filter";
-import { UrlParamBitfield } from "./utils/UrlParamBitfield";
-import { Utils } from "./utils/Utils";
 import { WebsiteColumn } from "./components/WebsiteColumn";
+const config = require('config');
 
 // --- declare components --- //
 var searchBar = new SearchBar();
@@ -18,6 +17,8 @@ var filterSettings = new Filter(true);  // true means to load from cache
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 var websites: Array<WebsiteColumn> = [];
+var NEXT_DATE: CalendarDate | null = null;
+var PREV_DATE: CalendarDate | null = null;
 
 
 
@@ -27,12 +28,12 @@ var websites: Array<WebsiteColumn> = [];
 function goToNextDay() {
     let targetDate = UrlParser.getDate();
     targetDate.addDay();
-    goToTargetDate(targetDate);
+    goToTargetDate(NEXT_DATE == null? targetDate : NEXT_DATE);
 }
 function goToPreviousDay() {
     let targetDate = UrlParser.getDate();
     targetDate.subtractDay();
-    goToTargetDate(targetDate);
+    goToTargetDate(PREV_DATE == null? targetDate : PREV_DATE);
 }
 function goToTargetDate(targetDate: CalendarDate) {
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
@@ -130,6 +131,21 @@ function showActiveWebsites() {
 }
 
 
+function setNextAndPrevDates() {
+    let targetDates = JSON.parse(sessionStorage.getItem(config.TARGET_DATES_CACHE_ID) || '[]');
+    let currentDate = UrlParser.getDate();
+    for(let i = 0; i < targetDates.length; i++) {
+        if(targetDates[i] === currentDate.toNumber()) {
+            PREV_DATE = i > 0? CalendarDate.fromDateString(targetDates[i - 1]) : null;
+            NEXT_DATE = i < targetDates.length - 1? CalendarDate.fromDateString(targetDates[i + 1]) : null;
+
+            console.log(`prev: ${PREV_DATE}, next: ${NEXT_DATE}`);
+            return;
+        }
+    }
+}
+
+
 
 
 
@@ -175,5 +191,6 @@ const dataLoadPromise = dataManager.loadData();
         await dataLoadPromise;
         await filterSettings.loadData();
         showActiveWebsites();
+        setNextAndPrevDates();
     }
 })(window, document, undefined)

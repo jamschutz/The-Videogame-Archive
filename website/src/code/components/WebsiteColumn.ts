@@ -44,11 +44,9 @@ export class WebsiteColumn {
 
             // if anything is disabled, hide it
             if(author !== null && !filter.isAuthorActive(author))  {
-                console.log(`hiding author: ${author}`);
                 (article as HTMLElement).style.display = 'none';
             }
             if(articleType !== null && !filter.isArticleTypeActive(articleType)) {
-                console.log(`hiding articleType: ${articleType}`);
                 (article as HTMLElement).style.display = 'none';
             }
         })

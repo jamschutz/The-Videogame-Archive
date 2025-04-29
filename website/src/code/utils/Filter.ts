@@ -1,12 +1,13 @@
 import { FilterRules } from './FilterRules';
 import { DataManager } from "./DataManager";
+const config = require('config');
+
 
 enum FilterTypes {
     Websites,
     Authors,
     ArticleTypes
 }
-const FILTER_CACHE_ID: string = 'dataFilters';
 
 export class Filter {
     private dataManager: DataManager;
@@ -21,8 +22,8 @@ export class Filter {
         this.include = new FilterRules(this.dataManager);
         this.exclude = new FilterRules(this.dataManager);
 
-        if(loadRulesFromCache && FILTER_CACHE_ID in sessionStorage) {
-            let cache = sessionStorage.getItem(FILTER_CACHE_ID);
+        if(loadRulesFromCache && config.FILTER_CACHE_ID in sessionStorage) {
+            let cache = sessionStorage.getItem(config.FILTER_CACHE_ID);
             this.include.loadFromJson(cache);
             console.log(this.toJson());
         }
@@ -135,7 +136,7 @@ export class Filter {
         this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
         this.getAritlceTypeIds().forEach(a => includeOnlyRules.addArticleType(a));
 
-        sessionStorage.setItem(FILTER_CACHE_ID, includeOnlyRules.toJson());
+        sessionStorage.setItem(config.FILTER_CACHE_ID, includeOnlyRules.toJson());
     }
 
 
