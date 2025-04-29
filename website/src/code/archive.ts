@@ -12,8 +12,6 @@ var searchBar = new SearchBar();
 var calendar = new Calendar();
 var dataManager = new DataManager();
 var filterSettings = new Filter(true);  // true means to load from cache
-// var activeWebsiteManager = new UrlParamBitfield([]);
-// var articleFilters = new UrlParamBitfield([]);
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 var websites: Array<WebsiteColumn> = [];
@@ -36,6 +34,7 @@ function goToPreviousDay() {
     goToTargetDate(PREV_DATE == null? targetDate : PREV_DATE);
 }
 function goToTargetDate(targetDate: CalendarDate) {
+    // sessionStorage.setItem(config.WEBSITE_ORDER_CACHE_ID, )
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
