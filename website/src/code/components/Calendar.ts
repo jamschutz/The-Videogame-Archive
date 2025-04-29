@@ -1,6 +1,7 @@
 import { CalendarDate } from "../entities/CalendarDate";
 import { UrlParser } from "../utils/UrlParser";
 import { DataManager } from "../utils/DataManager";
+const config = require('config');
 
 export class Calendar {
     public date: CalendarDate;
@@ -72,15 +73,22 @@ export class Calendar {
 
     public async loadDatesWithArticles(): Promise<void> {
         // get dates with articles
-        let datesWithArticlesResponse = await DataManager.getDatesWithArticles();
-
-        // add to cache
-        for(const i in datesWithArticlesResponse) {
-            let date = datesWithArticlesResponse[i];
-            this.datesWithArticles[date] = true;
+        // let datesWithArticlesResponse = await DataManager.getDatesWithArticles();
+        let dates = sessionStorage.getItem(config.TARGET_DATES_CACHE_ID);
+        if(dates == null) {
+            console.error(`unable to find dates with articles`);
+            return;
         }
 
-        console.log(this.datesWithArticles);
+        // add to cache
+        JSON.parse(dates).forEach((date: any) => {
+            try {
+                this.datesWithArticles[parseInt(date)] = true;
+            }
+            catch {
+                console.error(`got date from session storage that's not a number{ ${date}}`);
+            }
+        })
 
         // udpate html
         this.updateHtml();
