@@ -236,6 +236,8 @@ namespace VideoGameArchive.Data.DB
                     ""DatePublished""
             ";
 
+            Console.WriteLine(sql);
+
             var allParams = include.GetAllParameters();
             allParams.AddRange(exclude.GetAllParameters());
 

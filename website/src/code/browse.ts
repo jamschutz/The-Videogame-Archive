@@ -12,6 +12,7 @@ var addFilterButton: HTMLInputElement;
 async function onSubmit() {
     // build json body
     let body = filter.toJson();
+    console.log(body);
 
     // get dates from api
     let response = await fetch(`${config.API_BASE_URL}/GetDatesByFilter`, {
@@ -95,7 +96,7 @@ function saveFilter(isInclude: boolean, filterType: string, filterTerm: string) 
             if(isInclude) filter.includeAuthor(filterTerm);
             else          filter.excludeAuthor(filterTerm);
             break;
-        case 'articleTypes':
+        case 'articletypes':
             if(isInclude) filter.includeArticleType(filterTerm);
             else          filter.excludeArticleType(filterTerm);
             break;
@@ -103,7 +104,6 @@ function saveFilter(isInclude: boolean, filterType: string, filterTerm: string) 
             console.error(`unknown filter type: ${filterType}`);
             break;
     }
-    
 }
 
 

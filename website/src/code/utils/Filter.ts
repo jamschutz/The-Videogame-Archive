@@ -89,7 +89,7 @@ export class Filter {
             case "authors":
                 target.removeAuthor(rule);
                 break;
-            case "websites":
+            case "articleTypes":
                 target.removeArticleType(rule);
                 break;
             default:
