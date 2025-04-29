@@ -34,7 +34,8 @@ function goToPreviousDay() {
     goToTargetDate(PREV_DATE == null? targetDate : PREV_DATE);
 }
 function goToTargetDate(targetDate: CalendarDate) {
-    // sessionStorage.setItem(config.WEBSITE_ORDER_CACHE_ID, )
+    let websiteOrder = getWebsiteOrder();
+    sessionStorage.setItem(config.WEBSITE_ORDER_CACHE_ID, JSON.stringify(websiteOrder));
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
@@ -117,6 +118,25 @@ function handleDragLeave(e: any) {
 function handleDrop(e: any) {
     e.stopPropagation(); // stops the browser from redirecting.
     return false;
+}
+
+function getWebsiteOrder() {
+    let websiteOrder: any = {};
+    let cols = document.getElementsByClassName('Archive-websiteColumn');
+    for(let i = 0; i < cols.length; i++) {
+        let websiteColumn = cols.item(i) as HTMLElement;
+        try {
+            let id = websiteColumn.getAttribute('data-id') || -1;
+            let order = parseInt(websiteColumn.style.order);
+            websiteOrder[id] = order;
+        }
+        catch {
+            console.error(`unable to get id or order from website column: ${websiteColumn.classList}`);
+        }
+    }
+
+    console.log(websiteOrder);
+    return websiteOrder;
 }
 
 function showActiveWebsites() {
