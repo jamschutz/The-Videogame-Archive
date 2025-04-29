@@ -16,7 +16,7 @@ export class FilterNavBar {
 
     public updateHtml(): void {
         this.updateFilterCheckboxes(this.websiteFilters, (website: string) => this.filter.isWebsiteActive(website));
-        // this.updateFilterCheckboxes(this.articleTypeFilters, this.filter.isArticleTypeActive);
+        this.updateFilterCheckboxes(this.articleTypeFilters, (articleType: string) => this.filter.isArticleTypeActive(articleType));
     }
 
 
