@@ -5,12 +5,15 @@ export class WebsiteColumn {
     private data: Website;
     private webColumn: HTMLElement | undefined;
 
-    constructor(website: Website) {
+    constructor(website: Website, order: number) {
         this.data = website;
 
-        this.webColumn = document.querySelector(`[data-id='${this.data.id}']`) as HTMLElement;
-        if(this.webColumn == undefined)
+        this.webColumn = document.getElementById(`Archive-websiteColumn${this.data.name}`) as HTMLElement;
+        if(this.webColumn == undefined) {
             console.error('could not find column for website name: ' + this.data.name);
+        }
+
+        this.webColumn.style.order = order.toString();
     }
 
 

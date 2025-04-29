@@ -135,15 +135,17 @@ function getWebsiteOrder() {
         }
     }
 
-    console.log(websiteOrder);
     return websiteOrder;
 }
 
 function showActiveWebsites() {
+    // load website order
+    let websiteOrder = JSON.parse(sessionStorage.getItem(config.WEBSITE_ORDER_CACHE_ID) || '[]');
+
     // show websites
     let allWebsites = dataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
-        let webColumn = new WebsiteColumn(allWebsites[i]);
+        let webColumn = new WebsiteColumn(allWebsites[i], websiteOrder[allWebsites[i].id]);
         websites.push(webColumn);
         webColumn.updateHtml(filterSettings);
     }
