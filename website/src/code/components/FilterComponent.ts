@@ -18,6 +18,7 @@ export class FilterComponent {
         // get select all buttons
         this.selectAllWebsitesBtn = document.getElementById("Filter-websiteSelectAll") as HTMLInputElement;
         this.selectAllArticleTypesBtn = document.getElementById("Filter-articleTypeSelectAll") as HTMLInputElement;
+        document.getElementById('Filter-addAuthor')?.addEventListener('click', () => this.addAuthor());
 
         // select all websites
         this.selectAllWebsitesBtn.addEventListener('click', () => {
@@ -122,5 +123,11 @@ export class FilterComponent {
                 }
             }
         }
+    }
+
+
+    private addAuthor() {
+        let author = document.getElementById('Filter-authorInput') as HTMLInputElement;
+        console.log(author.value);
     }
 }
