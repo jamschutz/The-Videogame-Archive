@@ -164,10 +164,6 @@ const dataLoadPromise = dataManager.loadData();
         prevDateButton.addEventListener("click", goToPreviousDay);
         nextDateButton.addEventListener("click", goToNextDay);
 
-        // apply filters
-        let applyFiltersButton = document.getElementById('ArticleFilters-applyFiltersBtn') as HTMLInputElement;
-        applyFiltersButton.addEventListener('click', () => filterNavBar.applyFilters());
-
         // bind website column draggable functions
         websiteColumns = document.getElementsByClassName('Archive-websiteColumnHeader');
         for(let i = 0; i < websiteColumns.length; i++) {

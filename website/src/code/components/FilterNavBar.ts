@@ -11,13 +11,13 @@ export class FilterNavBar {
     constructor(filter: Filter) {
         // init properties
         this.filter = filter;
-        this.websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
-        this.articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
+        this.websiteFilters = document.getElementsByClassName("Filter-filterCheckboxWebsites");
+        this.articleTypeFilters = document.getElementsByClassName("Filter-filterCheckboxArticleTypes");
 
         // --- register select all click events --- //
         // get select all buttons
-        this.selectAllWebsitesBtn = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
-        this.selectAllArticleTypesBtn = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
+        this.selectAllWebsitesBtn = document.getElementById("Filter-websiteSelectAll") as HTMLInputElement;
+        this.selectAllArticleTypesBtn = document.getElementById("Filter-articleTypeSelectAll") as HTMLInputElement;
 
         // select all websites
         this.selectAllWebsitesBtn.addEventListener('click', () => {
@@ -42,7 +42,7 @@ export class FilterNavBar {
         this.updateHtml();
 
         // bind apply filters button
-        let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
+        let applyFiltersButton = document.getElementById("Filter-applyFiltersBtn") as HTMLInputElement;
         if(applyFiltersButton !== null)
             applyFiltersButton.addEventListener("click", () => this.applyFilters());
     }
