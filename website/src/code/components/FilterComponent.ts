@@ -1,6 +1,6 @@
 import { Filter } from "../utils/Filter";
 
-export class FilterNavBar {
+export class FilterComponent {
     private filter: Filter;
     private websiteFilters: HTMLCollectionOf<Element> | null;
     private articleTypeFilters: HTMLCollectionOf<Element> | null;

@@ -1,6 +1,6 @@
 import { SearchBar } from "./components/SearchBar";
 import { Calendar } from "./components/Calendar";
-import { FilterNavBar } from "./components/FilterNavBar";
+import { FilterComponent } from "./components/FilterComponent";
 import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
 import { CalendarDate } from "./entities/CalendarDate";
@@ -20,7 +20,7 @@ var NEXT_DATE: CalendarDate | null = null;
 var PREV_DATE: CalendarDate | null = null;
 var nextDateButton: HTMLInputElement;
 var prevDateButton: HTMLInputElement;
-var filterNavBar: FilterNavBar; // wait to init until after we've initialized filters
+var filterNavBar: FilterComponent; // wait to init until after we've initialized filters
 
 
 
@@ -156,7 +156,7 @@ const dataLoadPromise = dataManager.loadData();
 
         await dataLoadPromise;
         await filterSettings.loadData();
-        filterNavBar = new FilterNavBar(filterSettings);
+        filterNavBar = new FilterComponent(filterSettings);
 
         // bind forward / backward 
         prevDateButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;

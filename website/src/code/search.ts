@@ -4,7 +4,7 @@ import { Article } from "./entities/Article";
 import { SearchResult } from "./components/SearchResult";
 import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
-import { FilterNavBar } from "./components/FilterNavBar";
+import { FilterComponent } from "./components/FilterComponent";
 import { Filter } from "./utils/Filter";
 
 let se_searchBar = new SearchBar();
@@ -75,7 +75,7 @@ function showSearchResults(results: Article[]) {
         await se_filterSettings.loadData();
         se_filterSettings.includeAllWebsites();
         se_filterSettings.includeAllArticleTypes();
-        se_filterNavBar = new FilterNavBar(se_filterSettings);
+        se_filterNavBar = new FilterComponent(se_filterSettings);
 
         let startTime = Date.now();
         let searchRequest = UrlParser.getSearchRequest();
