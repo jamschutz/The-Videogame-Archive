@@ -42,29 +42,6 @@ function goToTargetDate(targetDate: CalendarDate) {
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
-// select all functions for filters
-function toggleSelectAllWebsites() {
-    let selectAll = (document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement).checked;
-    let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
-
-    // apply website filters
-    for(let i = 0; i < websiteFilters.length; i++) {
-        let website = websiteFilters.item(i) as HTMLInputElement;
-        website.checked = selectAll;
-    }
-}
-
-function toggleSelectAllArticleTypes() {
-    let selectAll = (document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement).checked;
-    let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
-
-    // apply website filters
-    for(let i = 0; i < articleTypeFilters.length; i++) {
-        let articleType = articleTypeFilters.item(i) as HTMLInputElement;
-        articleType.checked = selectAll;
-    }
-}
-
 
 // moveable website columns
 function handleDragStart(this: any, e: any) {
@@ -182,11 +159,6 @@ const dataLoadPromise = dataManager.loadData();
         nextDateButton = document.getElementById("Archive-articleDateForwardBtn") as HTMLInputElement;
         prevDateButton.addEventListener("click", goToPreviousDay);
         nextDateButton.addEventListener("click", goToNextDay);
-
-        let selectAllWebsitesCheckbox = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
-        let selectAllArticleTypesCheckbox = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
-        selectAllWebsitesCheckbox.addEventListener('click', toggleSelectAllWebsites);
-        selectAllArticleTypesCheckbox.addEventListener('click', toggleSelectAllArticleTypes);
 
         // bind website column draggable functions
         websiteColumns = document.getElementsByClassName('Archive-websiteColumnHeader');
