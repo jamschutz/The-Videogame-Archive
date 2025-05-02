@@ -131,8 +131,9 @@ export class FilterComponent {
         
         let authorCard = document.createElement('div');
         authorCard.classList.add('Component-card');
-        authorCard.innerText == author.value;
         authorCard.id = `Filter-authorCard${author.value}`;
+
+        let authorName = document.createTextNode(author.value);
         
         let closeBtn = document.createElement('span');
         closeBtn.classList.add('Component-cardCloseBtn');
@@ -141,6 +142,7 @@ export class FilterComponent {
         });
 
         let container = document.getElementById('Filter-authorFilterContainer');
+        authorCard.appendChild(authorName);
         authorCard.appendChild(closeBtn);
         container?.appendChild(authorCard);
 
