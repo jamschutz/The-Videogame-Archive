@@ -19,11 +19,11 @@ namespace VideoGameArchive.Data.DB
         {
             connectionString = String.Format(
                 "Server={0};Port={1};User Id={2};Password={3};Database={4}",
-                Secrets.PostgresHost,
-                Secrets.PostgresPort,
-                Secrets.PostgresUser,
-                Secrets.PostgresPassword,
-                Secrets.PostgresDbName
+                SecretsManager.Get("postgres-host"),
+                SecretsManager.Get("postgres-port"),
+                SecretsManager.Get("postgres-user"),
+                SecretsManager.Get("postgres-password"),
+                SecretsManager.Get("postgres-db-name")
             );
         }
 
