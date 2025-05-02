@@ -42,29 +42,6 @@ function goToTargetDate(targetDate: CalendarDate) {
     window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}/`;
 }
 
-// buttons for the filters
-// function applyFilters() {
-//     let websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
-//     let articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
-
-//     // apply website filters
-//     let targetWebsites = [];
-//     for(let i = 0; i < websiteFilters.length; i++) {
-//         let website = websiteFilters.item(i) as HTMLElement;
-//         let websiteName = website.getAttribute('name');
-//         if(websiteName == undefined)
-//             continue;
-//         websiteName = websiteName.trim();
-
-//         if((website as HTMLInputElement).checked) {
-//             targetWebsites.push(dataManager.getWebsiteId(websiteName));
-//         }
-//     }
-//     activeWebsiteManager.updateActiveWebsites(targetWebsites);
-//     let url = `${window.location.href.split('?')[0]}?w=${activeWebsiteManager.toUrlParam()}`;
-//     window.location.href = url;
-// }
-
 // select all functions for filters
 function toggleSelectAllWebsites() {
     let selectAll = (document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement).checked;
@@ -150,11 +127,13 @@ function saveWebsiteOrder() {
 function showActiveWebsites() {
     // load website order
     let websiteOrder = JSON.parse(sessionStorage.getItem(config.WEBSITE_ORDER_CACHE_ID) || '[]');
+    console.log(websiteOrder);
 
     // show websites
     let allWebsites = dataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
-        let webColumn = new WebsiteColumn(allWebsites[i], websiteOrder[allWebsites[i].id]);
+        let order = allWebsites[i].id in websiteOrder? websiteOrder[allWebsites[i].id] : allWebsites[i].id;
+        let webColumn = new WebsiteColumn(allWebsites[i], order);
         websites.push(webColumn);
         webColumn.updateHtml(filterSettings);
     }

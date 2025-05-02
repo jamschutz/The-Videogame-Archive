@@ -137,7 +137,7 @@ namespace VideoGameArchive.Data.DB
             string parameterNames = string.Join(",", parameters.Select(p => $"@{p.name}").ToList());
             string sql =  $@"
                 SELECT
-                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished""
+                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished"", ""ArticleTypes"".""Name""
                 FROM
                     ""Articles""
                 INNER JOIN
@@ -148,6 +148,10 @@ namespace VideoGameArchive.Data.DB
                     ""Websites""
                 ON
                     ""Articles"".""WebsiteId"" = ""Websites"".""Id""
+                INNER JOIN
+                    ""ArticleTypes""
+                ON
+                    ""Articles"".""ArticleTypeId"" = ""ArticleTypes"".""Id""
                 WHERE
                     ""Articles"".""Id"" in ({parameterNames})
             ";
@@ -177,7 +181,7 @@ namespace VideoGameArchive.Data.DB
 
             string sql = $@"
                 SELECT
-                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished""
+                    ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished"", ""ArticleTypes"".""Name""
                 FROM
                     ""Articles""
                 INNER JOIN
@@ -188,6 +192,10 @@ namespace VideoGameArchive.Data.DB
                     ""Websites""
                 ON
                     ""Articles"".""WebsiteId"" = ""Websites"".""Id""
+                INNER JOIN
+                    ""ArticleTypes""
+                ON
+                    ""Articles"".""ArticleTypeId"" = ""ArticleTypes"".""Id""
                 WHERE
                     ({string.Join(" AND ", titleCheckClauses)}) OR 
                     ({string.Join(" AND ", subtitleCheckClauses)})
