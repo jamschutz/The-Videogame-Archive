@@ -154,11 +154,19 @@ const dataLoadPromise = dataManager.loadData();
         searchBar.init();
         calendar.updateHtml();
 
+        await dataLoadPromise;
+        await filterSettings.loadData();
+        filterNavBar = new FilterNavBar(filterSettings);
+
         // bind forward / backward 
         prevDateButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;
         nextDateButton = document.getElementById("Archive-articleDateForwardBtn") as HTMLInputElement;
         prevDateButton.addEventListener("click", goToPreviousDay);
         nextDateButton.addEventListener("click", goToNextDay);
+
+        // apply filters
+        let applyFiltersButton = document.getElementById('ArticleFilters-applyFiltersBtn') as HTMLInputElement;
+        applyFiltersButton.addEventListener('click', () => filterNavBar.applyFilters());
 
         // bind website column draggable functions
         websiteColumns = document.getElementsByClassName('Archive-websiteColumnHeader');
@@ -171,10 +179,6 @@ const dataLoadPromise = dataManager.loadData();
             websiteColumn.addEventListener('dragend', handleDragEnd);
             websiteColumn.addEventListener('drop', handleDrop);
         }
-
-        await dataLoadPromise;
-        await filterSettings.loadData();
-        filterNavBar = new FilterNavBar(filterSettings);
         showActiveWebsites();
         setNextAndPrevDates();
     }

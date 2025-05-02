@@ -71,7 +71,7 @@ export class FilterNavBar {
     }
 
 
-    private applyFilters() {
+    public applyFilters() : void {
         // update website filters
         this.updateFilters(this.websiteFilters, 
             (website: string) => this.filter.isWebsiteActive(website),
