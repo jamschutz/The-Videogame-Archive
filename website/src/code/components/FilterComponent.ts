@@ -128,6 +128,30 @@ export class FilterComponent {
 
     private addAuthor() {
         let author = document.getElementById('Filter-authorInput') as HTMLInputElement;
-        console.log(author.value);
+        
+        let authorCard = document.createElement('div');
+        authorCard.classList.add('Component-card');
+        authorCard.innerText == author.value;
+        authorCard.id = `Filter-authorCard${author.value}`;
+        
+        let closeBtn = document.createElement('span');
+        closeBtn.classList.add('Component-cardCloseBtn');
+        closeBtn.addEventListener('click', () => {
+            this.removeAuthor(author.value);
+        });
+
+        let container = document.getElementById('Filter-authorFilterContainer');
+        authorCard.appendChild(closeBtn);
+        container?.appendChild(authorCard);
+
+        this.filter.includeAuthor(author.value);
+    }
+
+
+    public removeAuthor(author: string) {
+        console.log(`remove: ${author}`);
+        let authorCard = document.getElementById(`Filter-authorCard${author}`);
+        authorCard?.remove();
+        this.filter.deleteRule(author, 'authors', true);
     }
 }
