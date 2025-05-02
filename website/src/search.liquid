@@ -10,7 +10,8 @@ includeScript: /code/search.js
         <div style="display: flex;">
             <input style="height: 30px" id="Global-searchBar" class="Search-searchBar" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Global-searchBarBtn"></button>
         </div>
-        <div>
+        {% render "components/filter.liquid", websites: collections.websites articleTypes: collections.articleTypes authors: collections.authors %}
+        {% comment %} <div>
             <details class="Search-filterContainer Global-noSelect">
                 <summary class="Search-filterContainerExpander">Filters</summary>
 
@@ -43,10 +44,28 @@ includeScript: /code/search.js
                     </div>                    
                 </details>
 
+                
+                <!-- author filters -->
+                <hr/>
+                <details class="Search-filterCategoryContainer Global-noSelect">
+                    <summary>Authors</summary>
+                    <div style="margin-top: 14px">
+                        <div>
+                            <input style="height: 30px" id="Browse-filterInput" list="datalist-authors" type="search" placeholder="Add author filter..."><button style="width: 30px; height: 30px;" id="Browse-addFilter">&#43;</button>
+                            <datalist id="datalist-authors">
+                            {% for author in collections.authors -%}
+                                <option value="{{ author.name }}" data-id="{{ author.id }}">{{ author.name }}</option>
+                            {% endfor %}
+                            </datalist>
+                        </div>
+                        
+                    </div>                    
+                </details>
+
                 <hr/>
             </details>
 
-        </div>
+        </div> {% endcomment %}
         
         <div id="Search-resultCount"></div> 
     </div>
