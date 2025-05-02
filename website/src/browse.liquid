@@ -6,11 +6,11 @@ includeScript: /code/browse.js
 
 <div class="Browse-container">
     <div>
-        <h2>Add filters:</h2>
+        <h2>Browse by filters:</h2>
     </div>
-    <div>
+    {% comment %} <div> {% endcomment %}
         {% comment %} <span class="Browse-browseByLabel">Browse by: </span> {% endcomment %}
-        <select id="Browse-includeExclude">
+        {% comment %} <select id="Browse-includeExclude">
             <option value="include">Include</option>
             <option value="exclude">Exclude</option>
         </select>
@@ -19,13 +19,15 @@ includeScript: /code/browse.js
             <option value="authors">Author</option>
             <option value="articleTypes">Article Type</option>
         </select>
-        <input style="height: 30px" id="Browse-filterInput" list="datalist-websites" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Browse-addFilter">&#43;</button>
+        <input style="height: 30px" id="Browse-filterInput" list="datalist-websites" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Browse-addFilter">&#43;</button> {% endcomment %}
 
 
 
         {% comment  %} -------- DATA LISTS ----------------------- {% endcomment %}
 
-        <datalist id="datalist-websites">        
+        {% render "components/filter.liquid" websites: collections.websites articleTypes: collections.articleTypes %}
+
+        {% comment %} <datalist id="datalist-websites">        
         {% for website in collections.websites -%}
             <option value="{{ website.name }}" data-id="{{ website.id }}">{{ website.name }}</option>
         {% endfor %}
@@ -44,8 +46,8 @@ includeScript: /code/browse.js
         </datalist>
     </div>
     <div id="Browse-filterCriteriaContainer">
-    </div>
+    </div>{% endcomment %}
     <div class="Browse-submitBtnContainer">
-        <button id="Browse-submitBtn">Submit</button>
+        <button id="Browse-submitBtn">Submit</button> 
     </div>
 </div>

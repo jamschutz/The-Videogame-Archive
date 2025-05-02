@@ -135,17 +135,17 @@ const dataLoadPromise = filter.loadData();
   
     async function init(){
         // find and store input elements
-        filterInput = document.getElementById('Browse-filterInput') as HTMLInputElement;
-        includeExcludeSelection = document.getElementById('Browse-includeExclude') as HTMLInputElement;        
-        filterTypeSelection = document.getElementById("Browse-browseBySelect") as HTMLInputElement;
-        addFilterButton = document.getElementById('Browse-addFilter') as HTMLInputElement;
+        // filterInput = document.getElementById('Browse-filterInput') as HTMLInputElement;
+        // includeExcludeSelection = document.getElementById('Browse-includeExclude') as HTMLInputElement;        
+        // filterTypeSelection = document.getElementById("Browse-browseBySelect") as HTMLInputElement;
+        // addFilterButton = document.getElementById('Browse-addFilter') as HTMLInputElement;
         let submitButton = document.getElementById("Browse-submitBtn") as HTMLInputElement;
 
-        // add event listeners
-        filterTypeSelection.addEventListener("change", function (e: any) {
-            updateBrowseByTypeSelection(e.target.value);
-        });
-        addFilterButton.addEventListener("click", onAddFilter);
+        // // add event listeners
+        // filterTypeSelection.addEventListener("change", function (e: any) {
+        //     updateBrowseByTypeSelection(e.target.value);
+        // });
+        // addFilterButton.addEventListener("click", onAddFilter);
         submitButton.addEventListener("click", onSubmit);
 
         await dataLoadPromise;
