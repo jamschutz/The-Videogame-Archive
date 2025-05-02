@@ -25,6 +25,9 @@ export class SearchBar {
             }
         });
 
+        let searchBtn = document.getElementById("Global-searchBarBtn") as HTMLInputElement;
+        searchBtn.addEventListener("click", () => SearchBar.onSubmit());
+
         let searchHistory = UrlParser.getSearchRequest();
         if(searchHistory !== null) {
             searchBar.value = searchHistory.searchTerms.join(' ');
