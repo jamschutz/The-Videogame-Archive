@@ -39,10 +39,10 @@
 
 .Search-articleInfoLeftPanel {
     float: left;
-	width: 200px;
-	margin-right: 25px;
-	text-align: right;
-	font-size: 18px;
+    width: 200px;
+    margin-right: 25px;
+    text-align: right;
+    font-size: 18px;
 }
 
 .Search-articleInfoLeftPanel .Search-articleDate {
@@ -71,6 +71,7 @@
     width: 250px;
     display: inline-block;
 }
+
 .Search-articleMainInfo .Search-articleTitle:hover {
     text-shadow: -3px 2px 2px #c0e1ff;
 }
@@ -96,4 +97,74 @@
     margin-top: 0px;
     padding-top: 6px;
     font-style: italic;
+}
+
+
+.Search-filterContainer {
+    cursor: pointer;
+    margin-top: 20px;
+
+    details {
+        margin-top: 10px;
+
+        summary {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+
+            &::after {
+                content: "+";
+                font-weight: bold;
+                padding-right: 20px;
+            }
+        }
+
+        div {
+            /* margin-left: 20px; */
+        }
+    }
+    details[open] {
+        summary::after {
+            content: "-";
+            font-weight: bold;
+            padding-right: 20px;
+        }
+    }
+
+    details:hover {
+        cursor: pointer;
+    }
+
+    details:last-of-type summary::-webkit-details-marker {
+        display: none;
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #dddddd;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    .Search-filterContainerExpander {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        &::after {
+            content: "+";
+            font-weight: bold;
+            padding-right: 20px;
+        }
+    }
+
+    &[open] {
+        .Search-filterContainerExpander::after {
+            content: "-";
+            font-weight: bold;
+            padding-right: 20px;
+        }
+    }
 }

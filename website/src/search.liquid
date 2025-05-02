@@ -10,6 +10,43 @@ includeScript: /code/search.js
         <div style="display: flex;">
             <input style="height: 30px" id="Global-searchBar" class="Search-searchBar" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Global-searchBarBtn"></button>
         </div>
+        <div>
+            <details class="Search-filterContainer Global-noSelect">
+                <summary class="Search-filterContainerExpander">Filters</summary>
+
+                <!-- website filters -->
+                <hr/>
+                <details class="Search-filterCategoryContainer Global-noSelect">
+                    <summary>Websites</summary>
+                    <div style="margin-top: 14px">
+                        {% for website in collections.websites %}
+                            <div class="ArticleFilters-checkboxContainer">
+                                <input class="ArticleFilters-filterCheckbox ArticleFilters-filterCheckboxWebsites" type="checkbox" name="{{ website.name }}" checked />
+                                <label class="ArticleFilters-filterCheckboxLabel" for="{{ website.name }}">{{ website.name }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>                    
+                </details>
+
+                
+                <!-- article type filters -->
+                <hr/>
+                <details class="Search-filterCategoryContainer Global-noSelect">
+                    <summary>Article Types</summary>
+                    <div style="margin-top: 14px">
+                        {% for articleType in collections.articleTypes %}
+                            <div class="ArticleFilters-checkboxContainer">
+                                <input class="ArticleFilters-filterCheckbox ArticleFilters-filterCheckboxWebsites" type="checkbox" name="{{ website.name }}" checked />
+                                <label class="ArticleFilters-filterCheckboxLabel" for="{{ articleType.name }}">{{ articleType.name }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>                    
+                </details>
+
+                <hr/>
+            </details>
+
+        </div>
         
         <div id="Search-resultCount"></div> 
     </div>
