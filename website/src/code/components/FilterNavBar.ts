@@ -1,21 +1,50 @@
 import { Filter } from "../utils/Filter";
-const config = require('config');
 
 export class FilterNavBar {
     private filter: Filter;
     private websiteFilters: HTMLCollectionOf<Element> | null;
     private articleTypeFilters: HTMLCollectionOf<Element> | null;
 
+    private selectAllWebsitesBtn: HTMLInputElement;
+    private selectAllArticleTypesBtn: HTMLInputElement;
+
     constructor(filter: Filter) {
+        // init properties
         this.filter = filter;
         this.websiteFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxWebsites");
         this.articleTypeFilters = document.getElementsByClassName("ArticleFilters-filterCheckboxArticleTypes");
 
+        // --- register select all click events --- //
+        // get select all buttons
+        this.selectAllWebsitesBtn = document.getElementById("ArticleFilters-websiteSelectAll") as HTMLInputElement;
+        this.selectAllArticleTypesBtn = document.getElementById("ArticleFilters-articleTypeSelectAll") as HTMLInputElement;
+
+        // select all websites
+        this.selectAllWebsitesBtn.addEventListener('click', () => {
+            if(this.selectAllWebsitesBtn.checked)
+                this.filter.includeAllWebsites();
+            else
+                this.filter.removeAllWebsites();
+
+            this.updateHtml();
+        });
+        // select all article types
+        this.selectAllArticleTypesBtn.addEventListener('click', () => {
+            if(this.selectAllArticleTypesBtn.checked)
+                this.filter.includeAllArticleTypes();
+            else
+                this.filter.removeAllArticleTypes();
+
+            this.updateHtml();
+        });
+
+        // update html to match filters
         this.updateHtml();
 
         // bind apply filters button
         let applyFiltersButton = document.getElementById("ArticleFilters-applyFiltersBtn") as HTMLInputElement;
-        applyFiltersButton.addEventListener("click", () => this.applyFilters());
+        if(applyFiltersButton !== null)
+            applyFiltersButton.addEventListener("click", () => this.applyFilters());
     }
 
 
@@ -63,6 +92,7 @@ export class FilterNavBar {
 
 
     private updateFilters(checkboxes: HTMLCollectionOf<Element> | null, isActiveFunc: Function, setActiveFunc: Function, setInactiveFunc: Function) : void {
+        console.log('updating filters')
         if(checkboxes === null)
             return;
 

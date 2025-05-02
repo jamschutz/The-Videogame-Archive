@@ -4,9 +4,15 @@ import { Article } from "./entities/Article";
 import { SearchResult } from "./components/SearchResult";
 import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
+import { FilterNavBar } from "./components/FilterNavBar";
+import { Filter } from "./utils/Filter";
 
 let se_searchBar = new SearchBar();
 let se_pager = new Pager();
+let se_dataManager = new DataManager();
+
+let se_filterSettings = new Filter(false);  // false means don't load from cache
+let se_filterNavBar; // wait to initialize until webpage has loaded
 
 function sortByDate(a: Article, b: Article) {
     if (a.date.toNumber() < b.date.toNumber()) {
@@ -64,6 +70,12 @@ function showSearchResults(results: Article[]) {
   
     async function init(){
         se_searchBar.init();
+
+        await se_dataManager.loadData();
+        await se_filterSettings.loadData();
+        se_filterSettings.includeAllWebsites();
+        se_filterSettings.includeAllArticleTypes();
+        se_filterNavBar = new FilterNavBar(se_filterSettings);
 
         let startTime = Date.now();
         let searchRequest = UrlParser.getSearchRequest();

@@ -81,6 +81,28 @@ export class Filter {
     }
 
 
+    public includeAllWebsites() {
+        this.include.addAllWebsites();
+    }
+    public includeAllAuthors() {
+        this.include.addAllAuthors();
+    }
+    public includeAllArticleTypes() {
+        this.include.addAllArticleTypes();
+    }
+
+
+    public removeAllWebsites() {
+        this.include.removeAllWebsites();
+    }
+    public removeAllAuthors() {
+        this.include.removeAllAuthors();
+    }
+    public removeAllArticleTypes() {
+        this.include.removeAllArticleTypes();
+    }
+
+
     public deleteRule(rule: string, category: string, include: boolean) {
         let target = include? this.include : this.exclude;
         switch(category) {

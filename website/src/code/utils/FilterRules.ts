@@ -1,3 +1,4 @@
+import { warn } from "console";
 import { DataManager } from "./DataManager";
 
 export class FilterRules {
@@ -74,6 +75,20 @@ export class FilterRules {
     }
 
 
+
+    public addAllWebsites() {
+        this.dataManager.getWebsites().forEach(w => this.websites.add(w.id));
+    }
+    
+    public addAllAuthors() {
+        this.dataManager.getAuthors().forEach(a => this.authors.add(a.id));
+    }
+
+    public addAllArticleTypes() {
+        this.dataManager.getArticleTypes().forEach(a => this.articleTypes.add(a.id));
+    }
+
+
     // --- delete methods -------------------------------------
     // --------------------------------------------------------
     public removeWebsite(website: string | number) {
@@ -98,5 +113,19 @@ export class FilterRules {
         }
 
         this.articleTypes.delete(articleType);
+    }
+
+
+
+    public removeAllWebsites() {
+        this.dataManager.getWebsites().forEach(w => this.websites.delete(w.id));
+    }
+    
+    public removeAllAuthors() {
+        this.dataManager.getAuthors().forEach(a => this.authors.delete(a.id));
+    }
+
+    public removeAllArticleTypes() {
+        this.dataManager.getArticleTypes().forEach(a => this.articleTypes.delete(a.id));
     }
 }
