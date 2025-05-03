@@ -42,6 +42,10 @@ export class FilterComponent {
 
             this.updateHtml();
         });
+        
+        // make sure select all checkboxes are checked... (cache will remember if they were checked last page load...)
+        this.selectAllArticleTypesBtn.checked = true;
+        this.selectAllArticleTypesBtn.checked = true;
 
         // update html to match filters
         this.updateHtml();

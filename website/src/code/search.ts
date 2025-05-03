@@ -7,6 +7,7 @@ import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
 import { FilterComponent } from "./components/FilterComponent";
 import { Filter } from "./utils/Filter";
+import { SearchResponse } from "./responses/SearchResponse";
 
 let se_searchBar = new SearchBar(onSubmit);
 let se_pager = new Pager();
@@ -15,85 +16,101 @@ let se_dataManager = new DataManager();
 let se_filterSettings = new Filter(false);  // false means don't load from cache
 let se_filterNavBar; // wait to initialize until webpage has loaded
 
+let se_progressBar: HTMLElement | null;
+let se_resultsContainer: HTMLElement | null;
+
 function sortByDate(a: Article, b: Article) {
     if (a.date.toNumber() < b.date.toNumber()) {
-      return -1;
+        return -1;
     }
     if (a.date.toNumber() > b.date.toNumber()) {
-      return 1;
+        return 1;
     }
     return 0;
-  }
+}
 
-function showSearchResults(results: Article[]) {
+function showSearchResults(response: SearchResponse) {
     // sort articles
-    results.sort(sortByDate);
+    response.results.sort(sortByDate);
 
     // hide progress bar
-    let progressBar = document.getElementById('Search-progressBar');
-    if(progressBar == undefined) {
+    if (se_progressBar == null) {
         console.error('unable to find progress bar on page...')
     }
     else {
-        progressBar.style.display = 'none';
+        se_progressBar.style.display = 'none';
     }
-    
-    let containerDiv = document.getElementById('Search-resultsContainer');
-    if(containerDiv == undefined) {
+
+    if (se_resultsContainer == null) {
         console.error('unable to find search results container...bailing');
         return;
     }
-        
+
     // if no articles for this day, just say so
-    if(results.length === 0) {
+    if (response.results.length === 0) {
         let noArticles = document.createElement('p');
         noArticles.innerHTML = "No articles found.";
         noArticles.classList.add('Search-noArticlesMsg');
 
-        containerDiv.appendChild(noArticles);
+        se_resultsContainer.appendChild(noArticles);
     }
     // otherwise, list articles
     else {
-        for(let i = 0; i < results.length; i++) {
-            let article = results[i];
+        for (let i = 0; i < response.results.length; i++) {
+            let article = response.results[i];
             let articleDiv = new SearchResult(article);
-            containerDiv.appendChild(articleDiv.toHtml());
-            containerDiv.appendChild(document.createElement('hr'));
+            se_resultsContainer.appendChild(articleDiv.toHtml());
+            se_resultsContainer.appendChild(document.createElement('hr'));
         }
+
+        // build pager
+        se_pager.init(Math.ceil(response.totalResults / 25));
     }
 }
 
 
+function clearSearchResults() {
+    if(se_resultsContainer === null)
+        return;
+
+    se_resultsContainer.innerHTML = '';
+    se_pager.hide();
+}
+
+
 async function onSubmit(searchTerms: string) {
-    console.log('getting results for: ' + searchTerms);
+    if(se_progressBar === null)
+        return;
+
+    // make sure container div is clear
+    clearSearchResults();
+
+    // show progress bar
+    se_progressBar.style.display = 'block';
 
     let startTime = Date.now();
     let req = new SearchRequest(searchTerms, 1);
     let results = await DataManager.getSearchResults(req, se_filterSettings);
-    console.log(results); 
 
     let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
     let searchResultTimer = document.getElementById('Search-resultCount');
-    if(searchResultTimer == undefined) {
+    if (searchResultTimer == undefined) {
         console.error('unable to find Search-resultCount');
     }
     else {
         searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
     }
-    
-    showSearchResults(results.results);
 
-    // build pager
-    se_pager.init(Math.ceil(results.totalResults / 25));
+    showSearchResults(results);
 }
 
 
 
 // on window load
-(function(window, document, undefined) {  
+(function (window, document, undefined) {
     window.onload = init;
-  
-    async function init(){
+
+    async function init() {
         se_searchBar.init();
 
         await se_dataManager.loadData();
@@ -102,21 +119,8 @@ async function onSubmit(searchTerms: string) {
         se_filterSettings.includeAllArticleTypes();
         se_filterNavBar = new FilterComponent(se_filterSettings);
 
-        // if didn't search for anything
-        // if(searchRequest.isEmpty()) {
-            // hide progress bar
-            let progressBar = document.getElementById('Search-progressBar');
-            if(progressBar == undefined) {
-                console.error('unable to find progress bar');
-            }
-            else {
-                progressBar.style.display = 'none';
-            }
-            
-            let containerDiv = document.getElementById('Search-resultsContainer');
-
-            // and bail
-            return;
-        // }
+        // find and store elements
+        se_progressBar = document.getElementById('Search-progressBar');
+        se_resultsContainer = document.getElementById('Search-resultsContainer');
     }
 })(window, document, undefined);

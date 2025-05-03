@@ -1,8 +1,10 @@
 import { UrlParser } from "../utils/UrlParser";
 
 export class Pager {
+    private container: HTMLElement | null;
+
     constructor() {
-        
+        this.container = document.getElementById("Pager-listContainer");
     }
 
 
@@ -29,17 +31,24 @@ export class Pager {
             largestPage = smallestPage + 4;
         }
 
-        let container = document.getElementById("Pager-listContainer");
-        if(container == undefined) {
+        if(this.container === null) {
             console.error('unable to find page container');
             return;
         }
         
-        container.appendChild(this.getStartEndBtn(1, baseUri));
+        this.container.appendChild(this.getStartEndBtn(1, baseUri));
         for(let page = smallestPage; page <= largestPage; page++) {
-            container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
+            this.container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
         }
-        container.appendChild(this.getStartEndBtn(totalPageCount, baseUri));
+        this.container.appendChild(this.getStartEndBtn(totalPageCount, baseUri));
+    }
+
+
+    public hide() {
+        if(this.container === null)
+            return;
+
+        this.container.innerHTML = '';
     }
 
 
