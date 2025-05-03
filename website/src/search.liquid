@@ -4,29 +4,33 @@ layout: 'base.liquid'
 includeScript: /code/search.js
 ---
 
-<div class="Search-container">
+{% comment %} <div class="Search-pageContainer"> {% endcomment %}
+
     <!-- search bar -->
-    <div class="Search-header">
-        <div style="display: flex;">
-            <input style="height: 30px" id="Global-searchBar" class="Search-searchBar" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Global-searchBarBtn"></button>
+    <div class="Search-container">
+        <div class="Search-header">
+            <div style="display: flex;">
+                <input style="height: 30px" id="Global-searchBar" class="Search-searchBar" type="search" placeholder="Search..."><button style="width: 30px; height: 30px;" id="Global-searchBarBtn"></button>
+            </div>
+
+            <div id="Search-resultCount"></div> 
         </div>
 
-        <div>
-            {% render "components/filter.liquid", websites: collections.websites articleTypes: collections.articleTypes authors: collections.authors %}
-        </div>        
+        <!-- progress bar -->
+        <div id="Search-progressBar" style="width: 80px; margin: auto; display: none;">
+            {% render "components/progressBarCircle.liquid" %}
+        </div>
 
-        <div id="Search-resultCount"></div> 
+        <!-- results -->
+        <div id="Search-resultsContainer">
+        </div>
+
+        <!-- pager -->
+        {% render "components/pager.liquid" %}
     </div>
 
-    <!-- progress bar -->
-    <div id="Search-progressBar" style="width: 80px; margin: auto; display: none;">
-        {% render "components/progressBarCircle.liquid" %}
+    <!-- filter settings -->
+    <div class="Search-filterContainer" tabindex="0">
+        {% render "components/filter.liquid", websites: collections.websites articleTypes: collections.articleTypes authors: collections.authors %}
     </div>
-
-    <!-- results -->
-    <div id="Search-resultsContainer">
-    </div>
-
-    <!-- pager -->
-     {% render "components/pager.liquid" %}
-</div>
+{% comment %} </div> {% endcomment %}

@@ -10,7 +10,7 @@ import { Filter } from "./utils/Filter";
 import { SearchResponse } from "./responses/SearchResponse";
 
 let se_searchBar = new SearchBar(onSubmit);
-let se_pager = new Pager();
+let se_pager: Pager;
 let se_dataManager = new DataManager();
 
 let se_filterSettings = new Filter(false);  // false means don't load from cache
@@ -81,6 +81,8 @@ function clearSearchResults() {
 async function onSubmit(searchTerms: string) {
     if(se_progressBar === null)
         return;
+
+    se_pager = new Pager();
 
     // make sure container div is clear
     clearSearchResults();

@@ -5,13 +5,15 @@ export class Pager {
 
     constructor() {
         this.container = document.getElementById("Pager-listContainer");
+        if(this.container === null)
+            console.error('unable to find page container!');
     }
 
 
     public init(totalPageCount: number) {
         let currentPage = UrlParser.getPageNumber();
         let searchTerms = UrlParser.getSearchRequest().searchTerms;
-        let baseUri = `/search/?term=${encodeURIComponent(searchTerms.join(' '))}`;
+        let baseUri = `/search/`;
 
         let smallestPage, largestPage;
         if(totalPageCount <= 5) {
@@ -62,7 +64,7 @@ export class Pager {
         // create a object
         listItem.innerText = pageNumber.toString();
         listItem.onclick = () => {
-            window.location.href = `${baseUri}&page=${pageNumber.toString()}`;
+            window.location.href = `${baseUri}?page=${pageNumber.toString()}`;
         }
 
         return listItem;
