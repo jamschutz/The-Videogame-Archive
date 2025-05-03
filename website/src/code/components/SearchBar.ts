@@ -1,24 +1,27 @@
 import { UrlParser } from "../utils/UrlParser";
 
+type OnSubmitHandler = (searchRequest: string) => void;
 export class SearchBar {
-    constructor() {
-        
+    private onSubmitCallback: OnSubmitHandler;
+
+    constructor(submitSearch: OnSubmitHandler) {
+        this.onSubmitCallback = submitSearch;
     }
 
 
-    static async onSubmit() {
+    private onSubmit() {
         console.log('on submit');
         let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
-        let searchTerms = searchBar.value;
-        window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
+        this.onSubmitCallback(searchBar.value);
+        // window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
     }
 
 
     public init() {
         let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
-        searchBar.addEventListener("keydown", function (e) {
+        searchBar.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
-                SearchBar.onSubmit();
+                () => this.onSubmit();
             }
             else {
                 console.log(`got key: ${e.key}`);
@@ -27,7 +30,7 @@ export class SearchBar {
 
         let searchBtn = document.getElementById("Global-searchBarBtn") as HTMLInputElement;
         if(searchBtn !== null)
-            searchBtn.addEventListener("click", () => SearchBar.onSubmit());
+            searchBtn.addEventListener("click", () => this.onSubmit());
 
         let searchHistory = UrlParser.getSearchRequest();
         if(searchHistory !== null) {

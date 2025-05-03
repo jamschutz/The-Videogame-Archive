@@ -9,7 +9,7 @@ import { WebsiteColumn } from "./components/WebsiteColumn";
 const config = require('config');
 
 // --- declare components --- //
-var searchBar = new SearchBar();
+// var searchBar = new SearchBar();
 var calendar = new Calendar();
 var dataManager = new DataManager();
 var filterSettings = new Filter(true);  // true means to load from cache
@@ -151,7 +151,7 @@ const dataLoadPromise = dataManager.loadData();
 
     async function init() {
         // init components
-        searchBar.init();
+        // searchBar.init();
         calendar.updateHtml();
 
         await dataLoadPromise;

@@ -7,6 +7,7 @@ import { Writer } from "../entities/Writer";
 import { GetArticleCountResponse } from "../responses/GetArticleCountResponse";
 import { SearchRequest } from "../requests/SearchRequest";
 import { SearchResponse } from "../responses/SearchResponse";
+import { Filter } from "./Filter";
 const config = require('config');
 
 export class DataManager {
@@ -96,21 +97,36 @@ export class DataManager {
     }
 
 
-    static async getSearchResults(searchRequest: SearchRequest): Promise<SearchResponse> {
+    static async getSearchResults(searchRequest: SearchRequest, filter: Filter): Promise<SearchResponse> {
         let resultsPerPage = 25;
         let page = searchRequest.pageNumber;
-        let searchUrl = `${config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
-        console.log(searchUrl);
-        console.log(config.API_BASE_URL);
-        let searchResultsResponse = await fetch(searchUrl, {
-            method: 'GET',
+        let body = {
+            'searchTerms': searchRequest.searchTerms,
+            'resultsPerPage': resultsPerPage,
+            'page': page,
+            'filter': filter.toJson().include
+        }
+
+        let response = await fetch(`${config.API_BASE_URL}/GetSearchResults`, {
+            method: 'POST',
+            body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-
-        let results = new SearchResponse(await searchResultsResponse.json());
+        let results = new SearchResponse(await response.json());
         return results;
+        // let searchUrl = `${config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
+
+        // let searchResultsResponse = await fetch(searchUrl, {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // });
+
+        // let results = new SearchResponse(await searchResultsResponse.json());
+        // return results;
     }
 
     public getWebsites() : Array<Website> {

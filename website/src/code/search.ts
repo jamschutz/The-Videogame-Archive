@@ -2,12 +2,13 @@ import { SearchBar } from "./components/SearchBar";
 import { Pager } from "./components/Pager";
 import { Article } from "./entities/Article";
 import { SearchResult } from "./components/SearchResult";
+import { SearchRequest } from "./requests/SearchRequest";
 import { UrlParser } from "./utils/UrlParser";
 import { DataManager } from "./utils/DataManager";
 import { FilterComponent } from "./components/FilterComponent";
 import { Filter } from "./utils/Filter";
 
-let se_searchBar = new SearchBar();
+let se_searchBar = new SearchBar(onSubmit);
 let se_pager = new Pager();
 let se_dataManager = new DataManager();
 
@@ -58,8 +59,32 @@ function showSearchResults(results: Article[]) {
             let articleDiv = new SearchResult(article);
             containerDiv.appendChild(articleDiv.toHtml());
             containerDiv.appendChild(document.createElement('hr'));
-        } 
+        }
     }
+}
+
+
+async function onSubmit(searchTerms: string) {
+    console.log('getting results for: ' + searchTerms);
+
+    let startTime = Date.now();
+    let req = new SearchRequest(searchTerms, 1);
+    let results = await DataManager.getSearchResults(req, se_filterSettings);
+    console.log(results); 
+
+    let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
+    let searchResultTimer = document.getElementById('Search-resultCount');
+    if(searchResultTimer == undefined) {
+        console.error('unable to find Search-resultCount');
+    }
+    else {
+        searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+    }
+    
+    showSearchResults(results.results);
+
+    // build pager
+    se_pager.init(Math.ceil(results.totalResults / 25));
 }
 
 
@@ -77,11 +102,8 @@ function showSearchResults(results: Article[]) {
         se_filterSettings.includeAllArticleTypes();
         se_filterNavBar = new FilterComponent(se_filterSettings);
 
-        let startTime = Date.now();
-        let searchRequest = UrlParser.getSearchRequest();
-
         // if didn't search for anything
-        if(searchRequest.isEmpty()) {
+        // if(searchRequest.isEmpty()) {
             // hide progress bar
             let progressBar = document.getElementById('Search-progressBar');
             if(progressBar == undefined) {
@@ -95,24 +117,6 @@ function showSearchResults(results: Article[]) {
 
             // and bail
             return;
-        }
-
-        console.log('getting results for: ' + searchRequest.searchTerms);
-
-        let results = await DataManager.getSearchResults(searchRequest);
-        console.log(results);
-        let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
-        let searchResultTimer = document.getElementById('Search-resultCount');
-        if(searchResultTimer == undefined) {
-            console.error('unable to find Search-resultCount');
-        }
-        else {
-            searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
-        }
-        
-        showSearchResults(results.results);
-
-        // build pager
-        se_pager.init(Math.ceil(results.totalResults / 25));
+        // }
     }
 })(window, document, undefined);

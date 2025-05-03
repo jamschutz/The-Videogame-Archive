@@ -14,7 +14,11 @@ export class FilterComponent {
         this.websiteFilters = document.getElementsByClassName("Filter-filterCheckboxWebsites");
         this.articleTypeFilters = document.getElementsByClassName("Filter-filterCheckboxArticleTypes");
 
-        // --- register select all click events --- //
+        // --- register click events --- //
+        // website select buttons
+        this.registerCheckboxUpdate(this.websiteFilters, 'websites');
+        this.registerCheckboxUpdate(this.articleTypeFilters, 'articleTypes');
+
         // get select all buttons
         this.selectAllWebsitesBtn = document.getElementById("Filter-websiteSelectAll") as HTMLInputElement;
         this.selectAllArticleTypesBtn = document.getElementById("Filter-articleTypeSelectAll") as HTMLInputElement;
@@ -67,7 +71,7 @@ export class FilterComponent {
             label = label.trim();
     
             let isChecked = isActiveFunc(label);
-            (checkbox as HTMLInputElement).checked = isChecked;            
+            (checkbox as HTMLInputElement).checked = isChecked;
         }
     }
 
@@ -166,5 +170,31 @@ export class FilterComponent {
         let authorCard = document.getElementById(`Filter-authorCard${author}`);
         authorCard?.remove();
         this.filter.deleteRule(author, 'authors', true);
+    }
+
+
+    private registerCheckboxUpdate(checkboxes: HTMLCollectionOf<Element>, category: string) : void {
+        for(let i = 0; i < checkboxes.length; i++) {
+            let checkbox = checkboxes.item(i) as HTMLInputElement;
+            checkbox.addEventListener('click', (e) => {
+                let c = e.target as HTMLInputElement;
+                if(c.checked) {
+                    switch(category) {
+                        case 'websites':
+                            this.filter.includeWebsite(c.getAttribute('name') || '');
+                            break;
+                        case 'articleTypes':
+                            this.filter.includeArticleType(c.getAttribute('name') || '');
+                            break;
+                        default:
+                            console.error(`unhandled category type for checkbox registration: ${category}`);
+                            break;
+                    }
+                }
+                else {
+                    this.filter.deleteRule(c.getAttribute('name') || '', category, true);
+                }
+            });
+        }
     }
 }
