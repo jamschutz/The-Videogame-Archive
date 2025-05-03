@@ -161,7 +161,7 @@ namespace VideoGameArchive.Data.DB
         }
 
 
-        public List<Article> GetSearchResults(string[] searchTerms, int skip, int take)
+        public List<Article> GetSearchResults(string[] searchTerms, int skip, int take, ArticleFilter filter)
         {
             var parameters = new List<PostgresParameter<string>>();
             var titleCheckClauses = new List<string>();
@@ -179,6 +179,7 @@ namespace VideoGameArchive.Data.DB
                 subtitleCheckClauses.Add($"LOWER(\"Articles\".\"Subtitle\") LIKE '%' || @token{i} || '%'");
             }
 
+            string filterClause = filter.GetFullWhereClause(true);
             string sql = $@"
                 SELECT
                     ""Articles"".""Title"", ""Articles"".""Subtitle"", ""Writers"".""Name"", ""Websites"".""Name"", ""Articles"".""Url"", ""Articles"".""Thumbnail"", ""Articles"".""DatePublished"", ""ArticleTypes"".""Name""
@@ -197,8 +198,9 @@ namespace VideoGameArchive.Data.DB
                 ON
                     ""Articles"".""ArticleTypeId"" = ""ArticleTypes"".""Id""
                 WHERE
-                    ({string.Join(" AND ", titleCheckClauses)}) OR 
-                    ({string.Join(" AND ", subtitleCheckClauses)})
+                    (({string.Join(" AND ", titleCheckClauses)}) OR 
+                    ({string.Join(" AND ", subtitleCheckClauses)})) AND
+                    ({filterClause})
                 ORDER BY
                     ""Articles"".""DatePublished"", ""Articles"".""Title""
                 OFFSET
@@ -207,7 +209,7 @@ namespace VideoGameArchive.Data.DB
                     {take}
             ";
 
-            var articles = dbManager.GetQuery<Article, string>(sql, parameters, parseArticleRow);
+            var articles = dbManager.GetQuery<Article, string, int>(sql, parameters, filter.GetAllParameters(), parseArticleRow);
             return articles;
         }
 
@@ -254,7 +256,7 @@ namespace VideoGameArchive.Data.DB
         }
 
 
-        public int GetSearchResultsTotalCount(string[] searchTerms)
+        public int GetSearchResultsTotalCount(string[] searchTerms, ArticleFilter filter)
         {
             var parameters = new List<PostgresParameter<string>>();
             var titleCheckClauses = new List<string>();
@@ -274,17 +276,19 @@ namespace VideoGameArchive.Data.DB
                 subtitleCheckClauses.Add($"LOWER(\"Subtitle\") LIKE '%' || @token{i} || '%'");
             }
 
+            string filterClause = filter.GetFullWhereClause(true);
             string sql = $@"
                 SELECT
                     COUNT(*)
                 FROM
                     ""Articles""
                 WHERE
-                    ({string.Join(" AND ", titleCheckClauses)}) OR 
-                    ({string.Join(" AND ", subtitleCheckClauses)})
+                    (({string.Join(" AND ", titleCheckClauses)}) OR 
+                    ({string.Join(" AND ", subtitleCheckClauses)})) AND
+                    ({filterClause})
             ";
 
-            var count = dbManager.GetQuery<int, string>(sql, parameters, (reader) =>
+            var count = dbManager.GetQuery<int, string, int>(sql, parameters, filter.GetAllParameters(), (reader) =>
             {
                 return reader.GetInt32(0);
             });
