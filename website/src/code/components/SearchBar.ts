@@ -21,12 +21,12 @@ export class SearchBar {
         let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
         searchBar.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
-                () => this.onSubmit();
+                this.onSubmit();
             }
             else {
                 console.log(`got key: ${e.key}`);
             }
-        });
+        }, true);
 
         let searchBtn = document.getElementById("Global-searchBarBtn") as HTMLInputElement;
         if(searchBtn !== null)

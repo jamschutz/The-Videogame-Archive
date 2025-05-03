@@ -158,7 +158,8 @@ export class Filter {
         this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
         this.getAritlceTypeIds().forEach(a => includeOnlyRules.addArticleType(a));
 
-        sessionStorage.setItem(config.FILTER_CACHE_ID, includeOnlyRules.toJson());
+        let pageId = window.location.href.split('/')[3];
+        sessionStorage.setItem(`${config.FILTER_CACHE_ID}-${pageId}`, includeOnlyRules.toJson());
     }
 
 

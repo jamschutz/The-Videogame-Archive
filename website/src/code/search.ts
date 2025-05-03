@@ -14,7 +14,7 @@ let se_pager: Pager;
 let se_dataManager = new DataManager();
 
 let se_filterSettings = new Filter(false);  // false means don't load from cache
-let se_filterNavBar; // wait to initialize until webpage has loaded
+let se_filterNavBar: FilterComponent; // wait to initialize until webpage has loaded
 
 let se_progressBar: HTMLElement | null;
 let se_resultsContainer: HTMLElement | null;
@@ -103,6 +103,7 @@ async function onSubmit(searchTerms: string) {
         searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
     }
 
+    se_filterNavBar.applyFilters(false);
     showSearchResults(results);
 }
 

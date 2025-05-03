@@ -53,7 +53,7 @@ export class FilterComponent {
         // bind apply filters button
         let applyFiltersButton = document.getElementById("Filter-applyFiltersBtn") as HTMLInputElement;
         if(applyFiltersButton !== null)
-            applyFiltersButton.addEventListener("click", () => this.applyFilters());
+            applyFiltersButton.addEventListener("click", () => this.applyFilters(true));
     }
 
 
@@ -80,7 +80,7 @@ export class FilterComponent {
     }
 
 
-    public applyFilters() : void {
+    public applyFilters(reload: boolean) : void {
         // update website filters
         this.updateFilters(this.websiteFilters, 
             (website: string) => this.filter.isWebsiteActive(website),
@@ -96,7 +96,9 @@ export class FilterComponent {
         );
 
         this.filter.saveRules();
-        window.location.reload();
+
+        if(reload)
+            window.location.reload();
     }
 
 
