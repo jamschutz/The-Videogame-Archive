@@ -128,6 +128,10 @@ export class FilterComponent {
 
     private addAuthor() {
         let author = document.getElementById('Filter-authorInput') as HTMLInputElement;
+        if(this.filter.isAuthorActive(author.value)) {
+            console.warn(`ignoring, already added author ${author.value}`);
+            return;
+        }
         
         let authorCard = document.createElement('div');
         authorCard.classList.add('Component-card');
@@ -137,8 +141,10 @@ export class FilterComponent {
         
         let closeBtn = document.createElement('span');
         closeBtn.classList.add('Component-cardCloseBtn');
-        closeBtn.addEventListener('click', () => {
-            this.removeAuthor(author.value);
+        closeBtn.setAttribute('data-name', author.value);
+        closeBtn.addEventListener('click', (e) => {
+            let authorElement = e.target as HTMLElement;
+            this.removeAuthor(authorElement.getAttribute('data-name'));
         });
 
         let container = document.getElementById('Filter-authorFilterContainer');
@@ -150,7 +156,12 @@ export class FilterComponent {
     }
 
 
-    public removeAuthor(author: string) {
+    public removeAuthor(author: string | null) {
+        if(author === null) {
+            console.error('tried to remove author, but got a null value for the author name...');
+            return;
+        }
+
         console.log(`remove: ${author}`);
         let authorCard = document.getElementById(`Filter-authorCard${author}`);
         authorCard?.remove();
