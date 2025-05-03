@@ -162,6 +162,11 @@ export class Filter {
     }
 
 
+    public authorExists(name: string) : boolean {
+        return this.dataManager.authorExists(name);
+    }
+
+
 
 
     // ----- private methods -------------------- //

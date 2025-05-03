@@ -135,21 +135,32 @@ export class FilterComponent {
 
 
     private addAuthor() {
-        let author = document.getElementById('Filter-authorInput') as HTMLInputElement;
-        if(this.filter.isAuthorActive(author.value)) {
-            console.warn(`ignoring, already added author ${author.value}`);
+        let input = document.getElementById('Filter-authorInput') as HTMLInputElement;
+        let author = input.value;
+
+        // clear input
+        input.value = '';
+
+        // check for bad input
+        if(!this.filter.authorExists(author)) {
+            console.log(`ignoring nonexistant author: ${author}`);
+            return;
+        }
+
+        if(this.filter.isAuthorActive(author)) {
+            console.warn(`ignoring, already added author ${author}`);
             return;
         }
         
         let authorCard = document.createElement('div');
         authorCard.classList.add('Component-card');
-        authorCard.id = `Filter-authorCard${author.value}`;
+        authorCard.id = `Filter-authorCard${author}`;
 
-        let authorName = document.createTextNode(author.value);
+        let authorName = document.createTextNode(author);
         
         let closeBtn = document.createElement('span');
         closeBtn.classList.add('Component-cardCloseBtn');
-        closeBtn.setAttribute('data-name', author.value);
+        closeBtn.setAttribute('data-name', author);
         closeBtn.addEventListener('click', (e) => {
             let authorElement = e.target as HTMLElement;
             this.removeAuthor(authorElement.getAttribute('data-name'));
@@ -160,7 +171,7 @@ export class FilterComponent {
         authorCard.appendChild(closeBtn);
         container?.appendChild(authorCard);
 
-        this.filter.includeAuthor(author.value);
+        this.filter.includeAuthor(author);
     }
 
 

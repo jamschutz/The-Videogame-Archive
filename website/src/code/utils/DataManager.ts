@@ -116,17 +116,6 @@ export class DataManager {
         });
         let results = new SearchResponse(await response.json());
         return results;
-        // let searchUrl = `${config.API_BASE_URL}/GetSearchResults?searchTerms=${searchRequest.searchTerms.join('+')}&resultsPerPage=${resultsPerPage}&pageNumber=${page}`;
-
-        // let searchResultsResponse = await fetch(searchUrl, {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // });
-
-        // let results = new SearchResponse(await searchResultsResponse.json());
-        // return results;
     }
 
     public getWebsites() : Array<Website> {
@@ -158,5 +147,15 @@ export class DataManager {
     }
     public getAuthorId(name: string) : number {
         return this.authorLookup['name'][name];
+    }
+
+    public websiteExists(name: string) {
+        return name in this.websiteLookup['name'];
+    }
+    public articleTypeExists(name: string) {
+        return name in this.articleTypeLookup['name'];
+    }
+    public authorExists(name: string) {
+        return name in this.authorLookup['name'];
     }
 }
