@@ -71,6 +71,15 @@ export class UrlParser {
     }
 
 
+    static reloadArchive() {
+        let url = new URL(window.location.href);
+        let reload = url.searchParams.get('reload');
+        console.log(`reload: ${reload}`)
+
+        return reload != null;
+    }
+
+
     static getBitfieldData(param: string): Array<number> {
         let url = new URL(window.location.href);
         let bitField = url.searchParams.get(param);

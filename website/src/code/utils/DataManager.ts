@@ -11,21 +11,22 @@ import { Filter } from "./Filter";
 const config = require('config');
 
 export class DataManager {
-    private websites : Array<Website>;
-    private articleTypes : Array<ArticleType>;
-    private authors : Array<Writer>;
+    private static websites : Array<Website> = [];
+    private static articleTypes : Array<ArticleType> = [];
+    private static authors : Array<Writer> = [];
 
-    private websiteLookup : any = { 'name': {}, 'id': {} };
-    private articleTypeLookup : any = { 'name': {}, 'id': {} };
-    private authorLookup : any = { 'name': {}, 'id': {} };
+    private static websiteLookup : any = { 'name': {}, 'id': {} };
+    private static articleTypeLookup : any = { 'name': {}, 'id': {} };
+    private static authorLookup : any = { 'name': {}, 'id': {} };
 
     constructor() {
-        this.websites = [];
-        this.articleTypes = [];
-        this.authors = [];
     }
 
-    public async loadData() {
+    public static async loadData() {
+        // already loaded data, ignore
+        if(this.websites.length > 0)
+            return;
+
         let response = await fetch('/data/dbData.json');
         let json = await response.json();
 
@@ -54,7 +55,7 @@ export class DataManager {
         }
     }
 
-    async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
+    static async getArticlesForDayAsync(date: CalendarDate): Promise<Article[]> {
         let response = await fetch(`${config.API_BASE_URL}/Articles?year=${date.year}&month=${date.month}&day=${date.day}`, {
             method: 'GET',
             headers: {
@@ -118,44 +119,44 @@ export class DataManager {
         return results;
     }
 
-    public getWebsites() : Array<Website> {
+    public static getWebsites() : Array<Website> {
         return this.websites;
     }
 
-    public getArticleTypes() : Array<ArticleType> {
+    public static getArticleTypes() : Array<ArticleType> {
         return this.articleTypes;
     }
 
-    public getAuthors() : Array<Writer> {
+    public static getAuthors() : Array<Writer> {
         return this.authors;
     }
 
-    public getWebsiteName(id: number) : string {
+    public static getWebsiteName(id: number) : string {
         return this.websiteLookup['id'][id];
     }
-    public getWebsiteId(name: string) : number {
+    public static getWebsiteId(name: string) : number {
         return this.websiteLookup['name'][name];
     }
-    public getArticleTypeName(id: number) : string {
+    public static getArticleTypeName(id: number) : string {
         return this.articleTypeLookup['id'][id];
     }
-    public getArticleTypeId(name: string) : number {
+    public static getArticleTypeId(name: string) : number {
         return this.articleTypeLookup['name'][name];
     }
-    public getAuthorName(id: number) : string {
+    public static getAuthorName(id: number) : string {
         return this.authorLookup['id'][id];
     }
-    public getAuthorId(name: string) : number {
+    public static getAuthorId(name: string) : number {
         return this.authorLookup['name'][name];
     }
 
-    public websiteExists(name: string) {
+    public static websiteExists(name: string) {
         return name in this.websiteLookup['name'];
     }
-    public articleTypeExists(name: string) {
+    public static articleTypeExists(name: string) {
         return name in this.articleTypeLookup['name'];
     }
-    public authorExists(name: string) {
+    public static authorExists(name: string) {
         return name in this.authorLookup['name'];
     }
 }

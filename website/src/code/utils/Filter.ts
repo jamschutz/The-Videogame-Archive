@@ -11,17 +11,14 @@ enum FilterTypes {
 }
 
 export class Filter {
-    private dataManager: DataManager;
-
     private include: FilterRules;
     private exclude: FilterRules;
 
     
 
     constructor(loadRulesFromCache: boolean) {
-        this.dataManager = new DataManager();
-        this.include = new FilterRules(this.dataManager);
-        this.exclude = new FilterRules(this.dataManager);
+        this.include = new FilterRules();
+        this.exclude = new FilterRules();
 
         if(loadRulesFromCache && this.getCacheId() in sessionStorage) {
             let cache = sessionStorage.getItem(this.getCacheId());
@@ -34,7 +31,7 @@ export class Filter {
     }
 
     public async loadData() {
-        await this.dataManager.loadData();
+        await DataManager.loadData();
     }
 
 
@@ -64,7 +61,7 @@ export class Filter {
 
     public isWebsiteActive(id: number | string) {
         if(typeof id === 'string') {
-            id = this.dataManager.getWebsiteId(id);
+            id = DataManager.getWebsiteId(id);
         }
         return this.include.getWebsites().has(id);
     }
@@ -76,13 +73,13 @@ export class Filter {
 
         // otherwise, actually check author...
         if(typeof id === 'string') {
-            id = this.dataManager.getAuthorId(id);
+            id = DataManager.getAuthorId(id);
         }
         return this.include.getAuthors().has(id);
     }
     public isArticleTypeActive(id: number | string) {
         if(typeof id === 'string') {
-            id = this.dataManager.getArticleTypeId(id);
+            id = DataManager.getArticleTypeId(id);
         }
         return this.include.getArticleTypes().has(id);
     }
@@ -139,7 +136,7 @@ export class Filter {
     }
 
     public getAuthorNames() {
-        return [...this.include.getAuthors()].map(id => this.dataManager.getAuthorName(id));
+        return [...this.include.getAuthors()].map(id => DataManager.getAuthorName(id));
     }
 
     public getAritlceTypeIds() {
@@ -163,7 +160,7 @@ export class Filter {
 
 
     public saveRules() {
-        let includeOnlyRules = new FilterRules(this.dataManager);
+        let includeOnlyRules = new FilterRules();
         
         this.getWebsiteIds().forEach(w => includeOnlyRules.addWebsite(w));
         this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
@@ -174,12 +171,12 @@ export class Filter {
 
 
     public authorExists(name: string) : boolean {
-        return this.dataManager.authorExists(name);
+        return DataManager.authorExists(name);
     }
 
 
     private getCacheId() {
-        let pageId = window.location.href.split('/')[3];
+        let pageId = window.location.href.split('/')[3] === 'search'? 'search' : 'archive';
         return `${config.FILTER_CACHE_ID}-${pageId}`;
     }
 
@@ -203,13 +200,13 @@ export class Filter {
             let all = [];
             switch(type) {
                 case FilterTypes.Websites:
-                    all = this.dataManager.getWebsites();
+                    all = DataManager.getWebsites();
                     break;
                 case FilterTypes.Authors:
                     all = new Array<Writer>();
                     break;
                 case FilterTypes.ArticleTypes:
-                    all = this.dataManager.getArticleTypes();
+                    all = DataManager.getArticleTypes();
                     break;
                 default:
                     console.error(`unknown filter type: ${type}`);

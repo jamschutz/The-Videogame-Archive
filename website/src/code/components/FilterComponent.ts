@@ -118,8 +118,9 @@ export class FilterComponent {
         this.filter.saveRules();
         await this.updateDates();
 
+        // reload, and remove reload flag if it exists
         if(reload)
-            window.location.reload();
+            window.location.href = window.location.href.split("?")[0];
     }
 
 

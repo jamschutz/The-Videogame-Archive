@@ -11,8 +11,6 @@ const config = require('config');
 // --- declare components --- //
 // var searchBar = new SearchBar();
 var calendar = new Calendar();
-var dataManager = new DataManager();
-var filterSettings = new Filter(true);  // true means to load from cache
 let websiteColumns: HTMLCollectionOf<Element>;
 let selectedColumn: HTMLElement;
 var websites: Array<WebsiteColumn> = [];
@@ -20,7 +18,8 @@ var NEXT_DATE: CalendarDate | null = null;
 var PREV_DATE: CalendarDate | null = null;
 var nextDateButton: HTMLInputElement;
 var prevDateButton: HTMLInputElement;
-var filterNavBar: FilterComponent; // wait to init until after we've initialized filters
+var filterSettings: Filter;  // true means to load from cache
+var filterComponent: FilterComponent; // wait to init until after we've initialized filters
 
 
 
@@ -107,7 +106,7 @@ function showActiveWebsites() {
     console.log(websiteOrder);
 
     // show websites
-    let allWebsites = dataManager.getWebsites();
+    let allWebsites = DataManager.getWebsites();
     for(let i = 0; i < allWebsites.length; i++) {
         let order = allWebsites[i].id in websiteOrder? websiteOrder[allWebsites[i].id] : allWebsites[i].id;
         let webColumn = new WebsiteColumn(allWebsites[i], order);
@@ -144,7 +143,7 @@ function setNextAndPrevDates() {
 
 
 // -------------- page init ---------------------- //
-const dataLoadPromise = dataManager.loadData();
+const dataLoadPromise = DataManager.loadData();
 // on window load
 (function(window, document, undefined) {
     window.onload = init;
@@ -153,10 +152,22 @@ const dataLoadPromise = dataManager.loadData();
         // init components
         // searchBar.init();
         calendar.updateHtml();
-
         await dataLoadPromise;
+
+        // if reload flag in url params, set all filters active
+        if(UrlParser.reloadArchive()) {
+            filterSettings = new Filter(false);
+            filterSettings.includeAllWebsites();
+            filterSettings.includeAllArticleTypes();
+        }
+        // otherwise, load url params from cache
+        else {
+            console.log('loading from cache');
+            filterSettings = new Filter(true);
+        }
+        console.log(filterSettings.toJson());
+        filterComponent = new FilterComponent(filterSettings);
         await filterSettings.loadData();
-        filterNavBar = new FilterComponent(filterSettings);
 
         // bind forward / backward 
         prevDateButton = document.getElementById("Archive-articleDateBackBtn") as HTMLInputElement;

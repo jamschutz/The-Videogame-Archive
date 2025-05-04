@@ -5,13 +5,11 @@ export class FilterRules {
     private websites: Set<number>;
     private authors: Set<number>;
     private articleTypes: Set<number>;
-    private dataManager: DataManager;
 
-    constructor(dataManager: DataManager) {
+    constructor() {
         this.websites = new Set();
         this.authors = new Set();
         this.articleTypes = new Set();
-        this.dataManager = dataManager;
     }
 
 
@@ -52,7 +50,7 @@ export class FilterRules {
     // -----------------------------------------------------
     public addWebsite(website: string | number) {
         if(typeof website === 'string') {
-            website = this.dataManager.getWebsiteId(website);
+            website = DataManager.getWebsiteId(website);
         }
 
         this.websites.add(website);
@@ -60,7 +58,7 @@ export class FilterRules {
 
     public addAuthor(author: string | number) {
         if(typeof author === 'string') {
-            author = this.dataManager.getAuthorId(author);
+            author = DataManager.getAuthorId(author);
         }
 
         this.authors.add(author);
@@ -68,7 +66,7 @@ export class FilterRules {
     
     public addArticleType(articleType: string | number) {
         if(typeof articleType === 'string') {
-            articleType = this.dataManager.getArticleTypeId(articleType);
+            articleType = DataManager.getArticleTypeId(articleType);
         }
 
         this.articleTypes.add(articleType);
@@ -77,15 +75,15 @@ export class FilterRules {
 
 
     public addAllWebsites() {
-        this.dataManager.getWebsites().forEach(w => this.websites.add(w.id));
+        DataManager.getWebsites().forEach(w => this.websites.add(w.id));
     }
     
     public addAllAuthors() {
-        this.dataManager.getAuthors().forEach(a => this.authors.add(a.id));
+        DataManager.getAuthors().forEach(a => this.authors.add(a.id));
     }
 
     public addAllArticleTypes() {
-        this.dataManager.getArticleTypes().forEach(a => this.articleTypes.add(a.id));
+        DataManager.getArticleTypes().forEach(a => this.articleTypes.add(a.id));
     }
 
 
@@ -93,7 +91,7 @@ export class FilterRules {
     // --------------------------------------------------------
     public removeWebsite(website: string | number) {
         if(typeof website === 'string') {
-            website = this.dataManager.getWebsiteId(website);
+            website = DataManager.getWebsiteId(website);
         }
 
         this.websites.delete(website);
@@ -101,7 +99,7 @@ export class FilterRules {
 
     public removeAuthor(author: string | number) {
         if(typeof author === 'string') {
-            author = this.dataManager.getAuthorId(author);
+            author = DataManager.getAuthorId(author);
         }
 
         this.authors.delete(author);
@@ -109,7 +107,7 @@ export class FilterRules {
     
     public removeArticleType(articleType: string | number) {
         if(typeof articleType === 'string') {
-            articleType = this.dataManager.getArticleTypeId(articleType);
+            articleType = DataManager.getArticleTypeId(articleType);
         }
 
         this.articleTypes.delete(articleType);
@@ -118,14 +116,14 @@ export class FilterRules {
 
 
     public removeAllWebsites() {
-        this.dataManager.getWebsites().forEach(w => this.websites.delete(w.id));
+        DataManager.getWebsites().forEach(w => this.websites.delete(w.id));
     }
     
     public removeAllAuthors() {
-        this.dataManager.getAuthors().forEach(a => this.authors.delete(a.id));
+        DataManager.getAuthors().forEach(a => this.authors.delete(a.id));
     }
 
     public removeAllArticleTypes() {
-        this.dataManager.getArticleTypes().forEach(a => this.articleTypes.delete(a.id));
+        DataManager.getArticleTypes().forEach(a => this.articleTypes.delete(a.id));
     }
 }

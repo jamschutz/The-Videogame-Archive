@@ -11,7 +11,6 @@ import { SearchResponse } from "./responses/SearchResponse";
 
 let se_searchBar = new SearchBar(onSubmit);
 let se_pager: Pager;
-let se_dataManager = new DataManager();
 
 let se_filterSettings: Filter;  // false means don't load from cache
 let se_filterNavBar: FilterComponent; // wait to initialize until webpage has loaded
@@ -83,7 +82,7 @@ function onSubmit(searchTerms: string) {
 
     async function init() {
         // load data
-        await se_dataManager.loadData();
+        await DataManager.loadData();
 
         // init elements
         se_searchBar.init();
