@@ -1,4 +1,6 @@
 import { Filter } from "../utils/Filter";
+const config = require('config');
+
 
 export class FilterComponent {
     private filter: Filter;
@@ -98,7 +100,7 @@ export class FilterComponent {
     }
 
 
-    public applyFilters(reload: boolean) : void {
+    public async applyFilters(reload: boolean) {
         // update website filters
         this.updateFilters(this.websiteFilters, 
             (website: string) => this.filter.isWebsiteActive(website),
@@ -114,9 +116,30 @@ export class FilterComponent {
         );
 
         this.filter.saveRules();
+        await this.updateDates();
 
         if(reload)
             window.location.reload();
+    }
+
+
+    private async updateDates() {
+        // build json body
+        let body = this.filter.toJson();
+        console.log(body);
+
+        // get dates from api
+        let response = await fetch(`${config.API_BASE_URL}/GetDatesByFilter`, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        let json = await response.json();
+
+        // save data to cache
+        sessionStorage[config.TARGET_DATES_CACHE_ID] = JSON.stringify(json);
     }
 
 
