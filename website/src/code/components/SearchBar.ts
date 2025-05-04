@@ -13,7 +13,6 @@ export class SearchBar {
         console.log('on submit');
         let searchBar = document.getElementById("Global-searchBar") as HTMLInputElement;
         this.onSubmitCallback(searchBar.value);
-        // window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
     }
 
 

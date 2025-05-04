@@ -1,5 +1,6 @@
 import { FilterRules } from './FilterRules';
 import { DataManager } from "./DataManager";
+import { Writer } from '../entities/Writer';
 const config = require('config');
 
 
@@ -131,6 +132,10 @@ export class Filter {
         return this.getData(this.include.getAuthors(), this.exclude.getAuthors(), FilterTypes.Authors);
     }
 
+    public getAuthorNames() {
+        return [...this.include.getAuthors()].map(id => this.dataManager.getAuthorName(id));
+    }
+
     public getAritlceTypeIds() {
         return this.getData(this.include.getArticleTypes(), this.exclude.getArticleTypes(), FilterTypes.ArticleTypes);
     }
@@ -195,7 +200,7 @@ export class Filter {
                     all = this.dataManager.getWebsites();
                     break;
                 case FilterTypes.Authors:
-                    all = this.dataManager.getAuthors();
+                    all = new Array<Writer>();
                     break;
                 case FilterTypes.ArticleTypes:
                     all = this.dataManager.getArticleTypes();
@@ -205,7 +210,10 @@ export class Filter {
                     return [];
             }
 
-            data = new Set(all.map(x => x.id));
+            if(all.length > 0)
+                data = new Set(all.map(x => x.id));
+            else
+                data = new Set();
         }
 
         // now, remove anything we asked to exclude
@@ -215,34 +223,4 @@ export class Filter {
 
         return Array.from(data);
     }
-
-    // private exclude(id: number, arr: Array<number> | null, type: string) {
-    //     if(arr === null) {
-    //         var all = []
-    //         switch(type) {
-    //             case 'websites':
-    //                 all = this.dataManager.getWebsites();
-    //                 break;
-    //             case 'authors':
-    //                 all = this.dataManager.getAuthors();
-    //                 break;
-    //             case 'articleTypes':
-    //                 all = this.dataManager.getArticleTypes();
-    //                 break;
-    //             default:
-    //                 console.error(`unknown filter type: ${type}`);
-    //                 return;
-    //         }
-
-    //         arr = all.map(e => e.id);
-    //     }
-
-    //     let targetIndex = arr.indexOf(id);
-    //     if(targetIndex > -1) {
-    //         arr.splice(targetIndex, 1);
-    //     }
-    //     else {
-    //         console.error(`didn't find ${id} in ${type} filters`);
-    //     }
-    // }
 }

@@ -57,6 +57,7 @@ export class FilterComponent {
 
         // update html to match filters
         this.updateHtml();
+        this.initializeAuthorCards();
 
         // bind apply filters button
         let applyFiltersButton = document.getElementById("Filter-applyFiltersBtn") as HTMLInputElement;
@@ -84,6 +85,15 @@ export class FilterComponent {
     
             let isChecked = isActiveFunc(label);
             (checkbox as HTMLInputElement).checked = isChecked;
+        }
+    }
+
+
+    private initializeAuthorCards() {
+        console.log('initializing author cards............');
+        for(let author of this.filter.getAuthorNames()) {
+            console.log(`adding author card: ${author}`);
+            this.addAuthorCard(author, true);
         }
     }
 
@@ -151,13 +161,19 @@ export class FilterComponent {
         // clear input
         input.value = '';
 
+        // and add card to html
+        this.addAuthorCard(author);
+    }
+
+
+    private addAuthorCard(author: string, force: boolean = false) {
         // check for bad input
         if(!this.filter.authorExists(author)) {
             console.log(`ignoring nonexistant author: ${author}`);
             return;
         }
 
-        if(this.filter.isAuthorActive(author)) {
+        if(this.filter.isAuthorActive(author) && !force) {
             console.log(`ignoring, already added author ${author}`);
             return;
         }
