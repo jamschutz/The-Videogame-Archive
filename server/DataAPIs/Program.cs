@@ -4,7 +4,6 @@ var builder = WebApplication.CreateBuilder(args);
 // parse client id and secret from arguments
 string clientId = "", clientSecret = "", projectId = "", environment = "dev";
 foreach(var arg in args) {
-    Console.WriteLine($"looking at argument: {arg}");
     var key = arg.Split("=")[0];
     var value = arg.Split("=")[1];
 
@@ -31,8 +30,6 @@ foreach(var arg in args) {
 if(clientId == "" || clientSecret == "" || projectId == "") {
     throw new System.Exception($"ERROR: you must pass client-id, client-secret, and project-id as arguments");
 }
-
-Console.WriteLine($"clientid: {clientId}, clientsecret: {clientSecret}, projectId: {projectId}");
 
 // Add services to the container.
 
