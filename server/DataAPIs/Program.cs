@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 // parse client id and secret from arguments
 string clientId = "", clientSecret = "", projectId = "", environment = "dev";
 foreach(var arg in args) {
+    Console.WriteLine($"looking at argument: {arg}");
     var key = arg.Split("=")[0];
     var value = arg.Split("=")[1];
 
