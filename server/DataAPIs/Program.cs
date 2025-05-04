@@ -32,6 +32,8 @@ if(clientId == "" || clientSecret == "" || projectId == "") {
     throw new System.Exception($"ERROR: you must pass client-id, client-secret, and project-id as arguments");
 }
 
+Console.WriteLine($"clientid: {clientId}, clientsecret: {clientSecret}, projectId: {projectId}");
+
 // Add services to the container.
 
 builder.Services.AddControllers();
