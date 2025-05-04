@@ -22,8 +22,8 @@ export class Filter {
         this.include = new FilterRules(this.dataManager);
         this.exclude = new FilterRules(this.dataManager);
 
-        if(loadRulesFromCache && config.FILTER_CACHE_ID in sessionStorage) {
-            let cache = sessionStorage.getItem(config.FILTER_CACHE_ID);
+        if(loadRulesFromCache && this.getCacheId() in sessionStorage) {
+            let cache = sessionStorage.getItem(this.getCacheId());
             this.include.loadFromJson(cache);
             console.log(this.toJson());
         }
@@ -158,13 +158,18 @@ export class Filter {
         this.getAuthorIds().forEach(a => includeOnlyRules.addAuthor(a));
         this.getAritlceTypeIds().forEach(a => includeOnlyRules.addArticleType(a));
 
-        let pageId = window.location.href.split('/')[3];
-        sessionStorage.setItem(`${config.FILTER_CACHE_ID}-${pageId}`, includeOnlyRules.toJson());
+        sessionStorage.setItem(this.getCacheId(), includeOnlyRules.toJson());
     }
 
 
     public authorExists(name: string) : boolean {
         return this.dataManager.authorExists(name);
+    }
+
+
+    private getCacheId() {
+        let pageId = window.location.href.split('/')[3];
+        return `${config.FILTER_CACHE_ID}-${pageId}`;
     }
 
 

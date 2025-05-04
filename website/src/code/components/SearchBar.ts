@@ -23,9 +23,6 @@ export class SearchBar {
             if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
                 this.onSubmit();
             }
-            else {
-                console.log(`got key: ${e.key}`);
-            }
         }, true);
 
         let searchBtn = document.getElementById("Global-searchBarBtn") as HTMLInputElement;

@@ -13,7 +13,7 @@ let se_searchBar = new SearchBar(onSubmit);
 let se_pager: Pager;
 let se_dataManager = new DataManager();
 
-let se_filterSettings = new Filter(false);  // false means don't load from cache
+let se_filterSettings: Filter;  // false means don't load from cache
 let se_filterNavBar: FilterComponent; // wait to initialize until webpage has loaded
 
 let se_progressBar: HTMLElement | null;
@@ -78,33 +78,35 @@ function clearSearchResults() {
 }
 
 
-async function onSubmit(searchTerms: string) {
-    if(se_progressBar === null)
-        return;
-
-    se_pager = new Pager();
-
-    // make sure container div is clear
-    clearSearchResults();
-
-    // show progress bar
-    se_progressBar.style.display = 'block';
-
-    let startTime = Date.now();
-    let req = new SearchRequest(searchTerms, 1);
-    let results = await DataManager.getSearchResults(req, se_filterSettings);
-
-    let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
-    let searchResultTimer = document.getElementById('Search-resultCount');
-    if (searchResultTimer == undefined) {
-        console.error('unable to find Search-resultCount');
-    }
-    else {
-        searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
-    }
-
+function onSubmit(searchTerms: string) {
     se_filterNavBar.applyFilters(false);
-    showSearchResults(results);
+    window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
+    // if(se_progressBar === null)
+    //     return;
+
+    // se_pager = new Pager();
+
+    // // make sure container div is clear
+    // clearSearchResults();
+
+    // // show progress bar
+    // se_progressBar.style.display = 'block';
+
+    // let startTime = Date.now();
+    // let req = new SearchRequest(searchTerms, 1);
+    // let results = await DataManager.getSearchResults(req, se_filterSettings);
+
+    // let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
+    // let searchResultTimer = document.getElementById('Search-resultCount');
+    // if (searchResultTimer == undefined) {
+    //     console.error('unable to find Search-resultCount');
+    // }
+    // else {
+    //     searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+    // }
+
+    // se_filterNavBar.applyFilters(false);
+    // showSearchResults(results);
 }
 
 
@@ -114,16 +116,65 @@ async function onSubmit(searchTerms: string) {
     window.onload = init;
 
     async function init() {
-        se_searchBar.init();
-
+        // load data
         await se_dataManager.loadData();
-        await se_filterSettings.loadData();
-        se_filterSettings.includeAllWebsites();
-        se_filterSettings.includeAllArticleTypes();
-        se_filterNavBar = new FilterComponent(se_filterSettings);
+
+        // init elements
+        se_searchBar.init();
+        se_pager = new Pager();
 
         // find and store elements
         se_progressBar = document.getElementById('Search-progressBar');
         se_resultsContainer = document.getElementById('Search-resultsContainer');
+
+        // check if search terms in url
+        let searchRequest = UrlParser.getSearchRequest();
+
+        // if didn't search for anything
+        if(searchRequest.isEmpty()) {
+            // init filter settings
+            se_filterSettings = new Filter(false);
+            se_filterSettings.includeAllWebsites();
+            se_filterSettings.includeAllArticleTypes();
+            se_filterNavBar = new FilterComponent(se_filterSettings);
+            console.log(se_filterSettings);
+            await se_filterSettings.loadData();
+
+            // hide progress bar
+            let progressBar = document.getElementById('Search-progressBar');
+            if(progressBar == undefined) {
+                console.error('unable to find progress bar');
+            }
+            else {
+                progressBar.style.display = 'none';
+            }
+
+            // and bail
+            return;
+        }
+
+        // init filter settings
+        se_filterSettings = new Filter(true);
+        await se_filterSettings.loadData();
+        console.log(se_filterSettings);
+
+        se_filterNavBar = new FilterComponent(se_filterSettings);
+
+        console.log('getting results for: ' + searchRequest.searchTerms);
+        let startTime = Date.now();
+        let results = await DataManager.getSearchResults(searchRequest, se_filterSettings);
+        
+
+        console.log(results);
+        let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
+        let searchResultTimer = document.getElementById('Search-resultCount');
+        if(searchResultTimer == undefined) {
+            console.error('unable to find Search-resultCount');
+        }
+        else {
+            searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
+        }
+        
+        showSearchResults(results);
     }
 })(window, document, undefined);

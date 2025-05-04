@@ -22,7 +22,6 @@ export class FilterComponent {
         // get select all buttons
         this.selectAllWebsitesBtn = document.getElementById("Filter-websiteSelectAll") as HTMLInputElement;
         this.selectAllArticleTypesBtn = document.getElementById("Filter-articleTypeSelectAll") as HTMLInputElement;
-        document.getElementById('Filter-addAuthor')?.addEventListener('click', () => this.addAuthor());
 
         // select all websites
         this.selectAllWebsitesBtn.addEventListener('click', () => {
@@ -46,6 +45,15 @@ export class FilterComponent {
         // make sure select all checkboxes are checked... (cache will remember if they were checked last page load...)
         this.selectAllArticleTypesBtn.checked = true;
         this.selectAllArticleTypesBtn.checked = true;
+
+        // add author button events        
+        let addAuthorBtn = document.getElementById('Filter-addAuthor');
+        addAuthorBtn?.addEventListener('click', () => this.addAuthor());
+        addAuthorBtn?.addEventListener('keydown', (e) => {
+            if (e.key === "Enter") {  //checks whether the pressed key is "Enter"
+                this.addAuthor();
+            }
+        }, true);
 
         // update html to match filters
         this.updateHtml();
@@ -150,7 +158,7 @@ export class FilterComponent {
         }
 
         if(this.filter.isAuthorActive(author)) {
-            console.warn(`ignoring, already added author ${author}`);
+            console.log(`ignoring, already added author ${author}`);
             return;
         }
         

@@ -1,19 +1,15 @@
 import { UrlParser } from "../utils/UrlParser";
 
 export class Pager {
-    private container: HTMLElement | null;
 
     constructor() {
-        this.container = document.getElementById("Pager-listContainer");
-        if(this.container === null)
-            console.error('unable to find page container!');
     }
 
 
     public init(totalPageCount: number) {
         let currentPage = UrlParser.getPageNumber();
         let searchTerms = UrlParser.getSearchRequest().searchTerms;
-        let baseUri = `/search/`;
+        let baseUri = `/search/?term=${encodeURIComponent(searchTerms.join(' '))}`;
 
         let smallestPage, largestPage;
         if(totalPageCount <= 5) {
@@ -33,24 +29,26 @@ export class Pager {
             largestPage = smallestPage + 4;
         }
 
-        if(this.container === null) {
+        let container = document.getElementById("Pager-listContainer");
+        if(container === null) {
             console.error('unable to find page container');
             return;
         }
         
-        this.container.appendChild(this.getStartEndBtn(1, baseUri));
+        container.appendChild(this.getStartEndBtn(1, baseUri));
         for(let page = smallestPage; page <= largestPage; page++) {
-            this.container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
+            container.appendChild(this.getPageItem(page, baseUri, page == currentPage));
         }
-        this.container.appendChild(this.getStartEndBtn(totalPageCount, baseUri));
+        container.appendChild(this.getStartEndBtn(totalPageCount, baseUri));
     }
 
 
     public hide() {
-        if(this.container === null)
+        let container = document.getElementById("Pager-listContainer");
+        if(container === null)
             return;
 
-        this.container.innerHTML = '';
+        container.innerHTML = '';
     }
 
 
@@ -64,7 +62,7 @@ export class Pager {
         // create a object
         listItem.innerText = pageNumber.toString();
         listItem.onclick = () => {
-            window.location.href = `${baseUri}?page=${pageNumber.toString()}`;
+            window.location.href = `${baseUri}&page=${pageNumber.toString()}`;
         }
 
         return listItem;
