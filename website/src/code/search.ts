@@ -64,7 +64,8 @@ function showSearchResults(response: SearchResponse) {
         }
 
         // build pager
-        se_pager.init(Math.ceil(response.totalResults / 25));
+        if(response.results.length < response.totalResults)
+            se_pager.init(Math.ceil(response.totalResults / 25));
     }
 }
 
