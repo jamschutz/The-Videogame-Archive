@@ -70,44 +70,9 @@ function showSearchResults(response: SearchResponse) {
 }
 
 
-function clearSearchResults() {
-    if(se_resultsContainer === null)
-        return;
-
-    se_resultsContainer.innerHTML = '';
-    se_pager.hide();
-}
-
-
 function onSubmit(searchTerms: string) {
     se_filterNavBar.applyFilters(false);
     window.location.href = `/search/?term=${encodeURIComponent(searchTerms)}`;
-    // if(se_progressBar === null)
-    //     return;
-
-    // se_pager = new Pager();
-
-    // // make sure container div is clear
-    // clearSearchResults();
-
-    // // show progress bar
-    // se_progressBar.style.display = 'block';
-
-    // let startTime = Date.now();
-    // let req = new SearchRequest(searchTerms, 1);
-    // let results = await DataManager.getSearchResults(req, se_filterSettings);
-
-    // let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
-    // let searchResultTimer = document.getElementById('Search-resultCount');
-    // if (searchResultTimer == undefined) {
-    //     console.error('unable to find Search-resultCount');
-    // }
-    // else {
-    //     searchResultTimer.innerText = `${results.totalResults} results (${calculationTime.toFixed(2)} seconds)`;
-    // }
-
-    // se_filterNavBar.applyFilters(false);
-    // showSearchResults(results);
 }
 
 
@@ -157,8 +122,6 @@ function onSubmit(searchTerms: string) {
         // init filter settings
         se_filterSettings = new Filter(true);
         await se_filterSettings.loadData();
-        console.log(se_filterSettings);
-
         se_filterNavBar = new FilterComponent(se_filterSettings);
 
         console.log('getting results for: ' + searchRequest.searchTerms);
@@ -166,7 +129,6 @@ function onSubmit(searchTerms: string) {
         let results = await DataManager.getSearchResults(searchRequest, se_filterSettings);
         
 
-        console.log(results);
         let calculationTime = (Date.now() - startTime) / 1000; // milliseconds to seconds
         let searchResultTimer = document.getElementById('Search-resultCount');
         if(searchResultTimer == undefined) {
