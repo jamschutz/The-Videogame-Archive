@@ -8,16 +8,16 @@ foreach(var arg in args) {
     var value = arg.Split("=")[1];
 
     switch(key) {
-        case "client-id":
+        case "--client-id":
             clientId = value;
             break;
-        case "client-secret":
+        case "--client-secret":
             clientSecret = value;
             break;
-        case "env":
+        case "--env":
             environment = value;
             break;
-        case "project-id":
+        case "--project-id":
             projectId = value;
             break;
         default:
