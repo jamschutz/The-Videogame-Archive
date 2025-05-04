@@ -30,10 +30,6 @@ done
 
 set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 
-echo "CLIENT ID  = ${CLIENT_ID}"
-echo "CLIENT SECRET     = ${CLIENT_SECRET}"
-echo "PROJECT ID         = ${PROJECT_ID}"
 
-
-# dotnet publish --configuration Release -r linux-x64
-# cp -rf /home/vga/the-videogame-archive/server/DataAPIs/bin/Release/net9.0/linux-x64/* /srv/backend/article-apis
+dotnet publish --configuration Release -r linux-x64 client-id=${CLIENT_ID} client-secret=${CLIENT_SECRET} project-id=${PROJECT_ID}
+cp -rf /home/vga/the-videogame-archive/server/DataAPIs/bin/Release/net9.0/linux-x64/* /srv/backend/article-apis
