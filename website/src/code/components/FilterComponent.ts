@@ -173,7 +173,7 @@ export class FilterComponent {
             return;
         }
 
-        if(this.filter.isAuthorActive(author) && !force) {
+        if(this.filter.isAuthorActive(author) && !force && this.filter.getAuthorIds().length > 0) {
             console.log(`ignoring, already added author ${author}`);
             return;
         }
