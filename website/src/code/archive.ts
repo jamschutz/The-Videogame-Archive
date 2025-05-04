@@ -159,13 +159,12 @@ const dataLoadPromise = DataManager.loadData();
             filterSettings = new Filter(false);
             filterSettings.includeAllWebsites();
             filterSettings.includeAllArticleTypes();
+            filterSettings.saveRules();
         }
         // otherwise, load url params from cache
         else {
-            console.log('loading from cache');
             filterSettings = new Filter(true);
         }
-        console.log(filterSettings.toJson());
         filterComponent = new FilterComponent(filterSettings);
         await filterSettings.loadData();
 

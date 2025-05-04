@@ -1,4 +1,7 @@
 import { Filter } from "../utils/Filter";
+import { UrlParser } from "../utils/UrlParser";
+import { CalendarDate } from "../entities/CalendarDate";
+import { Utils } from "../utils/Utils";
 const config = require('config');
 
 
@@ -116,11 +119,22 @@ export class FilterComponent {
         );
 
         this.filter.saveRules();
-        await this.updateDates();
+        let datesWithArticles = await this.updateDates();
+        let currentDate = UrlParser.getDate().toNumber();
+        let targetDate = null;
+        for(let date of datesWithArticles) {
+            if(date === currentDate) {
+                targetDate = CalendarDate.fromDateString(date);
+                break;
+            }
+        }
+
+        if(targetDate === null)
+            targetDate = CalendarDate.fromDateString(datesWithArticles[0]);
 
         // reload, and remove reload flag if it exists
         if(reload)
-            window.location.href = window.location.href.split("?")[0];
+            window.location.href = `/${targetDate.year}/${targetDate.month}/${targetDate.day}`
     }
 
 
@@ -141,6 +155,7 @@ export class FilterComponent {
 
         // save data to cache
         sessionStorage[config.TARGET_DATES_CACHE_ID] = JSON.stringify(json);
+        return json;
     }
 
 
