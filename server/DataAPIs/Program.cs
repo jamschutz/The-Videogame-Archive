@@ -2,34 +2,13 @@ var AllowLocalConnections = "allowLocalConnections";
 var builder = WebApplication.CreateBuilder(args);
 
 // parse client id and secret from arguments
-string clientId = "", clientSecret = "", projectId = "", environment = "dev";
-foreach(var arg in args) {
-    var key = arg.Split("=")[0];
-    var value = arg.Split("=")[1];
-
-    switch(key) {
-        case "client-id":
-            clientId = value;
-            break;
-        case "client-secret":
-            clientSecret = value;
-            break;
-        case "env":
-            environment = value;
-            break;
-        case "project-id":
-            projectId = value;
-            break;
-        default:
-            throw new System.Exception($"ERROR: unknown key in arguments found. key was: ${key}");
-            break;
-    }
+if(args.Length < 4) {
+    throw new System.Exception($"ERROR: expected 4 arguments, but only got ${args.Length}. please ensure to have the following arguments in the following order: client-id, client-secret, project-id, environment");
 }
-
-// make sure client id and secret are set
-if(clientId == "" || clientSecret == "" || projectId == "") {
-    throw new System.Exception($"ERROR: you must pass client-id, client-secret, and project-id as arguments");
-}
+string clientId = args[0];
+string clientSecret = args[1];
+string projectId = args[2];
+string environment = args[3];
 
 // Add services to the container.
 
