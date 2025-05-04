@@ -13,8 +13,9 @@ while [[ $# -gt 0 ]]; do
       shift # past value
       ;;
     -p|--project-id)
-      PROJECT_ID=YES
+      PROJECT_ID="$2"
       shift # past argument
+      shift # past value
       ;;
     -*|--*)
       echo "Unknown option $1"
@@ -32,11 +33,6 @@ set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 echo "CLIENT ID  = ${CLIENT_ID}"
 echo "CLIENT SECRET     = ${CLIENT_SECRET}"
 echo "PROJECT ID         = ${PROJECT_ID}"
-
-if [[ -n $1 ]]; then
-    echo "Last line of file specified as non-opt/last argument:"
-    tail -1 "$1"
-fi
 
 
 # dotnet publish --configuration Release -r linux-x64
