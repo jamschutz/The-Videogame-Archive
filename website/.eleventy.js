@@ -69,8 +69,11 @@ module.exports = function (eleventyConfig) {
 
 
 async function getData(apiEndpoint) {
+    console.log('getting data...');
     let response = await fetch(`http://localhost:5000/${apiEndpoint}`);
+    console.log(response);
     let data = await response.json();
+    console.log(data);
     return data;
 }
 async function getAuthors() {
