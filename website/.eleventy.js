@@ -69,11 +69,8 @@ module.exports = function (eleventyConfig) {
 
 
 async function getData(apiEndpoint) {
-    console.log('getting data...');
     let response = await fetch(`http://localhost:5000/${apiEndpoint}`);
-    console.log(response);
     let data = await response.json();
-    console.log(data);
     return data;
 }
 async function getAuthors() {
@@ -133,7 +130,6 @@ async function getArticlesForDate(year, month, websites) {
 async function getProdArticles(targetYear, dstDir) {
     // get websites...
     let websites = await getData('GetWebsites');
-    console.log(websites);
 
     // the earliest date we have for now is 05/1996
     // TODO: pull this dynamically from the database
@@ -144,7 +140,6 @@ async function getProdArticles(targetYear, dstDir) {
     let results = [];
     for (let month = startMonth; month <= endMonth; month++) {
         let articles = await getArticlesForDate(targetYear, month, websites);
-        console.log(articles);
         results.push(...articles);
     }
 
