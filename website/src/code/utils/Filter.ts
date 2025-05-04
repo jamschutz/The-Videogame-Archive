@@ -69,6 +69,12 @@ export class Filter {
         return this.include.getWebsites().has(id);
     }
     public isAuthorActive(id: number | string) {
+        // if author array is empty, all authors are active
+        if(this.include.getAuthors().size === 0) {
+            return true;
+        }
+
+        // otherwise, actually check author...
         if(typeof id === 'string') {
             id = this.dataManager.getAuthorId(id);
         }
