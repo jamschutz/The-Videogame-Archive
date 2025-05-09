@@ -17,7 +17,7 @@ namespace VideoGameArchive.Responses
 
     public class SearchResultsInserted
     {
-        public string SearchTerm { get; set; }
-        public List<int> ArticleIdsAdded { get; set; }
+        public required string SearchTerm { get; set; }
+        public required List<int> ArticleIdsAdded { get; set; }
     }
 }

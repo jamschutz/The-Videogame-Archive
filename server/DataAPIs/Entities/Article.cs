@@ -11,7 +11,7 @@ namespace VideoGameArchive.Entities
         public required string author { get; set; }
         public required string website { get; set; }
         public int datePublished { get; set; }
-        public required string thumbnail { get; set; }
+        public string? thumbnail { get; set; }
         public required string articleType { get; set; }
         public bool isArchivied { get; set; }
     }

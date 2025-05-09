@@ -7,6 +7,6 @@ namespace VideoGameArchive.Responses
     public class GetSearchResultsResponse
     {
         public int TotalResults { get; set; }
-        public List<Article> Results { get; set; }
+        public required List<Article> Results { get; set; }
     }
 }
