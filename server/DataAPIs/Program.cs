@@ -22,14 +22,13 @@ foreach(var arg in args) {
             break;
         default:
             throw new System.Exception($"ERROR: unknown key in arguments found. key was: ${key}");
-            break;
     }
 }
 
-// make sure client id and secret are set
-if(clientId == "" || clientSecret == "" || projectId == "") {
-    throw new System.Exception($"ERROR: you must pass client-id, client-secret, and project-id as arguments");
-}
+// // make sure client id and secret are set
+// if(clientId == "" || clientSecret == "" || projectId == "") {
+//     throw new System.Exception($"ERROR: you must pass client-id, client-secret, and project-id as arguments");
+// }
 
 // Add services to the container.
 
@@ -47,7 +46,7 @@ builder.Services.AddCors(options => {
     );
 });
 
-VideoGameArchive.Core.SecretsManager.Init(clientId, clientSecret, projectId, environment);
+// VideoGameArchive.Core.SecretsManager.Init(clientId, clientSecret, projectId, environment);
 
 var app = builder.Build(); 
 

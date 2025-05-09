@@ -8,5 +8,10 @@ namespace VideoGameArchive.Requests
     {
         public ArticleFilter include { get; set; }
         public ArticleFilter exclude { get; set; }
+
+        public bool IsValid()
+        {
+            return include != null && exclude != null;
+        }
     }
 }

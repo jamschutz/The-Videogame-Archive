@@ -12,7 +12,7 @@ namespace VideoGameArchive.Data.DB
 {
     public class DbManager
     {
-        public static string LastSqlQuery;
+        public static string? LastSqlQuery;
         private string connectionString;
 
         public DbManager()
@@ -45,6 +45,9 @@ namespace VideoGameArchive.Data.DB
                 {
                     // add parameters
                     foreach(var parameter in parameters) {
+                        if(parameter.value == null)
+                            continue;
+
                         command.Parameters.AddWithValue(parameter.name, parameter.value);
                     }
 
@@ -73,11 +76,17 @@ namespace VideoGameArchive.Data.DB
                 {
                     // add parameters
                     foreach(var parameter in parameters) {
+                        if(parameter.value == null)
+                            continue;
+
                         command.Parameters.AddWithValue(parameter.name, parameter.value);
                     }
 
                     // add extra parameters
                     foreach(var parameter in extraParameters) {
+                        if(parameter.value == null)
+                            continue;
+
                         command.Parameters.AddWithValue(parameter.name, parameter.value);
                     }
 
@@ -112,6 +121,9 @@ namespace VideoGameArchive.Data.DB
                 {
                     // add parameters
                     foreach(var parameter in parameters) {
+                        if(parameter.value == null)
+                            continue;
+
                         command.Parameters.AddWithValue(parameter.name, parameter.value);
                     }
 

@@ -33,6 +33,9 @@ public class GetSearchResultsController : ControllerBase
             // parse request
             var json = await reader.ReadToEndAsync();
             var req = JsonConvert.DeserializeObject<GetSearchResultsRequest>(json);
+            if(req == null || !req.IsValid()) {
+                throw new System.Exception("bad request");
+            }
             
             log.LogInformation($"got search terms: {string.Join(",", req.searchTerms)}");
 

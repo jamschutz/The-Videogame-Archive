@@ -33,7 +33,9 @@ public class GetDatesByFilterController : ControllerBase
             // parse request
             var json = await reader.ReadToEndAsync();
             var req = JsonConvert.DeserializeObject<GetDatesByFilterRequest>(json);
-            
+            if(req == null || !req.IsValid()) {
+                throw new System.Exception("bad request");
+            }
             
             // get dates from db
             var db = new ArticlesManager();

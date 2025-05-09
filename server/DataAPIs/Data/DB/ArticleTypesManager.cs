@@ -19,9 +19,12 @@ namespace VideoGameArchive.Data.DB
         {
             dbManager = new DbManager();
             parseWebsiteRow = (reader) => {
-                var articleType = new ArticleType();
-                articleType.id = reader.GetInt32(0);
-                articleType.name = reader.GetString(1);
+                var articleType = new ArticleType()
+                {
+                    id = reader.GetInt32(0),
+                    name = reader.GetString(1)
+                };
+                
                 return articleType;
             };
         }

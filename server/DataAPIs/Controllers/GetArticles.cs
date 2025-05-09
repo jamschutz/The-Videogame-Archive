@@ -22,7 +22,7 @@ public class GetArticlesController : ControllerBase
     [HttpGet(Name = "GetArticles")]
     public List<Article> Get(
         [FromQuery] string date,
-        [FromQuery] string endDate = null
+        [FromQuery] string endDate = ""
     )
     {
         log.LogInformation("GetArticles processed a request.");

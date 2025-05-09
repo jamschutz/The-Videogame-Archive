@@ -2,7 +2,7 @@ namespace VideoGameArchive.Data.DB
 {
     public class PostgresParameter<T>
     {
-        public string name;
+        public required string name;
         public T value;
     }
 }

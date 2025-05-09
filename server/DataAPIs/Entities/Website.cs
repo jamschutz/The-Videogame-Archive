@@ -6,7 +6,7 @@ namespace VideoGameArchive.Entities
 
         public int id { get; set; }
         public string name { get; set; }
-        public string founders { get; set; }
+        public string? founders { get; set; }
         public int yearStarted { get; set; }
         public int? yearEnded { get; set; }
         public string url { get; set; }

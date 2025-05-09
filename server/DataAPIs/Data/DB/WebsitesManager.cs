@@ -19,17 +19,20 @@ namespace VideoGameArchive.Data.DB
         {
             dbManager = new DbManager();
             parseWebsiteRow = (reader) => {
-                var website = new Website();
-                website.id = reader.GetInt32(0);
-                website.name = reader.GetString(1);
-                website.founders = reader.IsDBNull(2)? null : reader.GetString(2);
-                website.yearStarted = reader.GetInt32(3);
-                website.yearEnded = reader.IsDBNull(4)? null : reader.GetInt32(4);
-                website.url = reader.GetString(5);
-                website.country = reader.GetString(6);
-                website.isActive = reader.GetBoolean(7);
-                website.type = reader.GetString(8);
-                website.lastWebcrawlDate = reader.IsDBNull(9)? null : reader.GetInt32(9);
+                var website = new Website()
+                {
+                    id = reader.GetInt32(0),
+                    name = reader.GetString(1),
+                    founders = reader.IsDBNull(2) ? null : reader.GetString(2),
+                    yearStarted = reader.GetInt32(3),
+                    yearEnded = reader.IsDBNull(4) ? null : reader.GetInt32(4),
+                    url = reader.GetString(5),
+                    country = reader.GetString(6),
+                    isActive = reader.GetBoolean(7),
+                    type = reader.GetString(8),
+                    lastWebcrawlDate = reader.IsDBNull(9) ? null : reader.GetInt32(9)
+                };
+                
                 return website;
             };
         }

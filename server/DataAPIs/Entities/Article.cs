@@ -5,14 +5,14 @@ namespace VideoGameArchive.Entities
         public Article() {}
 
         public int? id { get; set; }
-        public string title { get; set; }
-        public string subtitle { get; set; }
-        public string url { get; set; }
-        public string author { get; set; }
-        public string website { get; set; }
+        public required string title { get; set; }
+        public required string subtitle { get; set; }
+        public required string url { get; set; }
+        public required string author { get; set; }
+        public required string website { get; set; }
         public int datePublished { get; set; }
-        public string thumbnail { get; set; }
-        public string articleType { get; set; }
+        public required string thumbnail { get; set; }
+        public required string articleType { get; set; }
         public bool isArchivied { get; set; }
     }
 }

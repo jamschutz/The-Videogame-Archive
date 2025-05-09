@@ -19,9 +19,12 @@ namespace VideoGameArchive.Data.DB
         {
             dbManager = new DbManager();
             parseAuthorRow = (reader) => {
-                var author = new Author();
-                author.id = reader.GetInt32(0);
-                author.name = reader.GetString(1);
+                var author = new Author()
+                {
+                    id = reader.GetInt32(0),
+                    name = reader.GetString(1)
+                };
+                
                 return author;
             };
         }

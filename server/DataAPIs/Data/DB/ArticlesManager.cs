@@ -20,15 +20,18 @@ namespace VideoGameArchive.Data.DB
             dbManager = new DbManager();
             parseArticleRow = (reader) =>
             {
-                var article = new Article();
-                article.title = reader.GetString(0);
-                article.subtitle = reader.GetString(1);
-                article.author = reader.IsDBNull(2) ? "" : reader.GetString(2);
-                article.website = reader.GetString(3);
-                article.url = reader.GetString(4);
-                article.thumbnail = reader.IsDBNull(5) ? null : reader.GetString(5);
-                article.datePublished = reader.GetInt32(6);
-                article.articleType = reader.GetString(7);
+                var article = new Article()
+                {
+                    title = reader.GetString(0),
+                    subtitle = reader.GetString(1),
+                    author = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                    website = reader.GetString(3),
+                    url = reader.GetString(4),
+                    thumbnail = reader.IsDBNull(5) ? null : reader.GetString(5),
+                    datePublished = reader.GetInt32(6),
+                    articleType = reader.GetString(7)
+                };
+                
                 return article;
             };
         }

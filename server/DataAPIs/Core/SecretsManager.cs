@@ -5,7 +5,7 @@ namespace VideoGameArchive.Core
 {
     public static class SecretsManager
     {
-        public static Dictionary<string, string> secrets = null;
+        public static Dictionary<string, string> secrets = new Dictionary<string, string>();
         private static readonly string[] SECRETS_FOLDERS = { "/", "/postgres" };
 
 

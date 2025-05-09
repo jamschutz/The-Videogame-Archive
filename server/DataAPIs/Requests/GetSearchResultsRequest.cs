@@ -10,5 +10,11 @@ namespace VideoGameArchive.Requests
         public int resultsPerPage { get; set; }
         public int page { get; set; }
         public ArticleFilter filter { get; set; }
+
+
+        public bool IsValid()
+        {
+            return searchTerms != null && searchTerms.Length > 0;
+        }
     }
 }

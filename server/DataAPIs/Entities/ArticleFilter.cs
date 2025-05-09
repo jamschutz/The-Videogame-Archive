@@ -9,9 +9,9 @@ namespace VideoGameArchive.Entities
     {
         public ArticleFilter() { }
 
-        public List<int> websites { get; set; }
-        public List<int> authors { get; set; }
-        public List<int> articleTypes { get; set; }
+        public List<int> websites { get; set; } = new List<int>();
+        public List<int> authors { get; set; } = new List<int>();
+        public List<int> articleTypes { get; set; } = new List<int>();
 
         private const string WEBSITE_PARAM_NAME_PREFIX = "w";
         private const string AUTHOR_PARAM_NAME_PREFIX = "a";
