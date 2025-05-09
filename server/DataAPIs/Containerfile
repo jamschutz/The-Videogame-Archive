@@ -1,0 +1,24 @@
+# use official dotnet image as parent
+FROM mcr.microsoft.com/dotnet/sdk:9.0@sha256:3fcf6f1e809c0553f9feb222369f58749af314af6f063f389cbd2f913b4ad556 AS build
+WORKDIR /app
+
+# copy project file and restore any dependencies
+COPY RestApi.csproj RestApi.csproj
+RUN dotnet restore
+
+# copy the rest of the application code
+COPY . .
+
+# publish the application
+RUN dotnet publish -c Release -o out
+
+# build the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 as runtime
+WORKDIR /app
+COPY --from=build /app/out ./
+
+# expose port
+EXPOSE 8080
+
+# start the application
+ENTRYPOINT ["dotnet", "RestApi.dll", "client-id=CLIENT_ID", "client-secret=CLIENT_SECRET", "project-id=PROJECT_ID", "env=prod"]
